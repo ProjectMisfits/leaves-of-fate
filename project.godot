@@ -25,3 +25,7 @@ __InkRuntime="*res://addons/inkgd/ink_runtime.gd"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/inkgd/plugin.cfg")
+
+[inkgd]
+
+register_templates=true
