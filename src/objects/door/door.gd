@@ -12,5 +12,5 @@ signal player_entered_door(door: Door)
 
 ## Emit the player_entered_door signal when the door is entered.
 func _on_player_entered_door() -> void:
-	print("door interacted with. emitting room_changed signal")
+	print("door interacted with. emitting player_entered_door signal")
 	player_entered_door.emit(self)

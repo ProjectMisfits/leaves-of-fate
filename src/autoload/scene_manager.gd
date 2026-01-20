@@ -11,7 +11,7 @@ func _ready() -> void:
 	current_scene = get_tree().current_scene
 
 ## Swaps to the specified scene and unloads the specified scene.
-func swap_scenes(scene_to_load: String, load_as_child_of: Node2D, scene_to_unload: Node2D) -> void:
+func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload: Node) -> void:
 	if _loading_in_progress:
 		push_warning("SceneManager is already loading something!")
 		return
@@ -25,19 +25,18 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node2D, scene_to_unloa
 		return
 	
 	# Load the desired scene.
-	var loaded_scene: Node2D = ResourceLoader.load(scene_to_load, "PackedScene").instantiate()
+	var loaded_scene: Node = ResourceLoader.load(scene_to_load, "PackedScene").instantiate()
 	
 	# Check that the scene loaded correctly.
 	if loaded_scene == null:
 		push_warning("Requested scene '%s' did not load properly.", scene_to_load)
 		return
 	
-	# Add the newly loaded scene to the scene tree.
 	# If no node was specified to load the scene as a child of, default to making it a child of the root node.
-	if load_as_child_of == null:
-		get_tree().root.add_child(loaded_scene)
-	else:
-		load_as_child_of.add_child(loaded_scene)
+	if load_as_child_of == null: load_as_child_of = get_tree().root
+	
+	# Add the newly loaded scene to the scene tree.
+	load_as_child_of.add_child(loaded_scene)
 	
 	# Unload the scene that is no longer needed.
 	if scene_to_unload != null and scene_to_unload != get_tree().root:
