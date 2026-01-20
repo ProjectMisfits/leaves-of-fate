@@ -1,3 +1,8 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Addon-specific ignores
+/addons/limboai/bin/~liblimboai.windows.editor.x86_64.dll
+/src/script_templates/ink_template.gd
+/src/script_templates/ink_template_signals.gd
