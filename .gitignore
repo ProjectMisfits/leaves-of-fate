@@ -6,3 +6,4 @@
 /addons/limboai/bin/~liblimboai.windows.editor.x86_64.dll
 /src/script_templates/ink_template.gd
 /src/script_templates/ink_template_signals.gd
+.inkgd_compiler.cfg
