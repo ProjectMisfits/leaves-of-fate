@@ -59,6 +59,8 @@ var dash_shimmy_turn_speed: float
 
 ### DYNAMIC VARIABLES ###
 var look_direction: float = 1.0 # <0 is left, >=0 is right
+var time_since_on_floor: float = 0.0
+var leaf_meter: float = 0.0
 
 
 
@@ -94,6 +96,7 @@ func initialize_state_machine() -> void:
 	state_machine.initialize(self)
 	state_machine.set_active(true)
 
+# If the player is idling (not moving or trying to move), change to idle state.
 func check_idle_state() -> void:
 	if is_on_floor():
 		var velocity_is_zero: bool = (velocity == Vector2.ZERO)
@@ -102,6 +105,7 @@ func check_idle_state() -> void:
 		if velocity_is_zero and x_input_is_zero:
 			state_machine.dispatch("to_idle")
 
+# If the player is moving on the ground, change to running state.
 func check_running_state() -> void:
 	if is_on_floor():
 		var x_input_not_zero: bool = (get_x_input() != 0.0)
@@ -109,6 +113,26 @@ func check_running_state() -> void:
 		
 		if x_input_not_zero or x_velocity_not_zero:
 			state_machine.dispatch("to_running")
+
+# If the player is trying to jump & within coyote time, change to jumping state.
+func check_jumping_state() -> void:
+	if Input.is_action_just_pressed("jump"):
+		var is_within_coyote_time: bool = (time_since_on_floor <= jump_coyote_time)
+		if is_on_floor() or is_within_coyote_time:
+			state_machine.dispatch("to_jumping")
+
+# If the player is moving downward and not on floor, change to falling state.
+func check_falling_state() -> void:
+	var is_moving_downward: bool = (velocity.y >= 0)
+	if is_moving_downward and not is_on_floor():
+		state_machine.dispatch("to_falling")
+
+# If the player is trying to dash and leaf meter is not zero, change to dashing state.
+func check_dashing_state() -> void:
+	var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
+	
+	if Input.is_action_just_pressed("dash") and is_leaf_meter_not_empty:
+		state_machine.dispatch("to_dashing")
 
 # Get the input direction and handle the movement/deceleration.
 func move_horizontal(acceleration: float, deceleration: float, turn_speed: float) -> void:
