@@ -51,6 +51,11 @@ var dash_shimmy_turn_speed: float
 @onready var state_machine: LimboHSM = $LimboHSM
 @onready var idle_state: LimboState = $LimboHSM/Idle
 @onready var running_state: LimboState = $LimboHSM/Running
+@onready var jumping_state: LimboState = $LimboHSM/Jumping
+@onready var falling_state: LimboState = $LimboHSM/Falling
+@onready var dashing_state: LimboState = $LimboHSM/Dashing
+@onready var shimmying_state: LimboState = $LimboHSM/Shimmying
+@onready var interacting_state: LimboState = $LimboHSM/Interacting
 
 ### DYNAMIC VARIABLES ###
 var look_direction: float = 1.0 # <0 is left, >=0 is right
@@ -81,6 +86,8 @@ func _physics_process(delta: float) -> void:
 # Adds state transitions & initializes state machine.
 func initialize_state_machine() -> void:
 	state_machine.add_transition(idle_state, running_state, "to_running")
+	
+	
 	state_machine.add_transition(running_state, idle_state, "to_idle")
 	
 	state_machine.initial_state = idle_state
@@ -125,6 +132,9 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 
 func move_horizontal_ground() -> void:
 	move_horizontal(ground_acceleration, ground_deceleration, ground_turn_speed)
+
+func move_horizontal_air() -> void:
+	move_horizontal(air_acceleration, air_deceleration, air_turn_speed)
 
 # Returns the player's x-input value.
 func get_x_input() -> float:
