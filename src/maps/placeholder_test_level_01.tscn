@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0oxpwvjx77nj"]
+
+[ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/objects/door/door.tscn" id="1_qu7l7"]
+
+[node name="PlaceholderTestLevel01" type="Node2D"]
+
+[node name="Door" parent="." instance=ExtResource("1_qu7l7")]
+position = Vector2(152, 300)
