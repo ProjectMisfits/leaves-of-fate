@@ -1,12 +1,44 @@
 extends Node
+## Manages the scene tree during runtime. Handles swapping scenes, particularly menus and rooms during gameplay.
 
-## The current scene being shown to the player.
-var current_scene: Node = null
+var current_scene: Node = null ## The current scene being shown to the player
+
+# Internal variables
+var _loading_in_progress: bool = false ## internal - used to block SceneManager from attempting to load two things at the same time
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_scene = get_tree().current_scene
 
 ## Swaps to the specified scene and unloads the specified scene.
-func swap_scenes(scene_to_load: Node2D, scene_to_unload: Node2D) -> void:
-	pass
+func swap_scenes(scene_to_load: String, load_as_child_of: Node2D, scene_to_unload: Node2D) -> void:
+	if _loading_in_progress:
+		push_warning("SceneManager is already loading something!")
+		return
+	
+	# Indicate that SceneManager is loading something.
+	_loading_in_progress = true
+	
+	# Check that the specified scene to load exists.
+	if not ResourceLoader.exists(scene_to_load, "PackedScene"):
+		push_warning("Requested scene '%s' does not exist at path.", scene_to_load)
+		return
+	
+	# Load the desired scene.
+	var loaded_scene: Node2D = ResourceLoader.load(scene_to_load, "PackedScene").instantiate()
+	
+	# Check that the scene loaded correctly.
+	if loaded_scene == null:
+		push_warning("Requested scene '%s' did not load properly.", scene_to_load)
+		return
+	
+	# Add the newly loaded scene to the scene tree.
+	# If no node was specified to load the scene as a child of, default to making it a child of the root node.
+	if load_as_child_of == null:
+		get_tree().root.add_child(loaded_scene)
+	else:
+		load_as_child_of.add_child(loaded_scene)
+	
+	# Unload the scene that is no longer needed.
+	if scene_to_unload != null and scene_to_unload != get_tree().root:
+		scene_to_unload.queue_free()
