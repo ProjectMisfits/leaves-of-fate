@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=4 uid="uid://dyxep0ks8a14r"]
+
+[ext_resource type="PackedScene" uid="uid://cjkpybae7njrh" path="res://src/actors/characters/player/player.tscn" id="1_vsh30"]
+[ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="2_n0vwu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c7rbl"]
+texture = ExtResource("2_n0vwu")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/modulate = Color(0.50534403, 0.5053441, 0.50534403, 1)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_d3qoq"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_c7rbl")
+
+[node name="TempPlayerTesting" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_vsh30")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.7, 0.7)
+
+[node name="Tilemap" type="Node" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Tilemap"]
+tile_map_data = PackedByteArray("AAAFAAEAAQAAAAAAAAAEAAEAAQAAAAAAAAADAAEAAQAAAAAAAAACAAEAAQAAAAAAAAABAAEAAQAAAAAAAAAAAAEAAQAAAAAAAAD//wEAAQAAAAAAAAD+/wEAAQAAAAAAAAD9/wEAAQAAAAAAAAD8/wEAAQAAAAAAAAD7/wEAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_d3qoq")
