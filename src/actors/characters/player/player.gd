@@ -59,8 +59,14 @@ var dash_shimmy_turn_speed: float
 
 ### DYNAMIC VARIABLES ###
 var look_direction: float = 1.0 # <0 is left, >=0 is right
-var time_since_on_floor: float = 0.0
 var leaf_meter: float = 0.0
+
+var jump_velocity: float = 0.0
+var jump_gravity: float = 0.0
+var time_since_on_floor: float = 0.0
+
+### MISC VARIABLES ###
+@onready var sprite2d: Sprite2D = $Sprite2D
 
 
 
@@ -73,24 +79,41 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	initialize_state_machine()
+	compute_jump_parameters()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta * gravity_multiplier
-
-	# Handle jump.
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
+		var new_velocity: float
+		var is_y_velocity_below_zero: bool = (velocity.y < 0.0)
+	
+		if is_y_velocity_below_zero and Input.is_action_pressed("jump"):
+			new_velocity = jump_gravity
+		else:
+			new_velocity = jump_gravity * fall_gravity_multiplier
+		
+		velocity.y += new_velocity * delta
+		time_since_on_floor += delta
+	
+	sprite2d.flip_h = (look_direction < 0.0)
 
 	move_and_slide()
 
 # Adds state transitions & initializes state machine.
 func initialize_state_machine() -> void:
-	state_machine.add_transition(idle_state, running_state, "to_running")
+	state_machine.add_transition(idle_state,running_state,"to_running")
+	state_machine.add_transition(idle_state,jumping_state,"to_jumping")
+	state_machine.add_transition(idle_state,falling_state,"to_falling")
 	
+	state_machine.add_transition(running_state,idle_state,"to_idle")
+	state_machine.add_transition(running_state,jumping_state,"to_jumping")
+	state_machine.add_transition(running_state,falling_state,"to_falling")
 	
-	state_machine.add_transition(running_state, idle_state, "to_idle")
+	state_machine.add_transition(jumping_state,falling_state,"to_falling")
+	
+	state_machine.add_transition(falling_state,idle_state,"to_idle")
+	state_machine.add_transition(falling_state,running_state,"to_running")
+	state_machine.add_transition(falling_state,jumping_state,"to_jumping")
 	
 	state_machine.initial_state = idle_state
 	state_machine.initialize(self)
@@ -163,6 +186,16 @@ func move_horizontal_air() -> void:
 # Returns the player's x-input value.
 func get_x_input() -> float:
 	return Input.get_axis("move_left", "move_right")
+
+# Updates jump velocity & gravity variables
+func compute_jump_parameters() -> void:
+	jump_velocity = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
+	jump_gravity = ((-2.0 * jump_height) / (jump_time_to_peak ** 2)) * -1.0
+
+# Add y-velocity to make the player "jump".
+func jump() -> void:
+	compute_jump_parameters()
+	velocity.y = jump_velocity
 
 # Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
