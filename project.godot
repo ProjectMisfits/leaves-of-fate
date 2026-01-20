@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 __InkRuntime="*res://addons/inkgd/ink_runtime.gd"
+SceneManager="*res://src/autoload/scene_manager.gd"
 
 [debug]
 
