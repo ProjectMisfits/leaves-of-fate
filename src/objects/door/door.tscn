@@ -1,23 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7s6y2h5mi7xx"]
+[gd_scene load_steps=3 format=3 uid="uid://b7s6y2h5mi7xx"]
+
+[ext_resource type="Script" uid="uid://bsof8xxvb00ep" path="res://src/objects/door/door.gd" id="1_deedn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ny07"]
 size = Vector2(200, 200)
 
 [node name="Door" type="Area2D"]
+script = ExtResource("1_deedn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1ny07")
 
-[node name="Label" type="Label" parent="CollisionShape2D"]
+[node name="Button" type="Button" parent="CollisionShape2D"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -19.5
-offset_top = -11.5
-offset_right = 19.5
-offset_bottom = 11.5
+offset_left = -23.5
+offset_top = -15.5
+offset_right = 23.5
+offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Door"
+
+[connection signal="pressed" from="CollisionShape2D/Button" to="." method="_on_player_entered_door"]
