@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://18bv6betadgh"]
+
+[ext_resource type="Script" uid="uid://ccp1k3erscyig" path="res://src/ui/main_menu/main_menu.gd" id="1_2hyyg"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2hyyg")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Start"
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
