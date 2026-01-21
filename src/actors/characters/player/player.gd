@@ -5,6 +5,7 @@ extends CharacterBody2D
 class_name Player
 
 @export var database: JSON = null
+@export var player_dash_scene: PackedScene = null
 
 ### DATABASE VARIABLES ###
 var health: int
@@ -63,14 +64,14 @@ var dash_shimmy_turn_speed: float
 var look_direction: float = 1.0 # <0 is left, >=0 is right
 var jumping: bool = false		# True while jumping, false after landing on floor
 var jump_queued: bool = false
-var leaf_meter: float = 0.0
+var leaf_meter: float = 100.0
 
 var jump_velocity: float = 0.0
 var jump_gravity: float = 0.0
 var time_since_on_floor: float = 0.0
 var time_since_jump_queued: float = 0.0
 
-
+var dashing: bool = false
 
 # Fetch database resource. If valid, initialize all variables.
 func _enter_tree() -> void:
@@ -87,6 +88,7 @@ func _ready() -> void:
 
 # Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
+	
 	update_jump_queue(delta)
 	
 	velocity.y += compute_gravity() * delta
@@ -109,16 +111,20 @@ func initialize_state_machine() -> void:
 	state_machine.add_transition(idle_state,running_state,"to_running")
 	state_machine.add_transition(idle_state,jumping_state,"to_jumping")
 	state_machine.add_transition(idle_state,falling_state,"to_falling")
+	state_machine.add_transition(idle_state,dashing_state,"to_dashing")
 	
 	state_machine.add_transition(running_state,idle_state,"to_idle")
 	state_machine.add_transition(running_state,jumping_state,"to_jumping")
 	state_machine.add_transition(running_state,falling_state,"to_falling")
+	state_machine.add_transition(running_state,dashing_state,"to_dashing")
 	
 	state_machine.add_transition(jumping_state,falling_state,"to_falling")
+	state_machine.add_transition(jumping_state,dashing_state,"to_dashing")
 	
 	state_machine.add_transition(falling_state,idle_state,"to_idle")
 	state_machine.add_transition(falling_state,running_state,"to_running")
 	state_machine.add_transition(falling_state,jumping_state,"to_jumping")
+	state_machine.add_transition(falling_state,dashing_state,"to_dashing")
 	
 	state_machine.initial_state = idle_state
 	state_machine.initialize(self)
@@ -231,6 +237,32 @@ func jump() -> void:
 	velocity.y = jump_velocity
 	print(jump_velocity)
 	jumping = true
+
+# Instantiate player dash scene & hibernate self
+func dash() -> void:
+	# Create new player dash instance
+	var new_player_dash: PlayerDash = player_dash_scene.instantiate()
+	
+	if not get_parent():
+		push_error("failed to fetch parent reference.")
+		return
+	
+	get_parent().add_child(new_player_dash)
+	new_player_dash.global_position = global_position
+	new_player_dash.player_scene = self
+	
+	# Hibernate self
+	dashing = true
+	visible = false
+	process_mode = Node.PROCESS_MODE_DISABLED
+
+# Called by PlayerDash to end a dash. Re-enable self & delete PlayerDash scene.
+func end_dash(player_dash: PlayerDash) -> void:
+	dashing = false
+	visible = true
+	process_mode = Node.PROCESS_MODE_INHERIT
+	
+	player_dash.queue_free()
 
 # Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:

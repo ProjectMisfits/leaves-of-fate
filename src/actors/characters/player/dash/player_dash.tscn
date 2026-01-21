@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmqwci1t2hhs5"]
+
+[ext_resource type="Script" uid="uid://bhynnsuiydmtf" path="res://src/actors/characters/player/dash/player_dash.gd" id="1_ktn0w"]
+[ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="2_ktn0w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npkjl"]
+size = Vector2(160, 160)
+
+[node name="PlayerDash" type="CharacterBody2D"]
+script = ExtResource("1_ktn0w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_npkjl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.8789406, 0.38185573, 1)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_ktn0w")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 371)
+offset = Vector2(0, -400)
+zoom = Vector2(0.8, 0.8)
+position_smoothing_enabled = true
