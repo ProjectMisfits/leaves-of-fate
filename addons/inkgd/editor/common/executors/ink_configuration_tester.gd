@@ -149,4 +149,4 @@ func _contains_inklecate_output_prefix(output_array: PackedStringArray):
 
 	# If the first line starts with the correct substring, it's likely
 	# to be inklecate!
-	return cleaned_line.find("Usage: inklecate2") == 0
+	return cleaned_line.find("Usage: inklecate") == 0
