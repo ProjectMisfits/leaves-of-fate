@@ -5,7 +5,7 @@ class_name Door extends Area2D
 signal player_entered_door(door: Door)
 
 ## The path of the Room to load when the player enters this Door.
-@export var path_to_target_room: String
+@export_file var path_to_target_room: String
 
 ## The name of this Door.
 @export var door_name: String
