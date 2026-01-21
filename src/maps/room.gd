@@ -5,6 +5,6 @@ class_name Room extends Node2D
 ## An array containing all Doors in this Room that lead to other Rooms.
 @export var doors: Array[Door]
 
-
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
