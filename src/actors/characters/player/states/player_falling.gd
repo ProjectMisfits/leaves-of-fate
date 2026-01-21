@@ -5,6 +5,7 @@ func _enter() -> void:
 
 func _update(_delta: float) -> void:
 	agent.check_dashing_state()
+	agent.check_jumping_state()
 	agent.check_running_state()
 	agent.check_idle_state()
 	
