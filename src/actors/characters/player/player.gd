@@ -2,6 +2,7 @@
 ## Source: https://www.youtube.com/watch?v=hG9SzQxaCm8
 
 extends CharacterBody2D
+class_name Player
 
 @export var database: JSON = null
 
