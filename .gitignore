@@ -3,4 +3,4 @@
 /android/
 
 # Addon-specific ignores
-/addons/limboai/bin/
+/addons/limboai/bin/~liblimboai.windows.editor.x86_64.dll
