@@ -7,9 +7,8 @@ class_name Player
 @export var database: JSON = null
 
 ### DATABASE VARIABLES ###
-var gravity_multiplier: float
-#var health: int
-#var terminal_velocity: float
+var health: int
+var terminal_velocity: float
 
 ## Run ##
 var run_max_speed: float
@@ -25,7 +24,6 @@ var air_turn_speed: float
 var jump_height: float
 var jump_time_to_peak: float
 var fall_gravity_multiplier: float
-var fast_fall_gravity_multiplier: float
 var jump_coyote_time: float
 var jump_buffer_time: float
 var jump_corner_rounding_distance: float
@@ -48,7 +46,10 @@ var dash_shimmy_acceleration: float
 var dash_shimmy_deceleration: float
 var dash_shimmy_turn_speed: float
 
-### STATE VARIABLES ###
+### NODE REFERENCE VARIABLES ###
+@onready var sprite2d: Sprite2D = $Sprite2D
+
+## State Machine ##
 @onready var state_machine: LimboHSM = $LimboHSM
 @onready var idle_state: LimboState = $LimboHSM/Idle
 @onready var running_state: LimboState = $LimboHSM/Running
@@ -60,17 +61,18 @@ var dash_shimmy_turn_speed: float
 
 ### DYNAMIC VARIABLES ###
 var look_direction: float = 1.0 # <0 is left, >=0 is right
+var jumping: bool = false		# True while jumping, false after landing on floor
+var jump_queued: bool = false
 var leaf_meter: float = 0.0
 
 var jump_velocity: float = 0.0
 var jump_gravity: float = 0.0
 var time_since_on_floor: float = 0.0
-
-### MISC VARIABLES ###
-@onready var sprite2d: Sprite2D = $Sprite2D
+var time_since_jump_queued: float = 0.0
 
 
 
+# Fetch database resource. If valid, initialize all variables.
 func _enter_tree() -> void:
 	if (database != null):
 		var db_data: Dictionary = database.data
@@ -78,27 +80,29 @@ func _enter_tree() -> void:
 	else:
 		push_error("Database is equal to 'null'.")
 
+# Initializes state machine & computes jump variables for later use.
 func _ready() -> void:
 	initialize_state_machine()
 	compute_jump_parameters()
 
+# Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		var new_velocity: float
-		var is_y_velocity_below_zero: bool = (velocity.y < 0.0)
+	update_jump_queue(delta)
 	
-		if is_y_velocity_below_zero and Input.is_action_pressed("jump"):
-			new_velocity = jump_gravity
-		else:
-			new_velocity = jump_gravity * fall_gravity_multiplier
-		
-		velocity.y += new_velocity * delta
-		time_since_on_floor += delta
+	velocity.y += compute_gravity() * delta
+	velocity.y = clampf(velocity.y, -INF, terminal_velocity) # velocity cannot exceed terminal velocity
 	
-	sprite2d.flip_h = (look_direction < 0.0)
+	sprite2d.flip_h = (look_direction < 0.0)	# Flip sprite to Player's look direction
 
 	move_and_slide()
+	
+	# Update floor-dependent variables.
+	# This MUST be done AFTER move_and_slide(), which updates is_on_floor().
+	if is_on_floor():
+		jumping = false
+		time_since_on_floor = 0.0
+	else:
+		time_since_on_floor += delta
 
 # Adds state transitions & initializes state machine.
 func initialize_state_machine() -> void:
@@ -140,9 +144,9 @@ func check_running_state() -> void:
 
 # If the player is trying to jump & within coyote time, change to jumping state.
 func check_jumping_state() -> void:
-	if Input.is_action_just_pressed("jump"):
+	if jump_queued:
 		var is_within_coyote_time: bool = (time_since_on_floor <= jump_coyote_time)
-		if is_on_floor() or is_within_coyote_time:
+		if is_on_floor() or (not jumping and is_within_coyote_time):
 			state_machine.dispatch("to_jumping")
 
 # If the player is moving downward and not on floor, change to falling state.
@@ -176,11 +180,16 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 		new_velocity = clampf(velocity.x + new_acceleration, -run_max_speed, run_max_speed)
 		
 	velocity.x = new_velocity
-	look_direction = clampf(velocity.x, -1.0, 1.0)
+	
+	# Pos/0 velocity = look right, neg velocity = look left
+	var new_look_direction: float = signf(direction)
+	look_direction = new_look_direction if (new_look_direction != 0.0) else look_direction
 
+# Calls move_horizontal with ground parameters.
 func move_horizontal_ground() -> void:
 	move_horizontal(ground_acceleration, ground_deceleration, ground_turn_speed)
 
+# Calls move_horizontal with air parameters.
 func move_horizontal_air() -> void:
 	move_horizontal(air_acceleration, air_deceleration, air_turn_speed)
 
@@ -193,18 +202,44 @@ func compute_jump_parameters() -> void:
 	jump_velocity = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 	jump_gravity = ((-2.0 * jump_height) / (jump_time_to_peak ** 2)) * -1.0
 
+func compute_gravity() -> float:
+	var new_velocity: float
+	var is_y_velocity_below_zero: bool = (velocity.y < 0.0)
+
+	# Control variable jump height by checking is "jump" is being held
+	if is_y_velocity_below_zero and Input.is_action_pressed("jump"):
+		new_velocity = jump_gravity
+	else:
+		new_velocity = jump_gravity * fall_gravity_multiplier
+	
+	return new_velocity
+
+# Queues a new jump or updates/expires the timer since a jump was queued.
+func update_jump_queue(delta: float) -> void:
+	if jump_queued:
+		time_since_jump_queued += delta
+		print(time_since_jump_queued)
+		if (time_since_jump_queued > jump_buffer_time):	# Check if jump has been queued for too long
+			jump_queued = false							# Jump loses its queue
+	elif Input.is_action_just_pressed("jump"):
+		jump_queued = true
+		time_since_jump_queued = 0.0
+
 # Add y-velocity to make the player "jump".
 func jump() -> void:
-	compute_jump_parameters()
+	jump_queued = false # Free jump queue
 	velocity.y = jump_velocity
+	print(jump_velocity)
+	jumping = true
 
 # Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
 		# Base Data #
-		gravity_multiplier = data["gravity_multiplier"]
-		run_max_speed = data["run_max_speed"]
+		health = data["health"]
+		terminal_velocity = data["terminal_velocity"]
 		
 		# Run #
+		run_max_speed = data["run_max_speed"]
 		ground_acceleration = data["ground_acceleration"]
 		ground_deceleration = data["ground_deceleration"]
 		ground_turn_speed = data["ground_turn_speed"]
@@ -217,7 +252,6 @@ func initialize_data(data: Dictionary) -> void:
 		jump_height = data["jump_height"]
 		jump_time_to_peak = data["jump_time_to_peak"]
 		fall_gravity_multiplier = data["fall_gravity_multiplier"]
-		fast_fall_gravity_multiplier = data["fast_fall_gravity_multiplier"]
 		jump_coyote_time = data["jump_coyote_time"]
 		jump_buffer_time = data["jump_buffer_time"]
 		jump_corner_rounding_distance = data["jump_corner_rounding_distance"]

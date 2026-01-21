@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://icrwiu7udlg5" path="res://src/actors/characters/player/states/player_interacting.gd" id="10_u7uqy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_npkjl"]
-size = Vector2(128, 128)
+size = Vector2(160, 160)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_npkjl")
@@ -22,7 +22,6 @@ database = ExtResource("2_7gsup")
 shape = SubResource("RectangleShape2D_npkjl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.18, 0.18)
 texture = ExtResource("3_c6y0n")
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
