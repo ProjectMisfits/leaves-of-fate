@@ -41,3 +41,6 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 	# Unload the scene that is no longer needed.
 	if scene_to_unload != null and scene_to_unload != get_tree().root:
 		scene_to_unload.queue_free()
+		
+	# Reset loading in progress variable to indicate that loading has completed.
+	_loading_in_progress = false
