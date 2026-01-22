@@ -16,14 +16,12 @@ var player_scene: Player
 
 func _ready() -> void:
 	camera_2d.make_current()
-	move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	
 	rad_angular_turn_speed = deg_to_rad(angular_turn_speed)
 
 func _physics_process(_delta: float) -> void:
 	# Check if Player stopped holding dash Action
 	if (not Input.is_action_pressed("dash")):
-		player_scene.end_dash(self)
+		end_dash()
 	
 	# Get new input vector depending on held Actions
 	var new_input_direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -45,7 +43,7 @@ func _physics_process(_delta: float) -> void:
 # Returns the move direction Vector turned toward the input direction Vector by the angular turn speed
 func get_turned_move_direction() -> Vector2:
 	var angular_distance: float = move_direction.angle_to(input_direction)
-	print("Angular distance: ", angular_distance)
+	#print("Angular distance: ", angular_distance)
 	
 	var new_move_direction: Vector2
 		
@@ -59,3 +57,16 @@ func get_turned_move_direction() -> Vector2:
 			new_move_direction = move_direction.rotated(rad_angular_turn_speed * signf(angular_distance))
 	
 	return new_move_direction
+
+# Set up all parameters for self & put Player entity into hibernation. Requires a valid Player scene reference.
+func initialize_self() -> void:
+	global_position = player_scene.global_position
+	move_direction = player_scene.velocity.normalized()
+	
+	# Disable Player scene
+	player_scene.visible = false
+	player_scene.process_mode = Node.PROCESS_MODE_DISABLED
+
+func end_dash() -> void:
+	player_scene.end_dash()
+	queue_free()
