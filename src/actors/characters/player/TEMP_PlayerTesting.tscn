@@ -20,11 +20,6 @@ sources/1 = SubResource("TileSetAtlasSource_c7rbl")
 [node name="Player" parent="." instance=ExtResource("1_vsh30")]
 position = Vector2(0, -371)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-offset = Vector2(0, -200)
-zoom = Vector2(0.8, 0.8)
-position_smoothing_enabled = true
-
 [node name="Tilemap" type="Node" parent="."]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Tilemap"]
