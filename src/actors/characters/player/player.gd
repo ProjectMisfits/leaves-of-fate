@@ -55,14 +55,14 @@ var dash_shimmy_turn_speed: float
 @onready var idle_state: LimboState = $LimboHSM/Idle
 @onready var running_state: LimboState = $LimboHSM/Running
 @onready var jumping_state: LimboState = $LimboHSM/Jumping
-@onready var falling_state: LimboState = $LimboHSM/Falling
+@onready var airborne_state: LimboState = $LimboHSM/Airborne
 @onready var dashing_state: LimboState = $LimboHSM/Dashing
 @onready var shimmying_state: LimboState = $LimboHSM/Shimmying
 @onready var interacting_state: LimboState = $LimboHSM/Interacting
 
 ### DYNAMIC VARIABLES ###
+var current_health: int
 var look_direction: float = 1.0 # <0 is left, >=0 is right
-var jumping: bool = false		# True while jumping, false after landing on floor
 var jump_queued: bool = false
 var leaf_meter: float = 100.0
 
@@ -70,8 +70,6 @@ var jump_velocity: float = 0.0
 var jump_gravity: float = 0.0
 var time_since_on_floor: float = 0.0
 var time_since_jump_queued: float = 0.0
-
-var dashing: bool = false
 
 # Fetch database resource. If valid, initialize all variables.
 func _enter_tree() -> void:
@@ -85,10 +83,11 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	initialize_state_machine()
 	compute_jump_parameters()
+	
+	current_health = health
 
 # Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
-	
 	update_jump_queue(delta)
 	
 	velocity.y += compute_gravity() * delta
@@ -101,7 +100,6 @@ func _physics_process(delta: float) -> void:
 	# Update floor-dependent variables.
 	# This MUST be done AFTER move_and_slide(), which updates is_on_floor().
 	if is_on_floor():
-		jumping = false
 		time_since_on_floor = 0.0
 	else:
 		time_since_on_floor += delta
@@ -110,21 +108,24 @@ func _physics_process(delta: float) -> void:
 func initialize_state_machine() -> void:
 	state_machine.add_transition(idle_state,running_state,"to_running")
 	state_machine.add_transition(idle_state,jumping_state,"to_jumping")
-	state_machine.add_transition(idle_state,falling_state,"to_falling")
+	state_machine.add_transition(idle_state,airborne_state,"to_airborne")
 	state_machine.add_transition(idle_state,dashing_state,"to_dashing")
 	
 	state_machine.add_transition(running_state,idle_state,"to_idle")
 	state_machine.add_transition(running_state,jumping_state,"to_jumping")
-	state_machine.add_transition(running_state,falling_state,"to_falling")
+	state_machine.add_transition(running_state,airborne_state,"to_airborne")
 	state_machine.add_transition(running_state,dashing_state,"to_dashing")
 	
-	state_machine.add_transition(jumping_state,falling_state,"to_falling")
+	state_machine.add_transition(jumping_state,airborne_state,"to_airborne")
 	state_machine.add_transition(jumping_state,dashing_state,"to_dashing")
 	
-	state_machine.add_transition(falling_state,idle_state,"to_idle")
-	state_machine.add_transition(falling_state,running_state,"to_running")
-	state_machine.add_transition(falling_state,jumping_state,"to_jumping")
-	state_machine.add_transition(falling_state,dashing_state,"to_dashing")
+	state_machine.add_transition(airborne_state,idle_state,"to_idle")
+	state_machine.add_transition(airborne_state,running_state,"to_running")
+	state_machine.add_transition(airborne_state,dashing_state,"to_dashing")
+	
+	state_machine.add_transition(dashing_state,idle_state,"to_idle")
+	state_machine.add_transition(dashing_state,running_state,"to_running")
+	state_machine.add_transition(dashing_state,airborne_state,"to_airborne")
 	
 	state_machine.initial_state = idle_state
 	state_machine.initialize(self)
@@ -148,18 +149,18 @@ func check_running_state() -> void:
 		if x_input_not_zero or x_velocity_not_zero:
 			state_machine.dispatch("to_running")
 
-# If the player is trying to jump & within coyote time, change to jumping state.
+# If the player queued a jump & is on floor or within coyote time, change to jumping state.
 func check_jumping_state() -> void:
 	if jump_queued:
 		var is_within_coyote_time: bool = (time_since_on_floor <= jump_coyote_time)
-		if is_on_floor() or (not jumping and is_within_coyote_time):
+		if is_on_floor() or is_within_coyote_time:
 			state_machine.dispatch("to_jumping")
 
-# If the player is moving downward and not on floor, change to falling state.
-func check_falling_state() -> void:
-	var is_moving_downward: bool = (velocity.y >= 0)
-	if is_moving_downward and not is_on_floor():
-		state_machine.dispatch("to_falling")
+# If the player is airborne AND the coyote timer has expired, change to airborne state.
+func check_airborne_state() -> void:
+	var is_coyote_timer_expired: bool = (time_since_on_floor > jump_coyote_time)
+	if not is_on_floor() and is_coyote_timer_expired:
+		state_machine.dispatch("to_airborne")
 
 # If the player is trying to dash and leaf meter is not zero, change to dashing state.
 func check_dashing_state() -> void:
@@ -173,7 +174,7 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 	var direction: float = Input.get_axis("move_left", "move_right")
 	var new_velocity: float = 0.0
 	
-	if (direction == 0.0): # No direction
+	if (direction == 0.0) and (state_machine.get_previous_active_state() != dashing_state): # No direction & did not exit Leaf Dash
 		new_velocity = move_toward(velocity.x, 0, deceleration)
 	else:
 		var new_acceleration: float = 0.0
@@ -183,7 +184,11 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 		else: 											# Direction is opposite to current velocity
 			new_acceleration = direction * turn_speed
 		
-		new_velocity = clampf(velocity.x + new_acceleration, -run_max_speed, run_max_speed)
+		# If just exited Leaf Dash, limit velocity by dash max speed
+		if (state_machine.get_previous_active_state() == dashing_state) and (abs(velocity.x) > run_max_speed):
+			new_velocity = clampf(velocity.x + new_acceleration, -dash_max_speed, dash_max_speed)
+		else:
+			new_velocity = clampf(velocity.x + new_acceleration, -run_max_speed, run_max_speed)
 		
 	velocity.x = new_velocity
 	
@@ -210,10 +215,9 @@ func compute_jump_parameters() -> void:
 
 func compute_gravity() -> float:
 	var new_velocity: float
-	var is_y_velocity_below_zero: bool = (velocity.y < 0.0)
 
 	# Control variable jump height by checking is "jump" is being held
-	if is_y_velocity_below_zero and Input.is_action_pressed("jump"):
+	if (state_machine.get_active_state() == jumping_state) and Input.is_action_pressed("jump"):
 		new_velocity = jump_gravity
 	else:
 		new_velocity = jump_gravity * fall_gravity_multiplier
@@ -235,8 +239,8 @@ func update_jump_queue(delta: float) -> void:
 func jump() -> void:
 	jump_queued = false # Free jump queue
 	velocity.y = jump_velocity
-	print(jump_velocity)
-	jumping = true
+	time_since_on_floor = INF	# Prevent additional coyote jumps
+	#print(jump_velocity)
 
 # Instantiate player dash scene & hibernate self
 func dash() -> void:
@@ -246,23 +250,20 @@ func dash() -> void:
 	if not get_parent():
 		push_error("failed to fetch parent reference.")
 		return
-	
 	get_parent().add_child(new_player_dash)
-	new_player_dash.global_position = global_position
 	new_player_dash.player_scene = self
-	
-	# Hibernate self
-	dashing = true
-	visible = false
-	process_mode = Node.PROCESS_MODE_DISABLED
+	new_player_dash.initialize_self()
 
-# Called by PlayerDash to end a dash. Re-enable self & delete PlayerDash scene.
-func end_dash(player_dash: PlayerDash) -> void:
-	dashing = false
+# Called by PlayerDash to end a dash by re-enabling self.
+func end_dash(new_position: Vector2, new_velocity: Vector2) -> void:
 	visible = true
 	process_mode = Node.PROCESS_MODE_INHERIT
 	
-	player_dash.queue_free()
+	global_position = new_position
+	velocity = new_velocity
+	
+	var new_look_direction: float = signf(velocity.x)
+	look_direction = new_look_direction if (new_look_direction != 0.0) else look_direction
 
 # Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
