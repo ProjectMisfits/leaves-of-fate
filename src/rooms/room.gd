@@ -17,7 +17,13 @@ func _ready() -> void:
 
 ## Initiate room swap on player entering a Door.
 func _on_player_entered_door(door: Door) -> void:
-	print("Room: Player entered door '%s'. Loading target room '%s'" % [door.door_name, door.path_to_target_room])
+	# Check whether the door has a destination first.
+	if (!door.path_to_target_room != ""):
+		push_warning("Room: The target room of door '%s' in room '%s' is not set!" % [door.path_to_target_room, name])
+		return
+	
+	# Since the path to the target room is valid, initiate the load request.
+	print("Room: Player entered door '%s'. Requesting load of target room '%s'" % [door.door_name, door.path_to_target_room])
 	swap_room.emit(door.path_to_target_room, door.target_door_name)
 
 ## Spawn the player at the specified Door.
@@ -30,7 +36,6 @@ func spawn_player(target_door_name: String) -> void:
 			var player: Player = load("res://src/actors/characters/player/player.tscn").instantiate()
 			add_child(player)
 			player.global_position = door.position
-			print("Player: %s at position '%s'" % [player, player.position])
 			return
 	
 	# If the target door didn't exist anywhere in the room, report the issue.
