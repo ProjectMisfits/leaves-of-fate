@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name PlayerDash
 
+@export var database: JSON = null
+
 var max_speed: float
 var angular_turn_speed: float
 
@@ -13,6 +15,16 @@ var player_scene: Player
 var camera_2d: Camera2D = null
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
+
+
+
+# Fetch database resource. If valid, initialize all variables.
+func _enter_tree() -> void:
+	if (database != null):
+		var db_data: Dictionary = database.data
+		initialize_data(db_data)
+	else:
+		push_error("Database is equal to 'null'.")
 
 func _physics_process(_delta: float) -> void:
 	# Check if Player stopped holding dash Action
@@ -83,3 +95,6 @@ func end_dash() -> void:
 		player_scene.add_child(camera_2d)
 	
 	queue_free()
+
+func initialize_data(data: Dictionary) -> void:
+	pass
