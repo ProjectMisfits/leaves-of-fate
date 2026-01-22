@@ -3,13 +3,13 @@
 [resource]
 data = {
 "air_acceleration": 100.0,
-"air_deceleration": 80.0,
+"air_deceleration": 50.0,
 "air_turn_speed": 80.0,
-"dash_angular_turn_speed": 90.0,
+"dash_angular_turn_speed": 5.0,
 "dash_angular_turn_speed_deceleration": 30.0,
 "dash_deceleration": 200.0,
-"dash_initial_velocity": 750.0,
-"dash_max_speed": 750.0,
+"dash_initial_velocity": 2000.0,
+"dash_max_speed": 2000.0,
 "dash_shimmy_acceleration": 50.0,
 "dash_shimmy_deceleration": 50.0,
 "dash_shimmy_max_speed": 100.0,

@@ -5,8 +5,7 @@ func _enter() -> void:
 	agent.dash()
 
 func _update(_delta: float) -> void:
-	pass
-	#agent.check_dashing_state()
-	#agent.check_falling_state()
-	#
-	#agent.move_horizontal_air()
+	if (not Input.is_action_pressed("dash")):
+		agent.check_airborne_state()
+		agent.check_running_state()
+		agent.check_idle_state()
