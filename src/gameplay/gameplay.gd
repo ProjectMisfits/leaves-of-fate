@@ -12,6 +12,9 @@ var current_room: Room = null
 func _ready() -> void:
 	# Set the current Room to the initial child of RoomHolder.
 	_update_current_room()
+	# Spawn the player at the first door now that the room has been loaded.
+	print("Gameplay: Spawning player in room '%s' at door '%s'" % [current_room.name, 'enter'])
+	current_room.spawn_player('enter')
 
 ## Update the reference to the current scene.
 func _update_current_room() -> void:
