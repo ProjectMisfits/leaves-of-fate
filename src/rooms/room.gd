@@ -26,4 +26,12 @@ func spawn_player(target_door_name: String) -> void:
 	# If it exists in this room, spawn the player there.
 	for door: Door in doors:
 		if door.door_name == target_door_name:
-			print("Room: Found target door '%s'" % target_door_name)
+			print("Room: Spawning player in room '%s' at door '%s' with position '%s'" % [name, target_door_name, door.position])
+			var player: Player = load("res://src/actors/characters/player/player.tscn").instantiate()
+			add_child(player)
+			player.global_position = door.position
+			print("Player: %s at position '%s'" % [player, player.position])
+			return
+	
+	# If the target door didn't exist anywhere in the room, report the issue.
+	push_warning("Room: Target door '%s' does not exist in room '%s'." % [target_door_name, name])
