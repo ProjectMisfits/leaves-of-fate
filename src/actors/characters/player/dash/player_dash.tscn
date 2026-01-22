@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmqwci1t2hhs5"]
+
+[ext_resource type="Script" uid="uid://bhynnsuiydmtf" path="res://src/actors/characters/player/dash/player_dash.gd" id="1_ktn0w"]
+[ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="2_ktn0w"]
+[ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/actors/characters/player/player_db.tres" id="2_y8ic5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npkjl"]
+size = Vector2(160, 160)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ktn0w"]
+particle_flag_disable_z = true
+angular_velocity_min = 29.999983
+angular_velocity_max = 455.97998
+radial_velocity_min = 346.38998
+radial_velocity_max = 424.81998
+gravity = Vector3(0, 70, 0)
+scale_min = 15.0
+scale_max = 15.0
+color = Color(0, 0.7921569, 0, 1)
+
+[node name="PlayerDash" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_ktn0w")
+database = ExtResource("2_y8ic5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_npkjl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.8789406, 0.38185573, 1)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_ktn0w")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 68
+lifetime = 1.5
+randomness = 0.3
+process_material = SubResource("ParticleProcessMaterial_ktn0w")
