@@ -53,19 +53,20 @@ _data = {
 [node name="MovingBase" type="Path2D"]
 curve = SubResource("Curve2D_bs6ok")
 script = ExtResource("1_wq0hb")
+closed_loop = false
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2(1, 0)
-rotation = -0.011434013
+position = Vector2(9, -554.99994)
+rotation = -1.553497
+progress = 867.1294
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
 position = Vector2(-1, 0)
 remote_path = NodePath("../../AnimatableBody2D")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-position = Vector2(6.5386295e-05, 0.011433763)
-rotation = -0.011434013
-scale = Vector2(0.99999994, 0.99999994)
+position = Vector2(-6.0172987, 312.99985)
+rotation = -1.553497
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 position = Vector2(-2.5, 0)
