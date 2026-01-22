@@ -2,7 +2,6 @@ extends Node
 ## Manages the scene tree during runtime. Handles swapping scenes, particularly menus and rooms during gameplay.
 
 var current_scene: Node = null ## The scene currently being shown to the player
-var _loading_in_progress: bool = false ## internal - used to block SceneManager from attempting to load two things at the same time
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -46,6 +45,5 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 	if scene_to_unload != null and scene_to_unload != get_tree().root:
 		print("SceneManager: Unloading scene '%s'" % scene_to_unload)
 		scene_to_unload.queue_free()
-		
-	# Reset loading in progress variable to indicate that loading has completed.
-	_loading_in_progress = false
+	
+	return 0
