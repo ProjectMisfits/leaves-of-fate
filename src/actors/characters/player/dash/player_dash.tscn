@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmqwci1t2hhs5"]
+[gd_scene load_steps=6 format=3 uid="uid://cmqwci1t2hhs5"]
 
 [ext_resource type="Script" uid="uid://bhynnsuiydmtf" path="res://src/actors/characters/player/dash/player_dash.gd" id="1_ktn0w"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="2_ktn0w"]
+[ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/actors/characters/player/player_db.tres" id="2_y8ic5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_npkjl"]
 size = Vector2(160, 160)
@@ -18,7 +19,9 @@ scale_max = 15.0
 color = Color(0, 0.7921569, 0, 1)
 
 [node name="PlayerDash" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_ktn0w")
+database = ExtResource("2_y8ic5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_npkjl")
