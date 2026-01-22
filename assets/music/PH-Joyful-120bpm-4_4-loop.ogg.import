@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://bp6lqjnbmmir7"
-path="res://.godot/imported/PH-joyful-120bpm-4_4-loop.ogg-fcd99146515a53387c89c8c3f0b1786f.oggvorbisstr"
+path="res://.godot/imported/PH-Joyful-120bpm-4_4-loop.ogg-6c17317028ae4d3e7761b350120e1b5d.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/music/PH-joyful-120bpm-4_4-loop.ogg"
-dest_files=["res://.godot/imported/PH-joyful-120bpm-4_4-loop.ogg-fcd99146515a53387c89c8c3f0b1786f.oggvorbisstr"]
+source_file="res://assets/music/PH-Joyful-120bpm-4_4-loop.ogg"
+dest_files=["res://.godot/imported/PH-Joyful-120bpm-4_4-loop.ogg-6c17317028ae4d3e7761b350120e1b5d.oggvorbisstr"]
 
 [params]
 

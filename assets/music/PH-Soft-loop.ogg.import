@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://jx7afupyklrl"
-path="res://.godot/imported/PH-soft-loop.ogg-a33fb40391c43a70021bfdb80e742a01.oggvorbisstr"
+path="res://.godot/imported/PH-Soft-loop.ogg-5dd92147bbab684dad4df065df86eee4.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/music/PH-soft-loop.ogg"
-dest_files=["res://.godot/imported/PH-soft-loop.ogg-a33fb40391c43a70021bfdb80e742a01.oggvorbisstr"]
+source_file="res://assets/music/PH-Soft-loop.ogg"
+dest_files=["res://.godot/imported/PH-Soft-loop.ogg-5dd92147bbab684dad4df065df86eee4.oggvorbisstr"]
 
 [params]
 
