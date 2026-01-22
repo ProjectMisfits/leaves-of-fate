@@ -11,6 +11,21 @@ point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wq0hb"]
 
+[sub_resource type="Animation" id="Animation_hs6xi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
 [sub_resource type="Animation" id="Animation_7gtbv"]
 resource_name = "move_base_animation"
 length = 2.0
@@ -28,21 +43,6 @@ tracks/0/keys = {
 "values": [0.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_hs6xi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PathFollow2D:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bmss7"]
 _data = {
 &"RESET": SubResource("Animation_hs6xi"),
@@ -52,8 +52,6 @@ _data = {
 [node name="MovingBase" type="Path2D"]
 curve = SubResource("Curve2D_bs6ok")
 script = ExtResource("1_wq0hb")
-loop = false
-speed = 1.0
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(171, 0)
@@ -64,7 +62,7 @@ position = Vector2(-1, 0)
 remote_path = NodePath("../../AnimatableBody2D")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-position = Vector2(154.53296, 0)
+position = Vector2(170, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 shape = SubResource("RectangleShape2D_wq0hb")
