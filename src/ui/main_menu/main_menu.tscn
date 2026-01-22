@@ -68,15 +68,49 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -333.0
-offset_top = 81.0
-offset_right = -129.0
-offset_bottom = 287.0
+offset_left = -326.0
+offset_top = 83.0
+offset_right = -122.0
+offset_bottom = 289.0
 grow_horizontal = 0
 theme_override_styles/normal = SubResource("StyleBoxTexture_776kc")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ctewx")
 theme_override_styles/hover = SubResource("StyleBoxTexture_uiflr")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_odgsv")
+
+[node name="CreditsUp" type="Label" parent="EnvelopeBase/StampButton"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -68.0
+offset_top = 26.0
+offset_right = 68.0
+offset_bottom = 77.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+
+[node name="Node2D" type="Node2D" parent="EnvelopeBase/StampButton"]
+position = Vector2(207, 310)
+scale = Vector2(-1, -1)
+
+[node name="CreditsDown" type="Label" parent="EnvelopeBase/StampButton/Node2D"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = 130.0
+offset_right = 170.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
+theme_override_font_sizes/font_size = 50
+text = "Credits"
 
 [node name="ReturnLabelButton" type="Button" parent="EnvelopeBase"]
 layout_mode = 1
