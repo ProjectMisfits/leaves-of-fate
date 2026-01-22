@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://da15bfj0mfyhp"]
+
+[ext_resource type="Script" uid="uid://6b75cc51s3ks" path="res://src/actors/obstacles/spikes/spike_line.gd" id="1_qaops"]
+
+[sub_resource type="Curve2D" id="Curve2D_rgsm3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -3, 0, 0, 0, 0, 187, -1)
+}
+point_count = 2
+
+[node name="SpikeLine" type="Path2D"]
+curve = SubResource("Curve2D_rgsm3")
+script = ExtResource("1_qaops")
