@@ -49,6 +49,8 @@ var dash_shimmy_turn_speed: float
 
 ### NODE REFERENCE VARIABLES ###
 @onready var sprite2d: Sprite2D = $Sprite2D
+@onready var footstep_audio: AudioStreamPlayer2D = $FootstepsAudio
+@onready var leaf_exit_audio: AudioStreamPlayer2D = $LeafExitAudio
 
 ## State Machine ##
 @onready var state_machine: LimboHSM = $LimboHSM
@@ -176,6 +178,7 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 	
 	if (direction == 0.0) and (state_machine.get_previous_active_state() != dashing_state): # No direction & did not exit Leaf Dash
 		new_velocity = move_toward(velocity.x, 0, deceleration)
+
 	else:
 		var new_acceleration: float = 0.0
 		
@@ -190,6 +193,11 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 		else:
 			new_velocity = clampf(velocity.x + new_acceleration, -run_max_speed, run_max_speed)
 		
+		new_velocity = clampf(velocity.x + new_acceleration, -run_max_speed, run_max_speed)
+
+		if(!footstep_audio.playing && is_on_floor_only()):
+			footstep_audio.play()
+
 	velocity.x = new_velocity
 	
 	# Pos/0 velocity = look right, neg velocity = look left
@@ -246,16 +254,21 @@ func jump() -> void:
 func dash() -> void:
 	# Create new player dash instance
 	var new_player_dash: PlayerDash = player_dash_scene.instantiate()
-	
+
 	if not get_parent():
 		push_error("failed to fetch parent reference.")
 		return
+	
 	get_parent().add_child(new_player_dash)
 	new_player_dash.player_scene = self
 	new_player_dash.initialize_self()
 
 # Called by PlayerDash to end a dash by re-enabling self.
 func end_dash(new_position: Vector2, new_velocity: Vector2) -> void:
+	
+	if(!leaf_exit_audio.playing):
+		leaf_exit_audio.play()
+	
 	visible = true
 	process_mode = Node.PROCESS_MODE_INHERIT
 	

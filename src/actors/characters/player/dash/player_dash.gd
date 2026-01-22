@@ -15,7 +15,7 @@ var player_scene: Player
 var camera_2d: Camera2D = null
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
-
+@onready var leaf_enter_audio: AudioStreamPlayer2D = $LeafEnterAudio
 
 
 # Fetch database resource. If valid, initialize all variables.
@@ -68,6 +68,9 @@ func get_turned_move_direction() -> Vector2:
 
 # Set up all parameters for self, steal camera, & put Player entity into hibernation. Requires a valid Player scene reference.
 func initialize_self() -> void:
+	if(!leaf_enter_audio.playing):
+		leaf_enter_audio.play()
+
 	# Set database variables
 	max_speed = player_scene.dash_max_speed
 	angular_turn_speed = player_scene.dash_angular_turn_speed
