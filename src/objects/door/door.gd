@@ -16,5 +16,4 @@ signal player_entered_door(door: Door)
 ## Emit the player_entered_door signal when the door is entered.
 func _on_player_door_interact() -> void:
 	# Should only emit signal when player presses correct control.
-	print("door entered. emitting player_entered_door signal")
 	player_entered_door.emit(self)

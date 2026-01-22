@@ -1,6 +1,6 @@
 class_name Gameplay extends Node2D
 ## Wrapper for gameplay scenes during runtime.
-## Manages scenes like the current Room, HUD, and other menus.
+## Manages scenes like the current Room, HUD, and menus.
 
 ## A Node2D that acts as a persistent parent of the Room the player is in.
 @onready var room_holder: Node2D = $RoomHolder
@@ -13,7 +13,7 @@ func _ready() -> void:
 	# Set the current Room to the initial child of RoomHolder.
 	_update_current_room()
 
-# Update the reference to the current scene.
+## Update the reference to the current scene.
 func _update_current_room() -> void:
 	# Get the last child of RoomHolder, as that will always be the current room.
 	# TODO: find a more elegant solution; for some reason this line fires before the previous room gets queue_free()'d, so it wouldn't actually update.
@@ -25,7 +25,7 @@ func _update_current_room() -> void:
 
 ## Swap to the specified Room and unload the current Room.
 func _on_swap_room(path_to_target_room: String, target_door_name: String)-> void:
-	# Call up to SceneManager to swap the room.
+	# Call autoload SceneManager to swap the room.
 	SceneManager.swap_scenes(path_to_target_room, $RoomHolder, current_room)
 	
 	# Update the current room.
