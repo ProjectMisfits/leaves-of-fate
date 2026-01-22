@@ -1,22 +1,18 @@
 extends CharacterBody2D
 class_name PlayerDash
 
-var max_speed: float = 1200
+var max_speed: float
+var angular_turn_speed: float
+
+var turning: bool = false
 var move_direction: Vector2
 var input_direction: Vector2
-var angular_turn_speed: float = 7.0
-var turning: bool = false
-
 var rad_angular_turn_speed: float
 
 var player_scene: Player
+var camera_2d: Camera2D = null
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var camera_2d: Camera2D = $Camera2D
-
-func _ready() -> void:
-	camera_2d.make_current()
-	rad_angular_turn_speed = deg_to_rad(angular_turn_speed)
 
 func _physics_process(_delta: float) -> void:
 	# Check if Player stopped holding dash Action
@@ -58,15 +54,32 @@ func get_turned_move_direction() -> Vector2:
 	
 	return new_move_direction
 
-# Set up all parameters for self & put Player entity into hibernation. Requires a valid Player scene reference.
+# Set up all parameters for self, steal camera, & put Player entity into hibernation. Requires a valid Player scene reference.
 func initialize_self() -> void:
+	# Set database variables
+	max_speed = player_scene.dash_max_speed
+	angular_turn_speed = player_scene.dash_angular_turn_speed
+	
+	rad_angular_turn_speed = deg_to_rad(angular_turn_speed)
+	
 	global_position = player_scene.global_position
 	move_direction = player_scene.velocity.normalized()
+	
+	# Steal camera
+	camera_2d = player_scene.get_node("Camera2D")
+	player_scene.remove_child(camera_2d)
+	add_child(camera_2d)
 	
 	# Disable Player scene
 	player_scene.visible = false
 	player_scene.process_mode = Node.PROCESS_MODE_DISABLED
 
 func end_dash() -> void:
-	player_scene.end_dash()
+	player_scene.end_dash(global_position, velocity)
+	
+	# Give camera back to player scene
+	if camera_2d:
+		remove_child(camera_2d)
+		player_scene.add_child(camera_2d)
+	
 	queue_free()

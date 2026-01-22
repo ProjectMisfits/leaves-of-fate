@@ -70,8 +70,6 @@ var jump_gravity: float = 0.0
 var time_since_on_floor: float = 0.0
 var time_since_jump_queued: float = 0.0
 
-var dashing: bool = false
-
 # Fetch database resource. If valid, initialize all variables.
 func _enter_tree() -> void:
 	if (database != null):
@@ -121,6 +119,10 @@ func initialize_state_machine() -> void:
 	state_machine.add_transition(airborne_state,idle_state,"to_idle")
 	state_machine.add_transition(airborne_state,running_state,"to_running")
 	state_machine.add_transition(airborne_state,dashing_state,"to_dashing")
+	
+	state_machine.add_transition(dashing_state,idle_state,"to_idle")
+	state_machine.add_transition(dashing_state,running_state,"to_running")
+	state_machine.add_transition(dashing_state,airborne_state,"to_airborne")
 	
 	state_machine.initial_state = idle_state
 	state_machine.initialize(self)
@@ -179,7 +181,11 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 		else: 											# Direction is opposite to current velocity
 			new_acceleration = direction * turn_speed
 		
-		new_velocity = clampf(velocity.x + new_acceleration, -run_max_speed, run_max_speed)
+		if (state_machine.get_previous_active_state() == dashing_state):
+			# If just exited Leaf Dash, limit velocity by dash max speed
+			new_velocity = clampf(velocity.x + new_acceleration, -dash_max_speed, dash_max_speed)
+		else:
+			new_velocity = clampf(velocity.x + new_acceleration, -run_max_speed, run_max_speed)
 		
 	velocity.x = new_velocity
 	
@@ -230,6 +236,7 @@ func update_jump_queue(delta: float) -> void:
 func jump() -> void:
 	jump_queued = false # Free jump queue
 	velocity.y = jump_velocity
+	time_since_on_floor = INF	# Prevent additional coyote jumps
 	#print(jump_velocity)
 
 # Instantiate player dash scene & hibernate self
@@ -243,14 +250,17 @@ func dash() -> void:
 	get_parent().add_child(new_player_dash)
 	new_player_dash.player_scene = self
 	new_player_dash.initialize_self()
-	
-	dashing = true
 
 # Called by PlayerDash to end a dash by re-enabling self.
-func end_dash() -> void:
-	dashing = false
+func end_dash(new_position: Vector2, new_velocity: Vector2) -> void:
 	visible = true
 	process_mode = Node.PROCESS_MODE_INHERIT
+	
+	global_position = new_position
+	velocity = new_velocity
+	
+	var new_look_direction: float = signf(velocity.x)
+	look_direction = new_look_direction if (new_look_direction != 0.0) else look_direction
 
 # Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
