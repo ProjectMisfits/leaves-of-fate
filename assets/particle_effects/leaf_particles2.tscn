@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://b5iavwafreiy1"]
+
+[ext_resource type="Texture2D" uid="uid://235r5kxe6tak" path="res://assets/particle_effects/windtest.png" id="1_skofb"]
+
+[sub_resource type="Gradient" id="Gradient_y2cxc"]
+offsets = PackedFloat32Array(0.002754821, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uq4sn"]
+gradient = SubResource("Gradient_y2cxc")
+
+[sub_resource type="Gradient" id="Gradient_kr0xw"]
+offsets = PackedFloat32Array(0.002754821, 0.09090909, 0.19559228, 1)
+colors = PackedColorArray(1, 1, 1, 0, 0.64232093, 0.9968276, 0.04792333, 0.9520767, 0.62431693, 0.9966679, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ptvio"]
+gradient = SubResource("Gradient_kr0xw")
+
+[sub_resource type="Curve" id="Curve_dkd0t"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0.0051413886, 27.8311), 0.0, -3882.5334, 0, 0, Vector2(0.087403595, -17.08252), 0.0, 0.0, 0, 0, Vector2(0.1722365, 40.307114), 0.0, 0.0, 0, 0, Vector2(0.28020567, -14.512909), 0.0, 0.0, 0, 0, Vector2(0.3907455, 50.287918), -102.17191, -102.17191, 0, 0, Vector2(0.50899744, -9.343933), 0.0, 0.0, 0, 0, Vector2(0.6401028, 40.307114), 0.0, 0.0, 0, 0, Vector2(0.76863754, -6.75943), 0.0, 0.0, 0, 0, Vector2(0.8611825, 42.802307), 0.0, 0.0, 0, 0, Vector2(0.9691517, -14.512909), 0.0, 0.0, 0, 0]
+point_count = 10
+
+[sub_resource type="CurveTexture" id="CurveTexture_mo1bo"]
+curve = SubResource("Curve_dkd0t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o6juj"]
+particle_flag_disable_z = true
+direction = Vector3(0, 500, 0)
+initial_velocity_min = 168.59
+initial_velocity_max = 372.78
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -40.84
+tangential_accel_max = 54.189995
+tangential_accel_curve = SubResource("CurveTexture_mo1bo")
+damping_max = 100.00001
+scale_min = 0.0
+scale_max = 0.19999999
+color_ramp = SubResource("GradientTexture1D_ptvio")
+color_initial_ramp = SubResource("GradientTexture1D_uq4sn")
+
+[node name="LeafParticles2" type="GPUParticles2D"]
+amount = 30
+texture = ExtResource("1_skofb")
+lifetime = 5.0
+speed_scale = 1.5699999999999998
+randomness = 1.0
+trail_enabled = true
+trail_lifetime = 0.6
+process_material = SubResource("ParticleProcessMaterial_o6juj")
