@@ -8,9 +8,11 @@
 texture = ExtResource("3_7i7i2")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 
 [sub_resource type="TileSet" id="TileSet_0bf0a"]
 tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_8eo6q")
 
 [node name="Room" type="Node2D"]
