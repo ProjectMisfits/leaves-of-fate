@@ -31,4 +31,5 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String)-> void
 	# Update the current room.
 	_update_current_room()
 	# Spawn the player at the target door now that the room has been loaded.
+	print("Gameplay: Spawning player in room '%s' at door '%s'" % [current_room.name, target_door_name])
 	current_room.spawn_player(target_door_name)

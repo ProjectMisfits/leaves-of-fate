@@ -17,7 +17,7 @@ func _ready() -> void:
 
 ## Initiate room swap on player entering a Door.
 func _on_player_entered_door(door: Door) -> void:
-	print("Room: Player entered door '%s'. Loading target room '%s'" % door.door_name, door.path_to_target_room)
+	print("Room: Player entered door '%s'. Loading target room '%s'" % [door.door_name, door.path_to_target_room])
 	swap_room.emit(door.path_to_target_room, door.target_door_name)
 
 ## Spawn the player at the specified Door.
