@@ -44,6 +44,7 @@ enabled=PackedStringArray("res://addons/inkgd/plugin.cfg")
 
 [gui]
 
+theme/custom="uid://cr6ry63vvyjhi"
 theme/custom_font="uid://casj2vjnnvd5r"
 
 [inkgd]
