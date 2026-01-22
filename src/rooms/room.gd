@@ -6,12 +6,12 @@ class_name Room extends Node2D
 signal swap_room(path_to_target_room: String, target_door_name: String)
 
 ## An array containing all Doors in this Room that lead to other Rooms.
-var doors: Array[Door]
+var doors: Array[Node]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Connect each Door's entered signal to this Room's room swap function
-	doors = $Doors.get_children() as Array[Door]
+	doors = $Doors.get_children()
 	for door: Door in doors:
 		door.player_entered_door.connect(_on_player_entered_door)
 
