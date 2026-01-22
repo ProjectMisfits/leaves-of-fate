@@ -171,7 +171,7 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 	var direction: float = Input.get_axis("move_left", "move_right")
 	var new_velocity: float = 0.0
 	
-	if (direction == 0.0): # No direction
+	if (direction == 0.0) and (state_machine.get_previous_active_state() != dashing_state): # No direction & did not exit Leaf Dash
 		new_velocity = move_toward(velocity.x, 0, deceleration)
 	else:
 		var new_acceleration: float = 0.0
@@ -181,8 +181,8 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 		else: 											# Direction is opposite to current velocity
 			new_acceleration = direction * turn_speed
 		
-		if (state_machine.get_previous_active_state() == dashing_state):
-			# If just exited Leaf Dash, limit velocity by dash max speed
+		# If just exited Leaf Dash, limit velocity by dash max speed
+		if (state_machine.get_previous_active_state() == dashing_state) and (abs(velocity.x) > run_max_speed):
 			new_velocity = clampf(velocity.x + new_acceleration, -dash_max_speed, dash_max_speed)
 		else:
 			new_velocity = clampf(velocity.x + new_acceleration, -run_max_speed, run_max_speed)
