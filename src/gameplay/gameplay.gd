@@ -1,6 +1,6 @@
 class_name Gameplay extends Node2D
 ## Wrapper for gameplay scenes during runtime.
-## Manages scenes like the current Room, HUD, and menus.
+## Manages scenes like the current Room, HUD, Camera, menus.
 
 ## A Node2D that acts as a persistent parent of the Room the player is in.
 @onready var room_holder: Node2D = $RoomHolder
