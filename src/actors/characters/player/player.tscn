@@ -16,6 +16,7 @@
 size = Vector2(160, 160)
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_npkjl")
 database = ExtResource("2_7gsup")
 player_dash_scene = ExtResource("3_q4vut")
@@ -48,9 +49,3 @@ script = ExtResource("9_q6jdu")
 
 [node name="Interacting" type="LimboState" parent="LimboHSM"]
 script = ExtResource("10_u7uqy")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 371)
-offset = Vector2(0, -400)
-zoom = Vector2(0.8, 0.8)
-position_smoothing_enabled = true
