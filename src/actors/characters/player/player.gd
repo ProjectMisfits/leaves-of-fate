@@ -61,6 +61,7 @@ var dash_shimmy_turn_speed: float
 @onready var interacting_state: LimboState = $LimboHSM/Interacting
 
 ### DYNAMIC VARIABLES ###
+var current_health: int
 var look_direction: float = 1.0 # <0 is left, >=0 is right
 var jump_queued: bool = false
 var leaf_meter: float = 100.0
@@ -82,6 +83,8 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	initialize_state_machine()
 	compute_jump_parameters()
+	
+	current_health = health
 
 # Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
