@@ -16,7 +16,7 @@
 size = Vector2(160, 160)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_mask = 2
+collision_mask = 14
 script = ExtResource("1_npkjl")
 database = ExtResource("2_7gsup")
 player_dash_scene = ExtResource("3_q4vut")
