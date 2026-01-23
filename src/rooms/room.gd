@@ -27,13 +27,12 @@ func _on_player_entered_door(door: Door) -> void:
 	swap_room.emit(door.path_to_target_room, door.target_door_name)
 
 ## Spawn the player at the specified Door.
-func spawn_player(target_door_name: String) -> void:
-	# Check the name of the target door.
-	# If it exists in this room, spawn the player there.
+func spawn_player(player: Player, target_door_name: String) -> void:
+	# Check the name of the target door against the doors in this room
+	# If it exists in this room, add the player to the room and move it to the correct location
 	for door: Door in doors:
 		if door.door_name == target_door_name:
-			print("Room: Spawning player in room '%s' at door '%s' with position '%s'" % [name, target_door_name, door.position])
-			var player: Player = load("res://src/actors/characters/player/player.tscn").instantiate()
+			print("Room '%s': Placing player at door '%s'" % [name, target_door_name])
 			add_child(player)
 			player.global_position = door.position
 			return
