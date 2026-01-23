@@ -21,12 +21,6 @@ script = ExtResource("1_npkjl")
 database = ExtResource("2_7gsup")
 player_dash_scene = ExtResource("3_q4vut")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 371)
-offset = Vector2(0, -400)
-zoom = Vector2(0.8, 0.8)
-position_smoothing_enabled = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_npkjl")
 
