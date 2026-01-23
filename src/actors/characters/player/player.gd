@@ -254,19 +254,18 @@ func dash() -> void:
 		push_error("failed to fetch parent reference.")
 		return
 	get_parent().add_child(new_player_dash)
-	new_player_dash.player_scene = self
-	new_player_dash.initialize_self()
+	
+	new_player_dash.control_player(self)
 
-# Called by PlayerDash to end a dash by re-enabling self.
-func end_dash(new_position: Vector2, new_velocity: Vector2) -> void:
-	visible = true
-	process_mode = Node.PROCESS_MODE_INHERIT
+func set_disabled(to_disable: bool) -> bool:
+	if to_disable:
+		visible = false
+		process_mode = Node.PROCESS_MODE_DISABLED
+	else:
+		visible = true
+		process_mode = Node.PROCESS_MODE_INHERIT
 	
-	global_position = new_position
-	velocity = new_velocity
-	
-	var new_look_direction: float = signf(velocity.x)
-	look_direction = new_look_direction if (new_look_direction != 0.0) else look_direction
+	return true
 
 # Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
