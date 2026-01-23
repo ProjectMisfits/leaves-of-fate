@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://k0lsqn5iv31b"]
 
-[ext_resource type="Texture2D" uid="uid://c44j0kj2rhy3b" path="res://assets/ui/FullLetter-UI-001.png" id="1_0qhx6"]
-[ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="2_btxby"]
-[ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="3_w41tb"]
-[ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="4_s6yk0"]
+[ext_resource type="Texture2D" uid="uid://c44j0kj2rhy3b" path="res://assets/ui/FullLetter-UI-001.png" id="1_wg84k"]
+[ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="2_dfdoi"]
+[ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="3_fhom7"]
+[ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="4_l7ib7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q0yb2"]
-texture = ExtResource("1_0qhx6")
+texture = ExtResource("1_wg84k")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h4ejf"]
 
@@ -46,7 +46,7 @@ offset_top = 49.5
 offset_right = 437.5
 offset_bottom = 150.5
 theme_override_colors/font_color = Color(0.34117648, 0.43529412, 0.20784314, 1)
-theme_override_fonts/font = ExtResource("2_btxby")
+theme_override_fonts/font = ExtResource("2_dfdoi")
 theme_override_font_sizes/font_size = 100
 text = "Settings"
 
@@ -75,7 +75,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_0dukq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0dukq")
 text = "Resume"
 alignment = 2
-script = ExtResource("3_w41tb")
+script = ExtResource("3_fhom7")
 
 [node name="LeafPointer" type="TextureRect" parent="Panel/VBoxContainer/ResumeButton"]
 layout_mode = 1
@@ -86,7 +86,7 @@ offset_top = -32.5
 offset_right = 67.0
 offset_bottom = 32.5
 grow_vertical = 2
-texture = ExtResource("4_s6yk0")
+texture = ExtResource("4_l7ib7")
 expand_mode = 1
 stretch_mode = 4
 
@@ -104,7 +104,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_0dukq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0dukq")
 text = "Controls"
 alignment = 2
-script = ExtResource("3_w41tb")
+script = ExtResource("3_fhom7")
 
 [node name="LeafPointer" type="TextureRect" parent="Panel/VBoxContainer/ControlsButton"]
 layout_mode = 1
@@ -115,7 +115,7 @@ offset_top = -32.5
 offset_right = 67.0
 offset_bottom = 32.5
 grow_vertical = 2
-texture = ExtResource("4_s6yk0")
+texture = ExtResource("4_l7ib7")
 expand_mode = 1
 stretch_mode = 4
 
@@ -133,7 +133,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_0dukq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0dukq")
 text = "Display"
 alignment = 2
-script = ExtResource("3_w41tb")
+script = ExtResource("3_fhom7")
 
 [node name="LeafPointer" type="TextureRect" parent="Panel/VBoxContainer/DisplayButton"]
 layout_mode = 1
@@ -144,7 +144,7 @@ offset_top = -32.5
 offset_right = 67.0
 offset_bottom = 32.5
 grow_vertical = 2
-texture = ExtResource("4_s6yk0")
+texture = ExtResource("4_l7ib7")
 expand_mode = 1
 stretch_mode = 4
 
@@ -162,7 +162,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_0dukq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0dukq")
 text = "Sound"
 alignment = 2
-script = ExtResource("3_w41tb")
+script = ExtResource("3_fhom7")
 
 [node name="LeafPointer" type="TextureRect" parent="Panel/VBoxContainer/SoundButton"]
 layout_mode = 1
@@ -173,7 +173,7 @@ offset_top = -32.5
 offset_right = 67.0
 offset_bottom = 32.5
 grow_vertical = 2
-texture = ExtResource("4_s6yk0")
+texture = ExtResource("4_l7ib7")
 expand_mode = 1
 stretch_mode = 4
 
@@ -192,7 +192,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_8h10k")
 text = "Exit
 "
 alignment = 2
-script = ExtResource("3_w41tb")
+script = ExtResource("3_fhom7")
 
 [node name="LeafPointer" type="TextureRect" parent="Panel/VBoxContainer/ExitButton"]
 layout_mode = 1
@@ -203,6 +203,6 @@ offset_top = -32.5
 offset_right = 67.0
 offset_bottom = 32.5
 grow_vertical = 2
-texture = ExtResource("4_s6yk0")
+texture = ExtResource("4_l7ib7")
 expand_mode = 1
 stretch_mode = 4
