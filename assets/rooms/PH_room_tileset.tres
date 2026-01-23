@@ -12,7 +12,7 @@ texture_region_size = Vector2i(128, 128)
 texture = ExtResource("1_lisvo")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
-0:0/0/modulate = Color(0.22352941, 0.25490198, 0.29411766, 1)
+0:0/0/modulate = Color(1, 1, 1, 0.39215687)
 
 [resource]
 tile_size = Vector2i(128, 128)
