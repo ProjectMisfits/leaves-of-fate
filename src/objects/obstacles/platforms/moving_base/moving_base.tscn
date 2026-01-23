@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://disa83btdjjsk"]
 
-[ext_resource type="Script" uid="uid://d4ibdtjec2w6g" path="res://src/actors/obstacles/platforms/moving_base/moving_base.gd" id="1_wq0hb"]
+[ext_resource type="Script" uid="uid://d4ibdtjec2w6g" path="res://src/objects/obstacles/platforms/moving_base/moving_base.gd" id="1_wq0hb"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="1_xm0pf"]
 
 [sub_resource type="Curve2D" id="Curve2D_bs6ok"]
@@ -65,8 +65,9 @@ position = Vector2(-1, 0)
 remote_path = NodePath("../../AnimatableBody2D")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-position = Vector2(-6.0172987, 312.99985)
+position = Vector2(8.982701, -554.00006)
 rotation = -1.553497
+collision_layer = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 position = Vector2(-2.5, 0)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://beub4bx6t3wvh"]
 
-[ext_resource type="Script" uid="uid://bp0q6kcw64vf2" path="res://src/actors/obstacles/spikes/spike.gd" id="1_yhnhy"]
+[ext_resource type="Script" uid="uid://bp0q6kcw64vf2" path="res://src/objects/obstacles/spikes/spike.gd" id="1_yhnhy"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="2_ua5eq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5sn6"]
@@ -10,6 +10,7 @@ size = Vector2(25, 89)
 size = Vector2(39, 109)
 
 [node name="Spike" type="StaticBody2D"]
+collision_layer = 12
 script = ExtResource("1_yhnhy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
