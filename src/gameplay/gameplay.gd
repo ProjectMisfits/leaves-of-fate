@@ -23,10 +23,9 @@ func _ready() -> void:
 ## Update the reference to the current scene.
 func _update_current_room() -> void:
 	# Get the last child of RoomHolder, as that will always be the current room.
-	# TODO: find a more elegant solution; for some reason this line fires before the previous room gets queue_free()'d, so it wouldn't actually update.
 	current_room = room_holder.get_child(-1) as Room
 	# Because the room was replaced, we have to update the connected signal.
-	# However, we have to make sure the connection doesn't already exist.
+	# But only if the connection doesn't already exist.
 	if not current_room.swap_room.is_connected(_on_swap_room):
 		current_room.swap_room.connect(_on_swap_room)
 
