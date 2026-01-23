@@ -180,23 +180,25 @@ theme_override_fonts/font = ExtResource("3_vivct")
 theme_override_font_sizes/font_size = 150
 text = "PROJECT MISFITS"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="EnvelopeBase"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -163.0
-offset_top = -51.5
-offset_right = 233.0
-offset_bottom = 259.5
+offset_left = -200.0
+offset_top = -37.5
+offset_right = 200.0
+offset_bottom = 273.5
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 
-[node name="PlayButton" type="Button" parent="EnvelopeBase/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(248, 101)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6ut4k")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_3oi2e")
@@ -207,7 +209,7 @@ text = "Play"
 alignment = 2
 script = ExtResource("5_6ut4k")
 
-[node name="LeafPointer" type="TextureRect" parent="EnvelopeBase/VBoxContainer/PlayButton"]
+[node name="LeafPointer" type="TextureRect" parent="VBoxContainer/PlayButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -220,8 +222,11 @@ texture = ExtResource("5_vivct")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="ExitButton" type="Button" parent="EnvelopeBase/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(226, 101)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6ut4k")
@@ -234,7 +239,7 @@ text = "Exit
 alignment = 2
 script = ExtResource("5_6ut4k")
 
-[node name="LeafPointer" type="TextureRect" parent="EnvelopeBase/VBoxContainer/ExitButton"]
+[node name="LeafPointer" type="TextureRect" parent="VBoxContainer/ExitButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -247,8 +252,11 @@ texture = ExtResource("5_vivct")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="SettingsButton" type="Button" parent="EnvelopeBase/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 101)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6ut4k")
@@ -260,7 +268,7 @@ text = "Settings"
 alignment = 2
 script = ExtResource("5_6ut4k")
 
-[node name="LeafPointer" type="TextureRect" parent="EnvelopeBase/VBoxContainer/SettingsButton"]
+[node name="LeafPointer" type="TextureRect" parent="VBoxContainer/SettingsButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
