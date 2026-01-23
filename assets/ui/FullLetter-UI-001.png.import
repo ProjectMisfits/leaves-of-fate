@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cooitf66d50v"
-path="res://.godot/imported/OpenLetter_UI_001.png-aa3a58e7ce5479c5217b04fd73f75452.ctex"
+uid="uid://c44j0kj2rhy3b"
+path="res://.godot/imported/FullLetter-UI-001.png-0d29420c2aa2018d783299a00333d0b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/OpenLetter_UI_001.png"
-dest_files=["res://.godot/imported/OpenLetter_UI_001.png-aa3a58e7ce5479c5217b04fd73f75452.ctex"]
+source_file="res://assets/ui/FullLetter-UI-001.png"
+dest_files=["res://.godot/imported/FullLetter-UI-001.png-0d29420c2aa2018d783299a00333d0b4.ctex"]
 
 [params]
 
