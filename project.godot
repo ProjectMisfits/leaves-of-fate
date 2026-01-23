@@ -22,7 +22,6 @@ buses/default_bus_layout=""
 
 [autoload]
 
-__InkRuntime="*res://addons/inkgd/ink_runtime.gd"
 SceneManager="*res://src/autoload/scene_manager.gd"
 
 [debug]
@@ -42,7 +41,7 @@ script/templates_search_path="res://src/script_templates"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/inkgd/plugin.cfg")
+enabled=PackedStringArray()
 
 [gui]
 
