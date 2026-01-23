@@ -14,7 +14,7 @@ var player: Player = preload("res://src/actors/characters/player/player.tscn").i
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Set the current Room to the initial child of RoomHolder.
+	# Set the starting Room
 	_update_current_room()
 	# Spawn the player at the first door now that the room has been loaded
 	current_room.spawn_player(player, 'enter')
@@ -30,16 +30,19 @@ func _update_current_room() -> void:
 	if not current_room.swap_room.is_connected(_on_swap_room):
 		current_room.swap_room.connect(_on_swap_room)
 
+
 ## Swap to the specified Room and unload the current Room.
 func _on_swap_room(path_to_target_room: String, target_door_name: String)-> void:
 	# Remove player from current room
 	current_room.remove_child(player)
 	
-	# Make sure the load succeeded before continuing the swap.
+	# Call autoload SceneManager to swap the room
+	var target_room_loaded: int = SceneManager.swap_scenes(path_to_target_room, $RoomHolder, current_room)
+	# Make sure the load succeeded before continuing the swap
 	if (target_room_loaded != 0):
 		return
 	
-	# Update the current room.
+	# Update the current room
 	_update_current_room()
 	# Add player to new current room and place them at correct door
 	current_room.spawn_player(player, target_door_name)
