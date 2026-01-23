@@ -24,6 +24,7 @@ buses/default_bus_layout=""
 
 __InkRuntime="*res://addons/inkgd/ink_runtime.gd"
 SceneManager="*res://src/autoload/scene_manager.gd"
+MusicManager="*res://src/autoload/audio_managers/music_manager.tscn"
 
 [debug]
 
