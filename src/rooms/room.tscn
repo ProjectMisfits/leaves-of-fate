@@ -27,11 +27,11 @@ tile_set = SubResource("TileSet_0bf0a")
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="DoorEnter" parent="Doors" instance=ExtResource("2_pdypr")]
-position = Vector2(420, 540)
+position = Vector2(420, 668)
 door_name = "enter"
 target_door_name = "exit"
 
 [node name="DoorExit" parent="Doors" instance=ExtResource("2_pdypr")]
-position = Vector2(1500, 540)
+position = Vector2(1500, 668)
 door_name = "exit"
 target_door_name = "enter"
