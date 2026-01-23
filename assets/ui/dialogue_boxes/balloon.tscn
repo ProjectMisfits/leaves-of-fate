@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://du42aku0qy3o5"]
+[gd_scene load_steps=14 format=3 uid="uid://du42aku0qy3o5"]
 
-[ext_resource type="Script" uid="uid://d0yao2lfwhtd8" path="res://assets/ui/dialogue_boxes/balloon.gd" id="1_36de5"]
+[ext_resource type="Script" uid="uid://d4f3atc2qvswq" path="res://assets/ui/dialogue_boxes/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="Texture2D" uid="uid://dk5bpfuimu5cp" path="res://assets/ui/dialogue_boxes/DialogueBoxFenn-UI-001.png" id="2_yhnfq"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_72ixx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
@@ -52,7 +53,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [sub_resource type="Theme" id="Theme_qq3yp"]
-default_font_size = 20
+default_font_size = 50
 Button/styles/disabled = SubResource("StyleBoxFlat_spyqn")
 Button/styles/focus = SubResource("StyleBoxFlat_ri4m3")
 Button/styles/hover = SubResource("StyleBoxFlat_e0njw")
@@ -62,6 +63,10 @@ MarginContainer/constants/margin_left = 30
 MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y84od"]
+texture = ExtResource("2_yhnfq")
+region_rect = Rect2(36.79271, 40.849686, 1846.2245, 236.57191)
 
 [sub_resource type="Animation" id="Animation_nlsx6"]
 length = 0.001
@@ -119,7 +124,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -219.0
+offset_left = 3.0
+offset_top = -988.0
+offset_right = 2.0
+offset_bottom = -515.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -127,9 +135,12 @@ grow_vertical = 0
 clip_children = 2
 layout_mode = 2
 mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_y84od")
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 130
+theme_override_constants/margin_top = 30
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
@@ -143,6 +154,7 @@ unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
 mouse_filter = 1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -152,7 +164,9 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 text = "Dialogue..."
+fit_content = false
 
 [node name="Control" type="Control" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(20, 10)
