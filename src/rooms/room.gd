@@ -37,6 +37,9 @@ func spawn_player(player: Player, target_door_name: String) -> void:
 			print("Room '%s': Placing player at door '%s'" % [name, target_door_name])
 			add_child(player)
 			player.global_position = door.position
+			
+			# Update the camera limits to match the room
+			player.get_node("Camera").update_camera_limits($TileMap/Background)
 			return
 	
 	# If the target door didn't exist anywhere in the room, report the issue
