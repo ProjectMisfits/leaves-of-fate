@@ -1,11 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmqwci1t2hhs5"]
+[gd_scene load_steps=7 format=3 uid="uid://cmqwci1t2hhs5"]
 
 [ext_resource type="Script" uid="uid://bhynnsuiydmtf" path="res://src/actors/characters/player/dash/player_dash.gd" id="1_ktn0w"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="2_ktn0w"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/actors/characters/player/player_db.tres" id="2_y8ic5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_npkjl"]
-size = Vector2(160, 160)
+[sub_resource type="CircleShape2D" id="CircleShape2D_y8ic5"]
+radius = 70.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y8ic5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ktn0w")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ktn0w"]
 particle_flag_disable_z = true
@@ -24,12 +35,13 @@ script = ExtResource("1_ktn0w")
 database = ExtResource("2_y8ic5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_npkjl")
+shape = SubResource("CircleShape2D_y8ic5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="FlipNode" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlipNode"]
 modulate = Color(0, 0.8789406, 0.38185573, 1)
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("2_ktn0w")
+sprite_frames = SubResource("SpriteFrames_y8ic5")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 68

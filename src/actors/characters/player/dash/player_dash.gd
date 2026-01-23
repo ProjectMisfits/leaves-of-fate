@@ -14,7 +14,7 @@ var rad_angular_turn_speed: float
 var player_scene: Player
 var camera_2d: Camera2D = null
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var flip_node: Node2D = $FlipNode
 
 
 
@@ -44,7 +44,7 @@ func _physics_process(_delta: float) -> void:
 		turning = false
 	
 	velocity = move_direction * max_speed
-	sprite_2d.rotation = Vector2.RIGHT.angle_to(move_direction)
+	flip_node.rotation = Vector2.RIGHT.angle_to(move_direction)
 	
 	move_and_slide()
 

@@ -47,10 +47,10 @@ var dash_shimmy_acceleration: float
 var dash_shimmy_deceleration: float
 var dash_shimmy_turn_speed: float
 
-### NODE REFERENCE VARIABLES ###
-@onready var sprite2d: Sprite2D = $Sprite2D
+## State Machine + FlipNode ##
+# flip_node scale changes depending on Player's look direction; all children will be flipped.
+@onready var flip_node: Node2D = $FlipNode
 
-## State Machine ##
 @onready var state_machine: LimboHSM = $LimboHSM
 @onready var idle_state: LimboState = $LimboHSM/Idle
 @onready var running_state: LimboState = $LimboHSM/Running
@@ -93,7 +93,10 @@ func _physics_process(delta: float) -> void:
 	velocity.y += compute_gravity() * delta
 	velocity.y = clampf(velocity.y, -INF, terminal_velocity) # velocity cannot exceed terminal velocity
 	
-	sprite2d.flip_h = (look_direction < 0.0)	# Flip sprite to Player's look direction
+	if (look_direction < 0): # Flip root node to Player's look direction
+		flip_node.scale.x = -1.0
+	else:
+		flip_node.scale.x = 1.0
 
 	move_and_slide()
 	
