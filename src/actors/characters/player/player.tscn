@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=14 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/actors/characters/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/actors/characters/player/player_db.tres" id="2_7gsup"]
@@ -12,8 +12,20 @@
 [ext_resource type="Script" uid="uid://osptlmoqos3i" path="res://src/actors/characters/player/states/player_shimmying.gd" id="9_q6jdu"]
 [ext_resource type="Script" uid="uid://icrwiu7udlg5" path="res://src/actors/characters/player/states/player_interacting.gd" id="10_u7uqy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_npkjl"]
-size = Vector2(160, 160)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q4vut"]
+radius = 46.0
+height = 180.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4vut"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_c6y0n")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 14
@@ -22,10 +34,13 @@ database = ExtResource("2_7gsup")
 player_dash_scene = ExtResource("3_q4vut")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_npkjl")
+shape = SubResource("CapsuleShape2D_q4vut")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_c6y0n")
+[node name="FlipNode" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlipNode"]
+position = Vector2(11.055, 4.645)
+sprite_frames = SubResource("SpriteFrames_q4vut")
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
 
