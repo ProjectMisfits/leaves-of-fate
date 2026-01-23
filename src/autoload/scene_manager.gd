@@ -1,16 +1,19 @@
 extends Node
-## Manages the scene tree during runtime. Handles swapping scenes, particularly menus and rooms during gameplay.
+## Manages the scene tree during runtime. Handles swapping scenes, particularly between menus and rooms during gameplay.
 
 var current_scene: Node = null ## The scene currently being shown to the player
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Set the current scene to the initial child of the root node.
 	_update_current_scene()
 
-# Update the reference to the current scene.
+
+## Update the reference to the current scene.
 func _update_current_scene() -> void:
 	current_scene = get_tree().current_scene
+
 
 ## Swaps to the specified scene and unloads the specified scene.
 ## Returns -1 if the load failed for any reason and returns 0 if the load succeeded.
