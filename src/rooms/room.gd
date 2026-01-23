@@ -15,28 +15,29 @@ func _ready() -> void:
 	for door: Door in doors:
 		door.player_entered_door.connect(_on_player_entered_door)
 
+
 ## Initiate room swap on player entering a Door.
 func _on_player_entered_door(door: Door) -> void:
 	# Check whether the door has a destination first.
-	if (!door.path_to_target_room != ""):
-		push_warning("Room: The target room of door '%s' in room '%s' is not set!" % [door.path_to_target_room, name])
+	if (door.path_to_target_room == ""):
+		push_warning("Room '%s': Door '%s' does not have a target room set!" % [name, door.door_name])
 		return
 	
-	# Since the path to the target room is valid, initiate the load request.
-	print("Room: Player entered door '%s'. Requesting load of target room '%s'" % [door.door_name, door.path_to_target_room])
+	# Since the path to the target room is valid, emit room load signal
+	print("Room '%s': Player interacted with door '%s'" % [name, door.door_name])
 	swap_room.emit(door.path_to_target_room, door.target_door_name)
 
+
 ## Spawn the player at the specified Door.
-func spawn_player(target_door_name: String) -> void:
-	# Check the name of the target door.
-	# If it exists in this room, spawn the player there.
+func spawn_player(player: Player, target_door_name: String) -> void:
+	# Check the name of the target door against the doors in this room
+	# If it exists in this room, add the player to the room and move it to the correct location
 	for door: Door in doors:
 		if door.door_name == target_door_name:
-			print("Room: Spawning player in room '%s' at door '%s' with position '%s'" % [name, target_door_name, door.position])
-			var player: Player = load("res://src/actors/characters/player/player.tscn").instantiate()
+			print("Room '%s': Placing player at door '%s'" % [name, target_door_name])
 			add_child(player)
 			player.global_position = door.position
 			return
 	
-	# If the target door didn't exist anywhere in the room, report the issue.
-	push_warning("Room: Target door '%s' does not exist in room '%s'." % [target_door_name, name])
+	# If the target door didn't exist anywhere in the room, report the issue
+	push_warning("Room '%s': Door '%s' does not exist in this room" % [name, target_door_name])

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://beub4bx6t3wvh"]
+
+[ext_resource type="Script" uid="uid://bp0q6kcw64vf2" path="res://src/objects/obstacles/spikes/spike.gd" id="1_yhnhy"]
+[ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="2_ua5eq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5sn6"]
+size = Vector2(25, 89)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhnhy"]
+size = Vector2(39, 109)
+
+[node name="Spike" type="StaticBody2D"]
+collision_layer = 12
+script = ExtResource("1_yhnhy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, -4.5)
+shape = SubResource("RectangleShape2D_a5sn6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.8626014, 0, 0.21361324, 1)
+position = Vector2(3.499999, -1.9999993)
+scale = Vector2(0.4296875, 1)
+texture = ExtResource("2_ua5eq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3.5, -3.5)
+shape = SubResource("RectangleShape2D_yhnhy")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
