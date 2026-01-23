@@ -38,11 +38,12 @@ scale_max = 0.19999999
 color_ramp = SubResource("GradientTexture1D_ptvio")
 color_initial_ramp = SubResource("GradientTexture1D_uq4sn")
 
-[node name="LeafParticles2" type="GPUParticles2D"]
+[node name="LeafParticles" type="GPUParticles2D"]
 amount = 30
 texture = ExtResource("1_yvlda")
 lifetime = 5.0
-speed_scale = 1.5699999999999998
+preprocess = 2.71
+speed_scale = 1.29
 randomness = 1.0
 trail_enabled = true
 trail_lifetime = 0.6
