@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://dqviomxk1qqcu"]
+
+[ext_resource type="Texture2D" uid="uid://c4yovapc33jth" path="res://assets/particle_effects/leaf_dash_effect/AllLeaves-ParticleAsset-001.png" id="1_wqs8c"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wqs8c"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_y2cxc"]
+offsets = PackedFloat32Array(0.002754821, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uq4sn"]
+gradient = SubResource("Gradient_y2cxc")
+
+[sub_resource type="Gradient" id="Gradient_kr0xw"]
+offsets = PackedFloat32Array(0.002754821, 0.09090909, 0.19559228, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.9520767, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ptvio"]
+gradient = SubResource("Gradient_kr0xw")
+
+[sub_resource type="Curve" id="Curve_dkd0t"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0.007712085, 0.9940491), 0.0, -3099.8835, 0, 0, Vector2(0.08483291, 16.501007), 0.0, 0.0, 0, 0, Vector2(0.1773779, 19.085495), 0.0, 0.0, 0, 0, Vector2(0.2236504, -9.596924), 0.0, 0.0, 0, 0, Vector2(0.28020567, -14.512909), 0.0, 0.0, 0, 0, Vector2(0.32647815, -4.1749573), -88.70891, -88.70891, 0, 0, Vector2(0.38303342, 21.669983), -102.17191, -102.17191, 0, 0, Vector2(0.4293059, -11.928436), 0.0, 0.0, 0, 0, Vector2(0.50899744, -9.343933), 0.0, 0.0, 0, 0, Vector2(0.5655527, -9.343933), 0.0, 0.0, 0, 0, Vector2(0.64267355, 19.085495), 0.0, 0.0, 0, 0, Vector2(0.6966581, 6.163025), 0.0, 0.0, 0, 0, Vector2(0.76863754, -6.75943), 0.0, 0.0, 0, 0, Vector2(0.8688946, 29.423462), -373.4222, -373.4222, 0, 0, Vector2(0.96143955, 12.859894), 0.0, 0.0, 0, 0]
+point_count = 15
+
+[sub_resource type="CurveTexture" id="CurveTexture_mo1bo"]
+curve = SubResource("Curve_dkd0t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o6juj"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 128.0
+angle_min = 1.0728835e-05
+angle_max = 360.00003
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+initial_velocity_min = 298.79
+initial_velocity_max = 544.64996
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -40.84
+tangential_accel_max = 54.189995
+tangential_accel_curve = SubResource("CurveTexture_mo1bo")
+damping_max = 100.00001
+scale_min = 0.01
+scale_max = 0.19999999
+color_ramp = SubResource("GradientTexture1D_ptvio")
+color_initial_ramp = SubResource("GradientTexture1D_uq4sn")
+anim_offset_min = 0.0495
+anim_offset_max = 0.8125
+turbulence_noise_strength = 20.0
+turbulence_noise_scale = 0.74
+
+[node name="WindParticles" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_wqs8c")
+amount = 80
+texture = ExtResource("1_wqs8c")
+lifetime = 6.0
+preprocess = 1.48
+speed_scale = 3.85
+randomness = 1.0
+trail_lifetime = 0.6
+process_material = SubResource("ParticleProcessMaterial_o6juj")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://235r5kxe6tak"
-path="res://.godot/imported/windtest.png-e748ed3536df73e96bd58ffef0b00c17.ctex"
+uid="uid://c4yovapc33jth"
+path="res://.godot/imported/AllLeaves-ParticleAsset-001.png-6d6989244325df24971f88c97d7d44bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/particle_effects/windtest.png"
-dest_files=["res://.godot/imported/windtest.png-e748ed3536df73e96bd58ffef0b00c17.ctex"]
+source_file="res://assets/particle_effects/leaf_dash_effect/AllLeaves-ParticleAsset-001.png"
+dest_files=["res://.godot/imported/AllLeaves-ParticleAsset-001.png-6d6989244325df24971f88c97d7d44bb.ctex"]
 
 [params]
 

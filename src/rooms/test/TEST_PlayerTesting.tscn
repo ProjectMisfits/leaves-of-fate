@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://dyxep0ks8a14r"]
+[gd_scene load_steps=6 format=4 uid="uid://dyxep0ks8a14r"]
 
 [ext_resource type="PackedScene" uid="uid://cjkpybae7njrh" path="res://src/actors/characters/player/player.tscn" id="1_vsh30"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="2_n0vwu"]
-[ext_resource type="PackedScene" uid="uid://u8lskigilb8r" path="res://assets/particle_effects/leaf_particles.tscn" id="3_umlnt"]
-[ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://assets/particle_effects/leaf_particles2.tscn" id="4_yk3je"]
+[ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://assets/particle_effects/leaf_dash_effect/wind_particles.tscn" id="4_yk3je"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c7rbl"]
 texture = ExtResource("2_n0vwu")
@@ -23,13 +22,7 @@ sources/1 = SubResource("TileSetAtlasSource_c7rbl")
 [node name="Player" parent="." instance=ExtResource("1_vsh30")]
 position = Vector2(0, -371)
 
-[node name="LeafParticles" parent="Player" instance=ExtResource("3_umlnt")]
-visible = false
-
-[node name="LeafParticles2" parent="Player" instance=ExtResource("4_yk3je")]
-position = Vector2(-6, 0)
-rotation = 3.1415927
-scale = Vector2(1, 1)
+[node name="WindParticles" parent="Player" instance=ExtResource("4_yk3je")]
 
 [node name="Tilemap" type="Node" parent="."]
 
