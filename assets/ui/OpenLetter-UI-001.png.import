@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cooitf66d50v"
-path="res://.godot/imported/OpenLetter_UI_001.png-aa3a58e7ce5479c5217b04fd73f75452.ctex"
+path="res://.godot/imported/OpenLetter-UI-001.png-9a0729d65a1eafbb230ecd86868daf54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/OpenLetter_UI_001.png"
-dest_files=["res://.godot/imported/OpenLetter_UI_001.png-aa3a58e7ce5479c5217b04fd73f75452.ctex"]
+source_file="res://assets/ui/OpenLetter-UI-001.png"
+dest_files=["res://.godot/imported/OpenLetter-UI-001.png-9a0729d65a1eafbb230ecd86868daf54.ctex"]
 
 [params]
 
