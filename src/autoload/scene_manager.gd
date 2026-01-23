@@ -23,6 +23,11 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 		push_warning("SceneManager: Requested scene '%s' does not exist at path." % scene_to_load)
 		return -1
 	
+	# Unload the scene that is no longer needed.
+	if scene_to_unload != null and scene_to_unload != get_tree().root:
+		print("SceneManager: Unloading scene '%s'" % scene_to_unload)
+		scene_to_unload.queue_free()
+	
 	# Load the desired scene.
 	var loaded_scene: Node = ResourceLoader.load(scene_to_load, "PackedScene").instantiate()
 	
@@ -37,10 +42,5 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 	# Add the newly loaded scene to the scene tree.
 	print("SceneManager: Loading scene '%s'" % loaded_scene)
 	load_as_child_of.add_child(loaded_scene)
-	
-	# Unload the scene that is no longer needed.
-	if scene_to_unload != null and scene_to_unload != get_tree().root:
-		print("SceneManager: Unloading scene '%s'" % scene_to_unload)
-		scene_to_unload.queue_free()
 	
 	return 0
