@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi3hvyfhivvd6"]
+
+[ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_alcar"]
+
+[node name="TEST_Room2" instance=ExtResource("1_alcar")]
+
+[node name="DoorExit" parent="Doors" index="1"]
+path_to_target_room = "uid://djpsx4saffd7j"

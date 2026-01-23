@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="Misfits MQP Project"
-run/main_scene="uid://dyxep0ks8a14r"
+run/main_scene="uid://18bv6betadgh"
 config/features=PackedStringArray("4.5", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [audio]
@@ -22,6 +23,7 @@ buses/default_bus_layout=""
 [autoload]
 
 __InkRuntime="*res://addons/inkgd/ink_runtime.gd"
+SceneManager="*res://src/autoload/scene_manager.gd"
 
 [debug]
 
@@ -91,3 +93,8 @@ dash={
 [layer_names]
 
 2d_physics/layer_1="player"
+2d_physics/layer_2="foreground"
+
+[physics]
+
+common/physics_interpolation=true
