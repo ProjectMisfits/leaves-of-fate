@@ -1,0 +1,151 @@
+[gd_scene load_steps=8 format=3 uid="uid://bb283aw7thbyy"]
+
+[ext_resource type="Texture2D" uid="uid://cooitf66d50v" path="res://assets/ui/OpenLetter_UI_001.png" id="1_to6uu"]
+[ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="2_s33xj"]
+[ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="3_fbolq"]
+[ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="4_n6kcy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7m7qc"]
+texture = ExtResource("1_to6uu")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1mopo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ksrcw"]
+
+[node name="SavesSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -419.5
+offset_top = -396.5
+offset_right = 419.5
+offset_bottom = 396.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7m7qc")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -379.0
+offset_top = 29.0
+offset_right = 399.0
+offset_bottom = 130.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.34117648, 0.43529412, 0.20784314, 1)
+theme_override_fonts/font = ExtResource("2_s33xj")
+theme_override_font_sizes/font_size = 95
+text = "Select Save Game"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 86.0
+offset_top = -251.5
+offset_right = 347.0
+offset_bottom = 59.5
+grow_vertical = 2
+
+[node name="Save1Button" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(248, 101)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1mopo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ksrcw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ksrcw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ksrcw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ksrcw")
+text = "Save 1
+"
+alignment = 2
+script = ExtResource("3_fbolq")
+
+[node name="LeafPointer" type="TextureRect" parent="Panel/VBoxContainer/Save1Button"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.5
+offset_right = 67.0
+offset_bottom = 32.5
+grow_vertical = 2
+texture = ExtResource("4_n6kcy")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Save2Button" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(261, 101)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1mopo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ksrcw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ksrcw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ksrcw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ksrcw")
+text = "Save 2
+"
+alignment = 2
+script = ExtResource("3_fbolq")
+
+[node name="LeafPointer" type="TextureRect" parent="Panel/VBoxContainer/Save2Button"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.5
+offset_right = 67.0
+offset_bottom = 32.5
+grow_vertical = 2
+texture = ExtResource("4_n6kcy")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Save3Button" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(260, 101)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1mopo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ksrcw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ksrcw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ksrcw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ksrcw")
+text = "Save 3"
+alignment = 2
+script = ExtResource("3_fbolq")
+
+[node name="LeafPointer" type="TextureRect" parent="Panel/VBoxContainer/Save3Button"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.5
+offset_right = 67.0
+offset_bottom = 32.5
+grow_vertical = 2
+texture = ExtResource("4_n6kcy")
+expand_mode = 1
+stretch_mode = 4
