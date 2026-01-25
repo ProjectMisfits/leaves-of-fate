@@ -109,26 +109,26 @@ func _physics_process(delta: float) -> void:
 
 # Adds state transitions & initializes state machine.
 func initialize_state_machine() -> void:
-	state_machine.add_transition(idle_state,running_state,"to_running")
-	state_machine.add_transition(idle_state,jumping_state,"to_jumping")
-	state_machine.add_transition(idle_state,airborne_state,"to_airborne")
-	state_machine.add_transition(idle_state,dashing_state,"to_dashing")
+	state_machine.add_transition(idle_state,running_state,&"to_running")
+	state_machine.add_transition(idle_state,jumping_state,&"to_jumping")
+	state_machine.add_transition(idle_state,airborne_state,&"to_airborne")
+	state_machine.add_transition(idle_state,dashing_state,&"to_dashing")
 	
-	state_machine.add_transition(running_state,idle_state,"to_idle")
-	state_machine.add_transition(running_state,jumping_state,"to_jumping")
-	state_machine.add_transition(running_state,airborne_state,"to_airborne")
-	state_machine.add_transition(running_state,dashing_state,"to_dashing")
+	state_machine.add_transition(running_state,idle_state,&"to_idle")
+	state_machine.add_transition(running_state,jumping_state,&"to_jumping")
+	state_machine.add_transition(running_state,airborne_state,&"to_airborne")
+	state_machine.add_transition(running_state,dashing_state,&"to_dashing")
 	
-	state_machine.add_transition(jumping_state,airborne_state,"to_airborne")
-	state_machine.add_transition(jumping_state,dashing_state,"to_dashing")
+	state_machine.add_transition(jumping_state,airborne_state,&"to_airborne")
+	state_machine.add_transition(jumping_state,dashing_state,&"to_dashing")
 	
-	state_machine.add_transition(airborne_state,idle_state,"to_idle")
-	state_machine.add_transition(airborne_state,running_state,"to_running")
-	state_machine.add_transition(airborne_state,dashing_state,"to_dashing")
+	state_machine.add_transition(airborne_state,idle_state,&"to_idle")
+	state_machine.add_transition(airborne_state,running_state,&"to_running")
+	state_machine.add_transition(airborne_state,dashing_state,&"to_dashing")
 	
-	state_machine.add_transition(dashing_state,idle_state,"to_idle")
-	state_machine.add_transition(dashing_state,running_state,"to_running")
-	state_machine.add_transition(dashing_state,airborne_state,"to_airborne")
+	state_machine.add_transition(dashing_state,idle_state,&"to_idle")
+	state_machine.add_transition(dashing_state,running_state,&"to_running")
+	state_machine.add_transition(dashing_state,airborne_state,&"to_airborne")
 	
 	state_machine.initial_state = idle_state
 	state_machine.initialize(self)
@@ -141,7 +141,7 @@ func check_idle_state() -> void:
 		var x_input_is_zero: bool = (get_x_input() == 0.0)
 		
 		if velocity_is_zero and x_input_is_zero:
-			state_machine.dispatch("to_idle")
+			state_machine.dispatch(&"to_idle")
 
 # If the player is moving on the ground, change to running state.
 func check_running_state() -> void:
@@ -150,31 +150,31 @@ func check_running_state() -> void:
 		var x_velocity_not_zero: bool = (velocity.x != 0.0)
 		
 		if x_input_not_zero or x_velocity_not_zero:
-			state_machine.dispatch("to_running")
+			state_machine.dispatch(&"to_running")
 
 # If the player queued a jump & is on floor or within coyote time, change to jumping state.
 func check_jumping_state() -> void:
 	if jump_queued:
 		var is_within_coyote_time: bool = (time_since_on_floor <= jump_coyote_time)
 		if is_on_floor() or is_within_coyote_time:
-			state_machine.dispatch("to_jumping")
+			state_machine.dispatch(&"to_jumping")
 
 # If the player is airborne AND the coyote timer has expired, change to airborne state.
 func check_airborne_state() -> void:
 	var is_coyote_timer_expired: bool = (time_since_on_floor > jump_coyote_time)
 	if not is_on_floor() and is_coyote_timer_expired:
-		state_machine.dispatch("to_airborne")
+		state_machine.dispatch(&"to_airborne")
 
 # If the player is trying to dash and leaf meter is not zero, change to dashing state.
 func check_dashing_state() -> void:
 	var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
 	
-	if Input.is_action_just_pressed("dash") and is_leaf_meter_not_empty:
-		state_machine.dispatch("to_dashing")
+	if Input.is_action_just_pressed(&"dash") and is_leaf_meter_not_empty:
+		state_machine.dispatch(&"to_dashing")
 
 # Get the input direction and handle the movement/deceleration.
 func move_horizontal(acceleration: float, deceleration: float, turn_speed: float) -> void:
-	var direction: float = Input.get_axis("move_left", "move_right")
+	var direction: float = get_x_input()
 	var new_velocity: float = 0.0
 	
 	if (direction == 0.0) and (state_machine.get_previous_active_state() != dashing_state): # No direction & did not exit Leaf Dash
@@ -209,7 +209,7 @@ func move_horizontal_air() -> void:
 
 # Returns the player's x-input value.
 func get_x_input() -> float:
-	return Input.get_axis("move_left", "move_right")
+	return Input.get_axis(&"move_left", &"move_right")
 
 # Updates jump velocity & gravity variables
 func compute_jump_parameters() -> void:
@@ -220,7 +220,7 @@ func compute_gravity() -> float:
 	var new_velocity: float
 
 	# Control variable jump height by checking is "jump" is being held
-	if (state_machine.get_active_state() == jumping_state) and Input.is_action_pressed("jump"):
+	if (state_machine.get_active_state() == jumping_state) and Input.is_action_pressed(&"jump"):
 		new_velocity = jump_gravity
 	else:
 		new_velocity = jump_gravity * fall_gravity_multiplier
@@ -234,7 +234,7 @@ func update_jump_queue(delta: float) -> void:
 		print(time_since_jump_queued)
 		if (time_since_jump_queued > jump_buffer_time):	# Check if jump has been queued for too long
 			jump_queued = false							# Jump loses its queue
-	elif Input.is_action_just_pressed("jump"):
+	elif Input.is_action_just_pressed(&"jump"):
 		jump_queued = true
 		time_since_jump_queued = 0.0
 
