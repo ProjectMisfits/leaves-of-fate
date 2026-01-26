@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cu166em1kgubw"
+path="res://.godot/imported/4-Az-BangleTalk-CellarGeneral.dialogue-4dcc43f07f1443265692c85a8f388796.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/4-Az-BangleTalk-CellarGeneral.dialogue"
+dest_files=["res://.godot/imported/4-Az-BangleTalk-CellarGeneral.dialogue-4dcc43f07f1443265692c85a8f388796.tres"]
+
+[params]
+
+defaults=true

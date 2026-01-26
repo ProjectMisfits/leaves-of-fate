@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cr0eyu8r26ipj"
+path="res://.godot/imported/3-Az-Stuck-Pantry.dialogue-1a5f1a80ccd1ead1e6603c02b66f5768.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/3-Az-Stuck-Pantry.dialogue"
+dest_files=["res://.godot/imported/3-Az-Stuck-Pantry.dialogue-1a5f1a80ccd1ead1e6603c02b66f5768.tres"]
+
+[params]
+
+defaults=true
