@@ -5,6 +5,7 @@ func _enter() -> void:
 	agent.jump()
 
 func _update(_delta: float) -> void:
+	agent.check_talk()
 	agent.check_dashing_state()
 	
 	if (agent.velocity.y >= 0.0):	# Can only transition into airborne once jump reaches peak
