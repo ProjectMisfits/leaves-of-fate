@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bwdotngptxh5k"
+path="res://.godot/imported/Workshop-AzWinston-SaveWinston.dialogue-3c9050870e0f6f721dc6f77837839abf.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/Workshop-AzWinston-SaveWinston.dialogue"
+dest_files=["res://.godot/imported/Workshop-AzWinston-SaveWinston.dialogue-3c9050870e0f6f721dc6f77837839abf.tres"]
+
+[params]
+
+defaults=true

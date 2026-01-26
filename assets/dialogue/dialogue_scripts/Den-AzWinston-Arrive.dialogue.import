@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://be8dog2eea1tm"
+path="res://.godot/imported/Den-AzWinston-Arrive.dialogue-d6abaa97e5abc2f3a6dd48575ce83a31.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/Den-AzWinston-Arrive.dialogue"
+dest_files=["res://.godot/imported/Den-AzWinston-Arrive.dialogue-d6abaa97e5abc2f3a6dd48575ce83a31.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bbwxxjmh5jp4p"
+path="res://.godot/imported/Workshop-AzWinston-Enter.dialogue-080f4e8289c693d82112ed0703f30b26.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/Workshop-AzWinston-Enter.dialogue"
+dest_files=["res://.godot/imported/Workshop-AzWinston-Enter.dialogue-080f4e8289c693d82112ed0703f30b26.tres"]
+
+[params]
+
+defaults=true

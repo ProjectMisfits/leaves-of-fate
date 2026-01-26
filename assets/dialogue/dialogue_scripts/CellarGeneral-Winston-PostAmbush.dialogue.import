@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://m7mte5ll8if5"
+path="res://.godot/imported/CellarGeneral-Winston-PostAmbush.dialogue-c880b47d90dd206ab48e095856006b40.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/CellarGeneral-Winston-PostAmbush.dialogue"
+dest_files=["res://.godot/imported/CellarGeneral-Winston-PostAmbush.dialogue-c880b47d90dd206ab48e095856006b40.tres"]
+
+[params]
+
+defaults=true

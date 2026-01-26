@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ctgdxodsiakm6"
+path="res://.godot/imported/Heater-AzWinston-TurnOn-1.dialogue-e22479cc17ffd312eca6222b27c0b952.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/Heater-AzWinston-TurnOn-1.dialogue"
+dest_files=["res://.godot/imported/Heater-AzWinston-TurnOn-1.dialogue-e22479cc17ffd312eca6222b27c0b952.tres"]
+
+[params]
+
+defaults=true

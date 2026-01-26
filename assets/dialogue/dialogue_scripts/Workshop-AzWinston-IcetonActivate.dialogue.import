@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://caryu0c5k215e"
+path="res://.godot/imported/Workshop-AzWinston-IcetonActivate.dialogue-36161cec7b0f83a01e90d7ed3ab7a994.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/Workshop-AzWinston-IcetonActivate.dialogue"
+dest_files=["res://.godot/imported/Workshop-AzWinston-IcetonActivate.dialogue-36161cec7b0f83a01e90d7ed3ab7a994.tres"]
+
+[params]
+
+defaults=true

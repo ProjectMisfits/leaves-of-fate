@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bsg0iglh5r1mq"
+path="res://.godot/imported/HeaterArea-Winston-Lost.dialogue-40948083632e067f70ea5477ab304066.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/HeaterArea-Winston-Lost.dialogue"
+dest_files=["res://.godot/imported/HeaterArea-Winston-Lost.dialogue-40948083632e067f70ea5477ab304066.tres"]
+
+[params]
+
+defaults=true
