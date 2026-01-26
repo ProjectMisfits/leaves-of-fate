@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2naxykryeqv7"]
+[gd_scene load_steps=4 format=3 uid="uid://d2naxykryeqv7"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_dxog3"]
 [ext_resource type="PackedScene" uid="uid://daw5s2hjs0tq1" path="res://src/objects/npc/npc_base/npc_base.tscn" id="2_l7i0k"]
+[ext_resource type="PackedScene" uid="uid://3uy4bxu8vo0r" path="res://src/objects/obstacles/spikes/spike_4.tscn" id="3_hsekl"]
 
 [node name="TEST_DialogueManager" instance=ExtResource("1_dxog3")]
 
 [node name="NpcBase" parent="." index="3" instance=ExtResource("2_l7i0k")]
 position = Vector2(1094, 698)
+
+[node name="Spike" parent="." index="4" instance=ExtResource("3_hsekl")]
+position = Vector2(598, 985)
+scale = Vector2(0.485, 0.485)

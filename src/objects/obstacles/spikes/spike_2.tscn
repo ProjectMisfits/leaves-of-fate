@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://dj648l5mb7v6m"]
+
+[ext_resource type="Script" uid="uid://bp0q6kcw64vf2" path="res://src/objects/obstacles/spikes/spike.gd" id="1_4n5pg"]
+[ext_resource type="Texture2D" uid="uid://co02j1n6hqgy4" path="res://assets/environment/obstacles/ice_spikes/Icicle-03.png" id="2_4n5pg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5sn6"]
+size = Vector2(27, 33)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xav23"]
+a = Vector2(10, -46)
+b = Vector2(-4, 31)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xyvce"]
+a = Vector2(-5, -15)
+b = Vector2(0, 38)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_a06yc"]
+a = Vector2(-18, -90)
+b = Vector2(7, 30)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_olbb3"]
+a = Vector2(20, 5)
+b = Vector2(-13, 6)
+
+[node name="Spike" type="StaticBody2D"]
+collision_layer = 12
+script = ExtResource("1_4n5pg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, 0.5)
+shape = SubResource("RectangleShape2D_a5sn6")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.499999, -1.9999993)
+scale = Vector2(0.32386923, 0.32386923)
+texture = ExtResource("2_4n5pg")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-13, -21)
+shape = SubResource("SegmentShape2D_xav23")
+debug_color = Color(0.8156863, 0.32941177, 0.627451, 0.7764706)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-12, 26)
+shape = SubResource("SegmentShape2D_xyvce")
+debug_color = Color(0.8156863, 0.32941177, 0.627451, 0.7764706)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(16, 32)
+shape = SubResource("SegmentShape2D_a06yc")
+debug_color = Color(0.8156863, 0.32941177, 0.627451, 0.7764706)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4, 59)
+shape = SubResource("SegmentShape2D_olbb3")
+debug_color = Color(0.8156863, 0.32941177, 0.627451, 0.7764706)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
