@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5le1g02hk8dt"
-path="res://.godot/imported/ph-stone-wall-1.png-99091c74a36e3e713b0f1954dd976257.ctex"
+uid="uid://cp7g7b6wdpi53"
+path="res://.godot/imported/PH-planks-horiz-1.png-8dd7778eaf7dfd0e9f8e95b78e777248.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/world/ph-stone-wall-1.png"
-dest_files=["res://.godot/imported/ph-stone-wall-1.png-99091c74a36e3e713b0f1954dd976257.ctex"]
+source_file="res://assets/rooms/tileset/PH-planks-horiz-1.png"
+dest_files=["res://.godot/imported/PH-planks-horiz-1.png-8dd7778eaf7dfd0e9f8e95b78e777248.ctex"]
 
 [params]
 

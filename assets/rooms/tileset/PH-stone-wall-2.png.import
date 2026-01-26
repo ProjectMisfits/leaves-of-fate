@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://tynr1ldppsel"
-path="res://.godot/imported/ph-stone-wall-2.png-b465865c93b61dc889cac77f93f1a44e.ctex"
+path="res://.godot/imported/PH-stone-wall-2.png-cb051138cb6ce4a62fae4a6e87e6a592.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/world/ph-stone-wall-2.png"
-dest_files=["res://.godot/imported/ph-stone-wall-2.png-b465865c93b61dc889cac77f93f1a44e.ctex"]
+source_file="res://assets/rooms/tileset/PH-stone-wall-2.png"
+dest_files=["res://.godot/imported/PH-stone-wall-2.png-cb051138cb6ce4a62fae4a6e87e6a592.ctex"]
 
 [params]
 

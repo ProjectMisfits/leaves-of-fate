@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bokl20qwsrj6e"
-path="res://.godot/imported/ph-planks-45deg-1.png-78765a2f59058c581d7d97234410eb41.ctex"
+uid="uid://b5le1g02hk8dt"
+path="res://.godot/imported/PH-stone-wall-1.png-e502073bba66fcdc2ac90c84a8d54c3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/world/ph-planks-45deg-1.png"
-dest_files=["res://.godot/imported/ph-planks-45deg-1.png-78765a2f59058c581d7d97234410eb41.ctex"]
+source_file="res://assets/rooms/tileset/PH-stone-wall-1.png"
+dest_files=["res://.godot/imported/PH-stone-wall-1.png-e502073bba66fcdc2ac90c84a8d54c3d.ctex"]
 
 [params]
 
