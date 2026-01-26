@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://vdi6hdwmhlj1"
+path="res://.godot/imported/5-Winston-Ambush-CellarGeneral.dialogue-fdf333fe5d7b2b4248a1363c5f6fe191.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/5-Winston-Ambush-CellarGeneral.dialogue"
+dest_files=["res://.godot/imported/5-Winston-Ambush-CellarGeneral.dialogue-fdf333fe5d7b2b4248a1363c5f6fe191.tres"]
+
+[params]
+
+defaults=true

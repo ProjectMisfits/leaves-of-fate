@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dt1tylecepja1"
+path="res://.godot/imported/7a-Winston-CageTrap-HeaterArea.dialogue-2d78545bb6529eff5efec8dfacb75daf.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/7a-Winston-CageTrap-HeaterArea.dialogue"
+dest_files=["res://.godot/imported/7a-Winston-CageTrap-HeaterArea.dialogue-2d78545bb6529eff5efec8dfacb75daf.tres"]
+
+[params]
+
+defaults=true
