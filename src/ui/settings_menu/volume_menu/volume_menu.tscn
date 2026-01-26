@@ -1,12 +1,39 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4l00r3wj2x28"]
+[gd_scene load_steps=11 format=3 uid="uid://d4l00r3wj2x28"]
 
 [ext_resource type="Texture2D" uid="uid://c44j0kj2rhy3b" path="res://assets/ui/FullLetter-UI-001.png" id="1_lu1ff"]
 [ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="2_ixl7f"]
-[ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="3_ixl7f"]
+[ext_resource type="Texture2D" uid="uid://cjmu0wklpfwll" path="res://assets/ui/Leaf_SliderAsset_001.svg" id="3_ixl7f"]
 [ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="3_wfrvw"]
+[ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="5_lh5ut"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wfrvw"]
 texture = ExtResource("1_lu1ff")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfrvw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.5882353, 0.4862745, 0.49019608, 0.65882355)
+border_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2uc65"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.25882354, 0.32941177, 0.13333334, 1)
+border_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lh5ut"]
 
@@ -56,6 +83,10 @@ offset_top = -189.5
 offset_right = 1038.5
 offset_bottom = -151.5
 grow_vertical = 2
+theme_override_icons/grabber_highlight = ExtResource("3_ixl7f")
+theme_override_styles/slider = SubResource("StyleBoxFlat_wfrvw")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_2uc65")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_2uc65")
 
 [node name="ExitButton" type="Button" parent="Panel"]
 custom_minimum_size = Vector2(182, 101)
@@ -87,7 +118,7 @@ offset_top = -32.5
 offset_right = 67.0
 offset_bottom = 32.5
 grow_vertical = 2
-texture = ExtResource("3_ixl7f")
+texture = ExtResource("5_lh5ut")
 expand_mode = 1
 stretch_mode = 4
 
