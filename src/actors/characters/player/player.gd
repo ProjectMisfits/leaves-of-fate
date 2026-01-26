@@ -5,7 +5,6 @@ extends CharacterBody2D
 class_name Player
 
 @export var database: JSON = null
-@export var player_dash_scene: PackedScene = null
 
 ### DATABASE VARIABLES ###
 var health: int
@@ -47,9 +46,11 @@ var dash_shimmy_acceleration: float
 var dash_shimmy_deceleration: float
 var dash_shimmy_turn_speed: float
 
-## State Machine + FlipNode ##
+## Node references + State Machine ##
 # flip_node scale changes depending on Player's look direction; all children will be flipped.
 @onready var flip_node: Node2D = $FlipNode
+@onready var animated_sprite_2d: AnimatedSprite2D = $FlipNode/AnimatedSprite2D
+@onready var dash_particles: Node2D = $FlipNode/DashParticles
 
 @onready var state_machine: LimboHSM = $LimboHSM
 @onready var idle_state: LimboState = $LimboHSM/Idle
@@ -90,14 +91,15 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	update_jump_queue(delta)
 	
-	velocity.y += compute_gravity() * delta
-	velocity.y = clampf(velocity.y, -INF, terminal_velocity) # velocity cannot exceed terminal velocity
+	if (not dashing_state.is_active()):
+		velocity.y += compute_gravity() * delta
+		velocity.y = clampf(velocity.y, -INF, terminal_velocity) # velocity cannot exceed terminal velocity
+		
+		if (look_direction < 0): # Flip root node to Player's look direction
+			flip_node.scale.x = -1.0
+		else:
+			flip_node.scale.x = 1.0
 	
-	if (look_direction < 0): # Flip root node to Player's look direction
-		flip_node.scale.x = -1.0
-	else:
-		flip_node.scale.x = 1.0
-
 	move_and_slide()
 	
 	# Update floor-dependent variables.
@@ -167,10 +169,12 @@ func check_airborne_state() -> void:
 
 # If the player is trying to dash and leaf meter is not zero, change to dashing state.
 func check_dashing_state() -> void:
-	var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
-	
-	if Input.is_action_just_pressed(&"dash") and is_leaf_meter_not_empty:
-		state_machine.dispatch(&"to_dashing")
+	if Input.is_action_just_pressed(&"dash"):
+		var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
+		var is_direction_pressed: bool = (Input.get_vector("move_left", "move_right", "move_up", "move_down") != Vector2.ZERO)
+		
+		if is_direction_pressed and is_leaf_meter_not_empty:
+			state_machine.dispatch(&"to_dashing")
 
 # Get the input direction and handle the movement/deceleration.
 func move_horizontal(acceleration: float, deceleration: float, turn_speed: float) -> void:
@@ -247,25 +251,8 @@ func jump() -> void:
 
 # Instantiate player dash scene & hibernate self
 func dash() -> void:
-	# Create new player dash instance
-	var new_player_dash: PlayerDash = player_dash_scene.instantiate()
-	
-	if not get_parent():
-		push_error("failed to fetch parent reference.")
-		return
-	get_parent().add_child(new_player_dash)
-	
-	new_player_dash.control_player(self)
-
-func set_disabled(to_disable: bool) -> bool:
-	if to_disable:
-		visible = false
-		process_mode = Node.PROCESS_MODE_DISABLED
-	else:
-		visible = true
-		process_mode = Node.PROCESS_MODE_INHERIT
-	
-	return true
+	# TODO: Gotta remove that gravity & shucks
+	pass
 
 func check_talk()->void:
 	#if the player just tried to interact with something see if there was someone you could talk to
@@ -273,8 +260,6 @@ func check_talk()->void:
 		var talkables = $FlipNode/InteractableArea/InteractSpace.get_overlapping_areas() 
 		if talkables.size() >0:
 			talkables[0].talk();
-				
-		
 
 # Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
