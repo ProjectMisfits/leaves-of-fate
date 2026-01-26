@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://du42aku0qy3o5"]
+[gd_scene load_steps=13 format=3 uid="uid://du42aku0qy3o5"]
 
 [ext_resource type="Script" uid="uid://d4f3atc2qvswq" path="res://src/ui/dialogue_boxes/balloon.gd" id="1_36de5"]
+[ext_resource type="StyleBox" uid="uid://uirtj16growx" path="res://src/ui/dialogue_boxes/base.stylebox" id="2_1vp8l"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
-[ext_resource type="Texture2D" uid="uid://dk5bpfuimu5cp" path="res://assets/ui/dialogue_boxes/DialogueBoxFenn-UI-001.png" id="2_yhnfq"]
 [ext_resource type="AudioStream" uid="uid://cegtcd1uydire" path="res://assets/dialogue/beep_speech/PH-bleep-28.ogg" id="5_y84od"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
@@ -63,11 +63,6 @@ MarginContainer/constants/margin_left = 30
 MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y84od"]
-content_margin_left = 89.0
-texture = ExtResource("2_yhnfq")
-region_rect = Rect2(36.79271, 40.849686, 1846.2245, 236.57191)
 
 [sub_resource type="Animation" id="Animation_nlsx6"]
 length = 0.001
@@ -130,7 +125,7 @@ grow_horizontal = 2
 clip_children = 2
 layout_mode = 2
 mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxTexture_y84od")
+theme_override_styles/panel = ExtResource("2_1vp8l")
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer"]
 layout_mode = 2
@@ -170,7 +165,6 @@ size_flags_vertical = 8
 
 [node name="Progress" type="Polygon2D" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Control"]
 unique_name_in_owner = true
-position = Vector2(-119, 0)
 polygon = PackedVector2Array(0, 0, 10, 10, 20, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Control"]

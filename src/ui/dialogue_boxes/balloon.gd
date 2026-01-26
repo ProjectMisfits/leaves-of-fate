@@ -2,7 +2,8 @@ extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
 ## The texture for the dialogue box currently being used
-@onready var dialoge_texture: PanelContainer = $Balloon/MarginContainer/PanelContainer
+@onready var dialogue_panel: PanelContainer = $Balloon/MarginContainer/PanelContainer
+
 ## The dialogue resource
 @export var dialogue_resource: DialogueResource
 
@@ -126,7 +127,14 @@ func apply_dialogue_line() -> void:
 	character_label.text = tr(dialogue_line.character, "dialogue")
 	
 	#Change the texture for the specifc name
-
+	match character_label.text.to_lower():
+		"fenn":
+			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/base.stylebox"))
+		"test":
+			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/base_test2.stylebox"))
+		_:
+			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/base.stylebox"))
+	
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
 
