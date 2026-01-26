@@ -17,7 +17,7 @@ func _enter() -> void:
 
 func _update(_delta: float) -> void:
 	# Check if Player stopped holding dash Action
-	if (not Input.is_action_pressed("dash")):
+	if (not Input.is_action_pressed("dash") or (agent.leaf_meter <= 0)):
 		agent.check_airborne_state()
 		agent.check_running_state()
 		agent.check_idle_state()

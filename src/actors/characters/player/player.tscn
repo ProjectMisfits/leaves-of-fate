@@ -47,6 +47,8 @@ script = ExtResource("1_npkjl")
 database = ExtResource("2_7gsup")
 
 [node name="Camera" parent="." instance=ExtResource("4_wcwgi")]
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_q4vut")
@@ -100,3 +102,9 @@ script = ExtResource("9_q6jdu")
 
 [node name="Interacting" type="LimboState" parent="LimboHSM"]
 script = ExtResource("10_u7uqy")
+
+[node name="DashBar" type="ProgressBar" parent="."]
+offset_left = -116.0
+offset_top = -239.0
+offset_right = 113.0
+offset_bottom = -159.0

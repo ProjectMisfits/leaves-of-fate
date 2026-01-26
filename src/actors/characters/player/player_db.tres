@@ -24,10 +24,10 @@ data = {
 "jump_coyote_time": 0.2,
 "jump_height": 500.0,
 "jump_time_to_peak": 0.7,
-"meter_buildup_rate": 10.0,
+"meter_buildup_rate": 20.0,
 "meter_dash_deceleration_start": 20.0,
-"meter_dash_drain_rate": 5.0,
-"meter_drain_rate": 2.0,
+"meter_dash_drain_rate": 30.0,
+"meter_drain_rate": 10.0,
 "meter_max_capacity": 100.0,
 "run_max_speed": 800.0,
 "terminal_velocity": 4000.0

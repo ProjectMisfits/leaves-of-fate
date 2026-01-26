@@ -47,6 +47,8 @@ var dash_shimmy_deceleration: float
 var dash_shimmy_turn_speed: float
 
 ## Node references + State Machine ##
+@onready var dash_bar: ProgressBar = $DashBar
+
 # flip_node scale changes depending on Player's look direction; all children will be flipped.
 @onready var flip_node: Node2D = $FlipNode
 @onready var animated_sprite_2d: AnimatedSprite2D = $FlipNode/AnimatedSprite2D
@@ -65,7 +67,7 @@ var dash_shimmy_turn_speed: float
 var current_health: int
 var look_direction: float = 1.0 # <0 is left, >=0 is right
 var jump_queued: bool = false
-var leaf_meter: float = 100.0
+var leaf_meter: float = 0.0
 
 var jump_velocity: float = 0.0
 var jump_gravity: float = 0.0
@@ -90,6 +92,10 @@ func _ready() -> void:
 # Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
 	update_jump_queue(delta)
+	
+	# Update Leaf Meter
+	leaf_meter = clampf((leaf_meter + (compute_leaf_meter_change() * delta)), 0.0, meter_max_capacity)
+	dash_bar.value = leaf_meter
 	
 	if (not dashing_state.is_active()):
 		velocity.y += compute_gravity() * delta
@@ -253,6 +259,15 @@ func jump() -> void:
 func dash() -> void:
 	# TODO: Gotta remove that gravity & shucks
 	pass
+
+# Returns the contextual buildup/drain rate for the Leaf Meter.
+func compute_leaf_meter_change() -> float:
+	if (dashing_state.is_active()):
+		return -1.0 * meter_dash_drain_rate
+	elif (velocity != Vector2.ZERO):
+		return meter_buildup_rate
+	else:
+		return -1.0 * meter_drain_rate
 
 func check_talk()->void:
 	#if the player just tried to interact with something see if there was someone you could talk to
