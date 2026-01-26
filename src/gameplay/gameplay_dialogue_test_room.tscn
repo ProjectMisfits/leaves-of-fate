@@ -33,4 +33,4 @@ shape = SubResource("RectangleShape2D_dxk07")
 visible = false
 
 [node name="NpcBase" parent="." instance=ExtResource("6_2aem6")]
-position = Vector2(1094, 698)
+position = Vector2(1179, 938)

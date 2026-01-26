@@ -61,8 +61,6 @@ var mutation_cooldown: Timer = Timer.new()
 ## The label showing the currently spoken dialogue
 @onready var dialogue_label: DialogueLabel = %DialogueLabel
 
-## The menu of responses
-@onready var responses_menu: DialogueResponsesMenu = %ResponsesMenu
 
 ## Indicator to show that player can progress dialogue.
 @onready var progress: Polygon2D = %Progress
@@ -72,9 +70,6 @@ func _ready() -> void:
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
-	# If the responses menu doesn't have a next action set, use this one
-	if responses_menu.next_action.is_empty():
-		responses_menu.next_action = next_action
 
 	mutation_cooldown.timeout.connect(_on_mutation_cooldown_timeout)
 	add_child(mutation_cooldown)
@@ -87,7 +82,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if is_instance_valid(dialogue_line):
-		progress.visible = not dialogue_label.is_typing and dialogue_line.responses.size() == 0 and not dialogue_line.has_tag("voice")
+		progress.visible = not dialogue_label.is_typing  and not dialogue_line.has_tag("voice")
 
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -132,9 +127,6 @@ func apply_dialogue_line() -> void:
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
 
-	responses_menu.hide()
-	responses_menu.responses = dialogue_line.responses
-
 	# Show our balloon
 	balloon.show()
 	will_hide_balloon = false
@@ -150,9 +142,6 @@ func apply_dialogue_line() -> void:
 		audio_stream_player.play()
 		await audio_stream_player.finished
 		next(dialogue_line.next_id)
-	elif dialogue_line.responses.size() > 0:
-		balloon.focus_mode = Control.FOCUS_NONE
-		responses_menu.show()
 	elif dialogue_line.time != "":
 		var time: float = dialogue_line.text.length() * 0.02 if dialogue_line.time == "auto" else dialogue_line.time.to_float()
 		await get_tree().create_timer(time).timeout
@@ -195,7 +184,6 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 			return
 
 	if not is_waiting_for_input: return
-	if dialogue_line.responses.size() > 0: return
 
 	# When there are no response options the balloon itself is the clickable thing
 	get_viewport().set_input_as_handled()
@@ -204,10 +192,6 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 		next(dialogue_line.next_id)
 	elif event.is_action_pressed(next_action) and get_viewport().gui_get_focus_owner() == balloon:
 		next(dialogue_line.next_id)
-
-
-func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
-	next(response.next_id)
 
 
 #endregion
