@@ -26,7 +26,7 @@ b = Vector2(-16, 5)
 a = Vector2(-2, -55)
 b = Vector2(8, 53)
 
-[node name="Spike" type="StaticBody2D"]
+[node name="Spike6" type="StaticBody2D"]
 collision_layer = 12
 script = ExtResource("1_eai3d")
 

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://mfqp8w1sbmcw"]
+
+[ext_resource type="PackedScene" uid="uid://dj648l5mb7v6m" path="res://src/objects/obstacles/spikes/spike_2.tscn" id="1_pdc2v"]
+[ext_resource type="PackedScene" uid="uid://4mbc2gwjy5rs" path="res://src/objects/obstacles/spikes/spike_6.tscn" id="2_tk40i"]
+[ext_resource type="PackedScene" uid="uid://3uy4bxu8vo0r" path="res://src/objects/obstacles/spikes/spike_4.tscn" id="3_bu36m"]
+
+[node name="SpikeGroup6" type="Node2D"]
+
+[node name="Spike2" parent="." instance=ExtResource("1_pdc2v")]
+position = Vector2(-33, -45)
+
+[node name="Spike3" parent="." instance=ExtResource("1_pdc2v")]
+position = Vector2(42, -42)
+scale = Vector2(-1, 1)
+
+[node name="Spike6" parent="." instance=ExtResource("2_tk40i")]
+position = Vector2(-6, -95)
+
+[node name="Spike4" parent="." instance=ExtResource("3_bu36m")]
+position = Vector2(23, -57)

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1yjqo6ys34oq"]
+
+[ext_resource type="PackedScene" uid="uid://bbow8h0uqro5a" path="res://src/objects/obstacles/spikes/spike_3.tscn" id="1_ssydc"]
+[ext_resource type="PackedScene" uid="uid://beub4bx6t3wvh" path="res://src/objects/obstacles/spikes/spike_1.tscn" id="2_k34w3"]
+
+[node name="SpikeGroup3" type="Node2D"]
+
+[node name="Spike3" parent="." instance=ExtResource("1_ssydc")]
+position = Vector2(56, -33)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+
+[node name="Spike4" parent="." instance=ExtResource("1_ssydc")]
+position = Vector2(-31, -32)
+
+[node name="Spike1" parent="." instance=ExtResource("2_k34w3")]
+position = Vector2(-1, -5)
+
+[node name="Spike2" parent="." instance=ExtResource("2_k34w3")]
+position = Vector2(25, -3)

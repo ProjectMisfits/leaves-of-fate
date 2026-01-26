@@ -26,7 +26,7 @@ b = Vector2(10, 91)
 a = Vector2(20, 5)
 b = Vector2(-16, 5)
 
-[node name="Spike" type="StaticBody2D"]
+[node name="Spike4" type="StaticBody2D"]
 collision_layer = 12
 script = ExtResource("1_keki3")
 

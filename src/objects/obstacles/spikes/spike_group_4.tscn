@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqpg53vihqfqw"]
+
+[ext_resource type="PackedScene" uid="uid://cwiymdrmenf4x" path="res://src/objects/obstacles/spikes/spike_5.tscn" id="1_xetwo"]
+[ext_resource type="PackedScene" uid="uid://3uy4bxu8vo0r" path="res://src/objects/obstacles/spikes/spike_4.tscn" id="2_28kb8"]
+[ext_resource type="PackedScene" uid="uid://beub4bx6t3wvh" path="res://src/objects/obstacles/spikes/spike_1.tscn" id="3_7sxne"]
+[ext_resource type="PackedScene" uid="uid://dj648l5mb7v6m" path="res://src/objects/obstacles/spikes/spike_2.tscn" id="4_28kb8"]
+
+[node name="SpikeGroup4" type="Node2D"]
+
+[node name="Spike5" parent="." instance=ExtResource("1_xetwo")]
+position = Vector2(36, -40)
+
+[node name="Spike6" parent="." instance=ExtResource("1_xetwo")]
+position = Vector2(-31, -41)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+
+[node name="Spike4" parent="." instance=ExtResource("2_28kb8")]
+position = Vector2(0, -27)
+
+[node name="Spike1" parent="." instance=ExtResource("3_7sxne")]
+position = Vector2(-19, 42)
+
+[node name="Spike2" parent="." instance=ExtResource("3_7sxne")]
+position = Vector2(18, 41)
+
+[node name="Spike3" parent="." instance=ExtResource("4_28kb8")]
+position = Vector2(67, -8)
+
+[node name="Spike7" parent="." instance=ExtResource("4_28kb8")]
+position = Vector2(-61, -9)
+scale = Vector2(-1, 1)

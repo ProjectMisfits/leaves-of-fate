@@ -29,7 +29,7 @@ b = Vector2(-16, 5)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_gga68"]
 b = Vector2(8, 53)
 
-[node name="Spike" type="StaticBody2D"]
+[node name="Spike5" type="StaticBody2D"]
 collision_layer = 12
 script = ExtResource("1_x3vgc")
 

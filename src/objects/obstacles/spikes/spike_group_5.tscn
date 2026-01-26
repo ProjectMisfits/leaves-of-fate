@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpvhd76cy06cp"]
+
+[ext_resource type="PackedScene" uid="uid://beub4bx6t3wvh" path="res://src/objects/obstacles/spikes/spike_1.tscn" id="1_f7ivb"]
+
+[node name="SpikeGroup5" type="Node2D"]
+
+[node name="Spike1" parent="." instance=ExtResource("1_f7ivb")]
+position = Vector2(-9, -8)
+scale = Vector2(-1, 1)
+
+[node name="Spike2" parent="." instance=ExtResource("1_f7ivb")]
+position = Vector2(8, -8)
+
+[node name="Spike3" parent="." instance=ExtResource("1_f7ivb")]
+position = Vector2(-34, -7)
+
+[node name="Spike4" parent="." instance=ExtResource("1_f7ivb")]
+position = Vector2(29, -8)
+
+[node name="Spike5" parent="." instance=ExtResource("1_f7ivb")]
+position = Vector2(-52, -6)
+scale = Vector2(-1, 1)
