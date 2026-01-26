@@ -1,8 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://du42aku0qy3o5"]
+[gd_scene load_steps=16 format=3 uid="uid://du42aku0qy3o5"]
 
 [ext_resource type="Script" uid="uid://d4f3atc2qvswq" path="res://src/ui/dialogue_boxes/balloon.gd" id="1_36de5"]
 [ext_resource type="StyleBox" uid="uid://uirtj16growx" path="res://src/ui/dialogue_boxes/base.stylebox" id="2_1vp8l"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
+[ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="3_drgxp"]
+[ext_resource type="FontFile" uid="uid://bfkqpuw7ncqc3" path="res://assets/ui/fonts/Beholden-Bold-Italic-Font.ttf" id="4_3gjmh"]
+[ext_resource type="FontFile" uid="uid://chnyqtl058eja" path="res://assets/ui/fonts/Beholden-Italic-Font.ttf" id="5_1ervg"]
 [ext_resource type="AudioStream" uid="uid://cegtcd1uydire" path="res://assets/dialogue/beep_speech/PH-bleep-28.ogg" id="5_y84od"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
@@ -116,10 +119,16 @@ theme = SubResource("Theme_qq3yp")
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon"]
 layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 568.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -958.0
+offset_top = -341.0
+offset_right = 962.0
 grow_horizontal = 2
+grow_vertical = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="Balloon/MarginContainer"]
 clip_children = 2
@@ -129,8 +138,8 @@ theme_override_styles/panel = ExtResource("2_1vp8l")
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 90
-theme_override_constants/margin_bottom = -15
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 100
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
@@ -143,8 +152,12 @@ size_flags_horizontal = 3
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.501961)
 layout_mode = 2
+size_flags_vertical = 0
 mouse_filter = 1
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/bold_font = ExtResource("3_drgxp")
+theme_override_fonts/bold_italics_font = ExtResource("4_3gjmh")
+theme_override_fonts/italics_font = ExtResource("5_1ervg")
 bbcode_enabled = true
 text = "Character"
 fit_content = true
@@ -154,7 +167,10 @@ scroll_active = false
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/default_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
+theme_override_fonts/bold_font = ExtResource("3_drgxp")
+theme_override_fonts/bold_italics_font = ExtResource("4_3gjmh")
+theme_override_fonts/italics_font = ExtResource("5_1ervg")
 text = "Dialogue..."
 fit_content = false
 
