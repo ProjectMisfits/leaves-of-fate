@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=16 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/actors/characters/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/actors/characters/player/player_db.tres" id="2_7gsup"]
@@ -29,7 +29,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4vut"]
-size = Vector2(152, 195)
+size = Vector2(250, 180)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 14
@@ -48,14 +48,13 @@ shape = SubResource("CapsuleShape2D_q4vut")
 position = Vector2(11.055, 4.645)
 sprite_frames = SubResource("SpriteFrames_q4vut")
 
-[node name="InteractableArea" type="Marker2D" parent="FlipNode"]
-
-[node name="InteractSpace" type="Area2D" parent="FlipNode/InteractableArea"]
-collision_layer = 16
+[node name="InteractArea" type="Area2D" parent="FlipNode"]
+position = Vector2(80, 0)
 collision_mask = 16
+input_pickable = false
+monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/InteractableArea/InteractSpace"]
-position = Vector2(0, -3.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/InteractArea"]
 shape = SubResource("RectangleShape2D_q4vut")
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
@@ -80,3 +79,8 @@ script = ExtResource("9_q6jdu")
 
 [node name="Interacting" type="LimboState" parent="LimboHSM"]
 script = ExtResource("10_u7uqy")
+
+[connection signal="area_entered" from="FlipNode/InteractArea" to="." method="_on_interact_area_area_entered"]
+[connection signal="area_exited" from="FlipNode/InteractArea" to="." method="_on_interact_area_area_exited"]
+[connection signal="body_entered" from="FlipNode/InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="FlipNode/InteractArea" to="." method="_on_interact_area_body_exited"]
