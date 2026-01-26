@@ -23,11 +23,17 @@ buses/default_bus_layout=""
 [autoload]
 
 SceneManager="*res://src/autoload/scene_manager.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [debug]
 
 gdscript/warnings/untyped_declaration=1
 gdscript/warnings/inferred_declaration=1
+
+[dialogue_manager]
+
+editor/advanced/custom_test_scene_path="uid://jjj1tv80kden"
+runtime/balloon_path="uid://du42aku0qy3o5"
 
 [display]
 
@@ -41,7 +47,7 @@ script/templates_search_path="res://src/script_templates"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 [gui]
 
@@ -101,12 +107,17 @@ interact={
 ]
 }
 
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://assets/dialogue/dialogue_scripts/untitled.dialogue")
+
 [layer_names]
 
 2d_physics/layer_1="player"
 2d_physics/layer_2="foreground"
 2d_physics/layer_3="platforms"
 2d_physics/layer_4="spikes"
+2d_physics/layer_5="talkable"
 
 [physics]
 

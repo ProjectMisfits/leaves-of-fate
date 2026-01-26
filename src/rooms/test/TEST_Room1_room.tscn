@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://djpsx4saffd7j"]
+[gd_scene load_steps=2 format=4 uid="uid://djpsx4saffd7j"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_hox5j"]
 
 [node name="TEST_Room1" instance=ExtResource("1_hox5j")]
 
+[node name="DoorEnter" parent="Doors" index="0"]
+path_to_target_room = "uid://cncffa107gycf"
+target_door_name = "enter"
+
 [node name="DoorExit" parent="Doors" index="1"]
 path_to_target_room = "uid://bi3hvyfhivvd6"
+
+[node name="Foreground" parent="." index="2"]
+tile_map_data = PackedByteArray("AAAAAAgAAAAAAAAAAAABAAgAAAAAAAAAAAACAAgAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAALAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAANAAgAAAAAAAAAAAAOAAgAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAA=")
