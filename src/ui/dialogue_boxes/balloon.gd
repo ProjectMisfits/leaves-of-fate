@@ -130,10 +130,13 @@ func apply_dialogue_line() -> void:
 	match character_label.text.to_lower():
 		"fenn":
 			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/base.stylebox"))
+			character_label.add_theme_color_override("default_color", "#576f35")
 		"test":
 			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/base_test2.stylebox"))
+			character_label.add_theme_color_override("default_color", "#A86A19")
 		_:
 			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/base.stylebox"))
+			character_label.add_theme_color_override("default_color", "#576f35")
 	
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
