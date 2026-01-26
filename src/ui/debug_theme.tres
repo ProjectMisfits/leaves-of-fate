@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cf1ehneaiyibq"]
+
+[ext_resource type="FontFile" uid="uid://dgxdmox7pck54" path="res://assets/ui/fonts/AdwaitaMono-Regular.ttf" id="1_kj654"]
+
+[resource]
+default_font = ExtResource("1_kj654")
+default_font_size = 24
+Label/colors/font_color = Color(1, 1, 1, 1)
