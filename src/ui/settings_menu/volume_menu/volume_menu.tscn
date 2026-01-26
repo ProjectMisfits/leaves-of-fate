@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c44j0kj2rhy3b" path="res://assets/ui/FullLetter-UI-001.png" id="1_lu1ff"]
 [ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="2_ixl7f"]
-[ext_resource type="Texture2D" uid="uid://cjmu0wklpfwll" path="res://assets/ui/Leaf_SliderAsset_001.svg" id="3_ixl7f"]
+[ext_resource type="Texture2D" uid="uid://cjmu0wklpfwll" path="res://assets/ui/LeafSlider-UI-001.svg" id="3_ixl7f"]
 [ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="3_wfrvw"]
 [ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="5_lh5ut"]
 
