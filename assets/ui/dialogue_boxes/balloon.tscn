@@ -67,7 +67,6 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y84od"]
 content_margin_left = 89.0
 texture = ExtResource("2_yhnfq")
-expand_margin_bottom = 130.0
 region_rect = Rect2(36.79271, 40.849686, 1846.2245, 236.57191)
 
 [sub_resource type="Animation" id="Animation_nlsx6"]
@@ -124,7 +123,7 @@ theme = SubResource("Theme_qq3yp")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 130.0
+offset_bottom = 568.0
 grow_horizontal = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="Balloon/MarginContainer"]
