@@ -1,0 +1,83 @@
+~ start
+Bold: Bolding text [b]like so[/b]
+
+Underline: Underline text [u]like so[/u]
+
+Italicize: Italicize text [i]like so[/i]
+
+Strikthrough: Strikethrough text [s]like so[/s]
+
+Font: Changing a font takes a font resource [font="res://assets/ui/fonts/Beholden-Bold-Italic-Font.ttf"]like so[/font]
+
+Font Size: Font size takes a number [font_size=30]like so[/font_size]
+
+Color: Changing color takes a hex code [color="ab463a"]like so[/color] or use some presets [color=cyan]like so[/color]
+
+Outline: Changing outline takes a number [outline_size=10] and outline color takes a hex or keyword [outline_color=red]like so[/outline_color][/outline_size]
+
+Left: [left]Left alignment
+
+Center: [center] Center alignment
+
+Right: [right] Right alignment
+
+Ordered List: [ol]
+	gives 
+	you 
+	an 
+	ordered 
+	list
+	[/ol]
+
+Unordered List: [ul]
+	gives 
+	you 
+	an 
+	unordered 
+	list
+	[/ul]
+
+Horizontal Line: You can check 
+	width [hr width=64] 
+	height [hr height=10] 
+	color [hr color=blue]
+
+URL: You can use a url tag to create text that acts like a button [url="somelink"][color=blue]Click here[/color][/url] and it sends out a signal
+#Image: You can include images as well [img=720]File Path Here[/img] but it doesn't seem to be working right now
+
+Wave: The wave effect [wave]looks like[/wave]. 
+	You can change the [wave amp=200]amplitude[/wave] 
+	or the [wave freq=40]frequency[/wave].
+
+Pulse: Pulse effect looks [pulse]like this[/pulse]
+	Pulse has Frequency freq, Color, and Ease
+	[pulse freq=100]high frequency[/pulse]
+	[pulse color=#ff000040]color is the target color multiplier for blinking[/pulse]
+	[pulse ease=-2]negative easing uses ease in-out[/pulse]
+	[pulse ease=2]idk what positive easing does[/pulse]
+Tornado: Tornado effect looks [tornado]like this[/tornado]
+	Radius, Frequency freq, and Connected (bool, 1=true)
+	[tornado radius=12]Radius is the radius of the circle that controls the offset[/tornado]
+	[tornado freq=10]Frequency is the speed of the cycles[/tornado]
+	[tornado connected=0 freq=10]Connected turned off[/tornado]
+	
+Shake: Shake effect looks [shake]like this[/shake]
+	Shake has rate (how fast), level (how intense), and connected (bool, 1=true)
+	[shake level=5 rate=20 connected=1]is connected[/shake] vs [shake level=5 rate=20 connected=0]not connected[/shake]
+	[shake level=10 rate=100]high level and rate[/shake]
+	[shake rate=10]low rate[/shake]
+Fade: Fade effect looks [fade]like this[/fade]
+	There's attributes Start and Length. Start is where the fade starts, and length is over how many characters it will fade
+	[fade start=4 length=20]start 4 and length 20[/fade]
+
+Rainbow: Rainbow effect looks [rainbow]like this[/rainbow]
+	Rainbow has Frequency freq, Saturation sat, Value val, and Speed
+	[rainbow freq=2]high frequency[/rainbow]
+	[rainbow sat=0.5]low saturation[/rainbow]
+	[rainbow val=2]high value[/rainbow]
+	[rainbow speed=4]high speed[/rainbow]
+
+Speed: Speed is a multiplier to default text speed
+	[speed=3]This line will read at 3x speed, ideally[/speed]
+	[speed=0.2]This line will read at 1/5 speed, ideally[/speed]
+=> END

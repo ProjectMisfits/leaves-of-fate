@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://qow02iq5yogy"
+path="res://.godot/imported/tutorial_rich_text.dialogue-c4902f6d61f01eb84d748a9121f37969.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/tutorial_rich_text.dialogue"
+dest_files=["res://.godot/imported/tutorial_rich_text.dialogue-c4902f6d61f01eb84d748a9121f37969.tres"]
+
+[params]
+
+defaults=true
