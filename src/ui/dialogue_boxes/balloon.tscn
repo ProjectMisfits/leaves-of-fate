@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://du42aku0qy3o5"]
 
-[ext_resource type="Script" uid="uid://d4f3atc2qvswq" path="res://assets/ui/dialogue_boxes/balloon.gd" id="1_36de5"]
+[ext_resource type="Script" uid="uid://d4f3atc2qvswq" path="res://src/ui/dialogue_boxes/balloon.gd" id="1_36de5"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="Texture2D" uid="uid://dk5bpfuimu5cp" path="res://assets/ui/dialogue_boxes/DialogueBoxFenn-UI-001.png" id="2_yhnfq"]
 [ext_resource type="AudioStream" uid="uid://cegtcd1uydire" path="res://assets/dialogue/beep_speech/PH-bleep-28.ogg" id="5_y84od"]
