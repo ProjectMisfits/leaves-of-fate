@@ -107,6 +107,7 @@ interact={
 2d_physics/layer_2="foreground"
 2d_physics/layer_3="platforms"
 2d_physics/layer_4="spikes"
+2d_physics/layer_5="interactables"
 
 [physics]
 
