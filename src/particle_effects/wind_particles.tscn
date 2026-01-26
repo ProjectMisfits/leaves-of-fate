@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b5iavwafreiy1"]
 
-[ext_resource type="Texture2D" uid="uid://cxdkqcucl8gg7" path="res://assets/particle_effects_assets/wind/wind-particleAsset-001.png" id="1_2inyl"]
+[ext_resource type="Texture2D" uid="uid://cxdkqcucl8gg7" path="res://assets/particle_effects/wind/wind-particleAsset-001.png" id="1_2inyl"]
 
 [sub_resource type="Gradient" id="Gradient_y2cxc"]
 offsets = PackedFloat32Array(0.002754821, 1)

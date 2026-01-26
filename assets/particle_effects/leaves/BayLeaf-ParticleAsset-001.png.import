@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhj0u32peg5eq"
-path="res://.godot/imported/GenericLeaf-ParticleAsset-001.png-b86daee0e988588fc9d3526422fb607c.ctex"
+uid="uid://cq2v4qfrf8mm8"
+path="res://.godot/imported/BayLeaf-ParticleAsset-001.png-50e01c5a0e7b53031cbcd02a9da05e70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/particle_effects_assets/leaves/GenericLeaf-ParticleAsset-001.png"
-dest_files=["res://.godot/imported/GenericLeaf-ParticleAsset-001.png-b86daee0e988588fc9d3526422fb607c.ctex"]
+source_file="res://assets/particle_effects/leaves/BayLeaf-ParticleAsset-001.png"
+dest_files=["res://.godot/imported/BayLeaf-ParticleAsset-001.png-50e01c5a0e7b53031cbcd02a9da05e70.ctex"]
 
 [params]
 

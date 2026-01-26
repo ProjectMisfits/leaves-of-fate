@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btyw1s0m8252c"
-path="res://.godot/imported/ThreePointLeaf-ParticleAsset-001.png-42a7b7a959c86c2d736f242e264d83b6.ctex"
+uid="uid://cxdkqcucl8gg7"
+path="res://.godot/imported/wind-particleAsset-001.png-58d03b99393ff78e15048196f7a3b57f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/particle_effects_assets/leaves/ThreePointLeaf-ParticleAsset-001.png"
-dest_files=["res://.godot/imported/ThreePointLeaf-ParticleAsset-001.png-42a7b7a959c86c2d736f242e264d83b6.ctex"]
+source_file="res://assets/particle_effects/wind/wind-particleAsset-001.png"
+dest_files=["res://.godot/imported/wind-particleAsset-001.png-58d03b99393ff78e15048196f7a3b57f.ctex"]
 
 [params]
 
