@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://blowvmxa536y"]
+
+[ext_resource type="Script" uid="uid://bardnlnxnsrhh" path="res://src/objects/npc/talkables/talkable_area.gd" id="1_sqcu1"]
+
+[node name="TalkableArea" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_sqcu1")
