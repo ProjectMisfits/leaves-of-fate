@@ -9,3 +9,5 @@ Nathan: Here are some choices.
 - End the conversation => END
 Nathan: For more information see the online documentation.
 => END
+
+#Should be used for both the pre-ambush conversation and post-ambush conversation

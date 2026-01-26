@@ -9,3 +9,6 @@ Nathan: Here are some choices.
 - End the conversation => END
 Nathan: For more information see the online documentation.
 => END
+
+#This line should be imported into the other 7 dialogue things
+#If the number of heaters turned on is 0, it will play... after the convos end

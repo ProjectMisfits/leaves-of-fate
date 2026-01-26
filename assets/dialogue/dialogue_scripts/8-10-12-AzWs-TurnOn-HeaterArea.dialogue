@@ -9,3 +9,6 @@ Nathan: Here are some choices.
 - End the conversation => END
 Nathan: For more information see the online documentation.
 => END
+
+#Should be used for all 3 convos where heaters are turned on, 
+#using conditionals to branch between them
