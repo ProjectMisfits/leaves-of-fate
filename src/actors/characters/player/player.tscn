@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dco77mb0p8ecg" path="res://assets/actors/characters/player/player_placeholder.png" id="3_c6y0n"]
 [ext_resource type="PackedScene" uid="uid://cmqwci1t2hhs5" path="res://src/actors/characters/player/dash/player_dash.tscn" id="3_q4vut"]
 [ext_resource type="Script" uid="uid://dr4cwnspn2mf2" path="res://src/actors/characters/player/states/player_running.gd" id="4_7gsup"]
+[ext_resource type="PackedScene" uid="uid://d20fk20iq2n50" path="res://src/gameplay/camera.tscn" id="4_wcwgi"]
 [ext_resource type="Script" uid="uid://duy7f43rn783x" path="res://src/actors/characters/player/states/player_jumping.gd" id="6_c6y0n"]
 [ext_resource type="Script" uid="uid://cksn2wvaxpq54" path="res://src/actors/characters/player/states/player_airborne.gd" id="7_q4vut"]
 [ext_resource type="Script" uid="uid://bjtwcn16kj5bl" path="res://src/actors/characters/player/states/player_dashing.gd" id="8_wcwgi"]
@@ -32,6 +33,8 @@ collision_mask = 14
 script = ExtResource("1_npkjl")
 database = ExtResource("2_7gsup")
 player_dash_scene = ExtResource("3_q4vut")
+
+[node name="Camera" parent="." instance=ExtResource("4_wcwgi")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_q4vut")
