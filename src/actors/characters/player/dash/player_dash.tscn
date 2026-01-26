@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bhynnsuiydmtf" path="res://src/actors/characters/player/dash/player_dash.gd" id="1_ktn0w"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="2_ktn0w"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/actors/characters/player/player_db.tres" id="2_y8ic5"]
-[ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://assets/particle_effects/leaf_dash_effect/wind_particles.tscn" id="4_ga4ff"]
-[ext_resource type="PackedScene" uid="uid://dqviomxk1qqcu" path="res://assets/particle_effects/leaf_dash_effect/leaf_particles.tscn" id="5_54vux"]
+[ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/particle_effects/leaf_dash_effect/wind_particles.tscn" id="4_ga4ff"]
+[ext_resource type="PackedScene" uid="uid://dqviomxk1qqcu" path="res://src/particle_effects/leaf_dash_effect/leaf_particles.tscn" id="5_54vux"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y8ic5"]
 radius = 70.0

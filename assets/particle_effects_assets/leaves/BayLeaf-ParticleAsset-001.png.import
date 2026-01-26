@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxdkqcucl8gg7"
-path="res://.godot/imported/wind-particleAsset-001.png-15ee3d54e003041dc0b28875a4170127.ctex"
+uid="uid://cq2v4qfrf8mm8"
+path="res://.godot/imported/BayLeaf-ParticleAsset-001.png-f093663af1051eed42297a9d2497a2d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/particle_effects/leaf_dash_effect/wind-particleAsset-001.png"
-dest_files=["res://.godot/imported/wind-particleAsset-001.png-15ee3d54e003041dc0b28875a4170127.ctex"]
+source_file="res://assets/particle_effects_assets/leaves/BayLeaf-ParticleAsset-001.png"
+dest_files=["res://.godot/imported/BayLeaf-ParticleAsset-001.png-f093663af1051eed42297a9d2497a2d7.ctex"]
 
 [params]
 
