@@ -1,0 +1,119 @@
+[gd_scene load_steps=8 format=3 uid="uid://d4l00r3wj2x28"]
+
+[ext_resource type="Texture2D" uid="uid://c44j0kj2rhy3b" path="res://assets/ui/FullLetter-UI-001.png" id="1_lu1ff"]
+[ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="2_ixl7f"]
+[ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="3_ixl7f"]
+[ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="3_wfrvw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wfrvw"]
+texture = ExtResource("1_lu1ff")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lh5ut"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2uc65"]
+
+[node name="VolumeMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -603.0
+offset_top = -417.0
+offset_right = 578.0
+offset_bottom = 420.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wfrvw")
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 1
+offset_left = 66.5
+offset_top = 49.5
+offset_right = 437.5
+offset_bottom = 150.5
+theme_override_colors/font_color = Color(0.34117648, 0.43529412, 0.20784314, 1)
+theme_override_fonts/font = ExtResource("2_ixl7f")
+theme_override_font_sizes/font_size = 100
+text = "Volume"
+
+[node name="HSlider" type="HSlider" parent="Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 399.0
+offset_top = -189.5
+offset_right = 1038.5
+offset_bottom = -151.5
+grow_vertical = 2
+
+[node name="ExitButton" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(182, 101)
+layout_mode = 0
+offset_left = 83.0
+offset_top = 628.0
+offset_right = 265.0
+offset_bottom = 729.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lh5ut")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2uc65")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2uc65")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2uc65")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2uc65")
+text = "Exit
+"
+alignment = 2
+script = ExtResource("3_wfrvw")
+
+[node name="LeafPointer" type="TextureRect" parent="Panel/ExitButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.5
+offset_right = 67.0
+offset_bottom = 32.5
+grow_vertical = 2
+texture = ExtResource("3_ixl7f")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Master" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 211.0
+offset_right = 357.0
+offset_bottom = 282.0
+theme_override_font_sizes/font_size = 70
+text = "Master"
+
+[node name="Music" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 348.0
+offset_right = 356.0
+offset_bottom = 419.0
+theme_override_font_sizes/font_size = 70
+text = "Music"
+
+[node name="SFX" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 497.0
+offset_right = 347.0
+offset_bottom = 568.0
+theme_override_font_sizes/font_size = 70
+text = "SFX"
