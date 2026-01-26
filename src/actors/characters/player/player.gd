@@ -354,13 +354,11 @@ func _on_interact_area_body_exited(body: Node2D) -> void:
 # Connected with InteractArea.area_entered()
 func _on_interact_area_area_entered(area: Area2D) -> void:
 	print("Player InteractArea - Area Entered: ", area)
-	
-	if area.get_parent():
-		check_is_interactable(area.get_parent())
+	check_is_interactable(area)
 
 # Connected with InteractArea.area_exited()
 func _on_interact_area_area_exited(area: Area2D) -> void:
 	print("player InteractArea - Area Exited: ", area)
 	
-	if (area.get_parent() == selected_interactable):	# Area left the interact area
+	if (area == selected_interactable):	# Area left the interact area
 		deselect_interactable()
