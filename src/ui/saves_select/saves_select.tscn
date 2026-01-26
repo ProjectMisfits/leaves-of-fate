@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bb283aw7thbyy"]
 
-[ext_resource type="Texture2D" uid="uid://cooitf66d50v" path="res://assets/ui/OpenLetter_UI_001.png" id="1_to6uu"]
+[ext_resource type="Texture2D" uid="uid://cooitf66d50v" path="res://assets/ui/OpenLetter-UI-001.png" id="1_to6uu"]
 [ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="2_s33xj"]
 [ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="3_fbolq"]
 [ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="4_n6kcy"]

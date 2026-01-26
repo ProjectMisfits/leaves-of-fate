@@ -6,8 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://assets/particle_effects/leaf_dash_effect/wind_particles.tscn" id="4_ga4ff"]
 [ext_resource type="PackedScene" uid="uid://dqviomxk1qqcu" path="res://assets/particle_effects/leaf_dash_effect/leaf_particles.tscn" id="5_54vux"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_npkjl"]
-size = Vector2(160, 160)
+[sub_resource type="CircleShape2D" id="CircleShape2D_y8ic5"]
+radius = 70.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y8ic5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ktn0w")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="PlayerDash" type="CharacterBody2D"]
 collision_mask = 14
@@ -15,12 +26,13 @@ script = ExtResource("1_ktn0w")
 database = ExtResource("2_y8ic5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_npkjl")
+shape = SubResource("CircleShape2D_y8ic5")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="FlipNode" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlipNode"]
 modulate = Color(0, 0.8789406, 0.38185573, 1)
-scale = Vector2(1.25, 1.25)
-texture = ExtResource("2_ktn0w")
+sprite_frames = SubResource("SpriteFrames_y8ic5")
 
 [node name="WindParticles" parent="." instance=ExtResource("4_ga4ff")]
 

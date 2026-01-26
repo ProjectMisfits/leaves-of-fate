@@ -47,10 +47,10 @@ var dash_shimmy_acceleration: float
 var dash_shimmy_deceleration: float
 var dash_shimmy_turn_speed: float
 
-### NODE REFERENCE VARIABLES ###
-@onready var sprite2d: Sprite2D = $Sprite2D
+## State Machine + FlipNode ##
+# flip_node scale changes depending on Player's look direction; all children will be flipped.
+@onready var flip_node: Node2D = $FlipNode
 
-## State Machine ##
 @onready var state_machine: LimboHSM = $LimboHSM
 @onready var idle_state: LimboState = $LimboHSM/Idle
 @onready var running_state: LimboState = $LimboHSM/Running
@@ -93,7 +93,10 @@ func _physics_process(delta: float) -> void:
 	velocity.y += compute_gravity() * delta
 	velocity.y = clampf(velocity.y, -INF, terminal_velocity) # velocity cannot exceed terminal velocity
 	
-	sprite2d.flip_h = (look_direction < 0.0)	# Flip sprite to Player's look direction
+	if (look_direction < 0): # Flip root node to Player's look direction
+		flip_node.scale.x = -1.0
+	else:
+		flip_node.scale.x = 1.0
 
 	move_and_slide()
 	
@@ -251,19 +254,18 @@ func dash() -> void:
 		push_error("failed to fetch parent reference.")
 		return
 	get_parent().add_child(new_player_dash)
-	new_player_dash.player_scene = self
-	new_player_dash.initialize_self()
+	
+	new_player_dash.control_player(self)
 
-# Called by PlayerDash to end a dash by re-enabling self.
-func end_dash(new_position: Vector2, new_velocity: Vector2) -> void:
-	visible = true
-	process_mode = Node.PROCESS_MODE_INHERIT
+func set_disabled(to_disable: bool) -> bool:
+	if to_disable:
+		visible = false
+		process_mode = Node.PROCESS_MODE_DISABLED
+	else:
+		visible = true
+		process_mode = Node.PROCESS_MODE_INHERIT
 	
-	global_position = new_position
-	velocity = new_velocity
-	
-	var new_look_direction: float = signf(velocity.x)
-	look_direction = new_look_direction if (new_look_direction != 0.0) else look_direction
+	return true
 
 # Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
