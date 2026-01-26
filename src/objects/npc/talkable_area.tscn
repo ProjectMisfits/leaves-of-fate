@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://blowvmxa536y"]
-
-[ext_resource type="Script" uid="uid://bardnlnxnsrhh" path="res://src/objects/npc/talkable_area.gd" id="1_sqcu1"]
-
-[node name="TalkableArea" type="Area2D"]
-script = ExtResource("1_sqcu1")

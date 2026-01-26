@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx428i6v21pd"]
+[gd_scene load_steps=8 format=3 uid="uid://cx428i6v21pd"]
 
 [ext_resource type="Script" uid="uid://ccsrl6mlxbla7" path="res://src/gameplay/gameplay.gd" id="1_gnrrd"]
 [ext_resource type="PackedScene" uid="uid://djpsx4saffd7j" path="res://src/rooms/test/TEST_Room1_room.tscn" id="2_ie0go"]
+[ext_resource type="PackedScene" uid="uid://blowvmxa536y" path="res://src/objects/npc/talkables/talkable_area.tscn" id="3_ie0go"]
+[ext_resource type="Resource" uid="uid://qow02iq5yogy" path="res://assets/dialogue/dialogue_scripts/untitled.dialogue" id="4_dxk07"]
+[ext_resource type="PackedScene" uid="uid://du42aku0qy3o5" path="res://assets/ui/dialogue_boxes/balloon.tscn" id="5_ks273"]
+[ext_resource type="PackedScene" uid="uid://daw5s2hjs0tq1" path="res://src/objects/npc/npc_base/npc_base.tscn" id="6_2aem6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxk07"]
+size = Vector2(112, 135)
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_gnrrd")
@@ -12,3 +19,18 @@ anchor_mode = 0
 [node name="RoomHolder" type="Node2D" parent="."]
 
 [node name="TEST_Room1" parent="RoomHolder" instance=ExtResource("2_ie0go")]
+
+[node name="TalkableArea" parent="RoomHolder/TEST_Room1" node_paths=PackedStringArray("balloon") instance=ExtResource("3_ie0go")]
+position = Vector2(644, 641)
+dialogue_resource = ExtResource("4_dxk07")
+balloon = NodePath("ExampleBalloon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomHolder/TEST_Room1/TalkableArea"]
+position = Vector2(46, 57.5)
+shape = SubResource("RectangleShape2D_dxk07")
+
+[node name="ExampleBalloon" parent="RoomHolder/TEST_Room1/TalkableArea" instance=ExtResource("5_ks273")]
+visible = false
+
+[node name="NpcBase" parent="." instance=ExtResource("6_2aem6")]
+position = Vector2(1094, 698)
