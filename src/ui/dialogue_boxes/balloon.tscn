@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://du42aku0qy3o5"]
+[gd_scene load_steps=17 format=3 uid="uid://du42aku0qy3o5"]
 
 [ext_resource type="Script" uid="uid://d4f3atc2qvswq" path="res://src/ui/dialogue_boxes/balloon.gd" id="1_36de5"]
-[ext_resource type="StyleBox" uid="uid://uirtj16growx" path="res://src/ui/dialogue_boxes/base.stylebox" id="2_1vp8l"]
+[ext_resource type="StyleBox" uid="uid://uirtj16growx" path="res://src/ui/dialogue_boxes/fenn_dialogue_no_profile.stylebox" id="2_1vp8l"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
 [ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="3_drgxp"]
 [ext_resource type="FontFile" uid="uid://bfkqpuw7ncqc3" path="res://assets/ui/fonts/Beholden-Bold-Italic-Font.ttf" id="4_3gjmh"]
@@ -66,6 +66,16 @@ MarginContainer/constants/margin_left = 30
 MarginContainer/constants/margin_right = 30
 MarginContainer/constants/margin_top = 15
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_qkmqt")
+
+[sub_resource type="GDScript" id="GDScript_drgxp"]
+script/source = "extends RichTextLabel
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	match text.to_lower():
+		\"test\": 
+			self.add_theme_color_override(\"default_color\", \"#576f35\")
+"
 
 [sub_resource type="Animation" id="Animation_nlsx6"]
 length = 0.001
@@ -155,7 +165,6 @@ layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 1
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_drgxp")
 theme_override_fonts/bold_font = ExtResource("3_drgxp")
 theme_override_fonts/bold_italics_font = ExtResource("4_3gjmh")
 theme_override_fonts/italics_font = ExtResource("5_1ervg")
@@ -163,6 +172,7 @@ bbcode_enabled = true
 text = "Character"
 fit_content = true
 scroll_active = false
+script = SubResource("GDScript_drgxp")
 
 [node name="DialogueLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_a8ve6")]
 unique_name_in_owner = true
