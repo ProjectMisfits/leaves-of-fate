@@ -71,6 +71,8 @@ var jump_gravity: float = 0.0
 var time_since_on_floor: float = 0.0
 var time_since_jump_queued: float = 0.0
 
+var selected_interactable: Node2D = null
+
 # Fetch database resource. If valid, initialize all variables.
 func _enter_tree() -> void:
 	if (database != null):
@@ -88,6 +90,7 @@ func _ready() -> void:
 
 # Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
+	check_interact_action()
 	update_jump_queue(delta)
 	
 	velocity.y += compute_gravity() * delta
@@ -171,6 +174,13 @@ func check_dashing_state() -> void:
 	
 	if Input.is_action_just_pressed("dash") and is_leaf_meter_not_empty:
 		state_machine.dispatch("to_dashing")
+
+func check_interact_action() -> void:
+	var is_interactable_not_null: bool = selected_interactable != null
+	
+	if Input.is_action_just_pressed("interact") and is_interactable_not_null:
+		var interact_node: Interactable = selected_interactable.get_node("Interactable")
+		interact_node.interact()	# Have the Interactable do a thing
 
 # Get the input direction and handle the movement/deceleration.
 func move_horizontal(acceleration: float, deceleration: float, turn_speed: float) -> void:
@@ -270,11 +280,11 @@ func set_disabled(to_disable: bool) -> bool:
 func check_talk()->void:
 	#if the player just tried to interact with something see if there was someone you could talk to
 	if Input.is_action_just_pressed("interact"):
-		var talkables = $FlipNode/InteractableArea/InteractSpace.get_overlapping_areas() 
+		var talkables = $FlipNode/InteractArea.get_overlapping_areas() 
 		if talkables.size() >0:
 			talkables[0].talk();
-				
-		
+	
+	
 
 # Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
@@ -317,3 +327,47 @@ func initialize_data(data: Dictionary) -> void:
 		dash_shimmy_acceleration = data["dash_shimmy_acceleration"]
 		dash_shimmy_deceleration = data["dash_shimmy_deceleration"]
 		dash_shimmy_turn_speed = data["dash_shimmy_turn_speed"]
+
+# Checks if a Node is an interactable by scanning for an Interactable child.
+# If an Interactable child is found, make this Node the selected_interactable.
+func check_is_interactable(node: Node2D) -> void:
+	for child: Node2D in node.get_children():
+		if child is Interactable:
+			selected_interactable = node
+			child.select_interactable()	# Highlight the interactable's sprite
+			return
+
+# Removes the selected_interactable's highlight & node reference.
+func deselect_interactable() -> void:
+	var interact_node: Interactable = selected_interactable.get_node("Interactable")
+	interact_node.deselect_interactable()
+	selected_interactable = null
+
+
+
+## InteractArea Signals ##
+
+# Connected with InteractArea.body_entered()
+func _on_interact_area_body_entered(body: Node2D) -> void:
+	print("Player InteractArea - Body Entered: ", body)
+	
+	check_is_interactable(body)
+
+# Connected with InteractArea.body_exited()
+func _on_interact_area_body_exited(body: Node2D) -> void:
+	print("player InteractArea - Body Exited: ", body)
+	
+	if (body == selected_interactable):	# Body left the interact area
+		deselect_interactable()
+
+# Connected with InteractArea.area_entered()
+func _on_interact_area_area_entered(area: Area2D) -> void:
+	print("Player InteractArea - Area Entered: ", area)
+	check_is_interactable(area)
+
+# Connected with InteractArea.area_exited()
+func _on_interact_area_area_exited(area: Area2D) -> void:
+	print("player InteractArea - Area Exited: ", area)
+	
+	if (area == selected_interactable):	# Area left the interact area
+		deselect_interactable()
