@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bg8npse24cjcw"
+path="res://.godot/imported/GreatHall-Az-Meet.dialogue-c5b0806d36006829e242c3e329186f43.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/GreatHall-Az-Meet.dialogue"
+dest_files=["res://.godot/imported/GreatHall-Az-Meet.dialogue-c5b0806d36006829e242c3e329186f43.tres"]
+
+[params]
+
+defaults=true
