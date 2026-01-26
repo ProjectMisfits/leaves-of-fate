@@ -4,6 +4,7 @@ func _enter() -> void:
 	print("Player State Transition: to_running")
 
 func _update(_delta: float) -> void:
+	agent.check_talk()
 	agent.check_dashing_state()
 	agent.check_jumping_state()
 	agent.check_airborne_state()

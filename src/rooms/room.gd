@@ -14,6 +14,11 @@ func _ready() -> void:
 	doors = $Doors.get_children()
 	for door: Door in doors:
 		door.player_entered_door.connect(_on_player_entered_door)
+	
+	# If the room is being run standalone, we have to make sure the player gets instantiated.
+	if get_tree().current_scene == self:
+		var player: Player = preload("res://src/actors/characters/player/player.tscn").instantiate()
+		spawn_player(player, 'enter')
 
 
 ## Initiate room swap on player entering a Door.
@@ -37,6 +42,9 @@ func spawn_player(player: Player, target_door_name: String) -> void:
 			print("Room '%s': Placing player at door '%s'" % [name, target_door_name])
 			add_child(player)
 			player.global_position = door.position
+			
+			# Update the camera limits to match the room
+			player.get_node("Camera").update_camera_limits($Background)
 			return
 	
 	# If the target door didn't exist anywhere in the room, report the issue

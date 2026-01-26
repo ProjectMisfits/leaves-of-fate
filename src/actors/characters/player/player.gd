@@ -277,6 +277,15 @@ func set_disabled(to_disable: bool) -> bool:
 	
 	return true
 
+func check_talk()->void:
+	#if the player just tried to interact with something see if there was someone you could talk to
+	if Input.is_action_just_pressed("interact"):
+		var talkables = $FlipNode/InteractableArea/InteractSpace.get_overlapping_areas() 
+		if talkables.size() >0:
+			talkables[0].talk();
+				
+		
+
 # Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
 		# Base Data #
