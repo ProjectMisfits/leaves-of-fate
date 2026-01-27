@@ -7,6 +7,7 @@ func _enter() -> void:
 func _update(_delta: float) -> void:
 	agent.check_talk()
 	agent.check_dashing_state()
+	agent.check_shimmying_state()
 	agent.check_jumping_state()
 	agent.check_airborne_state()
 	agent.check_idle_state()

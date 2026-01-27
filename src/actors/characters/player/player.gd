@@ -33,6 +33,7 @@ var jump_corner_rounding_distance: float
 var meter_buildup_rate: float
 var meter_drain_rate: float
 var meter_dash_drain_rate: float
+var meter_shimmy_drain_rate: float
 var meter_max_capacity: float
 
 var dash_max_speed: float
@@ -42,10 +43,19 @@ var dash_deceleration: float
 var dash_angular_turn_speed_deceleration: float
 var meter_dash_deceleration_start: float
 
-var dash_shimmy_max_speed: float
-var dash_shimmy_acceleration: float
-var dash_shimmy_deceleration: float
-var dash_shimmy_turn_speed: float
+## Leaf Shimmy ##
+var shimmy_gravity: float
+var shimmy_terminal_velocity: float
+
+var shimmy_max_speed: float
+var shimmy_ground_acceleration: float
+var shimmy_ground_deceleration: float
+var shimmy_ground_turn_speed: float
+var shimmy_ground_friction: float
+
+var shimmy_air_acceleration: float
+var shimmy_air_deceleration: float
+var shimmy_air_turn_speed: float
 
 ## Node references + State Machine ##
 @onready var dash_bar: ProgressBar = $DashBar
@@ -62,7 +72,7 @@ var dash_shimmy_turn_speed: float
 @onready var airborne_state: LimboState = $LimboHSM/Airborne
 @onready var dashing_state: LimboState = $LimboHSM/Dashing
 @onready var shimmying_state: LimboState = $LimboHSM/Shimmying
-@onready var interacting_state: LimboState = $LimboHSM/Interacting
+@onready var cutscene_state: LimboState = $LimboHSM/Cutscene
 
 ### DYNAMIC VARIABLES ###
 var current_health: int
@@ -95,11 +105,12 @@ func _ready() -> void:
 # Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
 	add_debug_parameters()
+	
 	check_interact_action()
 	update_jump_queue(delta)
 	update_leaf_meter(delta)
 	
-	if (not dashing_state.is_active()):
+	if ((not dashing_state.is_active()) and (not shimmying_state.is_active())):
 		velocity.y += compute_gravity() * delta
 		velocity.y = clampf(velocity.y, -INF, terminal_velocity) # velocity cannot exceed terminal velocity
 		
@@ -123,22 +134,30 @@ func initialize_state_machine() -> void:
 	state_machine.add_transition(idle_state,jumping_state,&"to_jumping")
 	state_machine.add_transition(idle_state,airborne_state,&"to_airborne")
 	state_machine.add_transition(idle_state,dashing_state,&"to_dashing")
+	state_machine.add_transition(idle_state,shimmying_state,&"to_shimmying")
 	
 	state_machine.add_transition(running_state,idle_state,&"to_idle")
 	state_machine.add_transition(running_state,jumping_state,&"to_jumping")
 	state_machine.add_transition(running_state,airborne_state,&"to_airborne")
 	state_machine.add_transition(running_state,dashing_state,&"to_dashing")
+	state_machine.add_transition(running_state,shimmying_state,&"to_shimmying")
 	
 	state_machine.add_transition(jumping_state,airborne_state,&"to_airborne")
 	state_machine.add_transition(jumping_state,dashing_state,&"to_dashing")
+	state_machine.add_transition(jumping_state,shimmying_state,&"to_shimmying")
 	
 	state_machine.add_transition(airborne_state,idle_state,&"to_idle")
 	state_machine.add_transition(airborne_state,running_state,&"to_running")
 	state_machine.add_transition(airborne_state,dashing_state,&"to_dashing")
+	state_machine.add_transition(airborne_state,shimmying_state,&"to_shimmying")
 	
 	state_machine.add_transition(dashing_state,idle_state,&"to_idle")
 	state_machine.add_transition(dashing_state,running_state,&"to_running")
 	state_machine.add_transition(dashing_state,airborne_state,&"to_airborne")
+	
+	state_machine.add_transition(shimmying_state,idle_state,&"to_idle")
+	state_machine.add_transition(shimmying_state,running_state,&"to_running")
+	state_machine.add_transition(shimmying_state,airborne_state,&"to_airborne")
 	
 	state_machine.initial_state = idle_state
 	state_machine.initialize(self)
@@ -175,7 +194,7 @@ func check_airborne_state() -> void:
 	if not is_on_floor() and is_coyote_timer_expired:
 		state_machine.dispatch(&"to_airborne")
 
-# If the player is trying to dash and leaf meter is not zero, change to dashing state.
+# If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to shimmying state.
 func check_dashing_state() -> void:
 	if Input.is_action_just_pressed(&"dash"):
 		var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
@@ -183,6 +202,15 @@ func check_dashing_state() -> void:
 		
 		if is_direction_pressed and is_leaf_meter_not_empty:
 			state_machine.dispatch(&"to_dashing")
+
+# If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to shimmying state.
+func check_shimmying_state() -> void:
+	if Input.is_action_just_pressed(&"dash"):
+		var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
+		var is_no_direction_pressed: bool = (Input.get_vector("move_left", "move_right", "move_up", "move_down") == Vector2.ZERO)
+		
+		if is_no_direction_pressed and is_leaf_meter_not_empty:
+			state_machine.dispatch(&"to_shimmying")
 
 func check_interact_action() -> void:
 	var is_interactable_not_null: bool = selected_interactable != null
@@ -245,6 +273,14 @@ func move_horizontal_ground() -> void:
 func move_horizontal_air() -> void:
 	move_horizontal(air_acceleration, air_deceleration, air_turn_speed)
 
+# Calls move_horizontal with shimmy ground parameters.
+func move_horizontal_shimmy_ground() -> void:
+	move_horizontal(shimmy_ground_acceleration, shimmy_ground_deceleration, shimmy_ground_turn_speed)
+
+# Calls move_horizontal with shimmy air parameters.
+func move_horizontal_shimmy_air() -> void:
+	move_horizontal(shimmy_air_acceleration, shimmy_air_deceleration, shimmy_air_turn_speed)
+
 # Returns the player's x-input value.
 func get_x_input() -> float:
 	return Input.get_axis(&"move_left", &"move_right")
@@ -291,7 +327,9 @@ func update_leaf_meter(delta: float) -> void:
 	
 	if (dashing_state.is_active()):
 		leaf_meter_change = -1.0 * meter_dash_drain_rate
-	elif (state_machine.get_previous_active_state() == dashing_state): # Do not change Leaf Meter post-dash until Player hits the ground
+	elif (shimmying_state.is_active()):
+		leaf_meter_change = -1.0 * meter_shimmy_drain_rate
+	elif ((state_machine.get_previous_active_state() == dashing_state) or (state_machine.get_previous_active_state() == shimmying_state)): # Do not change Leaf Meter post-dash until Player hits the ground
 		leaf_meter_change = 0.0
 	elif (signf(get_x_input()) != signf(velocity.x)): # If turning
 		leaf_meter_change = 0.0
@@ -340,6 +378,7 @@ func initialize_data(data: Dictionary) -> void:
 		meter_buildup_rate = data["meter_buildup_rate"]
 		meter_drain_rate = data["meter_drain_rate"]
 		meter_dash_drain_rate = data["meter_dash_drain_rate"]
+		meter_shimmy_drain_rate = data["meter_shimmy_drain_rate"]
 		meter_max_capacity = data["meter_max_capacity"]
 		
 		dash_max_speed = data["dash_max_speed"]
@@ -349,10 +388,18 @@ func initialize_data(data: Dictionary) -> void:
 		dash_angular_turn_speed_deceleration = data["dash_angular_turn_speed_deceleration"]
 		meter_dash_deceleration_start = data["meter_dash_deceleration_start"]
 		
-		dash_shimmy_max_speed = data["dash_shimmy_max_speed"]
-		dash_shimmy_acceleration = data["dash_shimmy_acceleration"]
-		dash_shimmy_deceleration = data["dash_shimmy_deceleration"]
-		dash_shimmy_turn_speed = data["dash_shimmy_turn_speed"]
+		shimmy_gravity = data["shimmy_gravity"]
+		shimmy_terminal_velocity = data["shimmy_terminal_velocity"]
+
+		shimmy_max_speed = data["shimmy_max_speed"]
+		shimmy_ground_acceleration = data["shimmy_ground_acceleration"]
+		shimmy_ground_deceleration = data["shimmy_ground_deceleration"]
+		shimmy_ground_turn_speed = data["shimmy_ground_turn_speed"]
+		shimmy_ground_friction = data["shimmy_ground_friction"]
+
+		shimmy_air_acceleration = data["shimmy_air_acceleration"]
+		shimmy_air_deceleration = data["shimmy_air_deceleration"]
+		shimmy_air_turn_speed = data["shimmy_air_turn_speed"]
 
 # Checks if a Node is an interactable by scanning for an Interactable child.
 # If an Interactable child is found, make this Node the selected_interactable.
