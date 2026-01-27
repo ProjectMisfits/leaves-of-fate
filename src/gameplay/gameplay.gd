@@ -34,7 +34,7 @@ func _update_current_room() -> void:
 ## Swap to the specified Room and unload the current Room.
 func _on_swap_room(path_to_target_room: String, target_door_name: String)-> void:
 	# Remove player from current room
-	current_room.remove_child(player)
+	current_room.despawn_player(player)
 	
 	# Call autoload SceneManager to swap the room
 	var target_room_loaded: int = SceneManager.swap_scenes(path_to_target_room, $RoomHolder, current_room)
