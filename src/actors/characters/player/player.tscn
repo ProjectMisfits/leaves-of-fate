@@ -38,6 +38,7 @@ database = ExtResource("2_7gsup")
 player_dash_scene = ExtResource("3_q4vut")
 
 [node name="Camera" parent="." instance=ExtResource("4_wcwgi")]
+zoom = Vector2(0.75, 0.75)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_q4vut")
