@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://k0lsqn5iv31b"]
+[gd_scene load_steps=11 format=3 uid="uid://k0lsqn5iv31b"]
 
+[ext_resource type="Script" uid="uid://dxnnooui1ctwl" path="res://src/ui/settings_menu/settings_menu.gd" id="1_dfdoi"]
 [ext_resource type="Texture2D" uid="uid://c44j0kj2rhy3b" path="res://assets/ui/FullLetter-UI-001.png" id="1_wg84k"]
 [ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="2_dfdoi"]
 [ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="3_fhom7"]
@@ -23,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dfdoi")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -66,6 +68,10 @@ custom_minimum_size = Vector2(307, 101)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../BackButton")
+focus_neighbor_bottom = NodePath("../SoundButton")
+focus_next = NodePath("../SoundButton")
+focus_previous = NodePath("../BackButton")
 theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxEmpty_h4ejf")
@@ -95,6 +101,10 @@ custom_minimum_size = Vector2(250, 101)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../ControlsButton")
+focus_neighbor_bottom = NodePath("../BackButton")
+focus_next = NodePath("../BackButton")
+focus_previous = NodePath("../ControlsButton")
 theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxEmpty_h4ejf")
@@ -124,6 +134,10 @@ custom_minimum_size = Vector2(202, 101)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+focus_neighbor_top = NodePath("../SoundButton")
+focus_neighbor_bottom = NodePath("../ControlsButton")
+focus_next = NodePath("../ControlsButton")
+focus_previous = NodePath("../SoundButton")
 theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxEmpty_absu7")
