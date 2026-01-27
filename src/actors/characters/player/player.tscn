@@ -39,7 +39,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4vut"]
-size = Vector2(152, 195)
+size = Vector2(250, 180)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 14
@@ -60,14 +60,13 @@ position = Vector2(11.055, 4.645)
 sprite_frames = SubResource("SpriteFrames_q4vut")
 animation = &"player"
 
-[node name="InteractableArea" type="Marker2D" parent="FlipNode"]
-
-[node name="InteractSpace" type="Area2D" parent="FlipNode/InteractableArea"]
-collision_layer = 16
+[node name="InteractArea" type="Area2D" parent="FlipNode"]
+position = Vector2(80, 0)
 collision_mask = 16
+input_pickable = false
+monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/InteractableArea/InteractSpace"]
-position = Vector2(0, -3.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/InteractArea"]
 shape = SubResource("RectangleShape2D_q4vut")
 
 [node name="DashParticles" type="Node2D" parent="FlipNode"]
@@ -108,3 +107,7 @@ offset_left = -116.0
 offset_top = -239.0
 offset_right = 113.0
 offset_bottom = -159.0
+[connection signal="area_entered" from="FlipNode/InteractArea" to="." method="_on_interact_area_area_entered"]
+[connection signal="area_exited" from="FlipNode/InteractArea" to="." method="_on_interact_area_area_exited"]
+[connection signal="body_entered" from="FlipNode/InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="FlipNode/InteractArea" to="." method="_on_interact_area_body_exited"]

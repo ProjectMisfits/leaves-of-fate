@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bsg0iglh5r1mq"
+path="res://.godot/imported/7b-Ws-Lost-HeaterArea.dialogue-f0b0c3796149564d2dd958465766b384.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/7b-Ws-Lost-HeaterArea.dialogue"
+dest_files=["res://.godot/imported/7b-Ws-Lost-HeaterArea.dialogue-f0b0c3796149564d2dd958465766b384.tres"]
+
+[params]
+
+defaults=true
