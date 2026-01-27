@@ -15,6 +15,7 @@ var run_max_speed: float
 var ground_acceleration: float
 var ground_deceleration: float
 var ground_turn_speed: float
+var ground_friction: float
 
 var air_acceleration: float
 var air_deceleration: float
@@ -92,10 +93,7 @@ func _ready() -> void:
 # Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
 	update_jump_queue(delta)
-	
-	# Update Leaf Meter
-	leaf_meter = clampf((leaf_meter + (compute_leaf_meter_change() * delta)), 0.0, meter_max_capacity)
-	dash_bar.value = leaf_meter
+	update_leaf_meter(delta)
 	
 	if (not dashing_state.is_active()):
 		velocity.y += compute_gravity() * delta
@@ -184,6 +182,7 @@ func check_dashing_state() -> void:
 
 # Get the input direction and handle the movement/deceleration.
 func move_horizontal(acceleration: float, deceleration: float, turn_speed: float) -> void:
+	
 	var direction: float = get_x_input()
 	var new_velocity: float = 0.0
 	
@@ -197,12 +196,28 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 		else: 											# Direction is opposite to current velocity
 			new_acceleration = direction * turn_speed
 		
+		## Determine velocity debt AKA how much velocity beyond the max speed the Player has
+		#var velocity_debt: float = abs(velocity.x) - run_max_speed
+		#if (is_on_floor()):
+			#velocity_debt -= ground_friction	# Apply friction to velocity debt
+		#print("Velocity Debt: ", velocity_debt)
+		#
+		#if (velocity_debt > 0):		# If velocity debt exists
+			#
+			#var capped_new_velocity: float = clampf(velocity.x, -run_max_speed, run_max_speed)
+			#var signed_velocity_debt: float = velocity_debt * signf(velocity.x)	# Change sign to proper movement direction
+			#
+			#new_velocity = capped_new_velocity + signed_velocity_debt
+			#
+			#new_velocity = clampf(new_velocity + new_acceleration, -new_velocity, new_velocity)
+		
 		# If just exited Leaf Dash, limit velocity by dash max speed
 		if (state_machine.get_previous_active_state() == dashing_state) and (abs(velocity.x) > run_max_speed):
 			new_velocity = clampf(velocity.x + new_acceleration, -dash_max_speed, dash_max_speed)
 		else:
 			new_velocity = clampf(velocity.x + new_acceleration, -run_max_speed, run_max_speed)
-		
+		#print("New Velocity: ", new_velocity)
+	
 	velocity.x = new_velocity
 	
 	# Pos/0 velocity = look right, neg velocity = look left
@@ -255,19 +270,26 @@ func jump() -> void:
 	time_since_on_floor = INF	# Prevent additional coyote jumps
 	#print(jump_velocity)
 
-# Instantiate player dash scene & hibernate self
-func dash() -> void:
-	# TODO: Gotta remove that gravity & shucks
-	pass
-
-# Returns the contextual buildup/drain rate for the Leaf Meter.
-func compute_leaf_meter_change() -> float:
+func update_leaf_meter(delta: float) -> void:
+	var new_leaf_meter: float = leaf_meter
+	
+	# Compute change in leaf meter
+	var leaf_meter_change: float = 0.0
+	
 	if (dashing_state.is_active()):
-		return -1.0 * meter_dash_drain_rate
+		leaf_meter_change = -1.0 * meter_dash_drain_rate
+	elif (state_machine.get_previous_active_state() == dashing_state): # Do not change Leaf Meter post-dash until Player hits the ground
+		leaf_meter_change = 0.0
+	elif (signf(get_x_input()) != signf(velocity.x)): # If turning
+		leaf_meter_change = 0.0
 	elif (velocity != Vector2.ZERO):
-		return meter_buildup_rate
+		leaf_meter_change = meter_buildup_rate
 	else:
-		return -1.0 * meter_drain_rate
+		leaf_meter_change = -1.0 * meter_drain_rate
+	
+	new_leaf_meter += (leaf_meter_change * delta)
+	leaf_meter = clampf(new_leaf_meter, 0.0, meter_max_capacity)
+	dash_bar.value = leaf_meter
 
 func check_talk()->void:
 	#if the player just tried to interact with something see if there was someone you could talk to
@@ -287,6 +309,7 @@ func initialize_data(data: Dictionary) -> void:
 		ground_acceleration = data["ground_acceleration"]
 		ground_deceleration = data["ground_deceleration"]
 		ground_turn_speed = data["ground_turn_speed"]
+		ground_friction = data["ground_friction"]
 		
 		air_acceleration = data["air_acceleration"]
 		air_deceleration = data["air_deceleration"]
