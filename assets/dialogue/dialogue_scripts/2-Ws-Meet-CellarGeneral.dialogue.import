@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://btikirxfgpxb5"
+path="res://.godot/imported/2-Ws-Meet-CellarGeneral.dialogue-479a32e873b60b78d57a9a35e4d6150a.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/2-Ws-Meet-CellarGeneral.dialogue"
+dest_files=["res://.godot/imported/2-Ws-Meet-CellarGeneral.dialogue-479a32e873b60b78d57a9a35e4d6150a.tres"]
+
+[params]
+
+defaults=true
