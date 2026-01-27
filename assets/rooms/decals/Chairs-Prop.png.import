@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csbtgdyfulq48"
-path="res://.godot/imported/FloorPotA-Prop.png-c4075d7a6c16a1f1628b4a221b04543d.ctex"
+uid="uid://bmserlfg34sm7"
+path="res://.godot/imported/Chairs-Prop.png-8cada09471c1dea94f4dfeea34b14d12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/props/FloorPotA-Prop.png"
-dest_files=["res://.godot/imported/FloorPotA-Prop.png-c4075d7a6c16a1f1628b4a221b04543d.ctex"]
+source_file="res://assets/rooms/decals/Chairs-Prop.png"
+dest_files=["res://.godot/imported/Chairs-Prop.png-8cada09471c1dea94f4dfeea34b14d12.ctex"]
 
 [params]
 

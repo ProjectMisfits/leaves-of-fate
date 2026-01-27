@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://esjhcn5doix7"
-path="res://.godot/imported/Window-Prop.png-672ee365ec679bf2a4378dd25a12d050.ctex"
+path="res://.godot/imported/Window-Prop.png-23020dd1a09c832f3391a9c550bf554b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/props/Window-Prop.png"
-dest_files=["res://.godot/imported/Window-Prop.png-672ee365ec679bf2a4378dd25a12d050.ctex"]
+source_file="res://assets/rooms/decals/Window-Prop.png"
+dest_files=["res://.godot/imported/Window-Prop.png-23020dd1a09c832f3391a9c550bf554b.ctex"]
 
 [params]
 

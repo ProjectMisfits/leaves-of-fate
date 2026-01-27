@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://trq8l16yarnk"
-path="res://.godot/imported/Table-Prop.png-08795c7da803d96bbc1bcc8a1f577c8b.ctex"
+uid="uid://vn4i7kvciag4"
+path="res://.godot/imported/HangingPlant-Prop-01.png-8ce998c4b40382fe04d10c73e12eadc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/props/Table-Prop.png"
-dest_files=["res://.godot/imported/Table-Prop.png-08795c7da803d96bbc1bcc8a1f577c8b.ctex"]
+source_file="res://assets/rooms/decals/HangingPlant-Prop-01.png"
+dest_files=["res://.godot/imported/HangingPlant-Prop-01.png-8ce998c4b40382fe04d10c73e12eadc7.ctex"]
 
 [params]
 

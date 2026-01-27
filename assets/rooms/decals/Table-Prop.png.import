@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drdoc0iukr4ue"
-path="res://.godot/imported/FloorPotB-Prop.png-34206d30a119e535b0b045e29235af65.ctex"
+uid="uid://trq8l16yarnk"
+path="res://.godot/imported/Table-Prop.png-8c9c75dc855ded2b1dc0917204ce7740.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/props/FloorPotB-Prop.png"
-dest_files=["res://.godot/imported/FloorPotB-Prop.png-34206d30a119e535b0b045e29235af65.ctex"]
+source_file="res://assets/rooms/decals/Table-Prop.png"
+dest_files=["res://.godot/imported/Table-Prop.png-8c9c75dc855ded2b1dc0917204ce7740.ctex"]
 
 [params]
 

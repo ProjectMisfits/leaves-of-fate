@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rqirsuqouub4"
-path="res://.godot/imported/HangingPlant-Prop-02.png-16611186be6e44cd039255c2fa114c97.ctex"
+uid="uid://bw7awksqx37sb"
+path="res://.godot/imported/FruitBowl-Prop.png-db969d6d42813d83e50137a2a8894b63.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/props/HangingPlant-Prop-02.png"
-dest_files=["res://.godot/imported/HangingPlant-Prop-02.png-16611186be6e44cd039255c2fa114c97.ctex"]
+source_file="res://assets/rooms/decals/FruitBowl-Prop.png"
+dest_files=["res://.godot/imported/FruitBowl-Prop.png-db969d6d42813d83e50137a2a8894b63.ctex"]
 
 [params]
 

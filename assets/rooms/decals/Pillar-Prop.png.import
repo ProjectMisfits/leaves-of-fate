@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vn4i7kvciag4"
-path="res://.godot/imported/HangingPlant-Prop-01.png-c4bdc38f3d1812222a662fe770440eb8.ctex"
+uid="uid://dtkvtsht61cj1"
+path="res://.godot/imported/Pillar-Prop.png-c4dce7d0723d7006c2b459e3eb559fb8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/props/HangingPlant-Prop-01.png"
-dest_files=["res://.godot/imported/HangingPlant-Prop-01.png-c4bdc38f3d1812222a662fe770440eb8.ctex"]
+source_file="res://assets/rooms/decals/Pillar-Prop.png"
+dest_files=["res://.godot/imported/Pillar-Prop.png-c4dce7d0723d7006c2b459e3eb559fb8.ctex"]
 
 [params]
 

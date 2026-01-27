@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtkvtsht61cj1"
-path="res://.godot/imported/Pillar-Prop.png-4548e6e42dbc689f76f4b86ac1d54bf5.ctex"
+uid="uid://d2gds8e0486pu"
+path="res://.godot/imported/PillarDeco-Prop.png-c47895a91f1e6e9ede048b2975ec1c5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/props/Pillar-Prop.png"
-dest_files=["res://.godot/imported/Pillar-Prop.png-4548e6e42dbc689f76f4b86ac1d54bf5.ctex"]
+source_file="res://assets/rooms/decals/PillarDeco-Prop.png"
+dest_files=["res://.godot/imported/PillarDeco-Prop.png-c47895a91f1e6e9ede048b2975ec1c5c.ctex"]
 
 [params]
 

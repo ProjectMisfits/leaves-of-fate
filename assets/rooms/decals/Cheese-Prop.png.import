@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfc6ffhqo35kx"
-path="res://.godot/imported/Wine-Prop.png-65279c2a9717a0c884cbfd8e4e8537b6.ctex"
+uid="uid://yw5bo4hr4wr3"
+path="res://.godot/imported/Cheese-Prop.png-6522dc6254b15aac0fe87ea5ee264ffd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/props/Wine-Prop.png"
-dest_files=["res://.godot/imported/Wine-Prop.png-65279c2a9717a0c884cbfd8e4e8537b6.ctex"]
+source_file="res://assets/rooms/decals/Cheese-Prop.png"
+dest_files=["res://.godot/imported/Cheese-Prop.png-6522dc6254b15aac0fe87ea5ee264ffd.ctex"]
 
 [params]
 

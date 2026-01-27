@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmserlfg34sm7"
-path="res://.godot/imported/Chairs-Prop.png-71b454666d1e972f8232f7e1edebd114.ctex"
+uid="uid://7fb7piofpxgp"
+path="res://.godot/imported/Bread-Prop.png-10879478dc0bc81d3d867d019861a939.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/props/Chairs-Prop.png"
-dest_files=["res://.godot/imported/Chairs-Prop.png-71b454666d1e972f8232f7e1edebd114.ctex"]
+source_file="res://assets/rooms/decals/Bread-Prop.png"
+dest_files=["res://.godot/imported/Bread-Prop.png-10879478dc0bc81d3d867d019861a939.ctex"]
 
 [params]
 

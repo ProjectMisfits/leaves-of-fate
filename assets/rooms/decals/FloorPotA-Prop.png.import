@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yw5bo4hr4wr3"
-path="res://.godot/imported/Cheese-Prop.png-cc21984ced065d02080f1894efacf502.ctex"
+uid="uid://csbtgdyfulq48"
+path="res://.godot/imported/FloorPotA-Prop.png-2c538ff7e028ab0c3e048050bbbfeb25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/props/Cheese-Prop.png"
-dest_files=["res://.godot/imported/Cheese-Prop.png-cc21984ced065d02080f1894efacf502.ctex"]
+source_file="res://assets/rooms/decals/FloorPotA-Prop.png"
+dest_files=["res://.godot/imported/FloorPotA-Prop.png-2c538ff7e028ab0c3e048050bbbfeb25.ctex"]
 
 [params]
 
