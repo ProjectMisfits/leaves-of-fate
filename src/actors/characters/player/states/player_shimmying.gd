@@ -3,6 +3,7 @@ extends LimboState
 func _enter() -> void:
 	#print("Player State Transition: to_shimmying")
 	agent.animated_sprite_2d.animation = &"shimmy"
+	agent.collision_shape_2d.shape = agent.collision_dash
 	agent.velocity.y = 0.0
 
 func _update(delta: float) -> void:
@@ -22,3 +23,4 @@ func _update(delta: float) -> void:
 
 func _exit() -> void:
 	agent.animated_sprite_2d.animation = &"player"
+	agent.collision_shape_2d.shape = agent.collision_normal

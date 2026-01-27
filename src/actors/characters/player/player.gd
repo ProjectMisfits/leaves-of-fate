@@ -4,7 +4,10 @@
 extends CharacterBody2D
 class_name Player
 
+### RESOURCES ###
 @export var database: JSON = null
+@export var collision_normal: CapsuleShape2D = null
+@export var collision_dash: CircleShape2D = null
 
 ### DATABASE VARIABLES ###
 var health: int
@@ -59,6 +62,7 @@ var shimmy_air_turn_speed: float
 
 ## Node references + State Machine ##
 @onready var dash_bar: ProgressBar = $DashBar
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 # flip_node scale changes depending on Player's look direction; all children will be flipped.
 @onready var flip_node: Node2D = $FlipNode
