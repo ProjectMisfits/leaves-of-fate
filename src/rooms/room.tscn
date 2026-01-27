@@ -42,6 +42,10 @@ position = Vector2(1500, 923)
 door_name = "exit"
 target_door_name = "enter"
 
+[node name="MidgroundFrame" type="TileMapLayer" parent="MidgroundLayer"]
+scale = Vector2(0.25, 0.25)
+tile_set = ExtResource("2_7i7i2")
+
 [node name="ForegroundLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
