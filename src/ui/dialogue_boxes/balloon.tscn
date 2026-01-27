@@ -165,6 +165,7 @@ layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 1
 theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_drgxp")
 theme_override_fonts/bold_font = ExtResource("3_drgxp")
 theme_override_fonts/bold_italics_font = ExtResource("4_3gjmh")
 theme_override_fonts/italics_font = ExtResource("5_1ervg")
