@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 
 [audio]
 
-buses/default_bus_layout=""
+buses/default_bus_layout="uid://bboukivc3dgxm"
 
 [autoload]
 
@@ -133,7 +133,7 @@ quit={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://assets/dialogue/dialogue_scripts/untitled.dialogue")
+locale/translations_pot_files=PackedStringArray("res://assets/dialogue/dialogue_scripts/untitled.dialogue", "res://assets/dialogue/dialogue_scripts/TUTORIAL-RichTextLabel.dialogue", "res://assets/dialogue/dialogue_scripts/Pantry-Az-Stuck.dialogue", "res://assets/dialogue/dialogue_scripts/HeaterArea-Winston-Lost.dialogue", "res://assets/dialogue/dialogue_scripts/Workshop-AzWinston.dialogue", "res://assets/dialogue/dialogue_scripts/2-Winston-Meet-CellarGeneral.dialogue", "res://assets/dialogue/dialogue_scripts/8d-Az-ConditionalConvo-CellarGeneral.dialogue", "res://assets/dialogue/dialogue_scripts/4-Az-BangleTalk-CellarGeneral.dialogue", "res://assets/dialogue/dialogue_scripts/5-Winston-Ambush-CellarGeneral.dialogue", "res://assets/dialogue/dialogue_scripts/7-AzWinston-Arrive-Den.dialogue", "res://assets/dialogue/dialogue_scripts/10-12-14-AzWinston-Return-Den.dialogue", "res://assets/dialogue/dialogue_scripts/1-Az-Meet-GreatHall.dialogue", "res://assets/dialogue/dialogue_scripts/XX-AzWinston-ReachSafety-GreatHall.dialogue", "res://assets/dialogue/dialogue_scripts/8c-Az-FiresideChat-HeaterArea.dialogue", "res://assets/dialogue/dialogue_scripts/9-11-13-AzWinston-TurnOn-HeaterArea.dialogue", "res://assets/dialogue/dialogue_scripts/8a-Winston-CageTrap-HeaterArea.dialogue")
 
 [layer_names]
 
@@ -141,7 +141,7 @@ locale/translations_pot_files=PackedStringArray("res://assets/dialogue/dialogue_
 2d_physics/layer_2="foreground"
 2d_physics/layer_3="platforms"
 2d_physics/layer_4="spikes"
-2d_physics/layer_5="talkable"
+2d_physics/layer_5="interactables"
 
 [physics]
 
