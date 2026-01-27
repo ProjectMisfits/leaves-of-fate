@@ -5,7 +5,6 @@ extends CharacterBody2D
 class_name Player
 
 @export var database: JSON = null
-@export var player_dash_scene: PackedScene = null
 
 ### DATABASE VARIABLES ###
 var health: int
@@ -16,6 +15,7 @@ var run_max_speed: float
 var ground_acceleration: float
 var ground_deceleration: float
 var ground_turn_speed: float
+var ground_friction: float
 
 var air_acceleration: float
 var air_deceleration: float
@@ -47,9 +47,13 @@ var dash_shimmy_acceleration: float
 var dash_shimmy_deceleration: float
 var dash_shimmy_turn_speed: float
 
-## State Machine + FlipNode ##
+## Node references + State Machine ##
+@onready var dash_bar: ProgressBar = $DashBar
+
 # flip_node scale changes depending on Player's look direction; all children will be flipped.
 @onready var flip_node: Node2D = $FlipNode
+@onready var animated_sprite_2d: AnimatedSprite2D = $FlipNode/AnimatedSprite2D
+@onready var dash_particles: Node2D = $FlipNode/DashParticles
 
 @onready var state_machine: LimboHSM = $LimboHSM
 @onready var idle_state: LimboState = $LimboHSM/Idle
@@ -64,7 +68,7 @@ var dash_shimmy_turn_speed: float
 var current_health: int
 var look_direction: float = 1.0 # <0 is left, >=0 is right
 var jump_queued: bool = false
-var leaf_meter: float = 100.0
+var leaf_meter: float = 0.0
 
 var jump_velocity: float = 0.0
 var jump_gravity: float = 0.0
@@ -90,17 +94,20 @@ func _ready() -> void:
 
 # Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
+	add_debug_parameters()
 	check_interact_action()
 	update_jump_queue(delta)
+	update_leaf_meter(delta)
 	
-	velocity.y += compute_gravity() * delta
-	velocity.y = clampf(velocity.y, -INF, terminal_velocity) # velocity cannot exceed terminal velocity
+	if (not dashing_state.is_active()):
+		velocity.y += compute_gravity() * delta
+		velocity.y = clampf(velocity.y, -INF, terminal_velocity) # velocity cannot exceed terminal velocity
+		
+		if (look_direction < 0): # Flip root node to Player's look direction
+			flip_node.scale.x = -1.0
+		else:
+			flip_node.scale.x = 1.0
 	
-	if (look_direction < 0): # Flip root node to Player's look direction
-		flip_node.scale.x = -1.0
-	else:
-		flip_node.scale.x = 1.0
-
 	move_and_slide()
 	
 	# Update floor-dependent variables.
@@ -112,26 +119,26 @@ func _physics_process(delta: float) -> void:
 
 # Adds state transitions & initializes state machine.
 func initialize_state_machine() -> void:
-	state_machine.add_transition(idle_state,running_state,"to_running")
-	state_machine.add_transition(idle_state,jumping_state,"to_jumping")
-	state_machine.add_transition(idle_state,airborne_state,"to_airborne")
-	state_machine.add_transition(idle_state,dashing_state,"to_dashing")
+	state_machine.add_transition(idle_state,running_state,&"to_running")
+	state_machine.add_transition(idle_state,jumping_state,&"to_jumping")
+	state_machine.add_transition(idle_state,airborne_state,&"to_airborne")
+	state_machine.add_transition(idle_state,dashing_state,&"to_dashing")
 	
-	state_machine.add_transition(running_state,idle_state,"to_idle")
-	state_machine.add_transition(running_state,jumping_state,"to_jumping")
-	state_machine.add_transition(running_state,airborne_state,"to_airborne")
-	state_machine.add_transition(running_state,dashing_state,"to_dashing")
+	state_machine.add_transition(running_state,idle_state,&"to_idle")
+	state_machine.add_transition(running_state,jumping_state,&"to_jumping")
+	state_machine.add_transition(running_state,airborne_state,&"to_airborne")
+	state_machine.add_transition(running_state,dashing_state,&"to_dashing")
 	
-	state_machine.add_transition(jumping_state,airborne_state,"to_airborne")
-	state_machine.add_transition(jumping_state,dashing_state,"to_dashing")
+	state_machine.add_transition(jumping_state,airborne_state,&"to_airborne")
+	state_machine.add_transition(jumping_state,dashing_state,&"to_dashing")
 	
-	state_machine.add_transition(airborne_state,idle_state,"to_idle")
-	state_machine.add_transition(airborne_state,running_state,"to_running")
-	state_machine.add_transition(airborne_state,dashing_state,"to_dashing")
+	state_machine.add_transition(airborne_state,idle_state,&"to_idle")
+	state_machine.add_transition(airborne_state,running_state,&"to_running")
+	state_machine.add_transition(airborne_state,dashing_state,&"to_dashing")
 	
-	state_machine.add_transition(dashing_state,idle_state,"to_idle")
-	state_machine.add_transition(dashing_state,running_state,"to_running")
-	state_machine.add_transition(dashing_state,airborne_state,"to_airborne")
+	state_machine.add_transition(dashing_state,idle_state,&"to_idle")
+	state_machine.add_transition(dashing_state,running_state,&"to_running")
+	state_machine.add_transition(dashing_state,airborne_state,&"to_airborne")
 	
 	state_machine.initial_state = idle_state
 	state_machine.initialize(self)
@@ -144,7 +151,7 @@ func check_idle_state() -> void:
 		var x_input_is_zero: bool = (get_x_input() == 0.0)
 		
 		if velocity_is_zero and x_input_is_zero:
-			state_machine.dispatch("to_idle")
+			state_machine.dispatch(&"to_idle")
 
 # If the player is moving on the ground, change to running state.
 func check_running_state() -> void:
@@ -153,27 +160,29 @@ func check_running_state() -> void:
 		var x_velocity_not_zero: bool = (velocity.x != 0.0)
 		
 		if x_input_not_zero or x_velocity_not_zero:
-			state_machine.dispatch("to_running")
+			state_machine.dispatch(&"to_running")
 
 # If the player queued a jump & is on floor or within coyote time, change to jumping state.
 func check_jumping_state() -> void:
 	if jump_queued:
 		var is_within_coyote_time: bool = (time_since_on_floor <= jump_coyote_time)
 		if is_on_floor() or is_within_coyote_time:
-			state_machine.dispatch("to_jumping")
+			state_machine.dispatch(&"to_jumping")
 
 # If the player is airborne AND the coyote timer has expired, change to airborne state.
 func check_airborne_state() -> void:
 	var is_coyote_timer_expired: bool = (time_since_on_floor > jump_coyote_time)
 	if not is_on_floor() and is_coyote_timer_expired:
-		state_machine.dispatch("to_airborne")
+		state_machine.dispatch(&"to_airborne")
 
 # If the player is trying to dash and leaf meter is not zero, change to dashing state.
 func check_dashing_state() -> void:
-	var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
-	
-	if Input.is_action_just_pressed("dash") and is_leaf_meter_not_empty:
-		state_machine.dispatch("to_dashing")
+	if Input.is_action_just_pressed(&"dash"):
+		var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
+		var is_direction_pressed: bool = (Input.get_vector("move_left", "move_right", "move_up", "move_down") != Vector2.ZERO)
+		
+		if is_direction_pressed and is_leaf_meter_not_empty:
+			state_machine.dispatch(&"to_dashing")
 
 func check_interact_action() -> void:
 	var is_interactable_not_null: bool = selected_interactable != null
@@ -184,10 +193,13 @@ func check_interact_action() -> void:
 
 # Get the input direction and handle the movement/deceleration.
 func move_horizontal(acceleration: float, deceleration: float, turn_speed: float) -> void:
-	var direction: float = Input.get_axis("move_left", "move_right")
+	
+	var direction: float = get_x_input()
 	var new_velocity: float = 0.0
 	
-	if (direction == 0.0) and (state_machine.get_previous_active_state() != dashing_state): # No direction & did not exit Leaf Dash
+	if (is_on_wall()):
+		new_velocity = 0.0
+	elif (direction == 0.0) and (state_machine.get_previous_active_state() != dashing_state): # No direction & did not exit Leaf Dash
 		new_velocity = move_toward(velocity.x, 0, deceleration)
 	else:
 		var new_acceleration: float = 0.0
@@ -197,12 +209,28 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 		else: 											# Direction is opposite to current velocity
 			new_acceleration = direction * turn_speed
 		
+		## Determine velocity debt AKA how much velocity beyond the max speed the Player has
+		#var velocity_debt: float = abs(velocity.x) - run_max_speed
+		#if (is_on_floor()):
+			#velocity_debt -= ground_friction	# Apply friction to velocity debt
+		#print("Velocity Debt: ", velocity_debt)
+		#
+		#if (velocity_debt > 0):		# If velocity debt exists
+			#
+			#var capped_new_velocity: float = clampf(velocity.x, -run_max_speed, run_max_speed)
+			#var signed_velocity_debt: float = velocity_debt * signf(velocity.x)	# Change sign to proper movement direction
+			#
+			#new_velocity = capped_new_velocity + signed_velocity_debt
+			#
+			#new_velocity = clampf(new_velocity + new_acceleration, -new_velocity, new_velocity)
+		
 		# If just exited Leaf Dash, limit velocity by dash max speed
 		if (state_machine.get_previous_active_state() == dashing_state) and (abs(velocity.x) > run_max_speed):
 			new_velocity = clampf(velocity.x + new_acceleration, -dash_max_speed, dash_max_speed)
 		else:
 			new_velocity = clampf(velocity.x + new_acceleration, -run_max_speed, run_max_speed)
-		
+		#print("New Velocity: ", new_velocity)
+	
 	velocity.x = new_velocity
 	
 	# Pos/0 velocity = look right, neg velocity = look left
@@ -219,7 +247,7 @@ func move_horizontal_air() -> void:
 
 # Returns the player's x-input value.
 func get_x_input() -> float:
-	return Input.get_axis("move_left", "move_right")
+	return Input.get_axis(&"move_left", &"move_right")
 
 # Updates jump velocity & gravity variables
 func compute_jump_parameters() -> void:
@@ -230,7 +258,7 @@ func compute_gravity() -> float:
 	var new_velocity: float
 
 	# Control variable jump height by checking is "jump" is being held
-	if (state_machine.get_active_state() == jumping_state) and Input.is_action_pressed("jump"):
+	if (state_machine.get_active_state() == jumping_state) and Input.is_action_pressed(&"jump"):
 		new_velocity = jump_gravity
 	else:
 		new_velocity = jump_gravity * fall_gravity_multiplier
@@ -241,10 +269,10 @@ func compute_gravity() -> float:
 func update_jump_queue(delta: float) -> void:
 	if jump_queued:
 		time_since_jump_queued += delta
-		print(time_since_jump_queued)
+		#print(time_since_jump_queued)
 		if (time_since_jump_queued > jump_buffer_time):	# Check if jump has been queued for too long
 			jump_queued = false							# Jump loses its queue
-	elif Input.is_action_just_pressed("jump"):
+	elif Input.is_action_just_pressed(&"jump"):
 		jump_queued = true
 		time_since_jump_queued = 0.0
 
@@ -255,27 +283,26 @@ func jump() -> void:
 	time_since_on_floor = INF	# Prevent additional coyote jumps
 	#print(jump_velocity)
 
-# Instantiate player dash scene & hibernate self
-func dash() -> void:
-	# Create new player dash instance
-	var new_player_dash: PlayerDash = player_dash_scene.instantiate()
+func update_leaf_meter(delta: float) -> void:
+	var new_leaf_meter: float = leaf_meter
 	
-	if not get_parent():
-		push_error("failed to fetch parent reference.")
-		return
-	get_parent().add_child(new_player_dash)
+	# Compute change in leaf meter
+	var leaf_meter_change: float = 0.0
 	
-	new_player_dash.control_player(self)
-
-func set_disabled(to_disable: bool) -> bool:
-	if to_disable:
-		visible = false
-		process_mode = Node.PROCESS_MODE_DISABLED
+	if (dashing_state.is_active()):
+		leaf_meter_change = -1.0 * meter_dash_drain_rate
+	elif (state_machine.get_previous_active_state() == dashing_state): # Do not change Leaf Meter post-dash until Player hits the ground
+		leaf_meter_change = 0.0
+	elif (signf(get_x_input()) != signf(velocity.x)): # If turning
+		leaf_meter_change = 0.0
+	elif (velocity != Vector2.ZERO):
+		leaf_meter_change = meter_buildup_rate
 	else:
-		visible = true
-		process_mode = Node.PROCESS_MODE_INHERIT
+		leaf_meter_change = -1.0 * meter_drain_rate
 	
-	return true
+	new_leaf_meter += (leaf_meter_change * delta)
+	leaf_meter = clampf(new_leaf_meter, 0.0, meter_max_capacity)
+	dash_bar.value = leaf_meter
 
 func check_talk()->void:
 	#if the player just tried to interact with something see if there was someone you could talk to
@@ -283,8 +310,6 @@ func check_talk()->void:
 		var talkables = $FlipNode/InteractArea.get_overlapping_areas() 
 		if talkables.size() >0:
 			talkables[0].talk();
-	
-	
 
 # Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
@@ -297,6 +322,7 @@ func initialize_data(data: Dictionary) -> void:
 		ground_acceleration = data["ground_acceleration"]
 		ground_deceleration = data["ground_deceleration"]
 		ground_turn_speed = data["ground_turn_speed"]
+		ground_friction = data["ground_friction"]
 		
 		air_acceleration = data["air_acceleration"]
 		air_deceleration = data["air_deceleration"]
@@ -342,6 +368,10 @@ func deselect_interactable() -> void:
 	var interact_node: Interactable = selected_interactable.get_node("Interactable")
 	interact_node.deselect_interactable()
 	selected_interactable = null
+
+func add_debug_parameters() -> void:
+	DebugMenu.add_debug_property("Player State", state_machine.get_active_state().name, 0)
+	DebugMenu.add_debug_property("Player Velocity", velocity, 5)
 
 
 
