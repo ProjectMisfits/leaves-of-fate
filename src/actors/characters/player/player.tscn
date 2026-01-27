@@ -63,3 +63,4 @@ stream = ExtResource("12_wcwgi")
 
 [node name="LeafExitAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("14_lynpt")
+volume_db = 2.0

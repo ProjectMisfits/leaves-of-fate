@@ -10,6 +10,8 @@ var doors: Array[Node]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	MusicManager._play_song(load("res://assets/music/PH-Joyful-120bpm-4_4-loop.ogg"))
+	AmbianceManager._load_ambiance(load("res://assets/ambiance/resources/PH-Ambiance-1.tres"))
 	# Connect each Door's entered signal to this Room's room swap function
 	doors = $Doors.get_children()
 	for door: Door in doors:
@@ -21,7 +23,7 @@ func _on_player_entered_door(door: Door) -> void:
 	if (!door.path_to_target_room != ""):
 		push_warning("Room: The target room of door '%s' in room '%s' is not set!" % [door.path_to_target_room, name])
 		return
-	
+	AmbianceManager.stop()
 	# Since the path to the target room is valid, initiate the load request.
 	print("Room: Player entered door '%s'. Requesting load of target room '%s'" % [door.door_name, door.path_to_target_room])
 	swap_room.emit(door.path_to_target_room, door.target_door_name)
