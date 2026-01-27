@@ -1,0 +1,38 @@
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://wvaxg346c47x"]
+
+[ext_resource type="Texture2D" uid="uid://bokl20qwsrj6e" path="res://assets/rooms/tileset/TS-planks-45deg-1.png" id="1_jilt7"]
+[ext_resource type="Texture2D" uid="uid://cp7g7b6wdpi53" path="res://assets/rooms/tileset/TS-planks-horiz-1.png" id="2_hodax"]
+[ext_resource type="Texture2D" uid="uid://b5le1g02hk8dt" path="res://assets/rooms/tileset/TS-stone-wall-1.png" id="3_7g607"]
+[ext_resource type="Texture2D" uid="uid://tynr1ldppsel" path="res://assets/rooms/tileset/TS-stone-wall-2.png" id="4_dj26s"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i0ja3"]
+texture = ExtResource("1_jilt7")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4p5mv"]
+texture = ExtResource("2_hodax")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iutvm"]
+texture = ExtResource("3_7g607")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yljle"]
+texture = ExtResource("4_dj26s")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
+
+[resource]
+tile_size = Vector2i(512, 512)
+physics_layer_0/collision_layer = 2
+sources/0 = SubResource("TileSetAtlasSource_i0ja3")
+sources/1 = SubResource("TileSetAtlasSource_4p5mv")
+sources/2 = SubResource("TileSetAtlasSource_iutvm")
+sources/3 = SubResource("TileSetAtlasSource_yljle")
