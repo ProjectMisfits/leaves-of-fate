@@ -19,3 +19,11 @@ func continue_platform()->void:
 	$"../..".resume_platform()
 	state_machine.dispatch(&"to_ungrabbed")
 	
+#Disable companion collision so that the player can't target it while grabbed
+func disable_companion_collision()->void:
+	$CollisionShape2D.set_deferred("disabled",true)
+
+#enable companion collision so the player can target it again
+func enable_companion_collision()->void:
+	$CollisionShape2D.set_deferred("disabled",false)
+	
