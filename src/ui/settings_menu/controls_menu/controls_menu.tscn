@@ -48,13 +48,13 @@ theme_override_fonts/font = ExtResource("2_rl4x8")
 theme_override_font_sizes/font_size = 100
 text = "Controls"
 
-[node name="ExitButton" type="Button" parent="Panel"]
-custom_minimum_size = Vector2(182, 101)
+[node name="BackButton" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(192, 101)
 layout_mode = 0
-offset_left = 118.5
-offset_top = 655.5
-offset_right = 300.5
-offset_bottom = 756.5
+offset_left = 60.5
+offset_top = 692.5
+offset_right = 242.5
+offset_bottom = 793.5
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
@@ -64,12 +64,12 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_ppe2n")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_ppe2n")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ppe2n")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ppe2n")
-text = "Exit
+text = "Back
 "
 alignment = 2
 script = ExtResource("3_j167u")
 
-[node name="LeafPointer" type="TextureRect" parent="Panel/ExitButton"]
+[node name="LeafPointer" type="TextureRect" parent="Panel/BackButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5

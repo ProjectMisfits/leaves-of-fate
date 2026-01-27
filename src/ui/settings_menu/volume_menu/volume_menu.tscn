@@ -161,8 +161,8 @@ step = 0.001
 script = ExtResource("4_2uc65")
 bus_name = "SFX"
 
-[node name="ExitButton" type="Button" parent="Panel"]
-custom_minimum_size = Vector2(182, 101)
+[node name="BackButton" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(192, 101)
 layout_mode = 0
 offset_left = 118.5
 offset_top = 610.5
@@ -177,12 +177,12 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_2uc65")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_2uc65")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_2uc65")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2uc65")
-text = "Exit
+text = "Back
 "
 alignment = 2
 script = ExtResource("3_wfrvw")
 
-[node name="LeafPointer" type="TextureRect" parent="Panel/ExitButton"]
+[node name="LeafPointer" type="TextureRect" parent="Panel/BackButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
