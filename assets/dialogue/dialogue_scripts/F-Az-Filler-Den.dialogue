@@ -2,6 +2,10 @@
 % => convo_1
 % => convo_2
 % => convo_3
+% => convo_4
+% => convo_5
+% => convo_6
+% => convo_7
 => END
 
 
@@ -30,5 +34,56 @@ Az: Okay! Okay, that's enough out of you, kid.
 => END
 
 ~ convo_3
-Add More
+Az: Where are you from?
+Fenn: Navetta!
+Az: Hm. Never heard of it. Where is it?
+Fenn: It's north. Lots of trees and farms and stuff.
+Az: Ah, the countryside?
+Fenn: Yeah... it's kinda boring.
+=> END
+
+~ convo_4
+Fenn: Do you make a lot of bracelet things?
+Az: Bangles?
+Fenn: Yeah, bracelet things.
+Az: No, not often. These ones took me weeks to get the inscriptions right.
+Az: If I want something for my wrists, I usually make bracelets with yarn or beads
+Fenn: That's so cool! Could I have one?
+Az: Well, yeah sure. They're in my room, though.
+Fenn: Yippee! I can't wait
+=> END
+
+~ convo_5
+Az: How come you seem to know a lot about the Knights and stuff?
+Fenn: Who wouldn't want to know about the knights? They're the coolest!
+Az: I dunno. I've never seen someone so... enthusiastic about them.
+Fenn: But they do so many awesome things! They go on adventures! Slay monsters! Save princesses!
+Az: Kid, I don't think there's been a princess that needed saving in like at least a century
+Fenn: But... but...
+Az: Nah. Don't worry, kid. I get it.
+Az: I remember when Baba became a Knight. It was pretty cool.
+=> END
+
+~ convo_6
+Fenn: Have you met Adira? Knight of Cloth? She's my favorite Knight. She's so cool!!!!
+Az: Adira? Yikes...
+Fenn: Why? What? What's wrong with Adira?
+Az: I mean...nothing... if you don't mind Knights who are a shallow, conceited, piece of-
+Fenn: WHAT?!
+Az: Sorry to break it to you, kid. Adira is... kinda terrible.
+Fenn: But... but...
+Az: Hey, don't worry about it. Most of 'em are fine. Adira specifically is terrible.
+Fenn: Aww...
+=> END
+
+~ convo_7
+Fenn: Who's your favorite Knight? Like, besides your Dad?
+Az: Hmm... besides Baba? I haven't really spent time with a lot of them.
+Az: Henric and Ophelia are a little intense. I'd say Maysa probably. She's chill.
+Fenn: Oooh, good choice. I think I have a few Maysas. Mostly Adira and Henric full-arts.
+Az: Are you talking about trading cards?
+Fenn: Yeah I have a ton of them!
+Az: Huh... I didn't know there were trading cards for the Knights.
+Fenn: They don't!
+Az:Ah...
 => END

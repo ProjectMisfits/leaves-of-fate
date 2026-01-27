@@ -44,10 +44,25 @@ Fenn: Where'd you get that coat?
 Winston: Oh. My Mother made it.
 Fenn: That's nice!
 Winston: Yeah... would be, if she was around.
-Fenn:  What do you mean?
+Fenn: What do you mean?
 Winston: Nothing. Don't worry about it.
 => END
 
 ~ convo_5
-Add more
+Fenn: Why'd you trap all the Knights in the Council Chamber?
+Winston: They deserve it. That's why!
+Fenn: What do you mean? They don't deserve it! They help people!
+Winston: Doing what? Sitting in an office for days? Bickering over meaningless laws?
+Winston: Traveling around the country? They don't do anything!
+Fenn: That's not true! They do stuff! They help people.
+Winston: Sure, pint-size. Sure.
+=> END
+
+~ convo_6
+Winston: Just you wait, pint-size. I'm gonna destroy you!
+Fenn: That's the spirit!
+Az: Are you rooting for him?
+Fenn: I feel like he needs it.
+Az: Fair enough.
+Winston: Don't pity me!!
 => END
