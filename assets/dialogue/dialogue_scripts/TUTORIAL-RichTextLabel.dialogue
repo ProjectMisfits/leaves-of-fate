@@ -80,4 +80,6 @@ Rainbow: Rainbow effect looks [rainbow]like this[/rainbow]
 Speed: Speed is a multiplier to default text speed
 	[speed=3]This line will read at 3x speed, ideally[/speed]
 	[speed=0.2]This line will read at 1/5 speed, ideally[/speed]
+
+Wait: The wait function allows you to add dramatic [wait=1] pauses
 => END
