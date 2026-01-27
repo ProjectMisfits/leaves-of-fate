@@ -6,7 +6,8 @@ var input_direction: Vector2
 var rad_angular_turn_speed: float
 
 func _enter() -> void:
-	print("Player State Transition: to_dashing")
+	#print("Player State Transition: to_dashing")
+	pass
 	
 	agent.animated_sprite_2d.animation = &"dash"
 	for ps: GPUParticles2D in agent.dash_particles.get_children(): # Enable Leaf Dash particles
