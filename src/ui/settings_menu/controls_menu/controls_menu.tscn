@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://s11ld2n0bjn5"]
+
+[ext_resource type="Texture2D" uid="uid://c44j0kj2rhy3b" path="res://assets/ui/FullLetter-UI-001.png" id="1_c6ako"]
+[ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="2_rl4x8"]
+[ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="3_j167u"]
+[ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="4_omo06"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j167u"]
+texture = ExtResource("1_c6ako")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1t2k0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ppe2n"]
+
+[node name="ControlsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -593.0
+offset_top = -416.5
+offset_right = 593.0
+offset_bottom = 416.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j167u")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 48.5
+offset_right = 441.0
+offset_bottom = 149.5
+theme_override_colors/font_color = Color(0.34117648, 0.43529412, 0.20784314, 1)
+theme_override_fonts/font = ExtResource("2_rl4x8")
+theme_override_font_sizes/font_size = 100
+text = "Controls"
+
+[node name="ExitButton" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(182, 101)
+layout_mode = 0
+offset_left = 118.5
+offset_top = 655.5
+offset_right = 300.5
+offset_bottom = 756.5
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1t2k0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ppe2n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ppe2n")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ppe2n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ppe2n")
+text = "Exit
+"
+alignment = 2
+script = ExtResource("3_j167u")
+
+[node name="LeafPointer" type="TextureRect" parent="Panel/ExitButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.5
+offset_right = 67.0
+offset_bottom = 32.5
+grow_vertical = 2
+texture = ExtResource("4_omo06")
+expand_mode = 1
+stretch_mode = 4
