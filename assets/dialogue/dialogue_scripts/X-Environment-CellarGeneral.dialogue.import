@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cn2jh1vfj87y7"
+path="res://.godot/imported/X-Environment-CellarGeneral.dialogue-69cae7aa86935d60176783511acd4e85.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/X-Environment-CellarGeneral.dialogue"
+dest_files=["res://.godot/imported/X-Environment-CellarGeneral.dialogue-69cae7aa86935d60176783511acd4e85.tres"]
+
+[params]
+
+defaults=true

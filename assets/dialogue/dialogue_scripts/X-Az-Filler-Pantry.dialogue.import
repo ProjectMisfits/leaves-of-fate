@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ykutm1ovfjr3"
+path="res://.godot/imported/X-Az-Filler-Pantry.dialogue-40e52f80c1e0b1dd81a42687e5c95a9a.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/X-Az-Filler-Pantry.dialogue"
+dest_files=["res://.godot/imported/X-Az-Filler-Pantry.dialogue-40e52f80c1e0b1dd81a42687e5c95a9a.tres"]
+
+[params]
+
+defaults=true
