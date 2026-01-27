@@ -1,13 +1,8 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+Az: Heads up, I just found a way into the Den. The ice block is no joke...
+Az: I'll see you here when you get back.
+Fenn: Yay! Big lady made it!
+Az: Don't call me that.
 => END
 
 #This line should be imported into the other 7 dialogue things

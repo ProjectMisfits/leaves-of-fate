@@ -1,15 +1,100 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+match some_gamestate_value
+	when 1
+		=> return_to_den_1
+	when 2
+		=> return_to_den_2
+	when 3
+		=> asthma_attack
+	else
+		Error:This dialogue should never play. Heater Number is not 1 2 or 3
 => END
 
 #Create 3 branches for each of the 
 #number of heaters turned on
 #This includes the long segment about the asthma attack
+
+~ return_to_den_1
+Az: Fenn! You did it. Nice job, kid.
+Fenn: Thanks! 
+Fenn: Can't you help, though? Melt the ice with your fire breath?
+Az: No. I thought I told you already. I can't use my fire.
+Fenn: But-
+Az: No.
+Fenn: Az-
+Az: I said no!
+Fenn: But why?
+Az: sigh. I don't like talking about it. 
+Fenn: About what?
+Az: I have asthma. I can breathe fire, but there's a chance I get an attack. They're not pretty
+Fenn: Oohhh...
+Az: And my Baba is insane about it. He taught me blacksmithing, and I love it, but it's so rare I can even do it. I swear he freaks out everytime I cough.
+Az: I just feel... weak. I hate it.
+Az: And sitting here, doing nothing... It drives me crazy! I've been nothing but useless, while you're running around, throwing yourself into danger.
+Az: I'm sorry, Fenn. Thank you for your help. It means a lot
+Fenn: Yeah. Can I go turn on more heaters?
+Az: Haha, yeah we should get a move on.
+Winston: Huh... asthma eh?
+=> END
+
+~ return_to_den_2
+Fenn: Az?
+Az: What's up?
+Fenn: Is your name Az because you have asthma?
+Az: HAH. Haha. No. Boy, the amount of times I've heard that one...
+Az: My full name is Zara, but I've been Az since I was a kid. Got my asthma diagnosis much later. Like the world was playing a joke.
+Az: How about you, kid? Where's Fenn come from?
+Fenn: Oh... I don't really know. Mom said it means "brave"
+Az: Hey, I mean. Pretty accurate, far as I'm concerned.
+Winston: Ahem... my... my name...
+Az: Did you hear something?
+Fenn: Wizard man, is that you?
+Winston: I- my name's Winston.
+Fenn: Oh! Nice to meet you Winston.
+Winston: N-nice to meet you too, I guess.
+=> END
+
+~ asthma_attack
+Winston: Oh Az, why not? It can't be that hard to melt a little ice
+Az: Shut up.
+Winston: Aww, are you scared? Of me, no less? Not able to enter your own workshop.
+Az: Shut. UP.
+Winston: Oh, what's this? This looks nice... 
+Az: Wh-what are you doing?
+Winston: It's a lovely little picture frame. Is that... Abdul?
+Az: STOP. Stop this RIGHT NOW. I swear to Post, you do any-
+SMASH
+Winston: [i]oops[/i]
+Az: That's it. I'm coming for you, boy.
+Az approaches the door, takes a deep breath
+Fenn: Az? What-
+Winston: Burn it down, Az!
+Az breathes fire over the ice, and it completely melts
+She coughs and then collapses
+Fenn: Az! No! Are you okay? What did you do??
+Az: I- cough I don't cough
+Fenn: It's okay. Slow down, I'm here.
+Az: I- cough inhaler
+Fenn: I- I don't have one. I'm sorry. Just slow, breathe.
+Az: cough. G-go
+Fenn: What? No!
+Az: Go. cough. Winston.
+Fenn: Az. Don't be stupid. I'm not leaving.
+Az: Go.
+Fenn: I'm not leaving, so just shut up about it!
+Az: cough
+Az: Th- cough thanks.
+silence for a few moments
+inhaler slides under the door
+Fenn: Uh- is- is that?
+Az: In- cough inhaler
+Fenn grabs it, walks back to Az.
+Deep inhale
+Fenn: It's okay, breathe.
+Deep inhale
+Fenn: I'll stay with you until you're good
+Fade to black, deep inhale
+Az: Ha ha. Fenn, I'm good. You can stop worrying
+Fenn: You sure?
+Az: Yeah. I'm ready. Let's go get him
+=> END
