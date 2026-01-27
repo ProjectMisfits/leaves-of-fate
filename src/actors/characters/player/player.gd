@@ -94,6 +94,7 @@ func _ready() -> void:
 
 # Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
+	add_debug_parameters()
 	check_interact_action()
 	update_jump_queue(delta)
 	update_leaf_meter(delta)
@@ -196,7 +197,9 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 	var direction: float = get_x_input()
 	var new_velocity: float = 0.0
 	
-	if (direction == 0.0) and (state_machine.get_previous_active_state() != dashing_state): # No direction & did not exit Leaf Dash
+	if (is_on_wall()):
+		new_velocity = 0.0
+	elif (direction == 0.0) and (state_machine.get_previous_active_state() != dashing_state): # No direction & did not exit Leaf Dash
 		new_velocity = move_toward(velocity.x, 0, deceleration)
 	else:
 		var new_acceleration: float = 0.0
@@ -365,6 +368,10 @@ func deselect_interactable() -> void:
 	var interact_node: Interactable = selected_interactable.get_node("Interactable")
 	interact_node.deselect_interactable()
 	selected_interactable = null
+
+func add_debug_parameters() -> void:
+	DebugMenu.add_debug_property("Player State", state_machine.get_active_state().name, 0)
+	DebugMenu.add_debug_property("Player Velocity", velocity, 5)
 
 
 
