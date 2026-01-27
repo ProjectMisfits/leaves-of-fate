@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://buss7vp4lhvtt"]
+
+[ext_resource type="Script" uid="uid://drr8anxd1rpql" path="res://src/objects/obstacles/base_grabbable/base_grabable.gd" id="1_qt3u6"]
+[ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="2_pljaj"]
+[ext_resource type="Script" uid="uid://c8jsojwf6ifoj" path="res://src/objects/obstacles/base_grabbable/ungrabbed.gd" id="3_ca8xk"]
+[ext_resource type="Script" uid="uid://b8gtchyqv42ht" path="res://src/objects/obstacles/base_grabbable/grabbed.gd" id="4_v1g3c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca8xk"]
+size = Vector2(236, 238)
+
+[node name="BaseGrabable" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("1_qt3u6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ca8xk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.6392157, 0.17254902, 1, 1)
+scale = Vector2(1.5699079, 1.5699079)
+texture = ExtResource("2_pljaj")
+
+[node name="LimboHSM" type="LimboHSM" parent="."]
+
+[node name="Ungrabbed" type="LimboState" parent="LimboHSM"]
+script = ExtResource("3_ca8xk")
+
+[node name="Grabbed" type="LimboState" parent="LimboHSM"]
+script = ExtResource("4_v1g3c")
