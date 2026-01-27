@@ -1,0 +1,33 @@
+import "res://assets/dialogue/dialogue_scripts/7d-Az-ConditionalConvo-CellarGeneral.dialogue" as ConditionalConvo
+
+
+~ trap
+Winston: Aha! There you are, pint-size.
+Fenn: Uh oh.
+Az: You good?
+Winston: Now, since you continue to be quite a thorn in my side... I figure I need a way to put a stop to your adventure
+Fenn: Okay...
+Winston: And what better way... than with...
+Winston: A GIANT ICY CAGE!!!
+As he says it, a large cage falls from the ceiling, directly on top of Fenn
+=> END
+
+~ escaped
+Fenn escapes the trap with a quick leaf dash
+Winston: Oh yeah... I- I forgot you could do that.
+Fenn: That's okay. It's really not all that useful. I sometimes forget too.
+Winston: Wh-what? No! It's cool, I just...
+Winston: I thought you only had the bangles from the scary lady.
+Az: I can hear you.
+Fenn: Oh, yeah. Those are more helpful.
+Winston: O-oh...
+Winston: Anyways, I'm gonna... uh...
+Winston: I'm gonna go plan your downfall.
+Winston leaves
+
+# Change this to something like "If heaters on == 0"
+if true
+	=> ConditionalConvo/start
+
+=> END
+#should be used for both the pre-trap convo and post-trap convo

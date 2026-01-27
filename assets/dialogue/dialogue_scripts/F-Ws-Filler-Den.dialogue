@@ -1,0 +1,26 @@
+~ den_filler
+% => convo_1
+% => convo_2
+% => convo_3
+=> END
+
+
+~ convo_1
+Fenn: Mr. Wizard?
+Winston: Go away! I'm planning your demise.
+Fenn: What's demise mean?
+Winston: uh... VERY PAINFUL DEATH!!
+Fenn: Okay!
+=> END
+
+~ convo_2
+Winston: Hey, pint-size. Is Az there?
+Fenn: Yeah?
+Winston: Wh-what is she doing?
+Fenn: I dunno. Standing?
+Winston: Dang it. That's cool...
+=> END
+
+~ convo_3
+Add More
+=> END

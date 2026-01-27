@@ -1,7 +1,8 @@
 extends LimboState
 
 func _enter() -> void:
-	print("Player State Transition: to_idle")
+	#print("Player State Transition: to_idle")
+	pass
 
 func _update(_delta: float) -> void:
 	agent.check_talk()

@@ -1,6 +1,8 @@
 extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
+## The texture for the dialogue box currently being used
+@onready var dialogue_panel: PanelContainer = $Balloon/MarginContainer/PanelContainer
 
 ## The dialogue resource
 @export var dialogue_resource: DialogueResource
@@ -63,7 +65,7 @@ var mutation_cooldown: Timer = Timer.new()
 
 
 ## Indicator to show that player can progress dialogue.
-@onready var progress: Polygon2D = %Progress
+@onready var progress: TextureRect = %Progress
 
 
 func _ready() -> void:
@@ -123,7 +125,25 @@ func apply_dialogue_line() -> void:
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
-
+	
+	#Change the texture for the specifc name
+	match character_label.text.to_lower():
+		"fenn":
+			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/fenn_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#576f35")
+		"az":
+			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/az_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#A86A19")
+		"winston":
+			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#35639C")
+		"test":
+			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/az_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#A86A19")
+		_:
+			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/fenn_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#576f35")
+	
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
 

@@ -1,0 +1,9 @@
+~ start
+Az: Heads up, I just found a way into the Den. The ice block is no joke...
+Az: I'll see you here when you get back.
+Fenn: Yay! Big lady made it!
+Az: Don't call me that.
+=> END
+
+#This line should be imported into the other 7 dialogue things
+#If the number of heaters turned on is 0, it will play... after the convos end
