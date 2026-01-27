@@ -26,7 +26,7 @@ func _populate_room_dropdown() -> void:
 ## Teleport to room on selecting an option.
 func _on_option_button_item_selected(index: int) -> void:
 	# Check if we're in Gameplay. If we're in anything but gameplay, use SceneManager to swap to gameplay.
-	if not SceneManager.current_scene.is_class('Gameplay'):
+	if SceneManager.current_scene is not Gameplay:
 		SceneManager.swap_scenes("res://src/gameplay/gameplay.tscn", null, SceneManager.current_scene)
 	
 	# Tell Gameplay that we want to load the specific room.
