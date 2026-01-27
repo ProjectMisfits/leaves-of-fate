@@ -20,7 +20,6 @@ func _ready() -> void:
 		var player: Player = preload("res://src/actors/characters/player/player.tscn").instantiate()
 		spawn_player(player, 'enter')
 
-
 ## Initiate room swap on player entering a Door.
 func _on_player_entered_door(door: Door) -> void:
 	# Check whether the door has a destination first.
