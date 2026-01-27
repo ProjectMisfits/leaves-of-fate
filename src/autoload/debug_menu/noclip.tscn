@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwp2lf38h3xwg"]
+
+[ext_resource type="Script" uid="uid://dwonay6ota7m8" path="res://src/autoload/noclip.gd" id="1_hy85u"]
+
+[node name="Noclip" type="PanelContainer"]
+script = ExtResource("1_hy85u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Noclip"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer"]
+layout_mode = 2
+allow_reselect = true
+
+[connection signal="item_selected" from="VBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]

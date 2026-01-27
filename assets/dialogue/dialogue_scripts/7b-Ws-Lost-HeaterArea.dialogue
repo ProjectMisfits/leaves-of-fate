@@ -1,11 +1,26 @@
+import "res://assets/dialogue/dialogue_scripts/7d-Az-ConditionalConvo-CellarGeneral.dialogue" as ConditionalConvo
+
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+Fenn: Wizard man?
+Winston: RAH! WHO'S THERE?
+Fenn: It's me! Fenn?
+Winston: Oh... pint-size...
+Fenn: Here we go! I'm ready Wizard man! Gimme everything you got, I will defeat you!
+Winston: Oh... oh! Yes, um... well you see...
+Winston: My tools are in the workshop... I was out looking for something... but-
+Az: Oh by the Sender. You're LOST?!
+Winston: No! NO! I'm not lost! I know my way out of here perfectly fine!
+Winston whispering: Hey, pint-size... wh- where's the exit?
+Fenn: Oh, it's just that way.
+Winston: Thanks.
+Fenn: No problem, happy to help!
+Winston walks away.
+Az: D-did you just let him get away?
+Fenn :OH WAIT!! Come back!!
+Winston from afar: UHHH... LALALA CAN'T HEAR YOUUUU!
+Az: Oh by Post. They're both idiots.
+# Change this to something like "If heaters on == 0"
+if true
+	=> ConditionalConvo/start
+
 => END

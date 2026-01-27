@@ -1,13 +1,30 @@
-~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+~ ambushed
+Winston: Well, well, well. What do we have here, pint-size?
+Fenn: Why do you call me that? I'm Fenn.
+Winston: Well [i]Fenn[/i]. If that even is your real name. Uh... I mean... wait what?
+Winston: Oh yeah! I nearly forgot. The ambush!
+Winston: Tread carefully, my friend. It would such a shame if you were crushed by my creations.
+Az: Fenn, you alright?
+Winston: WHAT? WHO'S THAT?
+Fenn: I'm good, Az. Wizard man is just ambushing me.
+Winston: AZ?? Like apprentice Az? Like Az Featherstone, Az?
+Fenn: Yeah. We're like best friends.
+Az: No- sigh. Nevermind.
+Winston: Hmmm. Ahem. Fine.
+Winston: TAKE THIS!
 => END
 
+
+~ escaped
+Az: Hah! Nice work, kid. 
+Winston: IMPOSSIBLE! Arrrgh! 
+Winston: How did you evade my attacks?
+Fenn: Oh, well Az gave me this really cool bangle. She can help me from far away.
+Winston: Arggh. I just need to do better. More machines, more snow, more creatures...
+Winston: I doubt you have any more stupid tricks up your sleeve.
+Fenn: Isn't it so cool?
+Winston: I never said it was cool!!
+Winston: Arrrgh!!!!
+Winston runs off
+=> END
 #Should be used for both the pre-ambush conversation and post-ambush conversation

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c1wncyladw0km"
+path="res://.godot/imported/F-Ws-Filler-Den.dialogue-b9770067b1c5c11bc612b8cd10f1a556.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/F-Ws-Filler-Den.dialogue"
+dest_files=["res://.godot/imported/F-Ws-Filler-Den.dialogue-b9770067b1c5c11bc612b8cd10f1a556.tres"]
+
+[params]
+
+defaults=true

@@ -1,14 +1,47 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+
+match some_gamestate_value
+	when 0
+		=> heater_convo_1
+	when 1
+		=> heater_convo_2
+	when 2
+		=> heater_convo_3
+	else
+		Error:This dialogue should never play. Heater Number is not 0 1 or 2
 => END
 
 #Should be used for all 3 convos where heaters are turned on, 
 #using conditionals to branch between them
+
+~ heater_convo_1
+	Winston: Wh-what did you do?
+	Fenn: I turned on one of the heaters!
+	Winston: WHAT? NO! STOP THAT. STOP RIGHT NOW.
+	Fenn: Az did it do anything?
+	Az: Oh yeah. I just got to the Den, and it's definitely warmer in here
+	Winston: Grrrrrrr. You'll pay for this! Just you wait. I'll make you pay for this.
+	Az: Boy, you touch anything in my workshop, and you will regret it.	
+	Winston: ...
+=> END
+
+~ heater_convo_2
+	Winston: AGAIN?! 
+	Fenn: I got another one, Az!
+	Az: Nice one, kid!
+	Winston: Stop! STOP. I'm not finished yet!
+	Az: The ice around the door definitely melted a bit!
+	Winston: NO! Please! Stop!
+	Az: Yeah? Why don't you come out of your hole and stop us?
+	Silence
+	Az: That's what I thought.
+=> END
+
+~ heater_convo_3
+	Winston: NO WAIT! 
+	Az: Oh come on.	Fenn: What? What's wrong?
+	Az: The ice didn't melt all the way. There's still a solid block in the way.
+	Winston: Wait- wha... aha! Of course!
+	Winston: That was plan, all along! Yes. Yes! Go ahead, waste your time.
+	Az: Ignore him, Fenn. Come on back, we'll figure something out
+=> END
