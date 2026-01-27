@@ -269,7 +269,7 @@ func compute_gravity() -> float:
 func update_jump_queue(delta: float) -> void:
 	if jump_queued:
 		time_since_jump_queued += delta
-		print(time_since_jump_queued)
+		#print(time_since_jump_queued)
 		if (time_since_jump_queued > jump_buffer_time):	# Check if jump has been queued for too long
 			jump_queued = false							# Jump loses its queue
 	elif Input.is_action_just_pressed(&"jump"):
