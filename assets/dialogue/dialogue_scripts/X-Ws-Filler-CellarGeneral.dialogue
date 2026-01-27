@@ -48,7 +48,7 @@ Fenn: What do you mean?
 Winston: Nothing. Don't worry about it.
 => END
 
-#Potentiall Delete if this conversation is moved to when the player meets winston
+#Potentially delete if this conversation is moved to when the player meets winston
 ~ convo_5
 Fenn: Why'd you trap all the Knights in the Council Chamber?
 Winston: They deserve it. That's why!

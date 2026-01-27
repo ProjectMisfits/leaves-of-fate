@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://vl0c2jy6byw1"
+path="res://.godot/imported/X-AzWs-Filler-GreatHall.dialogue-48cefb48e6e1582d834fa60af8596769.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/X-AzWs-Filler-GreatHall.dialogue"
+dest_files=["res://.godot/imported/X-AzWs-Filler-GreatHall.dialogue-48cefb48e6e1582d834fa60af8596769.tres"]
+
+[params]
+
+defaults=true
