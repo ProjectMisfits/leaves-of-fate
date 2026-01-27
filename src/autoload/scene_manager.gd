@@ -1,19 +1,16 @@
 extends Node
-## Manages the scene tree during runtime. Handles swapping scenes, particularly between menus and rooms during gameplay.
+## Manages the scene tree during runtime. Handles swapping scenes, particularly between menus and gameplay.
 
-var current_scene: Node = null ## The scene currently being shown to the player
-
+## The current first child scene of the tree root.
+var current_scene: Node = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Set the current scene to the initial child of the root node.
-	_update_current_scene()
-
-
-## Update the reference to the current scene.
-func _update_current_scene() -> void:
 	current_scene = get_tree().current_scene
 
+# Called once on each physics tick.
+func _physics_process(_delta: float) -> void:
+	DebugMenu.add_debug_property("Current Scene", current_scene.name, 0)
 
 ## Swaps to the specified scene and unloads the specified scene.
 ## Returns -1 if the load failed for any reason and returns 0 if the load succeeded.
@@ -43,4 +40,7 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 		print("SceneManager: Unloading scene '%s'" % scene_to_unload)
 		scene_to_unload.queue_free()
 	
+	# Update the current scene if the swap was made directly under the root node.
+	if load_as_child_of == get_tree().root:
+		current_scene = loaded_scene
 	return 0

@@ -1,0 +1,34 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cf1ehneaiyibq"]
+
+[ext_resource type="FontFile" uid="uid://dgxdmox7pck54" path="res://assets/ui/fonts/AdwaitaMono-Regular.ttf" id="1_kj654"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kj654"]
+bg_color = Color(0, 0, 0, 0.5019608)
+
+[resource]
+default_font = ExtResource("1_kj654")
+default_font_size = 24
+Label/colors/font_color = Color(1, 1, 1, 1)
+OptionButton/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+OptionButton/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+OptionButton/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+OptionButton/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+OptionButton/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+OptionButton/colors/font_outline_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_pressed_color = Color(1, 1, 1, 1)
+OptionButton/colors/icon_disabled_color = Color(1, 1, 1, 1)
+OptionButton/colors/icon_focus_color = Color(1, 1, 1, 1)
+OptionButton/colors/icon_hover_color = Color(1, 1, 1, 1)
+OptionButton/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+OptionButton/colors/icon_normal_color = Color(0, 0, 0, 1)
+OptionButton/colors/icon_pressed_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_accelerator_color = Color(0.7, 0.7, 0.7, 0.8)
+PopupMenu/colors/font_color = Color(1, 1, 1, 1)
+PopupMenu/colors/font_disabled_color = Color(0.4, 0.4, 0.4, 0.8)
+PopupMenu/colors/font_hover_color = Color(0.875, 0.875, 0.875, 1)
+PopupMenu/colors/font_outline_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_separator_color = Color(0.875, 0.875, 0.875, 1)
+PopupMenu/colors/font_separator_outline_color = Color(0, 0, 0, 1)
+PopupMenu/colors/title_color = Color(0, 0, 0, 1)
+PopupMenu/colors/title_outline_modulate = Color(0, 0, 0, 1)
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_kj654")

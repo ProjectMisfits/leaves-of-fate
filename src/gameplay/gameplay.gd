@@ -11,7 +11,6 @@ var current_room: Room = null
 ## The player object.
 var player: Player = preload("res://src/actors/characters/player/player.tscn").instantiate()
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Set the starting Room
@@ -19,6 +18,9 @@ func _ready() -> void:
 	# Spawn the player at the first door now that the room has been loaded
 	current_room.spawn_player(player, 'enter')
 
+# Called once every physics tick.
+func _physics_process(_delta: float) -> void:
+	DebugMenu.add_debug_property("Current Room", current_room.name, 0)
 
 ## Update the reference to the current scene.
 func _update_current_room() -> void:
@@ -28,7 +30,6 @@ func _update_current_room() -> void:
 	# But only if the connection doesn't already exist.
 	if not current_room.swap_room.is_connected(_on_swap_room):
 		current_room.swap_room.connect(_on_swap_room)
-
 
 ## Swap to the specified Room and unload the current Room.
 func _on_swap_room(path_to_target_room: String, target_door_name: String)-> void:
