@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://cltutcxjx8jnl" path="res://demo/assets/dummy.png" id="1_61k7g"]
 [ext_resource type="PackedScene" uid="uid://blowvmxa536y" path="res://src/objects/npc/talkables/talkable_area.tscn" id="2_51mtn"]
-[ext_resource type="Resource" uid="uid://qow02iq5yogy" path="res://assets/dialogue/dialogue_scripts/untitled.dialogue" id="3_o5ksa"]
-[ext_resource type="PackedScene" uid="uid://du42aku0qy3o5" path="res://assets/ui/dialogue_boxes/balloon.tscn" id="4_jemv2"]
+[ext_resource type="Resource" uid="uid://b344bikvrmjd3" path="res://assets/dialogue/dialogue_scripts/TUTORIAL-RichTextLabel.dialogue" id="3_o5ksa"]
+[ext_resource type="PackedScene" uid="uid://du42aku0qy3o5" path="res://src/ui/dialogue_boxes/balloon.tscn" id="4_jemv2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5ksa"]
 size = Vector2(125, 139)

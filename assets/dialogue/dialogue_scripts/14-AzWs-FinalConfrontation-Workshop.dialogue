@@ -1,11 +1,46 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+Fenn: It's... really dark.
+Az: I know the light's around here, somewhere...
+Lights flash on
+Winston: WELCOME, MY PAWNS.
+Az: Holy crap, you're a twig.
+Winston: What?
+Az: I've benched twice your weight, kid.
+Winston: IGNORING THAT... BEHOLD!
+Fenn: BY THE SENDER! IT- what... what is it?
+Winston: MY LATEST CREATION. THE ICI-CLONE.
+Winston: You see... my power is limited. I can create things. Devices, weapons... creatures... but I cannot control them. 
+Winston: SO. I thought to myself... what can I control? 
+Fenn: Your attitude?
+Az: Your fashion sense? 
+# Change this line ^^ if I find something funnier for Az to make fun of
+Winston: EXCUSE YOU. THIS COAT WAS FROM MY MOTHER.
+Az: That's somehow more pathetic.
+Winston: JUST- SHUT UP, OKAY?
+Winston: I CAN CONTROL MYSELF!
+Winston: Why- if I make a copy of myself...  wouldn't it want the same things I want? Wouldn't it do the same things I would?
+Fenn: This is gonna end poorly
+Winston: THUS! WITNESS THE CREATION OF THE ONE AND ONLY
+Winston: ICETON
+Machine whirs, and opens
+Smoke bellows and then clears to reveal an ice version of winston
+Winston: Holy sh- it worked? IT WORKED! 
+Fenn: Are we in danger?
+Az: Hm... maybe.
+Winston: ICETON, GO! ATTACK THEM! DESTROY THEM!
+Iceton takes a few steps towards Az and Fenn
+Fenn: Uh oh
+Iceton turns around, rushes towards Winston, and starts beating him up.
+Az: HAHA. NO WAY. 
+Fenn: Winston?
+Az: This is the BEST thing that could've happened. Oh by the Sender.
+Winston: NO! No NO NO NO! STOP! 
+Winston: No, please. Please, stop!
+Fenn: Az, we gotta help him
+Az: Help him? 
+Fenn: He's in danger and he needs help!
+Az: Ugh... seriously? He's tried to kill us multiple times.
+Fenn: Not really. I don't think he meant it. Think about it.
+Az: Hm. Ugh, I guess you're right.
+Az: I'll grab him and get him out of here. You distract the ice guy.
 => END

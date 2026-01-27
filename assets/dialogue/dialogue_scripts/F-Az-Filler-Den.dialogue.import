@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cb71ivia1h6ea"
+path="res://.godot/imported/F-Az-Filler-Den.dialogue-bf36803607bd730124e58478faadd52b.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/F-Az-Filler-Den.dialogue"
+dest_files=["res://.godot/imported/F-Az-Filler-Den.dialogue-bf36803607bd730124e58478faadd52b.tres"]
+
+[params]
+
+defaults=true

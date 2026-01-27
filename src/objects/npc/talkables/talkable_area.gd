@@ -10,5 +10,5 @@ extends Area2D
 func talk() -> void:
 	print("Attempting speech")
 	DialogueManager.show_dialogue_balloon_scene(balloon,dialogue_resource,dialouge_start)
-	#DialogueManager._start_balloon(balloon,dialogue_resource,dialouge_start)
+
 	

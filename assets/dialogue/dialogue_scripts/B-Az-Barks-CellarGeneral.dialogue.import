@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dsxusd8gvx0a2"
+path="res://.godot/imported/B-Az-Barks-CellarGeneral.dialogue-c98e99c6f3f4146f2f07015a7065dcca.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/B-Az-Barks-CellarGeneral.dialogue"
+dest_files=["res://.godot/imported/B-Az-Barks-CellarGeneral.dialogue-c98e99c6f3f4146f2f07015a7065dcca.tres"]
+
+[params]
+
+defaults=true
