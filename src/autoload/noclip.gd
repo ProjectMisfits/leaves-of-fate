@@ -29,5 +29,8 @@ func _on_option_button_item_selected(index: int) -> void:
 	if SceneManager.current_scene is not Gameplay:
 		SceneManager.swap_scenes("res://src/gameplay/gameplay.tscn", null, SceneManager.current_scene)
 	
-	# Tell Gameplay that we want to load the specific room.
-	SceneManager.current_scene._on_swap_room(room_paths[index], 'enter')
+	# If the player isn't already in the selected room,
+	# tell Gameplay that we want to load the selected room.
+	if !room_paths[index].contains(SceneManager.current_scene.current_room.name):
+		SceneManager.current_scene._on_swap_room(room_paths[index], 'enter')
+	
