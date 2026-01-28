@@ -16,12 +16,9 @@ script = ExtResource("1_jemv2")
 [node name="Sprite2D" type="Sprite2D" parent="FlipAbles"]
 texture = ExtResource("1_61k7g")
 
-[node name="TalkableArea" parent="." node_paths=PackedStringArray("balloon") instance=ExtResource("2_51mtn")]
-balloon = NodePath("../ExampleBalloon")
+[node name="TalkableArea" parent="." instance=ExtResource("2_51mtn")]
+balloon = ExtResource("4_jemv2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TalkableArea"]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_o5ksa")
-
-[node name="ExampleBalloon" parent="." instance=ExtResource("4_jemv2")]
-visible = false

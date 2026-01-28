@@ -5,7 +5,7 @@ extends Area2D
 #Where the dialogue will start when you interact
 @export var dialogue_start: String = "start"
 #What balloon are they using 
-@export var balloon: Node
+@export var balloon: PackedScene = null
 
 func talk() -> void:
 	print("Attempting speech")
