@@ -1,0 +1,207 @@
+[gd_scene load_steps=10 format=3 uid="uid://s11ld2n0bjn5"]
+
+[ext_resource type="Script" uid="uid://de7d7evmea2tx" path="res://src/ui/settings_menu/controls_menu/controls_menu.gd" id="1_1t2k0"]
+[ext_resource type="Texture2D" uid="uid://c44j0kj2rhy3b" path="res://assets/ui/FullLetter-UI-001.png" id="1_c6ako"]
+[ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="2_rl4x8"]
+[ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="3_j167u"]
+[ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="4_omo06"]
+[ext_resource type="Texture2D" uid="uid://bykro1gcxr2hb" path="res://assets/ui/ControllerMap-UI-001.png" id="5_omo06"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j167u"]
+texture = ExtResource("1_c6ako")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1t2k0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ppe2n"]
+
+[node name="ControlsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1t2k0")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -593.0
+offset_top = -416.5
+offset_right = 593.0
+offset_bottom = 416.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_j167u")
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 48.5
+offset_right = 441.0
+offset_bottom = 149.5
+theme_override_colors/font_color = Color(0.34117648, 0.43529412, 0.20784314, 1)
+theme_override_fonts/font = ExtResource("2_rl4x8")
+theme_override_font_sizes/font_size = 100
+text = "Controls"
+
+[node name="BackButton" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(192, 101)
+layout_mode = 0
+offset_left = 60.5
+offset_top = 692.5
+offset_right = 242.5
+offset_bottom = 793.5
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1t2k0")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ppe2n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ppe2n")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ppe2n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ppe2n")
+text = "Back
+"
+alignment = 2
+script = ExtResource("3_j167u")
+
+[node name="LeafPointer" type="TextureRect" parent="Panel/BackButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.5
+offset_right = 67.0
+offset_bottom = 32.5
+grow_vertical = 2
+texture = ExtResource("4_omo06")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -354.0
+offset_top = -233.0
+offset_right = 354.0
+offset_bottom = 265.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_omo06")
+
+[node name="LSLabel" type="Label" parent="Panel/TextureRect"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 196.0
+offset_right = 72.0
+offset_bottom = 237.0
+theme_override_font_sizes/font_size = 40
+text = "LS"
+
+[node name="LTLabel" type="Label" parent="Panel/TextureRect"]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 39.0
+offset_right = 162.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 40
+text = "LT"
+
+[node name="XLabel" type="Label" parent="Panel/TextureRect"]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 146.0
+offset_right = 675.0
+offset_bottom = 172.0
+theme_override_font_sizes/font_size = 25
+text = "X"
+
+[node name="ALabel" type="Label" parent="Panel/TextureRect"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -11.0
+offset_right = -34.0
+offset_bottom = 15.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "A"
+
+[node name="Label" type="Label" parent="Panel/TextureRect"]
+layout_mode = 0
+offset_left = 660.0
+offset_top = 191.0
+offset_right = 673.0
+offset_bottom = 217.0
+theme_override_font_sizes/font_size = 25
+text = "B"
+
+[node name="Move" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 378.5
+offset_right = 252.0
+offset_bottom = 419.5
+theme_override_font_sizes/font_size = 35
+text = "Move"
+
+[node name="LeafDash+Pile" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 218.5
+offset_right = 346.0
+offset_bottom = 259.5
+theme_override_font_sizes/font_size = 35
+text = "Leaf Dash / Leaf Pile"
+
+[node name="Pause" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 714.0
+offset_top = 629.5
+offset_right = 945.0
+offset_bottom = 665.5
+theme_override_font_sizes/font_size = 35
+text = "Pause / Unpause"
+
+[node name="Jump+Select" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 934.0
+offset_top = 415.5
+offset_right = 1117.0
+offset_bottom = 451.5
+theme_override_font_sizes/font_size = 35
+text = "Jump / Select"
+
+[node name="Cancel+Back" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 932.0
+offset_top = 369.5
+offset_right = 1118.0
+offset_bottom = 405.5
+theme_override_font_sizes/font_size = 35
+text = "Cancel / Back"
+
+[node name="Interact" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 931.0
+offset_top = 324.5
+offset_right = 1039.0
+offset_bottom = 360.5
+theme_override_font_sizes/font_size = 35
+text = "Interact"

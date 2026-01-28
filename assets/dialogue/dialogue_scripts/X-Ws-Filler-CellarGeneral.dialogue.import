@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://76wv2h5ubsh4"
+path="res://.godot/imported/X-Ws-Filler-CellarGeneral.dialogue-2e14f51ec3b645bcf602407a8c93f4dc.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/X-Ws-Filler-CellarGeneral.dialogue"
+dest_files=["res://.godot/imported/X-Ws-Filler-CellarGeneral.dialogue-2e14f51ec3b645bcf602407a8c93f4dc.tres"]
+
+[params]
+
+defaults=true
