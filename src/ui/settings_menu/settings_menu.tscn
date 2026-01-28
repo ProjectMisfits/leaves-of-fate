@@ -64,6 +64,7 @@ offset_bottom = 286.5
 grow_vertical = 2
 
 [node name="ControlsButton" type="Button" parent="Panel/ControlsContainer"]
+process_mode = 3
 custom_minimum_size = Vector2(307, 101)
 layout_mode = 2
 size_flags_horizontal = 0

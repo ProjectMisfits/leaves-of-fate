@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://de7d7evmea2tx" path="res://src/ui/settings_menu/controls_menu/controls_menu.gd" id="1_1t2k0"]
 [ext_resource type="Texture2D" uid="uid://c44j0kj2rhy3b" path="res://assets/ui/FullLetter-UI-001.png" id="1_c6ako"]
 [ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="2_rl4x8"]
-[ext_resource type="Script" path="res://src/ui/leaf_pointer_animation.gd" id="3_j167u"]
+[ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="3_j167u"]
 [ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="4_omo06"]
 [ext_resource type="Texture2D" uid="uid://bykro1gcxr2hb" path="res://assets/ui/ControllerMap-UI-001.png" id="5_omo06"]
 
@@ -17,6 +17,7 @@ axis_stretch_vertical = 1
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ppe2n"]
 
 [node name="ControlsMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

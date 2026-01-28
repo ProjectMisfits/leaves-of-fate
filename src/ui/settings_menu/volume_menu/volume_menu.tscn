@@ -176,6 +176,7 @@ script = ExtResource("4_2uc65")
 bus_name = "SFX"
 
 [node name="BackButton" type="Button" parent="Panel"]
+process_mode = 3
 custom_minimum_size = Vector2(192, 101)
 layout_mode = 0
 offset_left = 118.5

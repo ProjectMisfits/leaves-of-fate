@@ -275,6 +275,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="ExitButton" type="Button" parent="MainSelectionsContainer"]
+process_mode = 3
 custom_minimum_size = Vector2(226, 101)
 layout_mode = 2
 size_flags_horizontal = 0
