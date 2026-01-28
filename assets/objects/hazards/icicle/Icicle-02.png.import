@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cetapo5oxl1e8"
-path="res://.godot/imported/Ice-Spike-Ball.png-5ad4d8f7fa2149d87bcf683de03f4033.ctex"
+uid="uid://nsc4gwcg2lhf"
+path="res://.godot/imported/Icicle-02.png-9497f773ce8b469d8884e2857e3d1aad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/props/ice_spikes/Ice-Spike-Ball.png"
-dest_files=["res://.godot/imported/Ice-Spike-Ball.png-5ad4d8f7fa2149d87bcf683de03f4033.ctex"]
+source_file="res://assets/objects/hazards/icicle/Icicle-02.png"
+dest_files=["res://.godot/imported/Icicle-02.png-9497f773ce8b469d8884e2857e3d1aad.ctex"]
 
 [params]
 
