@@ -32,15 +32,118 @@ tile_map_data = PackedByteArray("AAAAAAAAAwAAAAAAAAABAAAAAwAAAAAAAAACAAAAAwAAAAA
 position = Vector2(4800, 304)
 texture = ExtResource("2_8rtu3")
 
+[node name="PillarTrunk04" type="Sprite2D" parent="BackgroundLayer/Decals" index="1"]
+position = Vector2(1600, 552)
+texture = ExtResource("3_qch8k")
+
+[node name="PillarCap03" type="Sprite2D" parent="BackgroundLayer/Decals" index="2"]
+position = Vector2(1600, 144)
+texture = ExtResource("3_gq082")
+
+[node name="PillarBase01" type="Sprite2D" parent="BackgroundLayer/Decals" index="3"]
+position = Vector2(1600, 960)
+texture = ExtResource("5_gq082")
+
+[node name="PillarTrunk01" type="Sprite2D" parent="BackgroundLayer/Decals" index="4"]
+position = Vector2(8000, 512)
+texture = ExtResource("2_c4d42")
+
+[node name="PillarCap04" type="Sprite2D" parent="BackgroundLayer/Decals" index="5"]
+position = Vector2(8000, 144)
+texture = ExtResource("3_gq082")
+
+[node name="PillarBase04" type="Sprite2D" parent="BackgroundLayer/Decals" index="6"]
+position = Vector2(8000, 968)
+texture = ExtResource("5_gq082")
+
 [node name="Midground" parent="MidgroundLayer" index="0"]
 tile_map_data = PackedByteArray("AAAAAAgAAQAAAAAAAAABAAgAAQAAAAAAAAACAAgAAQAAAAAAAAADAAgAAQAAAAAAAAAEAAgAAQAAAAAAAAAFAAgAAQAAAAAAAAAGAAgAAQAAAAAAAAAHAAgAAQAAAAAAAAAIAAgAAQAAAAAAAAAJAAgAAQAAAAAAAAAKAAgAAQAAAAAAAAALAAgAAQAAAAAAAAAMAAgAAQAAAAAAAAANAAgAAQAAAAAAAAAOAAgAAQAAAAAAAAD//wgAAwAAAAAAAAAPAAgAAQAAAAAAAAAQAAgAAQAAAAAAAAARAAgAAQAAAAAAAAASAAgAAQAAAAAAAAATAAgAAQAAAAAAAAAUAAgAAQAAAAAAAAAVAAgAAQAAAAAAAAAWAAgAAQAAAAAAAAAXAAgAAQAAAAAAAAAYAAgAAQAAAAAAAAAZAAgAAQAAAAAAAAAaAAgAAQAAAAAAAAAbAAgAAQAAAAAAAAAcAAgAAQAAAAAAAAAdAAgAAQAAAAAAAAAeAAgAAQAAAAAAAAAfAAgAAQAAAAAAAAAgAAgAAQAAAAAAAAAhAAgAAQAAAAAAAAAiAAgAAQAAAAAAAAAjAAgAAQAAAAAAAAAkAAgAAQAAAAAAAAAlAAgAAQAAAAAAAAAmAAgAAQAAAAAAAAAnAAgAAQAAAAAAAAAoAAgAAQAAAAAAAAApAAgAAQAAAAAAAAAqAAgAAQAAAAAAAAArAAgAAQAAAAAAAAAsAAgAAQAAAAAAAAAtAAgAAQAAAAAAAAAuAAgAAQAAAAAAAAAvAAgAAQAAAAAAAAAwAAgAAQAAAAAAAAAxAAgAAQAAAAAAAAAyAAgAAQAAAAAAAAAzAAgAAQAAAAAAAAA0AAgAAQAAAAAAAAA1AAgAAQAAAAAAAAA2AAgAAQAAAAAAAAA3AAgAAQAAAAAAAAA4AAgAAQAAAAAAAAA5AAgAAQAAAAAAAAA6AAgAAQAAAAAAAAA7AAgAAQAAAAAAAAA8AAgAAQAAAAAAAAA9AAgAAQAAAAAAAAA+AAgAAQAAAAAAAAA/AAgAAQAAAAAAAABAAAgAAQAAAAAAAABBAAgAAQAAAAAAAABCAAgAAQAAAAAAAABDAAgAAQAAAAAAAABEAAgAAQAAAAAAAABFAAgAAQAAAAAAAABGAAgAAQAAAAAAAABHAAgAAQAAAAAAAABIAAgAAQAAAAAAAABJAAgAAQAAAAAAAABKAAgAAQAAAAAAAABLAAgAAwAAAAAAAABLAPb/AwAAAAAAAABLAPf/AwAAAAAAAABLAPj/AwAAAAAAAABLAPn/AwAAAAAAAABLAPr/AwAAAAAAAABLAPv/AwAAAAAAAABLAPz/AwAAAAAAAABLAP3/AwAAAAAAAABLAP7/AwAAAAAAAABLAP//AwAAAAAAAABLAAAAAwAAAAAAAABLAAEAAwAAAAAAAABLAAIAAwAAAAAAAABLAAMAAwAAAAAAAABLAAQAAwAAAAAAAABLAAUAAwAAAAAAAABLAAYAAwAAAAAAAABLAAcAAwAAAAAAAAA8APb/AwAAAAAAAAA8APf/AwAAAAAAAAA8APj/AwAAAAAAAAA8APn/AwAAAAAAAAA8APr/AwAAAAAAAAA8APv/AwAAAAAAAAA8APz/AwAAAAAAAAA8AP3/AwAAAAAAAAA8AP7/AwAAAAAAAAA8AP//AwAAAAAAAAA9APb/AwAAAAAAAAA9APf/AwAAAAAAAAA9APj/AwAAAAAAAAA9APn/AwAAAAAAAAA9APr/AwAAAAAAAAA9APv/AwAAAAAAAAA9APz/AwAAAAAAAAA9AP3/AwAAAAAAAAA9AP7/AwAAAAAAAAA9AP//AwAAAAAAAAA+APb/AwAAAAAAAAA+APf/AwAAAAAAAAA+APj/AwAAAAAAAAA+APn/AwAAAAAAAAA+APr/AwAAAAAAAAA+APv/AwAAAAAAAAA+APz/AwAAAAAAAAA+AP3/AwAAAAAAAAA+AP7/AwAAAAAAAAA+AP//AwAAAAAAAAA/APb/AwAAAAAAAAA/APf/AwAAAAAAAAA/APj/AwAAAAAAAAA/APn/AwAAAAAAAAA/APr/AwAAAAAAAAA/APv/AwAAAAAAAAA/APz/AwAAAAAAAAA/AP3/AwAAAAAAAAA/AP7/AwAAAAAAAAA/AP//AwAAAAAAAABAAPb/AwAAAAAAAABAAPf/AwAAAAAAAABAAPj/AwAAAAAAAABAAPn/AwAAAAAAAABAAPr/AwAAAAAAAABAAPv/AwAAAAAAAABAAPz/AwAAAAAAAABAAP3/AwAAAAAAAABAAP7/AwAAAAAAAABAAP//AwAAAAAAAABBAPb/AwAAAAAAAABBAPf/AwAAAAAAAABBAPj/AwAAAAAAAABBAPn/AwAAAAAAAABBAPr/AwAAAAAAAABBAPv/AwAAAAAAAABBAPz/AwAAAAAAAABBAP3/AwAAAAAAAABBAP7/AwAAAAAAAABBAP//AwAAAAAAAABCAPb/AwAAAAAAAABCAPf/AwAAAAAAAABCAPj/AwAAAAAAAABCAPn/AwAAAAAAAABCAPr/AwAAAAAAAABCAPv/AwAAAAAAAABCAPz/AwAAAAAAAABCAP3/AwAAAAAAAABCAP7/AwAAAAAAAABCAP//AwAAAAAAAABDAPb/AwAAAAAAAABDAPf/AwAAAAAAAABDAPj/AwAAAAAAAABDAPn/AwAAAAAAAABDAPr/AwAAAAAAAABDAPv/AwAAAAAAAABDAPz/AwAAAAAAAABDAP3/AwAAAAAAAABDAP7/AwAAAAAAAABDAP//AwAAAAAAAABEAPb/AwAAAAAAAABEAPf/AwAAAAAAAABEAPj/AwAAAAAAAABEAPn/AwAAAAAAAABEAPr/AwAAAAAAAABEAPv/AwAAAAAAAABEAPz/AwAAAAAAAABEAP3/AwAAAAAAAABEAP7/AwAAAAAAAABEAP//AwAAAAAAAABFAPb/AwAAAAAAAABFAPf/AwAAAAAAAABFAPj/AwAAAAAAAABFAPn/AwAAAAAAAABFAPr/AwAAAAAAAABFAPv/AwAAAAAAAABFAPz/AwAAAAAAAABFAP3/AwAAAAAAAABFAP7/AwAAAAAAAABFAP//AwAAAAAAAABGAPb/AwAAAAAAAABGAPf/AwAAAAAAAABGAPj/AwAAAAAAAABGAPn/AwAAAAAAAABGAPr/AwAAAAAAAABGAPv/AwAAAAAAAABGAPz/AwAAAAAAAABGAP3/AwAAAAAAAABGAP7/AwAAAAAAAABGAP//AwAAAAAAAABHAPb/AwAAAAAAAABHAPf/AwAAAAAAAABHAPj/AwAAAAAAAABHAPn/AwAAAAAAAABHAPr/AwAAAAAAAABHAPv/AwAAAAAAAABHAPz/AwAAAAAAAABHAP3/AwAAAAAAAABHAP7/AwAAAAAAAABHAP//AwAAAAAAAABIAPb/AwAAAAAAAABIAPf/AwAAAAAAAABIAPj/AwAAAAAAAABIAPn/AwAAAAAAAABIAPr/AwAAAAAAAABIAPv/AwAAAAAAAABIAPz/AwAAAAAAAABIAP3/AwAAAAAAAABIAP7/AwAAAAAAAABIAP//AwAAAAAAAABJAPb/AwAAAAAAAABJAPf/AwAAAAAAAABJAPj/AwAAAAAAAABJAPn/AwAAAAAAAABJAPr/AwAAAAAAAABJAPv/AwAAAAAAAABJAPz/AwAAAAAAAABJAP3/AwAAAAAAAABJAP7/AwAAAAAAAABJAP//AwAAAAAAAABKAPb/AwAAAAAAAABKAPf/AwAAAAAAAABKAPj/AwAAAAAAAABKAPn/AwAAAAAAAABKAPr/AwAAAAAAAABKAPv/AwAAAAAAAABKAPz/AwAAAAAAAABKAP3/AwAAAAAAAABKAP7/AwAAAAAAAABKAP//AwAAAAAAAAAOAPb/AwAAAAAAAAAPAPb/AwAAAAAAAAAQAPb/AwAAAAAAAAARAPb/AwAAAAAAAAASAPb/AwAAAAAAAAATAPb/AwAAAAAAAAAUAPb/AwAAAAAAAAAVAPb/AwAAAAAAAAAWAPb/AwAAAAAAAAAXAPb/AwAAAAAAAAAYAPb/AwAAAAAAAAAZAPb/AwAAAAAAAAAaAPb/AwAAAAAAAAAbAPb/AwAAAAAAAAAcAPb/AwAAAAAAAAAdAPb/AwAAAAAAAAAeAPb/AwAAAAAAAAAfAPb/AwAAAAAAAAAgAPb/AwAAAAAAAAAhAPb/AwAAAAAAAAAiAPb/AwAAAAAAAAAjAPb/AwAAAAAAAAAkAPb/AwAAAAAAAAAlAPb/AwAAAAAAAAAmAPb/AwAAAAAAAAAnAPb/AwAAAAAAAAAoAPb/AwAAAAAAAAApAPb/AwAAAAAAAAAqAPb/AwAAAAAAAAArAPb/AwAAAAAAAAAsAPb/AwAAAAAAAAAtAPb/AwAAAAAAAAAuAPb/AwAAAAAAAAAvAPb/AwAAAAAAAAAwAPb/AwAAAAAAAAAxAPb/AwAAAAAAAAAyAPb/AwAAAAAAAAAzAPb/AwAAAAAAAAA0APb/AwAAAAAAAAA1APb/AwAAAAAAAAA2APb/AwAAAAAAAAA3APb/AwAAAAAAAAA4APb/AwAAAAAAAAA5APb/AwAAAAAAAAA6APb/AwAAAAAAAAA7APb/AwAAAAAAAAD///b/AwAAAAAAAAD///f/AwAAAAAAAAD///j/AwAAAAAAAAD///n/AwAAAAAAAAD///r/AwAAAAAAAAD///v/AwAAAAAAAAD///z/AwAAAAAAAAD///3/AwAAAAAAAAD///7/AwAAAAAAAAD/////AwAAAAAAAAAAAPb/AwAAAAAAAAAAAPf/AwAAAAAAAAAAAPj/AwAAAAAAAAAAAPn/AwAAAAAAAAAAAPr/AwAAAAAAAAAAAPv/AwAAAAAAAAAAAPz/AwAAAAAAAAAAAP3/AwAAAAAAAAAAAP7/AwAAAAAAAAAAAP//AwAAAAAAAAABAPb/AwAAAAAAAAABAPf/AwAAAAAAAAABAPj/AwAAAAAAAAABAPn/AwAAAAAAAAABAPr/AwAAAAAAAAABAPv/AwAAAAAAAAABAPz/AwAAAAAAAAABAP3/AwAAAAAAAAABAP7/AwAAAAAAAAABAP//AwAAAAAAAAACAPb/AwAAAAAAAAACAPf/AwAAAAAAAAACAPj/AwAAAAAAAAACAPn/AwAAAAAAAAACAPr/AwAAAAAAAAACAPv/AwAAAAAAAAACAPz/AwAAAAAAAAACAP3/AwAAAAAAAAACAP7/AwAAAAAAAAACAP//AwAAAAAAAAADAPb/AwAAAAAAAAADAPf/AwAAAAAAAAADAPj/AwAAAAAAAAADAPn/AwAAAAAAAAADAPr/AwAAAAAAAAADAPv/AwAAAAAAAAADAPz/AwAAAAAAAAADAP3/AwAAAAAAAAADAP7/AwAAAAAAAAADAP//AwAAAAAAAAAEAPb/AwAAAAAAAAAEAPf/AwAAAAAAAAAEAPj/AwAAAAAAAAAEAPn/AwAAAAAAAAAEAPr/AwAAAAAAAAAEAPv/AwAAAAAAAAAEAPz/AwAAAAAAAAAEAP3/AwAAAAAAAAAEAP7/AwAAAAAAAAAEAP//AwAAAAAAAAAFAPb/AwAAAAAAAAAFAPf/AwAAAAAAAAAFAPj/AwAAAAAAAAAFAPn/AwAAAAAAAAAFAPr/AwAAAAAAAAAFAPv/AwAAAAAAAAAFAPz/AwAAAAAAAAAFAP3/AwAAAAAAAAAFAP7/AwAAAAAAAAAFAP//AwAAAAAAAAAGAPb/AwAAAAAAAAAGAPf/AwAAAAAAAAAGAPj/AwAAAAAAAAAGAPn/AwAAAAAAAAAGAPr/AwAAAAAAAAAGAPv/AwAAAAAAAAAGAPz/AwAAAAAAAAAGAP3/AwAAAAAAAAAGAP7/AwAAAAAAAAAGAP//AwAAAAAAAAAHAPb/AwAAAAAAAAAHAPf/AwAAAAAAAAAHAPj/AwAAAAAAAAAHAPn/AwAAAAAAAAAHAPr/AwAAAAAAAAAHAPv/AwAAAAAAAAAHAPz/AwAAAAAAAAAHAP3/AwAAAAAAAAAHAP7/AwAAAAAAAAAHAP//AwAAAAAAAAAIAPb/AwAAAAAAAAAIAPf/AwAAAAAAAAAIAPj/AwAAAAAAAAAIAPn/AwAAAAAAAAAIAPr/AwAAAAAAAAAIAPv/AwAAAAAAAAAIAPz/AwAAAAAAAAAIAP3/AwAAAAAAAAAIAP7/AwAAAAAAAAAIAP//AwAAAAAAAAAJAPb/AwAAAAAAAAAJAPf/AwAAAAAAAAAJAPj/AwAAAAAAAAAJAPn/AwAAAAAAAAAJAPr/AwAAAAAAAAAJAPv/AwAAAAAAAAAJAPz/AwAAAAAAAAAJAP3/AwAAAAAAAAAJAP7/AwAAAAAAAAAJAP//AwAAAAAAAAAKAPb/AwAAAAAAAAAKAPf/AwAAAAAAAAAKAPj/AwAAAAAAAAAKAPn/AwAAAAAAAAAKAPr/AwAAAAAAAAAKAPv/AwAAAAAAAAAKAPz/AwAAAAAAAAAKAP3/AwAAAAAAAAAKAP7/AwAAAAAAAAAKAP//AwAAAAAAAAALAPb/AwAAAAAAAAALAPf/AwAAAAAAAAALAPj/AwAAAAAAAAALAPn/AwAAAAAAAAALAPr/AwAAAAAAAAALAPv/AwAAAAAAAAALAPz/AwAAAAAAAAALAP3/AwAAAAAAAAALAP7/AwAAAAAAAAALAP//AwAAAAAAAAAMAPb/AwAAAAAAAAAMAPf/AwAAAAAAAAAMAPj/AwAAAAAAAAAMAPn/AwAAAAAAAAAMAPr/AwAAAAAAAAAMAPv/AwAAAAAAAAAMAPz/AwAAAAAAAAAMAP3/AwAAAAAAAAAMAP7/AwAAAAAAAAAMAP//AwAAAAAAAAANAPb/AwAAAAAAAAANAPf/AwAAAAAAAAANAPj/AwAAAAAAAAANAPn/AwAAAAAAAAANAPr/AwAAAAAAAAANAPv/AwAAAAAAAAANAPz/AwAAAAAAAAANAP3/AwAAAAAAAAANAP7/AwAAAAAAAAANAP//AwAAAAAAAAAOAPf/AwAAAAAAAAAOAPj/AwAAAAAAAAAOAPn/AwAAAAAAAAAOAPr/AwAAAAAAAAAOAPv/AwAAAAAAAAAOAPz/AwAAAAAAAAAOAP3/AwAAAAAAAAAOAP7/AwAAAAAAAAAOAP//AwAAAAAA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")
+
+[node name="PillarDecoProp" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="0"]
+position = Vector2(118, 184)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_ehi0a")
+flip_h = true
+
+[node name="PillarDecoProp4" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="1"]
+position = Vector2(2038, -200)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_ehi0a")
+flip_h = true
+
+[node name="PillarDecoProp5" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="2"]
+position = Vector2(2294, -584)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_ehi0a")
+flip_h = true
+
+[node name="PillarDecoProp6" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="3"]
+position = Vector2(2550, -968.00006)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_ehi0a")
+flip_h = true
+
+[node name="PillarDecoProp2" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="4"]
+position = Vector2(9482, 183)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_ehi0a")
+
+[node name="PillarDecoProp3" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="5"]
+position = Vector2(7562, -200.00002)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_ehi0a")
+
+[node name="PillarDecoProp7" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="6"]
+position = Vector2(7306, -584)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_ehi0a")
+
+[node name="PillarDecoProp8" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="7"]
+position = Vector2(7050, -968)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("19_ehi0a")
+
+[node name="ChairsProp" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="8"]
+position = Vector2(4624, 904)
+scale = Vector2(0.575, 0.575)
+texture = ExtResource("10_uiew2")
+
+[node name="TableProp" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="9"]
+position = Vector2(4800, 966)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_aui2o")
+
+[node name="FruitBowlProp" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="10"]
+position = Vector2(4679.0005, 867.00006)
+scale = Vector2(0.40177494, 0.348333)
+texture = ExtResource("18_cl17y")
+
+[node name="WineProp" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="11"]
+position = Vector2(4889, 845)
+scale = Vector2(0.41379493, 0.41379493)
+texture = ExtResource("19_wa3gy")
+
+[node name="FloorPotAProp" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="12"]
+position = Vector2(5568.0005, 808)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("12_x17ub")
+
+[node name="FloorPotBProp2" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="13"]
+position = Vector2(1344, 828)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("13_8rtu3")
+
+[node name="FloorPotBProp" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="14"]
+position = Vector2(1856, 828)
+scale = Vector2(0.625, 0.625)
+texture = ExtResource("13_8rtu3")
 
 [node name="DoorEnter" parent="MidgroundLayer/Doors" index="0"]
 position = Vector2(4800, 256)
 
 [node name="DoorExit" parent="MidgroundLayer/Doors" index="1"]
 position = Vector2(320, 1024)
-path_to_target_room = "uid://cwgmn4aexyqic"
+path_to_target_room = "uid://hcwtj0s2v2o8"
 
 [node name="Label" type="Label" parent="MidgroundLayer/Doors/DoorExit" index="2"]
 anchors_preset = 8
@@ -57,173 +160,68 @@ grow_vertical = 2
 size_flags_vertical = 0
 text = "Entrance to cellar"
 
-[node name="PillarTrunk03" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="0"]
-position = Vector2(6453.5, -33.5)
-scale = Vector2(1, 2)
-texture = ExtResource("9_uiew2")
-
-[node name="PillarCap01" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="1"]
-position = Vector2(3187.5, -1009.5)
-texture = ExtResource("2_2pi1u")
-
-[node name="PillarCap02" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="2"]
-position = Vector2(6453.5, -1017.5)
-texture = ExtResource("2_2pi1u")
-
-[node name="PillarBase02" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="3"]
-position = Vector2(6453.5, 926.5)
-texture = ExtResource("4_c4d42")
-
-[node name="PillarTrunk02" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="4"]
-position = Vector2(3187.5, -25.5)
-scale = Vector2(1, 2)
-texture = ExtResource("8_aui2o")
-
-[node name="PillarBase03" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="5"]
-position = Vector2(3187.5, 918.5)
-texture = ExtResource("4_c4d42")
-
-[node name="PillarDecoProp" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="6"]
-position = Vector2(118, 184)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("19_ehi0a")
-flip_h = true
-
-[node name="PillarDecoProp4" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="7"]
-position = Vector2(2038, -200)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("19_ehi0a")
-flip_h = true
-
-[node name="PillarDecoProp5" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="8"]
-position = Vector2(2294, -584)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("19_ehi0a")
-flip_h = true
-
-[node name="PillarDecoProp6" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="9"]
-position = Vector2(2550, -968.00006)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("19_ehi0a")
-flip_h = true
-
-[node name="PillarDecoProp2" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="10"]
-position = Vector2(9482, 183)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("19_ehi0a")
-
-[node name="PillarDecoProp3" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="11"]
-position = Vector2(7562, -200.00002)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("19_ehi0a")
-
-[node name="PillarDecoProp7" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="12"]
-position = Vector2(7306, -584)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("19_ehi0a")
-
-[node name="PillarDecoProp8" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="13"]
-position = Vector2(7050, -968)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("19_ehi0a")
-
-[node name="Icicle06" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="14"]
+[node name="Icicle06" type="Sprite2D" parent="MidgroundLayer" index="3"]
 position = Vector2(449.4323, 924)
 scale = Vector2(0.26858073, 0.26858073)
 texture = ExtResource("8_wa3gy")
 
-[node name="Icicle07" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="15"]
+[node name="Icicle07" type="Sprite2D" parent="MidgroundLayer" index="4"]
 position = Vector2(193.4323, 924)
 scale = Vector2(0.26858073, 0.26858073)
 texture = ExtResource("8_wa3gy")
 flip_h = true
 
-[node name="Icicle03" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="16"]
+[node name="Icicle03" type="Sprite2D" parent="MidgroundLayer" index="5"]
 position = Vector2(423.4323, 973)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("18_ccoat")
 
-[node name="Icicle04" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="17"]
+[node name="Icicle04" type="Sprite2D" parent="MidgroundLayer" index="6"]
 position = Vector2(218.4323, 973)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("18_ccoat")
 flip_h = true
 
-[node name="Icicle02" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="18"]
+[node name="Icicle02" type="Sprite2D" parent="MidgroundLayer" index="7"]
 position = Vector2(402.4323, 1008)
 scale = Vector2(0.3125, 0.3125)
 texture = ExtResource("15_8xxle")
 flip_h = true
 
-[node name="Icicle01" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="19"]
+[node name="Icicle01" type="Sprite2D" parent="MidgroundLayer" index="8"]
 position = Vector2(239.4323, 1008)
 scale = Vector2(0.3125, 0.3125)
 texture = ExtResource("15_8xxle")
 
-[node name="ChairsProp" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="20"]
-position = Vector2(4624, 904)
-scale = Vector2(0.575, 0.575)
-texture = ExtResource("10_uiew2")
+[node name="PillarTrunk03" type="Sprite2D" parent="MidgroundLayer/DecalsFront" index="0"]
+position = Vector2(25814, -134)
+scale = Vector2(4, 8)
+texture = ExtResource("9_uiew2")
 
-[node name="TableProp" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="21"]
-position = Vector2(4800, 966)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("10_aui2o")
-
-[node name="FruitBowlProp" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="22"]
-position = Vector2(4679.0005, 867.00006)
-scale = Vector2(0.40177494, 0.348333)
-texture = ExtResource("18_cl17y")
-
-[node name="WineProp" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="23"]
-position = Vector2(4889, 845)
-scale = Vector2(0.41379493, 0.41379493)
-texture = ExtResource("19_wa3gy")
-
-[node name="FloorPotAProp" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="24"]
-position = Vector2(5568.0005, 808)
-scale = Vector2(0.625, 0.625)
-texture = ExtResource("12_x17ub")
-
-[node name="FloorPotBProp2" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="25"]
-position = Vector2(1344, 828)
-scale = Vector2(0.625, 0.625)
-texture = ExtResource("13_8rtu3")
-
-[node name="FloorPotBProp" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="26"]
-position = Vector2(1856, 828)
-scale = Vector2(0.625, 0.625)
-texture = ExtResource("13_8rtu3")
-
-[node name="PillarTrunk04" type="Sprite2D" parent="MidgroundLayer/DecalsFront" index="0"]
-position = Vector2(6400, 2208)
+[node name="PillarCap01" type="Sprite2D" parent="MidgroundLayer/DecalsFront" index="1"]
+position = Vector2(12750, -4038)
 scale = Vector2(4, 4)
-texture = ExtResource("3_qch8k")
+texture = ExtResource("2_2pi1u")
 
-[node name="PillarCap03" type="Sprite2D" parent="MidgroundLayer/DecalsFront" index="1"]
-position = Vector2(6400, 576)
+[node name="PillarCap02" type="Sprite2D" parent="MidgroundLayer/DecalsFront" index="2"]
+position = Vector2(25814, -4070)
 scale = Vector2(4, 4)
-texture = ExtResource("3_gq082")
+texture = ExtResource("2_2pi1u")
 
-[node name="PillarBase01" type="Sprite2D" parent="MidgroundLayer/DecalsFront" index="2"]
-position = Vector2(6400, 3840)
+[node name="PillarBase02" type="Sprite2D" parent="MidgroundLayer/DecalsFront" index="3"]
+position = Vector2(25814, 3706)
 scale = Vector2(4, 4)
-texture = ExtResource("5_gq082")
+texture = ExtResource("4_c4d42")
 
-[node name="PillarTrunk01" type="Sprite2D" parent="MidgroundLayer/DecalsFront" index="3"]
-position = Vector2(32000, 2048)
-scale = Vector2(4, 4)
-texture = ExtResource("2_c4d42")
+[node name="PillarTrunk02" type="Sprite2D" parent="MidgroundLayer/DecalsFront" index="4"]
+position = Vector2(12750, -102)
+scale = Vector2(4, 8)
+texture = ExtResource("8_aui2o")
 
-[node name="PillarCap04" type="Sprite2D" parent="MidgroundLayer/DecalsFront" index="4"]
-position = Vector2(32000, 576)
+[node name="PillarBase03" type="Sprite2D" parent="MidgroundLayer/DecalsFront" index="5"]
+position = Vector2(12750, 3674)
 scale = Vector2(4, 4)
-texture = ExtResource("3_gq082")
-
-[node name="PillarBase04" type="Sprite2D" parent="MidgroundLayer/DecalsFront" index="5"]
-position = Vector2(32000, 3872)
-scale = Vector2(4, 4)
-texture = ExtResource("5_gq082")
+texture = ExtResource("4_c4d42")
 
 [node name="HangingPlantProp01" type="Sprite2D" parent="ForegroundLayer/Decals" index="0"]
 position = Vector2(3456, -824)
