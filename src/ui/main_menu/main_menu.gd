@@ -3,7 +3,7 @@ class_name MainMenu extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$"MainSelectionsContainer/PlayButton".grab_focus.call_deferred()
+	$"CanvasLayer/MainSelectionsContainer/PlayButton".grab_focus.call_deferred()
 
 # Signals that the game is started.
 func _on_play_button_button_up() -> void:
