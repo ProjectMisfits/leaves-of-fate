@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://crhxm4beqn4ok"]
+[gd_scene load_steps=9 format=3 uid="uid://crhxm4beqn4ok"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_pydn3"]
 [ext_resource type="PackedScene" uid="uid://beub4bx6t3wvh" path="res://src/objects/hazards/icicle/icicle_01.tscn" id="2_buoy0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b5pl5cenkmlqy" path="res://src/objects/hazards/icicle/icicle_04.tscn" id="5_5j2qh"]
 [ext_resource type="PackedScene" uid="uid://bj7fv2e6r3bp5" path="res://src/objects/hazards/icicle/icicle_05.tscn" id="6_cpfml"]
 [ext_resource type="PackedScene" uid="uid://dv6448b476yos" path="res://src/objects/hazards/icicle/icicle_06.tscn" id="7_r4ru3"]
+[ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/objects/hazards/ice_spike_ball/ice_spike_ball.tscn" id="8_rwa8l"]
 
 [node name="TEST_Hazards" instance=ExtResource("1_pydn3")]
 
@@ -27,3 +28,6 @@ position = Vector2(966, 1025)
 
 [node name="Icicle_06" parent="MidgroundLayer" index="9" instance=ExtResource("7_r4ru3")]
 position = Vector2(1031, 1020)
+
+[node name="IceSpikeBall" parent="MidgroundLayer" index="10" instance=ExtResource("8_rwa8l")]
+position = Vector2(776, 632)

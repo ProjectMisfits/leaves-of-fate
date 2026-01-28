@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bj7fv2e6r3bp5"]
 
-[ext_resource type="Script" uid="uid://bp0q6kcw64vf2" path="res://src/objects/hazards/hazard.gd" id="1_flfsn"]
+[ext_resource type="Script" uid="uid://lrd4ytnsswka" path="res://src/objects/hazards/icicle/icicle.gd" id="1_flfsn"]
 [ext_resource type="Texture2D" uid="uid://dtlb7dnnba4ka" path="res://assets/objects/hazards/icicle/Icicle-05.png" id="2_flfsn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5sn6"]
