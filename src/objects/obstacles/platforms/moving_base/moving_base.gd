@@ -57,7 +57,7 @@ func initialize_animation()->void:
 func set_closed_speed(newSpeed: float)->void:
 	cur_closed_loop_speed = newSpeed;
 	
-func set_open_speed(newSpeed: float)->void:
+func set_open_speed(_newSpeed: float)->void:
 	animation_player.speed_scale = cur_open_loop_speed_scale
 	
 func stop_platform()->void:

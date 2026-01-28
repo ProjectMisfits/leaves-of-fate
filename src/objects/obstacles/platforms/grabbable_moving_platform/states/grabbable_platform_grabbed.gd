@@ -6,7 +6,7 @@ func _enter() -> void:
 func _exit() -> void:
 	agent.enable_companion_collision()
 
-func _update(delta: float) -> void:
+func _update(_delta: float) -> void:
 	#The player can release a plat form from anywhere
 	if Input.is_action_just_pressed("companion"):
 		agent.continue_platform()
