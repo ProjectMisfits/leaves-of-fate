@@ -26,8 +26,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dfdoi")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -41,7 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_q0yb2")
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 1
 offset_left = 66.5
 offset_top = 49.5
@@ -52,7 +53,7 @@ theme_override_fonts/font = ExtResource("2_dfdoi")
 theme_override_font_sizes/font_size = 100
 text = "Settings"
 
-[node name="ControlsContainer" type="VBoxContainer" parent="Panel"]
+[node name="ControlsContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -63,7 +64,7 @@ offset_right = 426.0
 offset_bottom = 286.5
 grow_vertical = 2
 
-[node name="ControlsButton" type="Button" parent="Panel/ControlsContainer"]
+[node name="ControlsButton" type="Button" parent="CanvasLayer/Panel/ControlsContainer"]
 process_mode = 3
 custom_minimum_size = Vector2(307, 101)
 layout_mode = 2
@@ -84,7 +85,7 @@ text = "Controls"
 alignment = 2
 script = ExtResource("3_fhom7")
 
-[node name="LeafPointer" type="TextureRect" parent="Panel/ControlsContainer/ControlsButton"]
+[node name="LeafPointer" type="TextureRect" parent="CanvasLayer/Panel/ControlsContainer/ControlsButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -97,7 +98,7 @@ texture = ExtResource("4_l7ib7")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="SoundButton" type="Button" parent="Panel/ControlsContainer"]
+[node name="SoundButton" type="Button" parent="CanvasLayer/Panel/ControlsContainer"]
 custom_minimum_size = Vector2(250, 101)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -117,7 +118,7 @@ text = "Sound"
 alignment = 2
 script = ExtResource("3_fhom7")
 
-[node name="LeafPointer" type="TextureRect" parent="Panel/ControlsContainer/SoundButton"]
+[node name="LeafPointer" type="TextureRect" parent="CanvasLayer/Panel/ControlsContainer/SoundButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -130,7 +131,7 @@ texture = ExtResource("4_l7ib7")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="BackButton" type="Button" parent="Panel/ControlsContainer"]
+[node name="BackButton" type="Button" parent="CanvasLayer/Panel/ControlsContainer"]
 custom_minimum_size = Vector2(202, 101)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -151,7 +152,7 @@ text = "Back
 alignment = 2
 script = ExtResource("3_fhom7")
 
-[node name="LeafPointer" type="TextureRect" parent="Panel/ControlsContainer/BackButton"]
+[node name="LeafPointer" type="TextureRect" parent="CanvasLayer/Panel/ControlsContainer/BackButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
