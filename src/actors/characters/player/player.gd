@@ -4,7 +4,10 @@
 extends CharacterBody2D
 class_name Player
 
+### RESOURCES ###
 @export var database: JSON = null
+@export var collision_normal: CapsuleShape2D = null
+@export var collision_dash: CircleShape2D = null
 
 ### DATABASE VARIABLES ###
 var health: int
@@ -29,27 +32,39 @@ var jump_coyote_time: float
 var jump_buffer_time: float
 var jump_corner_rounding_distance: float
 
-## Leaf Dash ##
+## Leaf Dash Mode ##
 var meter_buildup_rate: float
 var meter_drain_rate: float
 var meter_dash_drain_rate: float
-var meter_max_capacity: float
+var meter_pile_drain_rate: float
 
 var dash_max_speed: float
-var dash_initial_velocity: float
 var dash_angular_turn_speed: float
 var dash_deceleration: float
 var dash_angular_turn_speed_deceleration: float
 var meter_dash_deceleration_start: float
 
-var dash_shimmy_max_speed: float
-var dash_shimmy_acceleration: float
-var dash_shimmy_deceleration: float
-var dash_shimmy_turn_speed: float
+## Leaf Pile Mode ##
+var pile_gravity: float
+var pile_terminal_velocity: float
+
+var pile_max_speed_ground: float
+var pile_ground_acceleration: float
+var pile_ground_deceleration: float
+var pile_ground_turn_speed: float
+var pile_ground_friction: float
+
+var pile_max_speed_air: float
+var pile_air_acceleration: float
+var pile_air_deceleration: float
+var pile_air_turn_speed: float
+
+var fun_value: int	# Every copy of Project Misfits is personalized
 
 ## Node references + State Machine ##
 @export var dash_bar: ProgressBar = null
 @export var health_grid: GridContainer = null
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 # flip_node scale changes depending on Player's look direction; all children will be flipped.
 @onready var flip_node: Node2D = $FlipNode
@@ -62,8 +77,8 @@ var dash_shimmy_turn_speed: float
 @onready var jumping_state: LimboState = $LimboHSM/Jumping
 @onready var airborne_state: LimboState = $LimboHSM/Airborne
 @onready var dashing_state: LimboState = $LimboHSM/Dashing
-@onready var shimmying_state: LimboState = $LimboHSM/Shimmying
-@onready var interacting_state: LimboState = $LimboHSM/Interacting
+@onready var piling_state: LimboState = $LimboHSM/Piling
+@onready var cutscene_state: LimboState = $LimboHSM/Cutscene
 
 ### DYNAMIC VARIABLES ###
 var current_health: int
@@ -96,11 +111,13 @@ func _ready() -> void:
 # Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
 	add_debug_parameters()
+	
 	check_interact_action()
 	update_jump_queue(delta)
 	update_leaf_meter(delta)
+	check_companion_objects()
 	
-	if (not dashing_state.is_active()):
+	if ((not dashing_state.is_active()) and (not piling_state.is_active())):
 		velocity.y += compute_gravity() * delta
 		velocity.y = clampf(velocity.y, -INF, terminal_velocity) # velocity cannot exceed terminal velocity
 		
@@ -124,22 +141,30 @@ func initialize_state_machine() -> void:
 	state_machine.add_transition(idle_state,jumping_state,&"to_jumping")
 	state_machine.add_transition(idle_state,airborne_state,&"to_airborne")
 	state_machine.add_transition(idle_state,dashing_state,&"to_dashing")
+	state_machine.add_transition(idle_state,piling_state,&"to_piling")
 	
 	state_machine.add_transition(running_state,idle_state,&"to_idle")
 	state_machine.add_transition(running_state,jumping_state,&"to_jumping")
 	state_machine.add_transition(running_state,airborne_state,&"to_airborne")
 	state_machine.add_transition(running_state,dashing_state,&"to_dashing")
+	state_machine.add_transition(running_state,piling_state,&"to_piling")
 	
 	state_machine.add_transition(jumping_state,airborne_state,&"to_airborne")
 	state_machine.add_transition(jumping_state,dashing_state,&"to_dashing")
+	state_machine.add_transition(jumping_state,piling_state,&"to_piling")
 	
 	state_machine.add_transition(airborne_state,idle_state,&"to_idle")
 	state_machine.add_transition(airborne_state,running_state,&"to_running")
 	state_machine.add_transition(airborne_state,dashing_state,&"to_dashing")
+	state_machine.add_transition(airborne_state,piling_state,&"to_piling")
 	
 	state_machine.add_transition(dashing_state,idle_state,&"to_idle")
 	state_machine.add_transition(dashing_state,running_state,&"to_running")
 	state_machine.add_transition(dashing_state,airborne_state,&"to_airborne")
+	
+	state_machine.add_transition(piling_state,idle_state,&"to_idle")
+	state_machine.add_transition(piling_state,running_state,&"to_running")
+	state_machine.add_transition(piling_state,airborne_state,&"to_airborne")
 	
 	state_machine.initial_state = idle_state
 	state_machine.initialize(self)
@@ -176,7 +201,7 @@ func check_airborne_state() -> void:
 	if not is_on_floor() and is_coyote_timer_expired:
 		state_machine.dispatch(&"to_airborne")
 
-# If the player is trying to dash and leaf meter is not zero, change to dashing state.
+# If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to piling state.
 func check_dashing_state() -> void:
 	if Input.is_action_just_pressed(&"dash"):
 		var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
@@ -184,6 +209,15 @@ func check_dashing_state() -> void:
 		
 		if is_direction_pressed and is_leaf_meter_not_empty:
 			state_machine.dispatch(&"to_dashing")
+
+# If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to piling state.
+func check_piling_state() -> void:
+	if Input.is_action_just_pressed(&"dash"):
+		var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
+		var is_no_direction_pressed: bool = (Input.get_vector("move_left", "move_right", "move_up", "move_down") == Vector2.ZERO)
+		
+		if is_no_direction_pressed and is_leaf_meter_not_empty:
+			state_machine.dispatch(&"to_piling")
 
 func check_interact_action() -> void:
 	var is_interactable_not_null: bool = selected_interactable != null
@@ -226,7 +260,12 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 			#new_velocity = clampf(new_velocity + new_acceleration, -new_velocity, new_velocity)
 		
 		# If just exited Leaf Dash, limit velocity by dash max speed
-		if (state_machine.get_previous_active_state() == dashing_state) and (abs(velocity.x) > run_max_speed):
+		if (piling_state.is_active()):
+			if (is_on_floor()):
+				new_velocity = clampf(velocity.x + new_acceleration, -pile_max_speed_ground, pile_max_speed_ground)
+			else:
+				new_velocity = clampf(velocity.x + new_acceleration, -pile_max_speed_air, pile_max_speed_air)
+		elif (state_machine.get_previous_active_state() == dashing_state) and (abs(velocity.x) > run_max_speed):
 			new_velocity = clampf(velocity.x + new_acceleration, -dash_max_speed, dash_max_speed)
 		else:
 			new_velocity = clampf(velocity.x + new_acceleration, -run_max_speed, run_max_speed)
@@ -245,6 +284,14 @@ func move_horizontal_ground() -> void:
 # Calls move_horizontal with air parameters.
 func move_horizontal_air() -> void:
 	move_horizontal(air_acceleration, air_deceleration, air_turn_speed)
+
+# Calls move_horizontal with pile ground parameters.
+func move_horizontal_pile_ground() -> void:
+	move_horizontal(pile_ground_acceleration, pile_ground_deceleration, pile_ground_turn_speed)
+
+# Calls move_horizontal with pile air parameters.
+func move_horizontal_pile_air() -> void:
+	move_horizontal(pile_air_acceleration, pile_air_deceleration, pile_air_turn_speed)
 
 # Returns the player's x-input value.
 func get_x_input() -> float:
@@ -292,7 +339,9 @@ func update_leaf_meter(delta: float) -> void:
 	
 	if (dashing_state.is_active()):
 		leaf_meter_change = -1.0 * meter_dash_drain_rate
-	elif (state_machine.get_previous_active_state() == dashing_state): # Do not change Leaf Meter post-dash until Player hits the ground
+	elif (piling_state.is_active()):
+		leaf_meter_change = -1.0 * meter_pile_drain_rate
+	elif ((state_machine.get_previous_active_state() == dashing_state) or (state_machine.get_previous_active_state() == piling_state)): # Do not change Leaf Meter post-dash until Player hits the ground
 		leaf_meter_change = 0.0
 	elif (signf(get_x_input()) != signf(velocity.x)): # If turning
 		leaf_meter_change = 0.0
@@ -302,8 +351,12 @@ func update_leaf_meter(delta: float) -> void:
 		leaf_meter_change = -1.0 * meter_drain_rate
 	
 	new_leaf_meter += (leaf_meter_change * delta)
-	leaf_meter = clampf(new_leaf_meter, 0.0, meter_max_capacity)
+	leaf_meter = clampf(new_leaf_meter, 0.0, 100.0)
 	dash_bar.value = leaf_meter
+
+func hurt(damage:int)->void:
+	health -= damage
+	print(health)
 
 func check_talk()->void:
 	#if the player just tried to interact with something see if there was someone you could talk to
@@ -311,6 +364,14 @@ func check_talk()->void:
 		var talkables = $FlipNode/InteractArea.get_overlapping_areas() 
 		if talkables.size() >0:
 			talkables[0].talk();
+## Function to check 
+func check_companion_objects()->void:
+	if Input.is_action_just_pressed("companion"):
+		var companion_objects : Array[Area2D] = $FlipNode/CompanionArea.get_overlapping_areas()
+		if companion_objects.size() > 0:
+			companion_objects[0].companion_action_triggered()
+	
+	
 
 # Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
@@ -341,19 +402,29 @@ func initialize_data(data: Dictionary) -> void:
 		meter_buildup_rate = data["meter_buildup_rate"]
 		meter_drain_rate = data["meter_drain_rate"]
 		meter_dash_drain_rate = data["meter_dash_drain_rate"]
-		meter_max_capacity = data["meter_max_capacity"]
+		meter_pile_drain_rate = data["meter_pile_drain_rate"]
 		
 		dash_max_speed = data["dash_max_speed"]
-		dash_initial_velocity = data["dash_initial_velocity"]
 		dash_angular_turn_speed = data["dash_angular_turn_speed"]
 		dash_deceleration = data["dash_deceleration"]
 		dash_angular_turn_speed_deceleration = data["dash_angular_turn_speed_deceleration"]
 		meter_dash_deceleration_start = data["meter_dash_deceleration_start"]
 		
-		dash_shimmy_max_speed = data["dash_shimmy_max_speed"]
-		dash_shimmy_acceleration = data["dash_shimmy_acceleration"]
-		dash_shimmy_deceleration = data["dash_shimmy_deceleration"]
-		dash_shimmy_turn_speed = data["dash_shimmy_turn_speed"]
+		pile_gravity = data["pile_gravity"]
+		pile_terminal_velocity = data["pile_terminal_velocity"]
+
+		pile_max_speed_ground = data["pile_max_speed_ground"]
+		pile_ground_acceleration = data["pile_ground_acceleration"]
+		pile_ground_deceleration = data["pile_ground_deceleration"]
+		pile_ground_turn_speed = data["pile_ground_turn_speed"]
+		pile_ground_friction = data["pile_ground_friction"]
+
+		pile_max_speed_air = data["pile_max_speed_air"]
+		pile_air_acceleration = data["pile_air_acceleration"]
+		pile_air_deceleration = data["pile_air_deceleration"]
+		pile_air_turn_speed = data["pile_air_turn_speed"]
+		
+		fun_value = data["fun_value"]
 
 # Checks if a Node is an interactable by scanning for an Interactable child.
 # If an Interactable child is found, make this Node the selected_interactable.
