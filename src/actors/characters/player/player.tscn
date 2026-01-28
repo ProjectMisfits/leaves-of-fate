@@ -47,6 +47,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4vut"]
 size = Vector2(250, 180)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7uqy"]
+size = Vector2(57.72727, 43.40909)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 14
 script = ExtResource("1_npkjl")
@@ -86,6 +89,15 @@ emitting = false
 
 [node name="WindParticles2" parent="FlipNode/DashParticles" instance=ExtResource("15_808gp")]
 emitting = false
+
+[node name="CompanionArea" type="Area2D" parent="FlipNode"]
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/CompanionArea"]
+position = Vector2(83, 5.5)
+scale = Vector2(4.4000006, 4.4000006)
+shape = SubResource("RectangleShape2D_u7uqy")
+debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
 
