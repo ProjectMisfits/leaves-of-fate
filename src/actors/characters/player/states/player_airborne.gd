@@ -5,7 +5,7 @@ func _enter() -> void:
 	pass
 
 func _update(_delta: float) -> void:
-	agent.check_talk()
+
 	agent.check_dashing_state()
 	agent.check_piling_state()
 	agent.check_running_state()
