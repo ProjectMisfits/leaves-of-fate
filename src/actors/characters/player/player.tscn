@@ -1,23 +1,21 @@
-[gd_scene load_steps=18 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=19 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/actors/characters/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/actors/characters/player/player_db.tres" id="2_7gsup"]
 [ext_resource type="Script" uid="uid://bar0unkhcpu3a" path="res://src/actors/characters/player/states/player_idle.gd" id="3_a1k00"]
 [ext_resource type="Texture2D" uid="uid://dco77mb0p8ecg" path="res://assets/actors/characters/player/player_placeholder.png" id="3_c6y0n"]
 [ext_resource type="Script" uid="uid://dr4cwnspn2mf2" path="res://src/actors/characters/player/states/player_running.gd" id="4_7gsup"]
+[ext_resource type="Shape2D" uid="uid://0oo3ftpmvp21" path="res://src/actors/characters/player/collision_shapes/player_dash.tres" id="4_7j1dl"]
+[ext_resource type="Shape2D" uid="uid://b8ivarqjj8m6q" path="res://src/actors/characters/player/collision_shapes/player_normal.tres" id="4_lynpt"]
 [ext_resource type="PackedScene" uid="uid://d20fk20iq2n50" path="res://src/gameplay/camera.tscn" id="4_wcwgi"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="5_lynpt"]
 [ext_resource type="Script" uid="uid://duy7f43rn783x" path="res://src/actors/characters/player/states/player_jumping.gd" id="6_c6y0n"]
 [ext_resource type="Script" uid="uid://cksn2wvaxpq54" path="res://src/actors/characters/player/states/player_airborne.gd" id="7_q4vut"]
 [ext_resource type="Script" uid="uid://bjtwcn16kj5bl" path="res://src/actors/characters/player/states/player_dashing.gd" id="8_wcwgi"]
-[ext_resource type="Script" uid="uid://osptlmoqos3i" path="res://src/actors/characters/player/states/player_shimmying.gd" id="9_q6jdu"]
-[ext_resource type="Script" uid="uid://icrwiu7udlg5" path="res://src/actors/characters/player/states/player_interacting.gd" id="10_u7uqy"]
+[ext_resource type="Script" uid="uid://osptlmoqos3i" path="res://src/actors/characters/player/states/player_piling.gd" id="9_q6jdu"]
+[ext_resource type="Script" uid="uid://icrwiu7udlg5" path="res://src/actors/characters/player/states/player_cutscene.gd" id="10_u7uqy"]
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/particle_effects/wind_particles.tscn" id="14_7j1dl"]
 [ext_resource type="PackedScene" uid="uid://dqviomxk1qqcu" path="res://src/particle_effects/leaf_particles.tscn" id="15_808gp"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q4vut"]
-radius = 46.0
-height = 180.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q4vut"]
 animations = [{
@@ -27,6 +25,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_lynpt")
+}],
+"loop": true,
+"name": &"pile",
 "speed": 5.0
 }, {
 "frames": [{
@@ -45,20 +51,22 @@ size = Vector2(250, 180)
 collision_mask = 14
 script = ExtResource("1_npkjl")
 database = ExtResource("2_7gsup")
+collision_normal = ExtResource("4_lynpt")
+collision_dash = ExtResource("4_7j1dl")
 
 [node name="Camera" parent="." instance=ExtResource("4_wcwgi")]
 zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_q4vut")
+shape = ExtResource("4_lynpt")
 
 [node name="FlipNode" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlipNode"]
 position = Vector2(11.055, 4.645)
 sprite_frames = SubResource("SpriteFrames_q4vut")
-animation = &"player"
+animation = &"pile"
 
 [node name="InteractArea" type="Area2D" parent="FlipNode"]
 position = Vector2(80, 0)
@@ -96,10 +104,10 @@ script = ExtResource("7_q4vut")
 [node name="Dashing" type="LimboState" parent="LimboHSM"]
 script = ExtResource("8_wcwgi")
 
-[node name="Shimmying" type="LimboState" parent="LimboHSM"]
+[node name="Piling" type="LimboState" parent="LimboHSM"]
 script = ExtResource("9_q6jdu")
 
-[node name="Interacting" type="LimboState" parent="LimboHSM"]
+[node name="Cutscene" type="LimboState" parent="LimboHSM"]
 script = ExtResource("10_u7uqy")
 
 [node name="DashBar" type="ProgressBar" parent="."]
