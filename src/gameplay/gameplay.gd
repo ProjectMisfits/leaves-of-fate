@@ -18,6 +18,9 @@ func _ready() -> void:
 	# Spawn the player at the first door now that the room has been loaded
 	current_room.spawn_player(player, 'enter')
 
+func _process(delta: float) -> void:
+		_pause_game()
+
 # Called once every physics tick.
 func _physics_process(_delta: float) -> void:
 	DebugMenu.add_debug_property("Current Room", current_room.name, 0)
@@ -46,3 +49,11 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String)-> void
 	_update_current_room()
 	# Add player to new current room and place them at correct door
 	current_room.spawn_player(player, target_door_name)
+
+func _pause_game() -> void:
+	if Input.is_action_just_pressed(&"pause"):
+		get_tree().paused = true
+		_load_pause_menu()
+
+func _load_pause_menu() -> void:
+	SceneManager.swap_scenes("res://src/ui/pause_menu/pause_menu.tscn", self, null)
