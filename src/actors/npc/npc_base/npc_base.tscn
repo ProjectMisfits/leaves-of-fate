@@ -2,23 +2,27 @@
 
 [ext_resource type="Texture2D" uid="uid://cltutcxjx8jnl" path="res://demo/assets/dummy.png" id="1_61k7g"]
 [ext_resource type="Script" uid="uid://dk0iwbdqxv53f" path="res://src/actors/npc/npc_base/npc_base.gd" id="1_jemv2"]
-[ext_resource type="PackedScene" uid="uid://blowvmxa536y" path="res://src/actors/npc/talkables/talkable_area.tscn" id="2_51mtn"]
+[ext_resource type="PackedScene" uid="uid://bgs8q2xm7mv1l" path="res://src/utilities/interactable/interactable.tscn" id="3_6fqar"]
 [ext_resource type="PackedScene" uid="uid://du42aku0qy3o5" path="res://src/ui/dialogue_boxes/balloon.tscn" id="4_jemv2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5ksa"]
-size = Vector2(125, 139)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r615y"]
+size = Vector2(120, 134)
 
-[node name="NpcBase" type="Node2D"]
+[node name="NpcBase" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 0
 script = ExtResource("1_jemv2")
+balloon = ExtResource("4_jemv2")
 
 [node name="FlipAbles" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="FlipAbles"]
 texture = ExtResource("1_61k7g")
 
-[node name="TalkableArea" parent="." instance=ExtResource("2_51mtn")]
-balloon = ExtResource("4_jemv2")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_r615y")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TalkableArea"]
-position = Vector2(0.5, -0.5)
-shape = SubResource("RectangleShape2D_o5ksa")
+[node name="Interactable" parent="." instance=ExtResource("3_6fqar")]
+
+[connection signal="interact_triggered" from="Interactable" to="." method="_on_interactable_interact_triggered"]
