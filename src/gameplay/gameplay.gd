@@ -11,6 +11,12 @@ var current_room: Room = null
 ## The player object.
 var player: Player = preload("res://src/actors/characters/player/player.tscn").instantiate()
 
+## The pause menu preload
+var preload_pause: PackedScene = preload("res://src/ui/pause_menu/pause_menu.tscn")
+
+## The pause menu once instantiated
+var pause_menu: PauseMenu = null
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Set the starting Room
@@ -53,7 +59,5 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String)-> void
 func _pause_game() -> void:
 	if Input.is_action_just_pressed(&"pause"):
 		get_tree().paused = true
-		_load_pause_menu()
-
-func _load_pause_menu() -> void:
-	SceneManager.swap_scenes("res://src/ui/pause_menu/pause_menu.tscn", self, null)
+		pause_menu = preload_pause.instantiate()
+		add_child(pause_menu)
