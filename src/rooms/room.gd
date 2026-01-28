@@ -38,7 +38,7 @@ func spawn_player(player: Player, target_door_name: String) -> void:
 	for door: Door in doors:
 		if door.door_name == target_door_name:
 			print("Room '%s': Placing player at door '%s'" % [name, target_door_name])
-			$MidgroundLayer.add_child(player)
+			$MidgroundLayer/PlayerHolder.add_child(player)
 			player.global_position = door.position
 			
 			# Update the camera limits to match the room
@@ -50,4 +50,4 @@ func spawn_player(player: Player, target_door_name: String) -> void:
 
 ## Remove the player from this Room.
 func despawn_player(player: Player) -> void:
-	$MidgroundLayer.remove_child(player)
+	$MidgroundLayer/PlayerHolder.remove_child(player)

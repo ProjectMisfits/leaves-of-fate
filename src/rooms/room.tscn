@@ -43,6 +43,8 @@ position = Vector2(1472, 936)
 door_name = "exit"
 target_door_name = "enter"
 
+[node name="PlayerHolder" type="Node2D" parent="MidgroundLayer"]
+
 [node name="MidgroundFront" type="TileMapLayer" parent="MidgroundLayer"]
 scale = Vector2(0.25, 0.25)
 tile_set = ExtResource("2_7i7i2")
