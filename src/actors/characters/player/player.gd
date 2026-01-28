@@ -353,6 +353,10 @@ func update_leaf_meter(delta: float) -> void:
 	leaf_meter = clampf(new_leaf_meter, 0.0, 100.0)
 	dash_bar.value = leaf_meter
 
+func hurt(damage:int)->void:
+	health -= damage
+	print(health)
+
 func check_talk()->void:
 	#if the player just tried to interact with something see if there was someone you could talk to
 	if Input.is_action_just_pressed("interact"):
