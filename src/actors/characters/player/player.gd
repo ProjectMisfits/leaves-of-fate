@@ -37,10 +37,8 @@ var meter_buildup_rate: float
 var meter_drain_rate: float
 var meter_dash_drain_rate: float
 var meter_shimmy_drain_rate: float
-var meter_max_capacity: float
 
 var dash_max_speed: float
-var dash_initial_velocity: float
 var dash_angular_turn_speed: float
 var dash_deceleration: float
 var dash_angular_turn_speed_deceleration: float
@@ -50,15 +48,18 @@ var meter_dash_deceleration_start: float
 var shimmy_gravity: float
 var shimmy_terminal_velocity: float
 
-var shimmy_max_speed: float
+var shimmy_max_speed_ground: float
 var shimmy_ground_acceleration: float
 var shimmy_ground_deceleration: float
 var shimmy_ground_turn_speed: float
 var shimmy_ground_friction: float
 
+var shimmy_max_speed_air: float
 var shimmy_air_acceleration: float
 var shimmy_air_deceleration: float
 var shimmy_air_turn_speed: float
+
+var fun_value: int	# Every copy of Project Misfits is personalized
 
 ## Node references + State Machine ##
 @onready var dash_bar: ProgressBar = $DashBar
@@ -257,7 +258,12 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 			#new_velocity = clampf(new_velocity + new_acceleration, -new_velocity, new_velocity)
 		
 		# If just exited Leaf Dash, limit velocity by dash max speed
-		if (state_machine.get_previous_active_state() == dashing_state) and (abs(velocity.x) > run_max_speed):
+		if (shimmying_state.is_active()):
+			if (is_on_floor()):
+				new_velocity = clampf(velocity.x + new_acceleration, -shimmy_max_speed_ground, shimmy_max_speed_ground)
+			else:
+				new_velocity = clampf(velocity.x + new_acceleration, -shimmy_max_speed_air, shimmy_max_speed_air)
+		elif (state_machine.get_previous_active_state() == dashing_state) and (abs(velocity.x) > run_max_speed):
 			new_velocity = clampf(velocity.x + new_acceleration, -dash_max_speed, dash_max_speed)
 		else:
 			new_velocity = clampf(velocity.x + new_acceleration, -run_max_speed, run_max_speed)
@@ -343,7 +349,7 @@ func update_leaf_meter(delta: float) -> void:
 		leaf_meter_change = -1.0 * meter_drain_rate
 	
 	new_leaf_meter += (leaf_meter_change * delta)
-	leaf_meter = clampf(new_leaf_meter, 0.0, meter_max_capacity)
+	leaf_meter = clampf(new_leaf_meter, 0.0, 100.0)
 	dash_bar.value = leaf_meter
 
 func check_talk()->void:
@@ -383,10 +389,8 @@ func initialize_data(data: Dictionary) -> void:
 		meter_drain_rate = data["meter_drain_rate"]
 		meter_dash_drain_rate = data["meter_dash_drain_rate"]
 		meter_shimmy_drain_rate = data["meter_shimmy_drain_rate"]
-		meter_max_capacity = data["meter_max_capacity"]
 		
 		dash_max_speed = data["dash_max_speed"]
-		dash_initial_velocity = data["dash_initial_velocity"]
 		dash_angular_turn_speed = data["dash_angular_turn_speed"]
 		dash_deceleration = data["dash_deceleration"]
 		dash_angular_turn_speed_deceleration = data["dash_angular_turn_speed_deceleration"]
@@ -395,15 +399,18 @@ func initialize_data(data: Dictionary) -> void:
 		shimmy_gravity = data["shimmy_gravity"]
 		shimmy_terminal_velocity = data["shimmy_terminal_velocity"]
 
-		shimmy_max_speed = data["shimmy_max_speed"]
+		shimmy_max_speed_ground = data["shimmy_max_speed_ground"]
 		shimmy_ground_acceleration = data["shimmy_ground_acceleration"]
 		shimmy_ground_deceleration = data["shimmy_ground_deceleration"]
 		shimmy_ground_turn_speed = data["shimmy_ground_turn_speed"]
 		shimmy_ground_friction = data["shimmy_ground_friction"]
 
+		shimmy_max_speed_air = data["shimmy_max_speed_air"]
 		shimmy_air_acceleration = data["shimmy_air_acceleration"]
 		shimmy_air_deceleration = data["shimmy_air_deceleration"]
 		shimmy_air_turn_speed = data["shimmy_air_turn_speed"]
+		
+		fun_value = data["fun_value"]
 
 # Checks if a Node is an interactable by scanning for an Interactable child.
 # If an Interactable child is found, make this Node the selected_interactable.
