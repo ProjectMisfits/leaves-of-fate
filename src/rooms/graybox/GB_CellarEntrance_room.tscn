@@ -21,6 +21,7 @@ path_to_target_room = "uid://cwgmn4aexyqic"
 
 [node name="DoorExit" parent="MidgroundLayer/Doors" index="1"]
 position = Vector2(14080, 3328)
+path_to_target_room = "uid://bjo42csk7sdc3"
 
 [node name="PillarTrunk04" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="0"]
 position = Vector2(256, 136)
@@ -140,7 +141,25 @@ position = Vector2(8960, 2103.5)
 texture = ExtResource("3_e5o2i")
 
 [node name="IceSpikeBall2" parent="MidgroundLayer" index="4" instance=ExtResource("5_0b23k")]
-position = Vector2(12416, 2016)
+position = Vector2(12288, 2048)
 
-[node name="IceSpikeBall" parent="MidgroundLayer" index="5" instance=ExtResource("5_0b23k")]
-position = Vector2(12032, 2136)
+[node name="IceSpikeBall3" parent="MidgroundLayer" index="5" instance=ExtResource("5_0b23k")]
+position = Vector2(12288, 2304)
+
+[node name="IceSpikeBall" parent="MidgroundLayer" index="6" instance=ExtResource("5_0b23k")]
+position = Vector2(12032, 2176)
+
+[node name="IceSpikeBall4" parent="MidgroundLayer" index="7" instance=ExtResource("5_0b23k")]
+position = Vector2(12032, 2432)
+
+[node name="IceSpikeBall5" parent="MidgroundLayer" index="8" instance=ExtResource("5_0b23k")]
+position = Vector2(12544, 2176)
+
+[node name="IceSpikeBall6" parent="MidgroundLayer" index="9" instance=ExtResource("5_0b23k")]
+position = Vector2(12800, 2304)
+
+[node name="IceSpikeBall7" parent="MidgroundLayer" index="10" instance=ExtResource("5_0b23k")]
+position = Vector2(12800, 2048)
+
+[node name="IceSpikeBall8" parent="MidgroundLayer" index="11" instance=ExtResource("5_0b23k")]
+position = Vector2(12928, 1792)
