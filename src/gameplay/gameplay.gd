@@ -63,8 +63,14 @@ func _pause_game() -> void:
 		add_child(pause_menu)
 		
 		$PauseMenu/CanvasLayer/Panel/ControlsContainer/ResumeButton.button_up.connect(_resume_game)
+		$PauseMenu/CanvasLayer/Panel/ControlsContainer/QuitButton.button_up.connect(_quit_game)
+
 
 func _resume_game() -> void:
 	get_tree().paused = false
 	pause_menu.queue_free()
 	remove_child(pause_menu)
+
+func _quit_game() -> void:
+	get_tree().paused = false 
+	SceneManager.swap_scenes("res://src/ui/main_menu/main_menu.tscn", null, self)
