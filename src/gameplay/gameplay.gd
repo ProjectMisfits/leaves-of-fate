@@ -61,3 +61,10 @@ func _pause_game() -> void:
 		get_tree().paused = true
 		pause_menu = preload_pause.instantiate()
 		add_child(pause_menu)
+		
+		$PauseMenu/CanvasLayer/Panel/ControlsContainer/ResumeButton.button_up.connect(_resume_game)
+
+func _resume_game() -> void:
+	get_tree().paused = false
+	pause_menu.queue_free()
+	remove_child(pause_menu)
