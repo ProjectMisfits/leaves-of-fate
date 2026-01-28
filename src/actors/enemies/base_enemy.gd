@@ -14,6 +14,7 @@ var look_direction : float
 func _ready() -> void:
 	cur_health = max_health
 	intialize_statemachine()
+	look_direction = $FlipNode.scale.x
 	pass
 	
 #initialize statemachine

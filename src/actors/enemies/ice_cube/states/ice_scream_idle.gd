@@ -9,5 +9,6 @@ func _enter() -> void:
 
 
 func _update(delta: float) -> void:
+	agent.check_player_visible()
 	pass
 	

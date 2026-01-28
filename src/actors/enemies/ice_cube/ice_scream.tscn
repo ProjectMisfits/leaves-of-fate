@@ -17,7 +17,6 @@ script = ExtResource("2_0jlda")
 
 [node name="GrabbableArea" type="Area2D" parent="FlipNode" index="1"]
 collision_layer = 32
-collision_mask = 0
 script = ExtResource("3_n2c0r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/GrabbableArea" index="0"]
