@@ -17,6 +17,8 @@ func _ready() -> void:
 	_update_current_room()
 	# Spawn the player at the first door now that the room has been loaded
 	current_room.spawn_player(player, 'enter')
+	
+	player.player_knocked_out.connect(respawn_player)
 
 func _process(delta: float) -> void:
 		_pause_game()
@@ -105,3 +107,9 @@ func _close_controls() -> void:
 	$SettingsMenu/ControlsMenu.queue_free()
 	$SettingsMenu.show()
 	$SettingsMenu/CanvasLayer/Panel/ControlsContainer/ControlsButton.grab_focus.call_deferred()
+
+# Resets the Player's stats & respawns them at the last door they exited.
+func respawn_player() -> void:
+	player.reset_stats()
+	current_room.respawn_player(player)
+

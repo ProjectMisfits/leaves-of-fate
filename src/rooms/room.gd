@@ -8,6 +8,8 @@ signal swap_room(path_to_target_room: String, target_door_name: String)
 ## An array containing all Doors in this Room that lead to other Rooms.
 var doors: Array[Node]
 
+var last_entered_door: String
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Connect each Door's entered signal to this Room's room swap function
@@ -41,6 +43,7 @@ func spawn_player(player: Player, target_door_name: String) -> void:
 			print("Room '%s': Placing player at door '%s'" % [name, target_door_name])
 			add_child(player)
 			player.global_position = door.position
+			last_entered_door = target_door_name
 			
 			# Update the camera limits to match the room
 			player.get_node("Camera").update_camera_limits($Background)
@@ -48,3 +51,15 @@ func spawn_player(player: Player, target_door_name: String) -> void:
 	
 	# If the target door didn't exist anywhere in the room, report the issue
 	push_warning("Room '%s': Door '%s' does not exist in this room" % [name, target_door_name])
+
+## Respawns the Player at the last entered door
+func respawn_player(player: Player) -> void:
+	for door: Door in doors:
+		if door.door_name == last_entered_door:
+			print("Room '%s': Respawning player at door '%s'" % [name, last_entered_door])
+			player.global_position = door.position
+			
+			return
+	
+	# If the target door didn't exist anywhere in the room, report the issue
+	push_warning("Room '%s': Door '%s' does not exist in this room" % [name, last_entered_door])

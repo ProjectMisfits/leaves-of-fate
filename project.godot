@@ -26,6 +26,7 @@ SceneManager="*res://src/autoload/scene_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Quit="*res://src/autoload/quit.gd"
 DebugMenu="*res://src/autoload/debug_menu/debug_menu.tscn"
+GameState="*res://src/gameplay/game_state.gd"
 
 [debug]
 
