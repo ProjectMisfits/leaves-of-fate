@@ -1,0 +1,65 @@
+~ den_filler
+% => convo_1
+% => convo_2
+% => convo_3
+% => convo_4
+% => convo_5
+% => convo_6
+
+=> END
+
+
+~ convo_1
+Fenn: Mr. Wizard?
+Winston: Go away! I'm planning your demise.
+Fenn: What's demise mean?
+Winston: uh... VERY PAINFUL DEATH!!
+Fenn: Okay!
+=> END
+
+~ convo_2
+Winston: Hey, pint-size. Is Az there?
+Fenn: Yeah?
+Winston: Wh-what is she doing?
+Fenn: I dunno. Standing?
+Winston: Dang it. That's cool...
+=> END
+
+~ convo_3
+Fenn: Hey Wizard Guy, what do you do for fun?
+Winston: Hmph. Why do you care?
+Fenn: I dunno.
+Winston: Well... I read, I guess.
+Fenn: Read what?
+Winston: I don't know, like myteries and detective stories.
+Fenn: That's super cool! I like comic books. Do you read comics? I love the Garbage Man series, it's my favorite. Have you heard of Garbage Man?
+Winston: Uhhhhh...
+=> END
+
+~ convo_4
+Winston: Grrrr, I'm really hungry...
+Fenn: Oh no!! Do you have any food with you?
+Winston: No. Maybe the workshop has stuff.
+pause
+Winston: Oh, I found some walnuts. Hey pint-size, could you ask Az if I could have some of her walnuts?
+Fenn: Hey Az! Can Wizard man have some of the walnuts in your workshop?
+Az: What??? I guess?? But if you make a mess in my workshop, I will crush you.
+Winston: Score! Walnuts be mine!
+=> END
+
+~ convo_5
+Fenn: Hey Mr. Wizard. Who's your favorite Knight?
+Winston: None of them! They're terrible! They don't do anything for the Kingdom!!!
+Fenn: Okay... but if you have to pick?
+Winston: Hmph. Probably like... the Knight of Fury. She's kinda cool.
+Fenn: Rose? I wouldn't have guessed that... I thought maybe Henric or something.
+Winston: Well it doesn't matter anyway! They're all stupid and lame!
+Fenn: Okay then!
+=> END
+
+~ convo_6
+Fenn: Whatcha doin in there?
+Winston: That's none of your business!!!
+Az: Yes it is!! Seeing as how you're in my workshop.
+Winston: ACK! It's fine! I'm not doing anything!!
+=> END
