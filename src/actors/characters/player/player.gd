@@ -32,11 +32,11 @@ var jump_coyote_time: float
 var jump_buffer_time: float
 var jump_corner_rounding_distance: float
 
-## Leaf Dash ##
+## Leaf Dash Mode ##
 var meter_buildup_rate: float
 var meter_drain_rate: float
 var meter_dash_drain_rate: float
-var meter_shimmy_drain_rate: float
+var meter_pile_drain_rate: float
 
 var dash_max_speed: float
 var dash_angular_turn_speed: float
@@ -44,20 +44,20 @@ var dash_deceleration: float
 var dash_angular_turn_speed_deceleration: float
 var meter_dash_deceleration_start: float
 
-## Leaf Shimmy ##
-var shimmy_gravity: float
-var shimmy_terminal_velocity: float
+## Leaf Pile Mode ##
+var pile_gravity: float
+var pile_terminal_velocity: float
 
-var shimmy_max_speed_ground: float
-var shimmy_ground_acceleration: float
-var shimmy_ground_deceleration: float
-var shimmy_ground_turn_speed: float
-var shimmy_ground_friction: float
+var pile_max_speed_ground: float
+var pile_ground_acceleration: float
+var pile_ground_deceleration: float
+var pile_ground_turn_speed: float
+var pile_ground_friction: float
 
-var shimmy_max_speed_air: float
-var shimmy_air_acceleration: float
-var shimmy_air_deceleration: float
-var shimmy_air_turn_speed: float
+var pile_max_speed_air: float
+var pile_air_acceleration: float
+var pile_air_deceleration: float
+var pile_air_turn_speed: float
 
 var fun_value: int	# Every copy of Project Misfits is personalized
 
@@ -76,7 +76,7 @@ var fun_value: int	# Every copy of Project Misfits is personalized
 @onready var jumping_state: LimboState = $LimboHSM/Jumping
 @onready var airborne_state: LimboState = $LimboHSM/Airborne
 @onready var dashing_state: LimboState = $LimboHSM/Dashing
-@onready var shimmying_state: LimboState = $LimboHSM/Shimmying
+@onready var piling_state: LimboState = $LimboHSM/Piling
 @onready var cutscene_state: LimboState = $LimboHSM/Cutscene
 
 ### DYNAMIC VARIABLES ###
@@ -115,7 +115,7 @@ func _physics_process(delta: float) -> void:
 	update_jump_queue(delta)
 	update_leaf_meter(delta)
 	
-	if ((not dashing_state.is_active()) and (not shimmying_state.is_active())):
+	if ((not dashing_state.is_active()) and (not piling_state.is_active())):
 		velocity.y += compute_gravity() * delta
 		velocity.y = clampf(velocity.y, -INF, terminal_velocity) # velocity cannot exceed terminal velocity
 		
@@ -139,30 +139,30 @@ func initialize_state_machine() -> void:
 	state_machine.add_transition(idle_state,jumping_state,&"to_jumping")
 	state_machine.add_transition(idle_state,airborne_state,&"to_airborne")
 	state_machine.add_transition(idle_state,dashing_state,&"to_dashing")
-	state_machine.add_transition(idle_state,shimmying_state,&"to_shimmying")
+	state_machine.add_transition(idle_state,piling_state,&"to_piling")
 	
 	state_machine.add_transition(running_state,idle_state,&"to_idle")
 	state_machine.add_transition(running_state,jumping_state,&"to_jumping")
 	state_machine.add_transition(running_state,airborne_state,&"to_airborne")
 	state_machine.add_transition(running_state,dashing_state,&"to_dashing")
-	state_machine.add_transition(running_state,shimmying_state,&"to_shimmying")
+	state_machine.add_transition(running_state,piling_state,&"to_piling")
 	
 	state_machine.add_transition(jumping_state,airborne_state,&"to_airborne")
 	state_machine.add_transition(jumping_state,dashing_state,&"to_dashing")
-	state_machine.add_transition(jumping_state,shimmying_state,&"to_shimmying")
+	state_machine.add_transition(jumping_state,piling_state,&"to_piling")
 	
 	state_machine.add_transition(airborne_state,idle_state,&"to_idle")
 	state_machine.add_transition(airborne_state,running_state,&"to_running")
 	state_machine.add_transition(airborne_state,dashing_state,&"to_dashing")
-	state_machine.add_transition(airborne_state,shimmying_state,&"to_shimmying")
+	state_machine.add_transition(airborne_state,piling_state,&"to_piling")
 	
 	state_machine.add_transition(dashing_state,idle_state,&"to_idle")
 	state_machine.add_transition(dashing_state,running_state,&"to_running")
 	state_machine.add_transition(dashing_state,airborne_state,&"to_airborne")
 	
-	state_machine.add_transition(shimmying_state,idle_state,&"to_idle")
-	state_machine.add_transition(shimmying_state,running_state,&"to_running")
-	state_machine.add_transition(shimmying_state,airborne_state,&"to_airborne")
+	state_machine.add_transition(piling_state,idle_state,&"to_idle")
+	state_machine.add_transition(piling_state,running_state,&"to_running")
+	state_machine.add_transition(piling_state,airborne_state,&"to_airborne")
 	
 	state_machine.initial_state = idle_state
 	state_machine.initialize(self)
@@ -199,7 +199,7 @@ func check_airborne_state() -> void:
 	if not is_on_floor() and is_coyote_timer_expired:
 		state_machine.dispatch(&"to_airborne")
 
-# If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to shimmying state.
+# If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to piling state.
 func check_dashing_state() -> void:
 	if Input.is_action_just_pressed(&"dash"):
 		var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
@@ -208,14 +208,14 @@ func check_dashing_state() -> void:
 		if is_direction_pressed and is_leaf_meter_not_empty:
 			state_machine.dispatch(&"to_dashing")
 
-# If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to shimmying state.
-func check_shimmying_state() -> void:
+# If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to piling state.
+func check_piling_state() -> void:
 	if Input.is_action_just_pressed(&"dash"):
 		var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
 		var is_no_direction_pressed: bool = (Input.get_vector("move_left", "move_right", "move_up", "move_down") == Vector2.ZERO)
 		
 		if is_no_direction_pressed and is_leaf_meter_not_empty:
-			state_machine.dispatch(&"to_shimmying")
+			state_machine.dispatch(&"to_piling")
 
 func check_interact_action() -> void:
 	var is_interactable_not_null: bool = selected_interactable != null
@@ -258,11 +258,11 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 			#new_velocity = clampf(new_velocity + new_acceleration, -new_velocity, new_velocity)
 		
 		# If just exited Leaf Dash, limit velocity by dash max speed
-		if (shimmying_state.is_active()):
+		if (piling_state.is_active()):
 			if (is_on_floor()):
-				new_velocity = clampf(velocity.x + new_acceleration, -shimmy_max_speed_ground, shimmy_max_speed_ground)
+				new_velocity = clampf(velocity.x + new_acceleration, -pile_max_speed_ground, pile_max_speed_ground)
 			else:
-				new_velocity = clampf(velocity.x + new_acceleration, -shimmy_max_speed_air, shimmy_max_speed_air)
+				new_velocity = clampf(velocity.x + new_acceleration, -pile_max_speed_air, pile_max_speed_air)
 		elif (state_machine.get_previous_active_state() == dashing_state) and (abs(velocity.x) > run_max_speed):
 			new_velocity = clampf(velocity.x + new_acceleration, -dash_max_speed, dash_max_speed)
 		else:
@@ -283,13 +283,13 @@ func move_horizontal_ground() -> void:
 func move_horizontal_air() -> void:
 	move_horizontal(air_acceleration, air_deceleration, air_turn_speed)
 
-# Calls move_horizontal with shimmy ground parameters.
-func move_horizontal_shimmy_ground() -> void:
-	move_horizontal(shimmy_ground_acceleration, shimmy_ground_deceleration, shimmy_ground_turn_speed)
+# Calls move_horizontal with pile ground parameters.
+func move_horizontal_pile_ground() -> void:
+	move_horizontal(pile_ground_acceleration, pile_ground_deceleration, pile_ground_turn_speed)
 
-# Calls move_horizontal with shimmy air parameters.
-func move_horizontal_shimmy_air() -> void:
-	move_horizontal(shimmy_air_acceleration, shimmy_air_deceleration, shimmy_air_turn_speed)
+# Calls move_horizontal with pile air parameters.
+func move_horizontal_pile_air() -> void:
+	move_horizontal(pile_air_acceleration, pile_air_deceleration, pile_air_turn_speed)
 
 # Returns the player's x-input value.
 func get_x_input() -> float:
@@ -337,9 +337,9 @@ func update_leaf_meter(delta: float) -> void:
 	
 	if (dashing_state.is_active()):
 		leaf_meter_change = -1.0 * meter_dash_drain_rate
-	elif (shimmying_state.is_active()):
-		leaf_meter_change = -1.0 * meter_shimmy_drain_rate
-	elif ((state_machine.get_previous_active_state() == dashing_state) or (state_machine.get_previous_active_state() == shimmying_state)): # Do not change Leaf Meter post-dash until Player hits the ground
+	elif (piling_state.is_active()):
+		leaf_meter_change = -1.0 * meter_pile_drain_rate
+	elif ((state_machine.get_previous_active_state() == dashing_state) or (state_machine.get_previous_active_state() == piling_state)): # Do not change Leaf Meter post-dash until Player hits the ground
 		leaf_meter_change = 0.0
 	elif (signf(get_x_input()) != signf(velocity.x)): # If turning
 		leaf_meter_change = 0.0
@@ -388,7 +388,7 @@ func initialize_data(data: Dictionary) -> void:
 		meter_buildup_rate = data["meter_buildup_rate"]
 		meter_drain_rate = data["meter_drain_rate"]
 		meter_dash_drain_rate = data["meter_dash_drain_rate"]
-		meter_shimmy_drain_rate = data["meter_shimmy_drain_rate"]
+		meter_pile_drain_rate = data["meter_pile_drain_rate"]
 		
 		dash_max_speed = data["dash_max_speed"]
 		dash_angular_turn_speed = data["dash_angular_turn_speed"]
@@ -396,19 +396,19 @@ func initialize_data(data: Dictionary) -> void:
 		dash_angular_turn_speed_deceleration = data["dash_angular_turn_speed_deceleration"]
 		meter_dash_deceleration_start = data["meter_dash_deceleration_start"]
 		
-		shimmy_gravity = data["shimmy_gravity"]
-		shimmy_terminal_velocity = data["shimmy_terminal_velocity"]
+		pile_gravity = data["pile_gravity"]
+		pile_terminal_velocity = data["pile_terminal_velocity"]
 
-		shimmy_max_speed_ground = data["shimmy_max_speed_ground"]
-		shimmy_ground_acceleration = data["shimmy_ground_acceleration"]
-		shimmy_ground_deceleration = data["shimmy_ground_deceleration"]
-		shimmy_ground_turn_speed = data["shimmy_ground_turn_speed"]
-		shimmy_ground_friction = data["shimmy_ground_friction"]
+		pile_max_speed_ground = data["pile_max_speed_ground"]
+		pile_ground_acceleration = data["pile_ground_acceleration"]
+		pile_ground_deceleration = data["pile_ground_deceleration"]
+		pile_ground_turn_speed = data["pile_ground_turn_speed"]
+		pile_ground_friction = data["pile_ground_friction"]
 
-		shimmy_max_speed_air = data["shimmy_max_speed_air"]
-		shimmy_air_acceleration = data["shimmy_air_acceleration"]
-		shimmy_air_deceleration = data["shimmy_air_deceleration"]
-		shimmy_air_turn_speed = data["shimmy_air_turn_speed"]
+		pile_max_speed_air = data["pile_max_speed_air"]
+		pile_air_acceleration = data["pile_air_acceleration"]
+		pile_air_deceleration = data["pile_air_deceleration"]
+		pile_air_turn_speed = data["pile_air_turn_speed"]
 		
 		fun_value = data["fun_value"]
 

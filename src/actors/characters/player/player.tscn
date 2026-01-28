@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://duy7f43rn783x" path="res://src/actors/characters/player/states/player_jumping.gd" id="6_c6y0n"]
 [ext_resource type="Script" uid="uid://cksn2wvaxpq54" path="res://src/actors/characters/player/states/player_airborne.gd" id="7_q4vut"]
 [ext_resource type="Script" uid="uid://bjtwcn16kj5bl" path="res://src/actors/characters/player/states/player_dashing.gd" id="8_wcwgi"]
-[ext_resource type="Script" uid="uid://osptlmoqos3i" path="res://src/actors/characters/player/states/player_shimmying.gd" id="9_q6jdu"]
+[ext_resource type="Script" uid="uid://osptlmoqos3i" path="res://src/actors/characters/player/states/player_piling.gd" id="9_q6jdu"]
 [ext_resource type="Script" uid="uid://icrwiu7udlg5" path="res://src/actors/characters/player/states/player_cutscene.gd" id="10_u7uqy"]
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/particle_effects/wind_particles.tscn" id="14_7j1dl"]
 [ext_resource type="PackedScene" uid="uid://dqviomxk1qqcu" path="res://src/particle_effects/leaf_particles.tscn" id="15_808gp"]
@@ -29,18 +29,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_c6y0n")
+"texture": ExtResource("5_lynpt")
 }],
-"loop": false,
-"name": &"player",
+"loop": true,
+"name": &"pile",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_lynpt")
+"texture": ExtResource("3_c6y0n")
 }],
-"loop": true,
-"name": &"shimmy",
+"loop": false,
+"name": &"player",
 "speed": 5.0
 }]
 
@@ -66,7 +66,7 @@ shape = ExtResource("4_lynpt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlipNode"]
 position = Vector2(11.055, 4.645)
 sprite_frames = SubResource("SpriteFrames_q4vut")
-animation = &"player"
+animation = &"pile"
 
 [node name="InteractArea" type="Area2D" parent="FlipNode"]
 position = Vector2(80, 0)
@@ -104,7 +104,7 @@ script = ExtResource("7_q4vut")
 [node name="Dashing" type="LimboState" parent="LimboHSM"]
 script = ExtResource("8_wcwgi")
 
-[node name="Shimmying" type="LimboState" parent="LimboHSM"]
+[node name="Piling" type="LimboState" parent="LimboHSM"]
 script = ExtResource("9_q6jdu")
 
 [node name="Cutscene" type="LimboState" parent="LimboHSM"]

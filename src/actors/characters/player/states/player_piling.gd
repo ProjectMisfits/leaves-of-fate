@@ -1,8 +1,8 @@
 extends LimboState
 
 func _enter() -> void:
-	#print("Player State Transition: to_shimmying")
-	agent.animated_sprite_2d.animation = &"shimmy"
+	#print("Player State Transition: to_pileing")
+	agent.animated_sprite_2d.animation = &"pile"
 	agent.collision_shape_2d.shape = agent.collision_dash
 	agent.velocity.y = 0.0
 
@@ -13,13 +13,13 @@ func _update(delta: float) -> void:
 		agent.check_running_state()
 		agent.check_idle_state()
 	
-	agent.velocity.y += agent.shimmy_gravity * delta
-	agent.velocity.y = clampf(agent.velocity.y, -INF, agent.shimmy_terminal_velocity) # velocity cannot exceed terminal velocity
+	agent.velocity.y += agent.pile_gravity * delta
+	agent.velocity.y = clampf(agent.velocity.y, -INF, agent.pile_terminal_velocity) # velocity cannot exceed terminal velocity
 	
 	if (agent.is_on_floor()):
-		agent.move_horizontal_shimmy_ground()
+		agent.move_horizontal_pile_ground()
 	else:
-		agent.move_horizontal_shimmy_air()
+		agent.move_horizontal_pile_air()
 
 func _exit() -> void:
 	agent.animated_sprite_2d.animation = &"player"
