@@ -9,30 +9,35 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i0ja3"]
 texture = ExtResource("1_iutvm")
 texture_region_size = Vector2i(512, 512)
+use_texture_padding = false
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4p5mv"]
 texture = ExtResource("2_yljle")
 texture_region_size = Vector2i(512, 512)
+use_texture_padding = false
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iutvm"]
 texture = ExtResource("3_5u2os")
 texture_region_size = Vector2i(512, 512)
+use_texture_padding = false
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yljle"]
 texture = ExtResource("4_451la")
 texture_region_size = Vector2i(512, 512)
+use_texture_padding = false
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-256, -256, 256, -256, 256, 256, -256, 256)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5u2os"]
 texture = ExtResource("5_yljle")
 texture_region_size = Vector2i(512, 512)
+use_texture_padding = false
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
