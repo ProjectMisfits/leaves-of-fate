@@ -362,7 +362,7 @@ func check_talk()->void:
 ## Function to check 
 func check_companion_objects()->void:
 	if Input.is_action_just_pressed("companion"):
-		var companion_objects = $FlipNode/CompanionArea.get_overlapping_areas()
+		var companion_objects : Array[Area2D] = $FlipNode/CompanionArea.get_overlapping_areas()
 		if companion_objects.size() > 0:
 			companion_objects[0].companion_action_triggered()
 	

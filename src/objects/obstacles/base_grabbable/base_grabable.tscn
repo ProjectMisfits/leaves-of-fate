@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://buss7vp4lhvtt"]
 
-[ext_resource type="Script" uid="uid://drr8anxd1rpql" path="res://src/objects/obstacles/base_grabbable/base_grabable.gd" id="1_qt3u6"]
+[ext_resource type="Script" uid="uid://drr8anxd1rpql" path="res://src/objects/obstacles/base_grabbable/base_grabbable.gd" id="1_qt3u6"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="2_pljaj"]
 [ext_resource type="Script" uid="uid://c8jsojwf6ifoj" path="res://src/objects/obstacles/base_grabbable/ungrabbed.gd" id="3_ca8xk"]
 [ext_resource type="Script" uid="uid://b8gtchyqv42ht" path="res://src/objects/obstacles/base_grabbable/grabbed.gd" id="4_v1g3c"]
@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ca8xk"]
 size = Vector2(236, 238)
 
-[node name="BaseGrabable" type="Node2D"]
+[node name="BaseGrabbable" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 32
