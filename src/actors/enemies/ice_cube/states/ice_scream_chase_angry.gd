@@ -8,5 +8,5 @@ func _enter() -> void:
 
 
 func _update(delta: float) -> void:
-	
+	agent.move(agent.CHARGE_SPEED_ANGRY,delta)
 	pass

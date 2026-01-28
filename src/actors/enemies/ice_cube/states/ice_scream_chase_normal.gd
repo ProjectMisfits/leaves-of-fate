@@ -8,6 +8,6 @@ func _enter() -> void:
 
 
 func _update(delta: float) -> void:
-	agent.move(delta)
+	agent.move(agent.CHARGE_SPEED,delta)
 	agent.check_reached()
 	pass
