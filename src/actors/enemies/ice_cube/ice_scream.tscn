@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnhvjqd23j3hu"]
+[gd_scene load_steps=9 format=3 uid="uid://cnhvjqd23j3hu"]
 
 [ext_resource type="PackedScene" uid="uid://7y024tsh7ciq" path="res://src/actors/enemies/base_enemy.tscn" id="1_21xy4"]
 [ext_resource type="Script" uid="uid://drkteg328pwgv" path="res://src/actors/enemies/ice_cube/ice_scream.gd" id="2_0jlda"]
+[ext_resource type="Script" uid="uid://4efl3svn12vy" path="res://src/actors/enemies/ice_cube/ice_cube_grab_area.gd" id="3_n2c0r"]
 [ext_resource type="Script" uid="uid://jvar131cx0xv" path="res://src/actors/enemies/ice_cube/states/ice_scream_idle.gd" id="3_nfa6x"]
 [ext_resource type="Script" uid="uid://dca4lwytnv8qy" path="res://src/actors/enemies/ice_cube/states/ice_scream_chase_normal.gd" id="4_q3qi2"]
 [ext_resource type="Script" uid="uid://5t11fihqj56q" path="res://src/actors/enemies/ice_cube/states/ice_scream_chase_angry.gd" id="5_q3qi2"]
@@ -15,6 +16,9 @@ collision_mask = 6
 script = ExtResource("2_0jlda")
 
 [node name="GrabbableArea" type="Area2D" parent="FlipNode" index="1"]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("3_n2c0r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/GrabbableArea" index="0"]
 scale = Vector2(2.0800002, 2.0800002)

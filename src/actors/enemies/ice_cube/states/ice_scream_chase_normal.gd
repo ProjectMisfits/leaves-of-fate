@@ -3,7 +3,7 @@ extends LimboState
 
 # Called when the node enters the scene tree for the first time.
 func _enter() -> void:
-
+	print("Entered Chase Normal State")
 	pass
 
 
