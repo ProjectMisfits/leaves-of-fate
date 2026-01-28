@@ -7,24 +7,24 @@
 size = Vector2(40, 78)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhnhy"]
-size = Vector2(34, 124)
+size = Vector2(31, 124)
 
 [node name="Icicle_03" type="StaticBody2D"]
 collision_layer = 12
 script = ExtResource("1_sq3s8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, -39)
+position = Vector2(-2, -39)
 shape = SubResource("RectangleShape2D_a5sn6")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-10, -62)
+position = Vector2(-6.5, -62)
 shape = SubResource("RectangleShape2D_yhnhy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-6, -125.99999)
+position = Vector2(-4.7683716e-07, -73)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("2_sq3s8")
 

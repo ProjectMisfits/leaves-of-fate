@@ -7,7 +7,7 @@
 size = Vector2(36, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhnhy"]
-size = Vector2(36, 39)
+size = Vector2(26, 42)
 
 [node name="Icicle_01" type="StaticBody2D"]
 collision_layer = 12
@@ -20,11 +20,11 @@ shape = SubResource("RectangleShape2D_a5sn6")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -19.5)
+position = Vector2(-2, -21)
 shape = SubResource("RectangleShape2D_yhnhy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-6, -125.99999)
+position = Vector2(0, -21)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("2_8cj4a")
 

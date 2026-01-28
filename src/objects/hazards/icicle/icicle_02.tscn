@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://nsc4gwcg2lhf" path="res://assets/objects/hazards/icicle/Icicle-02.png" id="2_417gy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5sn6"]
-size = Vector2(38, 59)
+size = Vector2(36, 59)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yhnhy"]
-size = Vector2(30, 87)
+size = Vector2(28, 87)
 
 [node name="Icicle_02" type="StaticBody2D"]
 collision_layer = 12
@@ -24,7 +24,7 @@ position = Vector2(2, -43.5)
 shape = SubResource("RectangleShape2D_yhnhy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-6, -125.99999)
+position = Vector2(0, -50)
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("2_417gy")
 
