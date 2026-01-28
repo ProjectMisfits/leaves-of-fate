@@ -377,11 +377,18 @@ func add_debug_parameters() -> void:
 func update_health_ui() -> void:
 	var health_nodes: Array[Node] = health_grid.get_children()
 	
-	for num in health:
-		if health_nodes[num - 1] is ColorRect:
-			pass
-
-
+	if (health != health_nodes.size()):
+		push_error("Max health does not match health UI boxes")
+		return
+	
+	# Reset all health Nodes to not visible
+	for n: Node in health_nodes:
+		n.visible = false
+	
+	# Set number of visible Nodes equal to current health
+	for i: int in current_health:
+		print(i)
+		health_nodes[i].visible = true
 
 ## InteractArea Signals ##
 
