@@ -1,0 +1,29 @@
+[gd_scene load_steps=8 format=3 uid="uid://crhxm4beqn4ok"]
+
+[ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_pydn3"]
+[ext_resource type="PackedScene" uid="uid://beub4bx6t3wvh" path="res://src/objects/hazards/icicle/icicle_01.tscn" id="2_buoy0"]
+[ext_resource type="PackedScene" uid="uid://domed3ucovqnj" path="res://src/objects/hazards/icicle/icicle_02.tscn" id="3_gw5fq"]
+[ext_resource type="PackedScene" uid="uid://dy2vli8qi5bb8" path="res://src/objects/hazards/icicle/icicle_03.tscn" id="4_rwa8l"]
+[ext_resource type="PackedScene" uid="uid://b5pl5cenkmlqy" path="res://src/objects/hazards/icicle/icicle_04.tscn" id="5_5j2qh"]
+[ext_resource type="PackedScene" uid="uid://bj7fv2e6r3bp5" path="res://src/objects/hazards/icicle/icicle_05.tscn" id="6_cpfml"]
+[ext_resource type="PackedScene" uid="uid://dv6448b476yos" path="res://src/objects/hazards/icicle/icicle_06.tscn" id="7_r4ru3"]
+
+[node name="TEST_Hazards" instance=ExtResource("1_pydn3")]
+
+[node name="Icicle_01" parent="MidgroundLayer" index="4" instance=ExtResource("2_buoy0")]
+position = Vector2(779, 1023)
+
+[node name="Icicle_02" parent="MidgroundLayer" index="5" instance=ExtResource("3_gw5fq")]
+position = Vector2(820, 1023)
+
+[node name="Icicle_03" parent="MidgroundLayer" index="6" instance=ExtResource("4_rwa8l")]
+position = Vector2(870, 1027)
+
+[node name="Icicle_04" parent="MidgroundLayer" index="7" instance=ExtResource("5_5j2qh")]
+position = Vector2(916, 1023)
+
+[node name="Icicle_05" parent="MidgroundLayer" index="8" instance=ExtResource("6_cpfml")]
+position = Vector2(966, 1025)
+
+[node name="Icicle_06" parent="MidgroundLayer" index="9" instance=ExtResource("7_r4ru3")]
+position = Vector2(1031, 1020)
