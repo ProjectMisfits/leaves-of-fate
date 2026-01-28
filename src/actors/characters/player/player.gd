@@ -114,6 +114,7 @@ func _physics_process(delta: float) -> void:
 	check_interact_action()
 	update_jump_queue(delta)
 	update_leaf_meter(delta)
+	check_companion_objects()
 	
 	if ((not dashing_state.is_active()) and (not piling_state.is_active())):
 		velocity.y += compute_gravity() * delta
@@ -362,6 +363,14 @@ func check_talk()->void:
 		var talkables = $FlipNode/InteractArea.get_overlapping_areas() 
 		if talkables.size() >0:
 			talkables[0].talk();
+## Function to check 
+func check_companion_objects()->void:
+	if Input.is_action_just_pressed("companion"):
+		var companion_objects : Array[Area2D] = $FlipNode/CompanionArea.get_overlapping_areas()
+		if companion_objects.size() > 0:
+			companion_objects[0].companion_action_triggered()
+	
+	
 
 # Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
