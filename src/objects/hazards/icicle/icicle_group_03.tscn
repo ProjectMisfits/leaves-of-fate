@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cimgb48hyjd5h"]
+[gd_scene load_steps=5 format=3 uid="uid://cimgb48hyjd5h"]
 
-[ext_resource type="Script" uid="uid://bp0q6kcw64vf2" path="res://src/objects/obstacles/spikes/spike.gd" id="1_4v7n5"]
-[ext_resource type="Texture2D" uid="uid://b5qn41kkn3723" path="res://assets/environment/obstacles/ice_spikes/Icicle-01.png" id="2_4v53y"]
-[ext_resource type="Texture2D" uid="uid://nsc4gwcg2lhf" path="res://assets/environment/obstacles/ice_spikes/Icicle-02.png" id="3_ao3sj"]
+[ext_resource type="Script" uid="uid://lrd4ytnsswka" path="res://src/objects/hazards/icicle/icicle.gd" id="1_soxp1"]
+[ext_resource type="Texture2D" uid="uid://nsc4gwcg2lhf" path="res://assets/objects/hazards/icicle/Icicle-02.png" id="2_xdae1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5sn6"]
 size = Vector2(27, 33)
@@ -10,9 +9,9 @@ size = Vector2(27, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4v53y"]
 size = Vector2(148, 136)
 
-[node name="Spike6" type="StaticBody2D"]
+[node name="IcicleGroup03" type="StaticBody2D"]
 collision_layer = 12
-script = ExtResource("1_4v7n5")
+script = ExtResource("1_soxp1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.5, 0.5)
@@ -29,21 +28,19 @@ shape = SubResource("RectangleShape2D_4v53y")
 [node name="Icicle01" type="Sprite2D" parent="."]
 position = Vector2(15.000002, -8.000002)
 scale = Vector2(0.5641026, 0.5641026)
-texture = ExtResource("2_4v53y")
 
 [node name="Icicle02" type="Sprite2D" parent="."]
 position = Vector2(-34, -50)
 scale = Vector2(0.5768744, 0.5768744)
-texture = ExtResource("3_ao3sj")
+texture = ExtResource("2_xdae1")
 
 [node name="Icicle03" type="Sprite2D" parent="."]
 position = Vector2(54, -42)
 scale = Vector2(-0.5, 0.505)
-texture = ExtResource("3_ao3sj")
+texture = ExtResource("2_xdae1")
 
 [node name="Icicle04" type="Sprite2D" parent="."]
 position = Vector2(30.000004, 9)
 scale = Vector2(0.35897437, 0.3589744)
-texture = ExtResource("2_4v53y")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
