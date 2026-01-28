@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://b2rp6v6yudx4x"]
+[gd_scene load_steps=2 format=3 uid="uid://b2rp6v6yudx4x"]
+
+[ext_resource type="Script" uid="uid://b438u68dcx2ya" path="res://src/actors/characters/player/debug_ui/player_ui.gd" id="1_6bjoi"]
 
 [node name="PlayerUI" type="Control"]
 layout_mode = 3
@@ -15,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_6bjoi")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
@@ -56,6 +59,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(1, 0, 0, 1)
 
-[node name="DashBar" type="ProgressBar" parent="VBoxContainer"]
+[node name="LeafMeter" type="ProgressBar" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3

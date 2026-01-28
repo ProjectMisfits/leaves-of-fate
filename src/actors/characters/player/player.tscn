@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=21 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/actors/characters/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/actors/characters/player/player_db.tres" id="2_7gsup"]
@@ -70,7 +70,7 @@ shape = ExtResource("4_lynpt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlipNode"]
 position = Vector2(11.055, 4.645)
 sprite_frames = SubResource("SpriteFrames_q4vut")
-animation = &"pile"
+animation = &"player"
 
 [node name="InteractArea" type="Area2D" parent="FlipNode"]
 position = Vector2(80, 0)
