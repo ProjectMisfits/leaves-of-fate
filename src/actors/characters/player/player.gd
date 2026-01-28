@@ -62,7 +62,7 @@ var pile_air_turn_speed: float
 var fun_value: int	# Every copy of Project Misfits is personalized
 
 ## Node references + State Machine ##
-@onready var dash_bar: ProgressBar = $DashBar
+@onready var temp_ui: PlayerUI = $PlayerUI
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 # flip_node scale changes depending on Player's look direction; all children will be flipped.
@@ -92,6 +92,10 @@ var time_since_jump_queued: float = 0.0
 
 var selected_interactable: Node2D = null
 
+
+### SIGNALS ###
+signal player_knocked_out
+
 # Fetch database resource. If valid, initialize all variables.
 func _enter_tree() -> void:
 	if (database != null):
@@ -106,6 +110,7 @@ func _ready() -> void:
 	compute_jump_parameters()
 	
 	current_health = health
+	temp_ui.set_health(current_health)
 
 # Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
@@ -350,13 +355,40 @@ func update_leaf_meter(delta: float) -> void:
 		leaf_meter_change = -1.0 * meter_drain_rate
 	
 	new_leaf_meter += (leaf_meter_change * delta)
+	
+	set_leaf_meter(new_leaf_meter)
+
+# Decreases the Player's health by the given value.
+func hurt(damage: int) -> void:
+	set_health(current_health - damage)
+
+# Set the Player's current health, update the temporary health UI, and check for Player knockout
+func set_health(new_health: int) -> void:
+	if (new_health > health):	# If health greater than max health
+		push_warning("set_health(): new_health is greater than max health.")
+	
+	current_health = clampi(new_health, 0, health)
+	temp_ui.set_health(current_health)
+	
+	if (current_health <= 0):
+		player_knocked_out.emit()
+
+# Sets the Player's current Leaf Meter & updates the temporary Leaf Meter UI.
+func set_leaf_meter(new_leaf_meter: float) -> void:
 	leaf_meter = clampf(new_leaf_meter, 0.0, 100.0)
-	dash_bar.value = leaf_meter
+	temp_ui.set_leaf_meter(leaf_meter)
 
-func hurt(damage:int)->void:
-	health -= damage
-	print(health)
+# Resets the Player's health and Leaf Meter to their initial values.
+func reset_stats() -> void:
+	set_health(health)
+	set_leaf_meter(0.0)
 
+func check_talk()->void:
+	#if the player just tried to interact with something see if there was someone you could talk to
+	if Input.is_action_just_pressed("interact"):
+		var talkables = $FlipNode/InteractArea.get_overlapping_areas() 
+		if talkables.size() >0:
+			talkables[0].talk();
 
 ## Function to check 
 func check_companion_objects()->void:
@@ -364,8 +396,6 @@ func check_companion_objects()->void:
 		var companion_objects : Array[Area2D] = $FlipNode/CompanionArea.get_overlapping_areas()
 		if companion_objects.size() > 0:
 			companion_objects[0].companion_action_triggered()
-	
-	
 
 # Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
@@ -438,32 +468,31 @@ func deselect_interactable() -> void:
 func add_debug_parameters() -> void:
 	DebugMenu.add_debug_property("Player State", state_machine.get_active_state().name, 0)
 	DebugMenu.add_debug_property("Player Velocity", velocity, 5)
-
-
+	DebugMenu.add_debug_property("Player Selected Interactable", selected_interactable, 0)
 
 ## InteractArea Signals ##
 
 # Connected with InteractArea.body_entered()
 func _on_interact_area_body_entered(body: Node2D) -> void:
-	print("Player InteractArea - Body Entered: ", body)
+	#print("Player InteractArea - Body Entered: ", body)
 	
 	check_is_interactable(body)
 
 # Connected with InteractArea.body_exited()
 func _on_interact_area_body_exited(body: Node2D) -> void:
-	print("player InteractArea - Body Exited: ", body)
+	#print("player InteractArea - Body Exited: ", body)
 	
 	if (body == selected_interactable):	# Body left the interact area
 		deselect_interactable()
 
 # Connected with InteractArea.area_entered()
 func _on_interact_area_area_entered(area: Area2D) -> void:
-	print("Player InteractArea - Area Entered: ", area)
+	#print("Player InteractArea - Area Entered: ", area)
 	check_is_interactable(area)
 
 # Connected with InteractArea.area_exited()
 func _on_interact_area_area_exited(area: Area2D) -> void:
-	print("player InteractArea - Area Exited: ", area)
+	#print("player InteractArea - Area Exited: ", area)
 	
 	if (area == selected_interactable):	# Area left the interact area
 		deselect_interactable()
