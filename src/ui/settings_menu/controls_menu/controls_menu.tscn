@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="4_omo06"]
 [ext_resource type="Texture2D" uid="uid://bykro1gcxr2hb" path="res://assets/ui/ControllerMap-UI-001.png" id="5_omo06"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j167u"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1t2k0"]
 texture = ExtResource("1_c6ako")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
@@ -26,39 +26,40 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1t2k0")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -593.0
-offset_top = -416.5
-offset_right = 593.0
-offset_bottom = 416.5
+offset_left = -589.5
+offset_top = -412.0
+offset_right = 589.5
+offset_bottom = 412.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_j167u")
+theme_override_styles/panel = SubResource("StyleBoxTexture_1t2k0")
 
-[node name="Title" type="Label" parent="Panel"]
+[node name="Title" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = 66.0
-offset_top = 48.5
-offset_right = 441.0
-offset_bottom = 149.5
+offset_left = 62.5
+offset_top = 44.0
+offset_right = 437.5
+offset_bottom = 145.0
 theme_override_colors/font_color = Color(0.34117648, 0.43529412, 0.20784314, 1)
 theme_override_fonts/font = ExtResource("2_rl4x8")
 theme_override_font_sizes/font_size = 100
 text = "Controls"
 
-[node name="BackButton" type="Button" parent="Panel"]
+[node name="BackButton" type="Button" parent="CanvasLayer/Panel"]
 custom_minimum_size = Vector2(192, 101)
 layout_mode = 0
-offset_left = 60.5
-offset_top = 692.5
-offset_right = 242.5
-offset_bottom = 793.5
+offset_left = 57.0
+offset_top = 688.0
+offset_right = 249.0
+offset_bottom = 789.0
 size_flags_horizontal = 0
 size_flags_vertical = 4
 theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
@@ -73,7 +74,7 @@ text = "Back
 alignment = 2
 script = ExtResource("3_j167u")
 
-[node name="LeafPointer" type="TextureRect" parent="Panel/BackButton"]
+[node name="LeafPointer" type="TextureRect" parent="CanvasLayer/Panel/BackButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -86,7 +87,7 @@ texture = ExtResource("4_omo06")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="TextureRect" type="TextureRect" parent="Panel"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -101,7 +102,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_omo06")
 
-[node name="LSLabel" type="Label" parent="Panel/TextureRect"]
+[node name="LSLabel" type="Label" parent="CanvasLayer/Panel/TextureRect"]
 layout_mode = 0
 offset_left = 30.0
 offset_top = 196.0
@@ -110,7 +111,7 @@ offset_bottom = 237.0
 theme_override_font_sizes/font_size = 40
 text = "LS"
 
-[node name="LTLabel" type="Label" parent="Panel/TextureRect"]
+[node name="LTLabel" type="Label" parent="CanvasLayer/Panel/TextureRect"]
 layout_mode = 0
 offset_left = 121.0
 offset_top = 39.0
@@ -119,7 +120,7 @@ offset_bottom = 80.0
 theme_override_font_sizes/font_size = 40
 text = "LT"
 
-[node name="XLabel" type="Label" parent="Panel/TextureRect"]
+[node name="XLabel" type="Label" parent="CanvasLayer/Panel/TextureRect"]
 layout_mode = 0
 offset_left = 660.0
 offset_top = 146.0
@@ -128,7 +129,7 @@ offset_bottom = 172.0
 theme_override_font_sizes/font_size = 25
 text = "X"
 
-[node name="ALabel" type="Label" parent="Panel/TextureRect"]
+[node name="ALabel" type="Label" parent="CanvasLayer/Panel/TextureRect"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -144,7 +145,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 25
 text = "A"
 
-[node name="Label" type="Label" parent="Panel/TextureRect"]
+[node name="Label" type="Label" parent="CanvasLayer/Panel/TextureRect"]
 layout_mode = 0
 offset_left = 660.0
 offset_top = 191.0
@@ -153,56 +154,56 @@ offset_bottom = 217.0
 theme_override_font_sizes/font_size = 25
 text = "B"
 
-[node name="Move" type="Label" parent="Panel"]
+[node name="Move" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = 178.0
-offset_top = 378.5
-offset_right = 252.0
-offset_bottom = 419.5
+offset_left = 174.5
+offset_top = 374.0
+offset_right = 248.5
+offset_bottom = 415.0
 theme_override_font_sizes/font_size = 35
 text = "Move"
 
-[node name="LeafDash+Pile" type="Label" parent="Panel"]
+[node name="LeafDash+Pile" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = 59.0
-offset_top = 218.5
-offset_right = 346.0
-offset_bottom = 259.5
+offset_left = 55.5
+offset_top = 214.0
+offset_right = 342.5
+offset_bottom = 255.0
 theme_override_font_sizes/font_size = 35
 text = "Leaf Dash / Leaf Pile"
 
-[node name="Pause" type="Label" parent="Panel"]
+[node name="Pause" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = 714.0
-offset_top = 629.5
-offset_right = 945.0
-offset_bottom = 665.5
+offset_left = 710.5
+offset_top = 625.0
+offset_right = 941.5
+offset_bottom = 661.0
 theme_override_font_sizes/font_size = 35
 text = "Pause / Unpause"
 
-[node name="Jump+Select" type="Label" parent="Panel"]
+[node name="Jump+Select" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = 934.0
-offset_top = 415.5
-offset_right = 1117.0
-offset_bottom = 451.5
+offset_left = 930.5
+offset_top = 411.0
+offset_right = 1113.5
+offset_bottom = 447.0
 theme_override_font_sizes/font_size = 35
 text = "Jump / Select"
 
-[node name="Cancel+Back" type="Label" parent="Panel"]
+[node name="Cancel+Back" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = 932.0
-offset_top = 369.5
-offset_right = 1118.0
-offset_bottom = 405.5
+offset_left = 928.5
+offset_top = 365.0
+offset_right = 1114.5
+offset_bottom = 401.0
 theme_override_font_sizes/font_size = 35
 text = "Cancel / Back"
 
-[node name="Interact" type="Label" parent="Panel"]
+[node name="Interact" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 0
-offset_left = 931.0
-offset_top = 324.5
-offset_right = 1039.0
-offset_bottom = 360.5
+offset_left = 927.5
+offset_top = 320.0
+offset_right = 1035.5
+offset_bottom = 356.0
 theme_override_font_sizes/font_size = 35
 text = "Interact"

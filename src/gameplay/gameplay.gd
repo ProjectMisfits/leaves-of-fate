@@ -50,19 +50,22 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String)-> void
 	# Add player to new current room and place them at correct door
 	current_room.spawn_player(player, target_door_name)
 
+## UI FUNCTIONALITY 
 func _pause_game() -> void:
 	if Input.is_action_just_pressed(&"pause"):
 		get_tree().paused = true
-		add_child(preload("res://src/ui/pause_menu/pause_menu.tscn").instantiate())
-		
-		$PauseMenu/CanvasLayer/Panel/ControlsContainer/ResumeButton.button_up.connect(_resume_game)
-		$PauseMenu/CanvasLayer/Panel/ControlsContainer/QuitButton.button_up.connect(_quit_game)
-		$PauseMenu/CanvasLayer/Panel/ControlsContainer/SettingsButton.button_up.connect(_open_settings)
+		_open_pause_menu()
+
+func _open_pause_menu() -> void:
+	add_child(preload("res://src/ui/pause_menu/pause_menu.tscn").instantiate())
+	
+	$PauseMenu/CanvasLayer/Panel/ControlsContainer/ResumeButton.button_up.connect(_resume_game)
+	$PauseMenu/CanvasLayer/Panel/ControlsContainer/QuitButton.button_up.connect(_quit_game)
+	$PauseMenu/CanvasLayer/Panel/ControlsContainer/SettingsButton.button_up.connect(_open_settings)
 
 func _resume_game() -> void:
 	get_tree().paused = false
 	$PauseMenu.queue_free()
-	remove_child($PauseMenu)
 
 
 func _quit_game() -> void:
@@ -71,5 +74,34 @@ func _quit_game() -> void:
 
 func _open_settings() -> void:
 	$PauseMenu.queue_free()
-	remove_child($PauseMenu)
 	add_child(preload("res://src/ui/settings_menu/settings_menu.tscn").instantiate())
+	
+	$SettingsMenu/CanvasLayer/Panel/ControlsContainer/BackButton.button_up.connect(_exit_settings)
+	$SettingsMenu/CanvasLayer/Panel/ControlsContainer/VolumeButton.button_up.connect(_open_volume)
+	$SettingsMenu/CanvasLayer/Panel/ControlsContainer/ControlsButton.button_up.connect(_open_controls)
+
+func _exit_settings() -> void:
+	$SettingsMenu.queue_free()
+	_open_pause_menu()
+
+func _open_volume() -> void:
+	$SettingsMenu.add_child(preload("res://src/ui/settings_menu/volume_menu/volume_menu.tscn").instantiate())
+	$SettingsMenu.hide()
+	
+	$SettingsMenu/VolumeMenu/CanvasLayer/Panel/BackButton.button_up.connect(_close_volume)
+
+func _close_volume() -> void:
+	$SettingsMenu/VolumeMenu.queue_free()
+	$SettingsMenu.show()
+	$SettingsMenu/CanvasLayer/Panel/ControlsContainer/ControlsButton.grab_focus.call_deferred()
+
+func _open_controls() -> void:
+	$SettingsMenu.add_child(preload("res://src/ui/settings_menu/controls_menu/controls_menu.tscn").instantiate())
+	$SettingsMenu.hide()
+	
+	$SettingsMenu/ControlsMenu/CanvasLayer/Panel/BackButton.button_up.connect(_close_controls)
+
+func _close_controls() -> void:
+	$SettingsMenu/ControlsMenu.queue_free()
+	$SettingsMenu.show()
+	$SettingsMenu/CanvasLayer/Panel/ControlsContainer/ControlsButton.grab_focus.call_deferred()

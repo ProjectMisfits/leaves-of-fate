@@ -8,8 +8,10 @@
 [ext_resource type="Script" uid="uid://cqs562em6ey2j" path="res://src/ui/settings_menu/volume_menu/volume_slider.gd" id="4_2uc65"]
 [ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="5_lh5ut"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wfrvw"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_678j2"]
 texture = ExtResource("1_lu1ff")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfrvw"]
 content_margin_left = 4.0
@@ -58,20 +60,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -590.5
-offset_top = -418.5
-offset_right = 590.5
-offset_bottom = 418.5
+offset_left = -589.5
+offset_top = -412.0
+offset_right = 589.5
+offset_bottom = 412.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_wfrvw")
+theme_override_styles/panel = SubResource("StyleBoxTexture_678j2")
 
 [node name="Title" type="Label" parent="CanvasLayer/Panel"]
 layout_mode = 1
-offset_left = 66.5
-offset_top = 49.5
-offset_right = 437.5
-offset_bottom = 150.5
+offset_left = 65.5
+offset_top = 43.0
+offset_right = 436.5
+offset_bottom = 144.0
 theme_override_colors/font_color = Color(0.34117648, 0.43529412, 0.20784314, 1)
 theme_override_fonts/font = ExtResource("2_ixl7f")
 theme_override_font_sizes/font_size = 100
@@ -180,10 +182,10 @@ bus_name = "SFX"
 process_mode = 3
 custom_minimum_size = Vector2(192, 101)
 layout_mode = 0
-offset_left = 118.5
-offset_top = 617.5
-offset_right = 310.5
-offset_bottom = 718.5
+offset_left = 117.5
+offset_top = 611.0
+offset_right = 309.5
+offset_bottom = 712.0
 size_flags_horizontal = 0
 size_flags_vertical = 4
 focus_neighbor_top = NodePath("../VolumeControls/SFXVolume/SFXSlider")
