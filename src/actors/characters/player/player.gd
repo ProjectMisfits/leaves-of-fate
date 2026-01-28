@@ -357,12 +357,7 @@ func hurt(damage:int)->void:
 	health -= damage
 	print(health)
 
-func check_talk()->void:
-	#if the player just tried to interact with something see if there was someone you could talk to
-	if Input.is_action_just_pressed("interact"):
-		var talkables = $FlipNode/InteractArea.get_overlapping_areas() 
-		if talkables.size() >0:
-			talkables[0].talk();
+
 ## Function to check 
 func check_companion_objects()->void:
 	if Input.is_action_just_pressed("companion"):
