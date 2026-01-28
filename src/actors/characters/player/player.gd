@@ -48,7 +48,8 @@ var dash_shimmy_deceleration: float
 var dash_shimmy_turn_speed: float
 
 ## Node references + State Machine ##
-@onready var dash_bar: ProgressBar = $DashBar
+@export var dash_bar: ProgressBar = null
+@export var health_grid: GridContainer = null
 
 # flip_node scale changes depending on Player's look direction; all children will be flipped.
 @onready var flip_node: Node2D = $FlipNode
@@ -372,6 +373,13 @@ func deselect_interactable() -> void:
 func add_debug_parameters() -> void:
 	DebugMenu.add_debug_property("Player State", state_machine.get_active_state().name, 0)
 	DebugMenu.add_debug_property("Player Velocity", velocity, 5)
+
+func update_health_ui() -> void:
+	var health_nodes: Array[Node] = health_grid.get_children()
+	
+	for num in health:
+		if health_nodes[num - 1] is ColorRect:
+			pass
 
 
 
