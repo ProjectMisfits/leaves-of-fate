@@ -13,10 +13,10 @@ func _on_play_button_button_up() -> void:
 func _on_settings_button_up() -> void:
 	SceneManager.swap_scenes("res://src/ui/settings_menu/settings_menu.tscn", null, self)
 
-# Open controls menu when how to play is pressed
+# Open controls menu when corresponding button is pressed
 func _on_return_label_button_up() -> void:
 	SceneManager.swap_scenes("res://src/ui/settings_menu/controls_menu/controls_menu.tscn", null, self)
 
-# Quit game when exit is pressed
+# Closes game when exit button pressed
 func _on_exit_button_up() -> void:
 	get_tree().quit()

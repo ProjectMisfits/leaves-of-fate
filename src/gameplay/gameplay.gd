@@ -112,4 +112,3 @@ func _close_controls() -> void:
 func respawn_player() -> void:
 	player.reset_stats()
 	current_room.respawn_player(player)
-
