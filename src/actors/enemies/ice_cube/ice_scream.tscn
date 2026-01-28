@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnhvjqd23j3hu"]
+
+[ext_resource type="PackedScene" uid="uid://7y024tsh7ciq" path="res://src/actors/enemies/base_enemy.tscn" id="1_21xy4"]
+[ext_resource type="Script" uid="uid://drkteg328pwgv" path="res://src/actors/enemies/ice_cube/ice_scream.gd" id="2_0jlda"]
+[ext_resource type="Script" uid="uid://jvar131cx0xv" path="res://src/actors/enemies/ice_cube/states/ice_scream_idle.gd" id="3_nfa6x"]
+[ext_resource type="Script" uid="uid://dca4lwytnv8qy" path="res://src/actors/enemies/ice_cube/states/ice_scream_chase_normal.gd" id="4_q3qi2"]
+[ext_resource type="Script" uid="uid://5t11fihqj56q" path="res://src/actors/enemies/ice_cube/states/ice_scream_chase_angry.gd" id="5_q3qi2"]
+[ext_resource type="Script" uid="uid://o4tkls23gkfy" path="res://src/actors/enemies/ice_cube/states/ice_scream_grabbed.gd" id="6_377jy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_377jy"]
+size = Vector2(265, 223)
+
+[node name="IceScream" instance=ExtResource("1_21xy4")]
+collision_mask = 6
+script = ExtResource("2_0jlda")
+
+[node name="GrabbableArea" type="Area2D" parent="FlipNode" index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/GrabbableArea" index="0"]
+scale = Vector2(2.0800002, 2.0800002)
+shape = SubResource("RectangleShape2D_377jy")
+
+[node name="CollisionShape2D" parent="FlipNode/Sight" index="0"]
+position = Vector2(184, -2)
+
+[node name="Idle" type="LimboState" parent="LimboHSM" index="0"]
+script = ExtResource("3_nfa6x")
+
+[node name="ChaseNormal" type="LimboState" parent="LimboHSM" index="1"]
+script = ExtResource("4_q3qi2")
+
+[node name="ChaseAngry" type="LimboState" parent="LimboHSM" index="2"]
+script = ExtResource("5_q3qi2")
+
+[node name="Grabbed" type="LimboState" parent="LimboHSM" index="3"]
+script = ExtResource("6_377jy")
+
+[node name="AngerChargeUp" type="Timer" parent="." index="3"]
+one_shot = true
+
+[node name="WaitBeforeChase" type="Timer" parent="." index="4"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="FlipNode/Sight" to="LimboHSM/Idle" method="_on_sight_body_entered"]
+[connection signal="timeout" from="WaitBeforeChase" to="." method="_on_wait_before_chase_timeout"]
