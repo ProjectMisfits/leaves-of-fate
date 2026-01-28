@@ -5,18 +5,18 @@ class_name Ice_Scream
 @onready var chase_normal_state : LimboState = $LimboHSM/ChaseNormal
 @onready var chase_angry_state : LimboState = $LimboHSM/ChaseAngry
 @onready var grabbed_state : LimboState = $LimboHSM/Grabbed
+@onready var death_state : LimboState = $LimboHSM/Death
 
-#Variable keeping track of the players last known position
-var player_last_known_pos : Vector2
 #Speed when idle
 const IDLE_SPEED : float = 10
 #Speed when charging normally
 const CHARGE_SPEED : float = 10
 #Speed when charging ANGRY
 const CHARGE_SPEED_ANGRY : float = 20
-# Get the gravity from the project settings to be synced with RigidBody nodes.
+#Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+#The range at which the ice cube needs to get near the last know position of the player
+@export var end_range : int = 4
 
 
 
@@ -32,15 +32,21 @@ func intialize_statemachine()-> void:
 	state_machine.add_transition(idle_state,grabbed_state,&"to_grabbed")
 	state_machine.add_transition(chase_normal_state,grabbed_state,&"to_grabbed")
 	state_machine.add_transition(grabbed_state,chase_angry_state,&"to_chase_angry")
+	state_machine.add_transition(state_machine.ANYSTATE,death_state,&"to_death")
 	state_machine.initial_state = idle_state
 	super()
 
 func _physics_process(delta: float) -> void:
-
+	#print(look_direction)
+	#print(player_last_known_pos)
 	#apply gravity at all times
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	move_and_slide()
+
+func check_for_player()->void:
+	if(check_player_visible()):
+		begin_chase_normal()
 
 #
 func begin_chase_normal()-> void:
@@ -56,12 +62,15 @@ func _on_wait_before_chase_timeout() -> void:
 #Checking if the cube has reached the player
 func check_reached_player()->void:
 	#Make sure that the player is not still visible even if you have reached the destination
-	if(not check_player_visible()):
-		#if its within 5 pixels of the players last known position
-		if abs(player_last_known_pos.x)-abs(global_position.x) < 5 and look_direction ==1:
+	
+		#if its within a certain pixel range pixels of the players last known position
+		if abs(player_last_known_pos.x)-abs(global_position.x) < end_range and look_direction == 1:
+			print("stop")
 			state_machine.dispatch(&"to_idle")
-		elif abs(global_position.x) - abs(player_last_known_pos.x) < 5 and look_direction == -1:
+		elif abs(global_position.x) - abs(player_last_known_pos.x) < end_range and  look_direction == -1:
 			state_machine.dispatch(&"to_idle")
+		pass
+	
 
 #function to reset all of the cubes properties
 func reset()->void:
@@ -74,22 +83,7 @@ func reset()->void:
 func move(speed:float,delta: float)->void:
 	move_horizontal(look_direction,speed,delta)
 
-#Checks if the player is within visible range
-func check_player_visible()->bool:
-	var player : Array[Node2D] = $FlipNode/Sight.get_overlapping_bodies()
-	if player.size() > 0:
-		#Player is spoted in idle state chargem
-		#If the player is behind the ice cube, flip it then charge
-		if(abs(player[0].global_position.x)-abs(global_position.x) < 0) and look_direction == 1:
-			flip()
-			
-		elif (abs(player[0].global_position.x)-abs(global_position.x) > 0) and look_direction == -1:
-			flip()
-		
-		player_last_known_pos = player[0].global_position
-		begin_chase_normal()
-		return true
-	return false
+
 
 
 #Checking if the ice cube has hit a wall, this stops an angry charge
@@ -116,3 +110,14 @@ func grab()->void:
 	$FlipNode/GrabbableArea/CollisionShape2D.set_deferred("disabled",true)
 	$FlipNode/Sprite2D.modulate = Color(0.363, 0.003, 0.023, 1.0)
 	velocity.x = 0;
+	
+#If the ice cube collides with another ice cube or spike at ANY state it should explode
+func _on_hurt_area_body_entered(body: Node2D) -> void:
+	
+	if(not body == self):
+		state_machine.dispatch(&"to_death")
+		#this ensures that both this cube dies and the other one dies as well
+		if(body.is_class("CharacterBody2D")):
+			body.death()
+	
+	pass # Replace with function body.

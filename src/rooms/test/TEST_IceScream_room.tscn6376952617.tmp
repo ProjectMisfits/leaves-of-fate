@@ -13,6 +13,3 @@ tile_map_data = PackedByteArray("AAAAAAgAAAAAAAAAAAABAAgAAAAAAAAAAAACAAgAAAAAAAA
 
 [node name="IceScream" parent="." index="3" instance=ExtResource("2_e7iqb")]
 position = Vector2(1233, 920)
-
-[node name="IceScream2" parent="." index="4" instance=ExtResource("2_e7iqb")]
-position = Vector2(1816, 920)

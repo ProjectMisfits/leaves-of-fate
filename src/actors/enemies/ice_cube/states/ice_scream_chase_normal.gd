@@ -9,5 +9,6 @@ func _enter() -> void:
 
 func _update(delta: float) -> void:
 	agent.move(agent.CHARGE_SPEED,delta)
+	agent.check_player_visible()
 	agent.check_reached_player()
 	pass
