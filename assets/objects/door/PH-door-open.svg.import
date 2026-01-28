@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dprhdtd43c5ol"
-path="res://.godot/imported/Door-Placeholder-001.svg-77af71e80a62adfa55d9ad18e4838c7b.ctex"
+path="res://.godot/imported/PH-door-open.svg-25462d34a57bf66752bd36c328b57265.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/door/Door-Placeholder-001.svg"
-dest_files=["res://.godot/imported/Door-Placeholder-001.svg-77af71e80a62adfa55d9ad18e4838c7b.ctex"]
+source_file="res://assets/objects/door/PH-door-open.svg"
+dest_files=["res://.godot/imported/PH-door-open.svg-25462d34a57bf66752bd36c328b57265.ctex"]
 
 [params]
 
