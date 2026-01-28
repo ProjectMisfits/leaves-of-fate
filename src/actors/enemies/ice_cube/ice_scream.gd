@@ -16,8 +16,7 @@ const CHARGE_SPEED : float = 10
 const CHARGE_SPEED_ANGRY : float = 20
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
-#The intial direction of the cube
-var look_direction : float
+
 
 
 
@@ -80,10 +79,10 @@ func _on_sight_body_entered(body: Node2D) -> void:
 		#If the player is behind the ice cube, flip it then charge
 		if(abs(body.global_position.x)-abs(global_position.x) < 0) and look_direction == 1:
 			flip()
-			look_direction = -1
+			
 		elif (abs(body.global_position.x)-abs(global_position.x) > 0) and look_direction == -1:
 			flip()
-			look_direction = 1
+		
 		player_last_known_pos = body.global_position
 		begin_chase_normal()
 	

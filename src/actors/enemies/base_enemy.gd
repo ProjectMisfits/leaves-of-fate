@@ -7,7 +7,8 @@ class_name Enemey
 @export var max_health : int = 1
 #enemy current health
 var cur_health : int
-
+#The intial direction of the enemy
+var look_direction : float
 
 
 func _ready() -> void:
@@ -46,3 +47,4 @@ func _on_sight_body_entered(body: Node2D) -> void:
 	
 func flip()->void:
 	$FlipNode.scale.x *= -1
+	look_direction *= -1
