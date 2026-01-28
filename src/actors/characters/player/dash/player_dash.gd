@@ -3,19 +3,26 @@ class_name PlayerDash
 
 @export var database: JSON = null
 
-var max_speed: float
-var angular_turn_speed: float
+### DATABASE VARIABLES ###
+var dash_max_speed: float
+var dash_initial_velocity: float
+var dash_angular_turn_speed: float
+var dash_deceleration: float
+var dash_angular_turn_speed_deceleration: float
+var meter_dash_deceleration_start: float
 
+### DYNAMIC VARIABLES ###
 var turning: bool = false
-var move_direction: Vector2
+var move_direction: Vector2 = Vector2.RIGHT
 var input_direction: Vector2
 var rad_angular_turn_speed: float
 
 var player_scene: Player
 var camera_2d: Camera2D = null
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var leaf_enter_audio: AudioStreamPlayer2D = $LeafEnterAudio
+## NODE REFERENCES ##
+@onready var flip_node: Node2D = $FlipNode
+
 
 
 # Fetch database resource. If valid, initialize all variables.
@@ -43,8 +50,8 @@ func _physics_process(_delta: float) -> void:
 	else:
 		turning = false
 	
-	velocity = move_direction * max_speed
-	sprite_2d.rotation = Vector2.RIGHT.angle_to(move_direction)
+	velocity = move_direction * dash_max_speed
+	flip_node.rotation = Vector2.RIGHT.angle_to(move_direction)
 	
 	move_and_slide()
 
@@ -67,37 +74,51 @@ func get_turned_move_direction() -> Vector2:
 	return new_move_direction
 
 # Set up all parameters for self, steal camera, & put Player entity into hibernation. Requires a valid Player scene reference.
-func initialize_self() -> void:
-	if(!leaf_enter_audio.playing):
-		leaf_enter_audio.play()
-
-	# Set database variables
-	max_speed = player_scene.dash_max_speed
-	angular_turn_speed = player_scene.dash_angular_turn_speed
+func control_player(new_player_scene: Player) -> void:
+	if (new_player_scene == null):
+		push_error("Player parameter equals 'null'.")
 	
-	rad_angular_turn_speed = deg_to_rad(angular_turn_speed)
+	player_scene = new_player_scene
 	
+	# Take over Player's position & move direction
 	global_position = player_scene.global_position
 	move_direction = player_scene.velocity.normalized()
 	
 	# Steal camera
 	camera_2d = player_scene.get_node("Camera2D")
-	player_scene.remove_child(camera_2d)
-	add_child(camera_2d)
+	if (camera_2d != null):
+		player_scene.remove_child(camera_2d)
+		add_child(camera_2d)
 	
-	# Disable Player scene
-	player_scene.visible = false
-	player_scene.process_mode = Node.PROCESS_MODE_DISABLED
+	player_scene.set_disabled(true)
 
 func end_dash() -> void:
-	player_scene.end_dash(global_position, velocity)
-	
-	# Give camera back to player scene
-	if camera_2d:
-		remove_child(camera_2d)
-		player_scene.add_child(camera_2d)
+	if (player_scene == null):
+		push_error("Player scene variable equals 'null'.")
+		return
+	else:
+		# Give camera back to player scene
+		if camera_2d:
+			remove_child(camera_2d)
+			player_scene.add_child(camera_2d)
+		
+		player_scene.global_position = global_position
+		player_scene.velocity = velocity
+		
+		var new_look_direction: float = signf(player_scene.velocity.x)
+		player_scene.look_direction = new_look_direction if (new_look_direction != 0.0) else player_scene.look_direction
+		
+		player_scene.set_disabled(false)
 	
 	queue_free()
 
+# Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
-	pass
+	dash_max_speed = data["dash_max_speed"]
+	dash_initial_velocity = data["dash_initial_velocity"]
+	dash_angular_turn_speed = data["dash_angular_turn_speed"]
+	dash_deceleration = data["dash_deceleration"]
+	dash_angular_turn_speed_deceleration = data["dash_angular_turn_speed_deceleration"]
+	meter_dash_deceleration_start = data["meter_dash_deceleration_start"]
+	
+	rad_angular_turn_speed = deg_to_rad(dash_angular_turn_speed)

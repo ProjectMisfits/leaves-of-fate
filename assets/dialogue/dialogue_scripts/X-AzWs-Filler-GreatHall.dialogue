@@ -1,0 +1,64 @@
+~ great_hall_filler
+% => convo_1
+% => convo_2
+% => convo_3
+% => convo_4
+% => convo_5
+=> END
+
+~ convo_1
+Az: So, like, what are your powers exactly?
+Winston: I can control ice makers. I've got like my Mother's skills, but... worse...
+Az: Your Mother? Oh wait, no way! You're not Palina Glover's son, are you? Owner of Enginice?
+Winston: Wh-what? How'd you know?
+Az: No WAY! I've been obsessed with Enginice since I was a kid! I used to tinker with all their devices all the time.
+Az: One time, I transformed the fridge into a fully functional oven. Baba came home to burnt steaks and soggy vegetables. It was awesome.
+Winston: What?! That's so cool! It's not quite the same, but one time, I made snowmen in my basement using my Mother's laundry machine.
+Az: What?? You have to tell me how you did that.
+Winston: Haha, alright
+=> END
+
+~ convo_2
+Winston: Az?
+Az: Yeah, 'sup?
+Winston: I just wanted to apologize.
+Az: Hey, look. We're good. You may have tried to kill us, but you saved me, and you helped me get closer to freeing my Baba
+Winston: I know. But I feel terrible. I gave you an inhaler, sure, but I made you breathe fire when I knew about your asthma
+Az: You didn't make me do anything. I lost my cool. You're good, dude.
+Winston: Alright... cool.
+=> END
+
+~ convo_3
+Fenn: Hey guys!
+Az: Hey kid. Thanks for the help in the Cellar. Couldn't have done it without you.
+Fenn: Well I couldn't have done much without your bangles, either...
+Winston: Sorry for, like, trying to kill you, and stuff...
+Fenn: It wouldn't be an adventure without any danger!
+Az: Winston, you're good. Don't worry about it.
+=> END
+
+~ convo_4
+Winston: Can I take a look at that bangle?
+Az: Yeah sure.
+Winston: Whoa... this is incredible!
+Az: It's really nothing special.
+Winston: No, seriously! The patterns are so intricate and clean, they hardly look handmade.
+Winston: This must have taken you months!
+Az: It was a few weeks, yeah...
+Winston: Weeks?! Whoa. 
+=> END
+
+~ convo_5
+Az: So, Winston... you make things with ice, right?
+Winston: Yeah, basically.
+Az: So all those little creatures running through the cellar? The ice cubes? That was you?
+Winston: I mean yeah...
+Az: Seriously?! 
+Winston: Yeah. I have a bunch of machines and molds to make them. If only they listened to me...
+Az: That's incredible dude. I wish blacksmithing was that cool.
+Winston: Maybe we could... like... work together sometime.
+Az: Yeah? That'd be awesome! We could call it "ice-smithing" or something
+Winston: Really??	Az: Yeah, it'd be cool.
+Winston nervous: Cool.
+=> END
+

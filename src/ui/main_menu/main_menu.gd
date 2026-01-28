@@ -3,8 +3,8 @@ class_name MainMenu extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$"MainSelectionsContainer/PlayButton".grab_focus.call_deferred()
 
 # Signals that the game is started.
-func _on_button_button_up() -> void:
+func _on_play_button_button_up() -> void:
 	SceneManager.swap_scenes("res://src/gameplay/gameplay.tscn", null, self)
