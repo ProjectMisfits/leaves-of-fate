@@ -4,4 +4,5 @@
 
 [node name="AmbianceManager" type="AudioStreamPlayer"]
 autoplay = true
+bus = &"SFX"
 script = ExtResource("1_a5y3h")

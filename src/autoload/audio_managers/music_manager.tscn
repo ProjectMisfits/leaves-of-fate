@@ -4,4 +4,5 @@
 
 [node name="MusicManager" type="AudioStreamPlayer"]
 autoplay = true
+bus = &"Music"
 script = ExtResource("2_o1ucr")

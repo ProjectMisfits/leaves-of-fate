@@ -27,6 +27,8 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Quit="*res://src/autoload/quit.gd"
 DebugMenu="*res://src/autoload/debug_menu/debug_menu.tscn"
 GameState="*res://src/gameplay/game_state.gd"
+MusicManager="*res://src/autoload/audio_managers/music_manager.tscn"
+AmbianceManager="*res://src/autoload/audio_managers/ambiance_manager.tscn"
 
 [debug]
 
