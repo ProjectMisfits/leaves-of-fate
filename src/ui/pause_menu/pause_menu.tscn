@@ -1,0 +1,166 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmy62xa4u31a2"]
+
+[ext_resource type="Texture2D" uid="uid://c44j0kj2rhy3b" path="res://assets/ui/FullLetter-UI-001.png" id="1_fsbbv"]
+[ext_resource type="Script" uid="uid://c7t3cv5b48da5" path="res://src/ui/pause_menu/pause_menu.gd" id="1_peth0"]
+[ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="2_u4p1g"]
+[ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="3_j7lcx"]
+[ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="4_peth0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u4p1g"]
+texture = ExtResource("1_fsbbv")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qrgyy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dh0hx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t4fdi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kaxfe"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_peth0")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -589.5
+offset_top = -412.0
+offset_right = 589.5
+offset_bottom = 412.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_u4p1g")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 66.5
+offset_top = 49.5
+offset_right = 325.5
+offset_bottom = 150.5
+theme_override_colors/font_color = Color(0.34117648, 0.43529412, 0.20784314, 1)
+theme_override_fonts/font = ExtResource("2_u4p1g")
+theme_override_font_sizes/font_size = 100
+text = "Pause"
+
+[node name="ControlsContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 119.0
+offset_top = -234.5
+offset_right = 426.0
+offset_bottom = 286.5
+grow_vertical = 2
+
+[node name="ResumeButton" type="Button" parent="Panel/ControlsContainer"]
+custom_minimum_size = Vector2(289, 101)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../QuitButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
+focus_next = NodePath("../SettingsButton")
+focus_previous = NodePath("../QuitButton")
+theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qrgyy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dh0hx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dh0hx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dh0hx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dh0hx")
+text = "Resume"
+alignment = 2
+script = ExtResource("3_j7lcx")
+
+[node name="LeafPointer" type="TextureRect" parent="Panel/ControlsContainer/ResumeButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.5
+offset_right = 67.0
+offset_bottom = 32.5
+grow_vertical = 2
+texture = ExtResource("4_peth0")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="SettingsButton" type="Button" parent="Panel/ControlsContainer"]
+custom_minimum_size = Vector2(302, 101)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../QuitButton")
+focus_next = NodePath("../QuitButton")
+focus_previous = NodePath("../ResumeButton")
+theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qrgyy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dh0hx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dh0hx")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dh0hx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dh0hx")
+text = "Settings"
+alignment = 2
+script = ExtResource("3_j7lcx")
+
+[node name="LeafPointer" type="TextureRect" parent="Panel/ControlsContainer/SettingsButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.5
+offset_right = 67.0
+offset_bottom = 32.5
+grow_vertical = 2
+texture = ExtResource("4_peth0")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="QuitButton" type="Button" parent="Panel/ControlsContainer"]
+custom_minimum_size = Vector2(191, 101)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../ResumeButton")
+focus_next = NodePath("../ResumeButton")
+focus_previous = NodePath("../SettingsButton")
+theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t4fdi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_kaxfe")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kaxfe")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_kaxfe")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kaxfe")
+text = "Quit
+"
+alignment = 2
+script = ExtResource("3_j7lcx")
+
+[node name="LeafPointer" type="TextureRect" parent="Panel/ControlsContainer/QuitButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.5
+offset_right = 67.0
+offset_bottom = 32.5
+grow_vertical = 2
+texture = ExtResource("4_peth0")
+expand_mode = 1
+stretch_mode = 4
