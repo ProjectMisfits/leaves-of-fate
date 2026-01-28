@@ -34,12 +34,12 @@ tile_set = ExtResource("2_7i7i2")
 [node name="Doors" type="Node2D" parent="MidgroundLayer"]
 
 [node name="DoorEnter" parent="MidgroundLayer/Doors" instance=ExtResource("2_pdypr")]
-position = Vector2(420, 924)
+position = Vector2(448, 936)
 door_name = "enter"
 target_door_name = "exit"
 
 [node name="DoorExit" parent="MidgroundLayer/Doors" instance=ExtResource("2_pdypr")]
-position = Vector2(1500, 923)
+position = Vector2(1472, 936)
 door_name = "exit"
 target_door_name = "enter"
 
