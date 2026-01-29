@@ -19,12 +19,6 @@ func _ready() -> void:
 	current_room.spawn_player(player, 'enter')
 	
 	player.player_knocked_out.connect(respawn_player)
-	
-	process_mode = Node.PROCESS_MODE_ALWAYS
-
-# wil
-func _process(delta: float) -> void:
-		_pause_and_unpause_game()
 
 # Called once every physics tick.
 func _physics_process(_delta: float) -> void:
@@ -57,7 +51,7 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String)-> void
 
 ## UI FUNCTIONALITY 
 # Pauses game 
-func _pause_and_unpause_game() -> void:
+func toggle_pause() -> void:
 	# checks for inputs mapped to pause 
 	if Input.is_action_just_pressed(&"pause"):
 		

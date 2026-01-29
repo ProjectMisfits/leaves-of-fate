@@ -1,5 +1,8 @@
 extends Node
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 ## Initiate quitting the game when the quit keybind is pressed.
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("quit"):
@@ -8,3 +11,8 @@ func _input(event: InputEvent) -> void:
 		get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 		# Actually quit.
 		get_tree().quit()
+	elif event.is_action_pressed("pause"):
+		var gameplay_node: Gameplay = get_tree().root.get_node("Gameplay")
+		
+		if (gameplay_node != null):
+			gameplay_node.toggle_pause()
