@@ -8,6 +8,9 @@ func _ready() -> void:
 		
 			dialogue_resource = ResourceLoader.load("res://assets/dialogue/dialogue_scripts/1-Az-Meet-GreatHall.dialogue")
 			dialogue_start = "start"
+		"GB_GreatHall":
+			dialogue_resource = ResourceLoader.load("res://assets/dialogue/dialogue_scripts/1-Az-Meet-GreatHall.dialogue")
+			dialogue_start = "start"
 		_:
 			dialogue_resource = ResourceLoader.load("res://assets/dialogue/dialogue_scripts/TUTORIAL-RichTextLabel.dialogue")
 			dialogue_start = "start"
