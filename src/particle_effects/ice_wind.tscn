@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://byy3ecxmaevxh"]
+
+[ext_resource type="Texture2D" uid="uid://dothth1kl64u8" path="res://assets/particle_effects/ice/fog_sheet.png" id="1_or6gw"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_711qf"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 8
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_scwl5"]
+_data = [Vector2(0, 0), 0.0, 1.9429288, 0, 0, Vector2(0.670391, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_03fln"]
+curve = SubResource("Curve_scwl5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i1jyc"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(200, 200, 1)
+angle_min = -298.0
+angle_max = 422.50003
+angular_velocity_min = 49.99998
+angular_velocity_max = 49.99998
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+gravity = Vector3(100, 20, 0)
+alpha_curve = SubResource("CurveTexture_03fln")
+anim_offset_max = 1.0
+
+[node name="IceWind" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_711qf")
+texture = ExtResource("1_or6gw")
+lifetime = 2.0
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_i1jyc")
