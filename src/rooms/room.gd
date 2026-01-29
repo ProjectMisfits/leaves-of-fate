@@ -8,35 +8,61 @@ signal swap_room(path_to_target_room: String, target_door_name: String)
 ## An array containing all Doors in this Room that lead to other Rooms.
 var doors: Array[Node]
 
+var last_entered_door: String
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Connect each Door's entered signal to this Room's room swap function
-	doors = $Doors.get_children()
+	doors = $MidgroundLayer/Doors.get_children()
 	for door: Door in doors:
 		door.player_entered_door.connect(_on_player_entered_door)
+	
+	# If the room is being run standalone, we have to make sure the player gets instantiated.
+	if get_tree().current_scene == self:
+		var player: Player = preload("res://src/actors/characters/player/player.tscn").instantiate()
+		spawn_player(player, 'enter')
 
 ## Initiate room swap on player entering a Door.
 func _on_player_entered_door(door: Door) -> void:
 	# Check whether the door has a destination first.
-	if (!door.path_to_target_room != ""):
-		push_warning("Room: The target room of door '%s' in room '%s' is not set!" % [door.path_to_target_room, name])
+	if (door.path_to_target_room == ""):
+		push_warning("Room '%s': Door '%s' does not have a target room set!" % [name, door.door_name])
 		return
 	
-	# Since the path to the target room is valid, initiate the load request.
-	print("Room: Player entered door '%s'. Requesting load of target room '%s'" % [door.door_name, door.path_to_target_room])
+	# Since the path to the target room is valid, emit room load signal
+	print("Room '%s': Player interacted with door '%s'" % [name, door.door_name])
 	swap_room.emit(door.path_to_target_room, door.target_door_name)
 
 ## Spawn the player at the specified Door.
-func spawn_player(target_door_name: String) -> void:
-	# Check the name of the target door.
-	# If it exists in this room, spawn the player there.
+func spawn_player(player: Player, target_door_name: String) -> void:
+	# Check the name of the target door against the doors in this room
+	# If it exists in this room, add the player to the room and move it to the correct location
 	for door: Door in doors:
 		if door.door_name == target_door_name:
-			print("Room: Spawning player in room '%s' at door '%s' with position '%s'" % [name, target_door_name, door.position])
-			var player: Player = load("res://src/actors/characters/player/player.tscn").instantiate()
-			add_child(player)
+			print("Room '%s': Placing player at door '%s'" % [name, target_door_name])
+			$MidgroundLayer/PlayerHolder.add_child(player)
 			player.global_position = door.position
+			last_entered_door = target_door_name
+			
+			# Update the camera limits to match the room
+			player.get_node("Camera").update_camera_limits($BackgroundLayer/Background)
 			return
 	
-	# If the target door didn't exist anywhere in the room, report the issue.
-	push_warning("Room: Target door '%s' does not exist in room '%s'." % [target_door_name, name])
+	# If the target door didn't exist anywhere in the room, report the issue
+	push_warning("Room '%s': Door '%s' does not exist in this room" % [name, target_door_name])
+
+## Remove the player from this Room.
+func despawn_player(player: Player) -> void:
+	$MidgroundLayer/PlayerHolder.remove_child(player)
+
+## Respawn the Player at the last entered Door.
+func respawn_player(player: Player) -> void:
+	for door: Door in doors:
+		if door.door_name == last_entered_door:
+			print("Room '%s': Respawning player at door '%s'" % [name, last_entered_door])
+			player.global_position = door.position
+			
+			return
+	
+	# If the target door didn't exist anywhere in the room, report the issue
+	push_warning("Room '%s': Door '%s' does not exist in this room" % [name, last_entered_door])

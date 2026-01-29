@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b344bikvrmjd3"
+path="res://.godot/imported/TUTORIAL-RichTextLabel.dialogue-3883e60e69bea3f41b852b3e4aa1be74.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/TUTORIAL-RichTextLabel.dialogue"
+dest_files=["res://.godot/imported/TUTORIAL-RichTextLabel.dialogue-3883e60e69bea3f41b852b3e4aa1be74.tres"]
+
+[params]
+
+defaults=true

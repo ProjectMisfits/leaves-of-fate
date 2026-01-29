@@ -4,5 +4,8 @@
 
 [node name="TEST_Room1" instance=ExtResource("1_hox5j")]
 
-[node name="DoorExit" parent="Doors" index="1"]
+[node name="DoorEnter" parent="MidgroundLayer/Doors" index="0"]
+path_to_target_room = "uid://bi3hvyfhivvd6"
+
+[node name="DoorExit" parent="MidgroundLayer/Doors" index="1"]
 path_to_target_room = "uid://bi3hvyfhivvd6"

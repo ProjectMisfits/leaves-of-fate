@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://domed3ucovqnj"]
+
+[ext_resource type="Script" uid="uid://lrd4ytnsswka" path="res://src/objects/hazards/icicle/icicle.gd" id="1_417gy"]
+[ext_resource type="Texture2D" uid="uid://nsc4gwcg2lhf" path="res://assets/objects/hazards/icicle/Icicle-02.png" id="2_417gy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5sn6"]
+size = Vector2(36, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhnhy"]
+size = Vector2(28, 87)
+
+[node name="Icicle_02" type="StaticBody2D"]
+collision_layer = 12
+script = ExtResource("1_417gy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -29.5)
+shape = SubResource("RectangleShape2D_a5sn6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, -43.5)
+shape = SubResource("RectangleShape2D_yhnhy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -50)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_417gy")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

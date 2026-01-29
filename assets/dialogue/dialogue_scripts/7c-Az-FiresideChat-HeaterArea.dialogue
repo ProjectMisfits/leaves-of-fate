@@ -1,0 +1,25 @@
+import "res://assets/dialogue/dialogue_scripts/7d-Az-ConditionalConvo-CellarGeneral.dialogue" as ConditionalConvo
+
+~ start
+Az: Hey, Fenn. Got a sec?
+Fenn: Yeah, I'm by a fireplace, what's up?
+Az: I'm curious... that thing you do? With the leaves?
+Fenn: Uh... what about it?
+Az: How do you do it? Where'd you learn it?
+Fenn: Uh... I don't really know... I've always been able to do it.
+Az: Well you're pretty good at it.
+Fenn: Thanks, I guess. 
+Az: What's wrong?
+Fenn: I mean... I can't do much. I'm just leaves.
+Az: Hmph. Well, at least you've been able to get around this place.
+Az: Being stuck here drives me crazy. I hate it.
+Fenn: Why?	Az: I just... I dunno. I wanna help. My Baba's trapped. And my stuff is here.
+Az: I can't help feeling bad for sending a kid into danger.
+Fenn: I'm not in danger! I'm on my adventure! 
+Az: Listen. You need my help, please use the bangle, okay?
+Fenn: Don't worry! I know!
+Az: Alright. Go find that heater and come on back.
+# Change this to something like "If heaters on == 0"
+if true
+	=> ConditionalConvo/start
+=> END

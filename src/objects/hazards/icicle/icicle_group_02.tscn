@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://clniejfdpj824"]
+
+[ext_resource type="Script" uid="uid://lrd4ytnsswka" path="res://src/objects/hazards/icicle/icicle.gd" id="1_fmm18"]
+[ext_resource type="Texture2D" uid="uid://co02j1n6hqgy4" path="res://assets/objects/hazards/icicle/Icicle-03.png" id="2_p1f84"]
+[ext_resource type="Texture2D" uid="uid://dtlb7dnnba4ka" path="res://assets/objects/hazards/icicle/Icicle-05.png" id="3_rbm2v"]
+[ext_resource type="Texture2D" uid="uid://nsc4gwcg2lhf" path="res://assets/objects/hazards/icicle/Icicle-02.png" id="4_r6qr2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5sn6"]
+size = Vector2(27, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6rya"]
+size = Vector2(91, 142)
+
+[node name="IcicleGroup02" type="StaticBody2D"]
+collision_layer = 12
+script = ExtResource("1_fmm18")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, 0.5)
+shape = SubResource("RectangleShape2D_a5sn6")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4.5, -53)
+shape = SubResource("RectangleShape2D_o6rya")
+
+[node name="Icicle04" type="Sprite2D" parent="."]
+position = Vector2(45.000004, -37)
+scale = Vector2(0.2638889, 0.2638889)
+texture = ExtResource("2_p1f84")
+
+[node name="Icicle03" type="Sprite2D" parent="."]
+position = Vector2(-13, -55)
+scale = Vector2(0.32616228, 0.32616228)
+texture = ExtResource("2_p1f84")
+
+[node name="Icicle05" type="Sprite2D" parent="."]
+position = Vector2(14, -55)
+scale = Vector2(0.25, 0.24999997)
+texture = ExtResource("3_rbm2v")
+
+[node name="Icicle02" type="Sprite2D" parent="."]
+position = Vector2(-29, -26)
+scale = Vector2(0.3059936, 0.3059936)
+texture = ExtResource("4_r6qr2")
+
+[node name="Icicle01" type="Sprite2D" parent="."]
+position = Vector2(2, -1)
+scale = Vector2(0.34022546, 0.34022546)
+
+[node name="Icicle06" type="Sprite2D" parent="."]
+position = Vector2(35.000004, 3.000001)
+scale = Vector2(0.22621563, 0.22621563)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
