@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://fdecrtiqrw14"]
 
 [ext_resource type="Script" uid="uid://ccsrl6mlxbla7" path="res://src/gameplay/gameplay.gd" id="1_anqvl"]
-[ext_resource type="PackedScene" uid="uid://djpsx4saffd7j" path="res://src/rooms/test/TEST_Room1_room.tscn" id="2_tr6da"]
+[ext_resource type="PackedScene" uid="uid://cwgmn4aexyqic" path="res://src/rooms/graybox/GB_GreatHall_room.tscn" id="2_tr6da"]
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_anqvl")
 
 [node name="RoomHolder" type="Node2D" parent="."]
 
-[node name="TEST_Room1" parent="RoomHolder" instance=ExtResource("2_tr6da")]
+[node name="GB_GreatHall" parent="RoomHolder" instance=ExtResource("2_tr6da")]
