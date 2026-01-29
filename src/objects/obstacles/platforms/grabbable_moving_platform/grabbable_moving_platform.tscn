@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://disa83btdjjsk" path="res://src/objects/obstacles/platforms/moving_base/moving_base.tscn" id="1_8njc7"]
 [ext_resource type="Script" uid="uid://37y31fcxpt01" path="res://src/objects/obstacles/platforms/grabbable_moving_platform/grabbable_platform.gd" id="3_cxu8y"]
-[ext_resource type="Script" uid="uid://d2jfy8wjje0is" path="res://src/objects/obstacles/platforms/grabbable_moving_platform/states/grabbale_platform_moving.gd" id="4_bvta8"]
+[ext_resource type="Script" uid="uid://d2jfy8wjje0is" path="res://src/objects/obstacles/platforms/grabbable_moving_platform/states/grabbable_platform_moving.gd" id="4_bvta8"]
 [ext_resource type="Script" uid="uid://c7eudnkgrabtq" path="res://src/objects/obstacles/platforms/grabbable_moving_platform/states/grabbable_platform_grabbed.gd" id="5_x7okt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8njc7"]
@@ -10,14 +10,8 @@ size = Vector2(750, 750)
 
 [node name="GrabbablePlatform" instance=ExtResource("1_8njc7")]
 
-[node name="PathFollow2D" parent="." index="0"]
-position = Vector2(0, -952)
-rotation = -1.5707964
-progress = 768.0
-
 [node name="AnimatableBody2D" parent="." index="1"]
-position = Vector2(0, -184)
-rotation = -1.5707964
+position = Vector2(0, -952)
 
 [node name="GrabbableArea" type="Area2D" parent="AnimatableBody2D" index="2"]
 collision_layer = 32
