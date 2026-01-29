@@ -240,6 +240,7 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 		new_velocity = 0.0
 	elif (direction == 0.0) and (state_machine.get_previous_active_state() != dashing_state): # No direction & did not exit Leaf Dash
 		new_velocity = move_toward(velocity.x, 0, deceleration)
+
 	else:
 		var new_acceleration: float = 0.0
 		
