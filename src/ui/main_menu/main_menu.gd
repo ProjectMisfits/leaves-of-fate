@@ -5,6 +5,9 @@ class_name MainMenu extends Control
 func _ready() -> void:
 	$CanvasLayer/MainSelectionsContainer/PlayButton.grab_focus.call_deferred()
 
+func _process(delta: float) -> void:
+	_escape_menus()
+
 # Signals that the game is started.
 func _on_play_button_button_up() -> void:
 	SceneManager.swap_scenes("res://src/gameplay/gameplay.tscn", null, self)
@@ -84,6 +87,12 @@ func _close_controls() -> void:
 		$SettingsMenu/CanvasLayer/Panel/ControlsContainer/ControlsButton.grab_focus.call_deferred()
 	else:
 		# removes controls menu and unides main menu
-		print("no settings")
 		$ControlsMenu.queue_free()
 		_show_main_menu()
+
+func _escape_menus() -> void:
+	if Input.is_action_just_pressed(&"pause"):
+		if (has_node("SettingsMenu")):
+			_exit_settings()
+		elif (has_node("ControlsMenu")):
+			_close_controls()
