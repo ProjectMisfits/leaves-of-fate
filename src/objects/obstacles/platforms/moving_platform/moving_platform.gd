@@ -1,11 +1,9 @@
-extends Node
+class_name MovingPlatform extends Path2D
+## A moving platform that follows a 2d path.
 
-class_name Moving_Platform_base
 #How to make a path:
 #After placing the object in the scene you can create a path by selecting points on the top hotbar.
 #The object will naturally follow that path at the rate you set
-
-
 
 #Controls if the platform is a closed loop
 #Closed loop: The platform naturally returns to its starting position, i.e in a circle
@@ -23,8 +21,6 @@ var cur_closed_loop_speed: float
 #Controls the speed scale of an animation for an open looped platform
 var cur_open_loop_speed_scale:float 
 
-
-
 #Variable controlling the object that follows
 @onready var path: PathFollow2D = $PathFollow2D
 #animation player for it
@@ -36,8 +32,6 @@ func _ready() -> void:
 	cur_open_loop_speed_scale = open_loop_speed_scale
 	
 	initialize_animation()
-		
-	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -53,23 +47,9 @@ func initialize_animation()->void:
 		animation_player.get_animation("move_base_animation").track_set_key_transition(0,0,easing)
 		animation_player.play("move_base_animation")
 		animation_player.speed_scale = cur_open_loop_speed_scale
-		
+
 func set_closed_speed(newSpeed: float)->void:
 	cur_closed_loop_speed = newSpeed;
 	
 func set_open_speed(_newSpeed: float)->void:
 	animation_player.speed_scale = cur_open_loop_speed_scale
-	
-func stop_platform()->void:
-	if closed_loop:
-		cur_closed_loop_speed = 0;
-	else:
-		animation_player.speed_scale = 0
-
-func resume_platform()->void:
-	if closed_loop:
-		cur_closed_loop_speed = closed_loop_speed;
-	else:
-		animation_player.speed_scale = cur_open_loop_speed_scale
-	
-		
