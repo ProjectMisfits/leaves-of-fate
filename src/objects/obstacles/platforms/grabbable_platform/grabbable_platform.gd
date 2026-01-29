@@ -13,6 +13,7 @@ func _ready() -> void:
 	cur_closed_loop_speed = closed_loop_speed
 	cur_open_loop_speed_scale = open_loop_speed_scale
 	
+	initialize_animation()
 	initialize_statemachine()
 
 ## Initialize the state machine.

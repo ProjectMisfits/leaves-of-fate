@@ -54,6 +54,7 @@ _data = {
 [node name="MovingPlatform" type="Path2D"]
 curve = SubResource("Curve2D_bs6ok")
 script = ExtResource("1_wq0hb")
+closed_loop = false
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(512, 0)

@@ -13,12 +13,12 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wq0hb"]
+size = Vector2(256, 256)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_67r1q"]
 resource_local_to_scene = true
 size = Vector2(768, 768)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wq0hb"]
-size = Vector2(256, 256)
 
 [sub_resource type="Animation" id="Animation_hs6xi"]
 length = 0.001
@@ -61,6 +61,7 @@ _data = {
 [node name="GrabbablePlatform" type="Path2D"]
 curve = SubResource("Curve2D_5cqd0")
 script = ExtResource("3_cxu8y")
+closed_loop = false
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(512, 0)
@@ -70,7 +71,11 @@ progress = 512.0
 remote_path = NodePath("../../AnimatableBody2D")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(512, 0)
 collision_layer = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+shape = SubResource("RectangleShape2D_wq0hb")
 
 [node name="Area2D" type="Area2D" parent="AnimatableBody2D"]
 collision_layer = 32
@@ -78,9 +83,6 @@ script = ExtResource("2_87cbt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/Area2D"]
 shape = SubResource("RectangleShape2D_67r1q")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
-shape = SubResource("RectangleShape2D_wq0hb")
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
 scale = Vector2(2, 2)
