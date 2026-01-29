@@ -10,9 +10,10 @@ func _process(delta: float) -> void:
 
 # Signals that the game is started.
 func _on_play_button_button_up() -> void:
-	SceneManager.swap_scenes("res://src/gameplay/gameplay.tscn", null, self)
+	SceneManager.swap_scenes("res://src/ui/intro_letter/intro_letter.tscn", null, self)
 
 func _hide_main_menu() -> void:
+	
 	$CanvasLayer/EnvelopeBase.hide()
 	$CanvasLayer/MainSelectionsContainer.hide()
 
