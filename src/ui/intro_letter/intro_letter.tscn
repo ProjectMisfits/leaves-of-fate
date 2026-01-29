@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://b16lnrs2414m5"]
+[gd_scene load_steps=7 format=3 uid="uid://b16lnrs2414m5"]
 
-[ext_resource type="Texture2D" uid="uid://cooitf66d50v" path="res://assets/ui/OpenLetter-UI-001.png" id="1_5kn1g"]
 [ext_resource type="Script" uid="uid://dok0uereohunp" path="res://src/ui/intro_letter/intro_letter.gd" id="1_vawu7"]
 [ext_resource type="Texture2D" uid="uid://bll2shh47txjm" path="res://assets/ui/KingdomEmblem-UI-001.png" id="2_r5ts0"]
 [ext_resource type="Texture2D" uid="uid://dl0v6h33gej7g" path="res://assets/ui/dialogue_boxes/ContinueSymbol-UI-001.png" id="3_x6byi"]
@@ -52,69 +51,47 @@ script = ExtResource("1_vawu7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Letter" type="NinePatchRect" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -482.75
-offset_top = -530.75
-offset_right = 359.0
-offset_bottom = 530.75
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_5kn1g")
-patch_margin_left = 420
-patch_margin_top = 200
-patch_margin_right = 420
-patch_margin_bottom = 391
-
-[node name="Crest" type="TextureRect" parent="CanvasLayer/Letter"]
-layout_mode = 1
+[node name="Crest" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -59.0
-offset_top = 21.0
-offset_right = 71.0
-offset_bottom = 151.0
+offset_left = -120.875
+offset_top = 30.25
+offset_right = 9.125
+offset_bottom = 160.25
 grow_horizontal = 2
 texture = ExtResource("2_r5ts0")
 expand_mode = 1
 
-[node name="BayLeafPalace" type="Label" parent="CanvasLayer/Letter"]
-layout_mode = 1
+[node name="BayLeafPalace" type="Label" parent="CanvasLayer"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -145.0
-offset_top = 144.0
-offset_right = 167.0
-offset_bottom = 187.0
+offset_left = -206.875
+offset_top = 153.25
+offset_right = 105.125
+offset_bottom = 196.25
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 42
 text = "BAY LEAF PALACE"
 
-[node name="Intro" type="Label" parent="CanvasLayer/Letter"]
-layout_mode = 0
-offset_left = 55.75
-offset_top = 222.75
-offset_right = 330.75
-offset_bottom = 250.75
+[node name="Intro" type="Label" parent="CanvasLayer"]
+offset_left = 533.0
+offset_top = 232.0
+offset_right = 808.0
+offset_bottom = 260.0
 theme_override_font_sizes/font_size = 27
 text = "DEAR FENN of NAVETTA,"
 
-[node name="Content" type="Label" parent="CanvasLayer/Letter"]
-layout_mode = 1
+[node name="Content" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -366.0
+offset_left = -427.875
 offset_top = -255.5
-offset_right = 366.0
+offset_right = 304.125
 offset_bottom = 175.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -134,23 +111,23 @@ SINCERELY,
 King Oakley Spoonfellow
 Royal Court of Spoons"
 
-[node name="Control" type="Control" parent="CanvasLayer/Letter"]
+[node name="Control" type="Control" parent="CanvasLayer"]
 custom_minimum_size = Vector2(20, 10)
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -98.0
-offset_top = -416.0
-offset_right = -78.0
-offset_bottom = -406.0
+offset_left = -699.0
+offset_top = -425.25
+offset_right = -679.0
+offset_bottom = -415.25
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 8
 
-[node name="Progress" type="TextureRect" parent="CanvasLayer/Letter/Control"]
+[node name="Progress" type="TextureRect" parent="CanvasLayer/Control"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -167,7 +144,7 @@ grow_vertical = 2
 texture = ExtResource("3_x6byi")
 expand_mode = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Letter/Control"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control"]
 libraries = {
 &"": SubResource("AnimationLibrary_1337t")
 }
