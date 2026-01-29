@@ -29,5 +29,3 @@ position = Vector2(509.5, -2)
 shape = SubResource("RectangleShape2D_m1rif")
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
-
-[connection signal="body_entered" from="FlipNode/Sight" to="." method="_on_sight_body_entered"]

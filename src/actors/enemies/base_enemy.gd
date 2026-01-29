@@ -1,8 +1,11 @@
 extends CharacterBody2D
-class_name Enemey
+class_name Enemy
 
 #state machine to control enemy actions
 @onready var state_machine : LimboHSM = $LimboHSM
+#Node to keep track of items that need to be fliped
+@onready var flip_node : Node2D = $FlipNode
+
 #enemy max health
 @export var max_health : int = 1
 #enemy current health
@@ -16,7 +19,7 @@ var player_last_known_pos : Vector2
 func _ready() -> void:
 	cur_health = max_health
 	intialize_statemachine()
-	look_direction = $FlipNode.scale.x
+	look_direction = flip_node.scale.x
 	pass
 	
 #initialize statemachine
@@ -44,9 +47,6 @@ func hurt(damage:int)->void:
 func death()->void:
 	queue_free()
 	
-
-func _on_sight_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
 
 #Checks if the player is within visible range and turn to face
 func check_player_visible()->bool:

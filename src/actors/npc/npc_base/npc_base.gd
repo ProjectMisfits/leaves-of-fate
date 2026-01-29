@@ -20,7 +20,6 @@ func _ready() -> void:
 
 	match SceneManager.current_scene.name:
 		"TEST_DialogueManager":
-		
 			dialogue_resource = ResourceLoader.load("res://assets/dialogue/dialogue_scripts/1-Az-Meet-GreatHall.dialogue")
 			dialogue_start = "start"
 		_:

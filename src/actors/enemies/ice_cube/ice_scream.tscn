@@ -60,6 +60,5 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
-[connection signal="body_entered" from="FlipNode/Sight" to="LimboHSM/Idle" method="_on_sight_body_entered"]
 [connection signal="body_entered" from="FlipNode/HurtArea" to="." method="_on_hurt_area_body_entered"]
 [connection signal="timeout" from="WaitBeforeChase" to="." method="_on_wait_before_chase_timeout"]

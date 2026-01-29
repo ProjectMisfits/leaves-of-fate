@@ -1,11 +1,12 @@
-extends Enemey
-class_name Ice_Scream
+extends Enemy
+class_name IceScream
 #States
 @onready var idle_state : LimboState = $LimboHSM/Idle
 @onready var chase_normal_state : LimboState = $LimboHSM/ChaseNormal
 @onready var chase_angry_state : LimboState = $LimboHSM/ChaseAngry
 @onready var grabbed_state : LimboState = $LimboHSM/Grabbed
 @onready var death_state : LimboState = $LimboHSM/Death
+@onready var ice_cube_sprite : = $FlipNode/Sprite2D
 
 #Speed when idle
 const IDLE_SPEED : float = 10
@@ -17,6 +18,8 @@ const CHARGE_SPEED_ANGRY : float = 20
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 #The range at which the ice cube needs to get near the last know position of the player
 @export var end_range : int = 4
+
+
 
 
 
@@ -50,12 +53,12 @@ func check_for_player()->void:
 
 #
 func begin_chase_normal()-> void:
-	$FlipNode/Sprite2D.modulate = Color(0.816, 0.346, 0.871, 1.0)
+	ice_cube_sprite.modulate = Color(0.816, 0.346, 0.871, 1.0)
 	
 	state_machine.dispatch(&"to_chase_normal")
 
 func _on_wait_before_chase_timeout() -> void:
-	$FlipNode/Sprite2D.modulate = Color(0.812, 0.014, 0.477, 1.0)
+	ice_cube_sprite.modulate = Color(0.812, 0.014, 0.477, 1.0)
 	state_machine.dispatch(&"to_chase_normal")
 	pass # Replace with function body.
 
@@ -75,7 +78,7 @@ func check_reached_player()->void:
 #function to reset all of the cubes properties
 func reset()->void:
 	$FlipNode/GrabbableArea/CollisionShape2D.set_deferred("disabled",false)
-	$FlipNode/Sprite2D.modulate = Color(1.0, 1.0, 1.0, 1.0)
+	ice_cube_sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
 	velocity.x = 0
 	player_last_known_pos = Vector2.ZERO
 
@@ -108,7 +111,7 @@ func check_release()->void:
 #What happens when the cube is grabbed
 func grab()->void:
 	$FlipNode/GrabbableArea/CollisionShape2D.set_deferred("disabled",true)
-	$FlipNode/Sprite2D.modulate = Color(0.363, 0.003, 0.023, 1.0)
+	ice_cube_sprite.modulate = Color(0.363, 0.003, 0.023, 1.0)
 	velocity.x = 0;
 	
 #If the ice cube collides with another ice cube or spike at ANY state it should explode
