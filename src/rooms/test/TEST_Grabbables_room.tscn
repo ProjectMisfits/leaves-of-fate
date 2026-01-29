@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bb8graqn1521m"]
+
+[ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_d1gwe"]
+[ext_resource type="PackedScene" uid="uid://disa83btdjjsk" path="res://src/objects/obstacles/platforms/moving_platform/moving_platform.tscn" id="2_4cmfg"]
+[ext_resource type="PackedScene" uid="uid://buss7vp4lhvtt" path="res://src/objects/obstacles/base_grabbable/base_grabbable.tscn" id="2_v1j7v"]
+[ext_resource type="PackedScene" uid="uid://cjmtdwm7l0dpi" path="res://src/objects/obstacles/platforms/grabbable_platform/grabbable_platform.tscn" id="3_r2l58"]
+
+[sub_resource type="Curve2D" id="Curve2D_r2l58"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 512, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_v1j7v"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 512, 0)
+}
+point_count = 2
+
+[node name="TEST_Grabbables" instance=ExtResource("1_d1gwe")]
+
+[node name="BaseGrabbable" parent="." index="2" instance=ExtResource("2_v1j7v")]
+position = Vector2(192, 768)
+
+[node name="MovingPlatform" parent="." index="3" instance=ExtResource("2_4cmfg")]
+position = Vector2(128, 192)
+curve = SubResource("Curve2D_r2l58")
+
+[node name="GrabbablePlatform" parent="." index="4" instance=ExtResource("3_r2l58")]
+position = Vector2(1216, 768)
+curve = SubResource("Curve2D_v1j7v")
