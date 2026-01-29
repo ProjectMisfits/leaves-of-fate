@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://djq2dwebo0n7s"]
+
+[ext_resource type="PackedScene" uid="uid://byy3ecxmaevxh" path="res://src/particle_effects/ice_particles.tscn" id="1_bwqwy"]
+[ext_resource type="Texture2D" uid="uid://44yrl3bsd17t" path="res://assets/environment/obstacles/ice_spikes/Icicle-04.png" id="2_hcj0u"]
+
+[node name="IceParticlesEffectTest" type="Node2D"]
+
+[node name="Icicle04" type="Sprite2D" parent="."]
+position = Vector2(-3, -80)
+scale = Vector2(0.39357597, 0.39357597)
+texture = ExtResource("2_hcj0u")
+
+[node name="IceParticles" parent="." instance=ExtResource("1_bwqwy")]
+position = Vector2(-2, 2)
