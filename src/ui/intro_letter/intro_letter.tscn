@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b16lnrs2414m5"]
+[gd_scene load_steps=8 format=3 uid="uid://b16lnrs2414m5"]
 
 [ext_resource type="Script" uid="uid://dok0uereohunp" path="res://src/ui/intro_letter/intro_letter.gd" id="1_vawu7"]
 [ext_resource type="Texture2D" uid="uid://bll2shh47txjm" path="res://assets/ui/KingdomEmblem-UI-001.png" id="2_r5ts0"]
+[ext_resource type="Texture2D" uid="uid://06jkluq7y871" path="res://assets/ui/OpenLetter-UI-002.png" id="2_vawu7"]
 [ext_resource type="Texture2D" uid="uid://dl0v6h33gej7g" path="res://assets/ui/dialogue_boxes/ContinueSymbol-UI-001.png" id="3_x6byi"]
 
 [sub_resource type="Animation" id="Animation_nlsx6"]
@@ -42,57 +43,81 @@ _data = {
 
 [node name="IntroLetter" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+scale = Vector2(1.1, 1.1)
 script = ExtResource("1_vawu7")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
-[node name="Crest" type="TextureRect" parent="CanvasLayer"]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -413.5
+offset_top = -980.0
+offset_right = 413.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+texture = ExtResource("2_vawu7")
+
+[node name="Crest" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -120.875
-offset_top = 30.25
-offset_right = 9.125
-offset_bottom = 160.25
+offset_left = -65.0
+offset_top = 16.0
+offset_right = 65.0
+offset_bottom = 146.0
 grow_horizontal = 2
 texture = ExtResource("2_r5ts0")
 expand_mode = 1
 
-[node name="BayLeafPalace" type="Label" parent="CanvasLayer"]
+[node name="BayLeafPalace" type="Label" parent="TextureRect"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -206.875
-offset_top = 153.25
-offset_right = 105.125
-offset_bottom = 196.25
+offset_left = -156.0
+offset_top = 154.0
+offset_right = 156.0
+offset_bottom = 197.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 42
 text = "BAY LEAF PALACE"
 
-[node name="Intro" type="Label" parent="CanvasLayer"]
-offset_left = 533.0
-offset_top = 232.0
-offset_right = 808.0
-offset_bottom = 260.0
+[node name="Intro" type="Label" parent="TextureRect"]
+layout_mode = 1
+offset_left = 49.0
+offset_top = 248.0
+offset_right = 324.0
+offset_bottom = 276.0
 theme_override_font_sizes/font_size = 27
 text = "DEAR FENN of NAVETTA,"
 
-[node name="Content" type="Label" parent="CanvasLayer"]
+[node name="Content" type="Label" parent="TextureRect"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -427.875
-offset_top = -255.5
-offset_right = 304.125
-offset_bottom = 175.5
+offset_left = -366.0
+offset_top = -182.5
+offset_right = 366.0
+offset_bottom = 248.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 27
@@ -111,23 +136,23 @@ SINCERELY,
 King Oakley Spoonfellow
 Royal Court of Spoons"
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="TextureRect"]
 custom_minimum_size = Vector2(20, 10)
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -699.0
-offset_top = -425.25
-offset_right = -679.0
-offset_bottom = -415.25
+offset_left = -100.0
+offset_top = -292.0
+offset_right = -80.0
+offset_bottom = -282.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 8
 
-[node name="Progress" type="TextureRect" parent="CanvasLayer/Control"]
+[node name="Progress" type="TextureRect" parent="TextureRect/Control"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -144,14 +169,10 @@ grow_vertical = 2
 texture = ExtResource("3_x6byi")
 expand_mode = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/Control"]
 libraries = {
 &"": SubResource("AnimationLibrary_1337t")
 }
 autoplay = "progress"
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
