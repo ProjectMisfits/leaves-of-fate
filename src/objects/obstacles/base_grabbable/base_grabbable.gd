@@ -1,23 +1,19 @@
-extends Area2D
-class_name BaseGrabbable
+class_name BaseGrabbable extends Area2D
+## An entity that is grabbable by the claw ability.
 
-#state machine for grabable objects 
-@onready var state_machine: LimboHSM = $"../LimboHSM"
-@onready var ungrabbed_state: LimboState = $"../LimboHSM/Ungrabbed"
-@onready var grabbed_state: LimboState = $"../LimboHSM/Grabbed"
+## The grabbable object's state machine.
+@onready var state_machine: LimboHSM = $LimboHSM
+## The state machine's ungrabbed state.
+@onready var ungrabbed_state: LimboState = $LimboHSM/Ungrabbed
+## The state machine's grabbed state.
+@onready var grabbed_state: LimboState = $LimboHSM/Grabbed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	intialize_statemachine()
-	pass # Replace with function body.
+	initialize_statemachine()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
-func intialize_statemachine()-> void:
-	
+## Initialize the state machine.
+func initialize_statemachine()-> void:
 	state_machine.add_transition(ungrabbed_state,grabbed_state,&"to_grabbed")
 	state_machine.add_transition(grabbed_state,ungrabbed_state,&"to_ungrabbed")
 	
@@ -25,16 +21,18 @@ func intialize_statemachine()-> void:
 	state_machine.initialize(self)
 	state_machine.set_active(true)
 
-func rotate_sprite()-> void:
-	$"../Sprite2D".rotate(.05)
-	
-func companion_action_triggered()->void:
+## Use the state machine to toggle states when the claw action is triggered.
+func companion_action_triggered() -> void:
 	state_machine.get_active_state().companion_action_triggered()
 
-func ungrab()->void:
+## Change the entity's state from grabbed to ungrabbed.
+func ungrab() -> void:
 	state_machine.dispatch(&"to_ungrabbed")
-	
-func grab()->void:
+
+## Change the entity's state from ungrabbed to grabbed.
+func grab() -> void:
 	state_machine.dispatch(&"to_grabbed")
-	
-	
+
+## When the entity is ungrabbed, this function will be called by the state machine to show that it is ungrabbed.
+func rotate_sprite() -> void:
+	$Sprite2D.rotate(.05)

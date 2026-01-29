@@ -59,7 +59,7 @@ collision_normal = ExtResource("4_lynpt")
 collision_dash = ExtResource("4_7j1dl")
 
 [node name="Camera" parent="." instance=ExtResource("4_wcwgi")]
-zoom = Vector2(0.6, 0.6)
+zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

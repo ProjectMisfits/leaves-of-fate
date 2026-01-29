@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://h13x4nmh8pso"]
+
+[ext_resource type="Script" uid="uid://cgf3c3d1oi8ql" path="res://src/objects/hazards/ice_spike_ball/ice_spike_ball.gd" id="1_4vxkl"]
+[ext_resource type="Texture2D" uid="uid://cetapo5oxl1e8" path="res://assets/objects/hazards/ice_spike_ball/Ice-Spike-Ball.png" id="2_4vxkl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vxkl"]
+size = Vector2(172, 172)
+
+[node name="IceSpikeBall" type="Area2D"]
+script = ExtResource("1_4vxkl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4vxkl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, -9)
+scale = Vector2(0.40046066, 0.40046066)
+texture = ExtResource("2_4vxkl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
