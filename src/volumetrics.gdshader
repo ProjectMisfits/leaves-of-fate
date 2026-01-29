@@ -68,7 +68,7 @@ void fragment() {
 		// XY-Jitter. This is a worse solution to fix banding than the above.
 		//uv += (rand(UV + vec2(0., TIME * 0.001)) - 0.5) * (f + 0.5) * perspectiveAmount * 0.09;
 		
-		vec3 noiseUv = vec3(uv, f2 * perspectiveAmount * 1.0);
+		vec3 noiseUv = vec3(uv + uvOffset, f2 * perspectiveAmount * 1.0);
 		noiseUv.y = mod(noiseUv.y + TIME * noiseScrollSpeed, 1.0);
 		
 		if (uv.x < 0. || uv.x > 1. || uv.y < 0. || uv.y > 1.) {

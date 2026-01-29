@@ -18,6 +18,7 @@ void vertex() {
 // - transforms are applied in uv space, which makes it scale with the sprite. this is is bad.
 
 uniform sampler3D noiseTexture : hint_default_white;
+uniform float noiseScale : hint_range(0.1, 10.0) = 1.0;
 uniform float perspectiveAmount : hint_range(0.0, 1.0) = 0.2;
 uniform float perspectiveOffset : hint_range(0.0, 1.0) = 0.0;
 uniform float scaleMax : hint_range(0.5, 1.5) = 0.9;
@@ -54,10 +55,10 @@ void fragment() {
 	// the screen UV to a 1:1 aspect ratio, using the height as 0..1
 	vec2 screenUv = (SCREEN_UV - 0.5) * vec2(SCREEN_PIXEL_SIZE.y / SCREEN_PIXEL_SIZE.x, 1.0) + 0.5;
 	vec2 objUv = SCREEN_UV; // VERTEX.xy * 0.01;
-	vec2 noiseUvBase = fract(worldVtx.xy * 0.005);
+	vec2 noiseUvBase = fract(worldVtx.xy * 0.0025 * noiseScale);
 	
-	float scaleMin = (1.0 - perspectiveAmount * 0.2) * scaleMax;
-	vec2 stepDir = (screenUv - 0.5) * perspectiveAmount;
+	float scaleMin = (1.0 - perspectiveAmount * .2) * scaleMax;
+	vec2 stepDir = (screenUv - 0.5) * perspectiveAmount * 0.5;
 	vec3 color = vec3(0.0);
 	
 	for (int i=0; i<STEPS; i++) {
@@ -65,7 +66,7 @@ void fragment() {
 		
 		// Z-Jitter. This makes the rays not hit the exact
 		// same "layers" for each pixel, which hides our banding issue.
-		f += (rand(SCREEN_UV + vec2(TIME * 0.0001)) - 0.5) * 1.0 * JITTER;
+		f += (rand(SCREEN_UV) - 0.5) * 1.0 * JITTER;
 		
 		float f2 = f + perspectiveOffset;
 		float scale = scaleMax * f2 + scaleMin * (1.0 - f2);
@@ -74,13 +75,15 @@ void fragment() {
 		vec2 uvOffset = stepDir * (1.0 - f2);
 		vec2 uv = scaleVec(objUv + uvOffset, scale);
 		
-		vec2 uvScalarOffset = uv - objUv - uvOffset;
+		//vec2 uvScalarOffset = uv - (objUv + uvOffset);
 		
 		// XY-Jitter. This is a worse solution to fix banding than the above.
 		//uv += (rand(UV + vec2(0., TIME * 0.001)) - 0.5) * (f + 0.5) * perspectiveAmount * 0.09;
 
-		vec3 noiseUv = vec3(noiseUvBase + uvScalarOffset * 10.0, f2 * perspectiveAmount * 1.0);
+		vec3 noiseUv = vec3(noiseUvBase + uvOffset, f2 * perspectiveAmount * 1.0);
 		noiseUv.y = mod(noiseUv.y + TIME * noiseScrollSpeed, 1.0);
+		
+		noiseUv = fract(noiseUv);
 		
 		if (uv.x < 0. || uv.x > 1. || uv.y < 0. || uv.y > 1.) {
 			continue;
@@ -93,11 +96,12 @@ void fragment() {
 		distFac += .05; // fudge the numbers a bit lmao
 		
 		// Bias LODs towards end of range
-		//vec4 sample = textureLod(TEXTURE, uv, f * lodMultiplier);
-		vec4 sample = texture(screenTexture, uv);
-		sample = clamp(sample * 2.0 - 1.0, 0.0, 1.0);
+		vec4 sample = textureLod(screenTexture, uv, f * lodMultiplier);
+		//vec4 sample = texture(screenTexture, uv);
 		
-		color += sample.rgb * sample.a * noise * distFac;
+		const float brightThreshold = 0.8;
+		sample = clamp((sample - brightThreshold) / (1. - brightThreshold), 0.0, 2.0);
+		color += sample.rgb * noise * distFac;
 	}
 	
 	// another magic number!!! whabam
