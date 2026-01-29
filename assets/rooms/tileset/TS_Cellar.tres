@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://bhta07me8sh0"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://i6wi7xcus3i"]
 
 [ext_resource type="Texture2D" uid="uid://bokl20qwsrj6e" path="res://assets/rooms/tileset/TS-planks-45deg-1.png" id="1_iutvm"]
 [ext_resource type="Texture2D" uid="uid://cp7g7b6wdpi53" path="res://assets/rooms/tileset/TS-planks-horiz-1.png" id="2_yljle"]

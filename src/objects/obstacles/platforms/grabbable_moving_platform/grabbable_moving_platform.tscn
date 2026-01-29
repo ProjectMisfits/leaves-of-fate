@@ -6,16 +6,20 @@
 [ext_resource type="Script" uid="uid://c7eudnkgrabtq" path="res://src/objects/obstacles/platforms/grabbable_moving_platform/states/grabbable_platform_grabbed.gd" id="5_x7okt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8njc7"]
-size = Vector2(772.0346, 741.9997)
+size = Vector2(750, 750)
 
-[node name="MovingBase" instance=ExtResource("1_8njc7")]
-closed_loop = true
+[node name="GrabbablePlatform" instance=ExtResource("1_8njc7")]
+
+[node name="PathFollow2D" parent="." index="0"]
+position = Vector2(0, -952)
+rotation = -1.5707964
+progress = 768.0
 
 [node name="AnimatableBody2D" parent="." index="1"]
-position = Vector2(-6.0172987, 312.99985)
+position = Vector2(0, -184)
+rotation = -1.5707964
 
 [node name="GrabbableArea" type="Area2D" parent="AnimatableBody2D" index="2"]
-rotation = 1.553497
 collision_layer = 32
 collision_mask = 0
 script = ExtResource("3_cxu8y")

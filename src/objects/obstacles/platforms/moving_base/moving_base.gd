@@ -16,7 +16,7 @@ class_name Moving_Platform_base
 #Controls the speed scale of an animation for an open looped platform
 @export  var open_loop_speed_scale:float = 1.0
 #Controls the easing of the platform going back and forth 
-@export var easing: float = -1.55
+@export var easing: float = -1.5
 
 #Controls the current speed at which the platform goes along the path
 var cur_closed_loop_speed: float
