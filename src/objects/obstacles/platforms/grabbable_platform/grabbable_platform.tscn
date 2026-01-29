@@ -62,13 +62,6 @@ _data = {
 curve = SubResource("Curve2D_5cqd0")
 script = ExtResource("3_cxu8y")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 32
-script = ExtResource("2_87cbt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_67r1q")
-
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(512, 0)
 progress = 512.0
@@ -77,8 +70,14 @@ progress = 512.0
 remote_path = NodePath("../../AnimatableBody2D")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-position = Vector2(512, 0)
 collision_layer = 12
+
+[node name="Area2D" type="Area2D" parent="AnimatableBody2D"]
+collision_layer = 32
+script = ExtResource("2_87cbt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/Area2D"]
+shape = SubResource("RectangleShape2D_67r1q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 shape = SubResource("RectangleShape2D_wq0hb")
@@ -100,4 +99,4 @@ libraries = {
 &"": SubResource("AnimationLibrary_bmss7")
 }
 
-[connection signal="platform_clawed" from="Area2D" to="." method="companion_action_triggered"]
+[connection signal="platform_clawed" from="AnimatableBody2D/Area2D" to="." method="companion_action_triggered"]
