@@ -13,7 +13,7 @@ var last_entered_door: String
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Connect each Door's entered signal to this Room's room swap function
-	doors = $Doors.get_children()
+	doors = $MidgroundLayer/Doors.get_children()
 	for door: Door in doors:
 		door.player_entered_door.connect(_on_player_entered_door)
 	
@@ -33,7 +33,6 @@ func _on_player_entered_door(door: Door) -> void:
 	print("Room '%s': Player interacted with door '%s'" % [name, door.door_name])
 	swap_room.emit(door.path_to_target_room, door.target_door_name)
 
-
 ## Spawn the player at the specified Door.
 func spawn_player(player: Player, target_door_name: String) -> void:
 	# Check the name of the target door against the doors in this room
@@ -41,18 +40,22 @@ func spawn_player(player: Player, target_door_name: String) -> void:
 	for door: Door in doors:
 		if door.door_name == target_door_name:
 			print("Room '%s': Placing player at door '%s'" % [name, target_door_name])
-			add_child(player)
+			$MidgroundLayer/PlayerHolder.add_child(player)
 			player.global_position = door.position
 			last_entered_door = target_door_name
 			
 			# Update the camera limits to match the room
-			player.get_node("Camera").update_camera_limits($Background)
+			player.get_node("Camera").update_camera_limits($BackgroundLayer/Background)
 			return
 	
 	# If the target door didn't exist anywhere in the room, report the issue
 	push_warning("Room '%s': Door '%s' does not exist in this room" % [name, target_door_name])
 
-## Respawns the Player at the last entered door
+## Remove the player from this Room.
+func despawn_player(player: Player) -> void:
+	$MidgroundLayer/PlayerHolder.remove_child(player)
+
+## Respawn the Player at the last entered Door.
 func respawn_player(player: Player) -> void:
 	for door: Door in doors:
 		if door.door_name == last_entered_door:
