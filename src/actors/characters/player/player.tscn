@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=21 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/actors/characters/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/actors/characters/player/player_db.tres" id="2_7gsup"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://icrwiu7udlg5" path="res://src/actors/characters/player/states/player_cutscene.gd" id="10_u7uqy"]
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/particle_effects/wind_particles.tscn" id="14_7j1dl"]
 [ext_resource type="PackedScene" uid="uid://dqviomxk1qqcu" path="res://src/particle_effects/leaf_particles.tscn" id="15_808gp"]
+[ext_resource type="PackedScene" uid="uid://b2rp6v6yudx4x" path="res://src/actors/characters/player/debug_ui/player_ui.tscn" id="15_lynpt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_q4vut"]
 animations = [{
@@ -69,7 +70,7 @@ shape = ExtResource("4_lynpt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlipNode"]
 position = Vector2(11.055, 4.645)
 sprite_frames = SubResource("SpriteFrames_q4vut")
-animation = &"pile"
+animation = &"player"
 
 [node name="InteractArea" type="Area2D" parent="FlipNode"]
 position = Vector2(80, 0)
@@ -122,11 +123,7 @@ script = ExtResource("9_q6jdu")
 [node name="Cutscene" type="LimboState" parent="LimboHSM"]
 script = ExtResource("10_u7uqy")
 
-[node name="DashBar" type="ProgressBar" parent="."]
-offset_left = -116.0
-offset_top = -239.0
-offset_right = 113.0
-offset_bottom = -159.0
+[node name="PlayerUI" parent="." instance=ExtResource("15_lynpt")]
 
 [connection signal="area_entered" from="FlipNode/InteractArea" to="." method="_on_interact_area_area_entered"]
 [connection signal="area_exited" from="FlipNode/InteractArea" to="." method="_on_interact_area_area_exited"]

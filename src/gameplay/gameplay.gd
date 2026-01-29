@@ -17,6 +17,8 @@ func _ready() -> void:
 	_update_current_room()
 	# Spawn the player at the first door now that the room has been loaded
 	current_room.spawn_player(player, 'enter')
+	
+	player.player_knocked_out.connect(respawn_player)
 
 # Called once every physics tick.
 func _physics_process(_delta: float) -> void:
@@ -46,3 +48,8 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String)-> void
 	_update_current_room()
 	# Add player to new current room and place them at correct door
 	current_room.spawn_player(player, target_door_name)
+
+# Resets the Player's stats & respawns them at the last door they exited.
+func respawn_player() -> void:
+	player.reset_stats()
+	current_room.respawn_player(player)
