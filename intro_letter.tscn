@@ -1,0 +1,181 @@
+[gd_scene load_steps=9 format=3 uid="uid://dy1uvjp312n5d"]
+
+[ext_resource type="Script" uid="uid://dok0uereohunp" path="res://src/ui/intro_letter/intro_letter.gd" id="1_l711y"]
+[ext_resource type="Texture2D" uid="uid://bll2shh47txjm" path="res://assets/ui/KingdomEmblem-UI-001.png" id="2_ee66c"]
+[ext_resource type="Texture2D" uid="uid://06jkluq7y871" path="res://assets/ui/OpenLetter-UI-002.png" id="2_q7wt5"]
+[ext_resource type="Texture2D" uid="uid://dl0v6h33gej7g" path="res://assets/ui/dialogue_boxes/ContinueSymbol-UI-001.png" id="3_q7wt5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rjwdd"]
+texture = ExtResource("2_q7wt5")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="Animation" id="Animation_nlsx6"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Progress:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_qkmqt"]
+resource_name = "progress"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Progress:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.2, -0.0157438, -4, -0.2, 0.0112069, 0.25, 0, -4, -0.25, 0, 0.25, 0, 0, -0.2, 0.00299701, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.5, 0.6, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1337t"]
+_data = {
+&"RESET": SubResource("Animation_nlsx6"),
+&"progress": SubResource("Animation_qkmqt")
+}
+
+[node name="IntroLetter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l711y")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Letter" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -415.5
+offset_top = -491.0
+offset_right = 415.5
+offset_bottom = 491.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rjwdd")
+
+[node name="Crest" type="TextureRect" parent="CanvasLayer/Letter"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.0
+offset_top = 13.0
+offset_right = 65.0
+offset_bottom = 143.0
+grow_horizontal = 2
+texture = ExtResource("2_ee66c")
+expand_mode = 1
+
+[node name="BayLeafPalace" type="Label" parent="CanvasLayer/Letter"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -167.5
+offset_top = 140.0
+offset_right = 167.5
+offset_bottom = 186.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 45
+text = "BAY LEAF PALACE"
+
+[node name="Intro" type="Label" parent="CanvasLayer/Letter"]
+layout_mode = 0
+offset_left = 61.5
+offset_top = 242.0
+offset_right = 366.5
+offset_bottom = 273.0
+theme_override_font_sizes/font_size = 30
+text = "DEAR FENN of NAVETTA,"
+
+[node name="Content" type="Label" parent="CanvasLayer/Letter"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -355.0
+offset_top = -197.5
+offset_right = 355.0
+offset_bottom = 275.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "You are cordially invited to Bay Leaf Castle this coming 
+Tuesday. We believe it reasonable to allow you to sit in on 
+our Council Meeting. Afterwards, we’ll have a mandatory 
+luncheon. Food and drink will not be provided.
+
+While we at the Palace greatly appreciate your enthusiasm, 
+we would kindly request that you stop sending “fan” mail 
+at such a significant rate.
+
+The Knights and I look forward to meeting you.
+
+SINCERELY,
+King Oakley Spoonfellow
+Royal Court of Spoons"
+
+[node name="Control" type="Control" parent="CanvasLayer/Letter"]
+custom_minimum_size = Vector2(20, 10)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -121.0
+offset_top = -267.0
+offset_right = -101.0
+offset_bottom = -257.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="Progress" type="TextureRect" parent="CanvasLayer/Letter/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_q7wt5")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Letter/Control"]
+libraries = {
+&"": SubResource("AnimationLibrary_1337t")
+}
+autoplay = "progress"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
