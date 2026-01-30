@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ck6tjlibantmc"]
+[gd_scene load_steps=9 format=3 uid="uid://ck6tjlibantmc"]
 
 [ext_resource type="Texture2D" uid="uid://6452gvwuyalq" path="res://assets/particle_effects/ice/Pixel.png" id="1_viqcr"]
 
@@ -16,14 +16,13 @@ point_count = 7
 [sub_resource type="CurveTexture" id="CurveTexture_miofj"]
 curve = SubResource("Curve_4ekgh")
 
-[sub_resource type="Curve" id="Curve_i1jyc"]
-_data = [Vector2(0.013035379, 0), 0.0, 0.0, 0, 0, Vector2(0.19925511, 0.3006897), 0.0, 0.0, 0, 0, Vector2(0.46182495, 0.009310365), 0.0, 0.0, 0, 0, Vector2(0.7057728, 0.2872414), 0.0, 0.0, 0, 0, Vector2(0.98510236, 0), 0.0, 0.0, 0, 0]
-point_count = 5
-
-[sub_resource type="CurveTexture" id="CurveTexture_4ekgh"]
-curve = SubResource("Curve_i1jyc")
+[sub_resource type="Curve" id="Curve_qvv4r"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_10ibm"]
+curve = SubResource("Curve_qvv4r")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i1jyc"]
 particle_flag_disable_z = true
@@ -36,9 +35,8 @@ radial_accel_min = -2.2351742e-06
 radial_accel_max = 19.999998
 radial_accel_curve = SubResource("CurveTexture_miofj")
 tangential_accel_curve = SubResource("CurveTexture_10ibm")
-scale_min = 0.5
-scale_max = 0.5
-scale_curve = SubResource("CurveTexture_4ekgh")
+scale_min = 0.0
+scale_max = 0.25
 alpha_curve = SubResource("CurveTexture_i1jyc")
 
 [node name="IceParticles" type="GPUParticles2D"]

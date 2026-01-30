@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://hcwtj0s2v2o8"]
+[gd_scene load_steps=9 format=4 uid="uid://hcwtj0s2v2o8"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_cco3e"]
 [ext_resource type="Texture2D" uid="uid://idvn1h1vmemf" path="res://assets/objects/props/architecture/Pillar-Cap-03.png" id="2_qcg6g"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/objects/hazards/ice_spike_ball/ice_spike_ball.tscn" id="5_0b23k"]
 [ext_resource type="PackedScene" uid="uid://byy3ecxmaevxh" path="res://src/particle_effects/ice_wind.tscn" id="6_cm1yw"]
 [ext_resource type="PackedScene" uid="uid://ck6tjlibantmc" path="res://src/particle_effects/ice_particles.tscn" id="7_0j4qa"]
+[ext_resource type="PackedScene" uid="uid://cd1180gypppls" path="res://src/particle_effects/ice_particles_twinkle.tscn" id="8_tkf6c"]
 
 [node name="GB_CellarEntrance" instance=ExtResource("1_cco3e")]
 
@@ -172,3 +173,6 @@ visibility_rect = Rect2(-10098.115, -1122.5199, 11189.727, 2235.9546)
 
 [node name="IceParticles" parent="." index="4" instance=ExtResource("7_0j4qa")]
 position = Vector2(14082, 2980)
+
+[node name="IceParticles2" parent="." index="5" instance=ExtResource("8_tkf6c")]
+position = Vector2(14075, 3118)
