@@ -16,7 +16,6 @@ _data = {
 script = ExtResource("2_3be5q")
 
 [node name="Sprite2D" parent="FlipAbles" index="0"]
-scale = Vector2(0.22045064, 0.22045064)
 texture = ExtResource("2_cmh26")
 hframes = 6
 

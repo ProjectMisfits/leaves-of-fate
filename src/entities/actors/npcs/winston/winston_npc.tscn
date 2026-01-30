@@ -14,7 +14,7 @@ script = ExtResource("2_dx7yp")
 
 [node name="Sprite2D" parent="FlipAbles" index="0"]
 position = Vector2(-15.000002, -16.000002)
-scale = Vector2(0.2659133, 0.2659133)
+scale = Vector2(1.5, 1.5)
 texture = SubResource("CompressedTexture2D_tg4e0")
 
 [node name="CollisionShape2D" parent="." index="1"]

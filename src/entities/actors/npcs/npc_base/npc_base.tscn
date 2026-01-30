@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://du42aku0qy3o5" path="res://src/ui/dialogue_boxes/balloon.tscn" id="4_jemv2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r615y"]
-size = Vector2(120, 167)
+size = Vector2(128, 128)
 
 [node name="NpcBase" type="CharacterBody2D"]
 collision_layer = 16
@@ -17,7 +17,6 @@ balloon = ExtResource("4_jemv2")
 [node name="FlipAbles" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="FlipAbles"]
-scale = Vector2(1, 1.328125)
 texture = ExtResource("3_r615y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
