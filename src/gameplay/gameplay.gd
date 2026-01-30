@@ -20,10 +20,6 @@ func _ready() -> void:
 	
 	player.player_knocked_out.connect(respawn_player)
 
-# wil
-func _process(delta: float) -> void:
-		_pause_and_unpause_game()
-
 # Called once every physics tick.
 func _physics_process(_delta: float) -> void:
 	DebugMenu.add_debug_property("Current Room", current_room.name, 0)
@@ -55,7 +51,7 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String)-> void
 
 ## UI FUNCTIONALITY 
 # Pauses game 
-func _pause_and_unpause_game() -> void:
+func toggle_pause() -> void:
 	# checks for inputs mapped to pause 
 	if Input.is_action_just_pressed(&"pause"):
 		if (!get_tree().paused): 

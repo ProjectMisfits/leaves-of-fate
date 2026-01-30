@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://daw5s2hjs0tq1"]
 
-[ext_resource type="Texture2D" uid="uid://cltutcxjx8jnl" path="res://demo/assets/dummy.png" id="1_61k7g"]
 [ext_resource type="Script" uid="uid://dk0iwbdqxv53f" path="res://src/actors/npc/npc_base/npc_base.gd" id="1_jemv2"]
 [ext_resource type="PackedScene" uid="uid://bgs8q2xm7mv1l" path="res://src/utilities/interactable/interactable.tscn" id="3_6fqar"]
+[ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="3_r615y"]
 [ext_resource type="PackedScene" uid="uid://du42aku0qy3o5" path="res://src/ui/dialogue_boxes/balloon.tscn" id="4_jemv2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r615y"]
@@ -17,7 +17,8 @@ balloon = ExtResource("4_jemv2")
 [node name="FlipAbles" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="FlipAbles"]
-texture = ExtResource("1_61k7g")
+scale = Vector2(1, 1.328125)
+texture = ExtResource("3_r615y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
