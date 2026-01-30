@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://5sxbg0rp0hpc"]
+[gd_scene load_steps=3 format=4 uid="uid://5sxbg0rp0hpc"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_1b7dh"]
 [ext_resource type="PackedScene" uid="uid://cnhvjqd23j3hu" path="res://src/actors/enemies/ice_cube/ice_scream.tscn" id="2_e7iqb"]
 
 [node name="TEST_IceScream" instance=ExtResource("1_1b7dh")]
+
+[node name="Midground" parent="MidgroundLayer" index="0"]
+tile_map_data = PackedByteArray("AAAAAAgAAwAAAAAAAAABAAgAAwAAAAAAAAACAAgAAwAAAAAAAAADAAgAAwAAAAAAAAAEAAgAAwAAAAAAAAAFAAgAAwAAAAAAAAAGAAgAAwAAAAAAAAAHAAgAAwAAAAAAAAAIAAgAAwAAAAAAAAAJAAgAAwAAAAAAAAAKAAgAAwAAAAAAAAALAAgAAwAAAAAAAAAMAAgAAwAAAAAAAAANAAgAAwAAAAAAAAAOAAgAAwAAAAAAAAD//wgAAwAAAAAAAAD//wcAAwAAAAAAAAD//wYAAwAAAAAAAAD//wUAAwAAAAAAAAAPAAgAAwAAAAAAAAAPAAcAAwAAAAAAAAAPAAYAAwAAAAAAAAAPAAUAAwAAAAAAAAA=")
 
 [node name="IceScream" parent="." index="3" instance=ExtResource("2_e7iqb")]
 position = Vector2(1233, 920)

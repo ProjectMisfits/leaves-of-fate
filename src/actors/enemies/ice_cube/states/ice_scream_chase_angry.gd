@@ -8,6 +8,6 @@ func _enter() -> void:
 
 
 func _update(delta: float) -> void:
-	agent.move(agent.charge_speed_angry,delta)
+	agent.move_angry(delta)
 	agent.check_wall()
 	pass

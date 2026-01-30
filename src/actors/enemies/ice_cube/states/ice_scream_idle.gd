@@ -9,6 +9,8 @@ func _enter() -> void:
 
 
 func _update(delta: float) -> void:
+	agent.move_idle(delta)
 	agent.check_for_player()
 	pass
+
 	

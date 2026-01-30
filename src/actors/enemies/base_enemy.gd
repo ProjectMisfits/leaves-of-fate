@@ -7,7 +7,7 @@ class_name Enemy
 @onready var flip_node : Node2D = $FlipNode
 
 #enemy max health
-@export var max_health : int = 1
+var max_health : int
 #enemy current health
 var cur_health : int
 #The intial direction of the enemy
@@ -17,7 +17,6 @@ var player_last_known_pos : Vector2
 
 
 func _ready() -> void:
-	cur_health = max_health
 	intialize_statemachine()
 	look_direction = flip_node.scale.x
 	pass
@@ -28,13 +27,28 @@ func intialize_statemachine()-> void:
 	state_machine.set_active(true)
 
 
-func _physics_process(delta: float) -> void:
-	
+func _physics_process(_delta: float) -> void:
+	move_and_slide()
 	pass
 
-func move_horizontal(direction:float,speed:float,delta: float)->void:
-
-	velocity.x += direction * (speed + delta)
+#code for horizontal movement for enemies that includes acceleration and deceleration
+func move_horizontal(direction:float,acceleration:float,deceleration: float,delta: float,turn_speed:float,max_speed:float)->void:
+	var new_velocity: float = 0.0
+	var new_acceleration: float = 0.0
+	
+	if (is_on_wall()):
+		new_velocity = 0.0
+	elif (direction == 0.0): # No direction 
+		new_velocity = move_toward(velocity.x, 0, deceleration)
+		
+	if (signf(direction) == signf(velocity.x)): 	# Direction matches current velocity
+		new_acceleration = direction * acceleration * delta
+	else: 											# Direction is opposite to current velocity
+		new_acceleration = direction * turn_speed *delta
+	
+	new_velocity = clampf(velocity.x + new_acceleration, -max_speed, max_speed)
+	
+	velocity.x = new_velocity
 	pass
 
 
@@ -54,8 +68,8 @@ func check_player_visible()->bool:
 	if player.size() > 0:
 		#Player is spoted in idle state chargem
 		#If the player is behind the ice cube, flip it then charge
-		var player_abs_x = abs(player[0].global_position.x)
-		var enemy_abs_x = abs(global_position.x)
+		var player_abs_x : float= abs(player[0].global_position.x)
+		var enemy_abs_x :float = abs(global_position.x)
 		
 		if(player_abs_x-enemy_abs_x< 0) and look_direction == 1:
 			flip()
