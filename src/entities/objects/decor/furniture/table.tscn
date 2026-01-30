@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7j64qhjhyt7o"]
+
+[ext_resource type="Texture2D" uid="uid://trq8l16yarnk" path="res://assets/entities/objects/decor/furniture/Table-Prop.png" id="1_k2wti"]
+
+[node name="Table" type="Sprite2D"]
+texture = ExtResource("1_k2wti")

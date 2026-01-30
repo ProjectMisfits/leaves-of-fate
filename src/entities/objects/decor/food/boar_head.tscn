@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://deu2abme5ohr7"]
+
+[ext_resource type="Texture2D" uid="uid://d12wggiw7s1kv" path="res://assets/entities/objects/decor/food/BoarHead-Prop.png" id="1_0wiku"]
+
+[node name="BoarHead" type="Sprite2D"]
+texture = ExtResource("1_0wiku")
