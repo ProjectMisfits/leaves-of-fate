@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="2_rl4x8"]
 [ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="3_j167u"]
 [ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="4_omo06"]
-[ext_resource type="Texture2D" uid="uid://bykro1gcxr2hb" path="res://assets/ui/ControllerMap-UI-001.png" id="5_omo06"]
+[ext_resource type="Texture2D" uid="uid://bykro1gcxr2hb" path="res://assets/ui/settings/ControllerMap-UI-001.png" id="5_omo06"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1t2k0"]
 texture = ExtResource("1_c6ako")
