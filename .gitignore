@@ -1,6 +1,8 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+.DS_Store
+
 
 # Addon-specific ignores
 /addons/limboai/bin/~liblimboai.windows.editor.x86_64.dll
