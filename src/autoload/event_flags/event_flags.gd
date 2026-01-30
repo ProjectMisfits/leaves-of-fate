@@ -58,13 +58,13 @@ func update_num_heaters_activated() -> void:
 		new_num_heaters_activated += 1
 	
 	num_heaters_actived = new_num_heaters_activated
-	
 	#print("Number of Heaters Activated: ", num_heaters_actived)
 
 # Updates winston_name; changes depending on which conversation flags have been triggered.
 func update_winston_name() -> void:
 	var new_winston_name: String = ""
 	
+	# TODO: Replace the conditional below with the proper event flags
 	if (_event_flags.get("ws_meet_cellar_general_triggered")):
 		new_winston_name = "Winston"
 	else:
