@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://clfv0vvbc4hdy" path="res://src/rooms/room.gd" id="1_t665v"]
 [ext_resource type="TileSet" uid="uid://i6wi7xcus3i" path="res://assets/rooms/tileset/TS_Cellar.tres" id="2_7i7i2"]
-[ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/objects/door/door.tscn" id="2_pdypr"]
+[ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/door/door.tscn" id="2_pdypr"]
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_t665v")

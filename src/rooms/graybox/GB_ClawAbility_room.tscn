@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=4 uid="uid://cin3kjs7kgxsa"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_6giuo"]
-[ext_resource type="Texture2D" uid="uid://cxeshi0vxbj6j" path="res://assets/objects/props/architecture/Pillar-Base-03.png" id="2_calw1"]
-[ext_resource type="Texture2D" uid="uid://cjju8aees3cwb" path="res://assets/objects/props/architecture/Pillar-Trunk-02.png" id="2_fq6ak"]
-[ext_resource type="Texture2D" uid="uid://duhwmlrvll5l" path="res://assets/objects/props/architecture/Pillar-Cap-02.png" id="4_wbttp"]
-[ext_resource type="PackedScene" uid="uid://cjmtdwm7l0dpi" path="res://src/objects/obstacles/platforms/grabbable_platform/grabbable_platform.tscn" id="5_bpnkn"]
+[ext_resource type="Texture2D" uid="uid://cxeshi0vxbj6j" path="res://assets/entities/objects/decor/pillars/Pillar-Base-03.png" id="2_calw1"]
+[ext_resource type="Texture2D" uid="uid://cjju8aees3cwb" path="res://assets/entities/objects/decor/pillars/Pillar-Trunk-02.png" id="2_fq6ak"]
+[ext_resource type="Texture2D" uid="uid://duhwmlrvll5l" path="res://assets/entities/objects/decor/pillars/Pillar-Cap-02.png" id="4_wbttp"]
+[ext_resource type="PackedScene" uid="uid://cjmtdwm7l0dpi" path="res://src/entities/objects/grabbable_platform/grabbable_platform.tscn" id="5_bpnkn"]
 
 [sub_resource type="Curve2D" id="Curve2D_bpnkn"]
 resource_local_to_scene = true

@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://chw0bdk6ofttj"]
+
+[ext_resource type="Script" uid="uid://clfv0vvbc4hdy" path="res://src/rooms/room.gd" id="1_4rb51"]
+[ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/door/door.tscn" id="3_xu6gu"]
+
+[node name="Room" type="Node2D"]
+script = ExtResource("1_4rb51")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Collision" type="Node2D" parent="."]
+
+[node name="Entities" type="Node2D" parent="."]
+
+[node name="Hazards" type="Node2D" parent="Entities"]
+
+[node name="Movables" type="Node2D" parent="Entities"]
+
+[node name="Triggers" type="Node2D" parent="Entities"]
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="DoorEnter" parent="Doors" instance=ExtResource("3_xu6gu")]
+position = Vector2(448, 936)
+door_name = "enter"
+target_door_name = "exit"
+
+[node name="DoorExit" parent="Doors" instance=ExtResource("3_xu6gu")]
+position = Vector2(1472, 936)
+door_name = "exit"
+target_door_name = "enter"
+
+[node name="PlayerHolder" type="Node2D" parent="."]
+
+[node name="Decor" type="Node2D" parent="."]

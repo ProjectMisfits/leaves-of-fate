@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=4 uid="uid://bjo42csk7sdc3"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_2oqwi"]
-[ext_resource type="Texture2D" uid="uid://bv5go5tyxtlcd" path="res://assets/objects/props/architecture/Pillar-Trunk-04.png" id="2_fm61i"]
-[ext_resource type="PackedScene" uid="uid://dv6448b476yos" path="res://src/objects/hazards/icicle/icicle_06.tscn" id="2_nnbk5"]
-[ext_resource type="PackedScene" uid="uid://bj7fv2e6r3bp5" path="res://src/objects/hazards/icicle/icicle_05.tscn" id="3_45ymd"]
-[ext_resource type="Texture2D" uid="uid://idvn1h1vmemf" path="res://assets/objects/props/architecture/Pillar-Cap-03.png" id="3_ptimp"]
-[ext_resource type="PackedScene" uid="uid://b5pl5cenkmlqy" path="res://src/objects/hazards/icicle/icicle_04.tscn" id="4_bs4a6"]
+[ext_resource type="Texture2D" uid="uid://bv5go5tyxtlcd" path="res://assets/entities/objects/decor/pillars/Pillar-Trunk-04.png" id="2_fm61i"]
+[ext_resource type="PackedScene" uid="uid://dv6448b476yos" path="res://src/entities/hazards/icicle/icicle_06.tscn" id="2_nnbk5"]
+[ext_resource type="PackedScene" uid="uid://bj7fv2e6r3bp5" path="res://src/entities/hazards/icicle/icicle_05.tscn" id="3_45ymd"]
+[ext_resource type="Texture2D" uid="uid://idvn1h1vmemf" path="res://assets/entities/objects/decor/pillars/Pillar-Cap-03.png" id="3_ptimp"]
+[ext_resource type="PackedScene" uid="uid://b5pl5cenkmlqy" path="res://src/entities/hazards/icicle/icicle_04.tscn" id="4_bs4a6"]
 
 [node name="GB_LongJump" instance=ExtResource("1_2oqwi")]
 

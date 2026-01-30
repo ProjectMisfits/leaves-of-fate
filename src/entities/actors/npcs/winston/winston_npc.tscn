@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://1r1id251x1o4"]
+
+[ext_resource type="PackedScene" uid="uid://daw5s2hjs0tq1" path="res://src/entities/actors/npcs/npc_base/npc_base.tscn" id="1_tg4e0"]
+[ext_resource type="Script" uid="uid://b6b2d6iljnfvs" path="res://src/entities/actors/npcs/winston/winston_npc.gd" id="2_dx7yp"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tg4e0"]
+load_path = "res://.godot/imported/winston_placeHolder_01.png-da702a6b32a3e5d73c945ff4a0df1a3f.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dx7yp"]
+size = Vector2(120, 167)
+
+[node name="WinstonNpc" instance=ExtResource("1_tg4e0")]
+script = ExtResource("2_dx7yp")
+
+[node name="Sprite2D" parent="FlipAbles" index="0"]
+position = Vector2(-15.000002, -16.000002)
+scale = Vector2(0.2659133, 0.2659133)
+texture = SubResource("CompressedTexture2D_tg4e0")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -17.5)
+shape = SubResource("RectangleShape2D_dx7yp")
