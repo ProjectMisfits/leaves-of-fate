@@ -9,7 +9,7 @@ class_name Gameplay extends Node2D
 var current_room: Room = null
 
 ## The player object.
-var player: Player = preload("res://src/actors/characters/player/player.tscn").instantiate()
+var player: Player = preload("res://src/entities/actors/characters/player/player.tscn").instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
