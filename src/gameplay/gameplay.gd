@@ -19,12 +19,6 @@ func _ready() -> void:
 	current_room.spawn_player(player, 'enter')
 	
 	player.player_knocked_out.connect(respawn_player)
-	
-	process_mode = Node.PROCESS_MODE_ALWAYS
-
-# wil
-func _process(delta: float) -> void:
-		_pause_and_unpause_game()
 
 # Called once every physics tick.
 func _physics_process(_delta: float) -> void:
@@ -57,10 +51,9 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String)-> void
 
 ## UI FUNCTIONALITY 
 # Pauses game 
-func _pause_and_unpause_game() -> void:
+func toggle_pause() -> void:
 	# checks for inputs mapped to pause 
 	if Input.is_action_just_pressed(&"pause"):
-		
 		if (!get_tree().paused): 
 			# pauses entire tree and opens pause menu
 			get_tree().paused = true
@@ -91,7 +84,7 @@ func _resume_game() -> void:
 # Quits game from pause menu
 func _quit_game() -> void:
 	# unpauses tree and then swtiches out of gameplay scene to main menu scene 
-	get_tree().paused = false 
+	get_tree().paused = false
 	SceneManager.swap_scenes("res://src/ui/main_menu/main_menu.tscn", null, self)
 
 # Opens settings menu from pause menu
