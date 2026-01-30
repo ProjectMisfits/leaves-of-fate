@@ -8,19 +8,33 @@ class_name IceScream
 @onready var death_state : LimboState = $LimboHSM/Death
 @onready var ice_cube_sprite : = $FlipNode/Sprite2D
 
+@export var database : JSON = null
+
 #Speed when idle
-const IDLE_SPEED : float = 10
+var idle_speed : float
 #Speed when charging normally
-const CHARGE_SPEED : float = 10
+var charge_speed : float 
 #Speed when charging ANGRY
-const CHARGE_SPEED_ANGRY : float = 20
+var charge_speed_angry : float
 #Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity: int 
 #The range at which the ice cube needs to get near the last know position of the player
-@export var end_range : int = 4
+var end_range : int
 
 
-
+func _enter_tree() -> void:
+	if (database != null):
+		var db_data: Dictionary = database.data
+		initialize_data(db_data)
+	else:
+		push_error("Database is equal to 'null'.")
+		
+func initialize_data(data: Dictionary) -> void:
+	idle_speed = data["idle_speed"]
+	charge_speed = data["charge_speed"]
+	charge_speed_angry = data["charge_speed_angry"]
+	gravity = data["gravity"]
+	end_range = data["end_range"]
 
 
 func _ready() -> void:

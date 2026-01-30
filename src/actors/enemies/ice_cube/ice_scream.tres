@@ -1,0 +1,10 @@
+[gd_resource type="JSON" format=3 uid="uid://disdrdqnqvu7p"]
+
+[resource]
+data = {
+&"charge_speed": 10.0,
+&"charge_speed_angry": 20.0,
+&"end_range": 4,
+&"gravity": 980,
+&"idle_speed": 10.0
+}

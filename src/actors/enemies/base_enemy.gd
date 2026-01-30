@@ -54,11 +54,14 @@ func check_player_visible()->bool:
 	if player.size() > 0:
 		#Player is spoted in idle state chargem
 		#If the player is behind the ice cube, flip it then charge
-		if(abs(player[0].global_position.x)-abs(global_position.x) < 0) and look_direction == 1:
+		var player_abs_x = abs(player[0].global_position.x)
+		var enemy_abs_x = abs(global_position.x)
+		
+		if(player_abs_x-enemy_abs_x< 0) and look_direction == 1:
 			flip()
 			
 			
-		elif (abs(player[0].global_position.x)-abs(global_position.x) > 0) and look_direction == -1:
+		elif (player_abs_x-enemy_abs_x > 0) and look_direction == -1:
 			flip()
 			
 		player_last_known_pos = player[0].global_position
