@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3wglsph8i5hq"]
-
-[ext_resource type="Texture2D" uid="uid://csbtgdyfulq48" path="res://assets/entities/objects/decor/plants/FloorPotA-Prop.png" id="1_20g4j"]
-
-[node name="FloorPot01" type="Sprite2D"]
-texture = ExtResource("1_20g4j")

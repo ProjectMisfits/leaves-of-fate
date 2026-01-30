@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt8rip14nbobd"]
-
-[ext_resource type="Texture2D" uid="uid://vn4i7kvciag4" path="res://assets/entities/objects/decor/plants/HangingPlant-Prop-01.png" id="1_55xbw"]
-
-[node name="HangingPot01" type="Sprite2D"]
-texture = ExtResource("1_55xbw")

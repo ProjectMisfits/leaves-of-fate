@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7t7pc0jj7gxa"]
+
+[ext_resource type="Texture2D" uid="uid://rqirsuqouub4" path="res://assets/entities/decor/plants/HangingPlant-Prop-02.png" id="1_nw453"]
+
+[node name="HangingPot02" type="Sprite2D"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_nw453")

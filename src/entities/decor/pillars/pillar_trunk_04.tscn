@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://lyc1bsnodr4q"]
+
+[ext_resource type="Texture2D" uid="uid://bv5go5tyxtlcd" path="res://assets/entities/decor/pillars/Pillar-Trunk-04.png" id="1_cu4yg"]
+
+[node name="PillarTrunk04" type="Sprite2D"]
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("1_cu4yg")

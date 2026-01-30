@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxrltvpyhtsin"]
-
-[ext_resource type="Texture2D" uid="uid://cfc6ffhqo35kx" path="res://assets/entities/objects/decor/food/Wine-Prop.png" id="1_gtad8"]
-
-[node name="Wine" type="Sprite2D"]
-texture = ExtResource("1_gtad8")

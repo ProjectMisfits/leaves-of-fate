@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://78p4lxwgdq5n"]
+[gd_scene load_steps=35 format=3 uid="uid://78p4lxwgdq5n"]
 
 [ext_resource type="Texture2D" uid="uid://dvmqfcdwe36eo" path="res://assets/entities/actors/npcs/az/Az-SpriteSheet-Idle-01.png" id="1_6nour"]
 [ext_resource type="Texture2D" uid="uid://bobecrpwgxhv4" path="res://assets/entities/actors/npcs/winston/winston_placeHolder_01.png" id="2_5u77h"]
@@ -10,22 +10,30 @@
 [ext_resource type="Texture2D" uid="uid://44yrl3bsd17t" path="res://assets/entities/hazards/icicle/Icicle-04.png" id="8_bhrpm"]
 [ext_resource type="Texture2D" uid="uid://dtlb7dnnba4ka" path="res://assets/entities/hazards/icicle/Icicle-05.png" id="9_psiks"]
 [ext_resource type="Texture2D" uid="uid://dtdlidtnfkuah" path="res://assets/entities/hazards/icicle/Icicle-06.png" id="10_4keto"]
-[ext_resource type="Texture2D" uid="uid://dr6ums5lxbj38" path="res://assets/entities/objects/decor/pillars/Pillar-Base-01.png" id="11_4qwbf"]
-[ext_resource type="Texture2D" uid="uid://unoh1cihevkr" path="res://assets/entities/objects/decor/pillars/Pillar-Base-02.png" id="12_1o4i6"]
-[ext_resource type="Texture2D" uid="uid://cxeshi0vxbj6j" path="res://assets/entities/objects/decor/pillars/Pillar-Base-03.png" id="13_ea3c5"]
-[ext_resource type="Texture2D" uid="uid://7bm7jev1u280" path="res://assets/entities/objects/decor/pillars/Pillar-Cap-01.png" id="14_2i3r0"]
-[ext_resource type="Texture2D" uid="uid://duhwmlrvll5l" path="res://assets/entities/objects/decor/pillars/Pillar-Cap-02.png" id="15_intwn"]
-[ext_resource type="Texture2D" uid="uid://idvn1h1vmemf" path="res://assets/entities/objects/decor/pillars/Pillar-Cap-03.png" id="16_f2ccx"]
-[ext_resource type="Texture2D" uid="uid://drvyo52m6eg0b" path="res://assets/entities/objects/decor/pillars/Pillar-Trunk-01.png" id="17_iqbef"]
-[ext_resource type="Texture2D" uid="uid://cjju8aees3cwb" path="res://assets/entities/objects/decor/pillars/Pillar-Trunk-02.png" id="18_lste5"]
-[ext_resource type="Texture2D" uid="uid://ckh12uttawcnl" path="res://assets/entities/objects/decor/pillars/Pillar-Trunk-03.png" id="19_dp6n5"]
-[ext_resource type="Texture2D" uid="uid://bv5go5tyxtlcd" path="res://assets/entities/objects/decor/pillars/Pillar-Trunk-04.png" id="20_a3jsd"]
-[ext_resource type="Texture2D" uid="uid://drdoc0iukr4ue" path="res://assets/entities/objects/decor/plants/FloorPotB-Prop.png" id="21_jydup"]
-[ext_resource type="Texture2D" uid="uid://vn4i7kvciag4" path="res://assets/entities/objects/decor/plants/HangingPlant-Prop-01.png" id="22_12x6h"]
-[ext_resource type="Texture2D" uid="uid://rqirsuqouub4" path="res://assets/entities/objects/decor/plants/HangingPlant-Prop-02.png" id="23_5ijqs"]
+[ext_resource type="Texture2D" uid="uid://dr6ums5lxbj38" path="res://assets/entities/decor/pillars/Pillar-Base-01.png" id="11_4qwbf"]
+[ext_resource type="Texture2D" uid="uid://unoh1cihevkr" path="res://assets/entities/decor/pillars/Pillar-Base-02.png" id="12_1o4i6"]
+[ext_resource type="Texture2D" uid="uid://cxeshi0vxbj6j" path="res://assets/entities/decor/pillars/Pillar-Base-03.png" id="13_ea3c5"]
+[ext_resource type="Texture2D" uid="uid://7bm7jev1u280" path="res://assets/entities/decor/pillars/Pillar-Cap-01.png" id="14_2i3r0"]
+[ext_resource type="Texture2D" uid="uid://duhwmlrvll5l" path="res://assets/entities/decor/pillars/Pillar-Cap-02.png" id="15_intwn"]
+[ext_resource type="Texture2D" uid="uid://idvn1h1vmemf" path="res://assets/entities/decor/pillars/Pillar-Cap-03.png" id="16_f2ccx"]
+[ext_resource type="Texture2D" uid="uid://drvyo52m6eg0b" path="res://assets/entities/decor/pillars/Pillar-Trunk-01.png" id="17_iqbef"]
+[ext_resource type="Texture2D" uid="uid://cjju8aees3cwb" path="res://assets/entities/decor/pillars/Pillar-Trunk-02.png" id="18_lste5"]
+[ext_resource type="Texture2D" uid="uid://ckh12uttawcnl" path="res://assets/entities/decor/pillars/Pillar-Trunk-03.png" id="19_dp6n5"]
+[ext_resource type="Texture2D" uid="uid://bv5go5tyxtlcd" path="res://assets/entities/decor/pillars/Pillar-Trunk-04.png" id="20_a3jsd"]
+[ext_resource type="Texture2D" uid="uid://drdoc0iukr4ue" path="res://assets/entities/decor/plants/FloorPotB-Prop.png" id="21_jydup"]
+[ext_resource type="Texture2D" uid="uid://vn4i7kvciag4" path="res://assets/entities/decor/plants/HangingPlant-Prop-01.png" id="22_12x6h"]
+[ext_resource type="Texture2D" uid="uid://rqirsuqouub4" path="res://assets/entities/decor/plants/HangingPlant-Prop-02.png" id="23_5ijqs"]
 [ext_resource type="Texture2D" uid="uid://bne4vg4ywan02" path="res://assets/ui/dialogue_boxes/DialogueBoxAz-UI-001.png" id="24_vx82f"]
 [ext_resource type="Texture2D" uid="uid://dk5bpfuimu5cp" path="res://assets/ui/dialogue_boxes/DialogueBoxFenn-UI-001.png" id="25_503cj"]
 [ext_resource type="Texture2D" uid="uid://dco77mb0p8ecg" path="res://assets/entities/actors/characters/player/player_placeholder.png" id="26_ad1v0"]
+[ext_resource type="PackedScene" uid="uid://c3wglsph8i5hq" path="res://src/entities/decor/plants/floor_pot_01.tscn" id="27_5u77h"]
+[ext_resource type="PackedScene" uid="uid://b0wlcwvvy8ru2" path="res://src/entities/decor/furniture/chairs.tscn" id="28_gooil"]
+[ext_resource type="PackedScene" uid="uid://b7j64qhjhyt7o" path="res://src/entities/decor/furniture/table.tscn" id="29_y4lt4"]
+[ext_resource type="PackedScene" uid="uid://deu2abme5ohr7" path="res://src/entities/decor/food/boar_head.tscn" id="30_iitwy"]
+[ext_resource type="PackedScene" uid="uid://cluoychij4hex" path="res://src/entities/decor/food/bread.tscn" id="31_bhrpm"]
+[ext_resource type="PackedScene" uid="uid://c7fe4dvse0qy0" path="res://src/entities/decor/food/cheese.tscn" id="32_iitwy"]
+[ext_resource type="PackedScene" uid="uid://bq3mv3nwc10c6" path="res://src/entities/decor/food/fruit_bowl.tscn" id="33_bhrpm"]
+[ext_resource type="PackedScene" uid="uid://bxrltvpyhtsin" path="res://src/entities/decor/food/wine.tscn" id="34_psiks"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -124,7 +132,7 @@ texture = ExtResource("20_a3jsd")
 
 [node name="FloorPotBProp" type="Sprite2D" parent="."]
 position = Vector2(2511.75, -424.21396)
-scale = Vector2(1.3025079, 1.3025079)
+scale = Vector2(1.3, 1.3)
 texture = ExtResource("21_jydup")
 
 [node name="HangingPlantProp01" type="Sprite2D" parent="."]
@@ -181,3 +189,27 @@ texture = ExtResource("26_ad1v0")
 position = Vector2(-2987, -232)
 scale = Vector2(3, 3)
 texture = ExtResource("26_ad1v0")
+
+[node name="FloorPot01" parent="." instance=ExtResource("27_5u77h")]
+position = Vector2(3301, -422.00003)
+
+[node name="Chairs" parent="." instance=ExtResource("28_gooil")]
+position = Vector2(-5593, -417)
+
+[node name="Table" parent="." instance=ExtResource("29_y4lt4")]
+position = Vector2(-5557, -193)
+
+[node name="BoarHead" parent="." instance=ExtResource("30_iitwy")]
+position = Vector2(-5553, -543)
+
+[node name="Bread" parent="." instance=ExtResource("31_bhrpm")]
+position = Vector2(-5073, -449.00003)
+
+[node name="Cheese" parent="." instance=ExtResource("32_iitwy")]
+position = Vector2(-6125, -558)
+
+[node name="FruitBowl" parent="." instance=ExtResource("33_bhrpm")]
+position = Vector2(-6544, -497)
+
+[node name="Wine" parent="." instance=ExtResource("34_psiks")]
+position = Vector2(-4631, -572.00006)
