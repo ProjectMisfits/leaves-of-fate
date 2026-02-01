@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxsueiv8fn1tr"]
+
+[ext_resource type="Texture2D" uid="uid://i71oyk5o8o68" path="res://assets/particle_effects/WhiteCircle-ParticleAsset-001.png" id="1_nd6wb"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nd6wb"]
+
+[sub_resource type="Curve" id="Curve_nd6wb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.30912477, 1), 0.0, 0.0, 0, 0, Vector2(0.56238365, 0.037685037), 0.21751387, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_i2cac"]
+curve = SubResource("Curve_nd6wb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i2cac"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(40, 1, 1)
+gravity = Vector3(0, -50, 0)
+scale_min = 0.29999998
+scale_max = 0.5
+alpha_curve = SubResource("CurveTexture_i2cac")
+
+[node name="IceSpikeFog" type="GPUParticles2D"]
+modulate = Color(0.57254905, 0.9843137, 0.99215686, 0.3882353)
+material = SubResource("CanvasItemMaterial_nd6wb")
+amount = 20
+texture = ExtResource("1_nd6wb")
+lifetime = 3.3499999999999996
+preprocess = 0.5
+trail_enabled = true
+trail_lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_i2cac")

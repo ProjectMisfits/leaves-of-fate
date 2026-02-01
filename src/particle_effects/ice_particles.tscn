@@ -1,6 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck6tjlibantmc"]
+[gd_scene load_steps=10 format=3 uid="uid://ck6tjlibantmc"]
 
-[ext_resource type="Texture2D" uid="uid://6452gvwuyalq" path="res://assets/particle_effects/ice/Pixel.png" id="1_viqcr"]
+[ext_resource type="Texture2D" uid="uid://c0hixrjtaya17" path="res://assets/particle_effects/ice/ice_shard_sheet.png" id="1_viqcr"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_i1jyc"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="Curve" id="Curve_viqcr"]
 _data = [Vector2(0.0055865906, 0), 0.0, 0.0, 0, 0, Vector2(0.31471136, 1), -0.42537615, -0.42537615, 0, 0]
@@ -38,9 +44,11 @@ tangential_accel_curve = SubResource("CurveTexture_10ibm")
 scale_min = 0.0
 scale_max = 0.25
 alpha_curve = SubResource("CurveTexture_i1jyc")
+anim_offset_max = 1.0
 
 [node name="IceParticles" type="GPUParticles2D"]
-modulate = Color(0.7176471, 0.99215686, 0.99607843, 1)
+modulate = Color(0.7176471, 0.99215686, 0.99607843, 0.4117647)
+material = SubResource("CanvasItemMaterial_i1jyc")
 amount = 80
 texture = ExtResource("1_viqcr")
 lifetime = 10.0

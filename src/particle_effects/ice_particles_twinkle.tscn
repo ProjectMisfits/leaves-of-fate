@@ -34,10 +34,10 @@ curve = SubResource("Curve_4e0fn")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6w71w"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(100, 500, 1)
+emission_box_extents = Vector3(100, 10, 1)
 angle_min = -179.99998
 angle_max = 180.00002
-gravity = Vector3(-100, 0, 0)
+gravity = Vector3(0, -98, 0)
 radial_accel_min = -2.2351742e-06
 radial_accel_max = 19.999998
 radial_accel_curve = SubResource("CurveTexture_3xvaa")

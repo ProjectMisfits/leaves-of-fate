@@ -1,10 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://djq2dwebo0n7s"]
+[gd_scene load_steps=5 format=3 uid="uid://djq2dwebo0n7s"]
 
+[ext_resource type="PackedScene" uid="uid://cb674mvn8jogo" path="res://src/particle_effects/ice_spike_particles.tscn" id="2_bwqwy"]
 [ext_resource type="Texture2D" uid="uid://44yrl3bsd17t" path="res://assets/objects/hazards/icicle/Icicle-04.png" id="2_hcj0u"]
+[ext_resource type="PackedScene" uid="uid://dxsueiv8fn1tr" path="res://src/particle_effects/ice_spike_fog.tscn" id="3_hcj0u"]
+[ext_resource type="PackedScene" uid="uid://cd1180gypppls" path="res://src/particle_effects/ice_particles_twinkle.tscn" id="4_taon7"]
 
 [node name="IceParticlesEffectTest" type="Node2D"]
 
 [node name="Icicle04" type="Sprite2D" parent="."]
-position = Vector2(-3, -80)
+position = Vector2(-10, -68)
 scale = Vector2(0.39357597, 0.39357597)
 texture = ExtResource("2_hcj0u")
+
+[node name="IceSpikeParticles" parent="." instance=ExtResource("2_bwqwy")]
+position = Vector2(-10, 26)
+
+[node name="IceSpikeFog" parent="." instance=ExtResource("3_hcj0u")]
+position = Vector2(-13, 40)
+
+[node name="IceTwinkle" parent="." instance=ExtResource("4_taon7")]
+visible = false

@@ -175,4 +175,5 @@ visibility_rect = Rect2(-10098.115, -1122.5199, 11189.727, 2235.9546)
 position = Vector2(14082, 2980)
 
 [node name="IceParticles2" parent="." index="5" instance=ExtResource("8_tkf6c")]
+visible = false
 position = Vector2(14075, 3118)
