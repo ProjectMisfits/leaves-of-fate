@@ -66,7 +66,6 @@ var fun_value: int	# Every copy of Project Misfits is personalized
 
 # flip_node scale changes depending on Player's look direction; all children will be flipped.
 @onready var flip_node: Node2D = $FlipNode
-@onready var animated_sprite_2d: AnimatedSprite2D = $FlipNode/AnimatedSprite2D
 @onready var dash_particles: Node2D = $FlipNode/DashParticles
 
 @onready var state_machine: LimboHSM = $LimboHSM
@@ -77,6 +76,8 @@ var fun_value: int	# Every copy of Project Misfits is personalized
 @onready var dashing_state: LimboState = $LimboHSM/Dashing
 @onready var piling_state: LimboState = $LimboHSM/Piling
 @onready var cutscene_state: LimboState = $LimboHSM/Cutscene
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 ### DYNAMIC VARIABLES ###
 var current_health: int
