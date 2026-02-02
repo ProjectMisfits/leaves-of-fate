@@ -52,9 +52,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_678j2")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Panel" type="Panel" parent="CanvasLayer"]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -68,7 +67,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_678j2")
 
-[node name="Title" type="Label" parent="CanvasLayer/Panel"]
+[node name="Title" type="Label" parent="Panel"]
 layout_mode = 1
 offset_left = 65.5
 offset_top = 43.0
@@ -79,7 +78,7 @@ theme_override_fonts/font = ExtResource("2_ixl7f")
 theme_override_font_sizes/font_size = 100
 text = "Volume"
 
-[node name="VolumeControls" type="VBoxContainer" parent="CanvasLayer/Panel"]
+[node name="VolumeControls" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -94,18 +93,18 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 4
 
-[node name="MasterVolume" type="HBoxContainer" parent="CanvasLayer/Panel/VolumeControls"]
+[node name="MasterVolume" type="HBoxContainer" parent="Panel/VolumeControls"]
 custom_minimum_size = Vector2(0, 136)
 layout_mode = 2
 alignment = 1
 
-[node name="Master" type="Label" parent="CanvasLayer/Panel/VolumeControls/MasterVolume"]
+[node name="Master" type="Label" parent="Panel/VolumeControls/MasterVolume"]
 custom_minimum_size = Vector2(230, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 70
 text = "Master"
 
-[node name="MasterSlider" type="HSlider" parent="CanvasLayer/Panel/VolumeControls/MasterVolume"]
+[node name="MasterSlider" type="HSlider" parent="Panel/VolumeControls/MasterVolume"]
 custom_minimum_size = Vector2(640, 40)
 layout_mode = 2
 size_flags_vertical = 4
@@ -122,18 +121,18 @@ step = 0.001
 script = ExtResource("4_2uc65")
 bus_name = "Master"
 
-[node name="MusicVolume" type="HBoxContainer" parent="CanvasLayer/Panel/VolumeControls"]
+[node name="MusicVolume" type="HBoxContainer" parent="Panel/VolumeControls"]
 custom_minimum_size = Vector2(0, 136)
 layout_mode = 2
 alignment = 1
 
-[node name="Music" type="Label" parent="CanvasLayer/Panel/VolumeControls/MusicVolume"]
+[node name="Music" type="Label" parent="Panel/VolumeControls/MusicVolume"]
 custom_minimum_size = Vector2(230, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 70
 text = "Music"
 
-[node name="MusicSlider" type="HSlider" parent="CanvasLayer/Panel/VolumeControls/MusicVolume"]
+[node name="MusicSlider" type="HSlider" parent="Panel/VolumeControls/MusicVolume"]
 custom_minimum_size = Vector2(640, 40)
 layout_mode = 2
 size_flags_vertical = 4
@@ -150,18 +149,18 @@ step = 0.001
 script = ExtResource("4_2uc65")
 bus_name = "Music"
 
-[node name="SFXVolume" type="HBoxContainer" parent="CanvasLayer/Panel/VolumeControls"]
+[node name="SFXVolume" type="HBoxContainer" parent="Panel/VolumeControls"]
 custom_minimum_size = Vector2(0, 136)
 layout_mode = 2
 alignment = 1
 
-[node name="SFX" type="Label" parent="CanvasLayer/Panel/VolumeControls/SFXVolume"]
+[node name="SFX" type="Label" parent="Panel/VolumeControls/SFXVolume"]
 custom_minimum_size = Vector2(230, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 70
 text = "SFX"
 
-[node name="SFXSlider" type="HSlider" parent="CanvasLayer/Panel/VolumeControls/SFXVolume"]
+[node name="SFXSlider" type="HSlider" parent="Panel/VolumeControls/SFXVolume"]
 custom_minimum_size = Vector2(640, 40)
 layout_mode = 2
 size_flags_vertical = 4
@@ -178,7 +177,8 @@ step = 0.001
 script = ExtResource("4_2uc65")
 bus_name = "SFX"
 
-[node name="BackButton" type="Button" parent="CanvasLayer/Panel"]
+[node name="BackButton" type="Button" parent="Panel"]
+unique_name_in_owner = true
 process_mode = 3
 custom_minimum_size = Vector2(192, 101)
 layout_mode = 0
@@ -204,7 +204,7 @@ text = "Back
 alignment = 2
 script = ExtResource("3_wfrvw")
 
-[node name="LeafPointer" type="TextureRect" parent="CanvasLayer/Panel/BackButton"]
+[node name="LeafPointer" type="TextureRect" parent="Panel/BackButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5

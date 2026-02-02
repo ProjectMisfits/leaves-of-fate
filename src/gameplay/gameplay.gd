@@ -51,18 +51,16 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String)-> void
 ## UI FUNCTIONALITY 
 # Pauses game 
 func toggle_pause() -> void:
-	# checks for inputs mapped to pause 
-	if Input.is_action_just_pressed(&"pause"):
-		if (!get_tree().paused): 
-			# pauses entire tree and opens pause menu
-			get_tree().paused = true
-			_open_pause_menu()
-		else:
-			if has_node("PauseMenu"):
-				_resume_game()
-			elif has_node("SettingsMenu"):
-				get_tree().paused = false
-				$SettingsMenu.queue_free()
+	if (!get_tree().paused): 
+		# pauses entire tree and opens pause menu
+		get_tree().paused = true
+		_open_pause_menu()
+	else:
+		if has_node("PauseMenu"):
+			_resume_game()
+		elif has_node("SettingsMenu"):
+			get_tree().paused = false
+			$SettingsMenu.queue_free()
 
 # Creates and opens pause menu
 func _open_pause_menu() -> void:
@@ -70,9 +68,9 @@ func _open_pause_menu() -> void:
 	add_child(preload("res://src/ui/pause_menu/pause_menu.tscn").instantiate())
 	
 	# maps pause menu signals to corresponding functions in gameplay.gd
-	$PauseMenu/CanvasLayer/Panel/ControlsContainer/ResumeButton.button_up.connect(_resume_game)
-	$PauseMenu/CanvasLayer/Panel/ControlsContainer/QuitButton.button_up.connect(_quit_game)
-	$PauseMenu/CanvasLayer/Panel/ControlsContainer/SettingsButton.button_up.connect(_open_settings)
+	$PauseMenu.get_node("%ResumeButton").button_up.connect(_resume_game)
+	$PauseMenu.get_node("%QuitButton").button_up.connect(_quit_game)
+	$PauseMenu.get_node("%SettingsButton").button_up.connect(_open_settings)
 
 # Unpauses game
 func _resume_game() -> void:
@@ -93,9 +91,9 @@ func _open_settings() -> void:
 	add_child(preload("res://src/ui/settings_menu/settings_menu.tscn").instantiate())
 	
 	# maps settings menu signals to corresponding functions in gameplay.gd
-	$SettingsMenu/CanvasLayer/Panel/ControlsContainer/BackButton.button_up.connect(_exit_settings)
-	$SettingsMenu/CanvasLayer/Panel/ControlsContainer/VolumeButton.button_up.connect(_open_volume)
-	$SettingsMenu/CanvasLayer/Panel/ControlsContainer/ControlsButton.button_up.connect(_open_controls)
+	$SettingsMenu.get_node("%BackButton").button_up.connect(_exit_settings)
+	$SettingsMenu.get_node("%VolumeButton").button_up.connect(_open_volume)
+	$SettingsMenu.get_node("%ControlsButton").button_up.connect(_open_controls)
 
 # Exits setting menu back to pause menu
 func _exit_settings() -> void:
@@ -110,7 +108,7 @@ func _open_volume() -> void:
 	$SettingsMenu.hide()
 	
 	# maps volume back signal to corresponding function
-	$SettingsMenu/VolumeMenu/CanvasLayer/Panel/BackButton.button_up.connect(_close_volume)
+	$SettingsMenu/VolumeMenu.get_node("%BackButton").button_up.connect(_close_volume)
 
 # Closes volume menu 
 func _close_volume() -> void:
@@ -118,7 +116,7 @@ func _close_volume() -> void:
 	$SettingsMenu/VolumeMenu.queue_free()
 	$SettingsMenu.show()
 	# gives top button of settings menu focus again
-	$SettingsMenu/CanvasLayer/Panel/ControlsContainer/ControlsButton.grab_focus.call_deferred()
+	$SettingsMenu.get_node("%ControlsButton").grab_focus.call_deferred()
 
 # Opens controls menu from settings menu
 func _open_controls() -> void:
@@ -127,7 +125,7 @@ func _open_controls() -> void:
 	$SettingsMenu.hide()
 	
 	# maps controls back signal to corresponding function
-	$SettingsMenu/ControlsMenu/CanvasLayer/Panel/BackButton.button_up.connect(_close_controls)
+	$SettingsMenu/ControlsMenu.get_node("%BackButton").button_up.connect(_close_controls)
 
 # Closes controls menu 
 func _close_controls() -> void:
@@ -135,7 +133,7 @@ func _close_controls() -> void:
 	$SettingsMenu/ControlsMenu.queue_free()
 	$SettingsMenu.show()
 	# gives top button of settings menu focus again
-	$SettingsMenu/CanvasLayer/Panel/ControlsContainer/ControlsButton.grab_focus.call_deferred()
+	$SettingsMenu.get_node("%ControlsButton").grab_focus.call_deferred()
 
 # Resets the Player's stats & respawns them at the last door they exited.
 func respawn_player() -> void:
