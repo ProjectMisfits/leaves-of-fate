@@ -317,7 +317,10 @@ texture = ExtResource("5_vivct")
 expand_mode = 1
 stretch_mode = 4
 
-[connection signal="button_up" from="EnvelopeBase/ReturnLabelButton" to="." method="_on_return_label_button_up"]
+[node name="MenuHolder" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="button_up" from="EnvelopeBase/ReturnLabelButton" to="." method="_open_controls_menu"]
 [connection signal="button_up" from="MainSelectionsContainer/PlayButton" to="." method="_on_play_button_button_up"]
-[connection signal="button_up" from="MainSelectionsContainer/SettingsButton" to="." method="_on_settings_button_up"]
+[connection signal="button_up" from="MainSelectionsContainer/SettingsButton" to="." method="_open_settings_menu"]
 [connection signal="button_up" from="MainSelectionsContainer/ExitButton" to="." method="_on_exit_button_up"]

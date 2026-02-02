@@ -10,3 +10,10 @@ script = ExtResource("1_anqvl")
 unique_name_in_owner = true
 
 [node name="GB_GreatHall" parent="RoomHolder" instance=ExtResource("2_tr6da")]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+layer = 4
+follow_viewport_enabled = true
+
+[node name="MenuHolder" type="CanvasLayer" parent="."]
+layer = 5
