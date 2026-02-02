@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=4 uid="uid://drih50ff8ecg5"]
+
+[ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_fa00s"]
+[ext_resource type="PackedScene" uid="uid://b5pl5cenkmlqy" path="res://src/entities/hazards/icicle/icicle_04.tscn" id="3_ingee"]
+[ext_resource type="PackedScene" uid="uid://disa83btdjjsk" path="res://src/entities/objects/moving_platform/moving_platform.tscn" id="4_8obpn"]
+[ext_resource type="PackedScene" uid="uid://beub4bx6t3wvh" path="res://src/entities/hazards/icicle/icicle_01.tscn" id="5_i3fbd"]
+
+[sub_resource type="Curve2D" id="Curve2D_jvahi"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 512, 0)
+}
+point_count = 2
+
+[node name="TEST_JacobRoomDesign1" instance=ExtResource("1_fa00s")]
+
+[node name="Midground" parent="MidgroundLayer" index="0"]
+tile_map_data = PackedByteArray("AAAAAAgAAwAAAAAAAAABAAgAAwAAAAAAAAACAAgAAwAAAAAAAAADAAgAAwAAAAAAAAAEAAgAAwAAAAAAAAAFAAgAAwAAAAAAAAAGAAgAAwAAAAAAAAAHAAgAAwAAAAAAAAAIAAgAAwAAAAAAAAAJAAgAAwAAAAAAAAAKAAgAAwAAAAAAAAALAAgAAwAAAAAAAAAMAAgAAwAAAAAAAAANAAgAAwAAAAAAAAAOAAgAAwAAAAAAAAAPAAgAAwAAAAAAAAAQAAgAAwAAAAAAAAARAAgAAwAAAAAAAAASAAgAAwAAAAAAAAATAAgAAwAAAAAAAAAUAAgAAwAAAAAAAAAVAAgAAwAAAAAAAAAWAAgAAwAAAAAAAAAXAAgAAwAAAAAAAAAYAAgAAwAAAAAAAAAZAAgAAwAAAAAAAAAaAAgAAwAAAAAAAAAbAAgAAwAAAAAAAAAcAAgAAwAAAAAAAAAdAAgAAwAAAAAAAAAeAAgAAwAAAAAAAAAfAAgAAwAAAAAAAAAgAAgAAwAAAAAAAAAhAAgAAwAAAAAAAAAiAAgAAwAAAAAAAAAjAAgAAwAAAAAAAAAkAAgAAwAAAAAAAAAlAAgAAwAAAAAAAAAmAAgAAwAAAAAAAAAnAAgAAwAAAAAAAAAoAAgAAwAAAAAAAAApAAgAAwAAAAAAAAAqAAgAAwAAAAAAAAArAAgAAwAAAAAAAAAsAAgAAwAAAAAAAAAtAAgAAwAAAAAAAAAuAAgAAwAAAAAAAAAvAAgAAwAAAAAAAAAwAAgAAwAAAAAAAAAxAAgAAwAAAAAAAAAyAAgAAwAAAAAAAAAzAAgAAwAAAAAAAAA=")
+
+[node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
+position = Vector2(6409, 953)
+
+[node name="Icicle_01" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("5_i3fbd")]
+position = Vector2(1761, 1012)
+
+[node name="Icicle_04" parent="MidgroundLayer/Entities/Hazards" index="1" instance=ExtResource("3_ingee")]
+position = Vector2(1988, 1012)
+scale = Vector2(0.39999998, 0.39999998)
+
+[node name="MovingPlatform" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("4_8obpn")]
+position = Vector2(770, 138)
+curve = SubResource("Curve2D_jvahi")
