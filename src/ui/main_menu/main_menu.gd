@@ -3,7 +3,7 @@ class_name MainMenu extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$CanvasLayer/MainSelectionsContainer/PlayButton.grab_focus.call_deferred()
+	get_node("%PlayButton").grab_focus.call_deferred()
 
 func _process(delta: float) -> void:
 	_escape_menus()
@@ -15,13 +15,13 @@ func _on_play_button_button_up() -> void:
 
 func _hide_main_menu() -> void:
 	
-	$CanvasLayer/EnvelopeBase.hide()
-	$CanvasLayer/MainSelectionsContainer.hide()
+	get_node("%EnvelopeBase").hide()
+	get_node("%MainSelectionsContainer").hide()
 
 func _show_main_menu() -> void:
-	$CanvasLayer/EnvelopeBase.show()
-	$CanvasLayer/MainSelectionsContainer.show()
-	$CanvasLayer/MainSelectionsContainer/PlayButton.grab_focus.call_deferred()
+	get_node("%EnvelopeBase").show()
+	get_node("%MainSelectionsContainer").show()
+	get_node("%PlayButton").grab_focus.call_deferred()
 
 # Open settings menu when corresponding button is pressed
 func _on_settings_button_up() -> void:
@@ -29,9 +29,9 @@ func _on_settings_button_up() -> void:
 	add_child(preload("res://src/ui/settings_menu/settings_menu.tscn").instantiate())
 	
 	# maps settings menu signals to corresponding functions in gameplay.gd
-	$SettingsMenu/CanvasLayer/Panel/ControlsContainer/BackButton.button_up.connect(_exit_settings)
-	$SettingsMenu/CanvasLayer/Panel/ControlsContainer/VolumeButton.button_up.connect(_open_volume)
-	$SettingsMenu/CanvasLayer/Panel/ControlsContainer/ControlsButton.button_up.connect(_open_controls)
+	$SettingsMenu.get_node("%BackButton").button_up.connect(_exit_settings)
+	$SettingsMenu.get_node("%VolumeButton").button_up.connect(_open_volume)
+	$SettingsMenu.get_node("%ControlsButton").button_up.connect(_open_controls)
 
 # Open controls menu when corresponding button is pressed
 func _on_return_label_button_up() -> void:
@@ -54,7 +54,7 @@ func _open_volume() -> void:
 	$SettingsMenu.hide()
 	
 	# maps volume back signal to corresponding function
-	$SettingsMenu/VolumeMenu/CanvasLayer/Panel/BackButton.button_up.connect(_close_volume)
+	$SettingsMenu/VolumeMenu.get_node("%BackButton").button_up.connect(_close_volume)
 
 # Closes volume menu 
 func _close_volume() -> void:
@@ -62,7 +62,7 @@ func _close_volume() -> void:
 	$SettingsMenu/VolumeMenu.queue_free()
 	$SettingsMenu.show()
 	# gives top button of settings menu focus again
-	$SettingsMenu/CanvasLayer/Panel/ControlsContainer/ControlsButton.grab_focus.call_deferred()
+	$SettingsMenu.get_node("%ControlsButton").grab_focus.call_deferred()
 
 # Opens controls menu from settings menu
 func _open_controls() -> void:
@@ -71,13 +71,13 @@ func _open_controls() -> void:
 		$SettingsMenu.add_child(preload("res://src/ui/settings_menu/controls_menu/controls_menu.tscn").instantiate())
 		$SettingsMenu.hide()
 		# maps controls back signal to corresponding function
-		$SettingsMenu/ControlsMenu/CanvasLayer/Panel/BackButton.button_up.connect(_close_controls)
+		$SettingsMenu/ControlsMenu.get_node("%BackButton").button_up.connect(_close_controls)
 	else: 
 		# creates controls menu as child of main menu and hides main menu
 		add_child(preload("res://src/ui/settings_menu/controls_menu/controls_menu.tscn").instantiate())
 		_hide_main_menu()
 		# maps controls back signal to corresponding function
-		$ControlsMenu/CanvasLayer/Panel/BackButton.button_up.connect(_close_controls)
+		$ControlsMenu.get_node("%BackButton").button_up.connect(_close_controls)
 
 # Closes controls menu 
 func _close_controls() -> void:
@@ -86,7 +86,7 @@ func _close_controls() -> void:
 		$SettingsMenu/ControlsMenu.queue_free()
 		$SettingsMenu.show()
 		# gives top button of settings menu focus again
-		$SettingsMenu/CanvasLayer/Panel/ControlsContainer/ControlsButton.grab_focus.call_deferred()
+		$SettingsMenu.get_node("%ControlsButton").grab_focus.call_deferred()
 	else:
 		# removes controls menu and unides main menu
 		$ControlsMenu.queue_free()
