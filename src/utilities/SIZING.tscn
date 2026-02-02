@@ -35,7 +35,7 @@
 [ext_resource type="PackedScene" uid="uid://bq3mv3nwc10c6" path="res://src/entities/decor/food/fruit_bowl.tscn" id="33_bhrpm"]
 [ext_resource type="PackedScene" uid="uid://bxrltvpyhtsin" path="res://src/entities/decor/food/wine.tscn" id="34_psiks"]
 
-[node name="Node2D" type="Node2D"]
+[node name="SIZING" type="Node2D"]
 
 [node name="AzSpriteSheetIdle01" type="Sprite2D" parent="."]
 position = Vector2(1088, -339)
