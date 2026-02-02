@@ -15,7 +15,7 @@ data = {
 "ground_deceleration": 80.0,
 "ground_friction": -1.0,
 "ground_turn_speed": 80.0,
-"health": 5.0,
+"health": 3.0,
 "jump_buffer_time": 0.1,
 "jump_corner_rounding_distance": 0.0,
 "jump_coyote_time": 0.15,

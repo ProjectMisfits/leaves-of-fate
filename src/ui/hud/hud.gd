@@ -3,19 +3,22 @@ class_name Hud
 
 @onready var leaf_meter: TextureProgressBar = get_node("%LeafMeter")
 @onready var total_lives: int = 3
+@onready var player: Player = null
 
-func _ready() -> void:
-	set_player_health(2)
+func set_player(current_player: Player) -> void:
+	player = current_player
+	player.health_changed.connect(_set_player_health)
+	player.leaf_meter_changed.connect(_set_leaf_meter)
 
 # Sets the leaf meter visual to the given value if it is within 0.0 - 100.0
-func set_leaf_meter(new_value: float) -> void:
+func _set_leaf_meter(new_value: float) -> void:
 	if (new_value < 0.0) or (new_value > 100.0):
 		push_warning("Value parameter is not within 0.0 - 100.0.")
 		return
 	
 	leaf_meter.value = new_value
 
-func set_player_health(new_health: int) -> void:
+func _set_player_health(new_health: int) -> void:
 	var life_nodes: Array[Node] = [get_node("%LifeLeaf3"), get_node("%LifeLeaf2"), get_node("%LifeLeaf1")]
 	
 	if new_health > total_lives:

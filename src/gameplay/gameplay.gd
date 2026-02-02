@@ -19,6 +19,9 @@ func _ready() -> void:
 	current_room.spawn_player(player, 'enter')
 	
 	player.player_knocked_out.connect(respawn_player)
+	
+	# Passes player to the Hud so that Hud can update based on player actions
+	$%Hud.set_player(player)
 
 # Called once every physics tick.
 func _physics_process(_delta: float) -> void:
