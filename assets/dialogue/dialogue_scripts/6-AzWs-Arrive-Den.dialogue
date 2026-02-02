@@ -18,4 +18,5 @@ Az: Hey Wizard boy. You touch anything in there, I'll make sure it's the last th
 Winston: Um. Ahem. Nay promises.
 Az: I swear- ugh, Fenn, I'll be there as soon as I can.
 Fenn: Okay-eth!
+do EventFlags.set_flag("AzWs-Arrive-Den", true)
 => END

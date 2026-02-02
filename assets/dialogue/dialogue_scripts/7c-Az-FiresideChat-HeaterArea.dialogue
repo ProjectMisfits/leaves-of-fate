@@ -20,7 +20,8 @@ Fenn: No promises! Haha.
 Az: Seriously, kid. Use the bangle if you're in trouble.
 Fenn: Don't worry, I know!
 Az: Alright. Go find that heater and come on back.
-# Change this to something like "If heaters on == 0"
-if true
+do EventFlags.set_flag("Az-FiresideChat-HeaterArea", true)
+
+if EventFlags.num_heaters_activated == 0
 	=> ConditionalConvo/start
 => END

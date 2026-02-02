@@ -16,4 +16,5 @@ Az: cough. Seriously?
 Fenn: Yup!
 Az: Ugh. Whatever.
 Az runs off.
+do EventFlags.set_flag("Az-Meet-GreatHall", true)
 => END

@@ -18,7 +18,7 @@ Fenn: What if I go down through there?
 Az: That grate?
 Fenn: We have to get out of here somehow.
 Az: And if that Wizard gets his hands on my workshop...
-Az:Ugh, I hate this. Fine. You go down there, I'll find another way out of here.
+Az: Ugh, I hate this. Fine. You go down there, I'll find another way out of here.
 Az: cough And take one of these.
 Az hands Fenn the bangle
 Fenn: A bracelet?
@@ -28,4 +28,5 @@ Az: Okay, I've never, uh, tried before. But it'll be fine.
 Az: And Fenn, be careful, okay? You see anything dangerous, you get out. Got it?
 Fenn: No promises!
 Az: Ugh. Nevermind.
+do EventFlags.set_flag("Az-Stuck-Pantry", true)
 => END

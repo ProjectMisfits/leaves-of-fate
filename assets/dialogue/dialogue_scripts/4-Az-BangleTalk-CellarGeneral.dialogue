@@ -10,4 +10,5 @@ Az: Hah. You think? Thanks.
 Az: Anyways, don't let me stop you. cough.
 Fenn: You cough a lot. Are you okay?
 Az: Uh. Yeah, no, I'm fine. Just something caught in my throat.
+do EventFlags.set_flag("Az-BangleTalk-CellarGeneral", true)
 => END

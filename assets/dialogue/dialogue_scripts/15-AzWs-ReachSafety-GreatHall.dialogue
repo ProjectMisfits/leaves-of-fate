@@ -36,4 +36,5 @@ Fenn: Where could I find them?
 Winston: I think I saw Randy headeth towards the kitchen. But that's all I has't. I am sorry.
 Fenn: Well... to the kitchen!
 Fenn: End of Demo! Thanks for playing Project Misfits <3
+do EventFlags.set_flag("AzWs-ReachSafety-GreatHall", true)
 => END

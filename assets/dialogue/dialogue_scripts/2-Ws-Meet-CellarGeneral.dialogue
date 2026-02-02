@@ -32,4 +32,5 @@ Wizard: Um. Goodbye, pint-size.
 Fenn: Bye bye!
 Winston leaves
 Fenn: Oh my. What a formidable foe...
+do EventFlags.set_flag("Ws-Meet-CellarGeneral", true)
 => END
