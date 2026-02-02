@@ -2,7 +2,6 @@
 % => convo_1
 % => convo_2
 % => convo_3
-% => convo_4
 => END
 
 ~ convo_1
@@ -18,8 +17,9 @@ Fenn: So you made these bangles?
 Az: Yeah, why?
 Fenn: That's... SO COOL. How did you get these tiny little indents in there?
 Az: The... the patterns?
-Fenn: Oooo... yeah, patterns?
+Fenn: Yeah! The patterns!
 Az: I... well I carved them. It's really not that hard.
+Fenn: AWESOME.
 => END
 
 ~ convo_3
@@ -27,10 +27,3 @@ Az: I need to get my Baba out of there.
 Fenn: Well, once we defeat Mr. Wizard Man, he'll help us!
 Az: He doesn't seem to be in a helping mood, Fenn.
 => END
-
-~ convo_4
-Add More
-=> END
-
-
-

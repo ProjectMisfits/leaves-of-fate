@@ -15,33 +15,38 @@ match some_gamestate_value
 #using conditionals to branch between them
 
 ~ heater_convo_1
-	Winston: Wh-what did you do?
-	Fenn: I turned on one of the heaters!
-	Winston: WHAT? NO! STOP THAT. STOP RIGHT NOW.
-	Fenn: Az did it do anything?
-	Az: Oh yeah. I just got to the Den, and it's definitely warmer in here
-	Winston: Grrrrrrr. You'll pay for this! Just you wait. I'll make you pay for this.
-	Az: Boy, you touch anything in my workshop, and you will regret it.	
-	Winston: ...
+Wizard: Wh-What has't thou done?!
+Fenn: I turned on one of the heaters
+Wizard: WHAT? NAY! STOP THAT. STOP THAT RIGHT NOW!
+Fenn: Did it do anything, Az?
+Az: cough Uh. Yeah, it's definitely a bit warmer in here.
+Wizard: Grrrrrrr. Thou shalt pay for this. Just thee wait.
+Wizard: I'm going backeth to my workshop!
+Az: Excuse you? YOUR workshop?!
+Wizard: Ahem. Perhaps I mispoke. Um... gotta go!
+Winston leaves
+Az: Ugh!
 => END
 
 ~ heater_convo_2
-	Winston: AGAIN?! 
-	Fenn: I got another one, Az!
-	Az: Nice one, kid!
-	Winston: Stop! STOP. I'm not finished yet!
-	Az: The ice around the door definitely melted a bit!
-	Winston: NO! Please! Stop!
-	Az: Yeah? Why don't you come out of your hole and stop us?
-	Silence
-	Az: That's what I thought.
+Wizard: AGAIN?!
+Fenn: Hey Az! I got another one!
+Az: Haha! Sucks to be you, wizard boy!
+Wizard: STOP! HALT THINE HORSES!! IT'S NOT FINISHED YET!
+Az: Oh yeah, the ice around the door is definitely melting.
+Wizard: NAY! Prithee! Stop!
+Az: Oh yeah? Come out and stop us yourself.
+Wizard:...
+Winston leaves
+Az: That's what I thought.
 => END
 
 ~ heater_convo_3
-	Winston: NO WAIT! 
-	Az: Oh come on.	Fenn: What? What's wrong?
-	Az: The ice didn't melt all the way. There's still a solid block in the way.
-	Winston: Wait- wha... aha! Of course!
-	Winston: That was plan, all along! Yes. Yes! Go ahead, waste your time.
-	Az: Ignore him, Fenn. Come on back, we'll figure something out
+Winston: NO WAITETH!
+Az: Oh come on.
+Fenn: What's wrong?
+Az: That's the last heater, and the ice didn't melt all the way.
+Winston: Waiteth- wha- Aha! Of course!
+Winston: That was the planneth all 'long! Yes. Yes! Go ahead, waste thy timeth!
+Az: Ignore him, Fenn. It wasn't a waste. Come on back, we'll figure something out.
 => END

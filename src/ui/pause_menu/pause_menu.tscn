@@ -29,9 +29,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_peth0")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Panel" type="Panel" parent="CanvasLayer"]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -45,7 +44,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_u4p1g")
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+[node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 66.5
 offset_top = 49.5
@@ -56,7 +55,7 @@ theme_override_fonts/font = ExtResource("2_u4p1g")
 theme_override_font_sizes/font_size = 100
 text = "Pause"
 
-[node name="ControlsContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
+[node name="ControlsContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -67,7 +66,8 @@ offset_right = 426.0
 offset_bottom = 286.5
 grow_vertical = 2
 
-[node name="ResumeButton" type="Button" parent="CanvasLayer/Panel/ControlsContainer"]
+[node name="ResumeButton" type="Button" parent="Panel/ControlsContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(289, 101)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -87,7 +87,7 @@ text = "Resume"
 alignment = 2
 script = ExtResource("3_j7lcx")
 
-[node name="LeafPointer" type="TextureRect" parent="CanvasLayer/Panel/ControlsContainer/ResumeButton"]
+[node name="LeafPointer" type="TextureRect" parent="Panel/ControlsContainer/ResumeButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -100,7 +100,8 @@ texture = ExtResource("4_peth0")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="SettingsButton" type="Button" parent="CanvasLayer/Panel/ControlsContainer"]
+[node name="SettingsButton" type="Button" parent="Panel/ControlsContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(302, 101)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -120,7 +121,7 @@ text = "Settings"
 alignment = 2
 script = ExtResource("3_j7lcx")
 
-[node name="LeafPointer" type="TextureRect" parent="CanvasLayer/Panel/ControlsContainer/SettingsButton"]
+[node name="LeafPointer" type="TextureRect" parent="Panel/ControlsContainer/SettingsButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -133,7 +134,8 @@ texture = ExtResource("4_peth0")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="QuitButton" type="Button" parent="CanvasLayer/Panel/ControlsContainer"]
+[node name="QuitButton" type="Button" parent="Panel/ControlsContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(191, 101)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -154,7 +156,7 @@ text = "Quit
 alignment = 2
 script = ExtResource("3_j7lcx")
 
-[node name="LeafPointer" type="TextureRect" parent="CanvasLayer/Panel/ControlsContainer/QuitButton"]
+[node name="LeafPointer" type="TextureRect" parent="Panel/ControlsContainer/QuitButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
