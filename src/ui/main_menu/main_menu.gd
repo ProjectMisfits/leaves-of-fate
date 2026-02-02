@@ -1,8 +1,18 @@
 class_name MainMenu extends Control
 ## The main menu for the game.
 
+## A reference to the MenuHolder CanvasLayer.
+@onready var menu_holder: CanvasLayer = $MenuHolder
+## A reference to the settings menu scene.
+@onready var settings_menu: SettingsMenu = preload("res://src/ui/settings_menu/settings_menu.tscn").instantiate()
+## A reference to the controls menu scene.
+@onready var controls_menu: ControlsMenu = preload("res://src/ui/settings_menu/controls_menu/controls_menu.tscn").instantiate()
+## A reference to the volume menu scene.
+@onready var volume_menu: VolumeMenu = preload("res://src/ui/settings_menu/volume_menu/volume_menu.tscn").instantiate()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_connect_menu_signals()
 	get_node("%PlayButton").grab_focus.call_deferred()
 
 func _process(_delta: float) -> void:
@@ -14,7 +24,6 @@ func _on_play_button_button_up() -> void:
 	# SceneManager.swap_scenes("res://src/gameplay/gameplay.tscn", null, self)
 
 func _hide_main_menu() -> void:
-	
 	get_node("%EnvelopeBase").hide()
 	get_node("%MainSelectionsContainer").hide()
 
@@ -23,78 +32,61 @@ func _show_main_menu() -> void:
 	get_node("%MainSelectionsContainer").show()
 	get_node("%PlayButton").grab_focus.call_deferred()
 
-# Open settings menu when corresponding button is pressed
-func _on_settings_button_up() -> void:
-	_hide_main_menu()
-	add_child(preload("res://src/ui/settings_menu/settings_menu.tscn").instantiate())
-	
-	# maps settings menu signals to corresponding functions in gameplay.gd
-	$SettingsMenu.get_node("%BackButton").button_up.connect(_exit_settings)
-	$SettingsMenu.get_node("%VolumeButton").button_up.connect(_open_volume)
-	$SettingsMenu.get_node("%ControlsButton").button_up.connect(_open_controls)
-
-# Open controls menu when corresponding button is pressed
-func _on_return_label_button_up() -> void:
-	_open_controls()
-
 # Closes game when exit button pressed
 func _on_exit_button_up() -> void:
 	get_tree().quit()
 
-# Exits setting menu back to pause menu
-func _exit_settings() -> void:
-	# removes settings menu and opens new pause menu
-	$SettingsMenu.queue_free()
-	_show_main_menu()
-
-# Opens volume menu from settings menu
-func _open_volume() -> void:
-	# creates volume menu as child of settings and hides settings menu
-	$SettingsMenu.add_child(preload("res://src/ui/settings_menu/volume_menu/volume_menu.tscn").instantiate())
-	$SettingsMenu.hide()
-	
-	# maps volume back signal to corresponding function
-	$SettingsMenu/VolumeMenu.get_node("%BackButton").button_up.connect(_close_volume)
-
-# Closes volume menu 
-func _close_volume() -> void:
-	# removes volume menu and unhides settings menu 
-	$SettingsMenu/VolumeMenu.queue_free()
-	$SettingsMenu.show()
-	# gives top button of settings menu focus again
-	$SettingsMenu.get_node("%ControlsButton").grab_focus.call_deferred()
-
-# Opens controls menu from settings menu
-func _open_controls() -> void:
-	if has_node("SettingsMenu"): 
-		# creates controls menu as child of settings and hides settings menu
-		$SettingsMenu.add_child(preload("res://src/ui/settings_menu/controls_menu/controls_menu.tscn").instantiate())
-		$SettingsMenu.hide()
-		# maps controls back signal to corresponding function
-		$SettingsMenu/ControlsMenu.get_node("%BackButton").button_up.connect(_close_controls)
-	else: 
-		# creates controls menu as child of main menu and hides main menu
-		add_child(preload("res://src/ui/settings_menu/controls_menu/controls_menu.tscn").instantiate())
-		_hide_main_menu()
-		# maps controls back signal to corresponding function
-		$ControlsMenu.get_node("%BackButton").button_up.connect(_close_controls)
-
-# Closes controls menu 
-func _close_controls() -> void:
-	if has_node("SettingsMenu"):
-		# removes controls menu and unhides settings menu
-		$SettingsMenu/ControlsMenu.queue_free()
-		$SettingsMenu.show()
-		# gives top button of settings menu focus again
-		$SettingsMenu.get_node("%ControlsButton").grab_focus.call_deferred()
-	else:
-		# removes controls menu and unides main menu
-		$ControlsMenu.queue_free()
-		_show_main_menu()
-
 func _escape_menus() -> void:
 	if Input.is_action_just_pressed(&"pause"):
-		if (has_node("SettingsMenu")):
-			_exit_settings()
-		elif (has_node("ControlsMenu")):
-			_close_controls()
+		for menu: Control in menu_holder.get_children():
+			menu_holder.remove_child(menu)
+		_show_main_menu()
+
+func _connect_menu_signals() -> void:
+	# Connect settings menu
+	settings_menu.get_node("%ControlsButton").button_up.connect(_open_controls_menu)
+	settings_menu.get_node("%VolumeButton").button_up.connect(_open_volume_menu)
+	settings_menu.get_node("%BackButton").button_up.connect(_close_settings_menu)
+	# Connect controls menu
+	controls_menu.get_node("%BackButton").button_up.connect(_close_controls_menu)
+	# Connect volume menu
+	volume_menu.get_node("%BackButton").button_up.connect(_close_volume_menu)
+
+# Opens settings menu
+func _open_settings_menu() -> void:
+	menu_holder.add_child(settings_menu)
+	_hide_main_menu()
+	settings_menu.get_node("%ControlsButton").grab_focus.call_deferred()
+
+# Closes setting menu
+func _close_settings_menu() -> void:
+	get_node("%PlayButton").grab_focus.call_deferred()
+	_show_main_menu()
+	menu_holder.remove_child(settings_menu)
+
+# Opens volume menu
+func _open_volume_menu() -> void:
+	menu_holder.add_child(volume_menu)
+	volume_menu.get_node("%MasterSlider").grab_focus.call_deferred()
+
+# Closes volume menu
+func _close_volume_menu() -> void:
+	settings_menu.get_node("%ControlsButton").grab_focus.call_deferred()
+	menu_holder.remove_child(volume_menu)
+
+# Opens controls menu
+func _open_controls_menu() -> void:
+	if not menu_holder.has_node("SettingsMenu"):
+		_hide_main_menu()
+	menu_holder.add_child(controls_menu)
+	controls_menu.get_node("%BackButton").grab_focus.call_deferred()
+
+# Closes controls menu 
+func _close_controls_menu() -> void:
+	if not menu_holder.has_node("SettingsMenu"):
+		_show_main_menu()
+		$%PlayButton.grab_focus.call_deferred()
+	else:
+		settings_menu.get_node("%ControlsButton").grab_focus.call_deferred()
+	menu_holder.remove_child(controls_menu)
+	
