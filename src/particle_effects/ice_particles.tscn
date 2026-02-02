@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://ck6tjlibantmc"]
 
-[ext_resource type="Texture2D" uid="uid://c0hixrjtaya17" path="res://assets/particle_effects/ice/ice_shard_sheet.png" id="1_viqcr"]
+[ext_resource type="Texture2D" uid="uid://c0hixrjtaya17" path="res://assets/particle_effects/ice/IceShard_ParticleAsset.png" id="1_viqcr"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_i1jyc"]
 particles_animation = true

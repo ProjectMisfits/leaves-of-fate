@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6452gvwuyalq"
-path="res://.godot/imported/Pixel.png-8f96bc151cad18c35060f8ced22bac81.ctex"
+uid="uid://dothth1kl64u8"
+path="res://.godot/imported/FogSheet_ParticleAsset.png-e4d4b846e4f5f78806a5dc7e5619a9e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/particle_effects/ice/Pixel.png"
-dest_files=["res://.godot/imported/Pixel.png-8f96bc151cad18c35060f8ced22bac81.ctex"]
+source_file="res://assets/particle_effects/ice/FogSheet_ParticleAsset.png"
+dest_files=["res://.godot/imported/FogSheet_ParticleAsset.png-e4d4b846e4f5f78806a5dc7e5619a9e5.ctex"]
 
 [params]
 

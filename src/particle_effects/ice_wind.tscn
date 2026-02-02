@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://byy3ecxmaevxh"]
 
-[ext_resource type="Texture2D" uid="uid://bi3kiqpgkpxlk" path="res://assets/particle_effects/ice/smoke_01.tga" id="1_or6gw"]
+[ext_resource type="Texture2D" uid="uid://bi3kiqpgkpxlk" path="res://assets/particle_effects/ice/Smoke_ParticleAsset_01.tga" id="1_or6gw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_711qf"]
 particles_animation = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi3kiqpgkpxlk"
-path="res://.godot/imported/smoke_01.tga-b8c20fa8d1fc3cbe402f3525ebd5fb6b.ctex"
+uid="uid://cvi4g4rp5d4ur"
+path="res://.godot/imported/Smokelet_ParticleAsset.png-229e72b11c940bd126c0fe5cb2937854.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/particle_effects/ice/smoke_01.tga"
-dest_files=["res://.godot/imported/smoke_01.tga-b8c20fa8d1fc3cbe402f3525ebd5fb6b.ctex"]
+source_file="res://assets/particle_effects/ice/Smokelet_ParticleAsset.png"
+dest_files=["res://.godot/imported/Smokelet_ParticleAsset.png-229e72b11c940bd126c0fe5cb2937854.ctex"]
 
 [params]
 

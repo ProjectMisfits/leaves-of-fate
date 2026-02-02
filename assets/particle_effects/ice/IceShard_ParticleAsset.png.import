@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buxcdge5o8b20"
-path="res://.godot/imported/blob.png-28baf412762ad1258bcedc7f652a3ec7.ctex"
+uid="uid://c0hixrjtaya17"
+path="res://.godot/imported/IceShard_ParticleAsset.png-39386f7f6e617d43e8ba8b0cc4951c9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/particle_effects/ice/blob.png"
-dest_files=["res://.godot/imported/blob.png-28baf412762ad1258bcedc7f652a3ec7.ctex"]
+source_file="res://assets/particle_effects/ice/IceShard_ParticleAsset.png"
+dest_files=["res://.godot/imported/IceShard_ParticleAsset.png-39386f7f6e617d43e8ba8b0cc4951c9e.ctex"]
 
 [params]
 
