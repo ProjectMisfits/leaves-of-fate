@@ -1,6 +1,6 @@
 ~ start
 
-match some_gamestate_value
+match EventFlags.num_heaters_activated
 	when 0
 		=> heater_convo_1
 	when 1
@@ -8,7 +8,7 @@ match some_gamestate_value
 	when 2
 		=> heater_convo_3
 	else
-		Error:This dialogue should never play. Heater Number is not 0 1 or 2
+		Error: This dialogue should never play. Heater Number is not 0 1 or 2
 => END
 
 #Should be used for all 3 convos where heaters are turned on, 
@@ -26,6 +26,7 @@ Az: Excuse you? YOUR workshop?!
 Wizard: Ahem. Perhaps I mispoke. Um... gotta go!
 Winston leaves
 Az: Ugh!
+do EventFlags.set_flag("AzWs-TurnOn-1-HeaterArea", true)
 => END
 
 ~ heater_convo_2
@@ -39,6 +40,7 @@ Az: Oh yeah? Come out and stop us yourself.
 Wizard:...
 Winston leaves
 Az: That's what I thought.
+do EventFlags.set_flag("AzWs-TurnOn-2-HeaterArea", true)
 => END
 
 ~ heater_convo_3
@@ -49,4 +51,5 @@ Az: That's the last heater, and the ice didn't melt all the way.
 Winston: Waiteth- wha- Aha! Of course!
 Winston: That was the planneth all 'long! Yes. Yes! Go ahead, waste thy timeth!
 Az: Ignore him, Fenn. It wasn't a waste. Come on back, we'll figure something out.
+do EventFlags.set_flag("AzWs-TurnOn-3-HeaterArea", true)
 => END

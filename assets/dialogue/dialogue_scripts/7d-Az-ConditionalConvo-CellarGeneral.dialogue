@@ -12,6 +12,8 @@ Fenn: Az, are you okay?
 Az: cough. cough. I'm fine! cough I'm FINE!
 Az: cough. Go on ahead. cough. I'll be fine.
 Fenn: Okay...
+do EventFlags.set_flag("Az-ConditionalConvo-CellarGeneral", true)
+
 => END
 
 #This line should be imported into the other 7 dialogue things
