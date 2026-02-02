@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cnhvjqd23j3hu"]
+[gd_scene load_steps=11 format=3 uid="uid://cnhvjqd23j3hu"]
 
 [ext_resource type="PackedScene" uid="uid://7y024tsh7ciq" path="res://src/actors/enemies/base_enemy.tscn" id="1_21xy4"]
 [ext_resource type="Script" uid="uid://drkteg328pwgv" path="res://src/actors/enemies/ice_cube/ice_scream.gd" id="2_0jlda"]
 [ext_resource type="Script" uid="uid://4efl3svn12vy" path="res://src/actors/enemies/ice_cube/ice_cube_grab_area.gd" id="3_n2c0r"]
 [ext_resource type="Script" uid="uid://jvar131cx0xv" path="res://src/actors/enemies/ice_cube/states/ice_scream_idle.gd" id="3_nfa6x"]
-[ext_resource type="JSON" uid="uid://disdrdqnqvu7p" path="res://src/actors/enemies/ice_cube/ice_scream.tres" id="3_ogl8l"]
+[ext_resource type="JSON" uid="uid://disdrdqnqvu7p" path="res://src/actors/enemies/ice_cube/ice_scream_db.tres" id="3_ogl8l"]
 [ext_resource type="Script" uid="uid://dca4lwytnv8qy" path="res://src/actors/enemies/ice_cube/states/ice_scream_chase_normal.gd" id="4_q3qi2"]
 [ext_resource type="Script" uid="uid://5t11fihqj56q" path="res://src/actors/enemies/ice_cube/states/ice_scream_chase_angry.gd" id="5_q3qi2"]
 [ext_resource type="Script" uid="uid://o4tkls23gkfy" path="res://src/actors/enemies/ice_cube/states/ice_scream_grabbed.gd" id="6_377jy"]
@@ -12,8 +12,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_377jy"]
 size = Vector2(265, 223)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2c0r"]
 
 [node name="IceScream" instance=ExtResource("1_21xy4")]
 collision_mask = 6
@@ -31,14 +29,6 @@ shape = SubResource("RectangleShape2D_377jy")
 [node name="CollisionShape2D" parent="FlipNode/Sight" index="0"]
 position = Vector2(184, -2)
 
-[node name="HurtArea" type="Area2D" parent="FlipNode" index="3"]
-collision_layer = 0
-collision_mask = 72
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/HurtArea" index="0"]
-scale = Vector2(6.2, 6.2)
-shape = SubResource("RectangleShape2D_n2c0r")
-
 [node name="Idle" type="LimboState" parent="LimboHSM" index="0"]
 script = ExtResource("3_nfa6x")
 
@@ -54,4 +44,4 @@ script = ExtResource("6_377jy")
 [node name="Death" type="LimboState" parent="LimboHSM" index="4"]
 script = ExtResource("8_eoff7")
 
-[connection signal="body_entered" from="FlipNode/HurtArea" to="." method="_on_hurt_area_body_entered"]
+[connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]

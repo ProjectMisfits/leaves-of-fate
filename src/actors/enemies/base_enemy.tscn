@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://7y024tsh7ciq"]
+[gd_scene load_steps=6 format=3 uid="uid://7y024tsh7ciq"]
 
 [ext_resource type="Script" uid="uid://bvdfc5311qvep" path="res://src/actors/enemies/base_enemy.gd" id="1_5eeeg"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="1_6hlcj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wm7tm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5eeeg"]
 size = Vector2(116, 118)
@@ -12,6 +14,14 @@ size = Vector2(1544, 114)
 [node name="BaseEnemy" type="CharacterBody2D"]
 collision_layer = 64
 script = ExtResource("1_5eeeg")
+
+[node name="HurtArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 72
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea"]
+scale = Vector2(6.2, 6.2)
+shape = SubResource("RectangleShape2D_wm7tm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5eeeg")

@@ -7,6 +7,6 @@ data = {
 &"gravity": 980,
 &"max_speed": 5000.0,
 &"normal_acceleration": 400.0,
-&"normal_deceleration": 80.0,
-&"turn_speed": 100.0
+&"normal_deceleration": 1000.0,
+&"turn_speed": 800.0
 }

@@ -19,55 +19,60 @@ var player_last_known_pos : Vector2
 func _ready() -> void:
 	intialize_statemachine()
 	look_direction = flip_node.scale.x
-	pass
+	
 	
 #initialize statemachine
-func intialize_statemachine()-> void:
+func intialize_statemachine() -> void:
 	state_machine.initialize(self)
 	state_machine.set_active(true)
 
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
-	pass
+
 
 #code for horizontal movement for enemies that includes acceleration and deceleration
-func move_horizontal(direction:float,acceleration:float,deceleration: float,delta: float,turn_speed:float,max_speed:float)->void:
+func move_horizontal(direction:float, acceleration:float, deceleration: float, delta: float, turn_speed:float, max_speed:float) -> void:
 	var new_velocity: float = 0.0
 	var new_acceleration: float = 0.0
+	#print(direction)
 	
 	if (is_on_wall()):
 		new_velocity = 0.0
 	elif (direction == 0.0): # No direction 
 		new_velocity = move_toward(velocity.x, 0, deceleration)
 		
-	if (signf(direction) == signf(velocity.x)): 	# Direction matches current velocity
+	
+	elif (signf(direction) == signf(velocity.x)): 	# Direction matches current velocity
 		new_acceleration = direction * acceleration * delta
 	else: 											# Direction is opposite to current velocity
 		new_acceleration = direction * turn_speed *delta
 	
+	
 	new_velocity = clampf(velocity.x + new_acceleration, -max_speed, max_speed)
 	
 	velocity.x = new_velocity
-	pass
+	
+
+
 
 
 
 #Base hurt functionality
-func hurt(damage:int)->void:
+func hurt(damage:int) -> void:
 	cur_health -= damage;
 	
 #Base death just deletes the object
-func death()->void:
+func death() -> void:
 	queue_free()
 	
 
 #Checks if the player is within visible range and turn to face
-func check_player_visible()->bool:
+func check_player_visible() -> bool:
 	var player : Array[Node2D] = $FlipNode/Sight.get_overlapping_bodies()
 	if player.size() > 0:
-		#Player is spoted in idle state chargem
-		#If the player is behind the ice cube, flip it then charge
+		
+		#If the player is behind the enemy, flip it then charge
 		var player_abs_x : float= abs(player[0].global_position.x)
 		var enemy_abs_x :float = abs(global_position.x)
 		
@@ -83,6 +88,6 @@ func check_player_visible()->bool:
 		return true
 	return false
 	
-func flip()->void:
-	$FlipNode.scale.x *= -1
+func flip() -> void:
+	flip_node.scale.x *= -1
 	look_direction *= -1

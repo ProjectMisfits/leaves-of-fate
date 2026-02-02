@@ -12,4 +12,4 @@ tile_map_data = PackedByteArray("AAAAAAgAAwAAAAAAAAABAAgAAwAAAAAAAAACAAgAAwAAAAA
 position = Vector2(1233, 920)
 
 [node name="IceScream2" parent="." index="4" instance=ExtResource("2_e7iqb")]
-position = Vector2(1816, 920)
+position = Vector2(1756, 921)
