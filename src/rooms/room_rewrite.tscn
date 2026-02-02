@@ -18,18 +18,20 @@ script = ExtResource("1_4rb51")
 
 [node name="Triggers" type="Node2D" parent="Entities"]
 
-[node name="Doors" type="Node2D" parent="."]
+[node name="DoorHolder" type="Node2D" parent="."]
+unique_name_in_owner = true
 
-[node name="DoorEnter" parent="Doors" instance=ExtResource("3_xu6gu")]
+[node name="DoorEnter" parent="DoorHolder" instance=ExtResource("3_xu6gu")]
 position = Vector2(448, 936)
 door_name = "enter"
 target_door_name = "exit"
 
-[node name="DoorExit" parent="Doors" instance=ExtResource("3_xu6gu")]
+[node name="DoorExit" parent="DoorHolder" instance=ExtResource("3_xu6gu")]
 position = Vector2(1472, 936)
 door_name = "exit"
 target_door_name = "enter"
 
 [node name="PlayerHolder" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="Decor" type="Node2D" parent="."]

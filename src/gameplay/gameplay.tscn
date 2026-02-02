@@ -7,5 +7,6 @@
 script = ExtResource("1_anqvl")
 
 [node name="RoomHolder" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="GB_GreatHall" parent="RoomHolder" instance=ExtResource("2_tr6da")]

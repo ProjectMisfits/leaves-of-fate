@@ -31,19 +31,21 @@ tile_set = ExtResource("2_7i7i2")
 
 [node name="DecalsBack" type="Node2D" parent="MidgroundLayer"]
 
-[node name="Doors" type="Node2D" parent="MidgroundLayer"]
+[node name="DoorHolder" type="Node2D" parent="MidgroundLayer"]
+unique_name_in_owner = true
 
-[node name="DoorEnter" parent="MidgroundLayer/Doors" instance=ExtResource("2_pdypr")]
+[node name="DoorEnter" parent="MidgroundLayer/DoorHolder" instance=ExtResource("2_pdypr")]
 position = Vector2(448, 936)
 door_name = "enter"
 target_door_name = "exit"
 
-[node name="DoorExit" parent="MidgroundLayer/Doors" instance=ExtResource("2_pdypr")]
+[node name="DoorExit" parent="MidgroundLayer/DoorHolder" instance=ExtResource("2_pdypr")]
 position = Vector2(1472, 936)
 door_name = "exit"
 target_door_name = "enter"
 
 [node name="PlayerHolder" type="Node2D" parent="MidgroundLayer"]
+unique_name_in_owner = true
 
 [node name="DecalsFront" type="Node2D" parent="MidgroundLayer"]
 scale = Vector2(0.25, 0.25)

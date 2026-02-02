@@ -3,12 +3,12 @@ class_name Gameplay extends Node2D
 ## Manages scenes like the current Room, HUD, Camera, menus.
 
 ## A Node2D that acts as a persistent parent of the Room the player is in.
-@onready var room_holder: Node2D = $RoomHolder
+@onready var room_holder: Node2D = $%RoomHolder
 
 ## The Room the player is currently in.
 var current_room: Room = null
 
-## The player object.
+## A reference to the current player object.
 var player: Player = preload("res://src/entities/actors/characters/player/player.tscn").instantiate()
 
 # Called when the node enters the scene tree for the first time.
@@ -37,7 +37,6 @@ func _update_current_room() -> void:
 func _on_swap_room(path_to_target_room: String, target_door_name: String)-> void:
 	# Remove player from current room
 	current_room.despawn_player(player)
-	
 	# Call autoload SceneManager to swap the room
 	var target_room_loaded: int = SceneManager.swap_scenes(path_to_target_room, $RoomHolder, current_room)
 	# Make sure the load succeeded before continuing the swap
