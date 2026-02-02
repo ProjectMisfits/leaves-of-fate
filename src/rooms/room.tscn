@@ -8,7 +8,6 @@
 script = ExtResource("1_t665v")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
-layer = -1
 follow_viewport_enabled = true
 
 [node name="Background" type="TileMapLayer" parent="BackgroundLayer"]
@@ -18,10 +17,10 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAA
 tile_set = ExtResource("2_7i7i2")
 collision_enabled = false
 
-[node name="Decals" type="Node2D" parent="BackgroundLayer"]
+[node name="Decor" type="Node2D" parent="BackgroundLayer"]
 
 [node name="MidgroundLayer" type="CanvasLayer" parent="."]
-layer = 0
+layer = 2
 follow_viewport_enabled = true
 
 [node name="Midground" type="TileMapLayer" parent="MidgroundLayer"]
@@ -29,7 +28,15 @@ scale = Vector2(0.25, 0.25)
 tile_map_data = PackedByteArray("AAAAAAgAAwAAAAAAAAABAAgAAwAAAAAAAAACAAgAAwAAAAAAAAADAAgAAwAAAAAAAAAEAAgAAwAAAAAAAAAFAAgAAwAAAAAAAAAGAAgAAwAAAAAAAAAHAAgAAwAAAAAAAAAIAAgAAwAAAAAAAAAJAAgAAwAAAAAAAAAKAAgAAwAAAAAAAAALAAgAAwAAAAAAAAAMAAgAAwAAAAAAAAANAAgAAwAAAAAAAAAOAAgAAwAAAAAAAAA=")
 tile_set = ExtResource("2_7i7i2")
 
-[node name="DecalsBack" type="Node2D" parent="MidgroundLayer"]
+[node name="Entities" type="Node2D" parent="MidgroundLayer"]
+
+[node name="Actors" type="Node2D" parent="MidgroundLayer/Entities"]
+
+[node name="Hazards" type="Node2D" parent="MidgroundLayer/Entities"]
+
+[node name="Objects" type="Node2D" parent="MidgroundLayer/Entities"]
+
+[node name="Triggers" type="Node2D" parent="MidgroundLayer/Entities"]
 
 [node name="DoorHolder" type="Node2D" parent="MidgroundLayer"]
 unique_name_in_owner = true
@@ -47,10 +54,11 @@ target_door_name = "enter"
 [node name="PlayerHolder" type="Node2D" parent="MidgroundLayer"]
 unique_name_in_owner = true
 
-[node name="DecalsFront" type="Node2D" parent="MidgroundLayer"]
+[node name="Decor" type="Node2D" parent="MidgroundLayer"]
 scale = Vector2(0.25, 0.25)
 
 [node name="ForegroundLayer" type="CanvasLayer" parent="."]
+layer = 3
 follow_viewport_enabled = true
 
-[node name="Decals" type="Node2D" parent="ForegroundLayer"]
+[node name="Decor" type="Node2D" parent="ForegroundLayer"]

@@ -15,358 +15,362 @@ tile_map_data = PackedByteArray("AAAAAAAAAwAAAAAAAAABAAAAAwAAAAAAAAACAAAAAQAAAAA
 [node name="Midground" parent="MidgroundLayer" index="0"]
 tile_map_data = PackedByteArray("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AAAKAAUAAgAAAAAAAAAKAAYAAgAAAAAAAAAKAAcAAgAAAAAAAAALAAQAAgAAAAAAAAALAAUAAgAAAAAAAAALAAYAAgAAAAAAAAALAAcAAgAAAAAAAAAMAAQAAgAAAAAAAAAMAAUAAgAAAAAAAAAMAAYAAgAAAAAAAAAMAAcAAgAAAAAAAAANAAQAAgAAAAAAAAANAAUAAgAAAAAAAAANAAYAAgAAAAAAAAANAAcAAgAAAAAAAAAOAAQAAgAAAAAAAAAOAAUAAgAAAAAAAAAOAAYAAgAAAAAAAAAOAAcAAgAAAAAAAAAPAAQAAgAAAAAAAAAPAAUAAgAAAAAAAAAPAAYAAgAAAAAAAAAPAAcAAgAAAAAAAAAQAAQAAgAAAAAAAAAQAAUAAgAAAAAAAAAQAAYAAgAAAAAAAAAQAAcAAgAAAAAAAAARAAQAAgAAAAAAAAARAAUAAgAAAAAAAAARAAYAAgAAAAAAAAARAAcAAgAAAAAAAAASAAQAAgAAAAAAAAASAAUAAgAAAAAAAAASAAYAAgAAAAAAAAASAAcAAgAAAAAAAAATAAQAAgAAAAAAAAATAAUAAgAAAAAAAAATAAYAAgAAAAAAAAATAAcAAgAAAAAAAAAUAAQAAgAAAAAAAAAUAAUAAgAAAAAAAAAUAAYAAgAAAAAAAAAUAAcAAgAAAAAAAAAVAAQAAgAAAAAAAAAVAAUAAgAAAAAAAAAVAAYAAgAAAAAAAAAVAAcAAgAAAAAAAAAWAAQAAgAAAAAAAAAWAAUAAgAAAAAAAAAWAAYAAgAAAAAAAAAWAAcAAgAAAAAAAAAXAAQAAgAAAAAAAAAXAAUAAgAAAAAAAAAXAAYAAgAAAAAAAAAXAAcAAgAAAAAAAAAYAAQAAgAAAAAAAAAYAAUAAgAAAAAAAAAYAAYAAgAAAAAAAAAYAAcAAgAAAAAAAAAZAAQAAgAAAAAAAAAZAAUAAgAAAAAAAAAZAAYAAgAAAAAAAAAZAAcAAgAAAAAAAAAaAAQAAgAAAAAAAAAaAAUAAgAAAAAAAAAaAAYAAgAAAAAAAAAaAAcAAgAAAAAAAAAbAAQAAgAAAAAAAAAbAAUAAgAAAAAAAAAbAAYAAgAAAAAAAAAbAAcAAgAAAAAAAAAcAAQAAgAAAAAAAAAcAAUAAgAAAAAAAAAcAAYAAgAAAAAAAAAcAAcAAgAAAAAA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AAB4AP3/AwAAAAAAAAB4AP7/AwAAAAAAAAB4AP//AwAAAAAAAAB4AAAAAwAAAAAAAAB4AAEAAwAAAAAAAAB4AAIAAwAAAAAAAAB4AAMAAwAAAAAAAAB4APD/AwAAAAAAAABZAAYAAwAAAAAAAABZAAUAAwAAAAAAAABZAAQAAwAAAAAAAABaAAQAAwAAAAAAAABbAAQAAwAAAAAAAABcAAQAAwAAAAAAAABdAAQAAwAAAAAAAABeAAQAAwAAAAAAAABfAAQAAwAAAAAAAABgAAQAAwAAAAAAAABhAAQAAwAAAAAAAABiAAQAAwAAAAAAAABjAAQAAwAAAAAAAABkAAUAAwAAAAAAAABlAAUAAwAAAAAAAABmAAUAAwAAAAAAAABnAAUAAwAAAAAAAABnAAQAAwAAAAAAAABmAAQAAwAAAAAAAABlAAQAAwAAAAAAAABkAAQAAwAAAAAAAABnAAYAAwAAAAAAAABmAAYAAwAAAAAAAABlAAYAAwAAAAAAAABkAAYAAwAAAAAAAABjAAYAAwAAAAAAAABiAAYAAwAAAAAAAABhAAYAAwAAAAAAAABgAAYAAwAAAAAAAABfAAYAAwAAAAAAAABeAAYAAwAAAAAAAABdAAYAAwAAAAAAAABcAAYAAwAAAAAAAABbAAYAAwAAAAAAAABaAAYAAwAAAAAAAABaAAUAAwAAAAAAAABbAAUAAwAAAAAAAABcAAUAAwAAAAAAAABdAAUAAwAAAAAAAABeAAUAAwAAAAAAAABfAAUAAwAAAAAAAABgAAUAAwAAAAAAAABhAAUAAwAAAAAAAABiAAUAAwAAAAAAAABjAAUAAwAAAAAAAAA=")
 
-[node name="PillarTrunk04" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="0"]
-position = Vector2(5376, -480)
-scale = Vector2(1, 3.07009)
-texture = ExtResource("2_fm61i")
-
-[node name="PillarCap03" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="1"]
-position = Vector2(5376, -1904)
-texture = ExtResource("3_ptimp")
-
-[node name="PillarTrunk06" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="2"]
-position = Vector2(9216, -480)
-scale = Vector2(1, 3.07009)
-texture = ExtResource("2_fm61i")
-
-[node name="PillarCap05" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="3"]
-position = Vector2(9216, -1904)
-texture = ExtResource("3_ptimp")
-
-[node name="PillarTrunk08" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="4"]
-position = Vector2(7296, -480)
-scale = Vector2(1, 3.07009)
-texture = ExtResource("2_fm61i")
-
-[node name="PillarCap07" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="5"]
-position = Vector2(7296, -1904)
-texture = ExtResource("3_ptimp")
-
-[node name="PillarTrunk07" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="6"]
-position = Vector2(11136, -480)
-scale = Vector2(1, 3.07009)
-texture = ExtResource("2_fm61i")
-
-[node name="PillarCap06" type="Sprite2D" parent="MidgroundLayer/DecalsBack" index="7"]
-position = Vector2(11136, -1904)
-texture = ExtResource("3_ptimp")
-
-[node name="Icicle_06" parent="MidgroundLayer" index="4" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_06" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("2_nnbk5")]
 position = Vector2(5288, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_07" parent="MidgroundLayer" index="5" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_07" parent="MidgroundLayer/Entities/Hazards" index="1" instance=ExtResource("2_nnbk5")]
 position = Vector2(5424, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_08" parent="MidgroundLayer" index="6" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_08" parent="MidgroundLayer/Entities/Hazards" index="2" instance=ExtResource("2_nnbk5")]
 position = Vector2(5728, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_05" parent="MidgroundLayer" index="7" instance=ExtResource("3_45ymd")]
+[node name="Icicle_05" parent="MidgroundLayer/Entities/Hazards" index="3" instance=ExtResource("3_45ymd")]
 position = Vector2(5480, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_11" parent="MidgroundLayer" index="8" instance=ExtResource("3_45ymd")]
+[node name="Icicle_11" parent="MidgroundLayer/Entities/Hazards" index="4" instance=ExtResource("3_45ymd")]
 position = Vector2(5200, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_09" parent="MidgroundLayer" index="9" instance=ExtResource("3_45ymd")]
+[node name="Icicle_09" parent="MidgroundLayer/Entities/Hazards" index="5" instance=ExtResource("3_45ymd")]
 position = Vector2(5640, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_04" parent="MidgroundLayer" index="10" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_04" parent="MidgroundLayer/Entities/Hazards" index="6" instance=ExtResource("4_bs4a6")]
 position = Vector2(5344, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_10" parent="MidgroundLayer" index="11" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_10" parent="MidgroundLayer/Entities/Hazards" index="7" instance=ExtResource("4_bs4a6")]
 position = Vector2(5560, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_12" parent="MidgroundLayer" index="12" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_12" parent="MidgroundLayer/Entities/Hazards" index="8" instance=ExtResource("2_nnbk5")]
 position = Vector2(5904, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_13" parent="MidgroundLayer" index="13" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_13" parent="MidgroundLayer/Entities/Hazards" index="9" instance=ExtResource("2_nnbk5")]
 position = Vector2(6040, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_14" parent="MidgroundLayer" index="14" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_14" parent="MidgroundLayer/Entities/Hazards" index="10" instance=ExtResource("2_nnbk5")]
 position = Vector2(6344, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_15" parent="MidgroundLayer" index="15" instance=ExtResource("3_45ymd")]
+[node name="Icicle_15" parent="MidgroundLayer/Entities/Hazards" index="11" instance=ExtResource("3_45ymd")]
 position = Vector2(6096, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_16" parent="MidgroundLayer" index="16" instance=ExtResource("3_45ymd")]
+[node name="Icicle_16" parent="MidgroundLayer/Entities/Hazards" index="12" instance=ExtResource("3_45ymd")]
 position = Vector2(5816, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_17" parent="MidgroundLayer" index="17" instance=ExtResource("3_45ymd")]
+[node name="Icicle_17" parent="MidgroundLayer/Entities/Hazards" index="13" instance=ExtResource("3_45ymd")]
 position = Vector2(6256, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_18" parent="MidgroundLayer" index="18" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_18" parent="MidgroundLayer/Entities/Hazards" index="14" instance=ExtResource("4_bs4a6")]
 position = Vector2(5960, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_19" parent="MidgroundLayer" index="19" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_19" parent="MidgroundLayer/Entities/Hazards" index="15" instance=ExtResource("4_bs4a6")]
 position = Vector2(6176, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_20" parent="MidgroundLayer" index="20" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_20" parent="MidgroundLayer/Entities/Hazards" index="16" instance=ExtResource("2_nnbk5")]
 position = Vector2(6528, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_21" parent="MidgroundLayer" index="21" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_21" parent="MidgroundLayer/Entities/Hazards" index="17" instance=ExtResource("2_nnbk5")]
 position = Vector2(6664, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_22" parent="MidgroundLayer" index="22" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_22" parent="MidgroundLayer/Entities/Hazards" index="18" instance=ExtResource("2_nnbk5")]
 position = Vector2(6968, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_23" parent="MidgroundLayer" index="23" instance=ExtResource("3_45ymd")]
+[node name="Icicle_23" parent="MidgroundLayer/Entities/Hazards" index="19" instance=ExtResource("3_45ymd")]
 position = Vector2(6720, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_24" parent="MidgroundLayer" index="24" instance=ExtResource("3_45ymd")]
+[node name="Icicle_24" parent="MidgroundLayer/Entities/Hazards" index="20" instance=ExtResource("3_45ymd")]
 position = Vector2(6440, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_25" parent="MidgroundLayer" index="25" instance=ExtResource("3_45ymd")]
+[node name="Icicle_25" parent="MidgroundLayer/Entities/Hazards" index="21" instance=ExtResource("3_45ymd")]
 position = Vector2(6880, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_26" parent="MidgroundLayer" index="26" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_26" parent="MidgroundLayer/Entities/Hazards" index="22" instance=ExtResource("4_bs4a6")]
 position = Vector2(6584, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_27" parent="MidgroundLayer" index="27" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_27" parent="MidgroundLayer/Entities/Hazards" index="23" instance=ExtResource("4_bs4a6")]
 position = Vector2(6800, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_28" parent="MidgroundLayer" index="28" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_28" parent="MidgroundLayer/Entities/Hazards" index="24" instance=ExtResource("2_nnbk5")]
 position = Vector2(7152, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_29" parent="MidgroundLayer" index="29" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_29" parent="MidgroundLayer/Entities/Hazards" index="25" instance=ExtResource("2_nnbk5")]
 position = Vector2(7288, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_30" parent="MidgroundLayer" index="30" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_30" parent="MidgroundLayer/Entities/Hazards" index="26" instance=ExtResource("2_nnbk5")]
 position = Vector2(7592, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_31" parent="MidgroundLayer" index="31" instance=ExtResource("3_45ymd")]
+[node name="Icicle_31" parent="MidgroundLayer/Entities/Hazards" index="27" instance=ExtResource("3_45ymd")]
 position = Vector2(7344, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_32" parent="MidgroundLayer" index="32" instance=ExtResource("3_45ymd")]
+[node name="Icicle_32" parent="MidgroundLayer/Entities/Hazards" index="28" instance=ExtResource("3_45ymd")]
 position = Vector2(7064, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_33" parent="MidgroundLayer" index="33" instance=ExtResource("3_45ymd")]
+[node name="Icicle_33" parent="MidgroundLayer/Entities/Hazards" index="29" instance=ExtResource("3_45ymd")]
 position = Vector2(7504, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_34" parent="MidgroundLayer" index="34" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_34" parent="MidgroundLayer/Entities/Hazards" index="30" instance=ExtResource("4_bs4a6")]
 position = Vector2(7208, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_35" parent="MidgroundLayer" index="35" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_35" parent="MidgroundLayer/Entities/Hazards" index="31" instance=ExtResource("4_bs4a6")]
 position = Vector2(7424, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_36" parent="MidgroundLayer" index="36" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_36" parent="MidgroundLayer/Entities/Hazards" index="32" instance=ExtResource("2_nnbk5")]
 position = Vector2(7776, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_37" parent="MidgroundLayer" index="37" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_37" parent="MidgroundLayer/Entities/Hazards" index="33" instance=ExtResource("2_nnbk5")]
 position = Vector2(7912, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_38" parent="MidgroundLayer" index="38" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_38" parent="MidgroundLayer/Entities/Hazards" index="34" instance=ExtResource("2_nnbk5")]
 position = Vector2(8216, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_39" parent="MidgroundLayer" index="39" instance=ExtResource("3_45ymd")]
+[node name="Icicle_39" parent="MidgroundLayer/Entities/Hazards" index="35" instance=ExtResource("3_45ymd")]
 position = Vector2(7968, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_40" parent="MidgroundLayer" index="40" instance=ExtResource("3_45ymd")]
+[node name="Icicle_40" parent="MidgroundLayer/Entities/Hazards" index="36" instance=ExtResource("3_45ymd")]
 position = Vector2(7688, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_41" parent="MidgroundLayer" index="41" instance=ExtResource("3_45ymd")]
+[node name="Icicle_41" parent="MidgroundLayer/Entities/Hazards" index="37" instance=ExtResource("3_45ymd")]
 position = Vector2(8128, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_42" parent="MidgroundLayer" index="42" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_42" parent="MidgroundLayer/Entities/Hazards" index="38" instance=ExtResource("4_bs4a6")]
 position = Vector2(7832, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_43" parent="MidgroundLayer" index="43" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_43" parent="MidgroundLayer/Entities/Hazards" index="39" instance=ExtResource("4_bs4a6")]
 position = Vector2(8048, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_44" parent="MidgroundLayer" index="44" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_44" parent="MidgroundLayer/Entities/Hazards" index="40" instance=ExtResource("2_nnbk5")]
 position = Vector2(8400, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_45" parent="MidgroundLayer" index="45" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_45" parent="MidgroundLayer/Entities/Hazards" index="41" instance=ExtResource("2_nnbk5")]
 position = Vector2(8536, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_46" parent="MidgroundLayer" index="46" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_46" parent="MidgroundLayer/Entities/Hazards" index="42" instance=ExtResource("2_nnbk5")]
 position = Vector2(8840, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_47" parent="MidgroundLayer" index="47" instance=ExtResource("3_45ymd")]
+[node name="Icicle_47" parent="MidgroundLayer/Entities/Hazards" index="43" instance=ExtResource("3_45ymd")]
 position = Vector2(8592, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_48" parent="MidgroundLayer" index="48" instance=ExtResource("3_45ymd")]
+[node name="Icicle_48" parent="MidgroundLayer/Entities/Hazards" index="44" instance=ExtResource("3_45ymd")]
 position = Vector2(8312, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_49" parent="MidgroundLayer" index="49" instance=ExtResource("3_45ymd")]
+[node name="Icicle_49" parent="MidgroundLayer/Entities/Hazards" index="45" instance=ExtResource("3_45ymd")]
 position = Vector2(8752, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_50" parent="MidgroundLayer" index="50" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_50" parent="MidgroundLayer/Entities/Hazards" index="46" instance=ExtResource("4_bs4a6")]
 position = Vector2(8456, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_51" parent="MidgroundLayer" index="51" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_51" parent="MidgroundLayer/Entities/Hazards" index="47" instance=ExtResource("4_bs4a6")]
 position = Vector2(8672, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_52" parent="MidgroundLayer" index="52" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_52" parent="MidgroundLayer/Entities/Hazards" index="48" instance=ExtResource("2_nnbk5")]
 position = Vector2(9024, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_53" parent="MidgroundLayer" index="53" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_53" parent="MidgroundLayer/Entities/Hazards" index="49" instance=ExtResource("2_nnbk5")]
 position = Vector2(9160, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_54" parent="MidgroundLayer" index="54" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_54" parent="MidgroundLayer/Entities/Hazards" index="50" instance=ExtResource("2_nnbk5")]
 position = Vector2(9464, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_55" parent="MidgroundLayer" index="55" instance=ExtResource("3_45ymd")]
+[node name="Icicle_55" parent="MidgroundLayer/Entities/Hazards" index="51" instance=ExtResource("3_45ymd")]
 position = Vector2(9216, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_56" parent="MidgroundLayer" index="56" instance=ExtResource("3_45ymd")]
+[node name="Icicle_56" parent="MidgroundLayer/Entities/Hazards" index="52" instance=ExtResource("3_45ymd")]
 position = Vector2(8936, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_57" parent="MidgroundLayer" index="57" instance=ExtResource("3_45ymd")]
+[node name="Icicle_57" parent="MidgroundLayer/Entities/Hazards" index="53" instance=ExtResource("3_45ymd")]
 position = Vector2(9376, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_58" parent="MidgroundLayer" index="58" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_58" parent="MidgroundLayer/Entities/Hazards" index="54" instance=ExtResource("4_bs4a6")]
 position = Vector2(9080, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_59" parent="MidgroundLayer" index="59" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_59" parent="MidgroundLayer/Entities/Hazards" index="55" instance=ExtResource("4_bs4a6")]
 position = Vector2(9296, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_60" parent="MidgroundLayer" index="60" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_60" parent="MidgroundLayer/Entities/Hazards" index="56" instance=ExtResource("2_nnbk5")]
 position = Vector2(9648, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_61" parent="MidgroundLayer" index="61" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_61" parent="MidgroundLayer/Entities/Hazards" index="57" instance=ExtResource("2_nnbk5")]
 position = Vector2(9784, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_62" parent="MidgroundLayer" index="62" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_62" parent="MidgroundLayer/Entities/Hazards" index="58" instance=ExtResource("2_nnbk5")]
 position = Vector2(10088, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_63" parent="MidgroundLayer" index="63" instance=ExtResource("3_45ymd")]
+[node name="Icicle_63" parent="MidgroundLayer/Entities/Hazards" index="59" instance=ExtResource("3_45ymd")]
 position = Vector2(9840, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_64" parent="MidgroundLayer" index="64" instance=ExtResource("3_45ymd")]
+[node name="Icicle_64" parent="MidgroundLayer/Entities/Hazards" index="60" instance=ExtResource("3_45ymd")]
 position = Vector2(9560, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_65" parent="MidgroundLayer" index="65" instance=ExtResource("3_45ymd")]
+[node name="Icicle_65" parent="MidgroundLayer/Entities/Hazards" index="61" instance=ExtResource("3_45ymd")]
 position = Vector2(10000, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_66" parent="MidgroundLayer" index="66" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_66" parent="MidgroundLayer/Entities/Hazards" index="62" instance=ExtResource("4_bs4a6")]
 position = Vector2(9704, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_67" parent="MidgroundLayer" index="67" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_67" parent="MidgroundLayer/Entities/Hazards" index="63" instance=ExtResource("4_bs4a6")]
 position = Vector2(9920, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_68" parent="MidgroundLayer" index="68" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_68" parent="MidgroundLayer/Entities/Hazards" index="64" instance=ExtResource("2_nnbk5")]
 position = Vector2(10272, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_69" parent="MidgroundLayer" index="69" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_69" parent="MidgroundLayer/Entities/Hazards" index="65" instance=ExtResource("2_nnbk5")]
 position = Vector2(10408, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_70" parent="MidgroundLayer" index="70" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_70" parent="MidgroundLayer/Entities/Hazards" index="66" instance=ExtResource("2_nnbk5")]
 position = Vector2(10712, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_71" parent="MidgroundLayer" index="71" instance=ExtResource("3_45ymd")]
+[node name="Icicle_71" parent="MidgroundLayer/Entities/Hazards" index="67" instance=ExtResource("3_45ymd")]
 position = Vector2(10464, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_72" parent="MidgroundLayer" index="72" instance=ExtResource("3_45ymd")]
+[node name="Icicle_72" parent="MidgroundLayer/Entities/Hazards" index="68" instance=ExtResource("3_45ymd")]
 position = Vector2(10184, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_73" parent="MidgroundLayer" index="73" instance=ExtResource("3_45ymd")]
+[node name="Icicle_73" parent="MidgroundLayer/Entities/Hazards" index="69" instance=ExtResource("3_45ymd")]
 position = Vector2(10624, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_74" parent="MidgroundLayer" index="74" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_74" parent="MidgroundLayer/Entities/Hazards" index="70" instance=ExtResource("4_bs4a6")]
 position = Vector2(10328, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_75" parent="MidgroundLayer" index="75" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_75" parent="MidgroundLayer/Entities/Hazards" index="71" instance=ExtResource("4_bs4a6")]
 position = Vector2(10544, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_76" parent="MidgroundLayer" index="76" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_76" parent="MidgroundLayer/Entities/Hazards" index="72" instance=ExtResource("2_nnbk5")]
 position = Vector2(10896, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_77" parent="MidgroundLayer" index="77" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_77" parent="MidgroundLayer/Entities/Hazards" index="73" instance=ExtResource("2_nnbk5")]
 position = Vector2(11032, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_78" parent="MidgroundLayer" index="78" instance=ExtResource("2_nnbk5")]
+[node name="Icicle_78" parent="MidgroundLayer/Entities/Hazards" index="74" instance=ExtResource("2_nnbk5")]
 position = Vector2(11336, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_79" parent="MidgroundLayer" index="79" instance=ExtResource("3_45ymd")]
+[node name="Icicle_79" parent="MidgroundLayer/Entities/Hazards" index="75" instance=ExtResource("3_45ymd")]
 position = Vector2(11088, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_80" parent="MidgroundLayer" index="80" instance=ExtResource("3_45ymd")]
+[node name="Icicle_80" parent="MidgroundLayer/Entities/Hazards" index="76" instance=ExtResource("3_45ymd")]
 position = Vector2(10808, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_81" parent="MidgroundLayer" index="81" instance=ExtResource("3_45ymd")]
+[node name="Icicle_81" parent="MidgroundLayer/Entities/Hazards" index="77" instance=ExtResource("3_45ymd")]
 position = Vector2(11248, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_82" parent="MidgroundLayer" index="82" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_82" parent="MidgroundLayer/Entities/Hazards" index="78" instance=ExtResource("4_bs4a6")]
 position = Vector2(10952, 896)
 scale = Vector2(2, 2)
 
-[node name="Icicle_83" parent="MidgroundLayer" index="83" instance=ExtResource("4_bs4a6")]
+[node name="Icicle_83" parent="MidgroundLayer/Entities/Hazards" index="79" instance=ExtResource("4_bs4a6")]
 position = Vector2(11168, 896)
 scale = Vector2(2, 2)
+
+[node name="MidgroundLayer_DecalsBack#PillarTrunk04" type="Sprite2D" parent="MidgroundLayer/Decor" index="0"]
+position = Vector2(21504, -1920)
+scale = Vector2(4, 12.28036)
+texture = ExtResource("2_fm61i")
+
+[node name="MidgroundLayer_DecalsBack#PillarCap03" type="Sprite2D" parent="MidgroundLayer/Decor" index="1"]
+position = Vector2(21504, -7616)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ptimp")
+
+[node name="MidgroundLayer_DecalsBack#PillarTrunk06" type="Sprite2D" parent="MidgroundLayer/Decor" index="2"]
+position = Vector2(36864, -1920)
+scale = Vector2(4, 12.28036)
+texture = ExtResource("2_fm61i")
+
+[node name="MidgroundLayer_DecalsBack#PillarCap05" type="Sprite2D" parent="MidgroundLayer/Decor" index="3"]
+position = Vector2(36864, -7616)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ptimp")
+
+[node name="MidgroundLayer_DecalsBack#PillarTrunk08" type="Sprite2D" parent="MidgroundLayer/Decor" index="4"]
+position = Vector2(29184, -1920)
+scale = Vector2(4, 12.28036)
+texture = ExtResource("2_fm61i")
+
+[node name="MidgroundLayer_DecalsBack#PillarCap07" type="Sprite2D" parent="MidgroundLayer/Decor" index="5"]
+position = Vector2(29184, -7616)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ptimp")
+
+[node name="MidgroundLayer_DecalsBack#PillarTrunk07" type="Sprite2D" parent="MidgroundLayer/Decor" index="6"]
+position = Vector2(44544, -1920)
+scale = Vector2(4, 12.28036)
+texture = ExtResource("2_fm61i")
+
+[node name="MidgroundLayer_DecalsBack#PillarCap06" type="Sprite2D" parent="MidgroundLayer/Decor" index="7"]
+position = Vector2(44544, -7616)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ptimp")
