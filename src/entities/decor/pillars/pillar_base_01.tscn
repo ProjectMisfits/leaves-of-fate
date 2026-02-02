@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://4jh213w6fsb7"]
+[gd_scene load_steps=3 format=3 uid="uid://4jh213w6fsb7"]
 
 [ext_resource type="Texture2D" uid="uid://dr6ums5lxbj38" path="res://assets/entities/decor/pillars/Pillar-Base-01.png" id="1_fsgai"]
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_k0wtq"]
 
 [node name="PillarBase01" type="Sprite2D"]
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("1_fsgai")
+script = ExtResource("2_k0wtq")

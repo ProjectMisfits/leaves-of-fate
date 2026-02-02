@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bq3mv3nwc10c6"]
+[gd_scene load_steps=3 format=3 uid="uid://bq3mv3nwc10c6"]
 
 [ext_resource type="Texture2D" uid="uid://bw7awksqx37sb" path="res://assets/entities/decor/food/FruitBowl-Prop.png" id="1_qppkl"]
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_8syd0"]
 
 [node name="FruitBowl" type="Sprite2D"]
 texture = ExtResource("1_qppkl")
+script = ExtResource("2_8syd0")

@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxrltvpyhtsin"]
+[gd_scene load_steps=3 format=3 uid="uid://bxrltvpyhtsin"]
 
 [ext_resource type="Texture2D" uid="uid://cfc6ffhqo35kx" path="res://assets/entities/decor/food/Wine-Prop.png" id="1_gtad8"]
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_f0jf4"]
 
 [node name="Wine" type="Sprite2D"]
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_gtad8")
+script = ExtResource("2_f0jf4")

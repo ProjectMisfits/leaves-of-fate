@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7fe4dvse0qy0"]
+[gd_scene load_steps=3 format=3 uid="uid://c7fe4dvse0qy0"]
 
 [ext_resource type="Texture2D" uid="uid://yw5bo4hr4wr3" path="res://assets/entities/decor/food/Cheese-Prop.png" id="1_ruexh"]
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_v58sj"]
 
 [node name="Cheese" type="Sprite2D"]
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_ruexh")
+script = ExtResource("2_v58sj")

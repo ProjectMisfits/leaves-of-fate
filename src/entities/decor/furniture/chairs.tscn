@@ -1,7 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0wlcwvvy8ru2"]
+[gd_scene load_steps=3 format=3 uid="uid://b0wlcwvvy8ru2"]
 
 [ext_resource type="Texture2D" uid="uid://bmserlfg34sm7" path="res://assets/entities/decor/furniture/Chairs-Prop.png" id="1_3f2hk"]
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_ec4yx"]
 
 [node name="Chairs" type="Sprite2D"]
 scale = Vector2(2, 2)
 texture = ExtResource("1_3f2hk")
+script = ExtResource("2_ec4yx")
