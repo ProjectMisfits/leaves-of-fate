@@ -5,7 +5,7 @@ class_name MainMenu extends Control
 func _ready() -> void:
 	get_node("%PlayButton").grab_focus.call_deferred()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_escape_menus()
 
 # Signals that the game is started.
