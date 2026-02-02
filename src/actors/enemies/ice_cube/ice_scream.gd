@@ -9,7 +9,7 @@ class_name IceScream
 @onready var ice_cube_sprite : Sprite2D = $FlipNode/Sprite2D
 
 #Grabbable area
-@onready var grab_collision : CollisionShape2D = $FlipNode/GrabbableArea/CollisionShape2D
+@onready var grab_collision : CollisionShape2D = $GrabbableArea/CollisionShape2D
 
 @export var database : JSON = null
 

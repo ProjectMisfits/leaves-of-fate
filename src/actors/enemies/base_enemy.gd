@@ -19,17 +19,14 @@ var player_last_known_pos : Vector2
 func _ready() -> void:
 	intialize_statemachine()
 	look_direction = flip_node.scale.x
-	
-	
+
 #initialize statemachine
 func intialize_statemachine() -> void:
 	state_machine.initialize(self)
 	state_machine.set_active(true)
 
-
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
-
 
 #code for horizontal movement for enemies that includes acceleration and deceleration
 func move_horizontal(direction:float, acceleration:float, deceleration: float, delta: float, turn_speed:float, max_speed:float) -> void:
@@ -37,35 +34,24 @@ func move_horizontal(direction:float, acceleration:float, deceleration: float, d
 	var new_acceleration: float = 0.0
 	#print(direction)
 	
-	if (is_on_wall()):
-		new_velocity = 0.0
-	elif (direction == 0.0): # No direction 
+	if (direction == 0.0): # No direction 
 		new_velocity = move_toward(velocity.x, 0, deceleration)
-		
-	
 	elif (signf(direction) == signf(velocity.x)): 	# Direction matches current velocity
 		new_acceleration = direction * acceleration * delta
 	else: 											# Direction is opposite to current velocity
 		new_acceleration = direction * turn_speed *delta
 	
-	
 	new_velocity = clampf(velocity.x + new_acceleration, -max_speed, max_speed)
 	
 	velocity.x = new_velocity
-	
-
-
-
-
 
 #Base hurt functionality
 func hurt(damage:int) -> void:
 	cur_health -= damage;
-	
+
 #Base death just deletes the object
 func death() -> void:
 	queue_free()
-	
 
 #Checks if the player is within visible range and turn to face
 func check_player_visible() -> bool:
@@ -87,7 +73,7 @@ func check_player_visible() -> bool:
 		
 		return true
 	return false
-	
+
 func flip() -> void:
 	flip_node.scale.x *= -1
 	look_direction *= -1
