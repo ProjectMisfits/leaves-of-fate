@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cob1yf4cxasej"]
+[gd_scene load_steps=10 format=3 uid="uid://cob1yf4cxasej"]
 
+[ext_resource type="Script" uid="uid://dpqqjg4ooxnno" path="res://src/ui/hud/hud.gd" id="1_cio14"]
 [ext_resource type="Texture2D" uid="uid://b18dl61a07wva" path="res://assets/ui/hud/LifeBranch-UI_001.png" id="1_cvkdw"]
 [ext_resource type="Texture2D" uid="uid://3u1e2ulns1da" path="res://assets/ui/hud/LifeLeaf1-UI-001.png" id="2_ariom"]
 [ext_resource type="Texture2D" uid="uid://bd3e4j0uklp87" path="res://assets/ui/hud/LeafDashMeter-UI-001.png" id="2_udh2q"]
@@ -26,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cio14")
 
 [node name="Hud Container" type="MarginContainer" parent="."]
 layout_mode = 1
