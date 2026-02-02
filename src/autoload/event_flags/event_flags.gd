@@ -4,9 +4,9 @@ var _database: JSON = null
 var database_path: String = "res://src/autoload/event_flags/event_flags_db.tres"
 var _event_flags: Dictionary[String, bool]
 
-### EVENT FLAG-RELATED VARIABLES ###
-var num_heaters_actived: int = 0	# Updates when a heater_activated flag is set
-var winston_name: String = "???"	#  Updated by Dialogue resources during specific conversations
+# EVENT FLAG-RELATED VARIABLES #
+var num_heaters_activated: int = 0	## Updates when a heater_activated flag is set
+var winston_name: String = "???"	##  Updated by Dialogue resources during specific conversations
 
 func _enter_tree() -> void:
 	# Grab database programatically
@@ -19,7 +19,7 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	update_num_heaters_activated()
 
-# Returns the value of the given flag in the Dictionary.
+## Returns the value of the given flag in the Dictionary.
 func get_flag(flag_name: String) -> bool:
 	if (not _event_flags.has(flag_name)):	# Error checking
 		push_warning("set_flag(): Flag name could not be found in dictionary.")
@@ -27,7 +27,7 @@ func get_flag(flag_name: String) -> bool:
 	
 	return _event_flags.get(flag_name)
 
-# Returns true if flag was successfully set in dictionary or false otherwise.
+## Returns true if flag was successfully set in dictionary or false otherwise.
 func set_flag(flag_name: String, value: bool) -> bool:
 	if (not _event_flags.has(flag_name)):	# Error checking
 		push_warning("set_flag(): Flag name could not be found in dictionary.")
@@ -40,10 +40,13 @@ func set_flag(flag_name: String, value: bool) -> bool:
 	
 	print("Event Flag Set: ", flag_name, " = ", value)
 	
-	update_num_heaters_activated()
+	# Check if heater number needs to be updated
+	if ("heater" in flag_name):
+		update_num_heaters_activated()
+	
 	return true
 
-# Updates num_heaters_activated; increases by 1 for each heater_activated flag set to true.
+## Updates num_heaters_activated; increases by 1 for each heater_activated flag set to true.
 func update_num_heaters_activated() -> void:
 	var new_num_heaters_activated: int = 0
 	
@@ -54,5 +57,4 @@ func update_num_heaters_activated() -> void:
 	if (_event_flags.get("heater_three_activated")):
 		new_num_heaters_activated += 1
 	
-	num_heaters_actived = new_num_heaters_activated
-	#print("Number of Heaters Activated: ", num_heaters_actived)
+	num_heaters_activated = new_num_heaters_activated
