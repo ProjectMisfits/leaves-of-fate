@@ -6,7 +6,7 @@ var _event_flags: Dictionary[String, bool]
 
 ### EVENT FLAG-RELATED VARIABLES ###
 var num_heaters_actived: int = 0	# Updates when a heater_activated flag is set
-var winston_name: String = ""	#  Updated by Dialogue resources when specific conversations are triggered
+var winston_name: String = "???"	#  Updated by Dialogue resources during specific conversations
 
 func _enter_tree() -> void:
 	# Grab database programatically
@@ -18,7 +18,6 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	update_num_heaters_activated()
-	update_winston_name()
 
 # Returns the value of the given flag in the Dictionary.
 func get_flag(flag_name: String) -> bool:
@@ -42,8 +41,6 @@ func set_flag(flag_name: String, value: bool) -> bool:
 	print("Event Flag Set: ", flag_name, " = ", value)
 	
 	update_num_heaters_activated()
-	update_winston_name()
-	
 	return true
 
 # Updates num_heaters_activated; increases by 1 for each heater_activated flag set to true.
@@ -59,15 +56,3 @@ func update_num_heaters_activated() -> void:
 	
 	num_heaters_actived = new_num_heaters_activated
 	#print("Number of Heaters Activated: ", num_heaters_actived)
-
-# Updates winston_name; changes depending on which conversation flags have been triggered.
-func update_winston_name() -> void:
-	var new_winston_name: String = ""
-	
-	# TODO: Replace the conditional below with the proper event flags
-	if (_event_flags.get("ws_meet_cellar_general_triggered")):
-		new_winston_name = "Winston"
-	else:
-		new_winston_name = "bro"
-	
-	winston_name = new_winston_name
