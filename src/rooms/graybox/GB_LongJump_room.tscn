@@ -51,14 +51,6 @@ texture = ExtResource("2_fm61i")
 position = Vector2(11136, -1904)
 texture = ExtResource("3_ptimp")
 
-[node name="DoorEnter" parent="MidgroundLayer/Doors" index="0"]
-position = Vector2(384, 512)
-path_to_target_room = "uid://hcwtj0s2v2o8"
-
-[node name="DoorExit" parent="MidgroundLayer/Doors" index="1"]
-position = Vector2(14976, 512)
-path_to_target_room = "uid://cin3kjs7kgxsa"
-
 [node name="Icicle_06" parent="MidgroundLayer" index="4" instance=ExtResource("2_nnbk5")]
 position = Vector2(5288, 896)
 scale = Vector2(2, 2)

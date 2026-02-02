@@ -138,28 +138,6 @@ position = Vector2(1856, 828)
 scale = Vector2(0.625, 0.625)
 texture = ExtResource("13_8rtu3")
 
-[node name="DoorEnter" parent="MidgroundLayer/Doors" index="0"]
-position = Vector2(4800, 256)
-
-[node name="DoorExit" parent="MidgroundLayer/Doors" index="1"]
-position = Vector2(320, 1024)
-path_to_target_room = "uid://hcwtj0s2v2o8"
-
-[node name="Label" type="Label" parent="MidgroundLayer/Doors/DoorExit" index="2"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = -504.0
-offset_right = 175.0
-offset_bottom = -453.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 0
-text = "Entrance to cellar"
-
 [node name="Icicle06" type="Sprite2D" parent="MidgroundLayer" index="3"]
 position = Vector2(449.4323, 924)
 scale = Vector2(0.26858073, 0.26858073)
@@ -222,6 +200,21 @@ texture = ExtResource("8_aui2o")
 position = Vector2(12750, 3674)
 scale = Vector2(4, 4)
 texture = ExtResource("4_c4d42")
+
+[node name="MidgroundLayer_Doors_DoorExit#Label" type="Label" parent="." index="2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -504.0
+offset_right = 175.0
+offset_bottom = -453.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+text = "Entrance to cellar"
 
 [node name="HangingPlantProp01" type="Sprite2D" parent="ForegroundLayer/Decals" index="0"]
 position = Vector2(3456, -824)

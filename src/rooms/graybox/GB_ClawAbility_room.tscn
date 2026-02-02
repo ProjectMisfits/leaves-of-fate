@@ -47,14 +47,6 @@ texture = ExtResource("2_calw1")
 position = Vector2(3200, -476)
 texture = ExtResource("4_wbttp")
 
-[node name="DoorEnter" parent="MidgroundLayer/Doors" index="0"]
-position = Vector2(256, 1024)
-path_to_target_room = "uid://bjo42csk7sdc3"
-
-[node name="DoorExit" parent="MidgroundLayer/Doors" index="1"]
-position = Vector2(3584, 1024)
-path_to_target_room = "uid://cwgmn4aexyqic"
-
 [node name="GrabbablePlatform" parent="MidgroundLayer" index="5" instance=ExtResource("5_bpnkn")]
 position = Vector2(1642, 491)
 curve = SubResource("Curve2D_bpnkn")

@@ -132,14 +132,6 @@ texture = ExtResource("2_qcg6g")
 position = Vector2(8960, 2103.5)
 texture = ExtResource("3_e5o2i")
 
-[node name="DoorEnter" parent="MidgroundLayer/Doors" index="0"]
-position = Vector2(768, 1024)
-path_to_target_room = "uid://cwgmn4aexyqic"
-
-[node name="DoorExit" parent="MidgroundLayer/Doors" index="1"]
-position = Vector2(14080, 3328)
-path_to_target_room = "uid://bjo42csk7sdc3"
-
 [node name="IceSpikeBall2" parent="MidgroundLayer" index="4" instance=ExtResource("5_0b23k")]
 position = Vector2(12288, 2048)
 
