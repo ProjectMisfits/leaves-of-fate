@@ -12,7 +12,5 @@ func _input(event: InputEvent) -> void:
 		# Actually quit.
 		get_tree().quit()
 	elif event.is_action_pressed("pause"):
-		var gameplay_node: Gameplay = get_tree().root.get_node("Gameplay")
-		
-		if (gameplay_node != null):
-			gameplay_node.toggle_pause()
+		if SceneManager.current_scene.name == "Gameplay":
+			SceneManager.current_scene.toggle_pause()
