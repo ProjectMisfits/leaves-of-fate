@@ -24,7 +24,7 @@ func _ready() -> void:
 	
 	# If the room is being run standalone, we have to make sure the player gets instantiated.
 	if get_tree().current_scene == self:
-		var player: Player = preload("res://src/entities/actors/characters/player/player.tscn").instantiate()
+		var player: Player = preload("res://src/entities/actors/player/player.tscn").instantiate()
 		spawn_player(player, 'enter')
 
 ## Initiate room swap on player entering a Door.

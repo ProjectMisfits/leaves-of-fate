@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjs6k2nuta53t"
-path="res://.godot/imported/fenn_walkcycle_spritesheet.png-e99e3b4969737a118dc844844a8bcda5.ctex"
+path="res://.godot/imported/fenn_walkcycle_spritesheet.png-a93e666abea70de47cfaca6a98262fb3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/actors/characters/player/fenn_walkcycle_spritesheet.png"
-dest_files=["res://.godot/imported/fenn_walkcycle_spritesheet.png-e99e3b4969737a118dc844844a8bcda5.ctex"]
+source_file="res://assets/entities/actors/player/fenn_walkcycle_spritesheet.png"
+dest_files=["res://.godot/imported/fenn_walkcycle_spritesheet.png-a93e666abea70de47cfaca6a98262fb3.ctex"]
 
 [params]
 

@@ -25,7 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://rqirsuqouub4" path="res://assets/entities/decor/plants/HangingPlant-Prop-02.png" id="23_5ijqs"]
 [ext_resource type="Texture2D" uid="uid://bne4vg4ywan02" path="res://assets/ui/dialogue_boxes/DialogueBoxAz-UI-001.png" id="24_vx82f"]
 [ext_resource type="Texture2D" uid="uid://dk5bpfuimu5cp" path="res://assets/ui/dialogue_boxes/DialogueBoxFenn-UI-001.png" id="25_503cj"]
-[ext_resource type="Texture2D" uid="uid://dco77mb0p8ecg" path="res://assets/entities/actors/characters/player/player_placeholder.png" id="26_ad1v0"]
+[ext_resource type="Texture2D" uid="uid://dco77mb0p8ecg" path="res://assets/entities/actors/player/player_placeholder.png" id="26_ad1v0"]
 [ext_resource type="PackedScene" uid="uid://c3wglsph8i5hq" path="res://src/entities/decor/plants/floor_pot_01.tscn" id="27_5u77h"]
 [ext_resource type="PackedScene" uid="uid://b0wlcwvvy8ru2" path="res://src/entities/decor/furniture/chairs.tscn" id="28_gooil"]
 [ext_resource type="PackedScene" uid="uid://b7j64qhjhyt7o" path="res://src/entities/decor/furniture/table.tscn" id="29_y4lt4"]
