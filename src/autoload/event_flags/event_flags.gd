@@ -6,7 +6,7 @@ var _event_flags: Dictionary[String, bool]
 
 # EVENT FLAG-RELATED VARIABLES #
 var num_heaters_activated: int = 0	## Updates when a heater_activated flag is set
-var winston_name: String = "???"	##  Updated by Dialogue resources during specific conversations
+var winston_name: String = "Wizard"	##  Updated by Dialogue resources during specific conversations
 
 func _enter_tree() -> void:
 	# Grab database programatically
