@@ -2,37 +2,37 @@ import "res://assets/dialogue/dialogue_scripts/7d-Az-ConditionalConvo-CellarGene
 
 
 ~ trap
-Winston: Aha! There thou art, pint-size!
+{{EventFlags.winston_name}}: Aha! There thou art, pint-size!
 Fenn: Uh oh.
 Az: cough You good?
-Winston: Now, I has't been thinking. Thou hath been quite the thorn in mine own side, and I needeth a way to get rid of thee... 
+{{EventFlags.winston_name}}: Now, I has't been thinking. Thou hath been quite the thorn in mine own side, and I needeth a way to get rid of thee... 
 Fenn: Okay...
-Winston: And what better way... than with...
-Winston: A GIANT ICY CAGE!!!!
+{{EventFlags.winston_name}}: And what better way... than with...
+{{EventFlags.winston_name}}: A GIANT ICY CAGE!!!!
 As he says it, a large cage falls from the ceiling, directly on top of Fenn
+do EventFlags.set_flag("Ws-CageTrap-HeaterArea", true)
 => END
 
 ~ escaped
 Fenn escapes the trap with a quick leaf dash
-Winston: Oh yeah. I- I forgot thee couldst do that. 
+{{EventFlags.winston_name}}: Oh yeah. I- I forgot thee couldst do that. 
 Az: HAH. Seriously?! That's literally Fenn's main trick. Nice job, wizard boy.
-Winston: Arrrgh!
+{{EventFlags.winston_name}}: Arrrgh!
 Fenn: That's okay. I sometimes forget about it too. It's not very helpful.
-Winston: Waiteth what? Nay! It's really cool, I just...
-Winston: I thought thee only hadst that curs'd bracelet from the scary lady
+{{EventFlags.winston_name}}: Waiteth what? Nay! It's really cool, I just...
+{{EventFlags.winston_name}}: I thought thee only hadst that curs'd bracelet from the scary lady
 Az: I can hear you.
 Fenn: It's a bangle, actually. And it's way cooler than my leaves.
-Winston: Oh...
-Winston: Anyways, I'm going to... um...
-Winston: I'm going to go planneth thy downfall.
-Winston leaves.
+{{EventFlags.winston_name}}: Oh...
+{{EventFlags.winston_name}}: Anyways, I'm going to... um...
+{{EventFlags.winston_name}}: I'm going to go planneth thy downfall.
+{{EventFlags.winston_name}} leaves.
 Az: What a weird dude.
 Fenn: What do you mean?
 Az: Nevermind.
+do EventFlags.set_flag("Ws-PostCageTrap-HeaterArea", true)
 
-# Change this to something like "If heaters on == 0"
-if true
+if EventFlags.num_heaters_activated == 0
 	=> ConditionalConvo/start
 
 => END
-#should be used for both the pre-trap convo and post-trap convo

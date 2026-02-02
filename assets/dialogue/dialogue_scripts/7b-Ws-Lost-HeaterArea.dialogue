@@ -1,29 +1,30 @@
 import "res://assets/dialogue/dialogue_scripts/7d-Az-ConditionalConvo-CellarGeneral.dialogue" as ConditionalConvo
 
 ~ start
-Fenn: Winston?
-Winston: OH BY POSTLY HEAVEN! WHO'S THERE?!
+Fenn: {{EventFlags.winston_name}}?
+{{EventFlags.winston_name}}: OH BY POSTLY HEAVEN! WHO'S THERE?!
 Fenn: It's me! Fenn?
-Winston: Oh my. Pint-size...
+{{EventFlags.winston_name}}: Oh my. Pint-size...
 Fenn: Alright, Wizard man! I'm ready for you, gimme everything you got. I will defeat you and free this palace!
-Winston: Oh! Yes, um... well you see...
-Winston: Mine own tools art in the workshop. I wast out looking for something, and-
+{{EventFlags.winston_name}}: Oh! Yes, um... well you see...
+{{EventFlags.winston_name}}: Mine own tools art in the workshop. I wast out looking for something, and-
 Az: Oh by the Sender. You're LOST?!
-Winston: Nay! NAY! I'm not lost! I knoweth mine own way out of here perfectly fine!
-Winston mumbling: Or at least, I didst.
+{{EventFlags.winston_name}}: Nay! NAY! I'm not lost! I knoweth mine own way out of here perfectly fine!
+{{EventFlags.winston_name}} mumbling: Or at least, I didst.
 Az: HAHA HAH. This is GREAT. Boy you really know how to crack me up.
-Winston: Arrgh. Shut up! 
-Winston whispering: Hey pint-size... wh-whereth be thine exit?
+{{EventFlags.winston_name}}: Arrgh. Shut up! 
+{{EventFlags.winston_name}} whispering: Hey pint-size... wh-whereth be thine exit?
 Fenn: Oh, it's just behind you. I see it there.
-Winston: Thanks.
+{{EventFlags.winston_name}}: Thanks.
 Fenn: No problem, happy to help!
-Winston leaves.
+{{EventFlags.winston_name}} leaves.
 Az: Did you just let him get away?
 Fenn: OH WAIT! Come back!!!
-Winston from afar: UMMM... LALALA I CAN'T HEARETH YOU!
+{{EventFlags.winston_name}} from afar: UMMM... LALALA I CAN'T HEARETH YOU!
 Az: Oh by Post. They're both idiots.
-# Change this to something like "If heaters on == 0"
-if true
+do EventFlags.set_flag("Ws-Lost-HeaterArea", true)
+
+if EventFlags.num_heaters_activated == 0
 	=> ConditionalConvo/start
 
 => END

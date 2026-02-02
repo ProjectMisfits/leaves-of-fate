@@ -2,6 +2,7 @@ extends LimboState
 
 func _enter() -> void:
 	#print("Player State Transition: to_jumping")
+	agent.animation_player.play("player_idle")
 	agent.jump()
 
 func _update(_delta: float) -> void:
