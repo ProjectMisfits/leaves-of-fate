@@ -58,9 +58,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hhctb")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="EnvelopeBase" type="Panel" parent="CanvasLayer"]
+[node name="EnvelopeBase" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -68,7 +68,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_6ut4k")
 
-[node name="StampButton" type="Button" parent="CanvasLayer/EnvelopeBase"]
+[node name="StampButton" type="Button" parent="EnvelopeBase"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -87,7 +88,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_ctewx")
 theme_override_styles/hover = SubResource("StyleBoxTexture_776kc")
 theme_override_styles/focus = SubResource("StyleBoxTexture_uiflr")
 
-[node name="CreditsUp" type="Label" parent="CanvasLayer/EnvelopeBase/StampButton"]
+[node name="CreditsUp" type="Label" parent="EnvelopeBase/StampButton"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -101,11 +102,11 @@ theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
 theme_override_font_sizes/font_size = 50
 text = "Credits"
 
-[node name="Node2D" type="Node2D" parent="CanvasLayer/EnvelopeBase/StampButton"]
+[node name="Node2D" type="Node2D" parent="EnvelopeBase/StampButton"]
 position = Vector2(207, 310)
 scale = Vector2(-1, -1)
 
-[node name="CreditsDown" type="Label" parent="CanvasLayer/EnvelopeBase/StampButton/Node2D"]
+[node name="CreditsDown" type="Label" parent="EnvelopeBase/StampButton/Node2D"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -121,7 +122,8 @@ theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
 theme_override_font_sizes/font_size = 50
 text = "Credits"
 
-[node name="ReturnLabelButton" type="Button" parent="CanvasLayer/EnvelopeBase"]
+[node name="ReturnLabelButton" type="Button" parent="EnvelopeBase"]
+unique_name_in_owner = true
 layout_mode = 1
 offset_left = 120.0
 offset_top = 80.0
@@ -139,7 +141,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_hhctb")
 theme_override_styles/focus = SubResource("StyleBoxTexture_2rik1")
 alignment = 2
 
-[node name="HowToPlay" type="Label" parent="CanvasLayer/EnvelopeBase/ReturnLabelButton"]
+[node name="HowToPlay" type="Label" parent="EnvelopeBase/ReturnLabelButton"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -158,7 +160,7 @@ theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
 theme_override_font_sizes/font_size = 60
 text = "How To Play"
 
-[node name="PalaceName" type="Label" parent="CanvasLayer/EnvelopeBase/ReturnLabelButton"]
+[node name="PalaceName" type="Label" parent="EnvelopeBase/ReturnLabelButton"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -175,7 +177,7 @@ theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
 theme_override_font_sizes/font_size = 30
 text = "Bay Leaf Palace"
 
-[node name="Title" type="Label" parent="CanvasLayer/EnvelopeBase"]
+[node name="Title" type="Label" parent="EnvelopeBase"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -193,7 +195,9 @@ theme_override_fonts/font = ExtResource("3_vivct")
 theme_override_font_sizes/font_size = 150
 text = "PROJECT MISFITS"
 
-[node name="MainSelectionsContainer" type="VBoxContainer" parent="CanvasLayer"]
+[node name="MainSelectionsContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -206,7 +210,8 @@ offset_bottom = 273.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayButton" type="Button" parent="CanvasLayer/MainSelectionsContainer"]
+[node name="PlayButton" type="Button" parent="MainSelectionsContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(248, 101)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -226,7 +231,7 @@ text = "Play"
 alignment = 2
 script = ExtResource("5_6ut4k")
 
-[node name="LeafPointer" type="TextureRect" parent="CanvasLayer/MainSelectionsContainer/PlayButton"]
+[node name="LeafPointer" type="TextureRect" parent="MainSelectionsContainer/PlayButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -239,7 +244,8 @@ texture = ExtResource("5_vivct")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="SettingsButton" type="Button" parent="CanvasLayer/MainSelectionsContainer"]
+[node name="SettingsButton" type="Button" parent="MainSelectionsContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 101)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -261,7 +267,7 @@ text = "Settings"
 alignment = 2
 script = ExtResource("5_6ut4k")
 
-[node name="LeafPointer" type="TextureRect" parent="CanvasLayer/MainSelectionsContainer/SettingsButton"]
+[node name="LeafPointer" type="TextureRect" parent="MainSelectionsContainer/SettingsButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -274,7 +280,8 @@ texture = ExtResource("5_vivct")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="ExitButton" type="Button" parent="CanvasLayer/MainSelectionsContainer"]
+[node name="ExitButton" type="Button" parent="MainSelectionsContainer"]
+unique_name_in_owner = true
 process_mode = 3
 custom_minimum_size = Vector2(226, 101)
 layout_mode = 2
@@ -297,7 +304,7 @@ text = "Exit
 alignment = 2
 script = ExtResource("5_6ut4k")
 
-[node name="LeafPointer" type="TextureRect" parent="CanvasLayer/MainSelectionsContainer/ExitButton"]
+[node name="LeafPointer" type="TextureRect" parent="MainSelectionsContainer/ExitButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -310,7 +317,7 @@ texture = ExtResource("5_vivct")
 expand_mode = 1
 stretch_mode = 4
 
-[connection signal="button_up" from="CanvasLayer/EnvelopeBase/ReturnLabelButton" to="." method="_on_return_label_button_up"]
-[connection signal="button_up" from="CanvasLayer/MainSelectionsContainer/PlayButton" to="." method="_on_play_button_button_up"]
-[connection signal="button_up" from="CanvasLayer/MainSelectionsContainer/SettingsButton" to="." method="_on_settings_button_up"]
-[connection signal="button_up" from="CanvasLayer/MainSelectionsContainer/ExitButton" to="." method="_on_exit_button_up"]
+[connection signal="button_up" from="EnvelopeBase/ReturnLabelButton" to="." method="_on_return_label_button_up"]
+[connection signal="button_up" from="MainSelectionsContainer/PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="MainSelectionsContainer/SettingsButton" to="." method="_on_settings_button_up"]
+[connection signal="button_up" from="MainSelectionsContainer/ExitButton" to="." method="_on_exit_button_up"]

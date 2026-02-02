@@ -2,26 +2,20 @@
 
 [ext_resource type="Script" uid="uid://clfv0vvbc4hdy" path="res://src/rooms/room.gd" id="1_t665v"]
 [ext_resource type="TileSet" uid="uid://i6wi7xcus3i" path="res://assets/rooms/tileset/TS_Cellar.tres" id="2_7i7i2"]
-[ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/objects/door/door.tscn" id="2_pdypr"]
+[ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/door/door.tscn" id="2_pdypr"]
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_t665v")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
-layer = -1
 follow_viewport_enabled = true
 
-[node name="Background" type="TileMapLayer" parent="BackgroundLayer"]
-modulate = Color(0.6872149, 0.68721503, 0.68721485, 1)
-scale = Vector2(0.25, 0.25)
-tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAANAAAAAQAAAAAAAAAOAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAcAAQAAAAAAAAAAAAgAAQAAAAAAAAABAAgAAQAAAAAAAAACAAgAAQAAAAAAAAADAAgAAQAAAAAAAAAEAAgAAQAAAAAAAAAFAAgAAQAAAAAAAAAGAAgAAQAAAAAAAAAHAAgAAQAAAAAAAAAIAAgAAQAAAAAAAAAJAAgAAQAAAAAAAAAKAAgAAQAAAAAAAAALAAgAAQAAAAAAAAAMAAgAAQAAAAAAAAANAAgAAQAAAAAAAAAOAAEAAQAAAAAAAAAOAAIAAQAAAAAAAAAOAAMAAQAAAAAAAAAOAAQAAQAAAAAAAAAOAAUAAQAAAAAAAAAOAAYAAQAAAAAAAAAOAAcAAQAAAAAAAAAOAAgAAQAAAAAAAAABAAEAAQAAAAAAAAACAAEAAQAAAAAAAAADAAEAAQAAAAAAAAAEAAEAAQAAAAAAAAAFAAEAAQAAAAAAAAAGAAEAAQAAAAAAAAAHAAEAAQAAAAAAAAAIAAEAAQAAAAAAAAAJAAEAAQAAAAAAAAAKAAEAAQAAAAAAAAALAAEAAQAAAAAAAAAMAAEAAQAAAAAAAAANAAEAAQAAAAAAAAANAAIAAQAAAAAAAAAMAAIAAQAAAAAAAAALAAIAAQAAAAAAAAAKAAIAAQAAAAAAAAAJAAIAAQAAAAAAAAAIAAIAAQAAAAAAAAAHAAIAAQAAAAAAAAAGAAIAAQAAAAAAAAAFAAIAAQAAAAAAAAAEAAIAAQAAAAAAAAADAAIAAQAAAAAAAAACAAIAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAACAAMAAQAAAAAAAAADAAMAAQAAAAAAAAAEAAMAAQAAAAAAAAAFAAMAAQAAAAAAAAAGAAMAAQAAAAAAAAAHAAMAAQAAAAAAAAAIAAMAAQAAAAAAAAAJAAMAAQAAAAAAAAAKAAMAAQAAAAAAAAALAAMAAQAAAAAAAAAMAAMAAQAAAAAAAAANAAMAAQAAAAAAAAANAAQAAQAAAAAAAAAMAAQAAQAAAAAAAAALAAQAAQAAAAAAAAAKAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAFAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAADAAQAAQAAAAAAAAACAAQAAQAAAAAAAAABAAQAAQAAAAAAAAABAAUAAQAAAAAAAAACAAUAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAGAAUAAQAAAAAAAAAHAAUAAQAAAAAAAAAIAAUAAQAAAAAAAAAJAAUAAQAAAAAAAAAKAAUAAQAAAAAAAAALAAUAAQAAAAAAAAAMAAUAAQAAAAAAAAANAAUAAQAAAAAAAAANAAYAAQAAAAAAAAAMAAYAAQAAAAAAAAALAAYAAQAAAAAAAAAKAAYAAQAAAAAAAAAJAAYAAQAAAAAAAAAIAAYAAQAAAAAAAAAHAAYAAQAAAAAAAAAGAAYAAQAAAAAAAAAFAAYAAQAAAAAAAAAEAAYAAQAAAAAAAAADAAYAAQAAAAAAAAACAAYAAQAAAAAAAAABAAYAAQAAAAAAAAABAAcAAQAAAAAAAAACAAcAAQAAAAAAAAADAAcAAQAAAAAAAAAEAAcAAQAAAAAAAAAFAAcAAQAAAAAAAAAGAAcAAQAAAAAAAAAHAAcAAQAAAAAAAAAIAAcAAQAAAAAAAAAJAAcAAQAAAAAAAAAKAAcAAQAAAAAAAAALAAcAAQAAAAAAAAAMAAcAAQAAAAAAAAANAAcAAQAAAAAAAAA=")
-tile_set = ExtResource("2_7i7i2")
-collision_enabled = false
+[node name="Background" type="Sprite2D" parent="BackgroundLayer"]
 
-[node name="Decals" type="Node2D" parent="BackgroundLayer"]
+[node name="Decor" type="Node2D" parent="BackgroundLayer"]
 
 [node name="MidgroundLayer" type="CanvasLayer" parent="."]
-layer = 0
+layer = 2
 follow_viewport_enabled = true
 
 [node name="Midground" type="TileMapLayer" parent="MidgroundLayer"]
@@ -29,26 +23,45 @@ scale = Vector2(0.25, 0.25)
 tile_map_data = PackedByteArray("AAAAAAgAAwAAAAAAAAABAAgAAwAAAAAAAAACAAgAAwAAAAAAAAADAAgAAwAAAAAAAAAEAAgAAwAAAAAAAAAFAAgAAwAAAAAAAAAGAAgAAwAAAAAAAAAHAAgAAwAAAAAAAAAIAAgAAwAAAAAAAAAJAAgAAwAAAAAAAAAKAAgAAwAAAAAAAAALAAgAAwAAAAAAAAAMAAgAAwAAAAAAAAANAAgAAwAAAAAAAAAOAAgAAwAAAAAAAAA=")
 tile_set = ExtResource("2_7i7i2")
 
-[node name="DecalsBack" type="Node2D" parent="MidgroundLayer"]
+[node name="DoorHolder" type="Node2D" parent="MidgroundLayer"]
+unique_name_in_owner = true
+z_index = 2
 
-[node name="Doors" type="Node2D" parent="MidgroundLayer"]
-
-[node name="DoorEnter" parent="MidgroundLayer/Doors" instance=ExtResource("2_pdypr")]
+[node name="DoorEnter" parent="MidgroundLayer/DoorHolder" instance=ExtResource("2_pdypr")]
 position = Vector2(448, 936)
 door_name = "enter"
 target_door_name = "exit"
 
-[node name="DoorExit" parent="MidgroundLayer/Doors" instance=ExtResource("2_pdypr")]
+[node name="DoorExit" parent="MidgroundLayer/DoorHolder" instance=ExtResource("2_pdypr")]
 position = Vector2(1472, 936)
 door_name = "exit"
 target_door_name = "enter"
 
 [node name="PlayerHolder" type="Node2D" parent="MidgroundLayer"]
+unique_name_in_owner = true
+z_index = 4
 
-[node name="DecalsFront" type="Node2D" parent="MidgroundLayer"]
+[node name="Entities" type="Node2D" parent="MidgroundLayer"]
+
+[node name="Enemies" type="Node2D" parent="MidgroundLayer/Entities"]
+
+[node name="Hazards" type="Node2D" parent="MidgroundLayer/Entities"]
+z_index = 5
+
+[node name="NPCs" type="Node2D" parent="MidgroundLayer/Entities"]
+z_index = 3
+
+[node name="Objects" type="Node2D" parent="MidgroundLayer/Entities"]
+z_index = 5
+
+[node name="Triggers" type="Node2D" parent="MidgroundLayer/Entities"]
+z_index = 5
+
+[node name="Decor" type="Node2D" parent="MidgroundLayer"]
 scale = Vector2(0.25, 0.25)
 
 [node name="ForegroundLayer" type="CanvasLayer" parent="."]
+layer = 3
 follow_viewport_enabled = true
 
-[node name="Decals" type="Node2D" parent="ForegroundLayer"]
+[node name="Decor" type="Node2D" parent="ForegroundLayer"]
