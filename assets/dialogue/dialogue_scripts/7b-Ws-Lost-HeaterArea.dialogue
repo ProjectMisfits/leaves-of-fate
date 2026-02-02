@@ -1,23 +1,26 @@
 import "res://assets/dialogue/dialogue_scripts/7d-Az-ConditionalConvo-CellarGeneral.dialogue" as ConditionalConvo
 
 ~ start
-Fenn: Wizard man?
-Winston: RAH! WHO'S THERE?
+Fenn: Winston?
+Winston: OH BY POSTLY HEAVEN! WHO'S THERE?!
 Fenn: It's me! Fenn?
-Winston: Oh... pint-size...
-Fenn: Here we go! I'm ready Wizard man! Gimme everything you got, I will defeat you!
-Winston: Oh... oh! Yes, um... well you see...
-Winston: My tools are in the workshop... I was out looking for something... but-
+Winston: Oh my. Pint-size...
+Fenn: Alright, Wizard man! I'm ready for you, gimme everything you got. I will defeat you and free this palace!
+Winston: Oh! Yes, um... well you see...
+Winston: Mine own tools art in the workshop. I wast out looking for something, and-
 Az: Oh by the Sender. You're LOST?!
-Winston: No! NO! I'm not lost! I know my way out of here perfectly fine!
-Winston whispering: Hey, pint-size... wh- where's the exit?
-Fenn: Oh, it's just that way.
+Winston: Nay! NAY! I'm not lost! I knoweth mine own way out of here perfectly fine!
+Winston mumbling: Or at least, I didst.
+Az: HAHA HAH. This is GREAT. Boy you really know how to crack me up.
+Winston: Arrgh. Shut up! 
+Winston whispering: Hey pint-size... wh-whereth be thine exit?
+Fenn: Oh, it's just behind you. I see it there.
 Winston: Thanks.
 Fenn: No problem, happy to help!
-Winston walks away.
-Az: D-did you just let him get away?
-Fenn :OH WAIT!! Come back!!
-Winston from afar: UHHH... LALALA CAN'T HEAR YOUUUU!
+Winston leaves.
+Az: Did you just let him get away?
+Fenn: OH WAIT! Come back!!!
+Winston from afar: UMMM... LALALA I CAN'T HEARETH YOU!
 Az: Oh by Post. They're both idiots.
 # Change this to something like "If heaters on == 0"
 if true
