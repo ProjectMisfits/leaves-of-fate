@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://com3a5uqsd6n6"
-path="res://.godot/imported/Stamp-UI-001.png-a6e4665e124fe0c60d7f2668cbdd8b11.ctex"
+uid="uid://cjmu0wklpfwll"
+path="res://.godot/imported/LeafSlider-UI-001.svg-7ac253753c3686f96174aeac98a47d45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/Stamp-UI-001.png"
-dest_files=["res://.godot/imported/Stamp-UI-001.png-a6e4665e124fe0c60d7f2668cbdd8b11.ctex"]
+source_file="res://assets/ui/settings/LeafSlider-UI-001.svg"
+dest_files=["res://.godot/imported/LeafSlider-UI-001.svg-7ac253753c3686f96174aeac98a47d45.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

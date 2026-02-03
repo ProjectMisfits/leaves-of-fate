@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://24pvhwwalebl"
-path="res://.godot/imported/Envelope-UI-001.png-a7e475ef1a71c8359f316dea650ac5ad.ctex"
+uid="uid://3u1e2ulns1da"
+path="res://.godot/imported/LifeLeaf1-UI-001.png-d66549c202e22391808b986481ee59b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/Envelope-UI-001.png"
-dest_files=["res://.godot/imported/Envelope-UI-001.png-a7e475ef1a71c8359f316dea650ac5ad.ctex"]
+source_file="res://assets/ui/hud/LifeLeaf1-UI-001.png"
+dest_files=["res://.godot/imported/LifeLeaf1-UI-001.png-d66549c202e22391808b986481ee59b9.ctex"]
 
 [params]
 

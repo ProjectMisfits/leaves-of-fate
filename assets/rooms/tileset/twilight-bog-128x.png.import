@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp7g7b6wdpi53"
-path="res://.godot/imported/TS-planks-horiz-1.png-0985566c782719cd61cadd0ad76efcf5.ctex"
+uid="uid://c5eeoy4ggvs2g"
+path="res://.godot/imported/twilight-bog-128x.png-f6ddb0c4ecf758d139b192979aa5e9dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/tileset/TS-planks-horiz-1.png"
-dest_files=["res://.godot/imported/TS-planks-horiz-1.png-0985566c782719cd61cadd0ad76efcf5.ctex"]
+source_file="res://assets/rooms/tileset/twilight-bog-128x.png"
+dest_files=["res://.godot/imported/twilight-bog-128x.png-f6ddb0c4ecf758d139b192979aa5e9dc.ctex"]
 
 [params]
 
@@ -36,5 +36,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=512
+process/size_limit=0
 detect_3d/compress_to=1

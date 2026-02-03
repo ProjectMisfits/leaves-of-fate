@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://batpmeb07fsei"
-path="res://.godot/imported/overlay_frame.png-45cd10a7e2b0ed853a927a3a475a3ff4.ctex"
+uid="uid://chc5x7c0rq24i"
+path="res://.godot/imported/LifeLeaf3-UI-001.png-91f89dadcf9fe0e36ff038a016ed63b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/tileset/overlay_frame.png"
-dest_files=["res://.godot/imported/overlay_frame.png-45cd10a7e2b0ed853a927a3a475a3ff4.ctex"]
+source_file="res://assets/ui/hud/LifeLeaf3-UI-001.png"
+dest_files=["res://.godot/imported/LifeLeaf3-UI-001.png-91f89dadcf9fe0e36ff038a016ed63b2.ctex"]
 
 [params]
 
@@ -36,5 +36,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=1536
+process/size_limit=0
 detect_3d/compress_to=1

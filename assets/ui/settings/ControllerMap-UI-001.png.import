@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bokl20qwsrj6e"
-path="res://.godot/imported/TS-planks-45deg-1.png-ddb61c88db92b2ca9df724ddd79f439e.ctex"
+uid="uid://bykro1gcxr2hb"
+path="res://.godot/imported/ControllerMap-UI-001.png-608192f0d3b2c0178f25230c7cab3cac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/tileset/TS-planks-45deg-1.png"
-dest_files=["res://.godot/imported/TS-planks-45deg-1.png-ddb61c88db92b2ca9df724ddd79f439e.ctex"]
+source_file="res://assets/ui/settings/ControllerMap-UI-001.png"
+dest_files=["res://.godot/imported/ControllerMap-UI-001.png-608192f0d3b2c0178f25230c7cab3cac.ctex"]
 
 [params]
 
@@ -36,5 +36,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=512
+process/size_limit=0
 detect_3d/compress_to=1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bykro1gcxr2hb"
-path="res://.godot/imported/ControllerMap-UI-001.png-2bf09b7bc71ed7e3d274f6dc39f78d94.ctex"
+uid="uid://b18dl61a07wva"
+path="res://.godot/imported/LifeBranch-UI_001.png-1e54886cef0d6f496900bd68cad1a86e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/ControllerMap-UI-001.png"
-dest_files=["res://.godot/imported/ControllerMap-UI-001.png-2bf09b7bc71ed7e3d274f6dc39f78d94.ctex"]
+source_file="res://assets/ui/hud/LifeBranch-UI_001.png"
+dest_files=["res://.godot/imported/LifeBranch-UI_001.png-1e54886cef0d6f496900bd68cad1a86e.ctex"]
 
 [params]
 

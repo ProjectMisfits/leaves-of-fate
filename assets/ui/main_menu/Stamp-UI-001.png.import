@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqbbpsglfvq3u"
-path="res://.godot/imported/ReturnLabel-UI-001.png-19f8743a13a4e80ecd1f13487e66853e.ctex"
+uid="uid://com3a5uqsd6n6"
+path="res://.godot/imported/Stamp-UI-001.png-bb89e375e986a1b6fdf909c2a3db04fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/ReturnLabel-UI-001.png"
-dest_files=["res://.godot/imported/ReturnLabel-UI-001.png-19f8743a13a4e80ecd1f13487e66853e.ctex"]
+source_file="res://assets/ui/main_menu/Stamp-UI-001.png"
+dest_files=["res://.godot/imported/Stamp-UI-001.png-bb89e375e986a1b6fdf909c2a3db04fe.ctex"]
 
 [params]
 

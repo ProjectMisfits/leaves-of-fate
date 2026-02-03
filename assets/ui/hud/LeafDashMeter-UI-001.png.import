@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjmu0wklpfwll"
-path="res://.godot/imported/LeafSlider-UI-001.svg-7e7c988acd169576e7da814501b701cc.ctex"
+uid="uid://bd3e4j0uklp87"
+path="res://.godot/imported/LeafDashMeter-UI-001.png-70dcc4d2487c213c4a856496af1dd446.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/LeafSlider-UI-001.svg"
-dest_files=["res://.godot/imported/LeafSlider-UI-001.svg-7e7c988acd169576e7da814501b701cc.ctex"]
+source_file="res://assets/ui/hud/LeafDashMeter-UI-001.png"
+dest_files=["res://.godot/imported/LeafDashMeter-UI-001.png-70dcc4d2487c213c4a856496af1dd446.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
