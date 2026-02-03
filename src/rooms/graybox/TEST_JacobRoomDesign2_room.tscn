@@ -1,0 +1,576 @@
+[gd_scene load_steps=3 format=4 uid="uid://bjk5sw1n11wco"]
+
+[ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_5vv22"]
+[ext_resource type="PackedScene" uid="uid://b0kcsh4u0s6h" path="res://src/entities/hazards/icicle/icicle_group_05.tscn" id="2_y6yas"]
+
+[node name="TEST_JacobRoomDesign2" instance=ExtResource("1_5vv22")]
+
+[node name="Midground" parent="MidgroundLayer" index="0"]
+tile_map_data = PackedByteArray("AAAAAAgABgAFAAAAAAABAAgABgAFAAAAAAACAAgABgAFAAAAAAADAAgABgAFAAAAAAAEAAgABgAFAAAAAAAFAAgABgAFAAAAAAAGAAgABgAFAAAAAAAHAAgABgAFAAAAAAAHAAkABgAFAAAAAAAHAAoABgAFAAAAAAAHAAsABgAFAAAAAAAHAAwABgAFAAAAAAAHAA0ABgAFAAAAAAAHAA4ABgAFAAAAAAAHAA8ABgAFAAAAAAAHABAABgAFAAAAAAAHABEABgAFAAAAAAAHABIABgAFAAAAAAAHABMABgAFAAAAAAAHABQABgAFAAAAAAAHABUABgAFAAAAAAAHABYABgAFAAAAAAAHABcABgAFAAAAAAAHABgABgAFAAAAAAAHABkABgAFAAAAAAAHABoABgAFAAAAAAAHABsABgAFAAAAAAAIABsABgAFAAAAAAAJABsABgAFAAAAAAAKABsABgAFAAAAAAALABsABgAFAAAAAAAMABsABgAFAAAAAAANABsABgAFAAAAAAAOABsABgAFAAAAAAAPABsABgAFAAAAAAAQABsABgAFAAAAAAARABsABgAFAAAAAAASABsABgAFAAAAAAATABsABgAFAAAAAAAUABsABgAFAAAAAAAVABsABgAFAAAAAAAWABsABgAFAAAAAAAXABsABgAFAAAAAAAYABsABgAFAAAAAAAZABsABgAFAAAAAAAaABsABgAFAAAAAAAbABsABgAFAAAAAAAcABsABgAFAAAAAAAdABsABgAFAAAAAAAeABsABgAFAAAAAAAfABsABgAFAAAAAAAgABsABgAFAAAAAAAhABsABgAFAAAAAAAiABsABgAFAAAAAAAjABsABgAFAAAAAAAkABsABgAFAAAAAAAlABsABgAFAAAAAAAmABsABgAFAAAAAAAnABsABgAFAAAAAAAoABsABgAFAAAAAAApABsABgAFAAAAAAAqABsABgAFAAAAAAArABsABgAFAAAAAAAsABsABgAFAAAAAAAtABsABgAFAAAAAAAuABsABgAFAAAAAAAvABsABgAFAAAAAAD//wgABgAFAAAAAAD+/wgABgAFAAAAAAD9/wgABgAFAAAAAAD8/wgABgAFAAAAAAD7/wgABgAFAAAAAAD6/wgABgAFAAAAAAD5/wgABgAFAAAAAAD4/wgABgAFAAAAAAD3/wgABgAFAAAAAAD2/wgABgAFAAAAAAD1/wgABgAFAAAAAAD0/wgABgAFAAAAAADz/wgABgAFAAAAAADy/wgABgAFAAAAAADx/wgABgAFAAAAAADw/wgABgAFAAAAAADv/wgABgAFAAAAAADu/wgABgAFAAAAAADt/wgABgAFAAAAAADs/wgABgAFAAAAAAAwABsABgAFAAAAAAAxABsABgAFAAAAAAAyABsABgAFAAAAAAAzABsABgAFAAAAAAA0ABsABgAFAAAAAAA1ABsABgAFAAAAAAA2ABsABgAFAAAAAAA3ABsABgAFAAAAAAA4ABsABgAFAAAAAAA5ABsABgAFAAAAAAA6ABsABgAFAAAAAAA7ABsABgAFAAAAAAA8ABsABgAFAAAAAAA9ABsABgAFAAAAAAA+ABsABgAFAAAAAAA/ABsABgAFAAAAAABAABsABgAFAAAAAABBABsABgAFAAAAAABCABsABgAFAAAAAABDABsABgAFAAAAAABEABsABgAFAAAAAABFABsABgAFAAAAAABGABsABgAFAAAAAABHABsABgAFAAAAAABIABsABgAFAAAAAABLAA0ABgAFAAAAAABMAA0ABgAFAAAAAABNAA0ABgAFAAAAAABOAA0ABgAFAAAAAABPAA0ABgAFAAAAAABQAA0ABgAFAAAAAABRAA0ABgAFAAAAAABSAA0ABgAFAAAAAABTAA0ABgAFAAAAAABUAA0ABgAFAAAAAABVAA0ABgAFAAAAAADx/wAABgAFAAAAAADy/wAABgAFAAAAAADz/wAABgAFAAAAAAD0/wAABgAFAAAAAAD1/wAABgAFAAAAAAD2/wAABgAFAAAAAAD3/wAABgAFAAAAAAD4/wAABgAFAAAAAAD5/wAABgAFAAAAAAD6/wAABgAFAAAAAAD7/wAABgAFAAAAAAD8/wAABgAFAAAAAAD9/wAABgAFAAAAAAD+/wAABgAFAAAAAAD//wAABgAFAAAAAAAAAAAABgAFAAAAAAABAAAABgAFAAAAAAACAAAABgAFAAAAAAADAAAABgAFAAAAAAAEAAAABgAFAAAAAAAFAAAABgAFAAAAAAAGAAAABgAFAAAAAAAHAAAABgAFAAAAAAAIAAAABgAFAAAAAAAJAAAABgAFAAAAAAAKAAAABgAFAAAAAAALAAAABgAFAAAAAAAMAAAABgAFAAAAAAANAAAABgAFAAAAAAAOAAAABgAFAAAAAAAPAAAABgAFAAAAAAAQAAAABgAFAAAAAAARAAAABgAFAAAAAAASAAAABgAFAAAAAAATAAAABgAFAAAAAAAUAAAABgAFAAAAAAAVAAAABgAFAAAAAAAWAAAABgAFAAAAAAAXAAAABgAFAAAAAAAYAAAABgAFAAAAAAAZAAAABgAFAAAAAAAaAAAABgAFAAAAAAAbAAAABgAFAAAAAAAcAAAABgAFAAAAAAAdAAAABgAFAAAAAAAeAAAABgAFAAAAAAAfAAAABgAFAAAAAAAgAAAABgAFAAAAAAAhAAAABgAFAAAAAAAiAAAABgAFAAAAAAAjAAAABgAFAAAAAAAkAAAABgAFAAAAAAAlAAAABgAFAAAAAAAmAAAABgAFAAAAAAAnAAAABgAFAAAAAAAoAAAABgAFAAAAAAApAAAABgAFAAAAAAAqAAAABgAFAAAAAAArAAAABgAFAAAAAAAsAAAABgAFAAAAAAAtAAAABgAFAAAAAAAuAAAABgAFAAAAAAAvAAAABgAFAAAAAAAwAAAABgAFAAAAAAAxAAAABgAFAAAAAAAyAAAABgAFAAAAAAAzAAAABgAFAAAAAAA0AAAABgAFAAAAAAA1AAAABgAFAAAAAAA2AAAABgAFAAAAAAA3AAAABgAFAAAAAAA4AAAABgAFAAAAAAA5AAAABgAFAAAAAAA6AAAABgAFAAAAAAA7AAAABgAFAAAAAAA8AAAABgAFAAAAAAA9AAAABgAFAAAAAAA+AAAABgAFAAAAAAA/AAAABgAFAAAAAABAAAAABgAFAAAAAABBAAAABgAFAAAAAABCAAAABgAFAAAAAABDAAAABgAFAAAAAABEAAAABgAFAAAAAABFAAAABgAFAAAAAABGAAAABgAFAAAAAABHAAAABgAFAAAAAABIAAAABgAFAAAAAABJAAAABgAFAAAAAABKAAAABgAFAAAAAABLAAAABgAFAAAAAABMAAAABgAFAAAAAABNAAAABgAFAAAAAABOAAAABgAFAAAAAABPAAAABgAFAAAAAABQAAAABgAFAAAAAABRAAAABgAFAAAAAABSAAAABgAFAAAAAABTAAAABgAFAAAAAABUAAAABgAFAAAAAABVAAAABgAFAAAAAABWAAAABgAFAAAAAABXAAAABgAFAAAAAABYAAAABgAFAAAAAABWAA0ABgAFAAAAAABKAA0ABgAFAAAAAABJAA0ABgAFAAAAAABIAA0ABgAFAAAAAABIAA4ABgAFAAAAAABIAA8ABgAFAAAAAABIABAABgAFAAAAAABIABEABgAFAAAAAABIABIABgAFAAAAAABIABMABgAFAAAAAABIABQABgAFAAAAAABIABUABgAFAAAAAABIABYABgAFAAAAAABIABcABgAFAAAAAABIABgABgAFAAAAAABIABkABgAFAAAAAABIABoABgAFAAAAAADx////BgAFAAAAAADx//7/BgAFAAAAAADx//3/BgAFAAAAAADx//z/BgAFAAAAAADw//z/BgAFAAAAAADv//z/BgAFAAAAAADr//z/BgAFAAAAAADu//z/BgAFAAAAAADt//z/BgAFAAAAAADs//z/BgAFAAAAAADq//z/BgAFAAAAAADq//3/BgAFAAAAAADq//7/BgAFAAAAAADq////BgAFAAAAAADq/wAABgAFAAAAAADq/wEABgAFAAAAAADq/wIABgAFAAAAAADq/wMABgAFAAAAAADq/wQABgAFAAAAAADq/wUABgAFAAAAAADq/wYABgAFAAAAAADq/wcABgAFAAAAAADq/wgABgAFAAAAAADr/wgABgAFAAAAAABXAA0ABgAFAAAAAABYAA0ABgAFAAAAAABYAAwABgAFAAAAAABYAAsABgAFAAAAAABYAAoABgAFAAAAAABYAAkABgAFAAAAAABYAAgABgAFAAAAAABYAAcABgAFAAAAAABYAAYABgAFAAAAAABYAAUABgAFAAAAAABYAAQABgAFAAAAAABYAAMABgAFAAAAAABYAAIABgAFAAAAAABYAAEABgAFAAAAAAA=")
+
+[node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
+position = Vector2(-2327, 931)
+
+[node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
+position = Vector2(10811, 1629)
+
+[node name="Ice Walls" type="Node2D" parent="MidgroundLayer/Entities/Hazards" index="0"]
+position = Vector2(2713, 3375)
+rotation = -1.525038
+
+[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Hazards/Ice Walls" index="0" instance=ExtResource("2_y6yas")]
+rotation = -0.07781563
+
+[node name="IcicleGroup06" parent="MidgroundLayer/Entities/Hazards/Ice Walls" index="1" instance=ExtResource("2_y6yas")]
+position = Vector2(1519.132, 55.569542)
+rotation = -0.07781563
+
+[node name="IcicleGroup07" parent="MidgroundLayer/Entities/Hazards/Ice Walls" index="2" instance=ExtResource("2_y6yas")]
+position = Vector2(1347.7533, 70.31143)
+rotation = -0.07781563
+
+[node name="IcicleGroup08" parent="MidgroundLayer/Entities/Hazards/Ice Walls" index="3" instance=ExtResource("2_y6yas")]
+position = Vector2(1177.3717, 84.97925)
+rotation = -0.07781563
+
+[node name="IcicleGroup09" parent="MidgroundLayer/Entities/Hazards/Ice Walls" index="4" instance=ExtResource("2_y6yas")]
+position = Vector2(1009.68555, 95.4357)
+rotation = -0.07781563
+
+[node name="IcicleGroup10" parent="MidgroundLayer/Entities/Hazards/Ice Walls" index="5" instance=ExtResource("2_y6yas")]
+position = Vector2(830.32886, 110.770515)
+rotation = -0.07781563
+
+[node name="IcicleGroup17" parent="MidgroundLayer/Entities/Hazards/Ice Walls" index="6" instance=ExtResource("2_y6yas")]
+position = Vector2(661.94183, 125.290085)
+rotation = -0.07781563
+
+[node name="IcicleGroup18" parent="MidgroundLayer/Entities/Hazards/Ice Walls" index="7" instance=ExtResource("2_y6yas")]
+position = Vector2(493.55484, 139.80966)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/Entities/Hazards/Ice Walls" index="8" instance=ExtResource("2_y6yas")]
+position = Vector2(324.02237, 152.40884)
+rotation = -0.07781563
+
+[node name="IcicleGroup20" parent="MidgroundLayer/Entities/Hazards/Ice Walls" index="9" instance=ExtResource("2_y6yas")]
+position = Vector2(155.19072, 160.94492)
+rotation = -0.07781563
+
+[node name="Ice Walls2" type="Node2D" parent="MidgroundLayer/Entities/Hazards" index="1"]
+position = Vector2(1924, 1740)
+rotation = -1.525038
+
+[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Hazards/Ice Walls2" index="0" instance=ExtResource("2_y6yas")]
+rotation = -0.07781563
+
+[node name="IcicleGroup06" parent="MidgroundLayer/Entities/Hazards/Ice Walls2" index="1" instance=ExtResource("2_y6yas")]
+position = Vector2(1526.6412, -115.461266)
+rotation = -0.07781563
+
+[node name="IcicleGroup07" parent="MidgroundLayer/Entities/Hazards/Ice Walls2" index="2" instance=ExtResource("2_y6yas")]
+position = Vector2(1355.2626, -100.719376)
+rotation = -0.07781563
+
+[node name="IcicleGroup08" parent="MidgroundLayer/Entities/Hazards/Ice Walls2" index="3" instance=ExtResource("2_y6yas")]
+position = Vector2(1184.881, -86.05156)
+rotation = -0.07781563
+
+[node name="IcicleGroup09" parent="MidgroundLayer/Entities/Hazards/Ice Walls2" index="4" instance=ExtResource("2_y6yas")]
+position = Vector2(1017.19476, -75.59511)
+rotation = -0.07781563
+
+[node name="IcicleGroup10" parent="MidgroundLayer/Entities/Hazards/Ice Walls2" index="5" instance=ExtResource("2_y6yas")]
+position = Vector2(837.8381, -60.260292)
+rotation = -0.07781563
+
+[node name="IcicleGroup17" parent="MidgroundLayer/Entities/Hazards/Ice Walls2" index="6" instance=ExtResource("2_y6yas")]
+position = Vector2(669.45105, -45.740723)
+rotation = -0.07781563
+
+[node name="IcicleGroup18" parent="MidgroundLayer/Entities/Hazards/Ice Walls2" index="7" instance=ExtResource("2_y6yas")]
+position = Vector2(501.06406, -31.221153)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/Entities/Hazards/Ice Walls2" index="8" instance=ExtResource("2_y6yas")]
+position = Vector2(331.5316, -18.621967)
+rotation = -0.07781563
+
+[node name="IcicleGroup20" parent="MidgroundLayer/Entities/Hazards/Ice Walls2" index="9" instance=ExtResource("2_y6yas")]
+position = Vector2(162.69994, -10.085895)
+rotation = -0.07781563
+
+[node name="Ice Walls3" type="Node2D" parent="MidgroundLayer/Entities/Hazards" index="2"]
+position = Vector2(3836.0002, 1731)
+rotation = -1.525038
+
+[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Hazards/Ice Walls3" index="0" instance=ExtResource("2_y6yas")]
+rotation = -0.07781563
+
+[node name="IcicleGroup06" parent="MidgroundLayer/Entities/Hazards/Ice Walls3" index="1" instance=ExtResource("2_y6yas")]
+position = Vector2(1526.6412, -115.461266)
+rotation = -0.07781563
+
+[node name="IcicleGroup07" parent="MidgroundLayer/Entities/Hazards/Ice Walls3" index="2" instance=ExtResource("2_y6yas")]
+position = Vector2(1355.2626, -100.719376)
+rotation = -0.07781563
+
+[node name="IcicleGroup08" parent="MidgroundLayer/Entities/Hazards/Ice Walls3" index="3" instance=ExtResource("2_y6yas")]
+position = Vector2(1184.881, -86.05156)
+rotation = -0.07781563
+
+[node name="IcicleGroup09" parent="MidgroundLayer/Entities/Hazards/Ice Walls3" index="4" instance=ExtResource("2_y6yas")]
+position = Vector2(1017.19476, -75.59511)
+rotation = -0.07781563
+
+[node name="IcicleGroup10" parent="MidgroundLayer/Entities/Hazards/Ice Walls3" index="5" instance=ExtResource("2_y6yas")]
+position = Vector2(837.8381, -60.260292)
+rotation = -0.07781563
+
+[node name="IcicleGroup17" parent="MidgroundLayer/Entities/Hazards/Ice Walls3" index="6" instance=ExtResource("2_y6yas")]
+position = Vector2(669.45105, -45.740723)
+rotation = -0.07781563
+
+[node name="IcicleGroup18" parent="MidgroundLayer/Entities/Hazards/Ice Walls3" index="7" instance=ExtResource("2_y6yas")]
+position = Vector2(501.06406, -31.221153)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/Entities/Hazards/Ice Walls3" index="8" instance=ExtResource("2_y6yas")]
+position = Vector2(331.5316, -18.621967)
+rotation = -0.07781563
+
+[node name="IcicleGroup20" parent="MidgroundLayer/Entities/Hazards/Ice Walls3" index="9" instance=ExtResource("2_y6yas")]
+position = Vector2(162.69994, -10.085895)
+rotation = -0.07781563
+
+[node name="Ice Walls4" type="Node2D" parent="MidgroundLayer/Entities/Hazards" index="3"]
+position = Vector2(4817, 3423.9998)
+rotation = -1.525038
+
+[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Hazards/Ice Walls4" index="0" instance=ExtResource("2_y6yas")]
+rotation = -0.07781563
+
+[node name="IcicleGroup06" parent="MidgroundLayer/Entities/Hazards/Ice Walls4" index="1" instance=ExtResource("2_y6yas")]
+position = Vector2(1609.3356, -7.622711)
+rotation = -0.07781563
+
+[node name="IcicleGroup07" parent="MidgroundLayer/Entities/Hazards/Ice Walls4" index="2" instance=ExtResource("2_y6yas")]
+position = Vector2(1437.9569, 7.119171)
+rotation = -0.07781563
+
+[node name="IcicleGroup08" parent="MidgroundLayer/Entities/Hazards/Ice Walls4" index="3" instance=ExtResource("2_y6yas")]
+position = Vector2(1267.5753, 21.786987)
+rotation = -0.07781563
+
+[node name="IcicleGroup09" parent="MidgroundLayer/Entities/Hazards/Ice Walls4" index="4" instance=ExtResource("2_y6yas")]
+position = Vector2(1099.8892, 32.24344)
+rotation = -0.07781563
+
+[node name="IcicleGroup10" parent="MidgroundLayer/Entities/Hazards/Ice Walls4" index="5" instance=ExtResource("2_y6yas")]
+position = Vector2(920.5325, 47.578247)
+rotation = -0.07781563
+
+[node name="IcicleGroup17" parent="MidgroundLayer/Entities/Hazards/Ice Walls4" index="6" instance=ExtResource("2_y6yas")]
+position = Vector2(752.14545, 62.097824)
+rotation = -0.07781563
+
+[node name="IcicleGroup18" parent="MidgroundLayer/Entities/Hazards/Ice Walls4" index="7" instance=ExtResource("2_y6yas")]
+position = Vector2(583.7585, 76.6174)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/Entities/Hazards/Ice Walls4" index="8" instance=ExtResource("2_y6yas")]
+position = Vector2(414.22598, 89.21658)
+rotation = -0.07781563
+
+[node name="IcicleGroup20" parent="MidgroundLayer/Entities/Hazards/Ice Walls4" index="9" instance=ExtResource("2_y6yas")]
+position = Vector2(245.39432, 97.752655)
+rotation = -0.07781563
+
+[node name="Ice Walls5" type="Node2D" parent="MidgroundLayer/Entities/Hazards" index="4"]
+position = Vector2(4817, 3423.9998)
+rotation = -1.525038
+
+[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Hazards/Ice Walls5" index="0" instance=ExtResource("2_y6yas")]
+rotation = -0.07781563
+
+[node name="IcicleGroup06" parent="MidgroundLayer/Entities/Hazards/Ice Walls5" index="1" instance=ExtResource("2_y6yas")]
+position = Vector2(1609.3356, -7.622711)
+rotation = -0.07781563
+
+[node name="IcicleGroup07" parent="MidgroundLayer/Entities/Hazards/Ice Walls5" index="2" instance=ExtResource("2_y6yas")]
+position = Vector2(1437.9569, 7.119171)
+rotation = -0.07781563
+
+[node name="IcicleGroup08" parent="MidgroundLayer/Entities/Hazards/Ice Walls5" index="3" instance=ExtResource("2_y6yas")]
+position = Vector2(1267.5753, 21.786987)
+rotation = -0.07781563
+
+[node name="IcicleGroup09" parent="MidgroundLayer/Entities/Hazards/Ice Walls5" index="4" instance=ExtResource("2_y6yas")]
+position = Vector2(1099.8892, 32.24344)
+rotation = -0.07781563
+
+[node name="IcicleGroup10" parent="MidgroundLayer/Entities/Hazards/Ice Walls5" index="5" instance=ExtResource("2_y6yas")]
+position = Vector2(920.5325, 47.578247)
+rotation = -0.07781563
+
+[node name="IcicleGroup17" parent="MidgroundLayer/Entities/Hazards/Ice Walls5" index="6" instance=ExtResource("2_y6yas")]
+position = Vector2(752.14545, 62.097824)
+rotation = -0.07781563
+
+[node name="IcicleGroup18" parent="MidgroundLayer/Entities/Hazards/Ice Walls5" index="7" instance=ExtResource("2_y6yas")]
+position = Vector2(583.7585, 76.6174)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/Entities/Hazards/Ice Walls5" index="8" instance=ExtResource("2_y6yas")]
+position = Vector2(414.22598, 89.21658)
+rotation = -0.07781563
+
+[node name="IcicleGroup20" parent="MidgroundLayer/Entities/Hazards/Ice Walls5" index="9" instance=ExtResource("2_y6yas")]
+position = Vector2(245.39432, 97.752655)
+rotation = -0.07781563
+
+[node name="Ice Walls6" type="Node2D" parent="MidgroundLayer/Entities/Hazards" index="5"]
+position = Vector2(1039.0001, 3443.0002)
+rotation = 0.07523227
+
+[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Hazards/Ice Walls6" index="0" instance=ExtResource("2_y6yas")]
+rotation = -0.07781563
+
+[node name="IcicleGroup06" parent="MidgroundLayer/Entities/Hazards/Ice Walls6" index="1" instance=ExtResource("2_y6yas")]
+position = Vector2(1526.6412, -115.461266)
+rotation = -0.07781563
+
+[node name="IcicleGroup07" parent="MidgroundLayer/Entities/Hazards/Ice Walls6" index="2" instance=ExtResource("2_y6yas")]
+position = Vector2(1355.2626, -100.719376)
+rotation = -0.07781563
+
+[node name="IcicleGroup08" parent="MidgroundLayer/Entities/Hazards/Ice Walls6" index="3" instance=ExtResource("2_y6yas")]
+position = Vector2(1184.881, -86.05156)
+rotation = -0.07781563
+
+[node name="IcicleGroup09" parent="MidgroundLayer/Entities/Hazards/Ice Walls6" index="4" instance=ExtResource("2_y6yas")]
+position = Vector2(1017.19476, -75.59511)
+rotation = -0.07781563
+
+[node name="IcicleGroup10" parent="MidgroundLayer/Entities/Hazards/Ice Walls6" index="5" instance=ExtResource("2_y6yas")]
+position = Vector2(837.8381, -60.260292)
+rotation = -0.07781563
+
+[node name="IcicleGroup17" parent="MidgroundLayer/Entities/Hazards/Ice Walls6" index="6" instance=ExtResource("2_y6yas")]
+position = Vector2(669.45105, -45.740723)
+rotation = -0.07781563
+
+[node name="IcicleGroup18" parent="MidgroundLayer/Entities/Hazards/Ice Walls6" index="7" instance=ExtResource("2_y6yas")]
+position = Vector2(501.06406, -31.221153)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/Entities/Hazards/Ice Walls6" index="8" instance=ExtResource("2_y6yas")]
+position = Vector2(331.5316, -18.621967)
+rotation = -0.07781563
+
+[node name="IcicleGroup20" parent="MidgroundLayer/Entities/Hazards/Ice Walls6" index="9" instance=ExtResource("2_y6yas")]
+position = Vector2(162.69994, -10.085895)
+rotation = -0.07781563
+
+[node name="Ice Walls7" type="Node2D" parent="MidgroundLayer/Entities/Hazards" index="6"]
+position = Vector2(2702, 3438.0002)
+rotation = 0.07523227
+
+[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Hazards/Ice Walls7" index="0" instance=ExtResource("2_y6yas")]
+rotation = -0.07781563
+
+[node name="IcicleGroup06" parent="MidgroundLayer/Entities/Hazards/Ice Walls7" index="1" instance=ExtResource("2_y6yas")]
+position = Vector2(1526.6412, -115.461266)
+rotation = -0.07781563
+
+[node name="IcicleGroup07" parent="MidgroundLayer/Entities/Hazards/Ice Walls7" index="2" instance=ExtResource("2_y6yas")]
+position = Vector2(1355.2626, -100.719376)
+rotation = -0.07781563
+
+[node name="IcicleGroup08" parent="MidgroundLayer/Entities/Hazards/Ice Walls7" index="3" instance=ExtResource("2_y6yas")]
+position = Vector2(1184.881, -86.05156)
+rotation = -0.07781563
+
+[node name="IcicleGroup09" parent="MidgroundLayer/Entities/Hazards/Ice Walls7" index="4" instance=ExtResource("2_y6yas")]
+position = Vector2(1017.19476, -75.59511)
+rotation = -0.07781563
+
+[node name="IcicleGroup10" parent="MidgroundLayer/Entities/Hazards/Ice Walls7" index="5" instance=ExtResource("2_y6yas")]
+position = Vector2(837.8381, -60.260292)
+rotation = -0.07781563
+
+[node name="IcicleGroup17" parent="MidgroundLayer/Entities/Hazards/Ice Walls7" index="6" instance=ExtResource("2_y6yas")]
+position = Vector2(669.45105, -45.740723)
+rotation = -0.07781563
+
+[node name="IcicleGroup18" parent="MidgroundLayer/Entities/Hazards/Ice Walls7" index="7" instance=ExtResource("2_y6yas")]
+position = Vector2(501.06406, -31.221153)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/Entities/Hazards/Ice Walls7" index="8" instance=ExtResource("2_y6yas")]
+position = Vector2(331.5316, -18.621967)
+rotation = -0.07781563
+
+[node name="IcicleGroup20" parent="MidgroundLayer/Entities/Hazards/Ice Walls7" index="9" instance=ExtResource("2_y6yas")]
+position = Vector2(162.69994, -10.085895)
+rotation = -0.07781563
+
+[node name="Ice Walls8" type="Node2D" parent="MidgroundLayer/Entities/Hazards" index="7"]
+position = Vector2(4370, 3429.0002)
+rotation = 0.07523227
+
+[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Hazards/Ice Walls8" index="0" instance=ExtResource("2_y6yas")]
+rotation = -0.07781563
+
+[node name="IcicleGroup06" parent="MidgroundLayer/Entities/Hazards/Ice Walls8" index="1" instance=ExtResource("2_y6yas")]
+position = Vector2(1526.6412, -115.461266)
+rotation = -0.07781563
+
+[node name="IcicleGroup07" parent="MidgroundLayer/Entities/Hazards/Ice Walls8" index="2" instance=ExtResource("2_y6yas")]
+position = Vector2(1355.2626, -100.719376)
+rotation = -0.07781563
+
+[node name="IcicleGroup08" parent="MidgroundLayer/Entities/Hazards/Ice Walls8" index="3" instance=ExtResource("2_y6yas")]
+position = Vector2(1184.881, -86.05156)
+rotation = -0.07781563
+
+[node name="IcicleGroup09" parent="MidgroundLayer/Entities/Hazards/Ice Walls8" index="4" instance=ExtResource("2_y6yas")]
+position = Vector2(1017.19476, -75.59511)
+rotation = -0.07781563
+
+[node name="IcicleGroup10" parent="MidgroundLayer/Entities/Hazards/Ice Walls8" index="5" instance=ExtResource("2_y6yas")]
+position = Vector2(837.8381, -60.260292)
+rotation = -0.07781563
+
+[node name="IcicleGroup17" parent="MidgroundLayer/Entities/Hazards/Ice Walls8" index="6" instance=ExtResource("2_y6yas")]
+position = Vector2(669.45105, -45.740723)
+rotation = -0.07781563
+
+[node name="IcicleGroup18" parent="MidgroundLayer/Entities/Hazards/Ice Walls8" index="7" instance=ExtResource("2_y6yas")]
+position = Vector2(501.06406, -31.221153)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/Entities/Hazards/Ice Walls8" index="8" instance=ExtResource("2_y6yas")]
+position = Vector2(331.5316, -18.621967)
+rotation = -0.07781563
+
+[node name="IcicleGroup20" parent="MidgroundLayer/Entities/Hazards/Ice Walls8" index="9" instance=ExtResource("2_y6yas")]
+position = Vector2(162.69994, -10.085895)
+rotation = -0.07781563
+
+[node name="Ice Walls9" type="Node2D" parent="MidgroundLayer/Entities/Hazards" index="8"]
+position = Vector2(6198.3, 3382.4612)
+rotation = -1.525038
+
+[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Hazards/Ice Walls9" index="0" instance=ExtResource("2_y6yas")]
+rotation = -0.07781563
+
+[node name="IcicleGroup06" parent="MidgroundLayer/Entities/Hazards/Ice Walls9" index="1" instance=ExtResource("2_y6yas")]
+position = Vector2(1555.9589, 893.46216)
+rotation = -0.07781563
+
+[node name="IcicleGroup07" parent="MidgroundLayer/Entities/Hazards/Ice Walls9" index="2" instance=ExtResource("2_y6yas")]
+position = Vector2(1384.5802, 908.2041)
+rotation = -0.07781563
+
+[node name="IcicleGroup08" parent="MidgroundLayer/Entities/Hazards/Ice Walls9" index="3" instance=ExtResource("2_y6yas")]
+position = Vector2(1214.1986, 922.8719)
+rotation = -0.07781563
+
+[node name="IcicleGroup09" parent="MidgroundLayer/Entities/Hazards/Ice Walls9" index="4" instance=ExtResource("2_y6yas")]
+position = Vector2(1046.5123, 933.32837)
+rotation = -0.07781563
+
+[node name="IcicleGroup10" parent="MidgroundLayer/Entities/Hazards/Ice Walls9" index="5" instance=ExtResource("2_y6yas")]
+position = Vector2(867.1556, 948.66315)
+rotation = -0.07781563
+
+[node name="IcicleGroup17" parent="MidgroundLayer/Entities/Hazards/Ice Walls9" index="6" instance=ExtResource("2_y6yas")]
+position = Vector2(698.76855, 963.18274)
+rotation = -0.07781563
+
+[node name="IcicleGroup18" parent="MidgroundLayer/Entities/Hazards/Ice Walls9" index="7" instance=ExtResource("2_y6yas")]
+position = Vector2(530.38165, 977.7023)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/Entities/Hazards/Ice Walls9" index="8" instance=ExtResource("2_y6yas")]
+position = Vector2(360.84918, 990.3015)
+rotation = -0.07781563
+
+[node name="IcicleGroup20" parent="MidgroundLayer/Entities/Hazards/Ice Walls9" index="9" instance=ExtResource("2_y6yas")]
+position = Vector2(192.01752, 998.8375)
+rotation = -0.07781563
+
+[node name="Ice Walls10" type="Node2D" parent="MidgroundLayer/Entities/Hazards" index="9"]
+position = Vector2(6103, 1709)
+rotation = -1.525038
+
+[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Hazards/Ice Walls10" index="0" instance=ExtResource("2_y6yas")]
+rotation = -0.07781563
+
+[node name="IcicleGroup06" parent="MidgroundLayer/Entities/Hazards/Ice Walls10" index="1" instance=ExtResource("2_y6yas")]
+position = Vector2(1526.6412, -115.461266)
+rotation = -0.07781563
+
+[node name="IcicleGroup07" parent="MidgroundLayer/Entities/Hazards/Ice Walls10" index="2" instance=ExtResource("2_y6yas")]
+position = Vector2(1355.2626, -100.719376)
+rotation = -0.07781563
+
+[node name="IcicleGroup08" parent="MidgroundLayer/Entities/Hazards/Ice Walls10" index="3" instance=ExtResource("2_y6yas")]
+position = Vector2(1184.881, -86.05156)
+rotation = -0.07781563
+
+[node name="IcicleGroup09" parent="MidgroundLayer/Entities/Hazards/Ice Walls10" index="4" instance=ExtResource("2_y6yas")]
+position = Vector2(1017.19476, -75.59511)
+rotation = -0.07781563
+
+[node name="IcicleGroup10" parent="MidgroundLayer/Entities/Hazards/Ice Walls10" index="5" instance=ExtResource("2_y6yas")]
+position = Vector2(837.8381, -60.260292)
+rotation = -0.07781563
+
+[node name="IcicleGroup17" parent="MidgroundLayer/Entities/Hazards/Ice Walls10" index="6" instance=ExtResource("2_y6yas")]
+position = Vector2(669.45105, -45.740723)
+rotation = -0.07781563
+
+[node name="IcicleGroup18" parent="MidgroundLayer/Entities/Hazards/Ice Walls10" index="7" instance=ExtResource("2_y6yas")]
+position = Vector2(501.06406, -31.221153)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/Entities/Hazards/Ice Walls10" index="8" instance=ExtResource("2_y6yas")]
+position = Vector2(331.5316, -18.621967)
+rotation = -0.07781563
+
+[node name="IcicleGroup20" parent="MidgroundLayer/Entities/Hazards/Ice Walls10" index="9" instance=ExtResource("2_y6yas")]
+position = Vector2(162.69994, -10.085895)
+rotation = -0.07781563
+
+[node name="Ice Walls11" type="Node2D" parent="MidgroundLayer/Entities/Hazards" index="10"]
+position = Vector2(8307, 1777.0001)
+rotation = -1.525038
+
+[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Hazards/Ice Walls11" index="0" instance=ExtResource("2_y6yas")]
+rotation = -0.07781563
+
+[node name="IcicleGroup06" parent="MidgroundLayer/Entities/Hazards/Ice Walls11" index="1" instance=ExtResource("2_y6yas")]
+position = Vector2(1526.6412, -115.461266)
+rotation = -0.07781563
+
+[node name="IcicleGroup07" parent="MidgroundLayer/Entities/Hazards/Ice Walls11" index="2" instance=ExtResource("2_y6yas")]
+position = Vector2(1355.2626, -100.719376)
+rotation = -0.07781563
+
+[node name="IcicleGroup08" parent="MidgroundLayer/Entities/Hazards/Ice Walls11" index="3" instance=ExtResource("2_y6yas")]
+position = Vector2(1184.881, -86.05156)
+rotation = -0.07781563
+
+[node name="IcicleGroup09" parent="MidgroundLayer/Entities/Hazards/Ice Walls11" index="4" instance=ExtResource("2_y6yas")]
+position = Vector2(1017.19476, -75.59511)
+rotation = -0.07781563
+
+[node name="IcicleGroup10" parent="MidgroundLayer/Entities/Hazards/Ice Walls11" index="5" instance=ExtResource("2_y6yas")]
+position = Vector2(837.8381, -60.260292)
+rotation = -0.07781563
+
+[node name="IcicleGroup17" parent="MidgroundLayer/Entities/Hazards/Ice Walls11" index="6" instance=ExtResource("2_y6yas")]
+position = Vector2(669.45105, -45.740723)
+rotation = -0.07781563
+
+[node name="IcicleGroup18" parent="MidgroundLayer/Entities/Hazards/Ice Walls11" index="7" instance=ExtResource("2_y6yas")]
+position = Vector2(501.06406, -31.221153)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/Entities/Hazards/Ice Walls11" index="8" instance=ExtResource("2_y6yas")]
+position = Vector2(331.5316, -18.621967)
+rotation = -0.07781563
+
+[node name="IcicleGroup20" parent="MidgroundLayer/Entities/Hazards/Ice Walls11" index="9" instance=ExtResource("2_y6yas")]
+position = Vector2(162.69994, -10.085895)
+rotation = -0.07781563
+
+[node name="Ice Walls12" type="Node2D" parent="MidgroundLayer/Entities/Hazards" index="11"]
+position = Vector2(8302.3, 3431.461)
+rotation = -1.525038
+
+[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Hazards/Ice Walls12" index="0" instance=ExtResource("2_y6yas")]
+rotation = -0.07781563
+
+[node name="Ice Walls13" type="Node2D" parent="MidgroundLayer/Entities/Hazards" index="12"]
+position = Vector2(8302.3, 3431.461)
+rotation = -1.525038
+
+[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Hazards/Ice Walls13" index="0" instance=ExtResource("2_y6yas")]
+rotation = -0.07781563
+
+[node name="Ice Walls14" type="Node2D" parent="MidgroundLayer/Entities/Hazards" index="13"]
+position = Vector2(6187.3, 3445.4614)
+rotation = 0.07523227
+
+[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Hazards/Ice Walls14" index="0" instance=ExtResource("2_y6yas")]
+rotation = -0.07781563
+
+[node name="IcicleGroup06" parent="MidgroundLayer/Entities/Hazards/Ice Walls14" index="1" instance=ExtResource("2_y6yas")]
+position = Vector2(1526.6412, -115.461266)
+rotation = -0.07781563
+
+[node name="IcicleGroup07" parent="MidgroundLayer/Entities/Hazards/Ice Walls14" index="2" instance=ExtResource("2_y6yas")]
+position = Vector2(1355.2626, -100.719376)
+rotation = -0.07781563
+
+[node name="IcicleGroup08" parent="MidgroundLayer/Entities/Hazards/Ice Walls14" index="3" instance=ExtResource("2_y6yas")]
+position = Vector2(1184.881, -86.05156)
+rotation = -0.07781563
+
+[node name="IcicleGroup09" parent="MidgroundLayer/Entities/Hazards/Ice Walls14" index="4" instance=ExtResource("2_y6yas")]
+position = Vector2(1017.19476, -75.59511)
+rotation = -0.07781563
+
+[node name="IcicleGroup10" parent="MidgroundLayer/Entities/Hazards/Ice Walls14" index="5" instance=ExtResource("2_y6yas")]
+position = Vector2(837.8381, -60.260292)
+rotation = -0.07781563
+
+[node name="IcicleGroup17" parent="MidgroundLayer/Entities/Hazards/Ice Walls14" index="6" instance=ExtResource("2_y6yas")]
+position = Vector2(669.45105, -45.740723)
+rotation = -0.07781563
+
+[node name="IcicleGroup18" parent="MidgroundLayer/Entities/Hazards/Ice Walls14" index="7" instance=ExtResource("2_y6yas")]
+position = Vector2(501.06406, -31.221153)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/Entities/Hazards/Ice Walls14" index="8" instance=ExtResource("2_y6yas")]
+position = Vector2(331.5316, -18.621967)
+rotation = -0.07781563
+
+[node name="IcicleGroup20" parent="MidgroundLayer/Entities/Hazards/Ice Walls14" index="9" instance=ExtResource("2_y6yas")]
+position = Vector2(162.69994, -10.085895)
+rotation = -0.07781563
+
+[node name="Ice Walls15" type="Node2D" parent="MidgroundLayer/Entities/Hazards" index="14"]
+position = Vector2(7855.3, 3436.4614)
+rotation = 0.07523227
+
+[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Hazards/Ice Walls15" index="0" instance=ExtResource("2_y6yas")]
+rotation = -0.07781563
+
+[node name="IcicleGroup09" parent="MidgroundLayer/Entities/Hazards/Ice Walls15" index="1" instance=ExtResource("2_y6yas")]
+position = Vector2(1017.19476, -75.59511)
+rotation = -0.07781563
+
+[node name="IcicleGroup10" parent="MidgroundLayer/Entities/Hazards/Ice Walls15" index="2" instance=ExtResource("2_y6yas")]
+position = Vector2(837.8381, -60.260292)
+rotation = -0.07781563
+
+[node name="IcicleGroup17" parent="MidgroundLayer/Entities/Hazards/Ice Walls15" index="3" instance=ExtResource("2_y6yas")]
+position = Vector2(669.45105, -45.740723)
+rotation = -0.07781563
+
+[node name="IcicleGroup18" parent="MidgroundLayer/Entities/Hazards/Ice Walls15" index="4" instance=ExtResource("2_y6yas")]
+position = Vector2(501.06406, -31.221153)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/Entities/Hazards/Ice Walls15" index="5" instance=ExtResource("2_y6yas")]
+position = Vector2(331.5316, -18.621967)
+rotation = -0.07781563
+
+[node name="IcicleGroup20" parent="MidgroundLayer/Entities/Hazards/Ice Walls15" index="6" instance=ExtResource("2_y6yas")]
+position = Vector2(162.69994, -10.085895)
+rotation = -0.07781563

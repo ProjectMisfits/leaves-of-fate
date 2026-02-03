@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://byy3ecxmaevxh"]
+
+[ext_resource type="Texture2D" uid="uid://bi3kiqpgkpxlk" path="res://assets/particle_effects/ice/Smoke_ParticleAsset_01.tga" id="1_or6gw"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_711qf"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 8
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_or6gw"]
+_data = [Vector2(0.0037243962, 0), 0.0, 3.9230719, 0, 0, Vector2(0.4711359, 0.8072413), 0.0, 0.0, 0, 0, Vector2(1, 0.018275857), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_711qf"]
+curve = SubResource("Curve_or6gw")
+
+[sub_resource type="Gradient" id="Gradient_or6gw"]
+offsets = PackedFloat32Array(0, 0.5440313, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.57418716, 0.7872245, 0.89828444, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_711qf"]
+gradient = SubResource("Gradient_or6gw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_or6gw"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(100, 100, 1)
+gravity = Vector3(-200, 0, 0)
+scale_min = 27.599998
+scale_max = 27.599998
+color_ramp = SubResource("GradientTexture1D_711qf")
+alpha_curve = SubResource("CurveTexture_711qf")
+anim_offset_max = 1.0
+
+[node name="IceWind" type="GPUParticles2D"]
+modulate = Color(0.7921569, 1, 1, 0.4627451)
+material = SubResource("CanvasItemMaterial_711qf")
+amount = 6
+texture = ExtResource("1_or6gw")
+lifetime = 20.0
+preprocess = 1.8399999999999999
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_or6gw")
