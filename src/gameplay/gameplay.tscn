@@ -19,13 +19,18 @@ unique_name_in_owner = true
 top_level = true
 script = ExtResource("2_05p43")
 follow_mode = 2
+zoom = Vector2(0.4, 0.4)
 tween_resource = SubResource("Resource_05p43")
+follow_damping = true
+dead_zone_width = 0.1
+dead_zone_height = 0.1
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 top_level = true
+zoom = Vector2(0.4, 0.4)
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
