@@ -1,14 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://fdecrtiqrw14"]
+[gd_scene load_steps=8 format=3 uid="uid://fdecrtiqrw14"]
 
 [ext_resource type="Script" uid="uid://ccsrl6mlxbla7" path="res://src/gameplay/gameplay.gd" id="1_anqvl"]
-[ext_resource type="PackedScene" uid="uid://6l3q4bd0sfe3" path="res://src/gameplay/camera/camera.tscn" id="2_61qep"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_05p43"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_epxov"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_61qep"]
 [ext_resource type="PackedScene" uid="uid://cob1yf4cxasej" path="res://src/ui/hud/hud.tscn" id="3_g7yt7"]
 [ext_resource type="PackedScene" uid="uid://dbuvv4yxpgnlb" path="res://src/rooms/test/TEST_Triggers_room.tscn" id="5_05p43"]
+
+[sub_resource type="Resource" id="Resource_05p43"]
+script = ExtResource("3_61qep")
+transition = 1
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_anqvl")
 
-[node name="Camera" parent="." instance=ExtResource("2_61qep")]
+[node name="PhantomCamera2D" type="Node2D" parent="."]
+unique_name_in_owner = true
+top_level = true
+script = ExtResource("2_05p43")
+follow_mode = 2
+tween_resource = SubResource("Resource_05p43")
+draw_limits = true
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+top_level = true
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_epxov")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="RoomHolder" type="Node2D" parent="."]
 unique_name_in_owner = true

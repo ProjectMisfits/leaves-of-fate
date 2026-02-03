@@ -1,11 +1,33 @@
-extends Node
+extends Node2D
+## A manager for the camera, its current target, position, and zoom. Primarily allows for easier cutscene scripting from dialogue resource files.
 
+## A reference to the phantom camera used to target objects.
+var phantom_camera: PhantomCamera2D
+## A reference to the 2D camera.
+var camera: Camera2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+## Initialize the camera nodes.
+func initialize_camera(new_phantom_camera: PhantomCamera2D, new_camera: Camera2D) -> void:
+	phantom_camera = new_phantom_camera
+	camera = new_camera
 
+## Set the camera's target.
+func set_target(target: Node2D) -> void:
+	phantom_camera.set_follow_target(target)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+## Clear the camera's target.
+func clear_target() -> void:
+	phantom_camera.erase_follow_target()
+
+## Move the camera's position (relative to the target).
+func move(move_vector: Vector2) -> void:
+	phantom_camera.move_local_x(move_vector.x)
+	phantom_camera.move_local_y(move_vector.y)
+
+## Reset the camera's position.
+
+## Set the camera's zoom.
+
+## Reset the camera's zoom.
+
+## Set the camera's limits.
