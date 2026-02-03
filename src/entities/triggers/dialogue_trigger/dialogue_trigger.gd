@@ -20,7 +20,6 @@ var dialogue_enabled: bool = true
 var player_on_trigger: bool = false
 
 func _physics_process(_delta: float) -> void:
-	DebugMenu.add_debug_property("Player on trigger", player_on_trigger, 0)
 	# Check if the player presses the interact button while on the trigger
 	if player_on_trigger and Input.is_action_just_pressed("interact"):
 		_trigger_dialogue()
