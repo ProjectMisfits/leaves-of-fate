@@ -1,4 +1,9 @@
+## Global event bus which allows any script to connect to & emit its signals.
+## Also handles global actions like "quit" and pausing.
 extends Node
+
+# Create global signals by defining them here.
+#signal test_signal
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
