@@ -24,7 +24,7 @@ buses/default_bus_layout="uid://bboukivc3dgxm"
 
 SceneManager="*res://src/autoload/scene_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-Quit="*res://src/autoload/quit.gd"
+EventBus="*res://src/autoload/event_bus.gd"
 DebugMenu="*res://src/autoload/debug_menu/debug_menu.tscn"
 MusicManager="*res://src/autoload/audio_managers/music_manager.tscn"
 AmbianceManager="*res://src/autoload/audio_managers/ambiance_manager.tscn"
