@@ -5,6 +5,9 @@ class_name Gameplay extends Node2D
 ## A reference to the player.
 var player: Player = preload("res://src/entities/actors/player/player.tscn").instantiate()
 
+## A reference to the gameplay camera.
+@onready var camera: Camera = $Camera
+
 ## A Node2D that acts as a persistent parent of the Room the player is in.
 @onready var room_holder: Node2D = $%RoomHolder
 ## The Room the player is currently in.
@@ -25,18 +28,18 @@ var current_room: Room = null
 func _ready() -> void:
 	# Set the starting Room
 	_update_current_room()
+	
 	# Spawn the player at the first door now that the room has been loaded
 	current_room.spawn_player(player, 'enter')
+	# Connect phantom camera to player
+	camera.set_target(player)
 	
 	# Connect the player death signal to the respawn player function
 	player.player_knocked_out.connect(respawn_player)
 	
-	# Connect phantom camera to player
-	$PhantomCamera2D.set_follow_target(player)
-	
 	# Passes player to the Hud so that Hud can update based on player actions
 	$%Hud.set_player(player)
-
+	
 	# Connect UI menu signals
 	_connect_menu_signals()
 
@@ -55,8 +58,8 @@ func _update_current_room() -> void:
 
 ## Swap to the specified Room and unload the current Room.
 func _on_swap_room(path_to_target_room: String, target_door_name: String) -> void:
-	# Disconnect phantom camera from player
-	$PhantomCamera2D.set_follow_target(null)
+	# Disconnect camera from player
+	camera.clear_target()
 	
 	# Remove player from current room
 	current_room.despawn_player(player)
@@ -71,8 +74,8 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String) -> voi
 	# Add player to new current room and place them at correct door
 	current_room.spawn_player(player, target_door_name)
 	
-	# Reconnect phantom camera to player
-	$PhantomCamera2D.set_follow_target(player)
+	# Reconnect camera to player
+	camera.set_target(player)
 
 ## Resets the Player's stats & respawns them at the last door they exited.
 func respawn_player() -> void:
