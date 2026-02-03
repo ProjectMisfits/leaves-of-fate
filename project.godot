@@ -29,6 +29,7 @@ DebugMenu="*res://src/autoload/debug_menu/debug_menu.tscn"
 EventFlags="*res://src/autoload/event_flags/event_flags.gd"
 MusicManager="*res://src/autoload/audio_managers/music_manager.tscn"
 AmbianceManager="*res://src/autoload/audio_managers/ambiance_manager.tscn"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 
 [debug]
 
@@ -44,6 +45,7 @@ runtime/balloon_path="uid://du42aku0qy3o5"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/size/resizable=false
 
 [editor]
@@ -52,7 +54,7 @@ script/templates_search_path="res://src/script_templates"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [gui]
 
