@@ -226,7 +226,7 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 #endregion
 
 
-func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -> void:
+func _on_dialogue_label_spoke(letter: String, _letter_index: int, _speed: float) -> void:
 	#don't make sounds on space
 	if not letter in [" ", "."]:
 		audio_stream_player.pitch_scale = randf_range(.9,1.1)
