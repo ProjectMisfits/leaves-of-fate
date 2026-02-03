@@ -75,11 +75,12 @@ var fun_value: int	# Every copy of Project Misfits is personalized
 @onready var airborne_state: LimboState = $LimboHSM/Airborne
 @onready var dashing_state: LimboState = $LimboHSM/Dashing
 @onready var piling_state: LimboState = $LimboHSM/Piling
-@onready var cutscene_state: LimboState = $LimboHSM/Cutscene
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 ### DYNAMIC VARIABLES ###
+var cutscene_mode: bool = false
+
 var current_health: int
 var look_direction: float = 1.0 # <0 is left, >=0 is right
 var jump_queued: bool = false
@@ -113,15 +114,22 @@ func _ready() -> void:
 	
 	current_health = health
 	health_changed.emit(current_health)
+	
+	var dialogue_manager: Object = Engine.get_singleton(&"DialogueManager")
+	if (dialogue_manager != null):
+		dialogue_manager.dialogue_started.connect(enable_cutscene_mode.unbind(1))
+		dialogue_manager.dialogue_ended.connect(disable_cutscene_mode.unbind(1))
 
 # Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
 	add_debug_parameters()
 	
-	check_interact_action()
-	update_jump_queue(delta)
-	update_leaf_meter(delta)
-	check_companion_objects()
+	# If in cutscene state, do not check for these
+	if (not cutscene_mode):
+		check_interact_action()
+		update_jump_queue(delta)
+		update_leaf_meter(delta)
+		check_companion_objects()
 	
 	if ((not dashing_state.is_active()) and (not piling_state.is_active())):
 		velocity.y += compute_gravity() * delta
@@ -143,31 +151,37 @@ func _physics_process(delta: float) -> void:
 
 # Adds state transitions & initializes state machine.
 func initialize_state_machine() -> void:
+	# Idle State
 	state_machine.add_transition(idle_state,running_state,&"to_running")
 	state_machine.add_transition(idle_state,jumping_state,&"to_jumping")
 	state_machine.add_transition(idle_state,airborne_state,&"to_airborne")
 	state_machine.add_transition(idle_state,dashing_state,&"to_dashing")
 	state_machine.add_transition(idle_state,piling_state,&"to_piling")
 	
+	# Running State
 	state_machine.add_transition(running_state,idle_state,&"to_idle")
 	state_machine.add_transition(running_state,jumping_state,&"to_jumping")
 	state_machine.add_transition(running_state,airborne_state,&"to_airborne")
 	state_machine.add_transition(running_state,dashing_state,&"to_dashing")
 	state_machine.add_transition(running_state,piling_state,&"to_piling")
 	
+	# Jumping State
 	state_machine.add_transition(jumping_state,airborne_state,&"to_airborne")
 	state_machine.add_transition(jumping_state,dashing_state,&"to_dashing")
 	state_machine.add_transition(jumping_state,piling_state,&"to_piling")
 	
+	# Airborne State
 	state_machine.add_transition(airborne_state,idle_state,&"to_idle")
 	state_machine.add_transition(airborne_state,running_state,&"to_running")
 	state_machine.add_transition(airborne_state,dashing_state,&"to_dashing")
 	state_machine.add_transition(airborne_state,piling_state,&"to_piling")
 	
+	# Dashing State
 	state_machine.add_transition(dashing_state,idle_state,&"to_idle")
 	state_machine.add_transition(dashing_state,running_state,&"to_running")
 	state_machine.add_transition(dashing_state,airborne_state,&"to_airborne")
 	
+	# Piling State
 	state_machine.add_transition(piling_state,idle_state,&"to_idle")
 	state_machine.add_transition(piling_state,running_state,&"to_running")
 	state_machine.add_transition(piling_state,airborne_state,&"to_airborne")
@@ -196,6 +210,9 @@ func check_running_state() -> void:
 
 # If the player queued a jump & is on floor or within coyote time, change to jumping state.
 func check_jumping_state() -> void:
+	if (cutscene_mode):	# Do not handle input actions in Cutscene Mode
+		return
+	
 	if jump_queued:
 		var is_within_coyote_time: bool = (time_since_on_floor <= jump_coyote_time)
 		if is_on_floor() or is_within_coyote_time:
@@ -209,6 +226,9 @@ func check_airborne_state() -> void:
 
 # If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to piling state.
 func check_dashing_state() -> void:
+	if (cutscene_mode):	# Do not handle input actions in Cutscene Mode
+		return
+	
 	if Input.is_action_just_pressed(&"dash"):
 		var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
 		var is_direction_pressed: bool = (Input.get_vector("move_left", "move_right", "move_up", "move_down") != Vector2.ZERO)
@@ -218,12 +238,28 @@ func check_dashing_state() -> void:
 
 # If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to piling state.
 func check_piling_state() -> void:
+	if (cutscene_mode):	# Do not handle input actions in Cutscene Mode
+		return
+	
 	if Input.is_action_just_pressed(&"dash"):
 		var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
 		var is_no_direction_pressed: bool = (Input.get_vector("move_left", "move_right", "move_up", "move_down") == Vector2.ZERO)
 		
 		if is_no_direction_pressed and is_leaf_meter_not_empty:
 			state_machine.dispatch(&"to_piling")
+
+## Enables the Player's Cutscene Mode & returns the Cutscene Mode's new value
+func enable_cutscene_mode() -> bool:
+	return set_cutscene_mode(true)
+
+## Disables the Player's Cutscene Mode & returns the Cutscene Mode's new value
+func disable_cutscene_mode() -> bool:
+	return set_cutscene_mode(false)
+
+## Sets the Player's Cutscene Mode & returns the Cutscene Mode's new value
+func set_cutscene_mode(value: bool) -> bool:
+	cutscene_mode = value
+	return cutscene_mode
 
 func check_interact_action() -> void:
 	var is_interactable_not_null: bool = selected_interactable != null
@@ -302,7 +338,10 @@ func move_horizontal_pile_air() -> void:
 
 # Returns the player's x-input value.
 func get_x_input() -> float:
-	return Input.get_axis(&"move_left", &"move_right")
+	if (cutscene_mode):
+		return 0.0
+	else:
+		return Input.get_axis(&"move_left", &"move_right")
 
 # Updates jump velocity & gravity variables
 func compute_jump_parameters() -> void:
@@ -367,6 +406,10 @@ func hurt(damage: int) -> void:
 
 # Set the Player's current health, update the health UI, and check for Player knockout
 func set_health(new_health: int) -> void:
+	if (cutscene_mode):
+		push_warning("set_health(): Cutscene Mode active, health not set.")
+		return
+	
 	if (new_health > health):	# If health greater than max health
 		push_warning("set_health(): new_health is greater than max health.")
 	
@@ -378,6 +421,10 @@ func set_health(new_health: int) -> void:
 
 # Sets the Player's current Leaf Meter & updates the Leaf Meter UI.
 func set_leaf_meter(new_leaf_meter: float) -> void:
+	if (cutscene_mode):
+		push_warning("set_leaf_meter(): Cutscene Mode active, Leaf Meter not set.")
+		return
+	
 	leaf_meter = clampf(new_leaf_meter, 0.0, 100.0)
 	leaf_meter_changed.emit(leaf_meter)
 
@@ -463,6 +510,7 @@ func deselect_interactable() -> void:
 
 func add_debug_parameters() -> void:
 	DebugMenu.add_debug_property("Player State", state_machine.get_active_state().name, 0)
+	DebugMenu.add_debug_property("Player Cutscene Mode", cutscene_mode, 0)
 	DebugMenu.add_debug_property("Player Velocity", velocity, 5)
 	DebugMenu.add_debug_property("Player Selected Interactable", selected_interactable, 0)
 
