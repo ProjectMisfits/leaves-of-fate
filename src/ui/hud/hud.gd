@@ -4,6 +4,12 @@ class_name Hud
 @onready var leaf_meter: TextureProgressBar = get_node("%LeafMeter")
 @onready var total_lives: int = 3
 @onready var player: Player = null
+@onready var life1: TextureRect = get_node("%LifeLeaf1")
+@onready var life2: TextureRect = get_node("%LifeLeaf2")
+@onready var life3: TextureRect = get_node("%LifeLeaf3")
+
+var respawn_speed: float = 0.5
+
 
 func set_player(current_player: Player) -> void:
 	player = current_player
@@ -19,15 +25,18 @@ func _set_leaf_meter(new_value: float) -> void:
 	leaf_meter.value = new_value
 
 func _set_player_health(new_health: int) -> void:
-	var life_nodes: Array[Node] = [get_node("%LifeLeaf3"), get_node("%LifeLeaf2"), get_node("%LifeLeaf1")]
-	
 	if new_health > total_lives:
 		push_warning("New health is greater than number of health UI boxes.")
 		return
-	elif new_health < total_lives: 
-		for i: int in (total_lives - new_health):
-			# life_nodes[i].modulate.a = 0
-			create_tween().tween_property(life_nodes[i], "modulate:a", 0, 0.5)
 	else:
-		for n: Node in life_nodes:
-			n.modulate.a = 100
+		if new_health == 3:
+			await get_tree().create_timer(respawn_speed).timeout
+			create_tween().tween_property(life1, "modulate:a", 1.0, 0.25)
+			create_tween().tween_property(life2, "modulate:a", 1.0, 0.25)
+			create_tween().tween_property(life3, "modulate:a", 1.0, 0.25)
+		elif new_health == 2:
+			create_tween().tween_property(life3, "modulate:a", 0.0, 0.5)
+		elif new_health == 1:
+			create_tween().tween_property(life2, "modulate:a", 0.0, 0.5)
+		elif new_health == 0:
+			create_tween().tween_property(life1, "modulate:a", 0.0, 0.5)
