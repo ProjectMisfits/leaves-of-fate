@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds25qjj7x3y7o"]
+
+[ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="1_oep2s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7hg0"]
+size = Vector2(52.89256, 52.89256)
+
+[node name="LeafPlatform" type="StaticBody2D"]
+collision_layer = 128
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.30653816, 0.4693262, 0.039395403, 1)
+texture = ExtResource("1_oep2s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.3841858e-06, -1.0000025)
+scale = Vector2(2.42, 2.42)
+shape = SubResource("RectangleShape2D_e7hg0")

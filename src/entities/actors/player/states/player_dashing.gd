@@ -9,6 +9,8 @@ func _enter() -> void:
 	#print("Player State Transition: to_dashing")
 	agent.animation_player.play("player_leaf_dash")
 
+	agent.set_collision_mask_value(8,false)
+
 	agent.collision_shape_2d.shape = agent.collision_dash
 	for ps: GPUParticles2D in agent.dash_particles.get_children(): # Enable Leaf Dash particles
 		ps.emitting = true
@@ -48,6 +50,7 @@ func _update(_delta: float) -> void:
 func _exit() -> void:
 
 	agent.collision_shape_2d.shape = agent.collision_normal
+	agent.set_collision_mask_value(8,true)
 	for ps: GPUParticles2D in agent.dash_particles.get_children(): # Enable Leaf Dash particles
 		ps.emitting = false
 	
