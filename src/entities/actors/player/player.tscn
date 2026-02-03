@@ -273,7 +273,6 @@ emitting = false
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/CompanionArea"]
-visible = false
 position = Vector2(83, 5.5)
 scale = Vector2(12, 12)
 shape = SubResource("RectangleShape2D_u7uqy")
