@@ -1,10 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://fdecrtiqrw14"]
+[gd_scene load_steps=4 format=3 uid="uid://fdecrtiqrw14"]
 
 [ext_resource type="Script" uid="uid://ccsrl6mlxbla7" path="res://src/gameplay/gameplay.gd" id="1_anqvl"]
 [ext_resource type="PackedScene" uid="uid://cwgmn4aexyqic" path="res://src/rooms/graybox/GB_GreatHall_room.tscn" id="2_tr6da"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_g7yt7"]
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_anqvl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+top_level = true
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_g7yt7")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="RoomHolder" type="Node2D" parent="."]
 unique_name_in_owner = true
