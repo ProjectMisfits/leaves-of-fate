@@ -11,6 +11,12 @@ func initialize_camera(new_phantom_camera: PhantomCamera2D, new_camera: Camera2D
 	phantom_camera = new_phantom_camera
 	camera = new_camera
 
+## Create a new phantom camera.
+func _create_new_camera() -> void:
+	var new_camera: PhantomCamera2D = PhantomCamera2D.new()
+	new_camera.priority = PhantomCameraManager.get_phantom_camera_2ds().size()
+	new_camera.zoom = Vector2(1.0, 1.0)
+
 ## Set the camera's target.
 func set_target(target: Node2D) -> void:
 	phantom_camera.set_follow_target(target)
