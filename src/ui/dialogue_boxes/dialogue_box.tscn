@@ -115,7 +115,7 @@ _data = {
 }
 
 [node name="DialogueBox" type="CanvasLayer"]
-layer = 100
+layer = 5
 script = ExtResource("1_grl4y")
 
 [node name="Balloon" type="Control" parent="."]

@@ -30,4 +30,4 @@ layer = 4
 unique_name_in_owner = true
 
 [node name="MenuHolder" type="CanvasLayer" parent="."]
-layer = 5
+layer = 6
