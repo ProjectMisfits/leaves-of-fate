@@ -11,7 +11,7 @@ _data = {
 &"az_idle": SubResource("Animation_3be5q")
 }
 
-[node name="AzNpc" instance=ExtResource("1_3e8bs")]
+[node name="NpcAz" instance=ExtResource("1_3e8bs")]
 
 [node name="Sprite2D" parent="FlipAbles" index="0"]
 texture = ExtResource("2_cmh26")

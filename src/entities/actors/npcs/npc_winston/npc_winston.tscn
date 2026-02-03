@@ -8,8 +8,7 @@ load_path = "res://.godot/imported/winston_placeHolder_01.png-da702a6b32a3e5d73c
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dx7yp"]
 size = Vector2(120, 167)
 
-[node name="WinstonNpc" instance=ExtResource("1_tg4e0")]
-script = null
+[node name="NpcWinston" instance=ExtResource("1_tg4e0")]
 
 [node name="Sprite2D" parent="FlipAbles" index="0"]
 position = Vector2(-15.000002, -16.000002)
