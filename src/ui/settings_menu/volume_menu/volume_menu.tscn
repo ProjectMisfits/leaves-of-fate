@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dhmeotkn5o7nx" path="res://src/ui/settings_menu/volume_menu/volume_menu.gd" id="1_678j2"]
 [ext_resource type="Texture2D" uid="uid://c44j0kj2rhy3b" path="res://assets/ui/FullLetter-UI-001.png" id="1_lu1ff"]
 [ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="2_ixl7f"]
-[ext_resource type="Texture2D" uid="uid://cjmu0wklpfwll" path="res://assets/ui/LeafSlider-UI-001.svg" id="3_ixl7f"]
+[ext_resource type="Texture2D" uid="uid://cjmu0wklpfwll" path="res://assets/ui/settings/LeafSlider-UI-001.svg" id="3_ixl7f"]
 [ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="3_wfrvw"]
 [ext_resource type="Script" uid="uid://cqs562em6ey2j" path="res://src/ui/settings_menu/volume_menu/volume_slider.gd" id="4_2uc65"]
 [ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="5_lh5ut"]
@@ -105,6 +105,7 @@ theme_override_font_sizes/font_size = 70
 text = "Master"
 
 [node name="MasterSlider" type="HSlider" parent="Panel/VolumeControls/MasterVolume"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(640, 40)
 layout_mode = 2
 size_flags_vertical = 4

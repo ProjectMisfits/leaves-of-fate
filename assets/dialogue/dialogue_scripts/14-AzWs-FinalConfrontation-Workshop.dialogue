@@ -25,10 +25,10 @@ Winston: THUS! WITESS THE CREATION OF THE ONE. THE ONLY.
 Winston: ICETON
 Machine whirs, and opens
 Smoke bellows and then clears to reveal an ice version of winston
-Holy sh- it worked? IT WORKED?!
+Winston: Holy sh- it worked? IT WORKED?!
 Fenn: Are we in danger?
 Az: Hmph. Maybe.
-Winston: ICETON, GO! ATTACKED THEM! DESTROYETH THEM!
+Winston: ICETON, GO! ATTACKETH THEM! DESTROYETH THEM!
 Iceton takes a few steps towards Az and Fenn. Az and Fenn retreat in sync.
 Fenn: Uh oh.
 Iceton turns around, rushes towards Winston, and starts beating him up.
@@ -50,4 +50,5 @@ Az: UGH. There should be a way back to the Great Hall from those tunnels, be car
 Fenn: Got it!
 Winston: Ugh...
 Az: Let's go, wizard boy.
+do EventFlags.set_flag("AzWs-FinalConfrontation-Workshop", true)
 => END

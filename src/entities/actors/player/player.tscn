@@ -1,55 +1,228 @@
-[gd_scene load_steps=21 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=24 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/entities/actors/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
 [ext_resource type="Script" uid="uid://bar0unkhcpu3a" path="res://src/entities/actors/player/states/player_idle.gd" id="3_a1k00"]
-[ext_resource type="Texture2D" uid="uid://dco77mb0p8ecg" path="res://assets/entities/actors/player/player_placeholder.png" id="3_c6y0n"]
 [ext_resource type="Script" uid="uid://dr4cwnspn2mf2" path="res://src/entities/actors/player/states/player_running.gd" id="4_7gsup"]
 [ext_resource type="Shape2D" uid="uid://0oo3ftpmvp21" path="res://src/entities/actors/player/collision_shapes/player_dash.tres" id="4_7j1dl"]
 [ext_resource type="Shape2D" uid="uid://b8ivarqjj8m6q" path="res://src/entities/actors/player/collision_shapes/player_normal.tres" id="4_lynpt"]
 [ext_resource type="PackedScene" uid="uid://d20fk20iq2n50" path="res://src/gameplay/camera.tscn" id="4_wcwgi"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="5_lynpt"]
 [ext_resource type="Script" uid="uid://duy7f43rn783x" path="res://src/entities/actors/player/states/player_jumping.gd" id="6_c6y0n"]
+[ext_resource type="Texture2D" uid="uid://bjs6k2nuta53t" path="res://assets/entities/actors/player/fenn_walkcycle_spritesheet.png" id="6_efl0v"]
 [ext_resource type="Script" uid="uid://cksn2wvaxpq54" path="res://src/entities/actors/player/states/player_airborne.gd" id="7_q4vut"]
 [ext_resource type="Script" uid="uid://bjtwcn16kj5bl" path="res://src/entities/actors/player/states/player_dashing.gd" id="8_wcwgi"]
 [ext_resource type="Script" uid="uid://osptlmoqos3i" path="res://src/entities/actors/player/states/player_piling.gd" id="9_q6jdu"]
-[ext_resource type="Script" uid="uid://icrwiu7udlg5" path="res://src/entities/actors/player/states/player_cutscene.gd" id="10_u7uqy"]
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/particle_effects/wind_particles.tscn" id="14_7j1dl"]
 [ext_resource type="PackedScene" uid="uid://dqviomxk1qqcu" path="res://src/particle_effects/leaf_particles.tscn" id="15_808gp"]
-[ext_resource type="PackedScene" uid="uid://b2rp6v6yudx4x" path="res://src/entities/actors/player/debug_ui/player_ui.tscn" id="15_lynpt"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_q4vut"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_lynpt")
-}],
-"loop": true,
-"name": &"dash",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_lynpt")
-}],
-"loop": true,
-"name": &"pile",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_c6y0n")
-}],
-"loop": false,
-"name": &"player",
-"speed": 5.0
-}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4vut"]
-size = Vector2(250, 180)
+size = Vector2(750, 540)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7uqy"]
 size = Vector2(57.72727, 43.40909)
+
+[sub_resource type="Animation" id="Animation_b1i8x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipNode/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_efl0v")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlipNode/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FlipNode/Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FlipNode/Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.798, 0.798)]
+}
+
+[sub_resource type="Animation" id="Animation_8ihyl"]
+resource_name = "player_idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipNode/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_efl0v")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlipNode/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FlipNode/Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FlipNode/Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.798, 0.798)]
+}
+
+[sub_resource type="Animation" id="Animation_c5a8v"]
+resource_name = "player_leaf"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipNode/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_lynpt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlipNode/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FlipNode/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.3, 1.3)]
+}
+
+[sub_resource type="Animation" id="Animation_efl0v"]
+resource_name = "player_walk_cycle"
+length = 0.6355
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipNode/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.083, 0.166, 0.249, 0.332, 0.415, 0.498, 0.581),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlipNode/Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_efl0v")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FlipNode/Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FlipNode/Sprite2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.798, 0.798)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ihyl"]
+_data = {
+&"RESET": SubResource("Animation_b1i8x"),
+&"player_idle": SubResource("Animation_8ihyl"),
+&"player_leaf_dash": SubResource("Animation_c5a8v"),
+&"player_walk_cycle": SubResource("Animation_efl0v")
+}
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 14
@@ -59,20 +232,19 @@ collision_normal = ExtResource("4_lynpt")
 collision_dash = ExtResource("4_7j1dl")
 
 [node name="Camera" parent="." instance=ExtResource("4_wcwgi")]
-unique_name_in_owner = true
 zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
 shape = ExtResource("4_lynpt")
 
 [node name="FlipNode" type="Node2D" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlipNode"]
-position = Vector2(11.055, 4.645)
-scale = Vector2(3, 3)
-sprite_frames = SubResource("SpriteFrames_q4vut")
-animation = &"player"
+[node name="Sprite2D" type="Sprite2D" parent="FlipNode"]
+scale = Vector2(0.798, 0.798)
+texture = ExtResource("6_efl0v")
+hframes = 8
 
 [node name="InteractArea" type="Area2D" parent="FlipNode"]
 position = Vector2(80, 0)
@@ -81,24 +253,27 @@ input_pickable = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/InteractArea"]
+position = Vector2(215, 0)
 shape = SubResource("RectangleShape2D_q4vut")
 
 [node name="DashParticles" type="Node2D" parent="FlipNode"]
 
 [node name="WindParticles" parent="FlipNode/DashParticles" instance=ExtResource("14_7j1dl")]
 rotation = 3.1415927
-scale = Vector2(1, 1)
+scale = Vector2(3, 3)
 emitting = false
 
 [node name="WindParticles2" parent="FlipNode/DashParticles" instance=ExtResource("15_808gp")]
+scale = Vector2(3, 3)
 emitting = false
 
 [node name="CompanionArea" type="Area2D" parent="FlipNode"]
 collision_mask = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/CompanionArea"]
+visible = false
 position = Vector2(83, 5.5)
-scale = Vector2(4.4000006, 4.4000006)
+scale = Vector2(12, 12)
 shape = SubResource("RectangleShape2D_u7uqy")
 debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
 
@@ -122,10 +297,10 @@ script = ExtResource("8_wcwgi")
 [node name="Piling" type="LimboState" parent="LimboHSM"]
 script = ExtResource("9_q6jdu")
 
-[node name="Cutscene" type="LimboState" parent="LimboHSM"]
-script = ExtResource("10_u7uqy")
-
-[node name="PlayerUI" parent="." instance=ExtResource("15_lynpt")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8ihyl")
+}
 
 [connection signal="area_entered" from="FlipNode/InteractArea" to="." method="_on_interact_area_area_entered"]
 [connection signal="area_exited" from="FlipNode/InteractArea" to="." method="_on_interact_area_area_exited"]

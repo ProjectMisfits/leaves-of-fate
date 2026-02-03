@@ -15,12 +15,13 @@ HOW TO USE/SET UP NPC DIALOGUE:
 #What balloon are they using 
 @export var balloon: PackedScene = null
 
+var dialogue_triggered: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 
 	match SceneManager.current_scene.name:
 		"TEST_DialogueManager":
-		
 			dialogue_resource = ResourceLoader.load("res://assets/dialogue/dialogue_scripts/1-Az-Meet-GreatHall.dialogue")
 			dialogue_start = "start"
 		_:
@@ -31,6 +32,9 @@ func _ready() -> void:
 
 
 func _on_interactable_interact_triggered() -> void:
+	if (dialogue_triggered):
+		return
+	
 	print("Attempting speech")
 	DialogueManager.show_dialogue_balloon_scene(balloon,dialogue_resource,dialogue_start)
-	pass # Replace with function body.
+	dialogue_triggered = true

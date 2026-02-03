@@ -2,13 +2,14 @@ extends LimboState
 
 func _enter() -> void:
 	#print("Player State Transition: to_pileing")
-	agent.animated_sprite_2d.animation = &"pile"
+	agent.animation_player.play("player_leaf_dash")
+	
 	agent.collision_shape_2d.shape = agent.collision_dash
 	agent.velocity.y = 0.0
 
 func _update(delta: float) -> void:
 	# Check if Player stopped holding dash Action
-	if (not Input.is_action_pressed(&"dash") or (agent.leaf_meter <= 0)):
+	if (not Input.is_action_pressed(&"dash") or (agent.leaf_meter <= 0) or agent.cutscene_mode):
 		agent.check_airborne_state()
 		agent.check_running_state()
 		agent.check_idle_state()
@@ -22,5 +23,5 @@ func _update(delta: float) -> void:
 		agent.move_horizontal_pile_air()
 
 func _exit() -> void:
-	agent.animated_sprite_2d.animation = &"player"
+
 	agent.collision_shape_2d.shape = agent.collision_normal

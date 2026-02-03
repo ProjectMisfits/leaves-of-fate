@@ -19,6 +19,7 @@ Az: One time, I transformed the fridge into a fully functional oven. Baba came h
 Winston: Oh my! That is so cool. Tis not quite the sameth, but I once made snowmen in mine own basement using Mother's laundry device.
 Az: What?? You have to tell me how you did that.
 Winston: Haha! Why, of course!
+do EventFlags.set_flag("F-1-AzWs-GreatHall", true)
 => END
 
 ~ convo_2
@@ -29,6 +30,7 @@ Az: Hey, look. We're good. You may have tried to kill us, but you saved me, and 
 Winston: But I feeleth t'rrible. I gaveth thee thy inhaler, but I madeth thee breatheth fire when I kneweth about thy asthma
 Az: You didn't make me do anything. I lost my cool. You're good, dude.
 Winston: Well... alright.
+do EventFlags.set_flag("F-2-AzWs-GreatHall", true)
 => END
 
 ~ convo_3
@@ -38,6 +40,7 @@ Fenn: Well I couldn't have done much without your bangles, either...
 Winston: Sorry for, like, trying to killeth thee, and stuff.
 Fenn: It wouldn't be an adventure without any danger!
 Az: Winston, you're good. Don't worry about it.
+do EventFlags.set_flag("F-3-AzWs-GreatHall", true)
 => END
 
 ~ convo_4
@@ -49,6 +52,7 @@ Winston: Nay, seriously! Thy patterns art so intricate and clean. They hardly lo
 Winston: This must hath taken thee months!
 Az: It was a few weeks, yeah...
 Winston: Weeks?! Whoa. 
+do EventFlags.set_flag("F-4-AzWs-GreatHall", true)
 => END
 
 ~ convo_5
@@ -63,6 +67,7 @@ Az: Why are you apologizing? You didn't really do anything wrong.
 Winston: Well... for scaring thee.
 Az: Water under the bridge, man.
 Winston: Alright. Thank you.
+do EventFlags.set_flag("F-5-AzWs-GreatHall", true)
 => END
 
 ~ convo_6
@@ -78,5 +83,6 @@ Az: Yeah? That'd be awesome! We could call it "ice-smithing" or something
 Winston: Really??
 Az: Yeah, it'd be cool.
 Winston: Cool.
+do EventFlags.set_flag("F-6-AzWs-GreatHall", true)
 => END
 

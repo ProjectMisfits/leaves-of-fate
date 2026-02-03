@@ -18,6 +18,7 @@ Az: Bangles
 Fenn: Bangles. And we can talk through them!
 Wizard: No matter! Speaketh not anym're of this curs'd device. This changes't nothing!
 Wizard: TAKETH THIS!
+do EventFlags.set_flag("Ws-Ambush-CellarGeneral", true)
 => END
 
 
@@ -34,5 +35,6 @@ Fenn: Wasn't it so cool?
 Wizard: I hath never said it was cool!
 Wizard: ARRGH!!!!!
 Wizard runs off
+do EventFlags.set_flag("Ws-PostAmbush-CellarGeneral", true)
 => END
 #Should be used for both the pre-ambush conversation and post-ambush conversation

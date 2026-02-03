@@ -7,8 +7,8 @@ var rad_angular_turn_speed: float
 
 func _enter() -> void:
 	#print("Player State Transition: to_dashing")
-	
-	agent.animated_sprite_2d.animation = &"dash"
+	agent.animation_player.play("player_leaf_dash")
+
 	agent.collision_shape_2d.shape = agent.collision_dash
 	for ps: GPUParticles2D in agent.dash_particles.get_children(): # Enable Leaf Dash particles
 		ps.emitting = true
@@ -18,13 +18,18 @@ func _enter() -> void:
 
 func _update(_delta: float) -> void:
 	# Check if Player stopped holding dash Action
-	if (not Input.is_action_pressed("dash") or (agent.leaf_meter <= 0)):
+	if (not Input.is_action_pressed("dash") or (agent.leaf_meter <= 0) or agent.cutscene_mode):
 		agent.check_airborne_state()
 		agent.check_running_state()
 		agent.check_idle_state()
 	
 	# Get new input vector depending on held Actions
-	var new_input_direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var new_input_direction: Vector2
+	if (agent.cutscene_mode):
+		new_input_direction = Vector2.ZERO
+	else:
+		new_input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
 	if (new_input_direction != Vector2.ZERO):
 		input_direction = new_input_direction
 	
@@ -41,7 +46,7 @@ func _update(_delta: float) -> void:
 	agent.move_and_slide()
 
 func _exit() -> void:
-	agent.animated_sprite_2d.animation = &"player"
+
 	agent.collision_shape_2d.shape = agent.collision_normal
 	for ps: GPUParticles2D in agent.dash_particles.get_children(): # Enable Leaf Dash particles
 		ps.emitting = false

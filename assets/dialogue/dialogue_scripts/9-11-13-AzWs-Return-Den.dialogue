@@ -1,5 +1,5 @@
 ~ start
-match some_gamestate_value
+match EventFlags.num_heaters_activated
 	when 1
 		=> return_to_den_1
 	when 2
@@ -38,6 +38,8 @@ Az: Anyways, you should get a move on. We've got more heaters to turn on!
 Fenn: Yeah! I'm on it!
 Fade to black
 Winston: Well, well, well. Asthma, eh?
+do EventFlags.set_flag("AzWs-Return-1-Den", true)
+
 => END
 
 ~ return_to_den_2
@@ -55,7 +57,10 @@ Az: Did you hear something?
 Fenn: Did you say something Wizard man?
 Wizard: Um. My nameth is Winston.
 Fenn: Oh! Nice to meet-eth you Winston!
+set EventFlags.winston_name = "Winston"
 Winston: Nice- nice to meeteth thee too, I guesseth.
+do EventFlags.set_flag("AzWs-Return-2-Den", true)
+
 => END
 
 ~ asthma_attack
@@ -110,4 +115,5 @@ Fenn: Are you sure you're okay.
 Az: Hah, yeah. Don't worry kid, I'm good now.
 Fenn: Are you sure?
 Az: Yeah. Let's go get him.
+do EventFlags.set_flag("AzWs-AsthmaAttack-Den", true)
 => END
