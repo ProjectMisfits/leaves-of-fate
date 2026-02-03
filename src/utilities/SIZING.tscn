@@ -1,40 +1,57 @@
-[gd_scene load_steps=36 format=4 uid="uid://78p4lxwgdq5n"]
+[gd_scene load_steps=41 format=4 uid="uid://78p4lxwgdq5n"]
 
 [ext_resource type="TileSet" uid="uid://i6wi7xcus3i" path="res://assets/rooms/tileset/TS_Cellar.tres" id="1_4keto"]
-[ext_resource type="Texture2D" uid="uid://dvmqfcdwe36eo" path="res://assets/entities/actors/npcs/az/Az-SpriteSheet-Idle-01.png" id="1_6nour"]
-[ext_resource type="Texture2D" uid="uid://bobecrpwgxhv4" path="res://assets/entities/actors/npcs/winston/winston_placeHolder_01.png" id="2_5u77h"]
-[ext_resource type="Texture2D" uid="uid://dprhdtd43c5ol" path="res://assets/entities/objects/door/PH-door-open.svg" id="3_gooil"]
-[ext_resource type="Texture2D" uid="uid://cetapo5oxl1e8" path="res://assets/entities/hazards/ice_spike_ball/Ice-Spike-Ball.png" id="4_gqe1n"]
-[ext_resource type="Texture2D" uid="uid://bacfs5fh7tttn" path="res://assets/entities/hazards/icicle/Icicle-01.png" id="5_cxsxx"]
-[ext_resource type="Texture2D" uid="uid://nsc4gwcg2lhf" path="res://assets/entities/hazards/icicle/Icicle-02.png" id="6_y4lt4"]
-[ext_resource type="Texture2D" uid="uid://co02j1n6hqgy4" path="res://assets/entities/hazards/icicle/Icicle-03.png" id="7_iitwy"]
-[ext_resource type="Texture2D" uid="uid://44yrl3bsd17t" path="res://assets/entities/hazards/icicle/Icicle-04.png" id="8_bhrpm"]
-[ext_resource type="Texture2D" uid="uid://dtlb7dnnba4ka" path="res://assets/entities/hazards/icicle/Icicle-05.png" id="9_psiks"]
-[ext_resource type="Texture2D" uid="uid://dtdlidtnfkuah" path="res://assets/entities/hazards/icicle/Icicle-06.png" id="10_4keto"]
-[ext_resource type="Texture2D" uid="uid://dr6ums5lxbj38" path="res://assets/entities/decor/pillars/Pillar-Base-01.png" id="11_4qwbf"]
-[ext_resource type="Texture2D" uid="uid://unoh1cihevkr" path="res://assets/entities/decor/pillars/Pillar-Base-02.png" id="12_1o4i6"]
-[ext_resource type="Texture2D" uid="uid://cxeshi0vxbj6j" path="res://assets/entities/decor/pillars/Pillar-Base-03.png" id="13_ea3c5"]
-[ext_resource type="Texture2D" uid="uid://7bm7jev1u280" path="res://assets/entities/decor/pillars/Pillar-Cap-01.png" id="14_2i3r0"]
-[ext_resource type="Texture2D" uid="uid://duhwmlrvll5l" path="res://assets/entities/decor/pillars/Pillar-Cap-02.png" id="15_intwn"]
-[ext_resource type="Texture2D" uid="uid://idvn1h1vmemf" path="res://assets/entities/decor/pillars/Pillar-Cap-03.png" id="16_f2ccx"]
-[ext_resource type="Texture2D" uid="uid://drvyo52m6eg0b" path="res://assets/entities/decor/pillars/Pillar-Trunk-01.png" id="17_iqbef"]
-[ext_resource type="Texture2D" uid="uid://cjju8aees3cwb" path="res://assets/entities/decor/pillars/Pillar-Trunk-02.png" id="18_lste5"]
-[ext_resource type="Texture2D" uid="uid://ckh12uttawcnl" path="res://assets/entities/decor/pillars/Pillar-Trunk-03.png" id="19_dp6n5"]
-[ext_resource type="Texture2D" uid="uid://bv5go5tyxtlcd" path="res://assets/entities/decor/pillars/Pillar-Trunk-04.png" id="20_a3jsd"]
-[ext_resource type="Texture2D" uid="uid://drdoc0iukr4ue" path="res://assets/entities/decor/plants/FloorPotB-Prop.png" id="21_jydup"]
-[ext_resource type="Texture2D" uid="uid://vn4i7kvciag4" path="res://assets/entities/decor/plants/HangingPlant-Prop-01.png" id="22_12x6h"]
-[ext_resource type="Texture2D" uid="uid://rqirsuqouub4" path="res://assets/entities/decor/plants/HangingPlant-Prop-02.png" id="23_5ijqs"]
+[ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/az/az_npc.tscn" id="2_1o4i6"]
+[ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/winston/winston_npc.tscn" id="3_ea3c5"]
 [ext_resource type="Texture2D" uid="uid://bne4vg4ywan02" path="res://assets/ui/dialogue_boxes/DialogueBoxAz-UI-001.png" id="24_vx82f"]
 [ext_resource type="Texture2D" uid="uid://dk5bpfuimu5cp" path="res://assets/ui/dialogue_boxes/DialogueBoxFenn-UI-001.png" id="25_503cj"]
-[ext_resource type="Texture2D" uid="uid://dco77mb0p8ecg" path="res://assets/entities/actors/player/player_placeholder.png" id="26_ad1v0"]
 [ext_resource type="PackedScene" uid="uid://c3wglsph8i5hq" path="res://src/entities/decor/plants/floor_pot_01.tscn" id="27_5u77h"]
 [ext_resource type="PackedScene" uid="uid://b0wlcwvvy8ru2" path="res://src/entities/decor/furniture/chairs.tscn" id="28_gooil"]
 [ext_resource type="PackedScene" uid="uid://b7j64qhjhyt7o" path="res://src/entities/decor/furniture/table.tscn" id="29_y4lt4"]
 [ext_resource type="PackedScene" uid="uid://deu2abme5ohr7" path="res://src/entities/decor/food/boar_head.tscn" id="30_iitwy"]
+[ext_resource type="PackedScene" uid="uid://beub4bx6t3wvh" path="res://src/entities/hazards/icicle/icicle_01.tscn" id="31_4qwbf"]
 [ext_resource type="PackedScene" uid="uid://cluoychij4hex" path="res://src/entities/decor/food/bread.tscn" id="31_bhrpm"]
+[ext_resource type="PackedScene" uid="uid://domed3ucovqnj" path="res://src/entities/hazards/icicle/icicle_02.tscn" id="32_1o4i6"]
 [ext_resource type="PackedScene" uid="uid://c7fe4dvse0qy0" path="res://src/entities/decor/food/cheese.tscn" id="32_iitwy"]
 [ext_resource type="PackedScene" uid="uid://bq3mv3nwc10c6" path="res://src/entities/decor/food/fruit_bowl.tscn" id="33_bhrpm"]
+[ext_resource type="PackedScene" uid="uid://dy2vli8qi5bb8" path="res://src/entities/hazards/icicle/icicle_03.tscn" id="33_ea3c5"]
+[ext_resource type="PackedScene" uid="uid://b5pl5cenkmlqy" path="res://src/entities/hazards/icicle/icicle_04.tscn" id="34_2i3r0"]
+[ext_resource type="PackedScene" uid="uid://cjmtdwm7l0dpi" path="res://src/entities/objects/grabbable_platform/grabbable_platform.tscn" id="34_f2ccx"]
 [ext_resource type="PackedScene" uid="uid://bxrltvpyhtsin" path="res://src/entities/decor/food/wine.tscn" id="34_psiks"]
+[ext_resource type="PackedScene" uid="uid://bt8rip14nbobd" path="res://src/entities/decor/plants/hanging_pot_01.tscn" id="35_4qwbf"]
+[ext_resource type="PackedScene" uid="uid://bj7fv2e6r3bp5" path="res://src/entities/hazards/icicle/icicle_05.tscn" id="35_intwn"]
+[ext_resource type="PackedScene" uid="uid://disa83btdjjsk" path="res://src/entities/objects/moving_platform/moving_platform.tscn" id="35_iqbef"]
+[ext_resource type="PackedScene" uid="uid://bi76j25xbej58" path="res://src/entities/decor/plants/floor_pot_02.tscn" id="36_1o4i6"]
+[ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="36_2i3r0"]
+[ext_resource type="PackedScene" uid="uid://cnhvjqd23j3hu" path="res://src/entities/actors/enemies/ice_cube/ice_scream.tscn" id="36_4qwbf"]
+[ext_resource type="PackedScene" uid="uid://b7t7pc0jj7gxa" path="res://src/entities/decor/plants/hanging_pot_02.tscn" id="36_ea3c5"]
+[ext_resource type="PackedScene" uid="uid://dv6448b476yos" path="res://src/entities/hazards/icicle/icicle_06.tscn" id="36_f2ccx"]
+[ext_resource type="PackedScene" uid="uid://4jh213w6fsb7" path="res://src/entities/decor/pillars/pillar_base_01.tscn" id="36_lste5"]
+[ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/door/door.tscn" id="37_1o4i6"]
+[ext_resource type="PackedScene" uid="uid://umcnqsgim2kt" path="res://src/entities/decor/pillars/pillar_base_02.tscn" id="37_dp6n5"]
+[ext_resource type="PackedScene" uid="uid://bwadcghg6jxxu" path="res://src/entities/decor/pillars/pillar_base_03.tscn" id="38_a3jsd"]
+[ext_resource type="Texture2D" uid="uid://bjs6k2nuta53t" path="res://assets/entities/actors/player/fenn_walkcycle_spritesheet.png" id="38_ea3c5"]
+[ext_resource type="PackedScene" uid="uid://0jijms4al2i5" path="res://src/entities/decor/pillars/pillar_cap_01.tscn" id="39_f2ccx"]
+[ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="39_jydup"]
+[ext_resource type="PackedScene" uid="uid://dkyvqmdhj2oih" path="res://src/entities/decor/pillars/pillar_trunk_02.tscn" id="40_12x6h"]
+[ext_resource type="PackedScene" uid="uid://bdovxpf4gaxv6" path="res://src/entities/decor/pillars/pillar_cap_02.tscn" id="40_iqbef"]
+[ext_resource type="PackedScene" uid="uid://n257i6n8nqs1" path="res://src/entities/decor/pillars/pillar_trunk_03.tscn" id="41_5ijqs"]
+[ext_resource type="PackedScene" uid="uid://7c7nfo2gy8fu" path="res://src/entities/decor/pillars/pillar_cap_03.tscn" id="41_lste5"]
+[ext_resource type="PackedScene" uid="uid://lyc1bsnodr4q" path="res://src/entities/decor/pillars/pillar_trunk_04.tscn" id="42_iqbef"]
+
+[sub_resource type="Curve2D" id="Curve2D_vx82f"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 512, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_503cj"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 512, 0)
+}
+point_count = 2
 
 [node name="SIZING" type="Node2D"]
 
@@ -42,113 +59,29 @@
 tile_map_data = PackedByteArray("AAD2/wAABgABAAAAAAD3/wAABgABAAAAAAD4/wAABgABAAAAAAD5/wAABgABAAAAAAD6/wAABgABAAAAAAD7/wAABgABAAAAAAD8/wAABgABAAAAAAD9/wAABgABAAAAAAD+/wAABgABAAAAAAD//wAABgABAAAAAAAAAAAABgABAAAAAAABAAAABgABAAAAAAACAAAABgABAAAAAAADAAAABgABAAAAAAAEAAAABgABAAAAAAAFAAAABgABAAAAAAAGAAAABgABAAAAAAAHAAAABgABAAAAAAAIAAAABgABAAAAAAAJAAAABgABAAAAAAAKAAAABgABAAAAAAALAAAABgABAAAAAAAMAAAABgABAAAAAAANAAAABgABAAAAAAAOAAAABgABAAAAAAAPAAAABgABAAAAAAAQAAAABgABAAAAAAARAAAABgABAAAAAAASAAAABgABAAAAAAD1/wAABgABAAAAAAATAAAABgABAAAAAAAUAAAABgABAAAAAAAVAAAABgABAAAAAAAWAAAABgABAAAAAAAXAAAABgABAAAAAAAYAAAABgABAAAAAAAZAAAABgABAAAAAAAaAAAABgABAAAAAAAbAAAABgABAAAAAAD1/wIABgABAAAAAAD2/wEABgABAAAAAAD3/wIABgABAAAAAAD4/wEABgABAAAAAAD5/wIABgABAAAAAAD6/wEABgABAAAAAAD7/wIABgABAAAAAAD8/wEABgABAAAAAAD9/wIABgABAAAAAAD+/wEABgABAAAAAAD//wIABgABAAAAAAAAAAEABgABAAAAAAABAAIABgABAAAAAAACAAEABgABAAAAAAADAAIABgABAAAAAAAEAAEABgABAAAAAAAFAAIABgABAAAAAAAGAAEABgABAAAAAAAHAAIABgABAAAAAAAIAAEABgABAAAAAAAJAAIABgABAAAAAAAKAAEABgABAAAAAAALAAIABgABAAAAAAAMAAEABgABAAAAAAANAAIABgABAAAAAAAOAAEABgABAAAAAAAPAAIABgABAAAAAAAQAAEABgABAAAAAAARAAIABgABAAAAAAASAAEABgABAAAAAAATAAIABgABAAAAAAAUAAEABgABAAAAAAAVAAIABgABAAAAAAAWAAEABgABAAAAAAAXAAIABgABAAAAAAAYAAEABgABAAAAAAAZAAIABgABAAAAAAAaAAEABgABAAAAAAAbAAIABgABAAAAAAAcAAEABgABAAAAAAAdAAAABgABAAAAAAAdAP7/BgABAAAAAAAcAP3/BgABAAAAAAAdAPz/BgABAAAAAAAcAPv/BgABAAAAAAAdAPr/BgABAAAAAAAcAPn/BgABAAAAAAAdAPj/BgABAAAAAAAcAP//BgABAAAAAAA=")
 tile_set = ExtResource("1_4keto")
 
-[node name="AzSpriteSheetIdle01" type="Sprite2D" parent="."]
-position = Vector2(1088, -339)
-texture = ExtResource("1_6nour")
+[node name="FloorPot02" parent="." instance=ExtResource("27_5u77h")]
+position = Vector2(1792, -416)
 
-[node name="WinstonPlaceHolder01" type="Sprite2D" parent="."]
-position = Vector2(-282, -458)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_5u77h")
+[node name="FloorPot03" parent="." instance=ExtResource("36_1o4i6")]
+position = Vector2(1408, -429.99997)
 
-[node name="PhDoorOpen" type="Sprite2D" parent="."]
-position = Vector2(-932, -694)
-scale = Vector2(2, 2)
-texture = ExtResource("3_gooil")
+[node name="Door" parent="." instance=ExtResource("37_1o4i6")]
+position = Vector2(-928, 0)
 
-[node name="IceSpikeBall" type="Sprite2D" parent="."]
-position = Vector2(384.00003, -1152.0001)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("4_gqe1n")
+[node name="AzNpc" parent="." instance=ExtResource("2_1o4i6")]
+position = Vector2(448, -336)
 
-[node name="Icicle01" type="Sprite2D" parent="."]
-position = Vector2(896, -960)
-texture = ExtResource("5_cxsxx")
+[node name="WinstonNpc" parent="." instance=ExtResource("3_ea3c5")]
+position = Vector2(-256, -430)
 
-[node name="Icicle02" type="Sprite2D" parent="."]
-position = Vector2(1088, -1024)
-texture = ExtResource("6_y4lt4")
+[node name="FennWalkcycleSpritesheet" type="Sprite2D" parent="."]
+position = Vector2(465.99997, -214)
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("38_ea3c5")
 
-[node name="Icicle03" type="Sprite2D" parent="."]
-position = Vector2(1280, -1088)
-texture = ExtResource("7_iitwy")
-
-[node name="Icicle04" type="Sprite2D" parent="."]
-position = Vector2(1472, -1152)
-texture = ExtResource("8_bhrpm")
-
-[node name="Icicle05" type="Sprite2D" parent="."]
-position = Vector2(1664, -1216)
-texture = ExtResource("9_psiks")
-
-[node name="Icicle06" type="Sprite2D" parent="."]
-position = Vector2(1920, -1280)
-texture = ExtResource("10_4keto")
-
-[node name="PillarBase01" type="Sprite2D" parent="."]
-position = Vector2(-2315.25, -107)
-scale = Vector2(1.75, 1.75)
-texture = ExtResource("11_4qwbf")
-
-[node name="PillarBase04" type="Sprite2D" parent="."]
-position = Vector2(-1675.25, -187)
-scale = Vector2(1.75, 1.75)
-texture = ExtResource("12_1o4i6")
-
-[node name="PillarBase03" type="Sprite2D" parent="."]
-position = Vector2(-3019.25, -136)
-scale = Vector2(1.75, 1.75)
-texture = ExtResource("13_ea3c5")
-
-[node name="PillarCap01" type="Sprite2D" parent="."]
-position = Vector2(-3019.25, -2240)
-scale = Vector2(1.75, 1.75)
-texture = ExtResource("14_2i3r0")
-
-[node name="PillarCap02" type="Sprite2D" parent="."]
-position = Vector2(-2315.2502, -2240)
-scale = Vector2(1.75, 1.75)
-texture = ExtResource("15_intwn")
-
-[node name="PillarCap03" type="Sprite2D" parent="."]
-position = Vector2(-1675.2501, -2240.0002)
-scale = Vector2(1.75, 1.75)
-texture = ExtResource("16_f2ccx")
-
-[node name="PillarTrunk01" type="Sprite2D" parent="."]
-position = Vector2(-3019.25, -1152)
-scale = Vector2(1.75, 1.75)
-texture = ExtResource("17_iqbef")
-
-[node name="PillarTrunk02" type="Sprite2D" parent="."]
-position = Vector2(-2315.25, -1152)
-scale = Vector2(1.75, 1.75)
-texture = ExtResource("18_lste5")
-
-[node name="PillarTrunk03" type="Sprite2D" parent="."]
-position = Vector2(-1675.2501, -1152.0001)
-scale = Vector2(1.75, 1.75)
-texture = ExtResource("19_dp6n5")
-
-[node name="PillarTrunk04" type="Sprite2D" parent="."]
-position = Vector2(-3723.25, -1152)
-scale = Vector2(1.75, 1.75)
-texture = ExtResource("20_a3jsd")
-
-[node name="FloorPotBProp" type="Sprite2D" parent="."]
-position = Vector2(2511.75, -424.21396)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("21_jydup")
-
-[node name="HangingPlantProp01" type="Sprite2D" parent="."]
-position = Vector2(2493, -1471)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("22_12x6h")
-
-[node name="HangingPlantProp02" type="Sprite2D" parent="."]
-position = Vector2(3014, -1278)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("23_5ijqs")
+[node name="IceScream" parent="." instance=ExtResource("36_4qwbf")]
+position = Vector2(-832, 1216)
+scale = Vector2(3, 3)
 
 [node name="DialogueBoxAzUi001" type="Sprite2D" parent="."]
 position = Vector2(2880, -2048)
@@ -159,44 +92,6 @@ texture = ExtResource("24_vx82f")
 position = Vector2(2880, -3136)
 scale = Vector2(3, 3)
 texture = ExtResource("25_503cj")
-
-[node name="PlayerPlaceholder4" type="Sprite2D" parent="."]
-position = Vector2(5184, -3775)
-scale = Vector2(3, 3)
-texture = ExtResource("26_ad1v0")
-
-[node name="PlayerPlaceholder5" type="Sprite2D" parent="."]
-position = Vector2(2968, -223)
-scale = Vector2(3, 3)
-texture = ExtResource("26_ad1v0")
-
-[node name="PlayerPlaceholder6" type="Sprite2D" parent="."]
-position = Vector2(-1657, -2700)
-scale = Vector2(3, 3)
-texture = ExtResource("26_ad1v0")
-
-[node name="PlayerPlaceholder7" type="Sprite2D" parent="."]
-position = Vector2(1018, -1479)
-scale = Vector2(3, 3)
-texture = ExtResource("26_ad1v0")
-
-[node name="PlayerPlaceholder8" type="Sprite2D" parent="."]
-position = Vector2(2272, -216.00002)
-scale = Vector2(3, 3)
-texture = ExtResource("26_ad1v0")
-
-[node name="PlayerPlaceholder9" type="Sprite2D" parent="."]
-position = Vector2(-894, -238)
-scale = Vector2(3, 3)
-texture = ExtResource("26_ad1v0")
-
-[node name="PlayerPlaceholder10" type="Sprite2D" parent="."]
-position = Vector2(-2987, -232)
-scale = Vector2(3, 3)
-texture = ExtResource("26_ad1v0")
-
-[node name="FloorPot01" parent="." instance=ExtResource("27_5u77h")]
-position = Vector2(3301, -422.00003)
 
 [node name="Chairs" parent="." instance=ExtResource("28_gooil")]
 position = Vector2(-5593, -417)
@@ -218,3 +113,68 @@ position = Vector2(-6544, -497)
 
 [node name="Wine" parent="." instance=ExtResource("34_psiks")]
 position = Vector2(-4631, -572.00006)
+
+[node name="HangingPot01" parent="." instance=ExtResource("35_4qwbf")]
+position = Vector2(2496, -1184)
+
+[node name="HangingPot02" parent="." instance=ExtResource("36_ea3c5")]
+position = Vector2(3008, -992.00006)
+
+[node name="IceSpikeBall2" parent="." instance=ExtResource("36_2i3r0")]
+position = Vector2(384, -1184)
+
+[node name="Icicle_01" parent="." instance=ExtResource("31_4qwbf")]
+position = Vector2(2080, 0)
+
+[node name="Icicle_02" parent="." instance=ExtResource("32_1o4i6")]
+position = Vector2(2240, 0)
+
+[node name="Icicle_03" parent="." instance=ExtResource("33_ea3c5")]
+position = Vector2(2432, 0)
+
+[node name="Icicle_04" parent="." instance=ExtResource("34_2i3r0")]
+position = Vector2(2624, 0)
+
+[node name="Icicle_05" parent="." instance=ExtResource("35_intwn")]
+position = Vector2(2816, 0)
+
+[node name="Icicle_06" parent="." instance=ExtResource("36_f2ccx")]
+position = Vector2(3040, 0)
+
+[node name="GrabbablePlatform" parent="." instance=ExtResource("34_f2ccx")]
+position = Vector2(160, 608)
+curve = SubResource("Curve2D_vx82f")
+
+[node name="MovingPlatform" parent="." instance=ExtResource("35_iqbef")]
+position = Vector2(1344, 640)
+curve = SubResource("Curve2D_503cj")
+
+[node name="PillarBase02" parent="." instance=ExtResource("36_lste5")]
+position = Vector2(-2304, -104)
+
+[node name="PillarBase05" parent="." instance=ExtResource("37_dp6n5")]
+position = Vector2(-1664, -184)
+
+[node name="PillarBase06" parent="." instance=ExtResource("38_a3jsd")]
+position = Vector2(-3008, -136)
+
+[node name="PillarTrunk05" parent="." instance=ExtResource("39_jydup")]
+position = Vector2(-3008, -1160.0001)
+
+[node name="PillarTrunk06" parent="." instance=ExtResource("40_12x6h")]
+position = Vector2(-2304, -1160)
+
+[node name="PillarTrunk07" parent="." instance=ExtResource("41_5ijqs")]
+position = Vector2(-1664, -1160)
+
+[node name="PillarTrunk08" parent="." instance=ExtResource("42_iqbef")]
+position = Vector2(-3712.0002, -1160)
+
+[node name="PillarCap04" parent="." instance=ExtResource("39_f2ccx")]
+position = Vector2(-3008, -2256)
+
+[node name="PillarCap05" parent="." instance=ExtResource("40_iqbef")]
+position = Vector2(-2304, -2208)
+
+[node name="PillarCap06" parent="." instance=ExtResource("41_lste5")]
+position = Vector2(-1664, -2240.0002)
