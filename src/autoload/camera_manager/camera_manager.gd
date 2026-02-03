@@ -15,18 +15,22 @@ func initialize_camera(new_phantom_camera: PhantomCamera2D, new_camera: Camera2D
 func set_target(target: Node2D) -> void:
 	phantom_camera.set_follow_target(target)
 
+## Add a camera follow target.
+
+
 ## Clear the camera's target.
 func clear_target() -> void:
 	phantom_camera.erase_follow_target()
 
 ## Move the camera's position (relative to the target).
 func move(move_vector: Vector2) -> void:
-	phantom_camera.move_local_x(move_vector.x)
-	phantom_camera.move_local_y(move_vector.y)
+	phantom_camera.position += move_vector
 
 ## Reset the camera's position.
 
 ## Set the camera's zoom.
+func set_zoom(new_zoom: Vector2) -> void:
+	phantom_camera.set_zoom(new_zoom)
 
 ## Reset the camera's zoom.
 
