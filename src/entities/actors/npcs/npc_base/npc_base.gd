@@ -34,6 +34,5 @@ func _on_interactable_interact_triggered() -> void:
 	if (dialogue_triggered):
 		return
 	
-	print("Attempting speech")
-	DialogueManager.show_dialogue_balloon_scene(balloon,dialogue_resource,dialogue_start)
+	DialogueManager.show_dialogue_balloon_scene(dialogue_balloon, dialogue_resource, dialogue_start)
 	dialogue_triggered = true
