@@ -25,7 +25,7 @@ transition = 1
 size = Vector2(750, 540)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7uqy"]
-size = Vector2(57.72727, 43.40909)
+size = Vector2(750, 540)
 
 [sub_resource type="Animation" id="Animation_b1i8x"]
 length = 0.001
@@ -262,11 +262,19 @@ hframes = 8
 position = Vector2(80, 0)
 collision_mask = 16
 input_pickable = false
-monitorable = false
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/InteractArea"]
-position = Vector2(215, 0)
+position = Vector2(200, 0)
 shape = SubResource("RectangleShape2D_q4vut")
+
+[node name="CompanionArea" type="Area2D" parent="FlipNode"]
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/CompanionArea"]
+position = Vector2(80, 0)
+shape = SubResource("RectangleShape2D_u7uqy")
+debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
 
 [node name="DashParticles" type="Node2D" parent="FlipNode"]
 
@@ -278,16 +286,6 @@ emitting = false
 [node name="WindParticles2" parent="FlipNode/DashParticles" instance=ExtResource("15_808gp")]
 scale = Vector2(3, 3)
 emitting = false
-
-[node name="CompanionArea" type="Area2D" parent="FlipNode"]
-collision_mask = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/CompanionArea"]
-visible = false
-position = Vector2(83, 5.5)
-scale = Vector2(12, 12)
-shape = SubResource("RectangleShape2D_u7uqy")
-debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
 
@@ -313,8 +311,3 @@ script = ExtResource("9_q6jdu")
 libraries = {
 &"": SubResource("AnimationLibrary_8ihyl")
 }
-
-[connection signal="area_entered" from="FlipNode/InteractArea" to="." method="_on_interact_area_area_entered"]
-[connection signal="area_exited" from="FlipNode/InteractArea" to="." method="_on_interact_area_area_exited"]
-[connection signal="body_entered" from="FlipNode/InteractArea" to="." method="_on_interact_area_body_entered"]
-[connection signal="body_exited" from="FlipNode/InteractArea" to="." method="_on_interact_area_body_exited"]

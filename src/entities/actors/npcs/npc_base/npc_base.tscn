@@ -1,9 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://daw5s2hjs0tq1"]
+[gd_scene load_steps=3 format=3 uid="uid://daw5s2hjs0tq1"]
 
-[ext_resource type="Script" uid="uid://dk0iwbdqxv53f" path="res://src/entities/actors/npcs/npc_base/npc_base.gd" id="1_jemv2"]
-[ext_resource type="PackedScene" uid="uid://bgs8q2xm7mv1l" path="res://src/utilities/interactable/interactable.tscn" id="3_6fqar"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="3_r615y"]
-[ext_resource type="PackedScene" uid="uid://du42aku0qy3o5" path="res://src/ui/dialogue_boxes/dialogue_box.tscn" id="4_jemv2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r615y"]
 size = Vector2(128, 128)
@@ -11,8 +8,6 @@ size = Vector2(128, 128)
 [node name="NpcBase" type="CharacterBody2D"]
 collision_layer = 16
 collision_mask = 0
-script = ExtResource("1_jemv2")
-balloon = ExtResource("4_jemv2")
 
 [node name="FlipAbles" type="Node2D" parent="."]
 
@@ -22,7 +17,3 @@ texture = ExtResource("3_r615y")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_r615y")
-
-[node name="Interactable" parent="." instance=ExtResource("3_6fqar")]
-
-[connection signal="interact_triggered" from="Interactable" to="." method="_on_interactable_interact_triggered"]
