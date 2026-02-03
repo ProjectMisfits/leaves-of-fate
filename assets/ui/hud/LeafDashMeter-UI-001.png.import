@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://com3a5uqsd6n6"
-path="res://.godot/imported/Stamp-UI-001.png-a6e4665e124fe0c60d7f2668cbdd8b11.ctex"
+uid="uid://bd3e4j0uklp87"
+path="res://.godot/imported/LeafDashMeter-UI-001.png-70dcc4d2487c213c4a856496af1dd446.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/Stamp-UI-001.png"
-dest_files=["res://.godot/imported/Stamp-UI-001.png-a6e4665e124fe0c60d7f2668cbdd8b11.ctex"]
+source_file="res://assets/ui/hud/LeafDashMeter-UI-001.png"
+dest_files=["res://.godot/imported/LeafDashMeter-UI-001.png-70dcc4d2487c213c4a856496af1dd446.ctex"]
 
 [params]
 

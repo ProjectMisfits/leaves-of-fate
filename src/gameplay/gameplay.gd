@@ -31,6 +31,9 @@ func _ready() -> void:
 	# Connect the player death signal to the respawn player function
 	player.player_knocked_out.connect(respawn_player)
 	
+	# Passes player to the Hud so that Hud can update based on player actions
+	$%Hud.set_player(player)
+
 	# Connect UI menu signals
 	_connect_menu_signals()
 
