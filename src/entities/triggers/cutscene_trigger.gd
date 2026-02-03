@@ -15,16 +15,13 @@ var cutscene_enabled: bool = true
 # Triggered when a body enters the area.
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		_trigger_cutscene()
+		if _can_cutscene_trigger():
+			_trigger_cutscene()
 
 ## Initiate the set dialogue sequence when the player overlaps the trigger.
 func _trigger_cutscene() -> void:
-	if not _can_cutscene_trigger():
-		return
-	
 	# Prevent this trigger from activating a cutscene again.
 	cutscene_enabled = false
-	# Enable cutscene state
 	
 	# start the dialogue sequence
 	DialogueManager.show_dialogue_balloon_scene(dialogue_balloon, dialogue_sequence, dialogue_start)
