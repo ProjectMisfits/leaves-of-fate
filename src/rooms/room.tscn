@@ -19,8 +19,7 @@ layer = 2
 follow_viewport_enabled = true
 
 [node name="Midground" type="TileMapLayer" parent="MidgroundLayer"]
-scale = Vector2(0.25, 0.25)
-tile_map_data = PackedByteArray("AAAAAAgAAwAAAAAAAAABAAgAAwAAAAAAAAACAAgAAwAAAAAAAAADAAgAAwAAAAAAAAAEAAgAAwAAAAAAAAAFAAgAAwAAAAAAAAAGAAgAAwAAAAAAAAAHAAgAAwAAAAAAAAAIAAgAAwAAAAAAAAAJAAgAAwAAAAAAAAAKAAgAAwAAAAAAAAALAAgAAwAAAAAAAAAMAAgAAwAAAAAAAAANAAgAAwAAAAAAAAAOAAgAAwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAAAAAADAAgABgABAAAAAAAEAAgABgABAAAAAAAFAAgABgABAAAAAAAGAAgABgABAAAAAAAHAAgABgABAAAAAAAIAAgABgABAAAAAAAJAAgABgABAAAAAAAKAAgABgABAAAAAAALAAgABgABAAAAAAAMAAgABgABAAAAAAANAAgABgABAAAAAAAOAAgABgABAAAAAAA=")
 tile_set = ExtResource("2_7i7i2")
 
 [node name="DoorHolder" type="Node2D" parent="MidgroundLayer"]
@@ -28,12 +27,12 @@ unique_name_in_owner = true
 z_index = 2
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" instance=ExtResource("2_pdypr")]
-position = Vector2(448, 936)
+position = Vector2(448, 1024)
 door_name = "enter"
 target_door_name = "exit"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" instance=ExtResource("2_pdypr")]
-position = Vector2(1472, 936)
+position = Vector2(1472, 1024)
 door_name = "exit"
 target_door_name = "enter"
 
