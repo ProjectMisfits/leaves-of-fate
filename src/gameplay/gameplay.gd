@@ -31,6 +31,9 @@ func _ready() -> void:
 	# Connect the player death signal to the respawn player function
 	player.player_knocked_out.connect(respawn_player)
 	
+	# Connect phantom camera to player
+	$PhantomCamera2D.set_follow_target(player)
+	
 	# Passes player to the Hud so that Hud can update based on player actions
 	$%Hud.set_player(player)
 
@@ -51,7 +54,10 @@ func _update_current_room() -> void:
 		current_room.swap_room.connect(_on_swap_room)
 
 ## Swap to the specified Room and unload the current Room.
-func _on_swap_room(path_to_target_room: String, target_door_name: String)-> void:
+func _on_swap_room(path_to_target_room: String, target_door_name: String) -> void:
+	# Disconnect phantom camera from player
+	$PhantomCamera2D.set_follow_target(null)
+	
 	# Remove player from current room
 	current_room.despawn_player(player)
 	# Call autoload SceneManager to swap the room
@@ -64,6 +70,9 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String)-> void
 	_update_current_room()
 	# Add player to new current room and place them at correct door
 	current_room.spawn_player(player, target_door_name)
+	
+	# Reconnect phantom camera to player
+	$PhantomCamera2D.set_follow_target(player)
 
 ## Resets the Player's stats & respawns them at the last door they exited.
 func respawn_player() -> void:
