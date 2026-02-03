@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ccsrl6mlxbla7" path="res://src/gameplay/gameplay.gd" id="1_anqvl"]
 [ext_resource type="PackedScene" uid="uid://cwgmn4aexyqic" path="res://src/rooms/graybox/GB_GreatHall_room.tscn" id="2_tr6da"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_g7yt7"]
+[ext_resource type="PackedScene" uid="uid://cob1yf4cxasej" path="res://src/ui/hud/hud.tscn" id="3_g7yt7"]
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_anqvl")
@@ -24,7 +25,9 @@ unique_name_in_owner = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 4
-follow_viewport_enabled = true
+
+[node name="Hud" parent="HUD" instance=ExtResource("3_g7yt7")]
+unique_name_in_owner = true
 
 [node name="MenuHolder" type="CanvasLayer" parent="."]
 layer = 5

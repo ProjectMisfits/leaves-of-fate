@@ -14,17 +14,15 @@
 [ext_resource type="Script" uid="uid://cksn2wvaxpq54" path="res://src/entities/actors/player/states/player_airborne.gd" id="7_q4vut"]
 [ext_resource type="Script" uid="uid://bjtwcn16kj5bl" path="res://src/entities/actors/player/states/player_dashing.gd" id="8_wcwgi"]
 [ext_resource type="Script" uid="uid://osptlmoqos3i" path="res://src/entities/actors/player/states/player_piling.gd" id="9_q6jdu"]
-[ext_resource type="Script" uid="uid://icrwiu7udlg5" path="res://src/entities/actors/player/states/player_cutscene.gd" id="10_u7uqy"]
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/particle_effects/wind_particles.tscn" id="14_7j1dl"]
 [ext_resource type="PackedScene" uid="uid://dqviomxk1qqcu" path="res://src/particle_effects/leaf_particles.tscn" id="15_808gp"]
-[ext_resource type="PackedScene" uid="uid://b2rp6v6yudx4x" path="res://src/entities/actors/player/debug_ui/player_ui.tscn" id="15_lynpt"]
 
 [sub_resource type="Resource" id="Resource_eg2j6"]
 script = ExtResource("6_iloh8")
 transition = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4vut"]
-size = Vector2(250, 180)
+size = Vector2(750, 540)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7uqy"]
 size = Vector2(57.72727, 43.40909)
@@ -261,13 +259,13 @@ texture = ExtResource("6_efl0v")
 hframes = 8
 
 [node name="InteractArea" type="Area2D" parent="FlipNode"]
-visible = false
 position = Vector2(80, 0)
 collision_mask = 16
 input_pickable = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/InteractArea"]
+position = Vector2(215, 0)
 shape = SubResource("RectangleShape2D_q4vut")
 
 [node name="DashParticles" type="Node2D" parent="FlipNode"]
@@ -310,16 +308,6 @@ script = ExtResource("8_wcwgi")
 
 [node name="Piling" type="LimboState" parent="LimboHSM"]
 script = ExtResource("9_q6jdu")
-
-[node name="Cutscene" type="LimboState" parent="LimboHSM"]
-script = ExtResource("10_u7uqy")
-
-[node name="PlayerUI" parent="." instance=ExtResource("15_lynpt")]
-offset_left = -298.0
-offset_top = -507.0
-offset_right = -98.0
-offset_bottom = -432.0
-scale = Vector2(3, 3)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -18,6 +18,8 @@ HOW TO USE/SET UP NPC DIALOGUE:
 ## The dialogue balloon that this cutscene trigger should use.
 var dialogue_balloon: PackedScene = preload("res://src/ui/dialogue_boxes/dialogue_box.tscn")
 
+var dialogue_triggered: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	match SceneManager.current_scene.name:
@@ -29,4 +31,9 @@ func _ready() -> void:
 			dialogue_start = "start"
 
 func _on_interactable_interact_triggered() -> void:
-	DialogueManager.show_dialogue_balloon_scene(dialogue_balloon, dialogue_resource, dialogue_start)
+	if (dialogue_triggered):
+		return
+	
+	print("Attempting speech")
+	DialogueManager.show_dialogue_balloon_scene(balloon,dialogue_resource,dialogue_start)
+	dialogue_triggered = true
