@@ -1,13 +1,36 @@
 ~ start
-Winston: Stop right there, pint-size. Don't take another step
+???: Why, why yes! That shouldst do rather nicely.
+???: I just needeth... certainly not... 
+Fenn walks in
+???: What?! Who art thou? Didst we not trapeth everyone?
+Fenn: No, there's a buncha people in the Great Hall. There's this super cool lady-
+???: Nay matter! I shalt crush thee myself!
+Fenn: You talk weird.
+Wizard?: Um- stayeth right there! Not anoth'r step!
 Fenn takes a step
-Winston: Agh. Uh...
+Wizard?: Um. Well.
 Fenn: Are you a wizard?
-Winston: Hmph. I thought we locked everyone in the Council Chamber.
-Fenn: No, not really. There's a buncha people in the Great Hall. There's this really cool lady-
-W to himself: I don't have time for this. I have to find that workshop!
-Fenn: Workshop? What workshop?
-Winston: Let me make myself clear. You get in my way, pint-size? I'll crush you.
-Winston: This isn't the last you'll see of me. Watch yourself.
-Winston runs off
+Wizard?: Why, of course! I am the Great Wizard of-
+Fenn: Prepare yourself, Wizard! I will defeat you and free this palace!
+Wizard: Oh my. Well, you see, I doth not much timeth for this.
+Wizard: Like, I would love to destroyeth thee, but I must findeth this w'rkshop.
+Fenn: Oh. Workshop? What workshop?
+Wizard: Listen hereth, pint-size. Stayeth out of mine own way, or I shall maketh thee regret it.
+Winston leaves
+Fenn: Wait! I have another question.
+Winston returns
+Wizard: Fie! Thou art not my Mother!
+Fenn: I never said I was.
+Wizard: Nay matter!! What is thy question?
+Fenn: Why'd you trap all the Knights and stuff??
+Wizard: Because they deserv'd it! 
+Fenn: What?! No they didn't! They help so many people!
+Wizard: Who?! What doth they even do-eth? Sitteth 'round and bicker ov'r meaningless laws?
+Wizard: Forget it. I has't to runneth. Evil plans to maketh, traps to setteth, enemies to sendeth at thee, you know.
+Fenn: Yeah, I get it.
+Wizard: Um. Goodbye, pint-size.
+Fenn: Bye bye!
+Winston leaves
+Fenn: Oh my. What a formidable foe...
+do EventFlags.set_flag("Ws-Meet-CellarGeneral", true)
 => END

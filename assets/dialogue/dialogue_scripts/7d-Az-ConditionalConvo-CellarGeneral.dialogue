@@ -1,8 +1,19 @@
 ~ start
-Az: Heads up, I just found a way into the Den. The ice block is no joke...
-Az: I'll see you here when you get back.
+Az: Heads up, kid. cough I just reached the Den. It's freezing in here.
+Az: I'll cough I'll see you when you get back. cough cough
 Fenn: Yay! Big lady made it!
-Az: Don't call me that.
+Az: cough Don't call me that. cough cough
+Fenn: Are you okay?
+Az: Yeah, I'm- cough cough
+Fenn: Az?
+Az: I'm fi- cough
+sound of Az falling to the groun
+Fenn: Az, are you okay?
+Az: cough. cough. I'm fine! cough I'm FINE!
+Az: cough. Go on ahead. cough. I'll be fine.
+Fenn: Okay...
+do EventFlags.set_flag("Az-ConditionalConvo-CellarGeneral", true)
+
 => END
 
 #This line should be imported into the other 7 dialogue things

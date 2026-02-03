@@ -6,7 +6,7 @@ func _ready() -> void:
 	$TextureRect/Control.modulate.a = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_progress_to_gameplay()
 
 

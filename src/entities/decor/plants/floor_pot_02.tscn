@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi76j25xbej58"]
+
+[ext_resource type="Texture2D" uid="uid://drdoc0iukr4ue" path="res://assets/entities/decor/plants/FloorPotB-Prop.png" id="1_6x40y"]
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_jfdqm"]
+
+[node name="FloorPot02" type="Sprite2D"]
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("1_6x40y")
+script = ExtResource("2_jfdqm")

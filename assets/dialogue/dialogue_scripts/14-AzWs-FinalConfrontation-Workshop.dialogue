@@ -1,46 +1,54 @@
 ~ start
-Fenn: It's... really dark.
-Az: I know the light's around here, somewhere...
-Lights flash on
-Winston: WELCOME, MY PAWNS.
-Az: Holy crap, you're a twig.
-Winston: What?
-Az: I've benched twice your weight, kid.
-Winston: IGNORING THAT... BEHOLD!
-Fenn: BY THE SENDER! IT- what... what is it?
-Winston: MY LATEST CREATION. THE ICI-CLONE.
-Winston: You see... my power is limited. I can create things. Devices, weapons... creatures... but I cannot control them. 
-Winston: SO. I thought to myself... what can I control? 
+Fenn: It's really dark.
+Az: I know the light's around here, somewhere.
+Lights flash on.
+Az: Hmph. Everything looks the same, mostly.
+Az: Wait, where's the pict- oh. Huh.
+Winston: WELCOME, FOOLS
+Camera pans out to reveal the big machine
+Az: Whoa. Nevermind.
+Winston: WHOA, INDEED!
+Winston: BEHOLDETH!
+Fenn: By the Sender! It- what- what is it?
+Winston: MINE OWN LATEST CREATION. THE ICI-CLONE.
+Winston: Thou seeth, mine own power is limited. I may maketh things. Devices, weapons, creatures... but I cannot controleth those folk.
+Winston: SO, I thought to myself, what can I controleth?
 Fenn: Your attitude?
-Az: Your fashion sense? 
-# Change this line ^^ if I find something funnier for Az to make fun of
-Winston: EXCUSE YOU. THIS COAT WAS FROM MY MOTHER.
-Az: That's somehow more pathetic.
-Winston: JUST- SHUT UP, OKAY?
-Winston: I CAN CONTROL MYSELF!
-Winston: Why- if I make a copy of myself... wouldn't it want the same things I want? Wouldn't it do the same things I would?
-Fenn: This is gonna end poorly
-Winston: THUS! WITNESS THE CREATION OF THE ONE AND ONLY
+Az: Your incompetence?
+Winston: I CAN CONTROLETH MYSELF.
+Fenn: Uh oh...
+Az: Hm.
+Winston: Why- if I maketh a copyeth of myself... wouldst it not wanteth the same things I wanteth? Wouldst  it not do-eth the same things I wouldst?
+Fenn: Here we go, Wizard man! I'm ready.
+Az: Hold on, Fenn. Let's see what happens.
+Winston: THUS! WITESS THE CREATION OF THE ONE. THE ONLY.
 Winston: ICETON
 Machine whirs, and opens
 Smoke bellows and then clears to reveal an ice version of winston
-Winston: Holy sh- it worked? IT WORKED! 
+Winston: Holy sh- it worked? IT WORKED?!
 Fenn: Are we in danger?
-Az: Hm... maybe.
-Winston: ICETON, GO! ATTACK THEM! DESTROY THEM!
-Iceton takes a few steps towards Az and Fenn
-Fenn: Uh oh
+Az: Hmph. Maybe.
+Winston: ICETON, GO! ATTACKETH THEM! DESTROYETH THEM!
+Iceton takes a few steps towards Az and Fenn. Az and Fenn retreat in sync.
+Fenn: Uh oh.
 Iceton turns around, rushes towards Winston, and starts beating him up.
-Az: HAHA. NO WAY. 
+Az: Huh?
 Fenn: Winston?
-Az: This is the BEST thing that could've happened. Oh by the Sender.
-Winston: NO! No NO NO NO! STOP! 
+Winston: NAY! No no no NO! STOP!
 Winston: No, please. Please, stop!
-Fenn: Az, we gotta help him
-Az: Help him? 
-Fenn: He's in danger and he needs help!
-Az: Ugh... seriously? He's tried to kill us multiple times.
-Fenn: Not really. I don't think he meant it. Think about it.
-Az: Hm. Ugh, I guess you're right.
-Az: I'll grab him and get him out of here. You distract the ice guy.
+Az: Dang. I really thought we were in danger there for a sec.
+Fenn: Az, we have to help him.
+Az: Ugh... seriously?
+Fenn: He needs help! He's in dan-
+Az: I know! I know. I don't like it, but I'll grab him.
+Az: And you have to get out of here. It's not safe for you either.
+Fenn: But, what about you?
+Az: I should be able to hold off the ice guy. Here-
+Az walks to a lever and pulls it, dropping the floor from underneath Fenn and Iceton
+Az: Wait, NO! Fenn, watch out! Iceton's going down with you!
+Az: UGH. There should be a way back to the Great Hall from those tunnels, be careful!
+Fenn: Got it!
+Winston: Ugh...
+Az: Let's go, wizard boy.
+do EventFlags.set_flag("AzWs-FinalConfrontation-Workshop", true)
 => END

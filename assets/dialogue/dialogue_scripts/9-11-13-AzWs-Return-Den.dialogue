@@ -1,5 +1,5 @@
 ~ start
-match some_gamestate_value
+match EventFlags.num_heaters_activated
 	when 1
 		=> return_to_den_1
 	when 2
@@ -15,86 +15,105 @@ match some_gamestate_value
 #This includes the long segment about the asthma attack
 
 ~ return_to_den_1
-Az: Fenn! You did it. Nice job, kid.
-Fenn: Thanks! 
-Fenn: Can't you help, though? Melt the ice with your fire breath?
-Az: No. I thought I told you already. I can't use my fire.
-Fenn: But-
-Az: No.
-Fenn: Az-
-Az: I said no!
-Fenn: But why?
-Az: sigh. I don't like talking about it. 
-Fenn: About what?
-Az: I have asthma. I can breathe fire, but there's a chance I get an attack. They're not pretty
-Fenn: Oohhh...
-Az: And my Baba is insane about it. He taught me blacksmithing, and I love it, but it's so rare I can even do it. I swear he freaks out everytime I cough.
-Az: I just feel... weak. I hate it.
-Az: And sitting here, doing nothing... It drives me crazy! I've been nothing but useless, while you're running around, throwing yourself into danger.
-Az: I'm sorry, Fenn. Thank you for your help. It means a lot
-Fenn: Yeah. Can I go turn on more heaters?
-Az: Haha, yeah we should get a move on.
-Winston: Huh... asthma eh?
+Az: Fenn! You did! Nice job, kid.
+Fenn: Thanks, Az! I have a question, though.
+Az: Shoot.
+Fenn: Why do you need to get into your workshop?
+Az: Cuz all my stuff is in there. My tools, my devices, trinkets. Valuable stuff.
+Az:  I don't want a stranger going through my stuff, let alone a pathetic, wannabe wizard.
+Fenn: But you said you needed something from there. What do you need?
+Az: Oh... did I? I don't think so, kid. 
+Fenn: You definitely did.
+Az: sigh. Yeah, alright. Fine. I need an inhaler. Baba always has a few on him, and I keep the rest in my workshop.
+Fenn: An inhaler? Like... for asthma?
+Az: YES for asthma, kid. Why do think I won't melt down the ice here with fire breath?
+Fenn: You'll get an attack from your own smoke?
+Az: Yeah. It's not pretty.
+Fenn: Hmm. That's why we need the heaters?
+Az: Yeah. My Baba is insane about my asthma. He installed the heaters so I can control the temperature just right, in case it acts up.
+Az: He taught me everything I know about blacksmithing, but it's so rare I can even do it. I swear he freaks out everytime I cough.
+Fenn: Huh... that sucks.
+Az: Hah. Yeah, you're right kid. Kinda does.
+Az: Anyways, you should get a move on. We've got more heaters to turn on!
+Fenn: Yeah! I'm on it!
+Fade to black
+Winston: Well, well, well. Asthma, eh?
+do EventFlags.set_flag("AzWs-Return-1-Den", true)
+
 => END
 
 ~ return_to_den_2
 Fenn: Az?
-Az: What's up?
+Az: 'Sup?
 Fenn: Is your name Az because you have asthma?
-Az: HAH. Haha. No. Boy, the amount of times I've heard that one...
-Az: My full name is Zara, but I've been Az since I was a kid. Got my asthma diagnosis much later. Like the world was playing a joke.
+Az: HAH! cough. Haha. No. Man, the amount of times I've heard that one. cough.
+Az: My full name is Zara, but I've been Az since I was a kid. cough. Got the asthma diagnosis much later. Like the world was playing a joke.
 Az: How about you, kid? Where's Fenn come from?
-Fenn: Oh... I don't really know. Mom said it means "brave"
-Az: Hey, I mean. Pretty accurate, far as I'm concerned.
-Winston: Ahem... my... my name...
+Wizard: A-Ahem.
+Fenn: I don't really know! Mom says it means "brave"
+Az: cough Hey, I mean. Pretty accurate as far as I'm concerned.
+Wizard: Um. My- my nameth-
 Az: Did you hear something?
-Fenn: Wizard man, is that you?
-Winston: I- my name's Winston.
-Fenn: Oh! Nice to meet you Winston.
-Winston: N-nice to meet you too, I guess.
+Fenn: Did you say something Wizard man?
+Wizard: Um. My nameth is Winston.
+Fenn: Oh! Nice to meet-eth you Winston!
+set EventFlags.winston_name = "Winston"
+Winston: Nice- nice to meeteth thee too, I guesseth.
+do EventFlags.set_flag("AzWs-Return-2-Den", true)
+
 => END
 
 ~ asthma_attack
-Winston: Oh Az, why not? It can't be that hard to melt a little ice
+Winston: Oh Az, it can not be that hard to melteth a little ice.
 Az: Shut up.
-Winston: Aww, are you scared? Of me, no less? Not able to enter your own workshop.
-Az: Shut. UP.
-Winston: Oh, what's this? This looks nice... 
-Az: Wh-what are you doing?
-Winston: It's a lovely little picture frame. Is that... Abdul?
-Az: STOP. Stop this RIGHT NOW. I swear to Post, you do any-
+Winston: Aw, what's wrong? Art thee afeard? Terrified of the despicable wizard who hath stolen thy workshop?
+Az: Shut. Up.
+Winston: Oh, what's this? It looks rather valuable.
+Az: What are you doing? What do you have?
+Winston: Hmph. Tis a lovely picture of you and your father.
+Az: Stop. Stop this RIGHT NOW. I swear to Post.
+Winston: The most WONDROUS Abdullah. Glorious Knight of Smithing. Heart of the Bay Leaf Palace. Pride of Kuva. Loving Husband and Father.
+Winston: I truly wonder what that must be like.
 SMASH
-Winston: [i]oops[/i]
-Az: That's it. I'm coming for you, boy.
+Az: That's it. You're done. I'm coming for you, you pathetic wizard SCUM.
 Az approaches the door, takes a deep breath
-Fenn: Az? What-
-Winston: Burn it down, Az!
-Az breathes fire over the ice, and it completely melts
+Fenn walks in as she's doing this
+Fenn: Az? What are you-
+Az breathes fire over the ice, and completely melts it
 She coughs and then collapses
-Fenn: Az! No! Are you okay? What did you do??
-Az: I- cough I don't cough
-Fenn: It's okay. Slow down, I'm here.
-Az: I- cough inhaler
-Fenn: I- I don't have one. I'm sorry. Just slow, breathe.
-Az: cough. G-go
-Fenn: What? No!
+Winston: Wait wh-
+Fenn: Az! Wh- what did you do?
+Az: cough cough. Got 'em.
+Fenn: W-why? What's gonna happen to you?
+Az: cough. I- cough. I'm fine.
+Az: cough. G-go. cough. Get h-him.
+Fenn: What? No! I'm not leaving.
 Az: Go. cough. Winston.
-Fenn: Az. Don't be stupid. I'm not leaving.
-Az: Go.
-Fenn: I'm not leaving, so just shut up about it!
+Fenn: I'm not leaving you.
+Az: cough. Go.
+Fenn: NO! You're not okay, so I'm not leaving, so just- just shut up about it!
 Az: cough
-Az: Th- cough thanks.
-silence for a few moments
-inhaler slides under the door
-Fenn: Uh- is- is that?
-Az: In- cough inhaler
-Fenn grabs it, walks back to Az.
-Deep inhale
-Fenn: It's okay, breathe.
-Deep inhale
-Fenn: I'll stay with you until you're good
-Fade to black, deep inhale
-Az: Ha ha. Fenn, I'm good. You can stop worrying
-Fenn: You sure?
-Az: Yeah. I'm ready. Let's go get him
+Az: O-okay. cough.
+silence
+Fenn: Wh-what can I do?
+Az: I- I cough. d-don't know. cough.
+Fenn: Please... don't... don't die.
+Az: cough. No promises.
+silence
+cough
+inhaler slides through door
+Fenn: Is that?
+Az: cough inhaler?
+Fenn grabs the inhaler and brings it to Az
+With Fenn's help, Az takes a breath
+Silence for a few moments, another breath
+Fenn: Are- are you okay?
+Az: inhale. cough. in a bit, yeah.
+Fenn: Okay.
+silence, fade to black, deep inhale sound effect, fade out from black
+Fenn: Are you sure you're okay.
+Az: Hah, yeah. Don't worry kid, I'm good now.
+Fenn: Are you sure?
+Az: Yeah. Let's go get him.
+do EventFlags.set_flag("AzWs-AsthmaAttack-Den", true)
 => END
