@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmqwci1t2hhs5"]
+[gd_scene load_steps=9 format=3 uid="uid://cmqwci1t2hhs5"]
 
 [ext_resource type="Script" uid="uid://bhynnsuiydmtf" path="res://src/entities/actors/player/dash/player_dash.gd" id="1_ktn0w"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="2_ktn0w"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_y8ic5"]
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/particle_effects/wind_particles.tscn" id="4_ga4ff"]
 [ext_resource type="PackedScene" uid="uid://dqviomxk1qqcu" path="res://src/particle_effects/leaf_particles.tscn" id="5_54vux"]
+[ext_resource type="PackedScene" uid="uid://dhcepuko5y18x" path="res://src/particle_effects/leaf_ball_particles.tscn" id="6_5poxw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y8ic5"]
 radius = 70.0
@@ -39,3 +40,5 @@ rotation = 3.1415927
 scale = Vector2(1, 1)
 
 [node name="WindParticles2" parent="FlipNode" instance=ExtResource("5_54vux")]
+
+[node name="LeafBall" parent="FlipNode" instance=ExtResource("6_5poxw")]

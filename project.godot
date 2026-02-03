@@ -26,9 +26,9 @@ SceneManager="*res://src/autoload/scene_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 EventBus="*res://src/autoload/event_bus.gd"
 DebugMenu="*res://src/autoload/debug_menu/debug_menu.tscn"
-EventFlags="*res://src/autoload/event_flags/event_flags.gd"
 MusicManager="*res://src/autoload/audio_managers/music_manager.tscn"
 AmbianceManager="*res://src/autoload/audio_managers/ambiance_manager.tscn"
+EventFlags="*res://src/autoload/event_flags/event_flags.gd"
 
 [debug]
 
