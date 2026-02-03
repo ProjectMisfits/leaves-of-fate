@@ -82,7 +82,7 @@ func _ready() -> void:
 		start()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_instance_valid(dialogue_line):
 		progress.visible = not dialogue_label.is_typing  and not dialogue_line.has_tag("voice")
 
@@ -231,4 +231,3 @@ func _on_dialogue_label_spoke(letter: String, letter_index: int, speed: float) -
 	if not letter in [" ", "."]:
 		audio_stream_player.pitch_scale = randf_range(.9,1.1)
 		audio_stream_player.play()
-	pass # Replace with function body.

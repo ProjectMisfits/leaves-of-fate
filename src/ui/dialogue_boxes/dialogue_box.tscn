@@ -1,13 +1,13 @@
 [gd_scene load_steps=18 format=3 uid="uid://du42aku0qy3o5"]
 
-[ext_resource type="Script" uid="uid://d4f3atc2qvswq" path="res://src/ui/dialogue_boxes/balloon.gd" id="1_36de5"]
-[ext_resource type="StyleBox" uid="uid://uirtj16growx" path="res://src/ui/dialogue_boxes/fenn_dialogue_no_profile.stylebox" id="2_1vp8l"]
-[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_a8ve6"]
-[ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="3_drgxp"]
-[ext_resource type="FontFile" uid="uid://bfkqpuw7ncqc3" path="res://assets/ui/fonts/Beholden-Bold-Italic-Font.ttf" id="4_3gjmh"]
-[ext_resource type="FontFile" uid="uid://chnyqtl058eja" path="res://assets/ui/fonts/Beholden-Italic-Font.ttf" id="5_1ervg"]
-[ext_resource type="AudioStream" uid="uid://cegtcd1uydire" path="res://assets/dialogue/beep_speech/PH-bleep-28.ogg" id="5_y84od"]
-[ext_resource type="Texture2D" uid="uid://dl0v6h33gej7g" path="res://assets/ui/dialogue_boxes/ContinueSymbol-UI-001.png" id="7_3gjmh"]
+[ext_resource type="Script" uid="uid://d4f3atc2qvswq" path="res://src/ui/dialogue_boxes/dialogue_box.gd" id="1_grl4y"]
+[ext_resource type="StyleBox" uid="uid://uirtj16growx" path="res://src/ui/dialogue_boxes/fenn_dialogue_no_profile.stylebox" id="2_gt0ih"]
+[ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="3_r7viq"]
+[ext_resource type="FontFile" uid="uid://bfkqpuw7ncqc3" path="res://assets/ui/fonts/Beholden-Bold-Italic-Font.ttf" id="4_qggwp"]
+[ext_resource type="FontFile" uid="uid://chnyqtl058eja" path="res://assets/ui/fonts/Beholden-Italic-Font.ttf" id="5_4bcdh"]
+[ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="6_wdn3c"]
+[ext_resource type="Texture2D" uid="uid://dl0v6h33gej7g" path="res://assets/ui/dialogue_boxes/ContinueSymbol-UI-001.png" id="7_0vwuh"]
+[ext_resource type="AudioStream" uid="uid://cegtcd1uydire" path="res://assets/dialogue/beep_speech/PH-bleep-28.ogg" id="8_43tt1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -114,9 +114,9 @@ _data = {
 &"progress": SubResource("Animation_qkmqt")
 }
 
-[node name="ExampleBalloon" type="CanvasLayer"]
+[node name="DialogueBox" type="CanvasLayer"]
 layer = 100
-script = ExtResource("1_36de5")
+script = ExtResource("1_grl4y")
 
 [node name="Balloon" type="Control" parent="."]
 unique_name_in_owner = true
@@ -145,7 +145,7 @@ grow_vertical = 0
 clip_children = 2
 layout_mode = 2
 mouse_filter = 1
-theme_override_styles/panel = ExtResource("2_1vp8l")
+theme_override_styles/panel = ExtResource("2_gt0ih")
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer"]
 layout_mode = 2
@@ -166,24 +166,24 @@ layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 1
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_drgxp")
-theme_override_fonts/bold_font = ExtResource("3_drgxp")
-theme_override_fonts/bold_italics_font = ExtResource("4_3gjmh")
-theme_override_fonts/italics_font = ExtResource("5_1ervg")
+theme_override_fonts/normal_font = ExtResource("3_r7viq")
+theme_override_fonts/bold_font = ExtResource("3_r7viq")
+theme_override_fonts/bold_italics_font = ExtResource("4_qggwp")
+theme_override_fonts/italics_font = ExtResource("5_4bcdh")
 bbcode_enabled = true
 text = "Character"
 fit_content = true
 scroll_active = false
 script = SubResource("GDScript_drgxp")
 
-[node name="DialogueLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_a8ve6")]
+[node name="DialogueLabel" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("6_wdn3c")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
-theme_override_fonts/bold_font = ExtResource("3_drgxp")
-theme_override_fonts/bold_italics_font = ExtResource("4_3gjmh")
-theme_override_fonts/italics_font = ExtResource("5_1ervg")
+theme_override_fonts/bold_font = ExtResource("3_r7viq")
+theme_override_fonts/bold_italics_font = ExtResource("4_qggwp")
+theme_override_fonts/italics_font = ExtResource("5_4bcdh")
 text = "Dialogue..."
 fit_content = false
 
@@ -206,7 +206,7 @@ offset_right = 45.0
 offset_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_3gjmh")
+texture = ExtResource("7_0vwuh")
 expand_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Control"]
@@ -217,7 +217,7 @@ autoplay = "progress"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("5_y84od")
+stream = ExtResource("8_43tt1")
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="spoke" from="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/DialogueLabel" to="." method="_on_dialogue_label_spoke"]
