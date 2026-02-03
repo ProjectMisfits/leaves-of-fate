@@ -9,15 +9,17 @@ HOW TO USE/SET UP NPC DIALOGUE:
 	Note that room names do not include the _room at the end so just add the first half
 """
 
+## The dialogue sequence that this cutscene trigger will initiate.
 @export var dialogue_resource: DialogueResource
-#Where the dialogue will start when you interact
+
+## The line to start at in the dialogue sequence.
 @export var dialogue_start: String = "start"
-#What balloon are they using 
-@export var balloon: PackedScene = null
+
+## The dialogue balloon that this cutscene trigger should use.
+var dialogue_balloon: PackedScene = preload("res://src/ui/dialogue_boxes/dialogue_box.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
 	match SceneManager.current_scene.name:
 		"TEST_DialogueManager":
 			dialogue_resource = ResourceLoader.load("res://assets/dialogue/dialogue_scripts/1-Az-Meet-GreatHall.dialogue")
@@ -25,11 +27,6 @@ func _ready() -> void:
 		_:
 			dialogue_resource = ResourceLoader.load("res://assets/dialogue/dialogue_scripts/TUTORIAL-RichTextLabel.dialogue")
 			dialogue_start = "start"
-	
-	pass # Replace with function body.
-
 
 func _on_interactable_interact_triggered() -> void:
-	print("Attempting speech")
-	DialogueManager.show_dialogue_balloon_scene(balloon,dialogue_resource,dialogue_start)
-	pass # Replace with function body.
+	DialogueManager.show_dialogue_balloon_scene(dialogue_balloon, dialogue_resource, dialogue_start)
