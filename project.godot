@@ -22,15 +22,15 @@ buses/default_bus_layout="uid://bboukivc3dgxm"
 
 [autoload]
 
-SceneManager="*res://src/autoload/scene_manager.gd"
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Quit="*res://src/autoload/quit.gd"
 DebugMenu="*res://src/autoload/debug_menu/debug_menu.tscn"
+SceneManager="*res://src/autoload/scene_manager.gd"
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+CameraManager="*res://src/autoload/camera_manager/camera_manager.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 EventFlags="*res://src/autoload/event_flags/event_flags.gd"
 MusicManager="*res://src/autoload/audio_managers/music_manager.tscn"
 AmbianceManager="*res://src/autoload/audio_managers/ambiance_manager.tscn"
-PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
-CameraManager="*res://src/autoload/camera_manager/camera_manager.gd"
 
 [debug]
 
