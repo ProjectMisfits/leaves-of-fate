@@ -1,0 +1,316 @@
+[gd_scene load_steps=4 format=4 uid="uid://jvbnseq4tc0y"]
+
+[ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_uwj08"]
+[ext_resource type="PackedScene" uid="uid://clniejfdpj824" path="res://src/entities/hazards/icicle/icicle_group_02.tscn" id="2_uwj08"]
+[ext_resource type="PackedScene" uid="uid://b0kcsh4u0s6h" path="res://src/entities/hazards/icicle/icicle_group_05.tscn" id="3_t8yib"]
+
+[node name="TEST_JacobRoomDesign6" instance=ExtResource("1_uwj08")]
+
+[node name="Midground" parent="MidgroundLayer" index="0"]
+tile_map_data = PackedByteArray("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")
+
+[node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
+position = Vector2(439, 1024)
+
+[node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
+position = Vector2(5370, -2563)
+
+[node name="SpikeStrip1" type="Node2D" parent="MidgroundLayer" index="5"]
+
+[node name="IcicleGroup02" parent="MidgroundLayer/SpikeStrip1" index="0" instance=ExtResource("2_uwj08")]
+position = Vector2(2852, 507.99994)
+rotation = -0.70879227
+
+[node name="IcicleGroup03" parent="MidgroundLayer/SpikeStrip1" index="1" instance=ExtResource("2_uwj08")]
+position = Vector2(2388, 914.9999)
+rotation = -0.70879227
+
+[node name="IcicleGroup04" parent="MidgroundLayer/SpikeStrip1" index="2" instance=ExtResource("2_uwj08")]
+position = Vector2(2455, 859.99994)
+rotation = -0.70879227
+
+[node name="IcicleGroup05" parent="MidgroundLayer/SpikeStrip1" index="3" instance=ExtResource("2_uwj08")]
+position = Vector2(2778, 573.99994)
+rotation = -0.70879227
+
+[node name="IcicleGroup06" parent="MidgroundLayer/SpikeStrip1" index="4" instance=ExtResource("2_uwj08")]
+position = Vector2(2714, 635.99994)
+rotation = -0.70879227
+
+[node name="IcicleGroup07" parent="MidgroundLayer/SpikeStrip1" index="5" instance=ExtResource("2_uwj08")]
+position = Vector2(2663, 692.99994)
+rotation = -0.70879227
+
+[node name="IcicleGroup08" parent="MidgroundLayer/SpikeStrip1" index="6" instance=ExtResource("2_uwj08")]
+position = Vector2(2589, 746.99994)
+rotation = -0.70879227
+
+[node name="IcicleGroup09" parent="MidgroundLayer/SpikeStrip1" index="7" instance=ExtResource("2_uwj08")]
+position = Vector2(2517, 795.99994)
+rotation = -0.70879227
+
+[node name="IcicleGroup10" parent="MidgroundLayer/SpikeStrip1" index="8" instance=ExtResource("2_uwj08")]
+position = Vector2(3363, 38)
+rotation = -0.70879227
+
+[node name="IcicleGroup11" parent="MidgroundLayer/SpikeStrip1" index="9" instance=ExtResource("2_uwj08")]
+position = Vector2(2899, 444.99994)
+rotation = -0.70879227
+
+[node name="IcicleGroup12" parent="MidgroundLayer/SpikeStrip1" index="10" instance=ExtResource("2_uwj08")]
+position = Vector2(2966, 390)
+rotation = -0.70879227
+
+[node name="IcicleGroup13" parent="MidgroundLayer/SpikeStrip1" index="11" instance=ExtResource("2_uwj08")]
+position = Vector2(3289, 104)
+rotation = -0.70879227
+
+[node name="IcicleGroup14" parent="MidgroundLayer/SpikeStrip1" index="12" instance=ExtResource("2_uwj08")]
+position = Vector2(3225, 166)
+rotation = -0.70879227
+
+[node name="IcicleGroup15" parent="MidgroundLayer/SpikeStrip1" index="13" instance=ExtResource("2_uwj08")]
+position = Vector2(3163, 209.00012)
+rotation = -0.70879227
+
+[node name="IcicleGroup16" parent="MidgroundLayer/SpikeStrip1" index="14" instance=ExtResource("2_uwj08")]
+position = Vector2(3100, 277)
+rotation = -0.70879227
+
+[node name="IcicleGroup17" parent="MidgroundLayer/SpikeStrip1" index="15" instance=ExtResource("2_uwj08")]
+position = Vector2(3028, 326)
+rotation = -0.70879227
+
+[node name="IcicleGroup18" parent="MidgroundLayer/SpikeStrip1" index="16" instance=ExtResource("2_uwj08")]
+position = Vector2(3709, -299)
+rotation = -0.70879227
+
+[node name="IcicleGroup19" parent="MidgroundLayer/SpikeStrip1" index="17" instance=ExtResource("2_uwj08")]
+position = Vector2(3245, 107.99994)
+rotation = -0.70879227
+
+[node name="IcicleGroup20" parent="MidgroundLayer/SpikeStrip1" index="18" instance=ExtResource("2_uwj08")]
+position = Vector2(3312, 53)
+rotation = -0.70879227
+
+[node name="IcicleGroup21" parent="MidgroundLayer/SpikeStrip1" index="19" instance=ExtResource("2_uwj08")]
+position = Vector2(3635, -233)
+rotation = -0.70879227
+
+[node name="IcicleGroup22" parent="MidgroundLayer/SpikeStrip1" index="20" instance=ExtResource("2_uwj08")]
+position = Vector2(3571, -171)
+rotation = -0.70879227
+
+[node name="IcicleGroup23" parent="MidgroundLayer/SpikeStrip1" index="21" instance=ExtResource("2_uwj08")]
+position = Vector2(3520, -114)
+rotation = -0.70879227
+
+[node name="IcicleGroup24" parent="MidgroundLayer/SpikeStrip1" index="22" instance=ExtResource("2_uwj08")]
+position = Vector2(3446, -60)
+rotation = -0.70879227
+
+[node name="IcicleGroup25" parent="MidgroundLayer/SpikeStrip1" index="23" instance=ExtResource("2_uwj08")]
+position = Vector2(3374, -11)
+rotation = -0.70879227
+
+[node name="SpikeStrip2" type="Node2D" parent="MidgroundLayer" index="6"]
+position = Vector2(3167, -825.9999)
+rotation = -3.8314993
+
+[node name="IcicleGroup05" parent="MidgroundLayer/SpikeStrip2" index="0" instance=ExtResource("3_t8yib")]
+rotation = -0.07781563
+
+[node name="IcicleGroup06" parent="MidgroundLayer/SpikeStrip2" index="1" instance=ExtResource("3_t8yib")]
+position = Vector2(1526.6412, -115.461266)
+rotation = -0.07781563
+
+[node name="IcicleGroup07" parent="MidgroundLayer/SpikeStrip2" index="2" instance=ExtResource("3_t8yib")]
+position = Vector2(1355.2626, -100.719376)
+rotation = -0.07781563
+
+[node name="IcicleGroup08" parent="MidgroundLayer/SpikeStrip2" index="3" instance=ExtResource("3_t8yib")]
+position = Vector2(1184.881, -86.05156)
+rotation = -0.07781563
+
+[node name="IcicleGroup09" parent="MidgroundLayer/SpikeStrip2" index="4" instance=ExtResource("3_t8yib")]
+position = Vector2(1017.19476, -75.59511)
+rotation = -0.07781563
+
+[node name="IcicleGroup10" parent="MidgroundLayer/SpikeStrip2" index="5" instance=ExtResource("3_t8yib")]
+position = Vector2(837.8381, -60.260292)
+rotation = -0.07781563
+
+[node name="IcicleGroup17" parent="MidgroundLayer/SpikeStrip2" index="6" instance=ExtResource("3_t8yib")]
+position = Vector2(669.45105, -45.740723)
+rotation = -0.07781563
+
+[node name="IcicleGroup18" parent="MidgroundLayer/SpikeStrip2" index="7" instance=ExtResource("3_t8yib")]
+position = Vector2(501.06406, -31.221153)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/SpikeStrip2" index="8" instance=ExtResource("3_t8yib")]
+position = Vector2(331.5316, -18.621967)
+rotation = -0.07781563
+
+[node name="IcicleGroup20" parent="MidgroundLayer/SpikeStrip2" index="9" instance=ExtResource("3_t8yib")]
+position = Vector2(162.69994, -10.085895)
+rotation = -0.07781563
+
+[node name="SpikeStrip3" type="Node2D" parent="MidgroundLayer" index="7"]
+position = Vector2(1890.9998, -2125)
+rotation = -5.4358826
+
+[node name="IcicleGroup05" parent="MidgroundLayer/SpikeStrip3" index="0" instance=ExtResource("3_t8yib")]
+rotation = -0.07781563
+
+[node name="IcicleGroup06" parent="MidgroundLayer/SpikeStrip3" index="1" instance=ExtResource("3_t8yib")]
+position = Vector2(1526.6412, -115.461266)
+rotation = -0.07781563
+
+[node name="IcicleGroup07" parent="MidgroundLayer/SpikeStrip3" index="2" instance=ExtResource("3_t8yib")]
+position = Vector2(1355.2626, -100.719376)
+rotation = -0.07781563
+
+[node name="IcicleGroup08" parent="MidgroundLayer/SpikeStrip3" index="3" instance=ExtResource("3_t8yib")]
+position = Vector2(1184.881, -86.05156)
+rotation = -0.07781563
+
+[node name="IcicleGroup09" parent="MidgroundLayer/SpikeStrip3" index="4" instance=ExtResource("3_t8yib")]
+position = Vector2(1017.19476, -75.59511)
+rotation = -0.07781563
+
+[node name="IcicleGroup10" parent="MidgroundLayer/SpikeStrip3" index="5" instance=ExtResource("3_t8yib")]
+position = Vector2(837.8381, -60.260292)
+rotation = -0.07781563
+
+[node name="IcicleGroup17" parent="MidgroundLayer/SpikeStrip3" index="6" instance=ExtResource("3_t8yib")]
+position = Vector2(669.45105, -45.740723)
+rotation = -0.07781563
+
+[node name="IcicleGroup18" parent="MidgroundLayer/SpikeStrip3" index="7" instance=ExtResource("3_t8yib")]
+position = Vector2(501.06406, -31.221153)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/SpikeStrip3" index="8" instance=ExtResource("3_t8yib")]
+position = Vector2(331.5316, -18.621967)
+rotation = -0.07781563
+
+[node name="IcicleGroup20" parent="MidgroundLayer/SpikeStrip3" index="9" instance=ExtResource("3_t8yib")]
+position = Vector2(162.69994, -10.085895)
+rotation = -0.07781563
+
+[node name="SpikeStrip4" type="Node2D" parent="MidgroundLayer" index="8"]
+position = Vector2(3709.0002, -1519.0002)
+rotation = -2.2919679
+
+[node name="IcicleGroup05" parent="MidgroundLayer/SpikeStrip4" index="0" instance=ExtResource("3_t8yib")]
+rotation = -0.07781563
+
+[node name="IcicleGroup06" parent="MidgroundLayer/SpikeStrip4" index="1" instance=ExtResource("3_t8yib")]
+position = Vector2(1526.6412, -115.461266)
+rotation = -0.07781563
+
+[node name="IcicleGroup07" parent="MidgroundLayer/SpikeStrip4" index="2" instance=ExtResource("3_t8yib")]
+position = Vector2(1355.2626, -100.719376)
+rotation = -0.07781563
+
+[node name="IcicleGroup08" parent="MidgroundLayer/SpikeStrip4" index="3" instance=ExtResource("3_t8yib")]
+position = Vector2(1184.881, -86.05156)
+rotation = -0.07781563
+
+[node name="IcicleGroup09" parent="MidgroundLayer/SpikeStrip4" index="4" instance=ExtResource("3_t8yib")]
+position = Vector2(1017.19476, -75.59511)
+rotation = -0.07781563
+
+[node name="IcicleGroup10" parent="MidgroundLayer/SpikeStrip4" index="5" instance=ExtResource("3_t8yib")]
+position = Vector2(837.8381, -60.260292)
+rotation = -0.07781563
+
+[node name="IcicleGroup17" parent="MidgroundLayer/SpikeStrip4" index="6" instance=ExtResource("3_t8yib")]
+position = Vector2(669.45105, -45.740723)
+rotation = -0.07781563
+
+[node name="IcicleGroup18" parent="MidgroundLayer/SpikeStrip4" index="7" instance=ExtResource("3_t8yib")]
+position = Vector2(501.06406, -31.221153)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/SpikeStrip4" index="8" instance=ExtResource("3_t8yib")]
+position = Vector2(331.5316, -18.621967)
+rotation = -0.07781563
+
+[node name="IcicleGroup20" parent="MidgroundLayer/SpikeStrip4" index="9" instance=ExtResource("3_t8yib")]
+position = Vector2(162.69994, -10.085895)
+rotation = -0.07781563
+
+[node name="SpikeStrip5" type="Node2D" parent="MidgroundLayer" index="9"]
+position = Vector2(3262.0005, -3180.0005)
+rotation = -5.452351
+
+[node name="IcicleGroup05" parent="MidgroundLayer/SpikeStrip5" index="0" instance=ExtResource("3_t8yib")]
+position = Vector2(132.73468, -7.4500732)
+rotation = -0.8463869
+
+[node name="IcicleGroup10" parent="MidgroundLayer/SpikeStrip5" index="1" instance=ExtResource("3_t8yib")]
+position = Vector2(837.8381, -60.260292)
+rotation = -0.07781563
+
+[node name="IcicleGroup17" parent="MidgroundLayer/SpikeStrip5" index="2" instance=ExtResource("3_t8yib")]
+position = Vector2(669.45105, -45.740723)
+rotation = -0.07781563
+
+[node name="IcicleGroup18" parent="MidgroundLayer/SpikeStrip5" index="3" instance=ExtResource("3_t8yib")]
+position = Vector2(501.06406, -31.221153)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/SpikeStrip5" index="4" instance=ExtResource("3_t8yib")]
+position = Vector2(331.5316, -18.621967)
+rotation = -0.07781563
+
+[node name="IcicleGroup20" parent="MidgroundLayer/SpikeStrip5" index="5" instance=ExtResource("3_t8yib")]
+position = Vector2(162.69994, -10.085895)
+rotation = -0.07781563
+
+[node name="SpikeStrip6" type="Node2D" parent="MidgroundLayer" index="10"]
+position = Vector2(2249, -2641.9998)
+rotation = -6.901848
+
+[node name="IcicleGroup02" parent="MidgroundLayer/SpikeStrip6" index="0" instance=ExtResource("2_uwj08")]
+position = Vector2(155.44775, 88.566284)
+rotation = -1.8234625
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="IcicleGroup05" parent="MidgroundLayer/SpikeStrip6" index="1" instance=ExtResource("3_t8yib")]
+position = Vector2(132.73468, -7.4500732)
+rotation = -0.8463869
+
+[node name="IcicleGroup18" parent="MidgroundLayer/SpikeStrip6" index="2" instance=ExtResource("3_t8yib")]
+position = Vector2(501.06406, -31.221153)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/SpikeStrip6" index="3" instance=ExtResource("3_t8yib")]
+position = Vector2(331.5316, -18.621967)
+rotation = -0.07781563
+
+[node name="IcicleGroup20" parent="MidgroundLayer/SpikeStrip6" index="4" instance=ExtResource("3_t8yib")]
+position = Vector2(162.69994, -10.085895)
+rotation = -0.07781563
+
+[node name="SpikeStrip7" type="Node2D" parent="MidgroundLayer" index="11"]
+position = Vector2(2381.0002, -3106.0002)
+rotation = -6.2009187
+
+[node name="IcicleGroup10" parent="MidgroundLayer/SpikeStrip7" index="0" instance=ExtResource("3_t8yib")]
+position = Vector2(837.8381, -60.260292)
+rotation = -0.07781563
+
+[node name="IcicleGroup17" parent="MidgroundLayer/SpikeStrip7" index="1" instance=ExtResource("3_t8yib")]
+position = Vector2(669.45105, -45.740723)
+rotation = -0.07781563
+
+[node name="IcicleGroup18" parent="MidgroundLayer/SpikeStrip7" index="2" instance=ExtResource("3_t8yib")]
+position = Vector2(501.06406, -31.221153)
+rotation = -0.07781563
+
+[node name="IcicleGroup19" parent="MidgroundLayer/SpikeStrip7" index="3" instance=ExtResource("3_t8yib")]
+position = Vector2(331.5316, -18.621967)
+rotation = -0.07781563
