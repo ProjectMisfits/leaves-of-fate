@@ -2,7 +2,7 @@ extends LimboState
 
 func _enter() -> void:
 	#print("Player State Transition: to_pileing")
-	agent.animation_player.play("player_leaf_dash")
+	agent.animation_player.play("player_leaf_pile")
 	agent.set_collision_mask_value(8,false)
 	agent.collision_shape_2d.shape = agent.collision_dash
 	agent.velocity.y = 0.0

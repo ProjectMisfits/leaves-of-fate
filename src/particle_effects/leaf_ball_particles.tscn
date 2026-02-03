@@ -55,5 +55,6 @@ preprocess = 1.48
 speed_scale = 3.0
 explosiveness = 0.17
 randomness = 1.0
+local_coords = true
 trail_lifetime = 0.6
 process_material = SubResource("ParticleProcessMaterial_ulpya")
