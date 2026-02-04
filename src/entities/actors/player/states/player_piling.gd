@@ -24,11 +24,19 @@ func _update(delta: float) -> void:
 	agent.velocity.y = clampf(agent.velocity.y, -INF, agent.pile_terminal_velocity) # velocity cannot exceed terminal velocity
 	
 	if (agent.is_on_floor()):
-		agent.move_horizontal_pile_ground(delta)
+		move_horizontal_pile_ground(delta)
 	else:
-		agent.move_horizontal_pile_air(delta)
+		move_horizontal_pile_air(delta)
 
 ## Revert the Player's collision shape & mask.
 func _exit() -> void:
 	agent.set_collision_mask_value(8,true)
 	agent.collision_shape_2d.shape = agent.collision_normal
+
+## Calls move_horizontal with pile ground parameters.
+func move_horizontal_pile_ground(delta: float) -> void:
+	agent.move_horizontal(agent.pile_ground_acceleration, agent.pile_ground_deceleration, agent.pile_ground_turn_speed, delta)
+
+## Calls move_horizontal with pile air parameters.
+func move_horizontal_pile_air(delta: float) -> void:
+	agent.move_horizontal(agent.pile_air_acceleration, agent.pile_air_deceleration, agent.pile_air_turn_speed, delta)

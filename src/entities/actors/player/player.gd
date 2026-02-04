@@ -348,14 +348,6 @@ func move_horizontal_ground(delta: float) -> void:
 func move_horizontal_air(delta: float) -> void:
 	move_horizontal(air_acceleration, air_deceleration, air_turn_speed, delta)
 
-## Calls move_horizontal with pile ground parameters.
-func move_horizontal_pile_ground(delta: float) -> void:
-	move_horizontal(pile_ground_acceleration, pile_ground_deceleration, pile_ground_turn_speed, delta)
-
-## Calls move_horizontal with pile air parameters.
-func move_horizontal_pile_air(delta: float) -> void:
-	move_horizontal(pile_air_acceleration, pile_air_deceleration, pile_air_turn_speed, delta)
-
 ## Returns the player's x-input value.
 func get_x_input() -> float:
 	if (cutscene_mode):
@@ -390,13 +382,6 @@ func update_jump_queue(delta: float) -> void:
 	elif Input.is_action_just_pressed(&"jump"):
 		jump_queued = true
 		time_since_jump_queued = 0.0
-
-## Add y-velocity to make the player "jump".
-func jump() -> void:
-	jump_queued = false # Free jump queue
-	velocity.y = jump_velocity
-	time_since_on_floor = INF	# Prevent additional coyote jumps
-	#print(jump_velocity)
 
 ## Update how much wind the Player has stored according to their current state.
 func update_leaf_meter(delta: float) -> void:
