@@ -10,6 +10,9 @@ class_name DialogueTrigger extends Area2D
 ## Whether this trigger requires player interaction to begin.
 @export var requires_interact: bool = false
 
+## The name of the player's interact area Area2D node.
+var interact_area_name: String = "InteractArea"
+
 ## The dialogue balloon that this dialogue trigger should use.
 var dialogue_balloon: PackedScene = preload("res://src/ui/dialogue_boxes/dialogue_box.tscn")
 
@@ -26,7 +29,7 @@ func _physics_process(_delta: float) -> void:
 
 # Triggered when an area enters this trigger's area.
 func _on_area_entered(area: Node2D) -> void:
-	if area.name == "InteractArea":
+	if area.mask == interact_area_name:
 		if requires_interact:
 			player_on_trigger = true
 		else:
@@ -34,7 +37,7 @@ func _on_area_entered(area: Node2D) -> void:
 
 # Triggered when an area exits this trigger's area.
 func _on_area_exited(area: Node2D) -> void:
-	if area.name == "InteractArea":
+	if area.name == interact_area_name:
 		player_on_trigger = false
 
 ## Initiate the set dialogue sequence when the player overlaps the trigger.
