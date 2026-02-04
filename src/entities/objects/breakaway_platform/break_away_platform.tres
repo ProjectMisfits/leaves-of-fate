@@ -1,0 +1,7 @@
+[gd_resource type="JSON" format=3 uid="uid://ucpe3jpcwmfn"]
+
+[resource]
+data = {
+&"break_time": 1.0,
+&"respawn_time": 3.0
+}
