@@ -8,42 +8,42 @@
 [ext_resource type="Texture2D" uid="uid://nsc4gwcg2lhf" path="res://assets/entities/hazards/icicle/Icicle-02.png" id="6_hu7dp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5sn6"]
-size = Vector2(27, 33)
+size = Vector2(192, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x5ogu"]
-size = Vector2(199, 233)
+size = Vector2(192, 160)
 
 [node name="IcicleGroup01" type="StaticBody2D"]
 collision_layer = 12
 script = ExtResource("1_20ecx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.5, 0.5)
+position = Vector2(0, -64)
 shape = SubResource("RectangleShape2D_a5sn6")
 disabled = true
 
 [node name="Icicle03" type="Sprite2D" parent="."]
-position = Vector2(115, 11.000002)
+position = Vector2(64, -96)
 scale = Vector2(0.46891165, 0.46891165)
 texture = ExtResource("2_gj4gr")
 
 [node name="Icicle04" type="Sprite2D" parent="."]
-position = Vector2(40, 10.999997)
+position = Vector2(9.000001, -97.99999)
 scale = Vector2(0.39036873, 0.39036873)
 texture = ExtResource("3_r30jx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3.499999, -1.9999993)
+position = Vector2(-63.999992, -117)
 scale = Vector2(0.32386923, 0.32386923)
 texture = ExtResource("4_dikxp")
 
 [node name="Icicle05" type="Sprite2D" parent="."]
-position = Vector2(72.00001, 7)
+position = Vector2(-28, -106)
 scale = Vector2(0.37021363, 0.37021363)
 texture = ExtResource("5_vh21e")
 
 [node name="Icicle02" type="Sprite2D" parent="."]
-position = Vector2(147.00002, 31.000004)
+position = Vector2(28.000023, -78.999985)
 scale = Vector2(0.5785339, 0.5785339)
 texture = ExtResource("6_hu7dp")
 
@@ -51,7 +51,7 @@ texture = ExtResource("6_hu7dp")
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(79.5, 0.5)
+position = Vector2(0, -80)
 shape = SubResource("RectangleShape2D_x5ogu")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
