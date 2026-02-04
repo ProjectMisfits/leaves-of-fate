@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://brnlwd36gmdfb"]
+[gd_scene load_steps=12 format=4 uid="uid://cyy1pshcjhq70"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_qcg17"]
 [ext_resource type="Texture2D" uid="uid://wk7tx1t1vq5f" path="res://assets/rooms/backgrounds/grad.png" id="2_pn0id"]
@@ -15,6 +15,7 @@
 [node name="02_Cellar_a_DiagonalDashes" instance=ExtResource("1_qcg17")]
 
 [node name="Background" parent="BackgroundLayer" index="0"]
+modulate = Color(0.46666667, 0.4, 0.46666667, 0.46666667)
 position = Vector2(5632, -5376)
 scale = Vector2(15.956162, 36.622223)
 texture = ExtResource("2_pn0id")

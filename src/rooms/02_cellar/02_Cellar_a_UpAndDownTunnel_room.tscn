@@ -13,6 +13,7 @@
 [node name="02_Cellar_a_UpAndDownTunnel" instance=ExtResource("1_qcg17")]
 
 [node name="Background" parent="BackgroundLayer" index="0"]
+modulate = Color(0.46666667, 0.4, 0.46666667, 0.46666667)
 position = Vector2(8329.5, -1030)
 scale = Vector2(22.943836, 12.411111)
 texture = ExtResource("2_pn0id")
