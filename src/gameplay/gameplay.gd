@@ -23,17 +23,23 @@ var current_room: Room = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Set up the camera manager.
+	CameraManager.initialize_camera($%PhantomCamera2D, $%Camera2D)
+	
 	# Set the starting Room
 	_update_current_room()
+	
 	# Spawn the player at the first door now that the room has been loaded
 	current_room.spawn_player(player, 'enter')
+	# Connect phantom camera to player
+	CameraManager.set_target(player)
 	
 	# Connect the player death signal to the respawn player function
 	player.player_knocked_out.connect(respawn_player)
 	
 	# Passes player to the Hud so that Hud can update based on player actions
 	$%Hud.set_player(player)
-
+	
 	# Connect UI menu signals
 	_connect_menu_signals()
 
@@ -51,7 +57,10 @@ func _update_current_room() -> void:
 		current_room.swap_room.connect(_on_swap_room)
 
 ## Swap to the specified Room and unload the current Room.
-func _on_swap_room(path_to_target_room: String, target_door_name: String)-> void:
+func _on_swap_room(path_to_target_room: String, target_door_name: String) -> void:
+	# Disconnect camera from player
+	CameraManager.clear_target()
+	
 	# Remove player from current room
 	current_room.despawn_player(player)
 	# Call autoload SceneManager to swap the room
@@ -64,6 +73,9 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String)-> void
 	_update_current_room()
 	# Add player to new current room and place them at correct door
 	current_room.spawn_player(player, target_door_name)
+	
+	# Reconnect camera to player
+	CameraManager.set_target(player)
 
 ## Resets the Player's stats & respawns them at the last door they exited.
 func respawn_player() -> void:
