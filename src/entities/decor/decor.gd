@@ -1,4 +1,4 @@
-class_name Decor extends Sprite2D
+class_name Decor extends Node2D
 ## A base decorative texture for environmental objects.
 
 ## Should this decor's texture render in front of doors?
