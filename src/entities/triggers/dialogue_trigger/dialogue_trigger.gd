@@ -29,7 +29,7 @@ func _physics_process(_delta: float) -> void:
 
 # Triggered when an area enters this trigger's area.
 func _on_area_entered(area: Node2D) -> void:
-	if area.mask == interact_area_name:
+	if area.name == interact_area_name:
 		if requires_interact:
 			player_on_trigger = true
 		else:
