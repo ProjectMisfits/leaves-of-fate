@@ -91,9 +91,6 @@ var jump_gravity: float = 0.0
 var time_since_on_floor: float = 0.0
 var time_since_jump_queued: float = 0.0
 
-var selected_interactable: Node2D = null
-
-
 ### SIGNALS ###
 signal player_knocked_out
 signal health_changed(new_health: int)
@@ -126,7 +123,6 @@ func _physics_process(delta: float) -> void:
 	
 	# If in cutscene state, do not check for these
 	if (not cutscene_mode):
-		check_interact_action()
 		update_jump_queue(delta)
 		update_leaf_meter(delta)
 		check_companion_objects()
@@ -260,13 +256,6 @@ func disable_cutscene_mode() -> bool:
 func set_cutscene_mode(value: bool) -> bool:
 	cutscene_mode = value
 	return cutscene_mode
-
-func check_interact_action() -> void:
-	var is_interactable_not_null: bool = selected_interactable != null
-	
-	if Input.is_action_just_pressed("interact") and is_interactable_not_null:
-		var interact_node: Interactable = selected_interactable.get_node("Interactable")
-		interact_node.interact()	# Have the Interactable do a thing
 
 # Get the input direction and handle the movement/deceleration.
 func move_horizontal(acceleration: float, deceleration: float, turn_speed: float) -> void:
@@ -493,50 +482,8 @@ func initialize_data(data: Dictionary) -> void:
 		
 		fun_value = data["fun_value"]
 
-# Checks if a Node is an interactable by scanning for an Interactable child.
-# If an Interactable child is found, make this Node the selected_interactable.
-func check_is_interactable(node: Node2D) -> void:
-	for child: Node2D in node.get_children():
-		if child is Interactable:
-			selected_interactable = node
-			child.select_interactable()	# Highlight the interactable's sprite
-			return
-
-# Removes the selected_interactable's highlight & node reference.
-func deselect_interactable() -> void:
-	var interact_node: Interactable = selected_interactable.get_node("Interactable")
-	interact_node.deselect_interactable()
-	selected_interactable = null
-
 func add_debug_parameters() -> void:
-	DebugMenu.add_debug_property("Player State", state_machine.get_active_state().name, 0)
-	DebugMenu.add_debug_property("Player Cutscene Mode", cutscene_mode, 0)
-	DebugMenu.add_debug_property("Player Velocity", velocity, 5)
-	DebugMenu.add_debug_property("Player Selected Interactable", selected_interactable, 0)
-
-## InteractArea Signals ##
-
-# Connected with InteractArea.body_entered()
-func _on_interact_area_body_entered(body: Node2D) -> void:
-	#print("Player InteractArea - Body Entered: ", body)
-	
-	check_is_interactable(body)
-
-# Connected with InteractArea.body_exited()
-func _on_interact_area_body_exited(body: Node2D) -> void:
-	#print("player InteractArea - Body Exited: ", body)
-	
-	if (body == selected_interactable):	# Body left the interact area
-		deselect_interactable()
-
-# Connected with InteractArea.area_entered()
-func _on_interact_area_area_entered(area: Area2D) -> void:
-	#print("Player InteractArea - Area Entered: ", area)
-	check_is_interactable(area)
-
-# Connected with InteractArea.area_exited()
-func _on_interact_area_area_exited(area: Area2D) -> void:
-	#print("player InteractArea - Area Exited: ", area)
-	
-	if (area == selected_interactable):	# Area left the interact area
-		deselect_interactable()
+	#DebugMenu.add_debug_property("Player State", state_machine.get_active_state().name, 0)
+	#DebugMenu.add_debug_property("Player Cutscene Mode", cutscene_mode, 0)
+	#DebugMenu.add_debug_property("Player Velocity", velocity, 5)
+	pass

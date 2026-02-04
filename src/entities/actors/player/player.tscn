@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=24 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/entities/actors/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://dr4cwnspn2mf2" path="res://src/entities/actors/player/states/player_running.gd" id="4_7gsup"]
 [ext_resource type="Shape2D" uid="uid://0oo3ftpmvp21" path="res://src/entities/actors/player/collision_shapes/player_dash.tres" id="4_7j1dl"]
 [ext_resource type="Shape2D" uid="uid://b8ivarqjj8m6q" path="res://src/entities/actors/player/collision_shapes/player_normal.tres" id="4_lynpt"]
-[ext_resource type="PackedScene" uid="uid://d20fk20iq2n50" path="res://src/gameplay/camera.tscn" id="4_wcwgi"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="5_lynpt"]
 [ext_resource type="Script" uid="uid://duy7f43rn783x" path="res://src/entities/actors/player/states/player_jumping.gd" id="6_c6y0n"]
 [ext_resource type="Texture2D" uid="uid://bjs6k2nuta53t" path="res://assets/entities/actors/player/fenn_walkcycle_spritesheet.png" id="6_efl0v"]
@@ -21,7 +20,7 @@
 size = Vector2(750, 540)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7uqy"]
-size = Vector2(57.72727, 43.40909)
+size = Vector2(750, 540)
 
 [sub_resource type="Animation" id="Animation_b1i8x"]
 length = 0.001
@@ -164,6 +163,45 @@ tracks/2/keys = {
 "values": [Vector2(1.3, 1.3)]
 }
 
+[sub_resource type="Animation" id="Animation_nqxrs"]
+resource_name = "player_leaf_pile"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipNode/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_lynpt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlipNode/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FlipNode/Sprite2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.3, 1.3)]
+}
+
 [sub_resource type="Animation" id="Animation_efl0v"]
 resource_name = "player_walk_cycle"
 length = 0.6355
@@ -217,45 +255,6 @@ tracks/3/keys = {
 "values": [Vector2(0.798, 0.798)]
 }
 
-[sub_resource type="Animation" id="Animation_nqxrs"]
-resource_name = "player_leaf_pile"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FlipNode/Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_lynpt")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("FlipNode/Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("FlipNode/Sprite2D:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1.3, 1.3)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ihyl"]
 _data = {
 &"RESET": SubResource("Animation_b1i8x"),
@@ -272,10 +271,6 @@ database = ExtResource("2_7gsup")
 collision_normal = ExtResource("4_lynpt")
 collision_dash = ExtResource("4_7j1dl")
 
-[node name="Camera" parent="." instance=ExtResource("4_wcwgi")]
-zoom = Vector2(0.5, 0.5)
-position_smoothing_enabled = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(3, 3)
 shape = ExtResource("4_lynpt")
@@ -289,14 +284,21 @@ hframes = 8
 
 [node name="InteractArea" type="Area2D" parent="FlipNode"]
 position = Vector2(80, 0)
-collision_mask = 16
+collision_mask = 0
 input_pickable = false
-monitorable = false
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/InteractArea"]
-visible = false
-position = Vector2(215, 0)
+position = Vector2(200, 0)
 shape = SubResource("RectangleShape2D_q4vut")
+
+[node name="CompanionArea" type="Area2D" parent="FlipNode"]
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/CompanionArea"]
+position = Vector2(80, 0)
+shape = SubResource("RectangleShape2D_u7uqy")
+debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
 
 [node name="DashParticles" type="Node2D" parent="FlipNode"]
 
@@ -311,16 +313,6 @@ emitting = false
 
 [node name="LeafBall" parent="FlipNode/DashParticles" instance=ExtResource("9_tda88")]
 emitting = false
-
-[node name="CompanionArea" type="Area2D" parent="FlipNode"]
-visible = false
-collision_mask = 32
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/CompanionArea"]
-position = Vector2(83, 5.5)
-scale = Vector2(12, 12)
-shape = SubResource("RectangleShape2D_u7uqy")
-debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
 
@@ -346,8 +338,3 @@ script = ExtResource("9_q6jdu")
 libraries = {
 &"": SubResource("AnimationLibrary_8ihyl")
 }
-
-[connection signal="area_entered" from="FlipNode/InteractArea" to="." method="_on_interact_area_area_entered"]
-[connection signal="area_exited" from="FlipNode/InteractArea" to="." method="_on_interact_area_area_exited"]
-[connection signal="body_entered" from="FlipNode/InteractArea" to="." method="_on_interact_area_body_entered"]
-[connection signal="body_exited" from="FlipNode/InteractArea" to="." method="_on_interact_area_body_exited"]
