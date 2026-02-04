@@ -53,7 +53,7 @@ func _on_respawn_time_timeout() -> void:
 		physical_collider.set_deferred("disabled",false)
 		break_away_collider.set_deferred("disabled",false)
 	else:
-		respawn_timer.start(respawn_time)
+		respawn_timer.start(.1)
 		
 
 
