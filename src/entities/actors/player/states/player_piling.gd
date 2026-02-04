@@ -18,9 +18,9 @@ func _update(delta: float) -> void:
 	agent.velocity.y = clampf(agent.velocity.y, -INF, agent.pile_terminal_velocity) # velocity cannot exceed terminal velocity
 	
 	if (agent.is_on_floor()):
-		agent.move_horizontal_pile_ground()
+		agent.move_horizontal_pile_ground(delta)
 	else:
-		agent.move_horizontal_pile_air()
+		agent.move_horizontal_pile_air(delta)
 
 func _exit() -> void:
 	agent.set_collision_mask_value(8,true)

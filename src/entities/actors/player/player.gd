@@ -1,21 +1,21 @@
-## Jump math comes from the GDC Talk "Math for Game Programmers: Building a Better Jump
-## Source: https://www.youtube.com/watch?v=hG9SzQxaCm8
-
+# Jump math comes from the GDC Talk "Math for Game Programmers: Building a Better Jump
+# Source: https://www.youtube.com/watch?v=hG9SzQxaCm8
+## Controllable Player which can run, jump, and go into a Leaf Dash or Pile.
 extends CharacterBody2D
 class_name Player
 
-### RESOURCES ###
+# RESOURCES #
 @export var database: JSON = null
 @export var collision_normal: CapsuleShape2D = null
 @export var collision_dash: CircleShape2D = null
 
-### DATABASE VARIABLES ###
-var health: int
-var terminal_velocity: float
+# DATABASE VARIABLES #
+var max_health: int					## The Player's maximum health.
+var terminal_velocity: float		## The Player's maximum positive Y-velocity.
 
-## Run ##
-var run_max_speed: float
-var ground_acceleration: float
+# Run #
+var run_max_speed: float			## The Player's maximum X-velocity when running. The Player's actual X-velocity may exceed this value if forces beside running momentum are applied.
+var ground_acceleration: float		## The Player's X-velocity gain per second while running.
 var ground_deceleration: float
 var ground_turn_speed: float
 var ground_friction: float
@@ -112,7 +112,7 @@ func _ready() -> void:
 	initialize_state_machine()
 	compute_jump_parameters()
 	
-	current_health = health
+	current_health = max_health
 	health_changed.emit(current_health)
 	
 	var dialogue_manager: Object = Engine.get_singleton(&"DialogueManager")
@@ -269,7 +269,7 @@ func check_interact_action() -> void:
 		interact_node.interact()	# Have the Interactable do a thing
 
 # Get the input direction and handle the movement/deceleration.
-func move_horizontal(acceleration: float, deceleration: float, turn_speed: float) -> void:
+func move_horizontal(acceleration: float, deceleration: float, turn_speed: float, delta: float) -> void:
 	
 	var direction: float = get_x_input()
 	var new_velocity: float = 0.0
@@ -277,15 +277,15 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 	if (is_on_wall()):
 		new_velocity = 0.0
 	elif (direction == 0.0) and (state_machine.get_previous_active_state() != dashing_state): # No direction & did not exit Leaf Dash
-		new_velocity = move_toward(velocity.x, 0, deceleration)
+		new_velocity = move_toward(velocity.x, 0, deceleration * delta)
 
 	else:
 		var new_acceleration: float = 0.0
 		
 		if (signf(direction) == signf(velocity.x)): 	# Direction matches current velocity
-			new_acceleration = direction * acceleration
+			new_acceleration = direction * acceleration * delta
 		else: 											# Direction is opposite to current velocity
-			new_acceleration = direction * turn_speed
+			new_acceleration = direction * turn_speed * delta
 		
 		## Determine velocity debt AKA how much velocity beyond the max speed the Player has
 		#var velocity_debt: float = abs(velocity.x) - run_max_speed
@@ -321,20 +321,20 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 	look_direction = new_look_direction if (new_look_direction != 0.0) else look_direction
 
 # Calls move_horizontal with ground parameters.
-func move_horizontal_ground() -> void:
-	move_horizontal(ground_acceleration, ground_deceleration, ground_turn_speed)
+func move_horizontal_ground(delta: float) -> void:
+	move_horizontal(ground_acceleration, ground_deceleration, ground_turn_speed, delta)
 
 # Calls move_horizontal with air parameters.
-func move_horizontal_air() -> void:
-	move_horizontal(air_acceleration, air_deceleration, air_turn_speed)
+func move_horizontal_air(delta: float) -> void:
+	move_horizontal(air_acceleration, air_deceleration, air_turn_speed, delta)
 
 # Calls move_horizontal with pile ground parameters.
-func move_horizontal_pile_ground() -> void:
-	move_horizontal(pile_ground_acceleration, pile_ground_deceleration, pile_ground_turn_speed)
+func move_horizontal_pile_ground(delta: float) -> void:
+	move_horizontal(pile_ground_acceleration, pile_ground_deceleration, pile_ground_turn_speed, delta)
 
 # Calls move_horizontal with pile air parameters.
-func move_horizontal_pile_air() -> void:
-	move_horizontal(pile_air_acceleration, pile_air_deceleration, pile_air_turn_speed)
+func move_horizontal_pile_air(delta: float) -> void:
+	move_horizontal(pile_air_acceleration, pile_air_deceleration, pile_air_turn_speed, delta)
 
 # Returns the player's x-input value.
 func get_x_input() -> float:
@@ -410,10 +410,10 @@ func set_health(new_health: int) -> void:
 		push_warning("set_health(): Cutscene Mode active, health not set.")
 		return
 	
-	if (new_health > health):	# If health greater than max health
+	if (new_health > max_health):	# If health greater than max health
 		push_warning("set_health(): new_health is greater than max health.")
 	
-	current_health = clampi(new_health, 0, health)
+	current_health = clampi(new_health, 0, max_health)
 	health_changed.emit(current_health)
 	
 	if (current_health <= 0):
@@ -430,7 +430,7 @@ func set_leaf_meter(new_leaf_meter: float) -> void:
 
 # Resets the Player's health and Leaf Meter to their initial values.
 func reset_stats() -> void:
-	set_health(health)
+	set_health(max_health)
 	set_leaf_meter(0.0)
 
 ## Function to check 
@@ -443,7 +443,7 @@ func check_companion_objects()->void:
 # Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
 		# Base Data #
-		health = data["health"]
+		max_health = data["max_health"]
 		terminal_velocity = data["terminal_velocity"]
 		
 		# Run #

@@ -5,11 +5,11 @@ func _enter() -> void:
 	agent.animation_player.play("player_idle")
 	pass
 
-func _update(_delta: float) -> void:
+func _update(delta: float) -> void:
 
 	agent.check_dashing_state()
 	agent.check_piling_state()
 	agent.check_running_state()
 	agent.check_idle_state()
 	
-	agent.move_horizontal_air()
+	agent.move_horizontal_air(delta)

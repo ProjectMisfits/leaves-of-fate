@@ -5,7 +5,7 @@ func _enter() -> void:
 	agent.animation_player.play("player_walk_cycle")
 	pass
 
-func _update(_delta: float) -> void:
+func _update(delta: float) -> void:
 
 	agent.check_dashing_state()
 	agent.check_piling_state()
@@ -13,4 +13,4 @@ func _update(_delta: float) -> void:
 	agent.check_airborne_state()
 	agent.check_idle_state()
 	
-	agent.move_horizontal_ground()
+	agent.move_horizontal_ground(delta)
