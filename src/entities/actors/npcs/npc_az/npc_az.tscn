@@ -3,12 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://daw5s2hjs0tq1" path="res://src/entities/actors/npcs/npc_base/npc_base.tscn" id="1_3e8bs"]
 [ext_resource type="Texture2D" uid="uid://dvmqfcdwe36eo" path="res://assets/entities/actors/npcs/az/Az-SpriteSheet-Idle-01.png" id="2_cmh26"]
 
-[sub_resource type="Animation" id="Animation_3be5q"]
+[sub_resource type="Animation" id="Animation_0vfkb"]
 resource_name = "az_idle"
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dx6cy"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1o21l"]
 _data = {
-&"az_idle": SubResource("Animation_3be5q")
+&"az_idle": SubResource("Animation_0vfkb")
 }
 
 [node name="NpcAz" instance=ExtResource("1_3e8bs")]
@@ -18,9 +18,9 @@ texture = ExtResource("2_cmh26")
 hframes = 6
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(-1, -11)
+position = Vector2(3, 3)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+[node name="AnimationPlayer" parent="." index="2"]
 libraries = {
-&"": SubResource("AnimationLibrary_dx6cy")
+&"": SubResource("AnimationLibrary_1o21l")
 }
