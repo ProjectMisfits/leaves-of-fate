@@ -14,6 +14,7 @@
 [node name="02_Cellar_a_VerticalSerpentine" instance=ExtResource("1_ga8yx")]
 
 [node name="Background" parent="BackgroundLayer" index="0"]
+modulate = Color(0.46666667, 0.4, 0.46666667, 0.46666667)
 position = Vector2(5503.9995, -3456)
 scale = Vector2(15.167123, 25.777779)
 texture = ExtResource("2_xnu00")

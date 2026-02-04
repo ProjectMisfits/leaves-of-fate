@@ -26,6 +26,7 @@ point_count = 2
 [node name="02_Cellar_a_PlatformEvasion" instance=ExtResource("1_k8dcy")]
 
 [node name="Background" parent="BackgroundLayer" index="0"]
+modulate = Color(0.46666667, 0.4, 0.46666667, 0.46666667)
 position = Vector2(7808, 1087.9999)
 scale = Vector2(21.567123, 12.799999)
 texture = ExtResource("2_3uwpp")
