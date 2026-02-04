@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm33qh6em0dth"]
+
+[ext_resource type="Script" uid="uid://cqp8kvvayynkf" path="res://src/entities/triggers/grabbable_trigger/grabbable_trigger.gd" id="1_kss6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sg8tr"]
+size = Vector2(200, 200)
+
+[node name="GrabbableTrigger" type="Area2D"]
+monitorable = false
+script = ExtResource("1_kss6e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sg8tr")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
