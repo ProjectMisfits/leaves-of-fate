@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="1_oep2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7hg0"]
+resource_local_to_scene = true
 size = Vector2(128, 128)
 
 [node name="LeafPlatform" type="StaticBody2D"]
