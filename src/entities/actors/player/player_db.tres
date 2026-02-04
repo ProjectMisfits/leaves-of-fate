@@ -9,7 +9,7 @@ data = {
 "dash_angular_turn_speed_deceleration": -1.0,
 "dash_deceleration": -1.0,
 "dash_max_speed": 1500.0,
-"fall_gravity_multiplier": 1.0,
+"fall_gravity_multiplier": 2.0,
 "fun_value": 1282026.0,
 "ground_acceleration": 300.0,
 "ground_deceleration": 240.0,
