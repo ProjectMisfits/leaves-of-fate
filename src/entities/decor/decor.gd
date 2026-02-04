@@ -11,7 +11,9 @@ func _ready() -> void:
 	# Use the export properties to set this decor's z-index for rendering.
 	if in_front_of_player:
 		z_index = 5
+		
 	elif in_front_of_door:
 		z_index = 3
 	else:
 		z_index = 1
+		modulate = Color(0.521, 0.521, 0.521, 1.0)
