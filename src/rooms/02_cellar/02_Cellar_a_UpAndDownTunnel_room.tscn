@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="6_vgphg"]
 [ext_resource type="PackedScene" uid="uid://bi76j25xbej58" path="res://src/entities/decor/plants/floor_pot_02.tscn" id="7_13fhp"]
 
-[node name="02_Cellar_UpAndDownTunnel" instance=ExtResource("1_qcg17")]
+[node name="02_Cellar_a_UpAndDownTunnel" instance=ExtResource("1_qcg17")]
 
 [node name="Background" parent="BackgroundLayer" index="0"]
 position = Vector2(8329.5, -1030)

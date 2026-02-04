@@ -1,5 +1,6 @@
 ~ start
 Fenn: Whoa! Are you Az? Az Featherstone?
+do! CameraManager.create_camera(Vector2(200.0, 200.0), Vector2(1.0, 1.0), 2.0, "LINEAR", "EASE_IN")
 Az:Yeah. Wait, what?
 Fenn: The great blacksmith apprentice and daughter of the incredible Knight of Smithing, Abdullah Featherstone?
 Fenn: Oh by Post! This is really happening. What is he like? Abdul? Is he cool? I bet he's really cool. What's the coolest thing he's made? Is it-
