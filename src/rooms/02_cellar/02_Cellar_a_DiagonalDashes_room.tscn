@@ -24,9 +24,11 @@ tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(1535.9999, 1024)
+path_to_target_room = "uid://dis7wlfvk6tfx"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(9728, -9728.001)
+path_to_target_room = "uid://cpkeckd215xj2"
 
 [node name="IceSpikeBall" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("3_ia71f")]
 position = Vector2(3840, 768)

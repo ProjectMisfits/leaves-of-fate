@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_epxov"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_61qep"]
 [ext_resource type="PackedScene" uid="uid://cob1yf4cxasej" path="res://src/ui/hud/hud.tscn" id="3_g7yt7"]
-[ext_resource type="PackedScene" uid="uid://dbuvv4yxpgnlb" path="res://src/rooms/test/TEST_Triggers_room.tscn" id="5_05p43"]
+[ext_resource type="PackedScene" uid="uid://bi7c85t7januy" path="res://src/rooms/02_cellar/02_Cellar_a_MeetAz_room.tscn" id="5_05p43"]
 
 [sub_resource type="Resource" id="Resource_05p43"]
 script = ExtResource("3_61qep")
@@ -43,7 +43,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="RoomHolder" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="TEST_Triggers" parent="RoomHolder" instance=ExtResource("5_05p43")]
+[node name="02_Cellar_a_MeetAz" parent="RoomHolder" instance=ExtResource("5_05p43")]
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 4

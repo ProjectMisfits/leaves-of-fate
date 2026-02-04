@@ -26,12 +26,12 @@ position = Vector2(1023.99994, 1024)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(6144, 1024)
+path_to_target_room = "uid://qnwmehxlttwm"
 
 [node name="NpcAz" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("2_2l7us")]
 position = Vector2(4096, 682)
 
 [node name="DialogueTrigger" parent="MidgroundLayer/Entities/NPCs/NpcAz" index="3" instance=ExtResource("3_sxaqv")]
-position = Vector2(5277.7227, -12370.014)
 dialogue_sequence = ExtResource("4_8w6tr")
 
 [node name="PillarTrunk03" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("6_letnj")]
