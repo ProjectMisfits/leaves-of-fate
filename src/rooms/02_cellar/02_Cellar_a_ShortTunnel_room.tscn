@@ -27,7 +27,7 @@ tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(768, 1024)
-path_to_target_room = "uid://bi7c85t7januy"
+path_to_target_room = "uid://bciovlpk07wr5"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(7424.0005, 1024)

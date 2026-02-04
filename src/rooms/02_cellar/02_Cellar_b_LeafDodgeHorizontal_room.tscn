@@ -89,7 +89,7 @@ path_to_target_room = "uid://5fo0nisux4xe"
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(12853, 752.00024)
 rotation = 0.008716512
-path_to_target_room = "uid://bi7c85t7januy"
+path_to_target_room = "uid://bciovlpk07wr5"
 
 [node name="KillZone" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("2_0rpkc")]
 position = Vector2(3024, 4048)

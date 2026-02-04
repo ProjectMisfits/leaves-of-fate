@@ -28,7 +28,7 @@ path_to_target_room = "uid://qnwmehxlttwm"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(1536, -5632)
-path_to_target_room = "uid://brnlwd36gmdfb"
+path_to_target_room = "uid://oqq37bqbyg24"
 
 [node name="Icicle_13" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("2_rvolb")]
 position = Vector2(8123, -250)
