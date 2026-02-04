@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b02panxxkdcxa"]
+
+[ext_resource type="Texture2D" uid="uid://cjw3ub82kamat" path="res://assets/entities/decor/furniture/hanging-lamp.png" id="1_e3ma6"]
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_hgq0r"]
+
+[node name="HangingLantern" type="Sprite2D"]
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("1_e3ma6")
+script = ExtResource("2_hgq0r")
