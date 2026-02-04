@@ -1,0 +1,88 @@
+~ great_hall_filler
+% => convo_1
+% => convo_2
+% => convo_3
+% => convo_4
+% => convo_5
+% => convo_6
+=> END
+
+~ convo_1
+Az: So, like, what are your powers exactly?
+Winston: I controleth ice makers! I createth magical things! Can't exactly... controleth... my creations, though.
+Az: Wait- this is a stretch- do you Palina Glover? Ice Wizard? Owner of Enginice?
+Winston: Ugh. Doth not remind me of mine own Mother's name.
+Az: Mother?! She's your MOM?! No way!
+Winston: What?! Why art thee star stricken?
+Az: No WAY! I've been obsessed with Enginice since I was a kid! I used to tinker with all their devices all the time.
+Az: One time, I transformed the fridge into a fully functional oven. Baba came home to burnt steaks and soggy vegetables. It was awesome.
+Winston: Oh my! That is so cool. Tis not quite the sameth, but I once made snowmen in mine own basement using Mother's laundry device.
+Az: What?? You have to tell me how you did that.
+Winston: Haha! Why, of course!
+do EventFlags.set_flag("F-1-AzWs-GreatHall", true)
+=> END
+
+~ convo_2
+Winston: Az?
+Az: Yeah, 'sup?
+Winston: I wanteth to apologize to thee once more.
+Az: Hey, look. We're good. You may have tried to kill us, but you saved me, and you helped me get closer to freeing my Baba
+Winston: But I feeleth t'rrible. I gaveth thee thy inhaler, but I madeth thee breatheth fire when I kneweth about thy asthma
+Az: You didn't make me do anything. I lost my cool. You're good, dude.
+Winston: Well... alright.
+do EventFlags.set_flag("F-2-AzWs-GreatHall", true)
+=> END
+
+~ convo_3
+Fenn: Hey guys!
+Az: Hey kid. Thanks for the help in the Cellar. Couldn't have done it without you.
+Fenn: Well I couldn't have done much without your bangles, either...
+Winston: Sorry for, like, trying to killeth thee, and stuff.
+Fenn: It wouldn't be an adventure without any danger!
+Az: Winston, you're good. Don't worry about it.
+do EventFlags.set_flag("F-3-AzWs-GreatHall", true)
+=> END
+
+~ convo_4
+Winston: May I taketh a look at thy bangles?
+Az: Yeah sure.
+Winston: Whoa... this is incredible!
+Az: It's really nothing special.
+Winston: Nay, seriously! Thy patterns art so intricate and clean. They hardly look handmade.
+Winston: This must hath taken thee months!
+Az: It was a few weeks, yeah...
+Winston: Weeks?! Whoa. 
+do EventFlags.set_flag("F-4-AzWs-GreatHall", true)
+=> END
+
+~ convo_5
+Az: Hey, Winston. I want to ask you something.
+Winston: What is on thy mind?
+Az: The picture frame? In my workshop?
+Winston: NAY! Didst I break it? I'm sorry!
+Az: No! No, actually. The opposite. I thought you smashed it. I saw it in one piece right before you made Iceton.
+Winston: Oh... no. I couldn't bringeth myself to breaketh it. I did smash some ice and pretend like it hath broken
+Winston: I'm sorry.
+Az: Why are you apologizing? You didn't really do anything wrong.
+Winston: Well... for scaring thee.
+Az: Water under the bridge, man.
+Winston: Alright. Thank you.
+do EventFlags.set_flag("F-5-AzWs-GreatHall", true)
+=> END
+
+~ convo_6
+Az: So, Winston... you make things with ice, right?
+Winston: Aye, basically.
+Az: So all those little creatures running through the cellar? The ice cubes? That was you?
+Winston: Well, yeah...
+Az: Seriously?! 
+Winston: I hath many machines and molds to maketh them. If only they did listen to me.
+Az: That's incredible dude. I wish blacksmithing was that cool.
+Winston: Perhaps we couldst, like, work together sometime.
+Az: Yeah? That'd be awesome! We could call it "ice-smithing" or something
+Winston: Really??
+Az: Yeah, it'd be cool.
+Winston: Cool.
+do EventFlags.set_flag("F-6-AzWs-GreatHall", true)
+=> END
+

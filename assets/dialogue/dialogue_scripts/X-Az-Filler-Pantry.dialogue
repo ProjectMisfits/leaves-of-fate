@@ -1,0 +1,32 @@
+~ pantry_filler
+% => convo_1
+% => convo_2
+% => convo_3
+=> END
+
+~ convo_1
+Az: Ugh, this sucks.
+Fenn: Why?
+Az: I need to get to my workshop as soon as possible. I hate just being stuck.
+Fenn: It's okay! I'm here!
+Az: Yeah...
+do EventFlags.set_flag("F-1-Az-Pantry", true)
+=> END
+
+~ convo_2
+Fenn: So you made these bangles?
+Az: Yeah, why?
+Fenn: That's... SO COOL. How did you get these tiny little indents in there?
+Az: The... the patterns?
+Fenn: Yeah! The patterns!
+Az: I... well I carved them. It's really not that hard.
+Fenn: AWESOME.
+do EventFlags.set_flag("F-2-Az-Pantry", true)
+=> END
+
+~ convo_3
+Az: I need to get my Baba out of there. 
+Fenn: Well, once we defeat Mr. Wizard Man, he'll help us!
+Az: He doesn't seem to be in a helping mood, Fenn.
+do EventFlags.set_flag("F-3-Az-Pantry", true)
+=> END

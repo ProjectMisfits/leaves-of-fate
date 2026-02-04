@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://18bv6betadgh"]
 
 [ext_resource type="Script" uid="uid://ccp1k3erscyig" path="res://src/ui/main_menu/main_menu.gd" id="1_hhctb"]
-[ext_resource type="Texture2D" uid="uid://24pvhwwalebl" path="res://assets/ui/Envelope-UI-001.png" id="1_osdni"]
-[ext_resource type="Texture2D" uid="uid://cqbbpsglfvq3u" path="res://assets/ui/ReturnLabel-UI-001.png" id="2_3oi2e"]
-[ext_resource type="Texture2D" uid="uid://com3a5uqsd6n6" path="res://assets/ui/Stamp-UI-001.png" id="2_vivct"]
+[ext_resource type="Texture2D" uid="uid://24pvhwwalebl" path="res://assets/ui/main_menu/Envelope-UI-001.png" id="1_osdni"]
+[ext_resource type="Texture2D" uid="uid://cqbbpsglfvq3u" path="res://assets/ui/main_menu/ReturnLabel-UI-001.png" id="2_3oi2e"]
+[ext_resource type="Texture2D" uid="uid://com3a5uqsd6n6" path="res://assets/ui/main_menu/Stamp-UI-001.png" id="2_vivct"]
 [ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="3_vivct"]
 [ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="5_6ut4k"]
 [ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="5_vivct"]
@@ -59,6 +59,7 @@ grow_vertical = 2
 script = ExtResource("1_hhctb")
 
 [node name="EnvelopeBase" type="Panel" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,6 +69,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_6ut4k")
 
 [node name="StampButton" type="Button" parent="EnvelopeBase"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -77,6 +79,10 @@ offset_top = 83.0
 offset_right = -122.0
 offset_bottom = 289.0
 grow_horizontal = 0
+focus_neighbor_left = NodePath("../ReturnLabelButton")
+focus_neighbor_bottom = NodePath("../../MainSelectionsContainer/PlayButton")
+focus_next = NodePath("../../MainSelectionsContainer/PlayButton")
+focus_previous = NodePath("../ReturnLabelButton")
 theme_override_styles/normal = SubResource("StyleBoxTexture_776kc")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ctewx")
 theme_override_styles/hover = SubResource("StyleBoxTexture_776kc")
@@ -117,11 +123,16 @@ theme_override_font_sizes/font_size = 50
 text = "Credits"
 
 [node name="ReturnLabelButton" type="Button" parent="EnvelopeBase"]
+unique_name_in_owner = true
 layout_mode = 1
 offset_left = 120.0
 offset_top = 80.0
 offset_right = 651.0
 offset_bottom = 274.0
+focus_neighbor_right = NodePath("../StampButton")
+focus_neighbor_bottom = NodePath("../../MainSelectionsContainer/PlayButton")
+focus_next = NodePath("../StampButton")
+focus_previous = NodePath("../../MainSelectionsContainer/ExitButton")
 theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
 theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxTexture_hhctb")
@@ -143,6 +154,8 @@ offset_right = -56.0
 offset_bottom = 30.5
 grow_horizontal = 0
 grow_vertical = 2
+focus_next = NodePath("../../StampButton")
+focus_previous = NodePath("../../../MainSelectionsContainer/ExitButton")
 theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
 theme_override_font_sizes/font_size = 60
 text = "How To Play"
@@ -183,6 +196,7 @@ theme_override_font_sizes/font_size = 150
 text = "PROJECT MISFITS"
 
 [node name="MainSelectionsContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -197,10 +211,16 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PlayButton" type="Button" parent="MainSelectionsContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(248, 101)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+focus_neighbor_left = NodePath("../../EnvelopeBase/ReturnLabelButton")
+focus_neighbor_right = NodePath("../../EnvelopeBase/StampButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
+focus_next = NodePath("../SettingsButton")
+focus_previous = NodePath("../../EnvelopeBase/StampButton")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6ut4k")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_3oi2e")
@@ -225,10 +245,17 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="SettingsButton" type="Button" parent="MainSelectionsContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 101)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+focus_neighbor_left = NodePath("../../EnvelopeBase/ReturnLabelButton")
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_right = NodePath("../../EnvelopeBase/StampButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../PlayButton")
 theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6ut4k")
@@ -254,10 +281,17 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="ExitButton" type="Button" parent="MainSelectionsContainer"]
+unique_name_in_owner = true
+process_mode = 3
 custom_minimum_size = Vector2(226, 101)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+focus_neighbor_left = NodePath("../../EnvelopeBase/ReturnLabelButton")
+focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_right = NodePath("../../EnvelopeBase/StampButton")
+focus_next = NodePath("../../EnvelopeBase/ReturnLabelButton")
+focus_previous = NodePath("../SettingsButton")
 theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6ut4k")
@@ -283,4 +317,10 @@ texture = ExtResource("5_vivct")
 expand_mode = 1
 stretch_mode = 4
 
+[node name="MenuHolder" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="button_up" from="EnvelopeBase/ReturnLabelButton" to="." method="_open_controls_menu"]
 [connection signal="button_up" from="MainSelectionsContainer/PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="MainSelectionsContainer/SettingsButton" to="." method="_open_settings_menu"]
+[connection signal="button_up" from="MainSelectionsContainer/ExitButton" to="." method="_on_exit_button_up"]

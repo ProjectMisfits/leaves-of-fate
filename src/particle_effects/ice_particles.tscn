@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://ck6tjlibantmc"]
+
+[ext_resource type="Texture2D" uid="uid://c0hixrjtaya17" path="res://assets/particle_effects/ice/IceShard_ParticleAsset.png" id="1_viqcr"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_i1jyc"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_viqcr"]
+_data = [Vector2(0.0055865906, 0), 0.0, 0.0, 0, 0, Vector2(0.31471136, 1), -0.42537615, -0.42537615, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_i1jyc"]
+curve = SubResource("Curve_viqcr")
+
+[sub_resource type="Curve" id="Curve_4ekgh"]
+_data = [Vector2(0, 0.022758722), 0.0, 0.0, 0, 0, Vector2(0.132216, 0.9955172), 0.0, 0.0, 0, 0, Vector2(0.30540037, 0.06310344), 0.0, 0.0, 0, 0, Vector2(0.44320297, 0.99999994), 0.0, 0.0, 0, 0, Vector2(0.58286774, 0.018275857), 0.0, 0.0, 0, 0, Vector2(0.83054, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.009310365), 0.0, 0.0, 0, 0]
+point_count = 7
+
+[sub_resource type="CurveTexture" id="CurveTexture_miofj"]
+curve = SubResource("Curve_4ekgh")
+
+[sub_resource type="Curve" id="Curve_qvv4r"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_10ibm"]
+curve = SubResource("Curve_qvv4r")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i1jyc"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(100, 500, 1)
+angle_min = -179.99998
+angle_max = 180.00002
+gravity = Vector3(-100, 0, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = 19.999998
+radial_accel_curve = SubResource("CurveTexture_miofj")
+tangential_accel_curve = SubResource("CurveTexture_10ibm")
+scale_min = 0.0
+scale_max = 0.25
+alpha_curve = SubResource("CurveTexture_i1jyc")
+anim_offset_max = 1.0
+
+[node name="IceParticles" type="GPUParticles2D"]
+modulate = Color(0.7176471, 0.99215686, 0.99607843, 0.4117647)
+material = SubResource("CanvasItemMaterial_i1jyc")
+amount = 80
+texture = ExtResource("1_viqcr")
+lifetime = 10.0
+preprocess = 1.11
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_i1jyc")

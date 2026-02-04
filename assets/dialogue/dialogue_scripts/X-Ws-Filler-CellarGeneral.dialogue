@@ -1,0 +1,65 @@
+~ level_filler
+% => convo_1
+% => convo_2
+% => convo_3
+% => convo_4
+% => convo_5
+=> END
+
+
+~ convo_1
+Fenn: Hey Mister Wizard, do you like ice cream?
+Winston: Woooow. Asking thy 'cold guy' if he doth liketh ice cream. Very original.
+Fenn: Well... do you?
+Winston: Wha- NAY!!
+Winston: Tis a mockery of nature. An insult to everything which is cold.
+Fenn: Are- are you lactose intolerant?
+Winston: And there thou art! Assuming I'm lactose intolerant just because I liketh not ice cream!
+Fenn: Well, are you?
+Winston: Tis besides the point!
+do EventFlags.set_flag("F-1-Ws-CellarGeneral", true)
+=> END
+
+~ convo_2
+Winston: Go away, pint-size.
+Fenn: Why?
+Winston: Wha-? Shut up! I doth be busy! Go away.
+Fenn: Aw okay.
+do EventFlags.set_flag("F-2-Ws-CellarGeneral", true)
+=> END
+
+~ convo_3
+Winston: Hey, pint-size, you seem close with Az
+Fenn: Oh yeah! She's great
+Winston: D-Does she, like... I dunno... 
+Fenn: What?
+Winston: What doth she, like, think? Liketh regarding me?
+Winston: Doth she thinketh I'm cool?
+Fenn: Yeah of course! Everyone thinks you're cool!
+Winston: Really?!
+Az: NO! Fenn, stop making stuff up.
+Fenn: But I wasn't...
+Winston whispering: I forgoteth she was there...
+do EventFlags.set_flag("F-3-Ws-CellarGeneral", true)
+=> END
+
+~ convo_4
+Fenn: Where'd you get that coat?
+Winston: Oh. Well, my Mother madeth it.
+Fenn: That's really nice! You must have a really cool Mom.
+Winston: Yeah... wouldst be. If she was even around.
+Fenn: What do you mean?
+Winston: Nothing. Worry not 'bout it.
+do EventFlags.set_flag("F-4-Ws-CellarGeneral", true)
+=> END
+
+#Potentially delete if this conversation is moved to when the player meets winston
+~ convo_5
+Winston: Just thee wait, pint-size! I shall destroyeth thee!
+Fenn: That's the spirit!
+Az: Are you rooting for him?
+Fenn: I feel like he needs it.
+Az: Fair enough.
+Winston: Do not pity me!!
+do EventFlags.set_flag("F-5-Ws-CellarGeneral", true)
+=> END

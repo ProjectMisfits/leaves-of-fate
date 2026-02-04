@@ -1,0 +1,9 @@
+[gd_resource type="JSON" format=3 uid="uid://vuh8wqef4l13"]
+
+[resource]
+data = {
+"drain_zone_color": Color(0.5019608, 0, 0.5019608, 0.49019608),
+"gain_zone_color": Color(0, 0.6745098, 0, 0.49019608),
+"wind_drain_rate": 50.0,
+"wind_gain_rate": 50.0
+}

@@ -1,35 +1,40 @@
 ~ start
-Az: Are we safe?
-Fenn: Yeah. Think so.
-Winston: Oh Post. I can't believe... I... ugh
+Fenn arrives outside the cellar door and finds Az and Winston there
+Az: Fenn! You're safe!
+Fenn: Yeah! Iceton was tough, but I escaped
+Winston: Oh Post... I can not believeth I- ugh...
 Fenn: What's wrong?
-Winston: I'm the worst! That's what's wrong. I'm a failure, Fenn. I've failed.
+Winston: I'm the worst! That's what's wrong. I am a failure, Fenn. I hath failed.
 Fenn: What? What are you talking about?
-Winston: I can't do anything right, Fenn. I tried ambushing you. I threw minions in your way. I even tried to clone myself, something I know very well, and nothing worked. It's broken. It's all broken.
-Winston: I don't have anything left. You won. Congrats.
+Winston: I can not do anything right, Fenn. I hath tried ambushing thee. I did throw minions in thy way. 
+Winston: I even hath tried to cloneth myself, something I knoweth very well, and nothing worked. Tis broken. Tis all broken.
+Winston: I doth not hath anything left. Thou hast won. Congrats.
 Fenn: Why are you being so mean?
 Winston: What?
 Fenn: You're being really mean to yourself. I had fun today. I think that's more important
-Winston: Y-you... what?
-Fenn: I had fun! It was fun, wasn't it, Az?
-Az: I mean... your creations were pretty cool.
+Winston: Th-thou... what?
+Fenn: I had fun! It was fun, wasn't it Az?
+Az: I mean, your creations were pretty cool.
 Winston: Wait... what?
-Az: Yeah. Besides the picture frame, my workshop looked even cleaner. You managed to make all that stuff with the scraps I had lying around?
-Winston: I... I can fix it! I promise. I didn't- I mean- I- I wasn't thinking
+Az: Yeah. My workshop looked even cleaner than before. You managed to make all that with the scraps I had lying around?
+Winston: I- yeah? I am sorry, I can get thy parts backeth!
 Az: Hey man, it's all good. You kinda saved me with that inhaler.
-Winston: Yea- yeah. I saw a few in the workshop. I didn't- I mean- I didn't want you to... to die.
-Winston: Th-thanks for saving me.
-Az: You should be thanking Fenn. He convinced me to get over myself.
-Fenn: If you died... who else would make cool icy things?
-Winston: Haha... I... I don't know, I guess.
-Winston: Are we... are we good?
-Az: Yeah. Help free my Baba, and we're good.
-Winston: Oh, right. Yeah.
+Winston: Oh, of course. I saweth a few in thy workshop. I didn't- I mean- I didn't wanteth thee to- to die.
+Az: Hey, I mean. At least you DID something today. I just sat around and waited for Fenn.
+Fenn: That's not true! I had your bangle. I couldn't have gotten around without your strength.
+Winston: And you- you also saved me, from, uh, from Iceton. So... thank you.
+Winston: And... yeah... those bangles are, like, super cool.
+Az: Eh... you should be thanking Fenn. He convinced me to get over myself and help you.
+Fenn: If you died, who else would make cool icy things?
+Winston: Hah. I knoweth not, I suppose.
+Winston: Art we... art we good?
+Az: Yeah. Help me free my Baba, and we're good.
+Winston: Oh, of course.
 Fade to black, fade back in with characters in front of the door seal
 Winston raises his hand, magical particles appear, and then the glowing ice symbol stops glowing on the door.
-Winston: There. All done. Won't be much help without the others, though...
 Fenn: Where could I find them?
-Winston: I think I saw Randy head towards the kitchen... but... that's all I got. Sorry.
+Winston: I think I saw Randy headeth towards the kitchen. But that's all I has't. I am sorry.
 Fenn: Well... to the kitchen!
 Fenn: End of Demo! Thanks for playing Project Misfits <3
+do EventFlags.set_flag("AzWs-ReachSafety-GreatHall", true)
 => END

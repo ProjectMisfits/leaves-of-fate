@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=4 uid="uid://jwt0ttpvqa2d"]
+
+[ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_w0n6f"]
+[ext_resource type="PackedScene" uid="uid://disa83btdjjsk" path="res://src/entities/objects/moving_platform/moving_platform.tscn" id="3_6hxw3"]
+[ext_resource type="PackedScene" uid="uid://ds25qjj7x3y7o" path="res://src/entities/objects/leaf_platform/leaf_platform.tscn" id="3_g004o"]
+
+[sub_resource type="Curve2D" id="Curve2D_jvahi"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2032, 9, 0, 0, 0, 0, 1145, 6)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_g004o"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1145, 6, 0, 0, 0, 0, -2032, 9)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_ge5w0"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2032, 9, 0, 0, 0, 0, 1145, 6)
+}
+point_count = 2
+
+[node name="TEST_JacobRoomDesign7" instance=ExtResource("1_w0n6f")]
+
+[node name="Midground" parent="MidgroundLayer" index="0"]
+tile_map_data = PackedByteArray("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")
+
+[node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
+position = Vector2(326, 1020)
+
+[node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
+position = Vector2(5898, -1146)
+
+[node name="MovingPlatform" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("3_6hxw3")]
+position = Vector2(3599, 207)
+curve = SubResource("Curve2D_jvahi")
+open_loop_speed_scale = 1.8
+
+[node name="MovingPlatform2" parent="MidgroundLayer/Entities/Objects" index="1" instance=ExtResource("3_6hxw3")]
+position = Vector2(3599, -423)
+curve = SubResource("Curve2D_g004o")
+open_loop_speed_scale = 1.8
+
+[node name="MovingPlatform3" parent="MidgroundLayer/Entities/Objects" index="2" instance=ExtResource("3_6hxw3")]
+position = Vector2(3599, -1110)
+curve = SubResource("Curve2D_ge5w0")
+open_loop_speed_scale = 1.8
+
+[node name="LeafPlatform" parent="MidgroundLayer/Entities/Objects" index="3" instance=ExtResource("3_g004o")]
+position = Vector2(1250, 462)
+scale = Vector2(1, 7.98)
