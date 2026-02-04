@@ -302,17 +302,12 @@ debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
 
 [node name="DashParticles" type="Node2D" parent="FlipNode"]
 
-[node name="WindParticles" parent="FlipNode/DashParticles" instance=ExtResource("14_7j1dl")]
-rotation = 3.1415927
+[node name="LeafParticles" parent="FlipNode/DashParticles" instance=ExtResource("15_808gp")]
 scale = Vector2(3, 3)
-emitting = false
-
-[node name="WindParticles2" parent="FlipNode/DashParticles" instance=ExtResource("15_808gp")]
-scale = Vector2(3, 3)
-emitting = false
 
 [node name="LeafBall" parent="FlipNode/DashParticles" instance=ExtResource("9_tda88")]
-emitting = false
+
+[node name="WindParticles" parent="FlipNode/DashParticles" instance=ExtResource("14_7j1dl")]
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
 
