@@ -1,9 +1,10 @@
 ~ take_damage
 % Az: You alright?
 % Az: Yikes!
-% Az: Careful, kid!
-% Az: Watch it!
-% Az: Don't die on me 
+% Az: Careful, Fenn!
+% Az: Fenn, you good?
+% Az: Breathe, kid.
+% Az: One step at a time.
 => END
 
 
@@ -13,18 +14,21 @@
 % Az: You got this, Fenn
 % Az: I'm here if you need me
 % Az: Take it slow
-% Az: Good luck, kid.
-% Az: Wish I was there.
+% Az: Good luck, kid
+% Az: Need any help?
+% Az: I can help if you need
 => END
 
 
 
 ~ clear_room
-% Az: Nice job
-% Az: That was a tough one
+% Az: Nice job.
 % Az: Good work, kid
 % Az: Nice! One step at a time.
-% Az: You made it! Nice.
+% Az: Dang. Wish I was there.
+% Az: You make it look easy, kid.
+% Az: You're on fire, kid.
+% Az: Onto the next.
 => END
 
 
@@ -34,5 +38,8 @@
 % Az: Hold up, I got it.
 % Az: I'm up!
 % Az: Need me?
-% Az: Stand back, kid.
+% Az: Stand back, kid
+% Az: Sup?
+% Az: Lemme get that for ya
+% Az: What do ya need?
 => END

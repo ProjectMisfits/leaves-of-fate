@@ -1,0 +1,178 @@
+[gd_scene load_steps=8 format=3 uid="uid://b16lnrs2414m5"]
+
+[ext_resource type="Script" uid="uid://dok0uereohunp" path="res://src/ui/intro_letter/intro_letter.gd" id="1_vawu7"]
+[ext_resource type="Texture2D" uid="uid://bll2shh47txjm" path="res://assets/ui/KingdomEmblem-UI-001.png" id="2_r5ts0"]
+[ext_resource type="Texture2D" uid="uid://06jkluq7y871" path="res://assets/ui/OpenLetter-UI-002.png" id="2_vawu7"]
+[ext_resource type="Texture2D" uid="uid://dl0v6h33gej7g" path="res://assets/ui/dialogue_boxes/ContinueSymbol-UI-001.png" id="3_x6byi"]
+
+[sub_resource type="Animation" id="Animation_nlsx6"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Progress:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_qkmqt"]
+resource_name = "progress"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Progress:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.2, -0.0157438, -4, -0.2, 0.0112069, 0.25, 0, -4, -0.25, 0, 0.25, 0, 0, -0.2, 0.00299701, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1, 0.5, 0.6, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1337t"]
+_data = {
+&"RESET": SubResource("Animation_nlsx6"),
+&"progress": SubResource("Animation_qkmqt")
+}
+
+[node name="IntroLetter" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.1, 1.1)
+script = ExtResource("1_vawu7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -413.5
+offset_top = -980.0
+offset_right = 413.5
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+texture = ExtResource("2_vawu7")
+
+[node name="Crest" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -65.0
+offset_top = 16.0
+offset_right = 65.0
+offset_bottom = 146.0
+grow_horizontal = 2
+texture = ExtResource("2_r5ts0")
+expand_mode = 1
+
+[node name="BayLeafPalace" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -156.0
+offset_top = 154.0
+offset_right = 156.0
+offset_bottom = 197.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 42
+text = "BAY LEAF PALACE"
+
+[node name="Intro" type="Label" parent="TextureRect"]
+layout_mode = 1
+offset_left = 49.0
+offset_top = 248.0
+offset_right = 324.0
+offset_bottom = 276.0
+theme_override_font_sizes/font_size = 27
+text = "DEAR FENN of NAVETTA,"
+
+[node name="Content" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.0
+offset_top = -182.5
+offset_right = 366.0
+offset_bottom = 248.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 27
+text = "You are cordially invited to Bay Leaf Castle this coming Tuesday. We 
+believe it reasonable to allow you to sit in on our Council Meeting. 
+Afterwards, we’ll have a mandatory luncheon. Food and drink will 
+not be provided.
+
+While we at the Palace greatly appreciate your enthusiasm, we 
+would kindly request that you stop sending “fan” mail at such a 
+significant rate.
+
+The Knights and I look forward to meeting you.
+
+SINCERELY,
+King Oakley Spoonfellow
+Royal Court of Spoons"
+
+[node name="Control" type="Control" parent="TextureRect"]
+custom_minimum_size = Vector2(20, 10)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -292.0
+offset_right = -80.0
+offset_bottom = -282.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="Progress" type="TextureRect" parent="TextureRect/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -5.0
+offset_right = 35.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_x6byi")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TextureRect/Control"]
+libraries = {
+&"": SubResource("AnimationLibrary_1337t")
+}
+autoplay = "progress"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

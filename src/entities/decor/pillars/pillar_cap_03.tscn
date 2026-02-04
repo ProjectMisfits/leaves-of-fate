@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://7c7nfo2gy8fu"]
+
+[ext_resource type="Texture2D" uid="uid://idvn1h1vmemf" path="res://assets/entities/decor/pillars/Pillar-Cap-03.png" id="1_3iyow"]
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_i14k2"]
+
+[node name="PillarCap03" type="Node2D"]
+script = ExtResource("2_i14k2")
+
+[node name="PillarCap03" type="Sprite2D" parent="."]
+position = Vector2(0, 258)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("1_3iyow")

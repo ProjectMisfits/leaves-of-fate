@@ -1,12 +1,23 @@
 ~ start
-Fenn: By Post... you're Az Featherstone, right?
-Az: Yeah- wait what?
-Fenn: Great blacksmith apprentice and daughter to the incredible Knight of Craft, Abdullah Featherstone of Kuva?
-Az: Kid, I'm busy right now. I saw one of the wizards run into the cellar
-Fenn: Whoa, really?! We've gotta go get him!
-Az: Absolutely not, kid. There's no we. You stay here. I'll handle this.
-Fenn: Wait can you breathe fire? You totally can, right? I mean, you're Dad can, so you probably can too. That's so cool. I wish I could breathe fire.
-Az: I- no. Kid, stop. Stay here, where it's safe. I'll be back later. I can, like, sign autographs or something if you want.
-Fenn: Aw...
-Az runs off
+do! CameraManager.create_camera(Vector2(750.0, -100.0), Vector2(0.5, 0.5), 3.0, "CUBIC", "EASE_IN_OUT")
+Fenn: Whoa! Are you Az? Az Featherstone?
+#							Relative Position,		Zoom x and y, trans duration, transition type, ease type
+#do! CameraManager.create_camera(Vector2(200.0, 200.0), Vector2(1.0, 1.0), 2.0, "LINEAR", "EASE_IN")
+Az: Yeah- Wait, what?
+Fenn: The great blacksmith apprentice and daughter of the incredible Knight of Smithing, Abdullah Featherstone?
+Fenn: Oh by Post! This is really happening. What is he like? Abdul? Is he cool? I bet he's really cool. What's the coolest thing he's made? Is it-
+Az: [i]cough[/i] Slow down, kid. What's your name?
+Fenn: Fenn!
+Az: Okay, Fenn. Love the enthusiasm, but I'm kinda busy right now. 
+Az: My Baba is trapped in the Council Chamber, and I saw one of the Wizards who did it escape into the Cellar.
+Fenn: Really?! Adventure awaits!! Let's go!
+Az: Absolutely not, kid. It's not safe. Stay here.
+Fenn: [speed=1.2]Wait, wait, wait. Are you gonna breathe fire? [speed=1.5]I know Adbul can breathe fire. That's so cool. I wish I could breathe fire. Are-[/speed][/speed]
+Az: Okay, okay. Listen, I need to go grab something. I'll be back soon. Will you stay here?
+Fenn: Hm... no promises.
+Az: [i]cough[/i] Seriously?
+Fenn: Yup!
+Az: Ugh. Whatever.
+#Az runs off.
+do EventFlags.set_flag("Az-Meet-GreatHall", true)
 => END

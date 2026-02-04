@@ -1,10 +1,5 @@
-extends Control
-class_name PauseMenu
+class_name PauseMenu extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$CanvasLayer/Panel/ControlsContainer/ResumeButton.grab_focus.call_deferred()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	get_node("%ResumeButton").grab_focus.call_deferred()

@@ -11,29 +11,34 @@
 
 ~ convo_1
 Fenn: Mr. Wizard?
-Winston: Go away! I'm planning your demise.
+Winston: Go away! I am planning thy demise.
 Fenn: What's demise mean?
-Winston: uh... VERY PAINFUL DEATH!!
-Fenn: Okay!
+Winston: Um... VERY PAINFUL DEATH!!
+Fenn: That sounds fun!
+do EventFlags.set_flag("F-1-Ws-Den", true)
 => END
 
 ~ convo_2
 Winston: Hey, pint-size. Is Az there?
 Fenn: Yeah?
-Winston: Wh-what is she doing?
+Winston: Wh-what doth she be doing?
 Fenn: I dunno. Standing?
-Winston: Dang it. That's cool...
+Winston: Hmph. Tis cool. Cool. That's cool. Whatevereth.
+do EventFlags.set_flag("F-2-Ws-Den", true)
 => END
 
 ~ convo_3
 Fenn: Hey Wizard Guy, what do you do for fun?
-Winston: Hmph. Why do you care?
+Winston: Hmph. Why do thee careth?
 Fenn: I dunno.
-Winston: Well... I read, I guess.
+Winston: Well, I readeth, I suppose.
 Fenn: Read what?
-Winston: I don't know, like myteries and detective stories.
+Winston: I do not knoweth. Like, mysteries and detective stories
 Fenn: That's super cool! I like comic books. Do you read comics? I love the Garbage Man series, it's my favorite. Have you heard of Garbage Man?
 Winston: Uhhhhh...
+Az: Fenn! Stop bothering the wizard. He's busy being a freak, or whatever.
+Winston: HEY!
+do EventFlags.set_flag("F-3-Ws-Den", true)
 => END
 
 ~ convo_4
@@ -41,25 +46,28 @@ Winston: Grrrr, I'm really hungry...
 Fenn: Oh no!! Do you have any food with you?
 Winston: No. Maybe the workshop has stuff.
 pause
-Winston: Oh, I found some walnuts. Hey pint-size, could you ask Az if I could have some of her walnuts?
-Fenn: Hey Az! Can Wizard man have some of the walnuts in your workshop?
+Winston: Well, I foundeth some walnuts. Ho, pint-size. Couldst thee ask Az if I may hast some?
+Fenn: Hey Az! Can Wizard man hath some of the walnuts in your workshop?
 Az: What??? I guess?? But if you make a mess in my workshop, I will crush you.
 Winston: Score! Walnuts be mine!
+do EventFlags.set_flag("F-4-Ws-Den", true)
 => END
 
 ~ convo_5
 Fenn: Hey Mr. Wizard. Who's your favorite Knight?
 Winston: None of them! They're terrible! They don't do anything for the Kingdom!!!
 Fenn: Okay... but if you have to pick?
-Winston: Hmph. Probably like... the Knight of Fury. She's kinda cool.
+Winston: Well... probably like... the Knight of Fury. She seemeth cool.
 Fenn: Rose? I wouldn't have guessed that... I thought maybe Henric or something.
-Winston: Well it doesn't matter anyway! They're all stupid and lame!
+Winston: Well it doth not matter anyway! They're all stupid and lame!
 Fenn: Okay then!
+do EventFlags.set_flag("F-5-Ws-Den", true)
 => END
 
 ~ convo_6
 Fenn: Whatcha doin in there?
-Winston: That's none of your business!!!
+Winston: That's none of thy business!!!
 Az: Yes it is!! Seeing as how you're in my workshop.
-Winston: ACK! It's fine! I'm not doing anything!!
+Winston: ACK! Tis fine! I am not doing anything!!
+do EventFlags.set_flag("F-6-Ws-Den", true)
 => END
