@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://06jkluq7y871"
-path="res://.godot/imported/OpenLetter-UI-002.png-6ded81b6ab5b043e6d80dc3dbd35f71f.ctex"
+uid="uid://cjw3ub82kamat"
+path="res://.godot/imported/hanging-lamp.png-1367d3bead6dd90f846554e6033815e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/OpenLetter-UI-002.png"
-dest_files=["res://.godot/imported/OpenLetter-UI-002.png-6ded81b6ab5b043e6d80dc3dbd35f71f.ctex"]
+source_file="res://assets/entities/decor/furniture/hanging-lamp.png"
+dest_files=["res://.godot/imported/hanging-lamp.png-1367d3bead6dd90f846554e6033815e6.ctex"]
 
 [params]
 
@@ -36,5 +36,5 @@ process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=256
 detect_3d/compress_to=1

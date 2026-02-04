@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://78p4lxwgdq5n"]
+[gd_scene load_steps=42 format=4 uid="uid://78p4lxwgdq5n"]
 
 [ext_resource type="TileSet" uid="uid://i6wi7xcus3i" path="res://assets/rooms/tileset/TS_Cellar.tres" id="1_4keto"]
 [ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/az/az_npc.tscn" id="2_1o4i6"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://umcnqsgim2kt" path="res://src/entities/decor/pillars/pillar_base_02.tscn" id="37_dp6n5"]
 [ext_resource type="PackedScene" uid="uid://bwadcghg6jxxu" path="res://src/entities/decor/pillars/pillar_base_03.tscn" id="38_a3jsd"]
 [ext_resource type="Texture2D" uid="uid://bjs6k2nuta53t" path="res://assets/entities/actors/player/fenn_walkcycle_spritesheet.png" id="38_ea3c5"]
+[ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="39_2i3r0"]
 [ext_resource type="PackedScene" uid="uid://0jijms4al2i5" path="res://src/entities/decor/pillars/pillar_cap_01.tscn" id="39_f2ccx"]
 [ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="39_jydup"]
 [ext_resource type="PackedScene" uid="uid://dkyvqmdhj2oih" path="res://src/entities/decor/pillars/pillar_trunk_02.tscn" id="40_12x6h"]
@@ -178,3 +179,6 @@ position = Vector2(-2304, -2208)
 
 [node name="PillarCap06" parent="." instance=ExtResource("41_lste5")]
 position = Vector2(-1664, -2240.0002)
+
+[node name="HangingLantern" parent="." instance=ExtResource("39_2i3r0")]
+position = Vector2(1984, -1280)
