@@ -1,6 +1,8 @@
 shader_type canvas_item;
 render_mode unshaded, blend_add;
 
+#include "./_shared.gdshaderinc"
+
 // volumetrics shader !!
 // known issues:
 // - results can look a bit fuzzy at low step counts
@@ -18,12 +20,6 @@ uniform float lodMultiplier : hint_range(0.0, 8.0) = 2.0;
 const int STEPS = 8;
 const float BORDER_FADE = 0.1;
 const float JITTER = 1.0 / (float(STEPS) + 1.0);
-
-// my favorite copy-paste random float function!!!
-// Sourced from: https://thebookofshaders.com/10/
-float rand(in vec2 uv) {
-	return fract(sin(dot(uv, vec2(12.9898, 78.233))) * 43758.5453);
-}
 
 // scales the provided UVs from their center by <amount>
 vec2 scaleVec(in vec2 uv, in float amount) {
