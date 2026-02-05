@@ -14,9 +14,16 @@ uniform float OVERDRIVE : hint_range(0.5, 10.0) = 3.0;
 //const float SPREAD = 0.9;
 //const float DIST = 16.0;
 //const float DEBAND = 1.0;
+
+#ifdef HIGH_QUALITY
 const int STEPS = 4;
-const float STEP_SIZE = 1. / float(STEPS);
 const int RAYCOUNT = 3;
+#else
+const int STEPS = 3;
+const int RAYCOUNT = 2;
+#endif
+
+const float STEP_SIZE = 1. / float(STEPS);
 
 // Gets the distance to an edge.
 float cast_ray(in sampler2D tex, in vec2 uv, in vec2 ray) {
