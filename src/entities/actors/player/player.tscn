@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=25 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/entities/actors/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bjs6k2nuta53t" path="res://assets/entities/actors/player/fenn_walkcycle_spritesheet.png" id="6_efl0v"]
 [ext_resource type="Script" uid="uid://cksn2wvaxpq54" path="res://src/entities/actors/player/states/player_airborne.gd" id="7_q4vut"]
 [ext_resource type="Script" uid="uid://bjtwcn16kj5bl" path="res://src/entities/actors/player/states/player_dashing.gd" id="8_wcwgi"]
+[ext_resource type="PackedScene" uid="uid://b4sm5hjwev778" path="res://src/particle_effects/leaf_explosion_particle.tscn" id="9_2heww"]
 [ext_resource type="PackedScene" uid="uid://cfj172hxekuqg" path="res://src/particle_effects/leaf_particles_02.tscn" id="9_nqxrs"]
 [ext_resource type="Script" uid="uid://osptlmoqos3i" path="res://src/entities/actors/player/states/player_piling.gd" id="9_q6jdu"]
 [ext_resource type="PackedScene" uid="uid://dhcepuko5y18x" path="res://src/particle_effects/leaf_ball_particles.tscn" id="9_tda88"]
@@ -311,6 +312,8 @@ emitting = false
 
 [node name="LeafParticles" parent="FlipNode/DashParticles" instance=ExtResource("9_nqxrs")]
 emitting = false
+
+[node name="LeafExplosionParticle" parent="FlipNode/DashParticles" instance=ExtResource("9_2heww")]
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
 
