@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dkyvqmdhj2oih" path="res://src/entities/decor/pillars/pillar_trunk_02.tscn" id="5_ehfmh"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="7_m08qq"]
 
-[node name="Room" instance=ExtResource("1_3xptt")]
+[node name="02_Cellar_a_Entrance" instance=ExtResource("1_3xptt")]
 
 [node name="Background" parent="BackgroundLayer" index="0"]
 position = Vector2(12809.501, 1530)
