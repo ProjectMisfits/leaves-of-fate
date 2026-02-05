@@ -33,4 +33,3 @@ func _on_option_button_item_selected(index: int) -> void:
 	# tell Gameplay that we want to load the selected room.
 	if !room_paths[index].contains(SceneManager.current_scene.current_room.name):
 		SceneManager.current_scene._on_swap_room(room_paths[index], 'enter')
-	

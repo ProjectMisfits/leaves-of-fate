@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://85r1q738jnpl"]
+
+[ext_resource type="Script" uid="uid://crgwfonj6kuen" path="res://src/entities/hazards/kill_zone/kill_zone.gd" id="1_qw6bx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a33el"]
+size = Vector2(1000, 1000)
+
+[node name="KillZone" type="Area2D"]
+collision_layer = 8
+monitorable = false
+script = ExtResource("1_qw6bx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a33el")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

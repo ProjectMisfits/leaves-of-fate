@@ -1,0 +1,125 @@
+[gd_scene load_steps=7 format=4 uid="uid://bndthc0w6i5nn"]
+
+[ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_aki8d"]
+[ext_resource type="PackedScene" uid="uid://disa83btdjjsk" path="res://src/entities/objects/moving_platform/moving_platform.tscn" id="2_apv7i"]
+[ext_resource type="PackedScene" uid="uid://cimgb48hyjd5h" path="res://src/entities/hazards/icicle/icicle_group_03.tscn" id="3_aki8d"]
+
+[sub_resource type="Curve2D" id="Curve2D_jvahi"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -2032, 9, 0, 0, 0, 0, 1145, 6)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_apv7i"]
+size = Vector2(256, 256)
+
+[sub_resource type="Curve2D" id="Curve2D_aki8d"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1145, 6, 0, 0, 0, 0, -2032, 9)
+}
+point_count = 2
+
+[node name="TEST_JacobRoomDesign10" instance=ExtResource("1_aki8d")]
+
+[node name="Midground" parent="MidgroundLayer" index="0"]
+tile_map_data = PackedByteArray("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")
+
+[node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
+position = Vector2(326, 1020)
+
+[node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
+position = Vector2(5898, -1146)
+
+[node name="MovingPlatform" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("2_apv7i")]
+position = Vector2(3599, 207)
+curve = SubResource("Curve2D_jvahi")
+open_loop_speed_scale = 1.8
+
+[node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="0"]
+position = Vector2(1145.0001, 6)
+rotation = -0.0009442868
+progress = 3177.011
+
+[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="1"]
+position = Vector2(-1520.001, 8.516525)
+rotation = -0.00094428676
+
+[node name="IcicleGroup03" parent="MidgroundLayer/Entities/Objects/MovingPlatform/AnimatableBody2D" index="0" instance=ExtResource("3_aki8d")]
+position = Vector2(-151.99274, -6.6600304)
+rotation = -1.6361767
+
+[node name="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform/AnimatableBody2D" index="1"]
+shape = SubResource("RectangleShape2D_apv7i")
+
+[node name="IcicleGroup04" parent="MidgroundLayer/Entities/Objects/MovingPlatform/AnimatableBody2D" index="3" instance=ExtResource("3_aki8d")]
+position = Vector2(159.00899, -8.366385)
+rotation = -4.730926
+
+[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Objects/MovingPlatform/AnimatableBody2D" index="4" instance=ExtResource("3_aki8d")]
+position = Vector2(6.857046, 152.49)
+rotation = -3.1209917
+
+[node name="MovingPlatform4" parent="MidgroundLayer/Entities/Objects" index="1" instance=ExtResource("2_apv7i")]
+position = Vector2(3599, -1112)
+curve = SubResource("Curve2D_jvahi")
+open_loop_speed_scale = 1.8
+
+[node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform4" index="0"]
+position = Vector2(1145.0001, 6)
+rotation = -0.0009442868
+progress = 3177.011
+
+[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform4" index="1"]
+position = Vector2(-1520.001, 8.5164795)
+rotation = -0.00094428676
+
+[node name="IcicleGroup03" parent="MidgroundLayer/Entities/Objects/MovingPlatform4/AnimatableBody2D" index="0" instance=ExtResource("3_aki8d")]
+position = Vector2(-151.99274, -6.6600304)
+rotation = -1.6361767
+
+[node name="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform4/AnimatableBody2D" index="1"]
+shape = SubResource("RectangleShape2D_apv7i")
+
+[node name="IcicleGroup04" parent="MidgroundLayer/Entities/Objects/MovingPlatform4/AnimatableBody2D" index="3" instance=ExtResource("3_aki8d")]
+position = Vector2(159.00899, -8.366385)
+rotation = -4.730926
+
+[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Objects/MovingPlatform4/AnimatableBody2D" index="4" instance=ExtResource("3_aki8d")]
+position = Vector2(6.857046, 152.49)
+rotation = -3.1209917
+
+[node name="MovingPlatform5" parent="MidgroundLayer/Entities/Objects" index="2" instance=ExtResource("2_apv7i")]
+position = Vector2(3599, -428)
+curve = SubResource("Curve2D_aki8d")
+open_loop_speed_scale = 1.8
+
+[node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform5" index="0"]
+position = Vector2(-2032, 9)
+rotation = 3.1406484
+progress = 3177.02
+rotates = false
+
+[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform5" index="1"]
+position = Vector2(633.001, 6.4834595)
+rotation = 3.1406484
+
+[node name="IcicleGroup03" parent="MidgroundLayer/Entities/Objects/MovingPlatform5/AnimatableBody2D" index="0" instance=ExtResource("3_aki8d")]
+position = Vector2(-151.99274, -6.6600304)
+rotation = -1.6361767
+
+[node name="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform5/AnimatableBody2D" index="1"]
+shape = SubResource("RectangleShape2D_apv7i")
+
+[node name="IcicleGroup04" parent="MidgroundLayer/Entities/Objects/MovingPlatform5/AnimatableBody2D" index="3" instance=ExtResource("3_aki8d")]
+position = Vector2(159.00899, -8.366385)
+rotation = -4.730926
+
+[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Objects/MovingPlatform5/AnimatableBody2D" index="4" instance=ExtResource("3_aki8d")]
+position = Vector2(-0.863441, -143.51743)
+rotation = -6.2385683
+
+[editable path="MidgroundLayer/Entities/Objects/MovingPlatform"]
+[editable path="MidgroundLayer/Entities/Objects/MovingPlatform4"]
+[editable path="MidgroundLayer/Entities/Objects/MovingPlatform5"]
