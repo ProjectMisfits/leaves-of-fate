@@ -78,7 +78,6 @@ var fun_value: int	# Every copy of Project Misfits is personalized
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@onready var interact_audio: AudioStreamPlayer2D = $Audio/Interact
 @onready var leaf_enter_audio: AudioStreamPlayer2D = $Audio/LeafEnter
 @onready var leaf_exit_audio: AudioStreamPlayer2D = $Audio/LeafExit
 
