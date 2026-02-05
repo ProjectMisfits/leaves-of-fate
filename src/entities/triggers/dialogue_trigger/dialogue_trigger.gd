@@ -22,6 +22,20 @@ var dialogue_enabled: bool = true
 ## Whether the player is overlapping the trigger.
 var player_on_trigger: bool = false
 
+## This trigger's interact prompt scene. Only set and used if this trigger has requires_interact set to true.
+var interact_prompt: Control = null
+
+func _ready() -> void:
+	# if this trigger is interactable, load an interact prompt as a child and position it above the interact area.
+	if requires_interact:
+		interact_prompt = load("res://src/ui/interact_prompt/interact_prompt.tscn").instantiate()
+		var trigger_shape: Shape2D = $CollisionShape2D.shape
+		var shape_size: Rect2 = trigger_shape.get_rect()
+		# Offset the prompt to be above the trigger's top edge.
+		interact_prompt.position.y -= shape_size.size.y / 2 + 32
+		interact_prompt.hide()
+		add_child(interact_prompt)
+
 func _physics_process(_delta: float) -> void:
 	# Check if the player presses the interact button while on the trigger
 	if player_on_trigger and Input.is_action_just_pressed("interact"):
@@ -32,13 +46,22 @@ func _on_area_entered(area: Node2D) -> void:
 	if area.name == interact_area_name:
 		if requires_interact:
 			player_on_trigger = true
+			interact_prompt.show()
+			# Kind of hacky, but needed to prevent automatic dialogue triggers
+			# from needing to load an interact prompt child that they'll never use.
+			# This is to just get it working; later the plan is to create an abstract trigger
+			# and split dialogue and interact triggers into their own classes.
+			interact_prompt.get_node("AnimationPlayer").play(&"bobbing")
 		else:
 			_trigger_dialogue()
 
 # Triggered when an area exits this trigger's area.
 func _on_area_exited(area: Node2D) -> void:
 	if area.name == interact_area_name:
-		player_on_trigger = false
+		if requires_interact:
+			player_on_trigger = false
+			interact_prompt.hide()
+			interact_prompt.get_node("AnimationPlayer").stop()
 
 ## Initiate the set dialogue sequence when the player overlaps the trigger.
 func _trigger_dialogue() -> void:
