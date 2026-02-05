@@ -16,8 +16,12 @@ uniform float noiseScrollSpeed : hint_range(-1.0, 1.0) = -0.02;
 uniform float brightnessMultiplier : hint_range(0.0, 10.0) = 4.0;
 uniform float lodMultiplier : hint_range(0.0, 8.0) = 2.0;
 
-// i like these syntacticly more than #defines. shouldn't have any overhead. :3
+#ifdef HIGH_QUALITY
 const int STEPS = 8;
+#else
+const int STEPS = 6;
+#endif
+
 const float BORDER_FADE = 0.1;
 const float JITTER = 1.0 / (float(STEPS) + 1.0);
 
