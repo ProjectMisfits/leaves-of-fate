@@ -52,5 +52,5 @@ curve = SubResource("Curve2D_ge5w0")
 open_loop_speed_scale = 1.8
 
 [node name="LeafPlatform" parent="MidgroundLayer/Entities/Objects" index="3" instance=ExtResource("3_g004o")]
-position = Vector2(1250, 462)
+position = Vector2(1364, 496)
 scale = Vector2(1, 7.98)
