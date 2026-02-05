@@ -11,10 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://bjs6k2nuta53t" path="res://assets/entities/actors/player/fenn_walkcycle_spritesheet.png" id="6_efl0v"]
 [ext_resource type="Script" uid="uid://cksn2wvaxpq54" path="res://src/entities/actors/player/states/player_airborne.gd" id="7_q4vut"]
 [ext_resource type="Script" uid="uid://bjtwcn16kj5bl" path="res://src/entities/actors/player/states/player_dashing.gd" id="8_wcwgi"]
+[ext_resource type="PackedScene" uid="uid://cfj172hxekuqg" path="res://src/particle_effects/leaf_particles_02.tscn" id="9_nqxrs"]
 [ext_resource type="Script" uid="uid://osptlmoqos3i" path="res://src/entities/actors/player/states/player_piling.gd" id="9_q6jdu"]
 [ext_resource type="PackedScene" uid="uid://dhcepuko5y18x" path="res://src/particle_effects/leaf_ball_particles.tscn" id="9_tda88"]
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/particle_effects/wind_particles.tscn" id="14_7j1dl"]
-[ext_resource type="PackedScene" uid="uid://dqviomxk1qqcu" path="res://src/particle_effects/leaf_particles.tscn" id="15_808gp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4vut"]
 size = Vector2(750, 540)
@@ -302,12 +302,15 @@ debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
 
 [node name="DashParticles" type="Node2D" parent="FlipNode"]
 
-[node name="LeafParticles" parent="FlipNode/DashParticles" instance=ExtResource("15_808gp")]
-scale = Vector2(3, 3)
-
 [node name="LeafBall" parent="FlipNode/DashParticles" instance=ExtResource("9_tda88")]
+emitting = false
 
 [node name="WindParticles" parent="FlipNode/DashParticles" instance=ExtResource("14_7j1dl")]
+visible = false
+emitting = false
+
+[node name="LeafParticles" parent="FlipNode/DashParticles" instance=ExtResource("9_nqxrs")]
+emitting = false
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
 

@@ -15,7 +15,7 @@ func _enter() -> void:
 	for ps: GPUParticles2D in agent.dash_particles.get_children(): # Enable Leaf Dash particles
 		ps.emitting = true
 		print(agent.look_direction)
-		ps.scale.x *= agent.look_direction
+		ps.scale.x = -1 *agent.look_direction
 		if ps.name == "LeafBall":
 			ps.show()
 	

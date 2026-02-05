@@ -47,13 +47,13 @@ turbulence_noise_strength = 20.0
 turbulence_noise_scale = 0.74
 
 [node name="WindParticles" type="GPUParticles2D"]
-scale = Vector2(-1, -1)
 amount = 20
 texture = ExtResource("1_2inyl")
 lifetime = 7.0
-preprocess = 1.48
-speed_scale = 3.0
+preprocess = 1.8
+speed_scale = 5.0
 randomness = 1.0
+local_coords = true
 trail_enabled = true
 trail_lifetime = 3.0
 trail_sections = 16
