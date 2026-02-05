@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://drbbdvcahypuc"]
+
+[ext_resource type="Texture2D" uid="uid://cyrxjrgsxcbaw" path="res://assets/entities/decor/furniture/Green-ham.png" id="1_6mss4"]
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_iko5i"]
+
+[node name="GreenHam" type="Sprite2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_6mss4")
+script = ExtResource("2_iko5i")
