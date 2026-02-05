@@ -20,7 +20,7 @@
 size = Vector2(750, 540)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7uqy"]
-size = Vector2(750, 540)
+size = Vector2(1500, 1800)
 
 [sub_resource type="Animation" id="Animation_b1i8x"]
 length = 0.001
@@ -292,11 +292,11 @@ monitoring = false
 position = Vector2(200, 0)
 shape = SubResource("RectangleShape2D_q4vut")
 
-[node name="CompanionArea" type="Area2D" parent="FlipNode"]
+[node name="GrabArea" type="Area2D" parent="FlipNode"]
 collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/CompanionArea"]
-position = Vector2(80, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/GrabArea"]
+position = Vector2(660, 0)
 shape = SubResource("RectangleShape2D_u7uqy")
 debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
 

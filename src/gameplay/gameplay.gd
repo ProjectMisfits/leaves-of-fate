@@ -5,6 +5,10 @@ class_name Gameplay extends Node2D
 ## A reference to the player.
 var player: Player = preload("res://src/entities/actors/player/player.tscn").instantiate()
 
+## Reference to the currently selected Grabbable Trigger, which may be 
+## grabbed/ungrabbed by the Player.
+var selected_grabbable: GrabbableTrigger = null
+
 ## A Node2D that acts as a persistent parent of the Room the player is in.
 @onready var room_holder: Node2D = $%RoomHolder
 ## The Room the player is currently in.
