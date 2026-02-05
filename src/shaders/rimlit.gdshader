@@ -23,6 +23,7 @@ const int STEPS = 3;
 const int RAYCOUNT = 2;
 #endif
 
+const float ALPHA_MIN = 0.8;
 const float STEP_SIZE = 1. / float(STEPS);
 
 // Gets the distance to an edge.
@@ -31,7 +32,7 @@ float cast_ray(in sampler2D tex, in vec2 uv, in vec2 ray) {
 
 	for (int i=0; i<STEPS; i++) {
 		float sample = texture(tex, pos).a;
-		if (sample < 0.5) return float(i) / float(STEPS);
+		if (sample < ALPHA_MIN) return float(i) / float(STEPS);
 		// pos = uv + float(i) * ray * STEP_SIZE;
 		pos += ray * STEP_SIZE;
 	}
