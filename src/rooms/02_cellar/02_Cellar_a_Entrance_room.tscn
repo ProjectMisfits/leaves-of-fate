@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://rl0gmf8ik46e"]
+[gd_scene load_steps=9 format=4 uid="uid://rl0gmf8ik46e"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_3xptt"]
+[ext_resource type="Texture2D" uid="uid://wk7tx1t1vq5f" path="res://assets/rooms/backgrounds/grad.png" id="2_5yv7o"]
 [ext_resource type="PackedScene" uid="uid://lyc1bsnodr4q" path="res://src/entities/decor/pillars/pillar_trunk_04.tscn" id="3_ehfmh"]
 [ext_resource type="PackedScene" uid="uid://bwadcghg6jxxu" path="res://src/entities/decor/pillars/pillar_base_03.tscn" id="4_gr2go"]
 [ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="4_m08qq"]
@@ -9,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="7_m08qq"]
 
 [node name="Room" instance=ExtResource("1_3xptt")]
+
+[node name="Background" parent="BackgroundLayer" index="0"]
+position = Vector2(12809.501, 1530)
+scale = Vector2(35.568497, 15.255556)
+texture = ExtResource("2_5yv7o")
 
 [node name="HangingLantern" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("7_m08qq")]
 position = Vector2(11136, 1536)
