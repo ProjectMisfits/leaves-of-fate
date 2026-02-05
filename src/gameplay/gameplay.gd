@@ -76,6 +76,18 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String) -> voi
 	
 	# Reconnect camera to player
 	CameraManager.set_target(player)
+	
+	# Play the room's music, if it exists
+	if(current_room.room_music):
+		MusicManager._play_song(current_room.room_music)
+	else:
+		MusicManager.stop()
+	
+	# Load the room's ambiance, if it exists
+	if(current_room.room_ambiance):
+		AmbianceManager._load_ambiance(current_room.room_ambiance)
+	else:
+		AmbianceManager.stop()
 
 ## Resets the Player's stats & respawns them at the last door they exited.
 func respawn_player() -> void:
