@@ -26,7 +26,8 @@ tween_resource = SubResource("Resource_05p43")
 follow_offset = Vector2(0, -200)
 follow_damping = true
 dead_zone_width = 0.1
-dead_zone_height = 0.001
+dead_zone_height = 0.1
+show_viewfinder_in_play = true
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 

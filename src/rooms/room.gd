@@ -49,7 +49,10 @@ func _on_player_entered_door(door: Door) -> void:
 
 ## Spawn the player at the specified Door.
 func spawn_player(player: Player, target_door_name: String) -> void:
+	
+	#Set the camera limits in the room 
 	CameraManager.set_limit($%Midground.get_path())
+	
 	# Check the name of the target door against the doors in this room
 	# If it exists in this room, add the player to the room and move it to the correct location
 	for door: Door in doors:
@@ -59,6 +62,7 @@ func spawn_player(player: Player, target_door_name: String) -> void:
 			player.global_position = door.position
 			last_entered_door = target_door_name
 			return
+	
 	
 	# If the target door didn't exist anywhere in the room, report the issue
 	push_warning("Room '%s': Door '%s' does not exist in this room" % [name, target_door_name])
