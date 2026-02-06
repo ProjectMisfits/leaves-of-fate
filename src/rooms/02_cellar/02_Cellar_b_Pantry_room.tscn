@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://f2l3hfy6ehdh"]
+[gd_scene load_steps=14 format=4 uid="uid://f2l3hfy6ehdh"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_upsp8"]
 [ext_resource type="PackedScene" uid="uid://n257i6n8nqs1" path="res://src/entities/decor/pillars/pillar_trunk_03.tscn" id="2_64sc0"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://byav0yxb067be" path="res://src/entities/decor/furniture/bookshelf_fancy.tscn" id="9_fbjer"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="10_q30p6"]
 [ext_resource type="PackedScene" uid="uid://cctsnqs8u4udu" path="res://src/entities/decor/furniture/wine_shelf.tscn" id="12_3mpay"]
+[ext_resource type="PackedScene" uid="uid://dejfbk3ejdidx" path="res://src/entities/decor/food/wine_bottle.tscn" id="13_20bw3"]
 
 [node name="02_Cellar_b_Pantry" instance=ExtResource("1_upsp8")]
 
@@ -244,3 +245,69 @@ position = Vector2(2432, -2432)
 
 [node name="WineShelf-4" parent="MidgroundLayer/Decor" index="48" instance=ExtResource("12_3mpay")]
 position = Vector2(2176, -3200)
+
+[node name="WineBottle" parent="MidgroundLayer/Decor" index="49" instance=ExtResource("13_20bw3")]
+position = Vector2(907, -2566)
+
+[node name="WineBottle-2" parent="MidgroundLayer/Decor" index="50" instance=ExtResource("13_20bw3")]
+position = Vector2(1025, -2567)
+
+[node name="WineBottle-3" parent="MidgroundLayer/Decor" index="51" instance=ExtResource("13_20bw3")]
+position = Vector2(966, -2495)
+
+[node name="WineBottle-4" parent="MidgroundLayer/Decor" index="52" instance=ExtResource("13_20bw3")]
+position = Vector2(1025, -2422)
+
+[node name="WineBottle-5" parent="MidgroundLayer/Decor" index="53" instance=ExtResource("13_20bw3")]
+position = Vector2(967, -2352)
+
+[node name="WineBottle-6" parent="MidgroundLayer/Decor" index="54" instance=ExtResource("13_20bw3")]
+position = Vector2(1025, -2282)
+
+[node name="WineBottle-7" parent="MidgroundLayer/Decor" index="55" instance=ExtResource("13_20bw3")]
+position = Vector2(1084, -2353)
+
+[node name="WineBottle-8" parent="MidgroundLayer/Decor" index="56" instance=ExtResource("13_20bw3")]
+position = Vector2(1670.0001, -2495)
+
+[node name="WineBottle-9" parent="MidgroundLayer/Decor" index="57" instance=ExtResource("13_20bw3")]
+position = Vector2(1730.0001, -2421)
+
+[node name="WineBottle-10" parent="MidgroundLayer/Decor" index="58" instance=ExtResource("13_20bw3")]
+position = Vector2(1789, -2496)
+
+[node name="WineBottle-11" parent="MidgroundLayer/Decor" index="59" instance=ExtResource("13_20bw3")]
+position = Vector2(1848, -2567)
+
+[node name="WineBottle-12" parent="MidgroundLayer/Decor" index="60" instance=ExtResource("13_20bw3")]
+position = Vector2(1905.0001, -2636)
+
+[node name="WineBottle-13" parent="MidgroundLayer/Decor" index="61" instance=ExtResource("13_20bw3")]
+position = Vector2(1845.0001, -2708)
+
+[node name="WineBottle-14" parent="MidgroundLayer/Decor" index="62" instance=ExtResource("13_20bw3")]
+position = Vector2(1963.0001, -2565)
+
+[node name="WineBottle-15" parent="MidgroundLayer/Decor" index="63" instance=ExtResource("13_20bw3")]
+position = Vector2(1906, -2497)
+
+[node name="WineBottle-16" parent="MidgroundLayer/Decor" index="64" instance=ExtResource("13_20bw3")]
+position = Vector2(1846, -2425)
+
+[node name="WineBottle-17" parent="MidgroundLayer/Decor" index="65" instance=ExtResource("13_20bw3")]
+position = Vector2(2315, -2279)
+
+[node name="WineBottle-18" parent="MidgroundLayer/Decor" index="66" instance=ExtResource("13_20bw3")]
+position = Vector2(2258, -2207)
+
+[node name="WineBottle-19" parent="MidgroundLayer/Decor" index="67" instance=ExtResource("13_20bw3")]
+position = Vector2(2316, -2137)
+
+[node name="WineBottle-20" parent="MidgroundLayer/Decor" index="68" instance=ExtResource("13_20bw3")]
+position = Vector2(2200, -2137)
+
+[node name="WineBottle-21" parent="MidgroundLayer/Decor" index="69" instance=ExtResource("13_20bw3")]
+position = Vector2(2198, -2280)
+
+[node name="WineBottle-22" parent="MidgroundLayer/Decor" index="70" instance=ExtResource("13_20bw3")]
+position = Vector2(2375, -2209)
