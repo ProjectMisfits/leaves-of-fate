@@ -15,6 +15,12 @@ var doors: Array[Node]
 ## The name of the Door the player entered the room from.
 var last_entered_door: String
 
+## The music that plays in this room
+@export var room_music: AudioStream
+
+## The ambiance that plays in this room
+@export var room_ambiance: Ambiance
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Connect each Door's entered signal to this Room's room swap function

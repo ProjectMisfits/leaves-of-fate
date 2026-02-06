@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://fdecrtiqrw14"]
+[gd_scene load_steps=9 format=3 uid="uid://fdecrtiqrw14"]
 
 [ext_resource type="Script" uid="uid://ccsrl6mlxbla7" path="res://src/gameplay/gameplay.gd" id="1_anqvl"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_05p43"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_epxov"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_61qep"]
 [ext_resource type="PackedScene" uid="uid://cob1yf4cxasej" path="res://src/ui/hud/hud.tscn" id="3_g7yt7"]
-[ext_resource type="PackedScene" uid="uid://bi7c85t7januy" path="res://src/rooms/02_cellar/02_Cellar_a_MeetAz_room.tscn" id="5_05p43"]
+[ext_resource type="PackedScene" uid="uid://bciovlpk07wr5" path="res://src/rooms/02_cellar/02_Cellar_a_MeetAz_room.tscn" id="5_05p43"]
+[ext_resource type="AudioStream" uid="uid://cw08xxvkhrlel" path="res://assets/ui/audio/PH-UI-select.ogg" id="7_61qep"]
 
 [sub_resource type="Resource" id="Resource_05p43"]
 script = ExtResource("3_61qep")
@@ -53,3 +54,9 @@ unique_name_in_owner = true
 
 [node name="MenuHolder" type="CanvasLayer" parent="."]
 layer = 6
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="SelectAudio" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("7_61qep")
+bus = &"SFX"
