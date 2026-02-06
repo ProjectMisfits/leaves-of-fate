@@ -190,49 +190,49 @@ position = Vector2(9728, -7168)
 position = Vector2(13056, -4096)
 
 [node name="Bookshelf2" parent="MidgroundLayer/Decor" index="30" instance=ExtResource("8_4wlxj")]
-position = Vector2(7615.9995, -3264.0002)
+position = Vector2(7616, -2816)
 
 [node name="Bookshelf3-2" parent="MidgroundLayer/Decor" index="31" instance=ExtResource("8_4wlxj")]
-position = Vector2(7616, -2496)
+position = Vector2(7616, -2048)
 
 [node name="Bookshelf3-10" parent="MidgroundLayer/Decor" index="32" instance=ExtResource("8_4wlxj")]
-position = Vector2(7552.0005, 576)
+position = Vector2(7552, 1024)
 
 [node name="Bookshelf3-12" parent="MidgroundLayer/Decor" index="33" instance=ExtResource("8_4wlxj")]
-position = Vector2(8832, 576.00006)
+position = Vector2(8832, 1024)
 
 [node name="Bookshelf3-11" parent="MidgroundLayer/Decor" index="34" instance=ExtResource("8_4wlxj")]
-position = Vector2(8192.001, 576.00006)
+position = Vector2(8192, 1024)
 
 [node name="Bookshelf3-3" parent="MidgroundLayer/Decor" index="35" instance=ExtResource("8_4wlxj")]
-position = Vector2(8320.001, -2496.0002)
+position = Vector2(8320, -2048)
 
 [node name="Bookshelf3-4" parent="MidgroundLayer/Decor" index="36" instance=ExtResource("8_4wlxj")]
-position = Vector2(9024.001, -2496)
+position = Vector2(9024, -2048)
 
 [node name="Bookshelf3-6" parent="MidgroundLayer/Decor" index="37" instance=ExtResource("8_4wlxj")]
-position = Vector2(16064, -3264.0002)
+position = Vector2(16064, -2816)
 
 [node name="Bookshelf3-7" parent="MidgroundLayer/Decor" index="38" instance=ExtResource("8_4wlxj")]
-position = Vector2(15232, -2496)
+position = Vector2(15232, -2048)
 
 [node name="Bookshelf3-9" parent="MidgroundLayer/Decor" index="39" instance=ExtResource("8_4wlxj")]
-position = Vector2(14208, -3264.0002)
+position = Vector2(14208, -2816)
 
 [node name="Bookshelf3-8" parent="MidgroundLayer/Decor" index="40" instance=ExtResource("8_4wlxj")]
-position = Vector2(14208.001, -2496.0002)
+position = Vector2(14208, -2048)
 
 [node name="Bookshelf3-5" parent="MidgroundLayer/Decor" index="41" instance=ExtResource("8_4wlxj")]
-position = Vector2(16064.001, -2496.0002)
+position = Vector2(16064, -2048)
 
 [node name="BookshelfFancy" parent="MidgroundLayer/Decor" index="42" instance=ExtResource("9_fbjer")]
-position = Vector2(7487.9995, -5568)
+position = Vector2(7488, -5120)
 
 [node name="BookshelfFancy-2" parent="MidgroundLayer/Decor" index="43" instance=ExtResource("9_fbjer")]
-position = Vector2(8192, -5568.0005)
+position = Vector2(8192, -5120)
 
 [node name="BookshelfFancy-3" parent="MidgroundLayer/Decor" index="44" instance=ExtResource("9_fbjer")]
-position = Vector2(8896, -5568)
+position = Vector2(8896, -5120)
 
 [node name="WineShelf" parent="MidgroundLayer/Decor" index="45" instance=ExtResource("12_3mpay")]
 position = Vector2(1024, -2432)
