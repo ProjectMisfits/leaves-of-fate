@@ -23,7 +23,7 @@ func _enter() -> void:
 		if ps.name == "LeafBall":
 			ps.show()
 	
-	move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	move_direction = get_input_direction()
 	rad_angular_turn_speed = deg_to_rad(agent.dash_angular_turn_speed)
 
 ## Move & turn the Player. If the dash button is not held or the Player runs out of wind,
@@ -40,7 +40,7 @@ func _update(_delta: float) -> void:
 	if (agent.cutscene_mode):
 		new_input_direction = Vector2.ZERO
 	else:
-		new_input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+		new_input_direction = get_input_direction()
 	
 	if (new_input_direction != Vector2.ZERO):
 		input_direction = new_input_direction
@@ -89,3 +89,8 @@ func get_turned_move_direction() -> Vector2:
 			new_move_direction = move_direction.rotated(rad_angular_turn_speed * signf(angular_distance))
 	
 	return new_move_direction
+
+## Returns the input movement vector, normalized.
+func get_input_direction() -> Vector2:
+	var new_input_direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	return new_input_direction.normalized()
