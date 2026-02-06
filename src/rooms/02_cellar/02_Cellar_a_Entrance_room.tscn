@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://rl0gmf8ik46e"]
+[gd_scene load_steps=9 format=4 uid="uid://boslemuyxcf3t"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_3xptt"]
 [ext_resource type="Texture2D" uid="uid://wk7tx1t1vq5f" path="res://assets/rooms/backgrounds/grad.png" id="2_5yv7o"]
