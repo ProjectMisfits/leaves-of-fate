@@ -4,7 +4,7 @@ var delay: bool = false
 # Called when the node enters the scene tree for the first time.
 func _enter() -> void:
 	print("Entered Grabbed State")
-	agent.ice_cube_sprite.modulate = Color(0.363, 0.003, 0.023, 1.0)
+	agent.animation_player.play("ice_scream_push")
 	agent.grab()
 	delay = false
 

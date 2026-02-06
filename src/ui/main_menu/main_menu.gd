@@ -9,6 +9,8 @@ class_name MainMenu extends Control
 @onready var controls_menu: ControlsMenu = preload("res://src/ui/settings_menu/controls_menu/controls_menu.tscn").instantiate()
 ## A reference to the volume menu scene.
 @onready var volume_menu: VolumeMenu = preload("res://src/ui/settings_menu/volume_menu/volume_menu.tscn").instantiate()
+## An audio player for the select sound effect.
+@onready var select_audio: AudioStreamPlayer = $Audio/SelectAudio
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,6 +22,8 @@ func _process(_delta: float) -> void:
 
 # Signals that the game is started.
 func _on_play_button_button_up() -> void:
+	select_audio.play()
+	await select_audio.finished
 	SceneManager.swap_scenes("res://src/ui/intro_letter/intro_letter.tscn", null, self)
 	# SceneManager.swap_scenes("res://src/gameplay/gameplay.tscn", null, self)
 
@@ -54,35 +58,42 @@ func _connect_menu_signals() -> void:
 
 # Opens settings menu
 func _open_settings_menu() -> void:
+	select_audio.play()
 	menu_holder.add_child(settings_menu)
 	_hide_main_menu()
 	settings_menu.get_node("%ControlsButton").grab_focus.call_deferred()
 
 # Closes setting menu
 func _close_settings_menu() -> void:
+	select_audio.play()
 	get_node("%PlayButton").grab_focus.call_deferred()
 	_show_main_menu()
 	menu_holder.remove_child(settings_menu)
 
 # Opens volume menu
 func _open_volume_menu() -> void:
+	select_audio.play()
 	menu_holder.add_child(volume_menu)
 	volume_menu.get_node("%MasterSlider").grab_focus.call_deferred()
 
 # Closes volume menu
 func _close_volume_menu() -> void:
+	select_audio.play()
 	settings_menu.get_node("%ControlsButton").grab_focus.call_deferred()
 	menu_holder.remove_child(volume_menu)
 
 # Opens controls menu
 func _open_controls_menu() -> void:
+	select_audio.play()
 	if not menu_holder.has_node("SettingsMenu"):
 		_hide_main_menu()
+	
 	menu_holder.add_child(controls_menu)
 	controls_menu.get_node("%BackButton").grab_focus.call_deferred()
 
 # Closes controls menu 
 func _close_controls_menu() -> void:
+	select_audio.play()
 	if not menu_holder.has_node("SettingsMenu"):
 		_show_main_menu()
 		$%PlayButton.grab_focus.call_deferred()

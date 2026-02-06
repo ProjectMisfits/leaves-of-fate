@@ -87,11 +87,11 @@ rotation = 0.15798487
 
 [node name="PillarTrunk01" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("4_ctvo6")]
 position = Vector2(512.00006, 6.2500076)
-scale = Vector2(1.75, 1.9512331)
+scale = Vector2(1, 1.2)
 
 [node name="PillarTrunk02" parent="MidgroundLayer/Decor" index="1" instance=ExtResource("4_ctvo6")]
 position = Vector2(3583.9998, 6.2500076)
-scale = Vector2(1.75, 1.9512331)
+scale = Vector2(1, 1.2)
 
 [node name="PillarBase01" parent="MidgroundLayer/Decor" index="2" instance=ExtResource("2_8e4v4")]
 position = Vector2(512, 1024)
@@ -104,7 +104,7 @@ position = Vector2(512, -1280)
 
 [node name="PillarTrunk03" parent="MidgroundLayer/Decor" index="5" instance=ExtResource("4_ctvo6")]
 position = Vector2(9984.125, -6649.75)
-scale = Vector2(1.75, 1.9512331)
+scale = Vector2(1, 1.2)
 
 [node name="PillarBase03" parent="MidgroundLayer/Decor" index="6" instance=ExtResource("2_8e4v4")]
 position = Vector2(9984.126, -5632)
@@ -114,7 +114,7 @@ position = Vector2(9984.126, -7936)
 
 [node name="PillarTrunk04" parent="MidgroundLayer/Decor" index="8" instance=ExtResource("4_ctvo6")]
 position = Vector2(8704.125, -6649.75)
-scale = Vector2(1.75, 1.9512331)
+scale = Vector2(1, 1.2)
 in_front_of_player = true
 
 [node name="PillarBase04" parent="MidgroundLayer/Decor" index="9" instance=ExtResource("2_8e4v4")]
@@ -127,7 +127,7 @@ in_front_of_player = true
 
 [node name="PillarTrunk05" parent="MidgroundLayer/Decor" index="11" instance=ExtResource("4_ctvo6")]
 position = Vector2(7424.125, -6649.75)
-scale = Vector2(1.75, 1.9512331)
+scale = Vector2(1, 1.2)
 
 [node name="PillarBase05" parent="MidgroundLayer/Decor" index="12" instance=ExtResource("2_8e4v4")]
 position = Vector2(7424.126, -5632)
@@ -137,7 +137,7 @@ position = Vector2(7424.126, -7936)
 
 [node name="PillarTrunk06" parent="MidgroundLayer/Decor" index="14" instance=ExtResource("4_ctvo6")]
 position = Vector2(6176.125, -6649.75)
-scale = Vector2(1.75, 1.9512331)
+scale = Vector2(1, 1.2)
 in_front_of_player = true
 
 [node name="PillarBase06" parent="MidgroundLayer/Decor" index="15" instance=ExtResource("2_8e4v4")]
@@ -150,7 +150,7 @@ in_front_of_player = true
 
 [node name="PillarTrunk07" parent="MidgroundLayer/Decor" index="17" instance=ExtResource("4_ctvo6")]
 position = Vector2(4864.125, -6649.75)
-scale = Vector2(1.75, 1.9512331)
+scale = Vector2(1, 1.2)
 
 [node name="PillarBase07" parent="MidgroundLayer/Decor" index="18" instance=ExtResource("2_8e4v4")]
 position = Vector2(4864.126, -5632)
@@ -160,7 +160,7 @@ position = Vector2(4864.126, -7936)
 
 [node name="PillarTrunk08" parent="MidgroundLayer/Decor" index="20" instance=ExtResource("4_ctvo6")]
 position = Vector2(512.1255, -6649.75)
-scale = Vector2(1.75, 1.9512331)
+scale = Vector2(1, 1.2)
 
 [node name="PillarBase08" parent="MidgroundLayer/Decor" index="21" instance=ExtResource("2_8e4v4")]
 position = Vector2(512.126, -5632)
