@@ -1,4 +1,4 @@
-
+#define HIGH_QUALITY
 // my favorite copy-paste random float function!!!
 // Sourced from: https://thebookofshaders.com/10/
 float rand(in vec2 uv) {

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_qynmb"]
 
 [node name="PillarTrunk01" type="Sprite2D"]
+use_parent_material = true
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("1_4exul")
 script = ExtResource("2_qynmb")
