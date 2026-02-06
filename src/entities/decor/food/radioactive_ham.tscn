@@ -3,7 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://5dqircavfui3" path="res://assets/entities/decor/furniture/Radioactive-ham.png" id="1_tsywo"]
 [ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_6mt2j"]
 
-[node name="RadioactiveHam" type="Sprite2D"]
+[node name="RadioactiveHam" type="Node2D"]
+script = ExtResource("2_6mt2j")
+
+[node name="RadioactiveHam" type="Sprite2D" parent="."]
+position = Vector2(0, -114)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_tsywo")
-script = ExtResource("2_6mt2j")
