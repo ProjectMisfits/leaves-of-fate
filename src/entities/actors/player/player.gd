@@ -290,9 +290,7 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 	var direction: float = get_x_input()
 	var new_velocity: float = 0.0
 	
-	if (is_on_wall()):
-		new_velocity = 0.0
-	elif (direction == 0.0) and (state_machine.get_previous_active_state() != dashing_state): # No direction & did not exit Leaf Dash
+	if (direction == 0.0) and (state_machine.get_previous_active_state() != dashing_state): # No direction & did not exit Leaf Dash
 		new_velocity = move_toward(velocity.x, 0, deceleration * delta)
 
 	else:
