@@ -15,7 +15,7 @@ func _ready() -> void:
 	
 	# Start hidden
 	my_leaf_pointer.hide()
-
+	
 # Show leaf pointer
 func _leaf_pointer_on() -> void:
 	my_leaf_pointer.show()
