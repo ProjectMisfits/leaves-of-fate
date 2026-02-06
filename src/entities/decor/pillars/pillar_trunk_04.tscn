@@ -3,8 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bv5go5tyxtlcd" path="res://assets/entities/decor/pillars/Pillar-Trunk-04.png" id="1_cu4yg"]
 [ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_ee43c"]
 
-[node name="PillarTrunk04" type="Sprite2D"]
+[node name="PillarTrunk04" type="Node2D"]
+script = ExtResource("2_ee43c")
+
+[node name="PillarTrunk04" type="Sprite2D" parent="."]
 use_parent_material = true
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("1_cu4yg")
-script = ExtResource("2_ee43c")

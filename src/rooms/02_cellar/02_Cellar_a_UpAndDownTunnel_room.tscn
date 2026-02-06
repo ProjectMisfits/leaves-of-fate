@@ -230,7 +230,6 @@ position = Vector2(3200, -831.99994)
 
 [node name="HangingLantern2" parent="MidgroundLayer/Decor" index="16" instance=ExtResource("6_vgphg")]
 position = Vector2(11205.5, -320)
-scale = Vector2(1.7929649, 1.75)
 in_front_of_player = true
 
 [node name="HangingLantern3" parent="MidgroundLayer/Decor" index="17" instance=ExtResource("6_vgphg")]

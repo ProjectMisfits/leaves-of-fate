@@ -1,8 +1,9 @@
-[gd_scene load_steps=42 format=4 uid="uid://78p4lxwgdq5n"]
+[gd_scene load_steps=60 format=4 uid="uid://78p4lxwgdq5n"]
 
 [ext_resource type="TileSet" uid="uid://i6wi7xcus3i" path="res://assets/rooms/tileset/TS_Cellar.tres" id="1_4keto"]
-[ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/az/az_npc.tscn" id="2_1o4i6"]
-[ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/winston/winston_npc.tscn" id="3_ea3c5"]
+[ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="2_1o4i6"]
+[ext_resource type="PackedScene" uid="uid://dggdoj1nhnb1j" path="res://src/entities/decor/furniture/window_02.tscn" id="2_tng8f"]
+[ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/npc_winston/npc_winston.tscn" id="3_ea3c5"]
 [ext_resource type="Texture2D" uid="uid://bne4vg4ywan02" path="res://assets/ui/dialogue_boxes/DialogueBoxAz-UI-001.png" id="24_vx82f"]
 [ext_resource type="Texture2D" uid="uid://dk5bpfuimu5cp" path="res://assets/ui/dialogue_boxes/DialogueBoxFenn-UI-001.png" id="25_503cj"]
 [ext_resource type="PackedScene" uid="uid://c3wglsph8i5hq" path="res://src/entities/decor/plants/floor_pot_01.tscn" id="27_5u77h"]
@@ -35,10 +36,27 @@
 [ext_resource type="PackedScene" uid="uid://0jijms4al2i5" path="res://src/entities/decor/pillars/pillar_cap_01.tscn" id="39_f2ccx"]
 [ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="39_jydup"]
 [ext_resource type="PackedScene" uid="uid://dkyvqmdhj2oih" path="res://src/entities/decor/pillars/pillar_trunk_02.tscn" id="40_12x6h"]
+[ext_resource type="PackedScene" uid="uid://bsjsr3aaotqep" path="res://src/entities/decor/furniture/book_01.tscn" id="40_intwn"]
 [ext_resource type="PackedScene" uid="uid://bdovxpf4gaxv6" path="res://src/entities/decor/pillars/pillar_cap_02.tscn" id="40_iqbef"]
 [ext_resource type="PackedScene" uid="uid://n257i6n8nqs1" path="res://src/entities/decor/pillars/pillar_trunk_03.tscn" id="41_5ijqs"]
+[ext_resource type="PackedScene" uid="uid://byav0yxb067be" path="res://src/entities/decor/furniture/bookshelf_fancy.tscn" id="41_dp6n5"]
+[ext_resource type="PackedScene" uid="uid://dpbbh0swy0fhv" path="res://src/entities/decor/furniture/book_02.tscn" id="41_f2ccx"]
 [ext_resource type="PackedScene" uid="uid://7c7nfo2gy8fu" path="res://src/entities/decor/pillars/pillar_cap_03.tscn" id="41_lste5"]
 [ext_resource type="PackedScene" uid="uid://lyc1bsnodr4q" path="res://src/entities/decor/pillars/pillar_trunk_04.tscn" id="42_iqbef"]
+[ext_resource type="PackedScene" uid="uid://c38wfukducj7p" path="res://src/entities/decor/furniture/book_03.tscn" id="42_lste5"]
+[ext_resource type="PackedScene" uid="uid://c0e5ya2ej5avs" path="res://src/entities/decor/furniture/bookshelf.tscn" id="43_lste5"]
+[ext_resource type="PackedScene" uid="uid://drbbdvcahypuc" path="res://src/entities/decor/food/green_ham.tscn" id="45_a3jsd"]
+[ext_resource type="PackedScene" uid="uid://bklg6ht8motqu" path="res://src/entities/decor/furniture/labeled_book_01.tscn" id="46_jydup"]
+[ext_resource type="PackedScene" uid="uid://c5vfxsasn8h64" path="res://src/entities/decor/furniture/labeled_book_02.tscn" id="47_12x6h"]
+[ext_resource type="PackedScene" uid="uid://d0is0ffwd22hj" path="res://src/entities/decor/furniture/labeled_book_03.tscn" id="48_5ijqs"]
+[ext_resource type="PackedScene" uid="uid://cjsgw2pcml8p5" path="res://src/entities/decor/food/radioactive_ham.tscn" id="49_vx82f"]
+[ext_resource type="PackedScene" uid="uid://b8rxwl8xaqar1" path="res://src/entities/decor/food/scaly_meat.tscn" id="50_503cj"]
+[ext_resource type="PackedScene" uid="uid://b6p26modf3ljr" path="res://src/entities/decor/furniture/window_01.tscn" id="51_ad1v0"]
+[ext_resource type="PackedScene" uid="uid://n0xe74ww2rnc" path="res://src/entities/decor/furniture/window_03.tscn" id="53_eo2fb"]
+[ext_resource type="PackedScene" uid="uid://f1wqnfugk7vl" path="res://src/entities/decor/furniture/wine_shelf_frame.tscn" id="54_kscox"]
+[ext_resource type="PackedScene" uid="uid://dejfbk3ejdidx" path="res://src/entities/decor/food/wine_bottle.tscn" id="55_wlcxr"]
+[ext_resource type="PackedScene" uid="uid://dqq1u02usswhf" path="res://src/entities/decor/furniture/wine_shelf_inside.tscn" id="56_s8i45"]
+[ext_resource type="PackedScene" uid="uid://cctsnqs8u4udu" path="res://src/entities/decor/furniture/wine_shelf.tscn" id="57_77ohs"]
 
 [sub_resource type="Curve2D" id="Curve2D_vx82f"]
 resource_local_to_scene = true
@@ -59,6 +77,9 @@ point_count = 2
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD2/wAABgABAAAAAAD3/wAABgABAAAAAAD4/wAABgABAAAAAAD5/wAABgABAAAAAAD6/wAABgABAAAAAAD7/wAABgABAAAAAAD8/wAABgABAAAAAAD9/wAABgABAAAAAAD+/wAABgABAAAAAAD//wAABgABAAAAAAAAAAAABgABAAAAAAABAAAABgABAAAAAAACAAAABgABAAAAAAADAAAABgABAAAAAAAEAAAABgABAAAAAAAFAAAABgABAAAAAAAGAAAABgABAAAAAAAHAAAABgABAAAAAAAIAAAABgABAAAAAAAJAAAABgABAAAAAAAKAAAABgABAAAAAAALAAAABgABAAAAAAAMAAAABgABAAAAAAANAAAABgABAAAAAAAOAAAABgABAAAAAAAPAAAABgABAAAAAAAQAAAABgABAAAAAAARAAAABgABAAAAAAASAAAABgABAAAAAAD1/wAABgABAAAAAAATAAAABgABAAAAAAAUAAAABgABAAAAAAAVAAAABgABAAAAAAAWAAAABgABAAAAAAAXAAAABgABAAAAAAAYAAAABgABAAAAAAAZAAAABgABAAAAAAAaAAAABgABAAAAAAAbAAAABgABAAAAAAD1/wIABgABAAAAAAD2/wEABgABAAAAAAD3/wIABgABAAAAAAD4/wEABgABAAAAAAD5/wIABgABAAAAAAD6/wEABgABAAAAAAD7/wIABgABAAAAAAD8/wEABgABAAAAAAD9/wIABgABAAAAAAD+/wEABgABAAAAAAD//wIABgABAAAAAAAAAAEABgABAAAAAAABAAIABgABAAAAAAACAAEABgABAAAAAAADAAIABgABAAAAAAAEAAEABgABAAAAAAAFAAIABgABAAAAAAAGAAEABgABAAAAAAAHAAIABgABAAAAAAAIAAEABgABAAAAAAAJAAIABgABAAAAAAAKAAEABgABAAAAAAALAAIABgABAAAAAAAMAAEABgABAAAAAAANAAIABgABAAAAAAAOAAEABgABAAAAAAAPAAIABgABAAAAAAAQAAEABgABAAAAAAARAAIABgABAAAAAAASAAEABgABAAAAAAATAAIABgABAAAAAAAUAAEABgABAAAAAAAVAAIABgABAAAAAAAWAAEABgABAAAAAAAXAAIABgABAAAAAAAYAAEABgABAAAAAAAZAAIABgABAAAAAAAaAAEABgABAAAAAAAbAAIABgABAAAAAAAcAAEABgABAAAAAAAdAAAABgABAAAAAAAdAP7/BgABAAAAAAAcAP3/BgABAAAAAAAdAPz/BgABAAAAAAAcAPv/BgABAAAAAAAdAPr/BgABAAAAAAAcAPn/BgABAAAAAAAdAPj/BgABAAAAAAAcAP//BgABAAAAAAA=")
 tile_set = ExtResource("1_4keto")
+
+[node name="Window02" parent="." instance=ExtResource("2_tng8f")]
+position = Vector2(1216, -896.00006)
 
 [node name="FloorPot02" parent="." instance=ExtResource("27_5u77h")]
 position = Vector2(1792, -416)
@@ -182,3 +203,54 @@ position = Vector2(-1664, -2240.0002)
 
 [node name="HangingLantern" parent="." instance=ExtResource("39_2i3r0")]
 position = Vector2(1984, -1280)
+
+[node name="Bookshelf" parent="." instance=ExtResource("43_lste5")]
+position = Vector2(3520, -448)
+
+[node name="BookshelfFancy" parent="." instance=ExtResource("41_dp6n5")]
+position = Vector2(4288, -447.99997)
+
+[node name="Book01" parent="." instance=ExtResource("40_intwn")]
+position = Vector2(3712, -448)
+
+[node name="Book02" parent="." instance=ExtResource("41_f2ccx")]
+position = Vector2(3648.0002, -448)
+
+[node name="Book03" parent="." instance=ExtResource("42_lste5")]
+position = Vector2(3328, -448)
+
+[node name="GreenHam" parent="." instance=ExtResource("45_a3jsd")]
+position = Vector2(4416, -448)
+
+[node name="LabeledBook01" parent="." instance=ExtResource("46_jydup")]
+position = Vector2(4160, -448)
+
+[node name="LabeledBook02" parent="." instance=ExtResource("47_12x6h")]
+position = Vector2(4224, -448)
+
+[node name="LabeledBook03" parent="." instance=ExtResource("48_5ijqs")]
+position = Vector2(4096, -448)
+
+[node name="RadioactiveHam" parent="." instance=ExtResource("49_vx82f")]
+position = Vector2(4160, -704)
+
+[node name="ScalyMeat" parent="." instance=ExtResource("50_503cj")]
+position = Vector2(4352, -192)
+
+[node name="Window01" parent="." instance=ExtResource("51_ad1v0")]
+position = Vector2(-384, -1792)
+
+[node name="Window03" parent="." instance=ExtResource("53_eo2fb")]
+position = Vector2(-384, -3072)
+
+[node name="WineShelfFrame" parent="." instance=ExtResource("54_kscox")]
+position = Vector2(5184, -448)
+
+[node name="WineShelfInside" parent="." instance=ExtResource("56_s8i45")]
+position = Vector2(5184, -448)
+
+[node name="WineBottle" parent="." instance=ExtResource("55_wlcxr")]
+position = Vector2(5009, -224)
+
+[node name="WineShelf" parent="." instance=ExtResource("57_77ohs")]
+position = Vector2(6016, -448)
