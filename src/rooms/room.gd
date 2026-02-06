@@ -28,6 +28,8 @@ func _ready() -> void:
 	for door: Door in doors:
 		door.player_entered_door.connect(_on_player_entered_door)
 	
+	
+	
 	# If the room is being run standalone, we have to make sure the player gets instantiated.
 	if get_tree().current_scene == self:
 		var player: Player = preload("res://src/entities/actors/player/player.tscn").instantiate()
@@ -35,6 +37,7 @@ func _ready() -> void:
 
 ## Initiate room swap on player entering a Door.
 func _on_player_entered_door(door: Door) -> void:
+	
 	# Check whether the door has a destination first.
 	if (door.path_to_target_room == ""):
 		push_warning("Room '%s': Door '%s' does not have a target room set!" % [name, door.door_name])
@@ -46,6 +49,7 @@ func _on_player_entered_door(door: Door) -> void:
 
 ## Spawn the player at the specified Door.
 func spawn_player(player: Player, target_door_name: String) -> void:
+	CameraManager.set_limit($%Midground.get_path())
 	# Check the name of the target door against the doors in this room
 	# If it exists in this room, add the player to the room and move it to the correct location
 	for door: Door in doors:

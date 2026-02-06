@@ -17,9 +17,9 @@ script = ExtResource("1_anqvl")
 
 [node name="PhantomCamera2D" type="Node2D" parent="."]
 unique_name_in_owner = true
-top_level = true
+z_index = 10
 script = ExtResource("2_05p43")
-follow_mode = 2
+follow_mode = 5
 zoom = Vector2(0.3, 0.3)
 tween_resource = SubResource("Resource_05p43")
 follow_offset = Vector2(0, -200)
