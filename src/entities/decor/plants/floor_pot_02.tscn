@@ -3,7 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://drdoc0iukr4ue" path="res://assets/entities/decor/plants/FloorPotB-Prop.png" id="1_6x40y"]
 [ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_jfdqm"]
 
-[node name="FloorPot02" type="Sprite2D"]
+[node name="FloorPot02" type="Node2D"]
+script = ExtResource("2_jfdqm")
+
+[node name="FloorPot02" type="Sprite2D" parent="."]
+position = Vector2(-9, -428)
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("1_6x40y")
-script = ExtResource("2_jfdqm")

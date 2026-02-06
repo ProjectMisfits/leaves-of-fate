@@ -3,7 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://badd3ca5h711x" path="res://assets/entities/decor/furniture/Labelled-Book-03.Png" id="1_77tfm"]
 [ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_n25s2"]
 
-[node name="LabeledBook03" type="Sprite2D"]
+[node name="LabeledBook03" type="Node2D"]
+script = ExtResource("2_n25s2")
+
+[node name="LabeledBook03" type="Sprite2D" parent="."]
+position = Vector2(0, -110)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_77tfm")
-script = ExtResource("2_n25s2")

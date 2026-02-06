@@ -13,11 +13,16 @@ func _enter() -> void:
 
 	agent.collision_shape_2d.shape = agent.collision_dash
 	for ps: GPUParticles2D in agent.dash_particles.get_children(): # Enable Leaf Dash particles
-		ps.emitting = true
+		
 		print(agent.look_direction)
-		ps.scale.x *= agent.look_direction
+		ps.scale.x = -1 *agent.look_direction
 		if ps.name == "LeafBall":
 			ps.show()
+		if ps.name == "LeafExplosionParticle":
+			ps.local_coords = false
+			ps.restart()
+		
+		ps.emitting = true
 	
 	move_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	rad_angular_turn_speed = deg_to_rad(agent.dash_angular_turn_speed)
@@ -60,6 +65,9 @@ func _exit() -> void:
 		ps.scale.x  = abs(ps.scale.x)
 		if ps.name == "LeafBall":
 			ps.hide()
+		if ps.name == "LeafExplosionParticle":
+			ps.local_coords = true
+			ps.restart()
 	
 	var new_look_direction: float = signf(agent.velocity.x)
 	agent.flip_node.rotation = 0.0 # Reset rotation
