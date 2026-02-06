@@ -23,7 +23,7 @@ func clear_target() -> void:
 ## Create a new phantom camera.
 ## Relative position will move it relative to wherever the current phantom camera is.
 ## The current camera is either the one focused on the player or the most recent camera added by this function.
-func create_camera(relative_position: Vector2, zoom: Vector2, transition_duration: float, transition_type: String, transition_ease: String) -> void:
+func create_camera(relative_position: Vector2, relative_zoom: float, transition_duration: float, transition_type: String, transition_ease: String) -> void:
 	# Create the new phantom camera to transition to. Set its priority, position, and zoom.
 	var new_camera: PhantomCamera2D = PhantomCamera2D.new()
 	new_camera.priority = PhantomCameraManager.get_phantom_camera_2ds().size()
@@ -31,8 +31,7 @@ func create_camera(relative_position: Vector2, zoom: Vector2, transition_duratio
 		new_camera.position = camera.position + relative_position
 	else:
 		new_camera.position = get_child(-1).position + relative_position
-	new_camera.zoom = zoom
-	
+	new_camera.zoom = camera.zoom / relative_zoom
 	# Create the tween for transitioning to the new camera. Set its duration, transition type, and easing.
 	var tween: PhantomCameraTween = PhantomCameraTween.new()
 	tween.duration = transition_duration

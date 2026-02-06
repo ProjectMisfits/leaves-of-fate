@@ -25,6 +25,9 @@ var player_on_trigger: bool = false
 ## This trigger's interact prompt scene. Only set and used if this trigger has requires_interact set to true.
 var interact_prompt: Control = null
 
+## Plays the interact sound when a trigger is interacted with
+@onready var interact_audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 func _ready() -> void:
 	# if this trigger is interactable, load an interact prompt as a child and position it above the interact area.
 	if requires_interact:
@@ -39,6 +42,10 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	# Check if the player presses the interact button while on the trigger
 	if player_on_trigger and Input.is_action_just_pressed("interact"):
+		
+		# If this is the first time interacting with this trigger, play the interact audio
+		if(dialogue_enabled):
+			interact_audio.play()
 		_trigger_dialogue()
 
 # Triggered when an area enters this trigger's area.

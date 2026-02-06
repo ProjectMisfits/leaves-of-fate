@@ -4,6 +4,8 @@ extends AudioStreamPlayer
 func _play_song(music: AudioStream, volume: float = 0.0)->void:
 	#If music is already playing, return
 	if stream == music:
+		if(!playing):
+			play()
 		return
 	
 	#Plays the specified music
