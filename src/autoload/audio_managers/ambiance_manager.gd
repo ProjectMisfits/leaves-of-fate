@@ -6,6 +6,8 @@ var current_ambiance: Ambiance
 func _load_ambiance(ambiance: Ambiance)->void:
 	#If ambiance is already loaded, return
 	if ambiance == current_ambiance:
+		if(!playing):
+			_play()
 		return
 	
 	#Loads the new ambiance
