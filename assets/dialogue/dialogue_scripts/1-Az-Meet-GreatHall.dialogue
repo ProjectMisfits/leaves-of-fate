@@ -1,20 +1,23 @@
 ~ start
+do! CameraManager.create_camera(Vector2(750.0, -100.0), 0.5, 3, "CUBIC", "EASE_IN_OUT")
 Fenn: Whoa! Are you Az? Az Featherstone?
-Az:Yeah. Wait, what?
+#							Relative Position,		Zoom x and y, trans duration, transition type, ease type
+#do! CameraManager.create_camera(Vector2(200.0, 200.0), Vector2(1.0, 1.0), 2.0, "LINEAR", "EASE_IN")
+Az: Yeah- Wait, what?
 Fenn: The great blacksmith apprentice and daughter of the incredible Knight of Smithing, Abdullah Featherstone?
 Fenn: Oh by Post! This is really happening. What is he like? Abdul? Is he cool? I bet he's really cool. What's the coolest thing he's made? Is it-
-Az: cough Slow down, kid. What's your name?
+Az: [i]cough[/i] Slow down, kid. What's your name?
 Fenn: Fenn!
 Az: Okay, Fenn. Love the enthusiasm, but I'm kinda busy right now. 
 Az: My Baba is trapped in the Council Chamber, and I saw one of the Wizards who did it escape into the Cellar.
 Fenn: Really?! Adventure awaits!! Let's go!
 Az: Absolutely not, kid. It's not safe. Stay here.
-Fenn: Wait, wait, wait. Are you gonna breathe fire? I know Adbul can breathe fire. That's so cool. I wish I could breathe fire. Are-
+Fenn: [speed=1.2]Wait, wait, wait. Are you gonna breathe fire? [speed=1.5]I know Adbul can breathe fire. That's so cool. I wish I could breathe fire. Are-[/speed][/speed]
 Az: Okay, okay. Listen, I need to go grab something. I'll be back soon. Will you stay here?
 Fenn: Hm... no promises.
-Az: cough. Seriously?
+Az: [i]cough[/i] Seriously?
 Fenn: Yup!
 Az: Ugh. Whatever.
-Az runs off.
+#Az runs off.
 do EventFlags.set_flag("Az-Meet-GreatHall", true)
 => END

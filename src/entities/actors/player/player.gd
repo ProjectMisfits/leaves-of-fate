@@ -94,6 +94,9 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 ## The Player's process_mode is NOT disabled and they may still move & change states.
 var cutscene_mode: bool = false
 
+@onready var leaf_enter_audio: AudioStreamPlayer2D = $Audio/LeafEnter
+@onready var leaf_exit_audio: AudioStreamPlayer2D = $Audio/LeafExit
+
 var current_health: int			## The Player's current health remaining.
 var look_direction: float = 1.0	## The direction the Player is looking. < 0 is left, >= 0 is right.
 var jump_queued: bool = false	## If True, the user queued a jump which will trigger immediately when the Player lands on the ground.
@@ -211,6 +214,8 @@ func check_idle_state() -> void:
 		var x_input_is_zero: bool = (get_x_input() == 0.0)
 		
 		if velocity_is_zero and x_input_is_zero:
+			if(state_machine.get_active_state()==dashing_state||state_machine.get_active_state()==piling_state):
+				leaf_exit_audio.play()
 			state_machine.dispatch(&"to_idle")
 
 ## If the player is moving on the ground, change to running state.
@@ -236,6 +241,8 @@ func check_jumping_state() -> void:
 func check_airborne_state() -> void:
 	var is_coyote_timer_expired: bool = (time_since_on_floor > jump_coyote_time)
 	if not is_on_floor() and is_coyote_timer_expired:
+		if(state_machine.get_active_state()==dashing_state||state_machine.get_active_state()==piling_state):
+			leaf_exit_audio.play()
 		state_machine.dispatch(&"to_airborne")
 
 ## If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to piling state.
@@ -248,6 +255,7 @@ func check_dashing_state() -> void:
 		var is_direction_pressed: bool = (Input.get_vector("move_left", "move_right", "move_up", "move_down") != Vector2.ZERO)
 		
 		if is_direction_pressed and is_leaf_meter_not_empty:
+			leaf_enter_audio.play()
 			state_machine.dispatch(&"to_dashing")
 
 ## If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to piling state.
@@ -260,6 +268,7 @@ func check_piling_state() -> void:
 		var is_no_direction_pressed: bool = (Input.get_vector("move_left", "move_right", "move_up", "move_down") == Vector2.ZERO)
 		
 		if is_no_direction_pressed and is_leaf_meter_not_empty:
+			leaf_enter_audio.play()
 			state_machine.dispatch(&"to_piling")
 
 ## Enables the Player's Cutscene Mode & returns the Cutscene Mode's new value
