@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://bjs6k2nuta53t" path="res://assets/entities/actors/player/fenn_walkcycle_spritesheet.png" id="6_efl0v"]
 [ext_resource type="Script" uid="uid://cksn2wvaxpq54" path="res://src/entities/actors/player/states/player_airborne.gd" id="7_q4vut"]
 [ext_resource type="Script" uid="uid://bjtwcn16kj5bl" path="res://src/entities/actors/player/states/player_dashing.gd" id="8_wcwgi"]
+[ext_resource type="PackedScene" uid="uid://b4sm5hjwev778" path="res://src/particle_effects/leaf_explosion_particle.tscn" id="9_2heww"]
+[ext_resource type="PackedScene" uid="uid://cfj172hxekuqg" path="res://src/particle_effects/leaf_particles_02.tscn" id="9_nqxrs"]
 [ext_resource type="Script" uid="uid://osptlmoqos3i" path="res://src/entities/actors/player/states/player_piling.gd" id="9_q6jdu"]
 [ext_resource type="PackedScene" uid="uid://dhcepuko5y18x" path="res://src/particle_effects/leaf_ball_particles.tscn" id="9_tda88"]
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/particle_effects/wind_particles.tscn" id="14_7j1dl"]
@@ -45,7 +47,7 @@ tracks/1/path = NodePath("FlipNode/Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.033333335),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
@@ -73,6 +75,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.798, 0.798)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FlipNode/Sprite2D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_8ihyl"]
@@ -304,17 +318,17 @@ debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
 
 [node name="DashParticles" type="Node2D" parent="FlipNode"]
 
-[node name="WindParticles" parent="FlipNode/DashParticles" instance=ExtResource("14_7j1dl")]
-rotation = 3.1415927
-scale = Vector2(3, 3)
-emitting = false
-
-[node name="WindParticles2" parent="FlipNode/DashParticles" instance=ExtResource("15_808gp")]
-scale = Vector2(3, 3)
-emitting = false
-
 [node name="LeafBall" parent="FlipNode/DashParticles" instance=ExtResource("9_tda88")]
 emitting = false
+
+[node name="WindParticles" parent="FlipNode/DashParticles" instance=ExtResource("14_7j1dl")]
+visible = false
+emitting = false
+
+[node name="LeafParticles" parent="FlipNode/DashParticles" instance=ExtResource("9_nqxrs")]
+emitting = false
+
+[node name="LeafExplosionParticle" parent="FlipNode/DashParticles" instance=ExtResource("9_2heww")]
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
 
