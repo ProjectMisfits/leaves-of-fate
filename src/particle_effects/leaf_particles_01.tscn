@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dqviomxk1qqcu"]
 
-[ext_resource type="Texture2D" uid="uid://c4yovapc33jth" path="res://assets/particle_effects/leaves/AllLeaves-ParticleAsset-001.png" id="1_wqs8c"]
+[ext_resource type="Texture2D" uid="uid://c4yovapc33jth" path="res://assets/particle_effects/leaves/AllLeaves-ParticleAsset-001.png" id="1_mgtor"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wqs8c"]
 particles_animation = true
@@ -58,7 +58,7 @@ turbulence_noise_scale = 0.74
 [node name="leaf_particles" type="GPUParticles2D"]
 material = SubResource("CanvasItemMaterial_wqs8c")
 amount = 80
-texture = ExtResource("1_wqs8c")
+texture = ExtResource("1_mgtor")
 lifetime = 6.0
 preprocess = 1.16
 speed_scale = 3.85
