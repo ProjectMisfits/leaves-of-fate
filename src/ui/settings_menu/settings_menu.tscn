@@ -1,12 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://k0lsqn5iv31b"]
+[gd_scene load_steps=11 format=3 uid="uid://k0lsqn5iv31b"]
 
 [ext_resource type="Script" uid="uid://dxnnooui1ctwl" path="res://src/ui/settings_menu/settings_menu.gd" id="1_dfdoi"]
 [ext_resource type="Texture2D" uid="uid://c44j0kj2rhy3b" path="res://assets/ui/FullLetter-UI-001.png" id="1_wg84k"]
 [ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="2_dfdoi"]
 [ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="3_fhom7"]
 [ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="4_l7ib7"]
-[ext_resource type="AudioStream" uid="uid://cw08xxvkhrlel" path="res://assets/ui/audio/PH-UI-select.ogg" id="6_fhom7"]
-[ext_resource type="Script" uid="uid://cs8n1atj58cy6" path="res://src/ui/settings_menu/settings_audio.gd" id="6_l7ib7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dfdoi"]
 texture = ExtResource("1_wg84k")
@@ -171,21 +169,3 @@ grow_vertical = 2
 texture = ExtResource("4_l7ib7")
 expand_mode = 1
 stretch_mode = 4
-
-[node name="Audio" type="Node" parent="."]
-script = ExtResource("6_l7ib7")
-
-[node name="Press" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("6_fhom7")
-bus = &"SFX"
-
-[node name="Hover" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("6_fhom7")
-bus = &"SFX"
-
-[connection signal="mouse_entered" from="Panel/ControlsContainer/ControlsButton" to="Audio" method="_on_controls_button_mouse_entered"]
-[connection signal="pressed" from="Panel/ControlsContainer/ControlsButton" to="Audio" method="_on_controls_button_pressed"]
-[connection signal="mouse_entered" from="Panel/ControlsContainer/VolumeButton" to="Audio" method="_on_volume_button_mouse_entered"]
-[connection signal="pressed" from="Panel/ControlsContainer/VolumeButton" to="Audio" method="_on_volume_button_pressed"]
-[connection signal="mouse_entered" from="Panel/ControlsContainer/BackButton" to="Audio" method="_on_back_button_mouse_entered"]
-[connection signal="pressed" from="Panel/ControlsContainer/BackButton" to="Audio" method="_on_back_button_pressed"]

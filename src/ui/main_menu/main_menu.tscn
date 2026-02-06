@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://18bv6betadgh"]
+[gd_scene load_steps=18 format=3 uid="uid://18bv6betadgh"]
 
 [ext_resource type="Script" uid="uid://ccp1k3erscyig" path="res://src/ui/main_menu/main_menu.gd" id="1_hhctb"]
 [ext_resource type="Texture2D" uid="uid://24pvhwwalebl" path="res://assets/ui/main_menu/Envelope-UI-001.png" id="1_osdni"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="3_vivct"]
 [ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="5_6ut4k"]
 [ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="5_vivct"]
+[ext_resource type="AudioStream" uid="uid://cw08xxvkhrlel" path="res://assets/ui/audio/PH-UI-select.ogg" id="8_2rik1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ut4k"]
 texture = ExtResource("1_osdni")
@@ -319,6 +320,13 @@ stretch_mode = 4
 
 [node name="MenuHolder" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+
+[node name="Audio" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="SelectAudio" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("8_2rik1")
+bus = &"SFX"
 
 [connection signal="button_up" from="EnvelopeBase/ReturnLabelButton" to="." method="_open_controls_menu"]
 [connection signal="button_up" from="MainSelectionsContainer/PlayButton" to="." method="_on_play_button_button_up"]
