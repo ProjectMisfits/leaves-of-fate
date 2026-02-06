@@ -3,8 +3,6 @@ extends Button
 #get leaf pointer child (should be only child)
 @onready var my_leaf_pointer: TextureRect = $LeafPointer
 
-var play_hover: AudioStreamPlayer
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Connect Hover (uncomment to activate)
