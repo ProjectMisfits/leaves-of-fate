@@ -235,16 +235,16 @@ position = Vector2(8192, -5120)
 position = Vector2(8896, -5120)
 
 [node name="WineShelf" parent="MidgroundLayer/Decor" index="45" instance=ExtResource("12_3mpay")]
-position = Vector2(1024, -2432)
+position = Vector2(1024, -2048)
 
 [node name="WineShelf-2" parent="MidgroundLayer/Decor" index="46" instance=ExtResource("12_3mpay")]
-position = Vector2(1728, -2432)
+position = Vector2(1728, -2048)
 
 [node name="WineShelf-3" parent="MidgroundLayer/Decor" index="47" instance=ExtResource("12_3mpay")]
-position = Vector2(2432, -2432)
+position = Vector2(2432, -2048)
 
 [node name="WineShelf-4" parent="MidgroundLayer/Decor" index="48" instance=ExtResource("12_3mpay")]
-position = Vector2(2176, -3200)
+position = Vector2(2176, -2816)
 
 [node name="WineBottle" parent="MidgroundLayer/Decor" index="49" instance=ExtResource("13_20bw3")]
 position = Vector2(907, -2566)

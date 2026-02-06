@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dtsbbdau8qdks" path="res://assets/entities/decor/furniture/wine-shelf-frame.png" id="1_68fyr"]
 [ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_5snpc"]
 
-[node name="WineShelfFrame" type="Sprite2D"]
-texture = ExtResource("1_68fyr")
+[node name="WineShelfFrame" type="Node2D"]
 script = ExtResource("2_5snpc")
+
+[node name="WineShelfFrame" type="Sprite2D" parent="."]
+position = Vector2(0, -383)
+texture = ExtResource("1_68fyr")
