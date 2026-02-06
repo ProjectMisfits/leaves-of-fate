@@ -7,6 +7,7 @@
 script = ExtResource("2_i14k2")
 
 [node name="PillarCap03" type="Sprite2D" parent="."]
+use_parent_material = true
 position = Vector2(0, 258)
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("1_3iyow")
