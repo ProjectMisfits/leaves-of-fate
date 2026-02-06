@@ -22,6 +22,9 @@ extends CanvasLayer
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
+## A sound player for progressing dialouge
+@onready var interact_audio_player: AudioStreamPlayer = $InteractAudio
+
 ## Temporary game states
 var temporary_game_states: Array = []
 
@@ -63,10 +66,8 @@ var mutation_cooldown: Timer = Timer.new()
 ## The label showing the currently spoken dialogue
 @onready var dialogue_label: DialogueLabel = %DialogueLabel
 
-
 ## Indicator to show that player can progress dialogue.
 @onready var progress: TextureRect = %Progress
-
 
 func _ready() -> void:
 	balloon.hide()
@@ -218,8 +219,10 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 	get_viewport().set_input_as_handled()
 
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+		interact_audio_player.play()
 		next(dialogue_line.next_id)
 	elif event.is_action_pressed(next_action) and get_viewport().gui_get_focus_owner() == balloon:
+		interact_audio_player.play()
 		next(dialogue_line.next_id)
 
 
