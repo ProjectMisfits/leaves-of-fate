@@ -1,13 +1,17 @@
-## An Area2D that can be used to trigger Player grabs.
+class_name GrabbableTrigger extends Area2D
+## An Area2D that can be used to trigger grab states for an entity.
 ## To make a scene "grabbable", nest a GrabbableTrigger as a direct child of
 ## the scene & add two functions to the scene's script:
 ## "grab()" and "release_grab()".
-extends Area2D
-class_name GrabbableTrigger
 
-var _grab_area_name: String = "GrabArea"	## The name of the player's grab area Area2D node.
-var grabbed: bool = false					## Whether this trigger is grabbed or not.
-var player_on_trigger: bool = false			## Whether the player is overlapping the trigger.
+## The name of the player's grab area Area2D node.
+var _grab_area_name: String = "GrabArea"
+
+## Whether this trigger is grabbed or not.
+var grabbed: bool = false
+
+## Whether the player is overlapping the trigger.
+var player_on_trigger: bool = false
 
 func _physics_process(_delta: float) -> void:
 	# Check if the player presses the interact button while on the trigger

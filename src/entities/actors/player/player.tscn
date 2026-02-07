@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=29 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/entities/actors/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
@@ -7,16 +7,17 @@
 [ext_resource type="Shape2D" uid="uid://0oo3ftpmvp21" path="res://src/entities/actors/player/collision_shapes/player_dash.tres" id="4_7j1dl"]
 [ext_resource type="Shape2D" uid="uid://b8ivarqjj8m6q" path="res://src/entities/actors/player/collision_shapes/player_normal.tres" id="4_lynpt"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="5_lynpt"]
+[ext_resource type="Script" uid="uid://3uombhhv6fd6" path="res://src/entities/actors/player/components/interact_component.gd" id="6_283t5"]
 [ext_resource type="Script" uid="uid://duy7f43rn783x" path="res://src/entities/actors/player/states/player_jumping.gd" id="6_c6y0n"]
 [ext_resource type="Texture2D" uid="uid://bjs6k2nuta53t" path="res://assets/entities/actors/player/fenn_walkcycle_spritesheet.png" id="6_efl0v"]
 [ext_resource type="Script" uid="uid://cksn2wvaxpq54" path="res://src/entities/actors/player/states/player_airborne.gd" id="7_q4vut"]
+[ext_resource type="Script" uid="uid://b3akxlm17c274" path="res://src/entities/actors/player/components/grab_component.gd" id="7_s3rhx"]
 [ext_resource type="Script" uid="uid://bjtwcn16kj5bl" path="res://src/entities/actors/player/states/player_dashing.gd" id="8_wcwgi"]
 [ext_resource type="PackedScene" uid="uid://b4sm5hjwev778" path="res://src/particle_effects/leaf_explosion_particle.tscn" id="9_2heww"]
 [ext_resource type="PackedScene" uid="uid://cfj172hxekuqg" path="res://src/particle_effects/leaf_particles_02.tscn" id="9_nqxrs"]
 [ext_resource type="Script" uid="uid://osptlmoqos3i" path="res://src/entities/actors/player/states/player_piling.gd" id="9_q6jdu"]
 [ext_resource type="PackedScene" uid="uid://dhcepuko5y18x" path="res://src/particle_effects/leaf_ball_particles.tscn" id="9_tda88"]
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/particle_effects/wind_particles.tscn" id="14_7j1dl"]
-[ext_resource type="PackedScene" uid="uid://dqviomxk1qqcu" path="res://src/particle_effects/leaf_particles.tscn" id="15_808gp"]
 [ext_resource type="AudioStream" uid="uid://dimhdiv10a08t" path="res://assets/entities/actors/player/player_audio/PH-leaf-enter.ogg" id="17_iloh8"]
 [ext_resource type="AudioStream" uid="uid://dxmm31nsgmehb" path="res://assets/entities/actors/player/player_audio/PH-leaf-exit.ogg" id="18_283t5"]
 
@@ -298,20 +299,26 @@ scale = Vector2(0.798, 0.798)
 texture = ExtResource("6_efl0v")
 hframes = 8
 
-[node name="InteractArea" type="Area2D" parent="FlipNode"]
+[node name="InteractComponent" type="Node2D" parent="FlipNode"]
+script = ExtResource("6_283t5")
+
+[node name="InteractRange" type="Area2D" parent="FlipNode/InteractComponent"]
 position = Vector2(80, 0)
 collision_mask = 0
 input_pickable = false
-monitoring = false
+monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/InteractArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/InteractComponent/InteractRange"]
 position = Vector2(200, 0)
 shape = SubResource("RectangleShape2D_q4vut")
 
-[node name="GrabArea" type="Area2D" parent="FlipNode"]
+[node name="GrabComponent" type="Node2D" parent="FlipNode"]
+script = ExtResource("7_s3rhx")
+
+[node name="GrabRange" type="Area2D" parent="FlipNode/GrabComponent"]
 collision_mask = 32
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/GrabArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/GrabComponent/GrabRange"]
 position = Vector2(660, 0)
 shape = SubResource("RectangleShape2D_u7uqy")
 debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
@@ -365,7 +372,7 @@ bus = &"SFX"
 stream = ExtResource("18_283t5")
 bus = &"SFX"
 
-[connection signal="area_entered" from="FlipNode/InteractArea" to="." method="_on_interact_area_area_entered"]
-[connection signal="area_exited" from="FlipNode/InteractArea" to="." method="_on_interact_area_area_exited"]
-[connection signal="body_entered" from="FlipNode/InteractArea" to="." method="_on_interact_area_body_entered"]
-[connection signal="body_exited" from="FlipNode/InteractArea" to="." method="_on_interact_area_body_exited"]
+[connection signal="area_entered" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_entered"]
+[connection signal="area_exited" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_exited"]
+[connection signal="area_entered" from="FlipNode/GrabComponent/GrabRange" to="FlipNode/GrabComponent" method="_on_grab_range_area_entered"]
+[connection signal="area_exited" from="FlipNode/GrabComponent/GrabRange" to="FlipNode/GrabComponent" method="_on_grab_range_area_exited"]
