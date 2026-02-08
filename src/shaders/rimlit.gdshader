@@ -11,6 +11,8 @@ uniform float DEBAND : hint_range(0.0, 1.0) = 1.0;
 /** Multiplies the rim highlights. If 0, just use another shader lmao. */
 uniform float OVERDRIVE : hint_range(0.5, 10.0) = 3.0;
 
+varying mat4 modelMat;
+
 //const float SPREAD = 0.9;
 //const float DIST = 16.0;
 //const float DEBAND = 1.0;
@@ -46,8 +48,15 @@ vec2 get_unit(in vec2 up, in float spreadFac) {
 	return normalize(up + left * spreadFac);
 }
 
+void vertex() {
+	modelMat = MODEL_MATRIX;
+}
+
 void light() {
-	vec2 toLight = normalize(LIGHT_DIRECTION.xy);
+	// Scary hack to get LIGHT_DIRECTION in UV space
+	vec3 lightDirection = (vec4(LIGHT_DIRECTION, 1.) * modelMat).xyz;
+	
+	vec2 toLight = normalize(lightDirection.xy);
 	float rimLight = 0.;
 
 	for (int i=0; i<RAYCOUNT; i++) {
@@ -83,7 +92,7 @@ void light() {
 	}
 
 	// Blend between rimlight/frontlight based on Z
-	float frontFactor = LIGHT_DIRECTION.z;
+	float frontFactor = lightDirection.z;
 	float lightFactor = (rimLight * OVERDRIVE) * (1. - frontFactor) + frontFactor;
 
 	//LIGHT.rgb = vec3(lightFactor);
