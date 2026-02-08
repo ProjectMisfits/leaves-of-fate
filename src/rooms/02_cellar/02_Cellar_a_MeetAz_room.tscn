@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_fy8v3"]
 [ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="2_2l7us"]
 [ext_resource type="Texture2D" uid="uid://wk7tx1t1vq5f" path="res://assets/rooms/backgrounds/grad.png" id="2_8w6tr"]
-[ext_resource type="PackedScene" uid="uid://bgncdkpxeluh4" path="res://src/entities/triggers/dialogue_trigger/dialogue_trigger.tscn" id="3_sxaqv"]
+[ext_resource type="PackedScene" uid="uid://bgncdkpxeluh4" path="res://src/entities/triggers/interact_trigger/dialogue_trigger/dialogue_trigger.tscn" id="3_sxaqv"]
 [ext_resource type="Resource" uid="uid://bg8npse24cjcw" path="res://assets/dialogue/dialogue_scripts/1-Az-Meet-GreatHall.dialogue" id="4_8w6tr"]
 [ext_resource type="PackedScene" uid="uid://n257i6n8nqs1" path="res://src/entities/decor/pillars/pillar_trunk_03.tscn" id="6_letnj"]
 [ext_resource type="Material" uid="uid://cvcmispvvy0jb" path="res://src/shaders/rimlit_shader_material.tres" id="7_edr21"]

@@ -4,9 +4,6 @@ extends Node
 
 # Create global signals by defining them here.
 
-## Emitted by a GrabbableTrigger when it enters the Player's GrabArea.
-signal grabbable_trigger_entered_grab_area(grabbable_trigger: GrabbableTrigger)
-
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 

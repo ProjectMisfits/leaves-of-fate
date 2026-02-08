@@ -8,9 +8,9 @@ func _physics_process(delta: float) -> void:
 		rotation += TAU * delta
 
 ## Set grabbed boolean to True.
-func grab() -> void:
+func _grab() -> void:
 	_grabbed = true
 
 ## Set grabbed boolean to False.
-func release_grab() -> void:
+func _ungrab() -> void:
 	_grabbed = false
