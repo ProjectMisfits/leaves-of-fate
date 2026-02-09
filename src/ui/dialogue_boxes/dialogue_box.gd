@@ -69,7 +69,17 @@ var mutation_cooldown: Timer = Timer.new()
 ## Indicator to show that player can progress dialogue.
 @onready var progress: TextureRect = %Progress
 
+##Timer for interupts
+@onready var interupt_timer : Timer = $InteruptTimer
+
+#Determines if the next line should be interupted
+var do_interupt : bool = false
+
+#Determines how fast the interupt happens
+var interupt_delay : float 
+
 func _ready() -> void:
+	EventBus.interrupt_dialogue.connect(interrupt)
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
@@ -82,6 +92,13 @@ func _ready() -> void:
 			assert(false, DMConstants.get_error_message(DMConstants.ERR_MISSING_RESOURCE_FOR_AUTOSTART))
 		start()
 
+##Function to set the interupt delay and set the variable to be true
+func interrupt(delay:String) -> void:
+	
+	interupt_delay = delay.to_float()
+	print(interupt_delay)
+	do_interupt = true
+	pass
 
 func _process(_delta: float) -> void:
 	if is_instance_valid(dialogue_line):
@@ -168,18 +185,26 @@ func apply_dialogue_line() -> void:
 
 	# Wait for next line
 	if dialogue_line.has_tag("voice"):
+
 		audio_stream_player.stream = load(dialogue_line.get_tag_value("voice"))
 		audio_stream_player.play()
 		await audio_stream_player.finished
 		next(dialogue_line.next_id)
 	elif dialogue_line.time != "":
+		
 		var time: float = dialogue_line.text.length() * 0.02 if dialogue_line.time == "auto" else dialogue_line.time.to_float()
 		await get_tree().create_timer(time).timeout
 		next(dialogue_line.next_id)
 	else:
+	
 		is_waiting_for_input = true
 		balloon.focus_mode = Control.FOCUS_ALL
 		balloon.grab_focus()
+		if(do_interupt):
+			print(interupt_delay)
+			interupt_timer.start(interupt_delay)
+			
+			
 
 
 ## Go to the next line
@@ -220,9 +245,12 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		interact_audio_player.play()
+		do_interupt = false
 		next(dialogue_line.next_id)
+		
 	elif event.is_action_pressed(next_action) and get_viewport().gui_get_focus_owner() == balloon:
 		interact_audio_player.play()
+		do_interupt = false
 		next(dialogue_line.next_id)
 
 
@@ -234,3 +262,10 @@ func _on_dialogue_label_spoke(letter: String, _letter_index: int, _speed: float)
 	if not letter in [" ", "."]:
 		audio_stream_player.pitch_scale = randf_range(.9,1.1)
 		audio_stream_player.play()
+
+
+func _on_interupt_timer_timeout() -> void:
+	if(do_interupt):
+		next(dialogue_line.next_id)
+		do_interupt = false
+	pass # Replace with function body.
