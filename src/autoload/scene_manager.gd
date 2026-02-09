@@ -23,7 +23,7 @@ func _physics_process(_delta: float) -> void:
 
 ## Swaps to the specified scene and unloads the specified scene.
 ## Returns -1 if the load failed for any reason and returns 0 if the load succeeded.
-func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload: Node) -> int:
+func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload: Node, transition_type: String = "fade_to_black") -> int:
 	# Check that the specified scene to load exists.
 	if not ResourceLoader.exists(scene_to_load, "PackedScene"):
 		push_warning("SceneManager: Requested scene '%s' does not exist at path." % scene_to_load)
@@ -36,7 +36,7 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 	swap_in_progress = true
 	
 	# Start the screen transition.
-	_add_screen_transition()
+	_add_screen_transition(transition_type)
 	
 	# Load the desired scene.
 	var loaded_scene: Node = ResourceLoader.load(scene_to_load, "PackedScene").instantiate()
@@ -69,7 +69,7 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 	return 0
 
 ## Create a screen transition, add it to the scene tree, and initiate the animation.
-func _add_screen_transition(transition_type: String = "fade_to_black") -> void:
+func _add_screen_transition(transition_type: String) -> void:
 	current_screen_transition = screen_transition_scene.instantiate()
 	get_tree().root.add_child(current_screen_transition)
 	current_screen_transition.start_transition(transition_type)
