@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://yoe4ij0ap8di"]
+[gd_scene load_steps=6 format=3 uid="uid://yoe4ij0ap8di"]
 
 [ext_resource type="Script" uid="uid://de71b7osc2rsf" path="res://src/entities/objects/TEST_grabbable_box/grabbable_box.gd" id="1_n3yok"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="2_y0vge"]
 [ext_resource type="PackedScene" uid="uid://cm33qh6em0dth" path="res://src/entities/triggers/grab_trigger/grab_trigger.tscn" id="3_y0vge"]
+[ext_resource type="PackedScene" uid="uid://dmxo8h7a10h05" path="res://src/particle_effects/claw_particles.tscn" id="4_rlsgt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rlsgt"]
 size = Vector2(128, 128)
@@ -17,3 +18,7 @@ shape = SubResource("RectangleShape2D_rlsgt")
 texture = ExtResource("2_y0vge")
 
 [node name="GrabTrigger" parent="." instance=ExtResource("3_y0vge")]
+
+[node name="ClawParticles" parent="." instance=ExtResource("4_rlsgt")]
+position = Vector2(-63, -55)
+emitting = false
