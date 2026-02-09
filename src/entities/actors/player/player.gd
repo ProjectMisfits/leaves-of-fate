@@ -349,12 +349,12 @@ func move_horizontal_ground(delta: float) -> void:
 func move_horizontal_air(delta: float) -> void:
 	move_horizontal(air_acceleration, air_deceleration, air_turn_speed, delta)
 
-## Returns the player's x-input value.
+## Returns the player's normalized x-input value.
 func get_x_input() -> float:
 	if (cutscene_mode):
 		return 0.0
 	else:
-		return Input.get_axis(&"move_left", &"move_right")
+		return ceilf(Input.get_axis(&"move_left", &"move_right"))	# Ceilf to get normalized input.
 
 ## Updates jump velocity & gravity variables
 func compute_jump_parameters() -> void:
