@@ -13,6 +13,8 @@ class_name IceScream
 
 @export var database : JSON = null
 
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
+
 
 #Acceleration when charging normally
 var normal_acceleration : float 

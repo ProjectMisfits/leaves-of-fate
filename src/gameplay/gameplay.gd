@@ -36,6 +36,9 @@ func _ready() -> void:
 	# Connect phantom camera to player
 	CameraManager.set_target(player)
 	
+	#Make the cameras limits the tile map layer
+	
+	
 	# Connect the player death signal to the respawn player function
 	player.player_knocked_out.connect(respawn_player)
 	
@@ -78,6 +81,10 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String) -> voi
 	
 	# Reconnect camera to player
 	CameraManager.set_target(player)
+	
+	# Set limit to the tile map
+
+	
 	
 	# Play the room's music, if it exists
 	if(current_room.room_music):

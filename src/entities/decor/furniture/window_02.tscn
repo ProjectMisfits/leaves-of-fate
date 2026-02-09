@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dggdoj1nhnb1j"]
+
+[ext_resource type="Texture2D" uid="uid://dssp5wrrsot3p" path="res://assets/entities/decor/furniture/Window-02.png" id="1_7fl0u"]
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_w7kkm"]
+
+[node name="Window02" type="Node2D"]
+script = ExtResource("2_w7kkm")
+
+[node name="Window02" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_7fl0u")

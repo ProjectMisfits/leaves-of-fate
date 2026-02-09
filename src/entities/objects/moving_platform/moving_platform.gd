@@ -48,8 +48,22 @@ func initialize_animation()->void:
 		animation_player.play("move_base_animation")
 		animation_player.speed_scale = cur_open_loop_speed_scale
 
-func set_closed_speed(newSpeed: float)->void:
-	cur_closed_loop_speed = newSpeed;
+func set_closed_speed(new_speed: float)->void:
+	cur_closed_loop_speed = new_speed;
 	
-func set_open_speed(_newSpeed: float)->void:
+func set_open_speed(_new_speed: float)->void:
 	animation_player.speed_scale = cur_open_loop_speed_scale
+
+## Stop the platform's movement when it is grabbed.
+func _grab()->void:
+	if closed_loop:
+		cur_closed_loop_speed = 0
+	else:
+		animation_player.speed_scale = 0
+
+## Resume the platform's movement when it is ungrabbed. 
+func _ungrab() -> void:
+	if closed_loop:
+		cur_closed_loop_speed = closed_loop_speed
+	else:
+		animation_player.speed_scale = cur_open_loop_speed_scale

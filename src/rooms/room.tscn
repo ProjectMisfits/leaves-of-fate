@@ -20,6 +20,7 @@ layer = 2
 follow_viewport_enabled = true
 
 [node name="Midground" type="TileMapLayer" parent="MidgroundLayer"]
+unique_name_in_owner = true
 tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAAAAAADAAgABgABAAAAAAAEAAgABgABAAAAAAAFAAgABgABAAAAAAAGAAgABgABAAAAAAAHAAgABgABAAAAAAAIAAgABgABAAAAAAAJAAgABgABAAAAAAAKAAgABgABAAAAAAALAAgABgABAAAAAAAMAAgABgABAAAAAAANAAgABgABAAAAAAAOAAgABgABAAAAAAA=")
 tile_set = ExtResource("2_7i7i2")
 metadata/_edit_lock_ = true

@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cvcmispvvy0jb"]
+
+[ext_resource type="Shader" uid="uid://cyil3rptl31ig" path="res://src/shaders/rimlit.gdshader" id="1_hve86"]
+
+[resource]
+shader = ExtResource("1_hve86")
+shader_parameter/DIST = 30.75600146091
+shader_parameter/SPREAD = 1.0400000494
+shader_parameter/DEBAND = 1.0
+shader_parameter/OVERDRIVE = 3.0

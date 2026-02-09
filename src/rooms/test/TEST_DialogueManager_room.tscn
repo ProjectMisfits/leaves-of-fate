@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d2naxykryeqv7"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_dxog3"]
-[ext_resource type="PackedScene" uid="uid://bgncdkpxeluh4" path="res://src/entities/triggers/dialogue_trigger/dialogue_trigger.tscn" id="3_hsekl"]
+[ext_resource type="PackedScene" uid="uid://bgncdkpxeluh4" path="res://src/entities/triggers/interact_trigger/dialogue_trigger/dialogue_trigger.tscn" id="3_hsekl"]
 [ext_resource type="Resource" uid="uid://bg8npse24cjcw" path="res://assets/dialogue/dialogue_scripts/1-Az-Meet-GreatHall.dialogue" id="4_1fo36"]
 [ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="4_nxjoa"]
 
