@@ -21,6 +21,7 @@ script = ExtResource("2_05p43")
 follow_mode = 2
 zoom = Vector2(0.3, 0.3)
 tween_resource = SubResource("Resource_05p43")
+tween_on_load = false
 follow_offset = Vector2(0, -200)
 follow_damping = true
 dead_zone_width = 0.1
@@ -30,7 +31,6 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
-top_level = true
 zoom = Vector2(0.3, 0.3)
 editor_draw_limits = true
 
