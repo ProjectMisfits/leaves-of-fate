@@ -32,6 +32,8 @@ func _update(delta: float) -> void:
 func _exit() -> void:
 	agent.set_collision_mask_value(8,true)
 	agent.collision_shape_2d.shape = agent.collision_normal
+	
+	agent.post_dash_mode = true
 
 ## Calls move_horizontal with pile ground parameters.
 func move_horizontal_pile_ground(delta: float) -> void:

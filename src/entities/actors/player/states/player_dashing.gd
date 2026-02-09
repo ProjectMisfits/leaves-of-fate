@@ -79,6 +79,8 @@ func _exit() -> void:
 	var new_look_direction: float = signf(agent.velocity.x)
 	agent.flip_node.rotation = 0.0 # Reset rotation
 	agent.look_direction = new_look_direction if (new_look_direction != 0.0) else agent.look_direction
+	
+	agent.post_dash_mode = true
 
 ## Returns the move direction Vector turned toward the input direction Vector by the angular turn speed.
 func get_turned_move_direction() -> Vector2:

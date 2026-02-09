@@ -94,6 +94,11 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 ## The Player's process_mode is NOT disabled and they may still move & change states.
 var cutscene_mode: bool = false
 
+## If True, Player just exited a dash & is airborne.
+## The Player may NOT Leaf Dash/Pile & has no air deceleration.
+## After touching the ground, this becomes false again.
+var post_dash_mode: bool = false
+
 @onready var leaf_enter_audio: AudioStreamPlayer2D = $Audio/LeafEnter
 @onready var leaf_exit_audio: AudioStreamPlayer2D = $Audio/LeafExit
 
@@ -141,6 +146,9 @@ func _ready() -> void:
 ## Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
 	add_debug_parameters()
+	
+	if (post_dash_mode and is_on_floor()):	# If landed on floor during post-dash mode, disable post-dash mode.
+		post_dash_mode = false
 	
 	# If in cutscene state, do not check for these
 	if (not cutscene_mode):
@@ -289,7 +297,7 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 	var direction: float = get_x_input()
 	var new_velocity: float = 0.0
 	
-	if (direction == 0.0) and (state_machine.get_previous_active_state() != dashing_state): # No direction & did not exit Leaf Dash
+	if (direction == 0.0) and (not post_dash_mode): # No direction & not in post-dash mode
 		new_velocity = move_toward(velocity.x, 0, deceleration * delta)
 
 	else:
@@ -387,7 +395,7 @@ func update_leaf_meter(delta: float) -> void:
 		leaf_meter_change = -1.0 * meter_dash_drain_rate
 	elif (piling_state.is_active()):
 		leaf_meter_change = -1.0 * meter_pile_drain_rate
-	elif ((state_machine.get_previous_active_state() == dashing_state) or (state_machine.get_previous_active_state() == piling_state)): # Do not change Leaf Meter post-dash until Player hits the ground
+	elif (post_dash_mode): # Do not change Leaf Meter post-dash until Player hits the ground
 		leaf_meter_change = 0.0
 	elif (signf(get_x_input()) != signf(velocity.x)): # If turning
 		leaf_meter_change = 0.0
@@ -432,6 +440,9 @@ func set_leaf_meter(new_leaf_meter: float) -> void:
 func reset_stats() -> void:
 	set_health(max_health)
 	set_leaf_meter(0.0)
+	
+	# Reset state. Uses call_deferred() to allow the current state's exit function to run.
+	state_machine.call_deferred("change_active_state", idle_state)
 
 ## Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
