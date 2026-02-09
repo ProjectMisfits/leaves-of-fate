@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bv8rolwolipyw"]
+
+[ext_resource type="Shader" uid="uid://cyil3rptl31ig" path="res://src/shaders/rimlit.gdshader" id="1_skrpl"]
+
+[resource]
+shader = ExtResource("1_skrpl")
+shader_parameter/DIST = 24.00000114
+shader_parameter/SPREAD = 0.9
+shader_parameter/DEBAND = 1.0
+shader_parameter/OVERDRIVE = 8.00000035625
