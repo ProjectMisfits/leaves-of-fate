@@ -18,3 +18,14 @@ func _physics_process(delta: float) -> void:
 			
 	if _player.state_machine.get_active_state() == _player.dashing_state:
 		_player.set_leaf_meter(_new_wind_value)
+
+func _on_body_entered(body: Node2D) -> void:
+	if (body is Player):
+		_player = body
+		_player.set_can_build_leaf(false)
+
+## If body is the Player, remove Player reference & stop wind gain/drain
+func _on_body_exited(body: Node2D) -> void:
+	if (body is Player):
+		_player.set_can_build_leaf(true)
+		_player = null

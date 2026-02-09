@@ -94,6 +94,9 @@ var jump_gravity: float = 0.0
 var time_since_on_floor: float = 0.0
 var time_since_jump_queued: float = 0.0
 
+##Variable that determines if the player can build leaf meter or not
+var can_build_leaf : bool = true
+
 ### SIGNALS ###
 signal player_knocked_out
 signal health_changed(new_health: int)
@@ -388,7 +391,7 @@ func update_leaf_meter(delta: float) -> void:
 		leaf_meter_change = 0.0
 	elif (signf(get_x_input()) != signf(velocity.x)): # If turning
 		leaf_meter_change = 0.0
-	elif (velocity != Vector2.ZERO):
+	elif (velocity != Vector2.ZERO and can_build_leaf):
 		leaf_meter_change = meter_buildup_rate
 	else:
 		leaf_meter_change = -1.0 * meter_drain_rate
@@ -396,6 +399,15 @@ func update_leaf_meter(delta: float) -> void:
 	new_leaf_meter += (leaf_meter_change * delta)
 	
 	set_leaf_meter(new_leaf_meter)
+
+##Sets if the player can build leaf meter
+func set_can_build_leaf(new_build_leaf : bool) -> void:
+	can_build_leaf = new_build_leaf
+
+##Gets if the player can build leaf meter 
+func get_can_build_leaf() -> bool:
+	return can_build_leaf
+
 
 # Decreases the Player's health by the given value.
 func hurt(damage: int) -> void:
