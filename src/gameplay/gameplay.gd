@@ -176,7 +176,7 @@ func _open_controls_menu() -> void:
 
 # Closes controls menu 
 func close_controls_menu() -> void:
-	print("called")
+	#print("called")
 	select_audio.play()
 	settings_menu.get_node("%ControlsButton").grab_focus.call_deferred()
 	menu_holder.remove_child(controls_menu)
