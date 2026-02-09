@@ -63,8 +63,8 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 	if load_as_child_of == get_tree().root:
 		current_scene = loaded_scene
 	
+	# Finish up the swap.
 	_remove_screen_transition()
-	
 	swap_in_progress = false
 	return 0
 
