@@ -83,5 +83,6 @@ func _remove_screen_transition() -> void:
 	# Wait for the animation to finish.
 	await current_screen_transition.transition_animation_player.animation_finished
 	# Remove and reset the current screen transition.
+	get_tree().root.remove_child(current_screen_transition)
 	current_screen_transition.queue_free()
 	current_screen_transition = null
