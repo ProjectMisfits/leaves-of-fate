@@ -218,6 +218,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 focus_neighbor_left = NodePath("../../EnvelopeBase/ReturnLabelButton")
+focus_neighbor_top = NodePath("../../EnvelopeBase/ReturnLabelButton")
 focus_neighbor_right = NodePath("../../EnvelopeBase/StampButton")
 focus_neighbor_bottom = NodePath("../SettingsButton")
 focus_next = NodePath("../SettingsButton")
