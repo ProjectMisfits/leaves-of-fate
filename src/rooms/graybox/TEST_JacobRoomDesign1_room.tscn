@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_wrxx8"]
 [ext_resource type="PackedScene" uid="uid://b0kcsh4u0s6h" path="res://src/entities/hazards/icicle/icicle_group_05.tscn" id="2_r2fqj"]
-[ext_resource type="PackedScene" uid="uid://d2hq2ernl83oa" path="res://assets/entities/objects/spawner/spawner.tscn" id="4_5lkvv"]
+[ext_resource type="PackedScene" uid="uid://d2hq2ernl83oa" path="res://src/entities/objects/spawner/spawner.tscn" id="4_5lkvv"]
 [ext_resource type="PackedScene" uid="uid://bg2o7v2o7bjjk" path="res://src/entities/objects/breakaway_platform/breakaway_platform.tscn" id="4_gr36w"]
 
 [node name="TEST_JacobRoomDesign1" instance=ExtResource("1_wrxx8")]
