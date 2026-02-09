@@ -36,6 +36,7 @@ var jump_corner_rounding_distance: float	## UNUSED: How close (in game units) th
 var meter_buildup_rate: float		## The amount of wind per second that the Player generates while moving.
 var meter_drain_rate: float			## The amount of wind per second that the Player loses while NOT moving.
 var meter_dash_drain_rate: float	## The amount of wind per second that the Player loses while Leaf Dashing.
+var meter_dash_end_drain: float		## The amount of wind drained after ending a Leaf Dash.
 var meter_pile_drain_rate: float	## The amount of wind per second that the Player loses while in Leaf Pile mode.
 
 var dash_max_speed: float						## The Player's speed while Leaf Dashing.
@@ -43,6 +44,7 @@ var dash_angular_turn_speed: float				## The Player's turn speed (in degrees) wh
 var dash_deceleration: float					## UNUSED: The Player's speed loss per second while Leaf Dashing with very little wind left.
 var dash_angular_turn_speed_deceleration: float	## UNUSED: The Player's turn speed loss per second while Leaf Dashing with very little wind left.
 var meter_dash_deceleration_start: float		## UNUSED: If the Player is Leaf Dashing with this amount of wind or less in their Leaf Meter, they begin slowing down.
+var dash_end_velocity_multiplier: float			## When ending a Leaf Dash, multiply velocity by this value to "fling" the Player.
 
 # ---------- Leaf Pile ---------- #
 var pile_gravity: float					## The Player's gravity while in Leaf Pile mode.
@@ -299,7 +301,6 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 	
 	if (direction == 0.0) and (not post_dash_mode): # No direction & not in post-dash mode
 		new_velocity = move_toward(velocity.x, 0, deceleration * delta)
-
 	else:
 		var new_acceleration: float = 0.0
 		
@@ -308,7 +309,7 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 		else: 											# Direction is opposite to current velocity
 			new_acceleration = direction * turn_speed * delta
 		
-		## Determine velocity debt AKA how much velocity beyond the max speed the Player has
+		# Determine velocity debt AKA how much velocity beyond the max speed the Player has
 		#var velocity_debt: float = abs(velocity.x) - run_max_speed
 		#if (is_on_floor()):
 			#velocity_debt -= ground_friction	# Apply friction to velocity debt
@@ -324,14 +325,27 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 			#new_velocity = clampf(new_velocity + new_acceleration, -new_velocity, new_velocity)
 		
 		# If just exited Leaf Dash, limit velocity by dash max speed
-		if (piling_state.is_active()):
+		if (piling_state.is_active()):	# Player in Leaf Pile mode
 			if (is_on_floor()):
 				new_velocity = clampf(velocity.x + new_acceleration, -pile_max_speed_ground, pile_max_speed_ground)
 			else:
 				new_velocity = clampf(velocity.x + new_acceleration, -pile_max_speed_air, pile_max_speed_air)
-		elif (state_machine.get_previous_active_state() == dashing_state) and (abs(velocity.x) > run_max_speed):
-			new_velocity = clampf(velocity.x + new_acceleration, -dash_max_speed, dash_max_speed)
-		else:
+		elif (abs(velocity.x) > run_max_speed):	# If Player above max run speed, do not let them add additional move velocity
+			# Trying to use clampf here with -velocity.x & velocity.x breaks the function,
+			# causing it to always return a positive value. So instead, we clamp manually here.
+			var temp_velocity: float = velocity.x + new_acceleration
+			
+			if (abs(temp_velocity) > abs(velocity.x)):
+				new_velocity = velocity.x
+			else:
+				new_velocity = temp_velocity
+			
+			# If on floor, decrease velocity by ground friction. Also enables bunny-hopping and ground-dashing.
+			if (is_on_floor()):
+				# Decrease velocity by ground friction, stop once velocity equals max run speed.
+				new_velocity = move_toward(new_velocity, run_max_speed * signf(new_velocity), ground_friction * delta)
+		else:	# Player moving regularly, on the ground OR in the air
+			# TODO: If velocity is over max run speed, decrease velocity by ground friction
 			new_velocity = clampf(velocity.x + new_acceleration, -run_max_speed, run_max_speed)
 		#print("New Velocity: ", new_velocity)
 	
@@ -360,18 +374,21 @@ func get_x_input() -> float:
 func compute_jump_parameters() -> void:
 	jump_velocity = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 	jump_gravity = ((-2.0 * jump_height) / (jump_time_to_peak ** 2)) * -1.0
+	print("Jump Gravity: ", jump_gravity)
 
 ## Returns the Player's gravity, which varies depending on whether they are jumping & holding the jump button or not.
 func compute_gravity() -> float:
-	var new_velocity: float
+	var new_gravity: float
 
 	# Control variable jump height by checking is "jump" is being held
 	if (state_machine.get_active_state() == jumping_state) and Input.is_action_pressed(&"jump"):
-		new_velocity = jump_gravity
+		new_gravity = jump_gravity
+	elif (post_dash_mode) and (not Input.is_action_pressed("move_down")):	# If in post-dash AND not pressing move_down key
+		new_gravity = jump_gravity
 	else:
-		new_velocity = jump_gravity * fall_gravity_multiplier
+		new_gravity = jump_gravity * fall_gravity_multiplier
 	
-	return new_velocity
+	return new_gravity
 
 ## Queues a new jump or updates/expires the timer since a jump was queued.
 func update_jump_queue(delta: float) -> void:
@@ -474,12 +491,14 @@ func initialize_data(data: Dictionary) -> void:
 		meter_drain_rate = data["meter_drain_rate"]
 		meter_dash_drain_rate = data["meter_dash_drain_rate"]
 		meter_pile_drain_rate = data["meter_pile_drain_rate"]
+		meter_dash_end_drain = data["meter_dash_end_drain"]
 		
 		dash_max_speed = data["dash_max_speed"]
 		dash_angular_turn_speed = data["dash_angular_turn_speed"]
 		dash_deceleration = data["dash_deceleration"]
 		dash_angular_turn_speed_deceleration = data["dash_angular_turn_speed_deceleration"]
 		meter_dash_deceleration_start = data["meter_dash_deceleration_start"]
+		dash_end_velocity_multiplier = data["dash_end_velocity_multiplier"]
 		
 		pile_gravity = data["pile_gravity"]
 		pile_terminal_velocity = data["pile_terminal_velocity"]
@@ -501,5 +520,6 @@ func initialize_data(data: Dictionary) -> void:
 func add_debug_parameters() -> void:
 	DebugMenu.add_debug_property("Player State", state_machine.get_active_state().name, 0)
 	DebugMenu.add_debug_property("Player Cutscene Mode", cutscene_mode, 0)
+	DebugMenu.add_debug_property("Player Post-dash Mode", post_dash_mode, 0)
 	DebugMenu.add_debug_property("Player Velocity", velocity, 5)
 	pass
