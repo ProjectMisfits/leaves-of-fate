@@ -82,9 +82,6 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String) -> voi
 	# Reconnect camera to player
 	CameraManager.set_target(player)
 	
-	# Set limit to the tile map
-
-	
 	
 	# Play the room's music, if it exists
 	if(current_room.room_music):
@@ -119,6 +116,8 @@ func _connect_menu_signals() -> void:
 	controls_menu.get_node("%BackButton").button_up.connect(_close_controls_menu)
 	# Connect volume menu
 	volume_menu.get_node("%BackButton").button_up.connect(_close_volume_menu)
+
+
 
 ## Toggle the game's pause state.
 func toggle_pause() -> void:

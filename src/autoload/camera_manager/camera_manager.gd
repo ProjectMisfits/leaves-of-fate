@@ -44,6 +44,30 @@ func create_camera(relative_position: Vector2, relative_zoom: float, transition_
 	# Add the new camera to the scene tree. The priority being one higher than any other phantom camera means the transition will automatically occur.
 	add_child(new_camera)
 
+## Create a new phantom camera.
+## Relative position will move it relative to wherever the current phantom camera is.
+## The current camera is either the one focused on the player or the most recent camera added by this function.
+func create_camera_with_limit(new_camera: PhantomCamera2D, transition_duration: float, transition_type: String, transition_ease: String) -> void:
+	# Create the new phantom camera to transition to. Set its priority, position, and zoom.
+	new_camera.priority = PhantomCameraManager.get_phantom_camera_2ds().size()
+	
+	# Create the tween for transitioning to the new camera. Set its duration, transition type, and easing.
+	var tween: PhantomCameraTween = PhantomCameraTween.new()
+	tween.duration = transition_duration
+	tween.transition = _string_to_tween_transition_type(transition_type)
+	tween.ease = _string_to_tween_ease_type(transition_ease)
+	
+	# Assign the tween to the new camera.
+	new_camera.tween_resource = tween
+
+	# Add the new camera to the scene tree. The priority being one higher than any other phantom camera means the transition will automatically occur.
+	new_camera.reparent(self,true)
+
+
+
+
+
+
 ## Change the priorities of all cameras to tween back to the original camera.
 func _restore_camera(_resource: DialogueResource) -> void:
 	for camera_to_remove: PhantomCamera2D in self.get_children():
@@ -89,7 +113,13 @@ func _string_to_tween_ease_type(type: String) -> PhantomCameraTween.EaseType:
 
 ## Set the camera's limit target to a specifc tilemap layer
 func set_limit(node_path : NodePath) -> void:
-	print(node_path)
 	phantom_camera.set_limit_target(node_path)
+
+##Sets the offset in of the camera 
+func set_offset(new_offset : Vector2) -> void:
+	phantom_camera.set_follow_offset(new_offset)
 	
+	pass
+
+
 	
