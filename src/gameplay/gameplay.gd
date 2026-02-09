@@ -115,11 +115,11 @@ func _connect_menu_signals() -> void:
 	# Connect settings menu
 	settings_menu.get_node("%ControlsButton").button_up.connect(_open_controls_menu)
 	settings_menu.get_node("%VolumeButton").button_up.connect(_open_volume_menu)
-	settings_menu.get_node("%BackButton").button_up.connect(_close_settings_menu)
+	settings_menu.get_node("%BackButton").button_up.connect(close_settings_menu)
 	# Connect controls menu
-	controls_menu.get_node("%BackButton").button_up.connect(_close_controls_menu)
+	controls_menu.get_node("%BackButton").button_up.connect(close_controls_menu)
 	# Connect volume menu
-	volume_menu.get_node("%BackButton").button_up.connect(_close_volume_menu)
+	volume_menu.get_node("%BackButton").button_up.connect(close_volume_menu)
 
 ## Toggle the game's pause state.
 func toggle_pause() -> void:
@@ -151,7 +151,7 @@ func _open_settings_menu() -> void:
 	settings_menu.get_node("%ControlsButton").grab_focus.call_deferred()
 
 # Close setting menu
-func _close_settings_menu() -> void:
+func close_settings_menu() -> void:
 	select_audio.play()
 	pause_menu.get_node("%ResumeButton").grab_focus.call_deferred()
 	menu_holder.remove_child(settings_menu)
@@ -163,7 +163,7 @@ func _open_volume_menu() -> void:
 	volume_menu.get_node("%MasterSlider").grab_focus.call_deferred()
 
 # Closes volume menu
-func _close_volume_menu() -> void:
+func close_volume_menu() -> void:
 	select_audio.play()
 	settings_menu.get_node("%ControlsButton").grab_focus.call_deferred()
 	menu_holder.remove_child(volume_menu)
@@ -175,7 +175,8 @@ func _open_controls_menu() -> void:
 	controls_menu.get_node("%BackButton").grab_focus.call_deferred()
 
 # Closes controls menu 
-func _close_controls_menu() -> void:
+func close_controls_menu() -> void:
+	print("called")
 	select_audio.play()
 	settings_menu.get_node("%ControlsButton").grab_focus.call_deferred()
 	menu_holder.remove_child(controls_menu)
