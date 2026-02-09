@@ -522,4 +522,3 @@ func add_debug_parameters() -> void:
 	DebugMenu.add_debug_property("Player Cutscene Mode", cutscene_mode, 0)
 	DebugMenu.add_debug_property("Player Post-dash Mode", post_dash_mode, 0)
 	DebugMenu.add_debug_property("Player Velocity", velocity, 5)
-	pass
