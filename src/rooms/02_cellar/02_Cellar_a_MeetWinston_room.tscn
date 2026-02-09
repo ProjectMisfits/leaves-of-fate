@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="3_cb0av"]
 [ext_resource type="PackedScene" uid="uid://bwadcghg6jxxu" path="res://src/entities/decor/pillars/pillar_base_03.tscn" id="3_yrprt"]
 [ext_resource type="PackedScene" uid="uid://dv6448b476yos" path="res://src/entities/hazards/icicle/icicle_06.tscn" id="4_o18oo"]
-[ext_resource type="PackedScene" uid="uid://bgncdkpxeluh4" path="res://src/entities/triggers/dialogue_trigger/dialogue_trigger.tscn" id="4_onvyk"]
+[ext_resource type="PackedScene" uid="uid://bgncdkpxeluh4" path="res://src/entities/triggers/interact_trigger/dialogue_trigger/dialogue_trigger.tscn" id="4_onvyk"]
 [ext_resource type="Resource" uid="uid://btikirxfgpxb5" path="res://assets/dialogue/dialogue_scripts/2-Ws-Meet-CellarGeneral.dialogue" id="5_ha3ky"]
 [ext_resource type="PackedScene" uid="uid://bj7fv2e6r3bp5" path="res://src/entities/hazards/icicle/icicle_05.tscn" id="5_kebhb"]
 [ext_resource type="PackedScene" uid="uid://b5pl5cenkmlqy" path="res://src/entities/hazards/icicle/icicle_04.tscn" id="6_e8f4w"]

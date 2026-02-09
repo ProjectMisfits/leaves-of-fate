@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5ybld4g7ch5"]
+
+[ext_resource type="Script" uid="uid://bxsx60dj0tnk3" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.gd" id="1_d2kul"]
+[ext_resource type="Shape2D" uid="uid://bnrtt12ohd1ix" path="res://src/entities/triggers/trigger_collision_shape.tres" id="2_ret2k"]
+
+[node name="CutsceneTrigger" type="Area2D"]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_d2kul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_ret2k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
