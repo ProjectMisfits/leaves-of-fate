@@ -69,14 +69,13 @@ var mutation_cooldown: Timer = Timer.new()
 ## Indicator to show that player can progress dialogue.
 @onready var progress: TextureRect = %Progress
 
-##Timer for interupts
-@onready var interupt_timer : Timer = $InteruptTimer
+##Timer for interrupts
+@onready var interrupt_timer : Timer = $InterruptTimer
+#Determines if the next line should be interrupted
+var do_interrupt : bool = false
 
-#Determines if the next line should be interupted
-var do_interupt : bool = false
-
-#Determines how fast the interupt happens
-var interupt_delay : float 
+#Determines how fast the interrupt happens
+var interrupt_delay : float 
 
 func _ready() -> void:
 	EventBus.interrupt_dialogue.connect(interrupt)
@@ -92,10 +91,10 @@ func _ready() -> void:
 			assert(false, DMConstants.get_error_message(DMConstants.ERR_MISSING_RESOURCE_FOR_AUTOSTART))
 		start()
 
-##Function to set the interupt delay and set the variable to be true
+##Function to set the interrupt delay and set the variable to be true
 func interrupt(delay:String) -> void:
-	interupt_delay = delay.to_float()
-	do_interupt = true
+	interrupt_delay = delay.to_float()
+	do_interrupt = true
 	
 
 func _process(_delta: float) -> void:
@@ -198,9 +197,9 @@ func apply_dialogue_line() -> void:
 		is_waiting_for_input = true
 		balloon.focus_mode = Control.FOCUS_ALL
 		balloon.grab_focus()
-		if(do_interupt):
-			print(interupt_delay)
-			interupt_timer.start(interupt_delay)
+		if(do_interrupt):
+			print(interrupt_delay)
+			interrupt_timer.start(interrupt_delay)
 			
 			
 
@@ -245,12 +244,12 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		interact_audio_player.play()
-		do_interupt = false
+		do_interrupt = false
 		next(dialogue_line.next_id)
 		
 	elif event.is_action_pressed("interact") and get_viewport().gui_get_focus_owner() == balloon:
 		interact_audio_player.play()
-		do_interupt = false
+		do_interrupt = false
 		next(dialogue_line.next_id)
 
 
@@ -263,9 +262,7 @@ func _on_dialogue_label_spoke(letter: String, _letter_index: int, _speed: float)
 		audio_stream_player.pitch_scale = randf_range(.9,1.1)
 		audio_stream_player.play()
 
-
-func _on_interupt_timer_timeout() -> void:
-	if(do_interupt):
+func _on_interrupt_timer_timeout() -> void:
+	if(do_interrupt):
 		next(dialogue_line.next_id)
-		do_interupt = false
-	pass # Replace with function body.
+		do_interrupt = false
