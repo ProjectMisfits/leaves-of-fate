@@ -8,6 +8,7 @@ data = {
 "dash_angular_turn_speed": 7.0,
 "dash_angular_turn_speed_deceleration": -1.0,
 "dash_deceleration": -1.0,
+"dash_end_velocity_multiplier": 2.0,
 "dash_max_speed": 2200.0,
 "fall_gravity_multiplier": 2.0,
 "fun_value": 1282026.0,

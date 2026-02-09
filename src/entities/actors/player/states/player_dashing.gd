@@ -18,7 +18,7 @@ func _enter() -> void:
 	agent.collision_shape_2d.shape = agent.collision_dash
 	for ps: GPUParticles2D in agent.dash_particles.get_children(): # Enable Leaf Dash particles
 		
-		print(agent.look_direction)
+		#print(agent.look_direction)
 		ps.scale.x = -1 *agent.look_direction
 		if ps.name == "LeafBall":
 			ps.show()
@@ -80,7 +80,11 @@ func _exit() -> void:
 	agent.flip_node.rotation = 0.0 # Reset rotation
 	agent.look_direction = new_look_direction if (new_look_direction != 0.0) else agent.look_direction
 	
-	agent.post_dash_mode = true
+	# If airborne, add a burst of velocity
+	if (not agent.is_on_floor()):
+		agent.post_dash_mode = true
+		agent.velocity *= agent.dash_end_velocity_multiplier
+		print("New Post-Dash Velocity: ", agent.velocity)
 
 ## Returns the move direction Vector turned toward the input direction Vector by the angular turn speed.
 func get_turned_move_direction() -> Vector2:

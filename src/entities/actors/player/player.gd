@@ -43,6 +43,7 @@ var dash_angular_turn_speed: float				## The Player's turn speed (in degrees) wh
 var dash_deceleration: float					## UNUSED: The Player's speed loss per second while Leaf Dashing with very little wind left.
 var dash_angular_turn_speed_deceleration: float	## UNUSED: The Player's turn speed loss per second while Leaf Dashing with very little wind left.
 var meter_dash_deceleration_start: float		## UNUSED: If the Player is Leaf Dashing with this amount of wind or less in their Leaf Meter, they begin slowing down.
+var dash_end_velocity_multiplier: float			## When ending a Leaf Dash, multiply velocity by this value to "fling" the Player.
 
 # ---------- Leaf Pile ---------- #
 var pile_gravity: float					## The Player's gravity while in Leaf Pile mode.
@@ -299,7 +300,6 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 	
 	if (direction == 0.0) and (not post_dash_mode): # No direction & not in post-dash mode
 		new_velocity = move_toward(velocity.x, 0, deceleration * delta)
-
 	else:
 		var new_acceleration: float = 0.0
 		
@@ -329,8 +329,8 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 				new_velocity = clampf(velocity.x + new_acceleration, -pile_max_speed_ground, pile_max_speed_ground)
 			else:
 				new_velocity = clampf(velocity.x + new_acceleration, -pile_max_speed_air, pile_max_speed_air)
-		elif (state_machine.get_previous_active_state() == dashing_state) and (abs(velocity.x) > run_max_speed):
-			new_velocity = clampf(velocity.x + new_acceleration, -dash_max_speed, dash_max_speed)
+		elif (post_dash_mode):
+			new_velocity = velocity.x + new_acceleration
 		else:
 			new_velocity = clampf(velocity.x + new_acceleration, -run_max_speed, run_max_speed)
 		#print("New Velocity: ", new_velocity)
@@ -480,6 +480,7 @@ func initialize_data(data: Dictionary) -> void:
 		dash_deceleration = data["dash_deceleration"]
 		dash_angular_turn_speed_deceleration = data["dash_angular_turn_speed_deceleration"]
 		meter_dash_deceleration_start = data["meter_dash_deceleration_start"]
+		dash_end_velocity_multiplier = data["dash_end_velocity_multiplier"]
 		
 		pile_gravity = data["pile_gravity"]
 		pile_terminal_velocity = data["pile_terminal_velocity"]
