@@ -14,8 +14,6 @@ func _enter() -> void:
 	agent.animation_player.play("player_leaf_dash")
 
 	agent.set_collision_mask_value(8,false)
-
-	agent.collision_shape_2d.shape = agent.collision_dash
 	for ps: GPUParticles2D in agent.dash_particles.get_children(): # Enable Leaf Dash particles
 		
 		print(agent.look_direction)
@@ -64,8 +62,7 @@ func _update(_delta: float) -> void:
 
 ## Revert the Player's animation, particles, and rotation back to their normal mode.
 func _exit() -> void:
-
-	agent.collision_shape_2d.shape = agent.collision_normal
+	agent.animation_player.play_backwards("player_leaf_dash")
 	agent.set_collision_mask_value(8,true)
 	for ps: GPUParticles2D in agent.dash_particles.get_children(): # Enable Leaf Dash particles
 		ps.emitting = false
