@@ -184,7 +184,7 @@ func close_controls_menu() -> void:
 ## Quits game from pause menu
 func _quit_to_main_menu() -> void:
 	select_audio.play()
-	await select_audio.finished
+	#await select_audio.finished
 	# unpauses tree and then switches out of gameplay scene to main menu scene 
 	get_tree().paused = false
 	SceneManager.swap_scenes("res://src/ui/main_menu/main_menu.tscn", null, self)
