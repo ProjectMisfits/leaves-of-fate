@@ -383,6 +383,8 @@ func compute_gravity() -> float:
 	# Control variable jump height by checking is "jump" is being held
 	if (state_machine.get_active_state() == jumping_state) and Input.is_action_pressed(&"jump"):
 		new_gravity = jump_gravity
+	elif (post_dash_mode) and (not Input.is_action_pressed("move_down")):	# If in post-dash AND not pressing move_down key
+		new_gravity = jump_gravity
 	else:
 		new_gravity = jump_gravity * fall_gravity_multiplier
 	
