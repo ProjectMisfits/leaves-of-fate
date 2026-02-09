@@ -16,6 +16,10 @@ signal player_entered_door(door: Door)
 ## Whether the player is on top of this door. Used to allow/disallow interacting with this door.
 var player_on_door: bool = false
 
+## The position to spawn the player at when they spawn at the door.
+## Used to make it easier for rooms to spawn the player on the floor.
+## Will come back to this variable and make it an export if we realize we need door variants.
+@onready var spawn_position: Vector2 = $CollisionShape2D.global_position
 
 ## Emit the player_entered_door signal when the door is entered.
 func _physics_process(_delta: float) -> void:

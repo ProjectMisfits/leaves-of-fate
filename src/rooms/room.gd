@@ -59,7 +59,7 @@ func spawn_player(player: Player, target_door_name: String) -> void:
 		if door.door_name == target_door_name:
 			print("Room '%s': Placing player at door '%s'" % [name, target_door_name])
 			player_holder.add_child(player)
-			player.global_position = door.position
+			player.global_position = door.spawn_position
 			last_entered_door = target_door_name
 			return
 	
@@ -76,7 +76,7 @@ func respawn_player(player: Player) -> void:
 	for door: Door in doors:
 		if door.door_name == last_entered_door:
 			print("Room '%s': Respawning player at door '%s'" % [name, last_entered_door])
-			player.global_position = door.position
+			player.global_position = door.global_position
 			return
 	
 	# If the target door didn't exist anywhere in the room, report the issue
