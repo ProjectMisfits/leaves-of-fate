@@ -6,6 +6,7 @@ enum wind_zone_mode {GAIN, DRAIN}	## Mode for Wind Zones.
 
 @export var database: JSON = null	## JSON Resource containing numerical data.
 @export var mode: wind_zone_mode = wind_zone_mode.GAIN	## Determines whether the Wind Zone will give or take away the Player's wind.
+##Determines whether or not the wind zones only effect the player while theyre in leaf mode
 @export var leaf_only : bool
 
 var _wind_gain_rate: float		## Amount of wind given to the Player per second.
@@ -62,10 +63,10 @@ func _on_body_entered(body: Node2D) -> void:
 	if (body is Player):
 		_player = body
 		if(leaf_only and mode == wind_zone_mode.DRAIN):
-			_player.set_can_build_leaf(false)
+			_player.set_can_build_wind(false)
 
 ## If body is the Player, remove Player reference & stop wind gain/drain
 func _on_body_exited(body: Node2D) -> void:
 	if (body is Player):
-		_player.set_can_build_leaf(true) 
+		_player.set_can_build_wind(true) 
 		_player = null

@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnmugnc4ejt58"]
-
-[ext_resource type="PackedScene" uid="uid://bk52stl8a3lwi" path="res://src/entities/objects/wind_zone/wind_zone.tscn" id="1_qfhyv"]
-[ext_resource type="Script" uid="uid://c66f61vlvdjjx" path="res://src/entities/objects/wind_zone/wind_zone_varient.gd" id="2_k8f7k"]
-
-[node name="WindZoneVarient" instance=ExtResource("1_qfhyv")]
-script = ExtResource("2_k8f7k")
