@@ -450,7 +450,7 @@ func hurt(damage: int) -> void:
 		# Launch the Player in the reverse of their look direction by an amount.
 		velocity = hit_recoil_direction.normalized() * hit_recoil_velocity * ceilf(look_direction)
 		
-		animation_player.play(&"player_hitstun")
+		#animation_player.play(&"player_hitstun")
 		
 		await animation_player.animation_finished
 		

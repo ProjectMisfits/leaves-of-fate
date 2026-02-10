@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 	#apply gravity at all times
 	if(not stationary):
 		move_and_collide(constant_linear_velocity)
-	pass
+
 
 
 #Once the break timer has gone disable collisions
