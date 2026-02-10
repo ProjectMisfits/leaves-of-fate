@@ -93,6 +93,8 @@ _data = {
 
 [node name="NpcAz" instance=ExtResource("1_3e8bs")]
 npc_name = "Az"
+walk_animation = "az_walk"
+idle_animation = "az_idle"
 
 [node name="Sprite2D" parent="FlipNode" index="0"]
 texture = ExtResource("2_0vfkb")
