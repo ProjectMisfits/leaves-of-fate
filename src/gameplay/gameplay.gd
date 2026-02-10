@@ -64,13 +64,11 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String) -> voi
 	
 	# Remove player from current room
 	current_room.despawn_player(player)
-	# Call autoload SceneManager to swap the room
-
+	# Swap in the target room
 	var target_room_loaded: int = SceneManager.swap_scenes(path_to_target_room, $RoomHolder, current_room)
 	# Make sure the load succeeded before continuing the swap
 	if (target_room_loaded != 0):
 		return
-	
 	# Update the current room
 	_update_current_room()
 	# Add player to new current room and place them at correct door
