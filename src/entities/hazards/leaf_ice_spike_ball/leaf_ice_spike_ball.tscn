@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0ddm7ewk0bkn"]
+
+[ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="1_nutsf"]
+[ext_resource type="Script" uid="uid://cuxplnhch7dtd" path="res://src/entities/hazards/leaf_ice_spike_ball/leaf_ice_spike_ball.gd" id="2_c216h"]
+
+[node name="IceSpikeBall" instance=ExtResource("1_nutsf")]
+modulate = Color(0.28627452, 0.7254902, 0, 1)
+collision_layer = 128
+script = ExtResource("2_c216h")
