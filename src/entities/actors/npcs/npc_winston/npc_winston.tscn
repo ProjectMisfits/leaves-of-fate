@@ -1,20 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://1r1id251x1o4"]
 
 [ext_resource type="PackedScene" uid="uid://daw5s2hjs0tq1" path="res://src/entities/actors/npcs/npc_base/npc_base.tscn" id="1_tg4e0"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tg4e0"]
-load_path = "res://.godot/imported/winston_placeHolder_01.png-da702a6b32a3e5d73c945ff4a0df1a3f.ctex"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dx7yp"]
-size = Vector2(231, 850)
+[ext_resource type="Texture2D" uid="uid://bobecrpwgxhv4" path="res://assets/entities/actors/npcs/winston/winston_placeHolder_01.png" id="2_8nges"]
+[ext_resource type="Shape2D" uid="uid://d0n0pamshu4kv" path="res://src/entities/actors/npcs/npc_winston/npc_winston_collision_shape.tres" id="2_k2brm"]
 
 [node name="NpcWinston" instance=ExtResource("1_tg4e0")]
+npc_name = "Winston"
+walk_animation = "winston_walk"
+idle_animation = "winston_idle"
 
-[node name="Sprite2D" parent="FlipAbles" index="0"]
-position = Vector2(-15.000002, -16.000002)
+[node name="Sprite2D" parent="FlipNode" index="0"]
+position = Vector2(-100.00001, -16)
 scale = Vector2(1.5, 1.5)
-texture = SubResource("CompressedTexture2D_tg4e0")
+texture = ExtResource("2_8nges")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(93.5, 10)
-shape = SubResource("RectangleShape2D_dx7yp")
+position = Vector2(0, 24)
+shape = ExtResource("2_k2brm")
