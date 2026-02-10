@@ -1,8 +1,8 @@
 class_name CameraTrigger extends PlayerEnterTrigger
 
 @export var limit_target : TileMapLayer
-
-
+@export var follow_player : bool
+@onready var camera : PhantomCamera2D = $PhantomCamera2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,10 +12,10 @@ func _ready() -> void:
 
 
 func _change_camera() -> void:
-	print("Setting new offsets")
 	EventBus.camera_change.emit()
-	$PhantomCamera2D.priority = 2
+	camera.priority = 2
 	#CameraManager.create_camera_with_limits($PhantomCamera2D.global_position,1,.5,"LINEAR","EASE_IN",limit_target.get_path())
 
 func reset_camera_priority() -> void:
-	$PhantomCamera2D.priority = 0
+	camera.priority = 0
+	
