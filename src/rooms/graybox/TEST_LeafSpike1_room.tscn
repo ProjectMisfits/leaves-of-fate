@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_oh1hm"]
 [ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="2_4sa3w"]
 [ext_resource type="PackedScene" uid="uid://bnmugnc4ejt58" path="res://src/entities/objects/wind_zone/wind_zone_varient.tscn" id="3_k2xmm"]
-[ext_resource type="PackedScene" uid="uid://b0ddm7ewk0bkn" path="res://src/entities/hazards/ice_spike_ball/leaf_ice_spike_ball.tscn" id="4_dgm0c"]
+[ext_resource type="PackedScene" uid="uid://b0ddm7ewk0bkn" path="res://src/entities/hazards/leaf_ice_spike_ball/leaf_ice_spike_ball.tscn" id="4_dgm0c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ierbh"]
 size = Vector2(1000, 3900)

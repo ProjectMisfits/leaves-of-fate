@@ -3,8 +3,10 @@ extends Area2D
 
 enum wind_zone_mode {GAIN, DRAIN}	## Mode for Wind Zones.
 
+
 @export var database: JSON = null	## JSON Resource containing numerical data.
 @export var mode: wind_zone_mode = wind_zone_mode.GAIN	## Determines whether the Wind Zone will give or take away the Player's wind.
+@export var leaf_only : bool
 
 var _wind_gain_rate: float		## Amount of wind given to the Player per second.
 var _wind_drain_rate: float		## Amount of wind taken from the Player per second.
@@ -45,8 +47,8 @@ func _physics_process(delta: float) -> void:
 			_new_wind_value -= _wind_drain_rate * delta
 		_:
 			return
-	
-	_player.set_leaf_meter(_new_wind_value)
+	if((_player.state_machine.get_active_state() == _player.dashing_state and leaf_only) or not leaf_only):
+		_player.set_leaf_meter(_new_wind_value)
 
 ## Initializes all variables to values extracted from the entity's database.
 func _initialize_data(data: Dictionary) -> void:
@@ -59,8 +61,11 @@ func _initialize_data(data: Dictionary) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if (body is Player):
 		_player = body
+		if(leaf_only and mode == wind_zone_mode.DRAIN):
+			_player.set_can_build_leaf(false)
 
 ## If body is the Player, remove Player reference & stop wind gain/drain
 func _on_body_exited(body: Node2D) -> void:
 	if (body is Player):
+		_player.set_can_build_leaf(true) 
 		_player = null
