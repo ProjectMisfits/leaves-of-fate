@@ -19,14 +19,14 @@ uniform vec2 positionCenter;
 uniform float warpWidth : hint_range(0.1, 48.0) = 16.0;
 uniform float warpWidthDistance : hint_range(0.0, 384.0) = 100.0;
 
-varying mat4 uvReflectMatrix;
+varying vec2 uvReflectScale;
 
 varying vec2 screenPosCenter;
-varying vec2 screenPosUp;
-varying vec2 screenPosLeft;
+varying vec2 screenLocalUp;
 varying vec2 screenUnit;
 
 // Adapted from https://github.com/toji/gl-matrix/blob/master/src/mat4.js#L1152
+#if 0
 vec3 get_mat4_scaling(in mat4 m) {
 	return vec3(
 		length(m[0]),
@@ -34,6 +34,7 @@ vec3 get_mat4_scaling(in mat4 m) {
 		length(m[2])
 	);
 }
+#endif
 
 // Simplified version of above.
 vec2 get_mat4_scaling_xy(in mat4 m) {
@@ -43,6 +44,7 @@ vec2 get_mat4_scaling_xy(in mat4 m) {
 	);
 }
 
+#if 0
 mat4 get_mat4_rotation_skew(in mat4 m) {
 	m[0].z = 0.;
 	m[1].z = 0.;
@@ -53,32 +55,34 @@ mat4 get_mat4_rotation_skew(in mat4 m) {
 	m[3] = vec4(0., 0., 0., 1);
 	return m;
 }
+#endif
+
+vec2 get_mat4_xy_up(in mat4 m) {
+	return normalize(m[1]).xy;
+}
+
+#if 0
+vec3 get_tint(in vec3 color, in float amount) {
+	color /= dot(color, vec3(0.3333));
+	return mix(vec3(1.0), color, amount);
+}
+#endif
 
 void vertex() {
 	VERTEX = (MODEL_MATRIX * vec4(VERTEX, 0., 1.)).xy;
 	
+	// Calculate a combined projection matrix to go from world space to screen space
 	mat4 projMatrix = (SCREEN_MATRIX * CANVAS_MATRIX);
 	screenUnit = get_mat4_scaling_xy(projMatrix);
 	
-	uvReflectMatrix = mat4(
-		vec4(1., 0., 0., 0.),
-		vec4(0., 1., 0., 0.),
-		vec4(0., 0., 1., 0.),
-		vec4(0., 0., 0., 1.));
-	
-	
-	uvReflectMatrix[0] *= -reflectScale;
+	uvReflectScale = vec2(-reflectScale, 1.0);
 	if (reflectMode != REFLECT_X) {
-		uvReflectMatrix[1] *= -reflectScale;
+		uvReflectScale[1] *= -reflectScale;
 	}
 	
-	//vec2 ppp = (get_mat4_rotation_skew(MODEL_MATRIX) * vec4(0.05, 0., 0., 1.)).xy;
-	//uvReflectMatrix[0].z += ppp.x;
-	//uvReflectMatrix[1].z += ppp.y * (screenUnit.y / screenUnit.x);
-
-	// TODO: Rotate reflection axis based on sprite rotation!
-	//mat4 model_rotation = get_mat4_rotation_skew(MODEL_MATRIX);
-	//uvReflectMatrix *= model_rotation;
+	// Get the sprite's up vector from its rotation matrix
+	// This lets us rotate the axis of reflection with it
+	screenLocalUp = get_mat4_xy_up(MODEL_MATRIX);
 	
 	// Takes (local) positionCenter and converts it into (screen) screenPosCenter
 	screenPosCenter = (projMatrix * MODEL_MATRIX * vec4(positionCenter, 1., 1.)).xy * 0.5 + 0.5;
@@ -102,22 +106,33 @@ float sinful_sin_sign(in float x) {
 	return sin(x * PI);
 }
 
+const float DISPERSE_AMOUNT = 0.03;
+vec3 sample_texture_lod_dispersed(in sampler2D tex, in float lod, in vec2 uv, in vec2 offset) {
+	return vec3(
+		textureLod(tex, uv + offset * (1.0 - DISPERSE_AMOUNT), lod).r,
+		textureLod(tex, uv + offset, lod).g,
+		textureLod(tex, uv + offset * (1.0 + DISPERSE_AMOUNT), lod).b
+	);
+}
+
 void fragment() {
+	vec2 invScreenUnit = 1.0 / screenUnit;
 	vec3 surfNormal = NORMAL * 0.5 * normalScale;
-	//COLOR.rgb = saturation(COLOR.rgb, 0.9);
+	//COLOR.rgb = saturation(COLOR.rgb, 0.8);
+	
 	
 	vec2 uvRelative = SCREEN_UV - screenPosCenter;
-	vec2 fakeUv = uvRelative / screenUnit * 0.01;
+	mat2 rotateFromLocal = mat2(screenLocalUp.yx * vec2(1., -1.), screenLocalUp);
 	
 	// Reflect based on mode
 	
-	uvRelative = (vec4(uvRelative, 1., 1.) * uvReflectMatrix).xy;
-	//if (reflectMode == REFLECT_X) {
-		//uvRelative *= vec2(-reflectScale, 1.0);
-	//}
-	//else {
-		//uvRelative *= vec2(-reflectScale);
-	//}
+	uvRelative *= invScreenUnit;
+	uvRelative *= rotateFromLocal;
+	uvRelative *= screenUnit;
+	
+	vec2 fakeUv = uvRelative / screenUnit * 0.01;
+	
+	uvRelative *= uvReflectScale;
 	
 	// Warp UVs around center based on reflection mode
 	
@@ -139,15 +154,24 @@ void fragment() {
 	
 	// Restore position
 
+	uvRelative *= invScreenUnit;
+	uvRelative *= inverse(rotateFromLocal);
+	uvRelative *= screenUnit;
+
 	uvRelative += screenPosCenter;
 	float fadeFactor = get_border_fade(uvRelative);
 	
+	#ifdef HIGH_QUALITY
+	vec3 reflectedSample = sample_texture_lod_dispersed(screenTexture, 1.0, vec2(0.5), vec2(-0.5) + uvRelative + surfNormal.xy * 0.3);
+	#else
 	vec3 reflectedSample = textureLod(screenTexture, uvRelative + surfNormal.xy * 0.3, 1.0).rgb;
+	#endif
+	
 	vec3 blurredSample = textureLod(screenTexture, SCREEN_UV + surfNormal.xy * 0.3, 2.0).rgb;
 	
 	vec3 reflectedColor = mix(reflectedSample, blurredSample, 1. - fadeFactor);
 	
-	COLOR.rgb = COLOR.rgb * textureAmount + reflectedColor * reflectionAmount;
+	COLOR.rgb = COLOR.rgb * textureAmount + reflectedColor * reflectionAmount; // * get_tint(blurredSample, 1.0);
 }
 
 void light() {
