@@ -43,14 +43,16 @@ func create_camera(relative_position: Vector2, relative_zoom: float, transition_
 	
 	# Add the new camera to the scene tree. The priority being one higher than any other phantom camera means the transition will automatically occur.
 	add_child(new_camera)
+	
 
-## Create a new phantom camera.
-## Relative position will move it relative to wherever the current phantom camera is.
-## The current camera is either the one focused on the player or the most recent camera added by this function.
-func create_camera_with_limit(new_camera: PhantomCamera2D, transition_duration: float, transition_type: String, transition_ease: String) -> void:
+func create_camera_with_limits(relative_position: Vector2, relative_zoom: float, transition_duration: float, transition_type: String, transition_ease: String,limit_target : NodePath) -> void:
 	# Create the new phantom camera to transition to. Set its priority, position, and zoom.
+	var new_camera: PhantomCamera2D = PhantomCamera2D.new()
 	new_camera.priority = PhantomCameraManager.get_phantom_camera_2ds().size()
 	
+	new_camera.position = relative_position
+	
+	new_camera.zoom = camera.zoom / relative_zoom
 	# Create the tween for transitioning to the new camera. Set its duration, transition type, and easing.
 	var tween: PhantomCameraTween = PhantomCameraTween.new()
 	tween.duration = transition_duration
@@ -59,14 +61,9 @@ func create_camera_with_limit(new_camera: PhantomCamera2D, transition_duration: 
 	
 	# Assign the tween to the new camera.
 	new_camera.tween_resource = tween
-
+	new_camera.set_limit_target(limit_target)
 	# Add the new camera to the scene tree. The priority being one higher than any other phantom camera means the transition will automatically occur.
-	new_camera.reparent(self,true)
-
-
-
-
-
+	add_child(new_camera)
 
 ## Change the priorities of all cameras to tween back to the original camera.
 func _restore_camera(_resource: DialogueResource) -> void:
@@ -119,7 +116,6 @@ func set_limit(node_path : NodePath) -> void:
 func set_offset(new_offset : Vector2) -> void:
 	phantom_camera.set_follow_offset(new_offset)
 	
-	pass
 
 
 	
