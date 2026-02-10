@@ -139,6 +139,70 @@ tracks/8/keys = {
 "values": [Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_s3rhx"]
+resource_name = "player_hitstun"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipNode/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_efl0v")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.1254902)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.798, 0.798)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FlipNode/Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FlipNode/Sprite2D:hframes")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
 [sub_resource type="Animation" id="Animation_8ihyl"]
 resource_name = "player_idle"
 length = 0.001
@@ -347,70 +411,6 @@ tracks/3/keys = {
 "values": [Vector2(0.798, 0.798)]
 }
 
-[sub_resource type="Animation" id="Animation_s3rhx"]
-resource_name = "player_hitstun"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FlipNode/Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("6_efl0v")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.1254902)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.798, 0.798)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("FlipNode/Sprite2D:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("FlipNode/Sprite2D:hframes")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ihyl"]
 _data = {
 &"RESET": SubResource("Animation_b1i8x"),
@@ -422,8 +422,9 @@ _data = {
 }
 
 [sub_resource type="Animation" id="Animation_e5ptp"]
-resource_name = "player_hit_invincibility"
-length = 1.5
+resource_name = "hit_invincibility"
+length = 0.3
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -431,26 +432,15 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05, 1.1999999, 1.35, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.1254902), Color(1, 1, 1, 1), Color(1, 1, 1, 0.1254902), Color(1, 1, 1, 1), Color(1, 1, 1, 0.1254902), Color(1, 1, 1, 1), Color(1, 1, 1, 0.1254902), Color(1, 1, 1, 1), Color(1, 1, 1, 0.1254902), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.1254902), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s1o6p"]
 _data = {
-&"player_hit_invincibility": SubResource("Animation_e5ptp")
+&"hit_invincibility": SubResource("Animation_e5ptp")
 }
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
@@ -557,7 +547,11 @@ bus = &"SFX"
 stream = ExtResource("18_283t5")
 bus = &"SFX"
 
+[node name="InvincibilityTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="area_entered" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_entered"]
 [connection signal="area_exited" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_exited"]
 [connection signal="area_entered" from="FlipNode/GrabComponent/GrabRange" to="FlipNode/GrabComponent" method="_on_grab_range_area_entered"]
 [connection signal="area_exited" from="FlipNode/GrabComponent/GrabRange" to="FlipNode/GrabComponent" method="_on_grab_range_area_exited"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_end_invincibility"]

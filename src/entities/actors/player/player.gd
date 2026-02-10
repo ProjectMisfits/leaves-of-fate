@@ -62,6 +62,7 @@ var pile_air_deceleration: float		## The Player's X-velocity loss per second whi
 var pile_air_turn_speed: float			## The Player's X-velocity gain per second while turning to move in the opposite direction in Leaf Pile mode & in the air.
 
 # ---------- Misc. ---------- #
+var hit_invincibility_time: float		## How long after being hit that the Player is invincible for.
 var fun_value: int						## Every copy of Project Misfits is personalized.
 
 # -------------------- NODE REFERENCES -------------------- #
@@ -82,6 +83,13 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 ## different animations depending on the Player's state.
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+## AnimationPlayer with an "invincibility" modulation animation.
+## Plays on repeat until stopped manually.
+@onready var invincibility_animation_player: AnimationPlayer = $InvincibilityAnimationPlayer
+
+## While active, the Player is invincible & cannot be damaged normally.
+@onready var invincibility_timer: Timer = $InvincibilityTimer
+
 # ---------- State Machine & States ---------- #
 @onready var state_machine: LimboHSM = $LimboHSM				## Reference to the Player's State Machine.
 @onready var idle_state: LimboState = $LimboHSM/Idle			## Reference to the Player's Idle State.
@@ -100,6 +108,9 @@ var cutscene_mode: bool = false
 ## The Player may NOT Leaf Dash/Pile & has no air deceleration.
 ## After touching the ground, this becomes false again.
 var post_dash_mode: bool = false
+
+## If True, Player is invincible & cannot be damaged normally.
+var invincible: bool = false
 
 @onready var leaf_enter_audio: AudioStreamPlayer2D = $Audio/LeafEnter
 @onready var leaf_exit_audio: AudioStreamPlayer2D = $Audio/LeafExit
@@ -427,9 +438,34 @@ func update_leaf_meter(delta: float) -> void:
 
 ## Decreases the Player's health by the given value.
 func hurt(damage: int) -> void:
-	set_health(current_health - damage)
+	if (invincible):
+		return	# Do not deal damage.
+	else:
+		set_health(current_health - damage)
+		start_invincibility(hit_invincibility_time)	# Make Player invincible for an amount of time.
 
-## Set the Player's current health, update the health UI, and check for Player knockout
+## Make the Player invincible & starts the Invincibility Timer.
+func start_invincibility(time: float) -> void:
+	if (time <= 0.0):
+		push_warning("start_invincibility(): given time is 0.0 or less.")
+		return
+	
+	invincible = true
+	invincibility_timer.start(time)
+	invincibility_animation_player.play(&"hit_invincibility")
+
+## Run once the Invincibility Timer ends.
+## Ends the Player's invincibility.
+func _end_invincibility() -> void:
+	if (not invincible):
+		push_warning("end_invincibility(): Player is not currently invincible.")
+		return
+	
+	invincible = false
+	invincibility_animation_player.stop()
+
+## Set the Player's current health, update the health UI, and check for Player knockout.
+## Health set in this way disregards invincibility.
 func set_health(new_health: int) -> void:
 	if (cutscene_mode):
 		push_warning("set_health(): Cutscene Mode active, health not set.")
@@ -514,6 +550,7 @@ func initialize_data(data: Dictionary) -> void:
 		pile_air_deceleration = data["pile_air_deceleration"]
 		pile_air_turn_speed = data["pile_air_turn_speed"]
 		
+		hit_invincibility_time = data["hit_invincibility_time"]
 		fun_value = data["fun_value"]
 
 ## Adds various Player variables to the Debug Menu.

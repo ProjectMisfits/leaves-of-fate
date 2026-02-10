@@ -16,6 +16,7 @@ data = {
 "ground_deceleration": 14400.0,
 "ground_friction": 20000.0,
 "ground_turn_speed": 24000.0,
+"hit_invincibility_time": 1.5,
 "jump_buffer_time": 0.1,
 "jump_corner_rounding_distance": 0.0,
 "jump_coyote_time": 0.15,
