@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://do5hbmjewvamt"]
+
+[ext_resource type="Script" uid="uid://btkdfnlhfss8a" path="res://src/entities/triggers/player_enter_trigger/music_trigger/music_trigger.gd" id="1_tngad"]
+[ext_resource type="Shape2D" uid="uid://bnrtt12ohd1ix" path="res://src/entities/triggers/trigger_collision_shape.tres" id="2_v3dw8"]
+
+[node name="MusicTrigger" type="Area2D"]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_tngad")
+repeatable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_v3dw8")
