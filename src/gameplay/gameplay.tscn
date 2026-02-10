@@ -35,6 +35,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
+top_level = true
 zoom = Vector2(0.3, 0.3)
 editor_draw_limits = true
 

@@ -1,43 +1,44 @@
-[gd_scene load_steps=7 format=3 uid="uid://bg2o7v2o7bjjk"]
+[gd_scene load_steps=7 format=3 uid="uid://m8q2vrvmf8m0"]
 
-[ext_resource type="Script" uid="uid://bykxxx1kav2bq" path="res://src/entities/objects/breakaway_platform/breakaway_platform.gd" id="1_crjif"]
-[ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="1_jrvjl"]
-[ext_resource type="JSON" uid="uid://ucpe3jpcwmfn" path="res://src/entities/objects/breakaway_platform/break_away_platform.tres" id="2_3eq40"]
+[ext_resource type="Script" uid="uid://bykxxx1kav2bq" path="res://src/entities/objects/breakaway_platform/breakaway_platform.gd" id="1_ts485"]
+[ext_resource type="JSON" uid="uid://c26t0c51na3tq" path="res://src/entities/objects/breakaway_platform/break_away_platform2.tres" id="2_ts485"]
+[ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="3_g7m2d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_crjif"]
 size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3eq40"]
-size = Vector2(128, 140)
+size = Vector2(128, 124)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jrvjl"]
-size = Vector2(124, 31)
+size = Vector2(126.97006, 42)
 
-[node name="BreakawayPlatform" type="AnimatableBody2D"]
+[node name="BreakawayPlatform2" type="StaticBody2D"]
+scale = Vector2(13.36, 2.619)
 collision_layer = 4
-script = ExtResource("1_crjif")
-database = ExtResource("2_3eq40")
+script = ExtResource("1_ts485")
+database = ExtResource("2_ts485")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.9935339, 0.51197547, 1, 1)
-texture = ExtResource("1_jrvjl")
+texture = ExtResource("3_g7m2d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_crjif")
 
 [node name="PlayerCheck" type="Area2D" parent="."]
-collision_layer = 4
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
-position = Vector2(0, -6)
+position = Vector2(0, 1.9999999)
 shape = SubResource("RectangleShape2D_3eq40")
 
 [node name="BreakAwayArea" type="Area2D" parent="."]
-collision_layer = 4
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BreakAwayArea"]
-visible = false
-position = Vector2(0, -53.5)
+position = Vector2(-0.0868252, -67.201225)
+scale = Vector2(1.0000001, 1)
 shape = SubResource("RectangleShape2D_jrvjl")
 
 [node name="BreakTime" type="Timer" parent="."]

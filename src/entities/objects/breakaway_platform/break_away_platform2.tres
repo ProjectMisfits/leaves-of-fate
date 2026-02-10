@@ -1,0 +1,10 @@
+[gd_resource type="JSON" format=3 uid="uid://c26t0c51na3tq"]
+
+[resource]
+data = {
+&"break_time": 0.5,
+&"gravity": 10.0,
+&"respawn_time": 3.0,
+&"respawnable": false,
+&"stationary": false
+}

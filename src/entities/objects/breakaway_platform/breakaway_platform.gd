@@ -45,11 +45,15 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	sprite.modulate = Color(1.0, 0.426, 0.357, 1.0)
 	break_timer.start(break_time)
 
+func _ready() -> void:
+	constant_linear_velocity = Vector2(0,gravity)
+
+
 func _physics_process(delta: float) -> void:
 	#apply gravity at all times
-
-	position.y += gravity * delta
-	
+	if(not stationary):
+		move_and_collide(constant_linear_velocity)
+	pass
 
 
 #Once the break timer has gone disable collisions
