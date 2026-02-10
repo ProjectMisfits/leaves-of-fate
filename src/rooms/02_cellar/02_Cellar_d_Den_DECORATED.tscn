@@ -1,7 +1,7 @@
 [gd_scene load_steps=44 format=4 uid="uid://bdbuuoljlim4f"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_yfktr"]
-[ext_resource type="Gradient" uid="uid://cy32pu1r17tvk" path="res://src/rooms/02_cellar/cellar_gradient.tres" id="2_ad6lj"]
+[ext_resource type="Gradient" uid="uid://cy32pu1r17tvk" path="res://assets/rooms/backgrounds/cellar_gradient.tres" id="2_ad6lj"]
 [ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="3_h2ty1"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="4_ro12q"]
 [ext_resource type="PackedScene" uid="uid://b6p26modf3ljr" path="res://src/entities/decor/furniture/window_01.tscn" id="5_s334o"]

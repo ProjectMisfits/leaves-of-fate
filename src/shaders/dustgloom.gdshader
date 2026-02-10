@@ -3,9 +3,13 @@ render_mode blend_disabled, unshaded;
 
 #include "./_shared.gdshaderinc"
 
+uniform float bloomScale : hint_range(0.0, 4.0) = 2.0;
+
 uniform sampler2D screenTexture : hint_screen_texture, filter_linear_mipmap;
 uniform sampler2D noiseDetail : hint_default_black, repeat_enable;
-uniform vec2 uvNoiseScale = vec2(8., 4.);
+uniform vec2 uvNoiseScale = vec2(1., 1.);
+
+varying vec2 worldVtxPos;
 
 vec4 sample_bloom(in sampler2D tex, in vec2 uv) {
 	return (
@@ -21,6 +25,10 @@ vec3 pow_luma(in vec3 color, in float p) {
 	return color * (luma2 / luma);
 }
 
+void vertex() {
+	worldVtxPos = (MODEL_MATRIX * vec4(VERTEX, 0., 1.)).xy * 0.0008 * uvNoiseScale.xy;
+}
+
 void fragment() {
 	// SCREEN READS
 	
@@ -29,11 +37,12 @@ void fragment() {
 	
 	// This method causes weird color blending, pow_luma should fix it i think
 	//vec3 bloomPow = pow(bloomySample, vec3(3.0)) * 4.0;
-	vec3 bloomPow = pow_luma(bloomySample, 4.0) * 2.0;
+	vec3 bloomPow = pow_luma(bloomySample, 4.0) * bloomScale;
 	
 	// DUST
 	
-	vec3 noiseSample = texture(noiseDetail, UV * uvNoiseScale + vec2(0., TIME * 0.02)).rgb;
+	vec2 uv = worldVtxPos;
+	vec3 noiseSample = texture(noiseDetail, uv * uvNoiseScale + vec2(0., TIME * -0.02)).rgb;
 	noiseSample *= saturation(bloomPow, 5.0) * 3.0;
 	
 	// GLOOM
