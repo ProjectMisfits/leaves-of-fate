@@ -46,6 +46,9 @@ var dash_angular_turn_speed_deceleration: float	## UNUSED: The Player's turn spe
 var meter_dash_deceleration_start: float		## UNUSED: If the Player is Leaf Dashing with this amount of wind or less in their Leaf Meter, they begin slowing down.
 var dash_end_velocity_multiplier: float			## When ending a Leaf Dash, multiply velocity by this value to "fling" the Player.
 
+var post_dash_gravity: float						## Gravity applied to Player during the post-dash mode.
+var post_dash_fast_fall_gravity_multiplier: float	## Multiplier for Player gravity while pressing the move_down action during the post-dash mode.
+
 # ---------- Leaf Pile ---------- #
 var pile_gravity: float					## The Player's gravity while in Leaf Pile mode.
 var pile_terminal_velocity: float		## The Player's maximum downward Y-velocity while in Leaf Pile mode.
@@ -62,6 +65,9 @@ var pile_air_deceleration: float		## The Player's X-velocity loss per second whi
 var pile_air_turn_speed: float			## The Player's X-velocity gain per second while turning to move in the opposite direction in Leaf Pile mode & in the air.
 
 # ---------- Misc. ---------- #
+var hit_recoil_velocity: float			## How far the Player is launched after being hit.
+var hit_recoil_direction: Vector2		## The direction the Player is launched after being hit.
+var hit_invincibility_time: float		## How long after being hit that the Player is invincible for.
 var fun_value: int						## Every copy of Project Misfits is personalized.
 
 # -------------------- NODE REFERENCES -------------------- #
@@ -82,6 +88,13 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 ## different animations depending on the Player's state.
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+## AnimationPlayer with an "invincibility" modulation animation.
+## Plays on repeat until stopped manually.
+@onready var invincibility_animation_player: AnimationPlayer = $InvincibilityAnimationPlayer
+
+## While active, the Player is invincible & cannot be damaged normally.
+@onready var invincibility_timer: Timer = $InvincibilityTimer
+
 # ---------- State Machine & States ---------- #
 @onready var state_machine: LimboHSM = $LimboHSM				## Reference to the Player's State Machine.
 @onready var idle_state: LimboState = $LimboHSM/Idle			## Reference to the Player's Idle State.
@@ -101,6 +114,9 @@ var cutscene_mode: bool = false
 ## After touching the ground, this becomes false again.
 var post_dash_mode: bool = false
 
+## If True, Player is invincible & cannot be damaged normally.
+var invincible: bool = false
+
 @onready var leaf_enter_audio: AudioStreamPlayer2D = $Audio/LeafEnter
 @onready var leaf_exit_audio: AudioStreamPlayer2D = $Audio/LeafExit
 
@@ -118,6 +134,9 @@ var jump_velocity: float = 0.0
 var jump_gravity: float = 0.0
 var time_since_on_floor: float = 0.0	## How long (in seconds) the Player has been on the floor for. Used to validate a coyote time jump.
 var time_since_jump_queued: float = 0.0	## How long (in seconds) since the Player queued a jump. Used to validate a buffered jump.
+
+##Variable that determines if the player can build leaf meter or not
+var can_build_wind : bool = true
 
 # -------------------- SIGNALS -------------------- #
 signal player_knocked_out					## Emitted when the Player loses all of their health.
@@ -309,21 +328,6 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 		else: 											# Direction is opposite to current velocity
 			new_acceleration = direction * turn_speed * delta
 		
-		# Determine velocity debt AKA how much velocity beyond the max speed the Player has
-		#var velocity_debt: float = abs(velocity.x) - run_max_speed
-		#if (is_on_floor()):
-			#velocity_debt -= ground_friction	# Apply friction to velocity debt
-		#print("Velocity Debt: ", velocity_debt)
-		#
-		#if (velocity_debt > 0):		# If velocity debt exists
-			#
-			#var capped_new_velocity: float = clampf(velocity.x, -run_max_speed, run_max_speed)
-			#var signed_velocity_debt: float = velocity_debt * signf(velocity.x)	# Change sign to proper movement direction
-			#
-			#new_velocity = capped_new_velocity + signed_velocity_debt
-			#
-			#new_velocity = clampf(new_velocity + new_acceleration, -new_velocity, new_velocity)
-		
 		# If just exited Leaf Dash, limit velocity by dash max speed
 		if (piling_state.is_active()):	# Player in Leaf Pile mode
 			if (is_on_floor()):
@@ -374,7 +378,6 @@ func get_x_input() -> float:
 func compute_jump_parameters() -> void:
 	jump_velocity = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 	jump_gravity = ((-2.0 * jump_height) / (jump_time_to_peak ** 2)) * -1.0
-	print("Jump Gravity: ", jump_gravity)
 
 ## Returns the Player's gravity, which varies depending on whether they are jumping & holding the jump button or not.
 func compute_gravity() -> float:
@@ -383,8 +386,11 @@ func compute_gravity() -> float:
 	# Control variable jump height by checking is "jump" is being held
 	if (state_machine.get_active_state() == jumping_state) and Input.is_action_pressed(&"jump"):
 		new_gravity = jump_gravity
-	elif (post_dash_mode) and (not Input.is_action_pressed("move_down")):	# If in post-dash AND not pressing move_down key
-		new_gravity = jump_gravity
+	elif (post_dash_mode):
+		if (Input.is_action_pressed(&"move_down")):	# If in post-dash AND pressing move_down key
+			new_gravity = post_dash_gravity * post_dash_fast_fall_gravity_multiplier
+		else:
+			new_gravity = post_dash_gravity
 	else:
 		new_gravity = jump_gravity * fall_gravity_multiplier
 	
@@ -416,7 +422,7 @@ func update_leaf_meter(delta: float) -> void:
 		leaf_meter_change = 0.0
 	elif (signf(get_x_input()) != signf(velocity.x)): # If turning
 		leaf_meter_change = 0.0
-	elif (velocity != Vector2.ZERO):
+	elif (velocity != Vector2.ZERO and can_build_wind):
 		leaf_meter_change = meter_buildup_rate
 	else:
 		leaf_meter_change = -1.0 * meter_drain_rate
@@ -425,11 +431,54 @@ func update_leaf_meter(delta: float) -> void:
 	
 	set_leaf_meter(new_leaf_meter)
 
+##Sets if the player can build leaf meter
+func set_can_build_wind(new_build_wind : bool) -> void:
+	can_build_wind = new_build_wind
+
+##Gets if the player can build leaf meter 
+func get_can_build_wind() -> bool:
+	return can_build_wind
+
 ## Decreases the Player's health by the given value.
 func hurt(damage: int) -> void:
-	set_health(current_health - damage)
+	if (invincible):
+		return	# Do not deal damage.
+	else:
+		set_health(current_health - damage)
+		cutscene_mode = true	# Temporarily disable user controls.
+		
+		# Launch the Player in the reverse of their look direction by an amount.
+		velocity = hit_recoil_direction.normalized() * hit_recoil_velocity * ceilf(look_direction)
+		
+		animation_player.play(&"player_hitstun")
+		
+		await animation_player.animation_finished
+		
+		cutscene_mode = false	# Re-enable user controls.
+		start_invincibility(hit_invincibility_time)	# Make Player invincible for an amount of time.
 
-## Set the Player's current health, update the health UI, and check for Player knockout
+## Make the Player invincible & starts the Invincibility Timer.
+func start_invincibility(time: float) -> void:
+	if (time <= 0.0):
+		push_warning("start_invincibility(): given time is 0.0 or less.")
+		return
+	
+	invincible = true
+	invincibility_timer.start(time)
+	invincibility_animation_player.play(&"hit_invincibility")
+
+## Run once the Invincibility Timer ends.
+## Ends the Player's invincibility.
+func _end_invincibility() -> void:
+	if (not invincible):
+		push_warning("end_invincibility(): Player is not currently invincible.")
+		return
+	
+	invincible = false
+	invincibility_animation_player.stop()
+
+## Set the Player's current health, update the health UI, and check for Player knockout.
+## Health set in this way disregards invincibility.
 func set_health(new_health: int) -> void:
 	if (cutscene_mode):
 		push_warning("set_health(): Cutscene Mode active, health not set.")
@@ -500,6 +549,9 @@ func initialize_data(data: Dictionary) -> void:
 		meter_dash_deceleration_start = data["meter_dash_deceleration_start"]
 		dash_end_velocity_multiplier = data["dash_end_velocity_multiplier"]
 		
+		post_dash_gravity = data["post_dash_gravity"]
+		post_dash_fast_fall_gravity_multiplier = data["post_dash_fast_fall_gravity_multiplier"]
+		
 		pile_gravity = data["pile_gravity"]
 		pile_terminal_velocity = data["pile_terminal_velocity"]
 
@@ -514,6 +566,9 @@ func initialize_data(data: Dictionary) -> void:
 		pile_air_deceleration = data["pile_air_deceleration"]
 		pile_air_turn_speed = data["pile_air_turn_speed"]
 		
+		hit_recoil_velocity = data["hit_recoil_velocity"]
+		hit_recoil_direction = data["hit_recoil_direction"]
+		hit_invincibility_time = data["hit_invincibility_time"]
 		fun_value = data["fun_value"]
 
 ## Adds various Player variables to the Debug Menu.
