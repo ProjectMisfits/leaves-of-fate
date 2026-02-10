@@ -42,6 +42,8 @@ data = {
 "pile_max_speed_air": 900.0,
 "pile_max_speed_ground": 450.0,
 "pile_terminal_velocity": 600.0,
+"post_dash_fast_fall_gravity_multiplier": 2.0,
+"post_dash_gravity": 8000.0,
 "run_max_speed": 2000.0,
 "terminal_velocity": 12000.0
 }

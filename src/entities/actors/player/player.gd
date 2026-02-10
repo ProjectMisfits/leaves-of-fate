@@ -46,6 +46,9 @@ var dash_angular_turn_speed_deceleration: float	## UNUSED: The Player's turn spe
 var meter_dash_deceleration_start: float		## UNUSED: If the Player is Leaf Dashing with this amount of wind or less in their Leaf Meter, they begin slowing down.
 var dash_end_velocity_multiplier: float			## When ending a Leaf Dash, multiply velocity by this value to "fling" the Player.
 
+var post_dash_gravity: float						## Gravity applied to Player during the post-dash mode.
+var post_dash_fast_fall_gravity_multiplier: float	## Multiplier for Player gravity while pressing the move_down action during the post-dash mode.
+
 # ---------- Leaf Pile ---------- #
 var pile_gravity: float					## The Player's gravity while in Leaf Pile mode.
 var pile_terminal_velocity: float		## The Player's maximum downward Y-velocity while in Leaf Pile mode.
@@ -372,7 +375,6 @@ func get_x_input() -> float:
 func compute_jump_parameters() -> void:
 	jump_velocity = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 	jump_gravity = ((-2.0 * jump_height) / (jump_time_to_peak ** 2)) * -1.0
-	print("Jump Gravity: ", jump_gravity)
 
 ## Returns the Player's gravity, which varies depending on whether they are jumping & holding the jump button or not.
 func compute_gravity() -> float:
@@ -381,8 +383,11 @@ func compute_gravity() -> float:
 	# Control variable jump height by checking is "jump" is being held
 	if (state_machine.get_active_state() == jumping_state) and Input.is_action_pressed(&"jump"):
 		new_gravity = jump_gravity
-	elif (post_dash_mode) and (not Input.is_action_pressed("move_down")):	# If in post-dash AND not pressing move_down key
-		new_gravity = jump_gravity
+	elif (post_dash_mode):
+		if (Input.is_action_pressed(&"move_down")):	# If in post-dash AND pressing move_down key
+			new_gravity = post_dash_gravity * post_dash_fast_fall_gravity_multiplier
+		else:
+			new_gravity = post_dash_gravity
 	else:
 		new_gravity = jump_gravity * fall_gravity_multiplier
 	
@@ -532,6 +537,9 @@ func initialize_data(data: Dictionary) -> void:
 		dash_angular_turn_speed_deceleration = data["dash_angular_turn_speed_deceleration"]
 		meter_dash_deceleration_start = data["meter_dash_deceleration_start"]
 		dash_end_velocity_multiplier = data["dash_end_velocity_multiplier"]
+		
+		post_dash_gravity = data["post_dash_gravity"]
+		post_dash_fast_fall_gravity_multiplier = data["post_dash_fast_fall_gravity_multiplier"]
 		
 		pile_gravity = data["pile_gravity"]
 		pile_terminal_velocity = data["pile_terminal_velocity"]
