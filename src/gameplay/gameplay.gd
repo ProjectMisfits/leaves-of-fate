@@ -83,9 +83,13 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String) -> voi
 
 ## Resets the Player's stats & respawns them at the last door they exited.
 func respawn_player() -> void:
+	# Begin a screen transition.
+	SceneManager.add_screen_transition("fade_to_black")
 	player.reset_stats()
 	player.velocity = Vector2.ZERO	# Reset Player velocity
 	current_room.respawn_player(player)
+	# Finish the screen transition.
+	SceneManager.remove_screen_transition()
 
 ## UI FUNCTIONALITY
 
