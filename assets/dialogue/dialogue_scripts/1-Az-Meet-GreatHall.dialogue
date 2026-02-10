@@ -1,5 +1,6 @@
 ~ start
 do! CameraManager.create_camera(Vector2(750.0, -100.0), 0.5, 3, "CUBIC", "EASE_IN_OUT")
+do! CutsceneManager.npc_move("Az", "left", 200.0, 10.0, false)
 Fenn: Whoa! Are you Az? Az Featherstone?
 #							Relative Position,		Zoom x and y, trans duration, transition type, ease type
 #do! CameraManager.create_camera(Vector2(200.0, 200.0), Vector2(1.0, 1.0), 2.0, "LINEAR", "EASE_IN")
