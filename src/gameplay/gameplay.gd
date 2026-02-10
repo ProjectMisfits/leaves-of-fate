@@ -69,6 +69,7 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String) -> voi
 	# Remove player from current room
 	current_room.despawn_player(player)
 	# Call autoload SceneManager to swap the room
+
 	var target_room_loaded: int = SceneManager.swap_scenes(path_to_target_room, $RoomHolder, current_room)
 	# Make sure the load succeeded before continuing the swap
 	if (target_room_loaded != 0):
@@ -111,11 +112,11 @@ func _connect_menu_signals() -> void:
 	# Connect settings menu
 	settings_menu.get_node("%ControlsButton").button_up.connect(_open_controls_menu)
 	settings_menu.get_node("%VolumeButton").button_up.connect(_open_volume_menu)
-	settings_menu.get_node("%BackButton").button_up.connect(_close_settings_menu)
+	settings_menu.get_node("%BackButton").button_up.connect(close_settings_menu)
 	# Connect controls menu
-	controls_menu.get_node("%BackButton").button_up.connect(_close_controls_menu)
+	controls_menu.get_node("%BackButton").button_up.connect(close_controls_menu)
 	# Connect volume menu
-	volume_menu.get_node("%BackButton").button_up.connect(_close_volume_menu)
+	volume_menu.get_node("%BackButton").button_up.connect(close_volume_menu)
 
 
 
@@ -149,7 +150,7 @@ func _open_settings_menu() -> void:
 	settings_menu.get_node("%ControlsButton").grab_focus.call_deferred()
 
 # Close setting menu
-func _close_settings_menu() -> void:
+func close_settings_menu() -> void:
 	select_audio.play()
 	pause_menu.get_node("%ResumeButton").grab_focus.call_deferred()
 	menu_holder.remove_child(settings_menu)
@@ -161,7 +162,7 @@ func _open_volume_menu() -> void:
 	volume_menu.get_node("%MasterSlider").grab_focus.call_deferred()
 
 # Closes volume menu
-func _close_volume_menu() -> void:
+func close_volume_menu() -> void:
 	select_audio.play()
 	settings_menu.get_node("%ControlsButton").grab_focus.call_deferred()
 	menu_holder.remove_child(volume_menu)
@@ -173,7 +174,8 @@ func _open_controls_menu() -> void:
 	controls_menu.get_node("%BackButton").grab_focus.call_deferred()
 
 # Closes controls menu 
-func _close_controls_menu() -> void:
+func close_controls_menu() -> void:
+	#print("called")
 	select_audio.play()
 	settings_menu.get_node("%ControlsButton").grab_focus.call_deferred()
 	menu_holder.remove_child(controls_menu)
@@ -181,7 +183,7 @@ func _close_controls_menu() -> void:
 ## Quits game from pause menu
 func _quit_to_main_menu() -> void:
 	select_audio.play()
-	await select_audio.finished
+	#await select_audio.finished
 	# unpauses tree and then switches out of gameplay scene to main menu scene 
 	get_tree().paused = false
 	SceneManager.swap_scenes("res://src/ui/main_menu/main_menu.tscn", null, self)
