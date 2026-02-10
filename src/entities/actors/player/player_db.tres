@@ -9,7 +9,7 @@ data = {
 "dash_angular_turn_speed_deceleration": -1.0,
 "dash_deceleration": -1.0,
 "dash_end_velocity_multiplier": 2.5,
-"dash_max_speed": 2200.0,
+"dash_max_speed": 2300.0,
 "fall_gravity_multiplier": 2.0,
 "fun_value": 1282026.0,
 "ground_acceleration": 18000.0,
@@ -39,6 +39,6 @@ data = {
 "pile_max_speed_air": 900.0,
 "pile_max_speed_ground": 450.0,
 "pile_terminal_velocity": 600.0,
-"run_max_speed": 2000.0,
+"run_max_speed": 2200.0,
 "terminal_velocity": 12000.0
 }
