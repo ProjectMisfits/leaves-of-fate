@@ -62,6 +62,8 @@ var pile_air_deceleration: float		## The Player's X-velocity loss per second whi
 var pile_air_turn_speed: float			## The Player's X-velocity gain per second while turning to move in the opposite direction in Leaf Pile mode & in the air.
 
 # ---------- Misc. ---------- #
+var hit_recoil_velocity: float			## How far the Player is launched after being hit.
+var hit_recoil_direction: Vector2		## The direction the Player is launched after being hit.
 var hit_invincibility_time: float		## How long after being hit that the Player is invincible for.
 var fun_value: int						## Every copy of Project Misfits is personalized.
 
@@ -427,6 +429,16 @@ func hurt(damage: int) -> void:
 		return	# Do not deal damage.
 	else:
 		set_health(current_health - damage)
+		cutscene_mode = true	# Temporarily disable user controls.
+		
+		# Launch the Player in the reverse of their look direction by an amount.
+		velocity = hit_recoil_direction.normalized() * hit_recoil_velocity * ceilf(look_direction)
+		
+		animation_player.play(&"player_hitstun")
+		
+		await animation_player.animation_finished
+		
+		cutscene_mode = false	# Re-enable user controls.
 		start_invincibility(hit_invincibility_time)	# Make Player invincible for an amount of time.
 
 ## Make the Player invincible & starts the Invincibility Timer.
@@ -535,6 +547,8 @@ func initialize_data(data: Dictionary) -> void:
 		pile_air_deceleration = data["pile_air_deceleration"]
 		pile_air_turn_speed = data["pile_air_turn_speed"]
 		
+		hit_recoil_velocity = data["hit_recoil_velocity"]
+		hit_recoil_direction = data["hit_recoil_direction"]
 		hit_invincibility_time = data["hit_invincibility_time"]
 		fun_value = data["fun_value"]
 
