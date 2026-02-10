@@ -461,6 +461,7 @@ collision_mask = 16
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/InteractComponent/InteractRange"]
+visible = false
 position = Vector2(200, 0)
 shape = SubResource("RectangleShape2D_q4vut")
 
@@ -476,6 +477,7 @@ collision_mask = 32
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/GrabComponent/GrabRange"]
+visible = false
 position = Vector2(660, 0)
 shape = SubResource("RectangleShape2D_u7uqy")
 debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
@@ -521,6 +523,7 @@ script = ExtResource("9_q6jdu")
 libraries = {
 &"": SubResource("AnimationLibrary_8ihyl")
 }
+speed_scale = 1.5
 
 [node name="InvincibilityAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -6,6 +6,8 @@ extends Node
 #Signal to interupt dialouge moments
 signal interrupt_dialogue(delay: String)
 
+signal camera_change
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
