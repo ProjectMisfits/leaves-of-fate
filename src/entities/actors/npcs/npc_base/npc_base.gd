@@ -35,6 +35,7 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2.ZERO
 			move_axis = 0
 			global_position.x = target_x
+			animation_player.play(idle_animation)
 	
 	# Add the gravity.
 	if not is_on_floor():
