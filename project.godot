@@ -22,13 +22,14 @@ buses/default_bus_layout="uid://bboukivc3dgxm"
 
 [autoload]
 
-DebugMenu="*res://src/autoload/debug_menu/debug_menu.tscn"
+EventBus="*res://src/autoload/event_bus.gd"
 SceneManager="*res://src/autoload/scene_manager.gd"
+EventFlags="*res://src/autoload/event_flags/event_flags.gd"
+DebugMenu="*res://src/autoload/debug_menu/debug_menu.tscn"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 CameraManager="*res://src/autoload/camera_manager/camera_manager.gd"
+CutsceneManager="*res://src/autoload/cutscene_manager/cutscene_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-EventBus="*res://src/autoload/event_bus.gd"
-EventFlags="*res://src/autoload/event_flags/event_flags.gd"
 MusicManager="*res://src/autoload/audio_managers/music_manager.tscn"
 AmbianceManager="*res://src/autoload/audio_managers/ambiance_manager.tscn"
 
@@ -46,6 +47,7 @@ runtime/balloon_path="uid://du42aku0qy3o5"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=4
 window/size/resizable=false
 window/size/window_width_override=1920
 window/size/window_height_override=1080
