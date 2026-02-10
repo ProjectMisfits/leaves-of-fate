@@ -1,0 +1,87 @@
+extends Node
+## A manager for cutscene sequences.Primarily allows for easier npc movement scripting from dialogue resource files.
+
+## A signal emitted whenever a cutscene is started.
+signal cutscene_started
+signal cutscene_ended
+
+## An array containing all npcs in the current room that are available for movement scripting during a cutscene.
+var npcs: Array[NPC]
+
+func _ready() -> void:
+	cutscene_ended.connect(_end_cutscene)
+
+## Takes an npc name and returns an instance of the npc associated with that name.
+func _npc_name_to_instance(npc_name: String) -> NPC:
+	match npc_name:
+		"Az":
+			return preload("res://src/entities/actors/npcs/npc_az/npc_az.tscn").instantiate()
+		"Winston":
+			return preload("res://src/entities/actors/npcs/npc_winston/npc_winston.tscn").instantiate()
+		_:
+			return null
+
+## Get the NPC with the given name from the npcs array. If the given NPC doesn't exist, returns null.
+func _get_npc(npc_name: String) -> NPC:
+	for npc: NPC in npcs:
+		if npc.npc_name == npc_name:
+			return npc
+	return null
+
+## Adds the given NPC to the NPCs array.
+func register_npc(npc: NPC) -> void:
+	# Make sure the NPC doesn't already exist
+	if _get_npc(npc.npc_name) != null:
+		push_error("CutsceneManager: Duplicate NPC %s registered!" % npc.npc_name)
+		return
+	npcs.append(npc)
+
+## Create the specified npc at the given location.
+func create_npc(npc_name: String, position: Vector2) -> void:
+	# Create the NPC
+	var npc_instance: NPC = _npc_name_to_instance(npc_name)
+	# Check that the NPC was created successfully
+	if npc_instance == null:
+		push_error("CutsceneManager: No valid NPC for name %s." % npc_name)
+		return
+	# Add the NPC to the list of NPCs in the cutscene and set its position
+	npcs.append(npc_instance)
+	npc_instance.global_position = position
+
+## Remove the specified npc from the cutscene.
+func remove_npc(npc_name: String) -> void:
+	# Get a reference to the NPC
+	var npc_instance: NPC = _get_npc(npc_name)
+	# If the NPC was in the list of NPCs, remove it from the list and delete it.
+	if npc_instance == null:
+		push_error("CutsceneManager: No valid NPC for name %s." % npc_name)
+		return
+	npcs.erase(npc_instance)
+	npc_instance.queue_free()
+
+## Move the specified npc in the given direction for the given duration or distance.
+func npc_move(npc_name: String, move_direction: String, distance: float = 1.0, speed: float = 1.0, animate_walk: bool = true, moonwalk: bool = false) -> void:
+	# Get a reference to the NPC
+	var npc_instance: NPC = _get_npc(npc_name)
+	if npc_instance == null:
+		push_error("CutsceneManager: No valid NPC for name %s." % npc_name)
+		return
+	# Script the NPC to move to a position.
+	npc_instance.move(move_direction, distance, speed, animate_walk, moonwalk)
+
+## Turn the specified npc to face the given direction.
+func npc_face(npc_name: String, direction: String) -> void:
+	# Get a reference to the NPC
+	var npc_instance: NPC = _get_npc(npc_name)
+	if npc_instance == null:
+		push_error("CutsceneManager: No valid NPC for name %s." % npc_name)
+		return
+	# Script the NPC to face a direction.
+	npc_instance.set_look(direction)
+
+## End cutscene management.
+func _end_cutscene() -> void:
+	# Remove all registered npcs.
+	for npc: NPC in npcs:
+		npc.queue_free()
+	npcs.clear()
