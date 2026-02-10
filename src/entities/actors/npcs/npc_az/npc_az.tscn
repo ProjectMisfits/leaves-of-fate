@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnc5ghx3ns12"]
+[gd_scene load_steps=7 format=3 uid="uid://cnc5ghx3ns12"]
 
 [ext_resource type="PackedScene" uid="uid://daw5s2hjs0tq1" path="res://src/entities/actors/npcs/npc_base/npc_base.tscn" id="1_3e8bs"]
 [ext_resource type="Texture2D" uid="uid://ckbv0pikghyok" path="res://assets/entities/actors/npcs/az/Az-SpriteSheet-Idle-05.png" id="2_0vfkb"]
+[ext_resource type="Shape2D" uid="uid://dckafgmp1s840" path="res://src/entities/actors/npcs/npc_az/npc_az_collision_shape.tres" id="3_1o21l"]
 
 [sub_resource type="Animation" id="Animation_1o21l"]
 length = 0.001
@@ -92,13 +93,17 @@ _data = {
 
 [node name="NpcAz" instance=ExtResource("1_3e8bs")]
 
+[node name="FlipAbles" parent="." index="0"]
+position = Vector2(-23, 0)
+
 [node name="Sprite2D" parent="FlipAbles" index="0"]
 texture = ExtResource("2_0vfkb")
 hframes = 5
 region_rect = Rect2(-8, 0, 2216, 770)
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(3, 3)
+position = Vector2(0, 13)
+shape = ExtResource("3_1o21l")
 
 [node name="AnimationPlayer" parent="." index="2"]
 libraries = {
