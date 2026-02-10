@@ -23,7 +23,7 @@ func _physics_process(_delta: float) -> void:
 
 ## Swaps to the specified scene and unloads the specified scene.
 ## Returns -1 if the load failed for any reason and returns 0 if the load succeeded.
-func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload: Node, transition_type: String = "fade_to_black") -> int:
+func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload: Node) -> int:
 	# Check that the specified scene to load exists.
 	if not ResourceLoader.exists(scene_to_load, "PackedScene"):
 		push_warning("SceneManager: Requested scene '%s' does not exist at path." % scene_to_load)
@@ -35,11 +35,8 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 	
 	# Start the swap.
 	swap_in_progress = true
-	add_screen_transition(transition_type)
-	
 	# Load the desired scene.
 	var loaded_scene: Node = ResourceLoader.load(scene_to_load, "PackedScene").instantiate()
-	
 	# Check that the scene loaded correctly.
 	if loaded_scene == null:
 		push_warning("SceneManager: Requested scene '%s' did not load properly." % scene_to_load)
@@ -63,9 +60,16 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 		current_scene = loaded_scene
 	
 	# Finish up the swap.
-	remove_screen_transition()
 	swap_in_progress = false
 	return 0
+
+## Swaps to the specified scene and unloads the specified scene with a screen transition bookending the swap.
+## Use if you need to do a rote swap and don't have any additional teardown or setup you want to hide with a screen transition.
+func swap_scenes_with_transition(scene_to_load: String, load_as_child_of: Node, scene_to_unload: Node, transition_type: String = "fade_to_black") -> int:
+	add_screen_transition(transition_type)
+	var return_code: int = swap_scenes(scene_to_load, load_as_child_of, scene_to_unload)
+	remove_screen_transition()
+	return return_code
 
 ## Create a screen transition, add it to the scene tree, and initiate the animation.
 func add_screen_transition(transition_type: String) -> void:

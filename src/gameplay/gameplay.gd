@@ -59,9 +59,10 @@ func _update_current_room() -> void:
 
 ## Swap to the specified Room and unload the current Room.
 func _on_swap_room(path_to_target_room: String, target_door_name: String) -> void:
+	# Begin a screen transition.
+	SceneManager.add_screen_transition("fade_to_black")
 	# Disconnect camera from player
 	CameraManager.clear_target()
-	
 	# Remove player from current room
 	current_room.despawn_player(player)
 	# Swap in the target room
@@ -77,6 +78,8 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String) -> voi
 	current_room.spawn_player(player, target_door_name)
 	# Reconnect camera to player
 	CameraManager.set_target(player)
+	# Finish the screen transition.
+	SceneManager.remove_screen_transition()
 
 ## Resets the Player's stats & respawns them at the last door they exited.
 func respawn_player() -> void:
@@ -166,4 +169,4 @@ func _quit_to_main_menu() -> void:
 	#await select_audio.finished
 	# unpauses tree and then switches out of gameplay scene to main menu scene 
 	get_tree().paused = false
-	SceneManager.swap_scenes("res://src/ui/main_menu/main_menu.tscn", null, self)
+	SceneManager.swap_scenes_with_transition("res://src/ui/main_menu/main_menu.tscn", null, self)
