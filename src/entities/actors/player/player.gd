@@ -320,21 +320,6 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 		else: 											# Direction is opposite to current velocity
 			new_acceleration = direction * turn_speed * delta
 		
-		# Determine velocity debt AKA how much velocity beyond the max speed the Player has
-		#var velocity_debt: float = abs(velocity.x) - run_max_speed
-		#if (is_on_floor()):
-			#velocity_debt -= ground_friction	# Apply friction to velocity debt
-		#print("Velocity Debt: ", velocity_debt)
-		#
-		#if (velocity_debt > 0):		# If velocity debt exists
-			#
-			#var capped_new_velocity: float = clampf(velocity.x, -run_max_speed, run_max_speed)
-			#var signed_velocity_debt: float = velocity_debt * signf(velocity.x)	# Change sign to proper movement direction
-			#
-			#new_velocity = capped_new_velocity + signed_velocity_debt
-			#
-			#new_velocity = clampf(new_velocity + new_acceleration, -new_velocity, new_velocity)
-		
 		# If just exited Leaf Dash, limit velocity by dash max speed
 		if (piling_state.is_active()):	# Player in Leaf Pile mode
 			if (is_on_floor()):
