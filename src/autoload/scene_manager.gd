@@ -36,7 +36,7 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 	swap_in_progress = true
 	
 	# Start the screen transition.
-	_add_screen_transition(transition_type)
+	add_screen_transition(transition_type)
 	
 	# Load the desired scene.
 	var loaded_scene: Node = ResourceLoader.load(scene_to_load, "PackedScene").instantiate()
@@ -64,12 +64,12 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 		current_scene = loaded_scene
 	
 	# Finish up the swap.
-	_remove_screen_transition()
+	remove_screen_transition()
 	swap_in_progress = false
 	return 0
 
 ## Create a screen transition, add it to the scene tree, and initiate the animation.
-func _add_screen_transition(transition_type: String) -> void:
+func add_screen_transition(transition_type: String) -> void:
 	current_screen_transition = screen_transition_scene.instantiate()
 	get_tree().root.add_child(current_screen_transition)
 	current_screen_transition.start_transition(transition_type)
@@ -77,7 +77,7 @@ func _add_screen_transition(transition_type: String) -> void:
 	await current_screen_transition.transition_animation_player.animation_finished
 	
 ## Reverse the screen transition animation and remove the screen transition from the scene tree.
-func _remove_screen_transition() -> void:
+func remove_screen_transition() -> void:
 	# Reverse the screen transition animation.
 	current_screen_transition.finish_transition()
 	# Wait for the animation to finish.
