@@ -10,6 +10,15 @@ script = ExtResource("1_t665v")
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
+[node name="ColorRect" type="ColorRect" parent="BackgroundLayer"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.138, 0.15866669, 0.2, 1)
+
 [node name="Background" type="Sprite2D" parent="BackgroundLayer"]
 
 [node name="Decor" type="Node2D" parent="BackgroundLayer"]
