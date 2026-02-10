@@ -11,4 +11,4 @@ shader_parameter/textureAmount = 0.6000000285
 shader_parameter/reflectionAmount = 0.800000038
 shader_parameter/positionCenter = Vector2(-23.28, 18.2)
 shader_parameter/warpWidth = 1.00000004424012
-shader_parameter/warpWidthDistance = 217.97201035367
+shader_parameter/warpWidthDistance = 237.282011270895

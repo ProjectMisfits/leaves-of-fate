@@ -19,8 +19,7 @@ uniform vec2 positionCenter;
 uniform float warpWidth : hint_range(0.1, 48.0) = 16.0;
 uniform float warpWidthDistance : hint_range(0.0, 384.0) = 100.0;
 
-//varying mat4 combinedMatrix;
-//varying mat4 invCombinedMatrix;
+varying mat4 uvReflectMatrix;
 
 varying vec2 screenPosCenter;
 varying vec2 screenPosUp;
@@ -44,17 +43,45 @@ vec2 get_mat4_scaling_xy(in mat4 m) {
 	);
 }
 
+mat4 get_mat4_rotation_skew(in mat4 m) {
+	m[0].z = 0.;
+	m[1].z = 0.;
+	m[2].z = 0.;
+	m[0] = normalize(m[0]);
+	m[1] = normalize(m[1]);
+	m[2] = normalize(m[2]);
+	m[3] = vec4(0., 0., 0., 1);
+	return m;
+}
+
 void vertex() {
 	VERTEX = (MODEL_MATRIX * vec4(VERTEX, 0., 1.)).xy;
 	
-	mat4 combinedMatrix = (SCREEN_MATRIX * CANVAS_MATRIX);
-	//invCombinedMatrix = inverse(combinedMatrix);
+	mat4 projMatrix = (SCREEN_MATRIX * CANVAS_MATRIX);
+	screenUnit = get_mat4_scaling_xy(projMatrix);
 	
-	screenUnit = get_mat4_scaling_xy(combinedMatrix);
+	uvReflectMatrix = mat4(
+		vec4(1., 0., 0., 0.),
+		vec4(0., 1., 0., 0.),
+		vec4(0., 0., 1., 0.),
+		vec4(0., 0., 0., 1.));
 	
+	
+	uvReflectMatrix[0] *= -reflectScale;
+	if (reflectMode != REFLECT_X) {
+		uvReflectMatrix[1] *= -reflectScale;
+	}
+	
+	//vec2 ppp = (get_mat4_rotation_skew(MODEL_MATRIX) * vec4(0.05, 0., 0., 1.)).xy;
+	//uvReflectMatrix[0].z += ppp.x;
+	//uvReflectMatrix[1].z += ppp.y * (screenUnit.y / screenUnit.x);
+
+	// TODO: Rotate reflection axis based on sprite rotation!
+	//mat4 model_rotation = get_mat4_rotation_skew(MODEL_MATRIX);
+	//uvReflectMatrix *= model_rotation;
 	
 	// Takes (local) positionCenter and converts it into (screen) screenPosCenter
-	screenPosCenter = (combinedMatrix * MODEL_MATRIX * vec4(positionCenter, 1., 1.)).xy * 0.5 + 0.5;
+	screenPosCenter = (projMatrix * MODEL_MATRIX * vec4(positionCenter, 1., 1.)).xy * 0.5 + 0.5;
 }
 
 // code reuse ftw
@@ -68,6 +95,7 @@ float get_border_fade(in vec2 uv) {
 }
 
 // worst function ever. fuck you
+// like sign(x) except with smoothing between (-1, 1)
 float sinful_sin_sign(in float x) {
 	if (x < -0.5) return -1.;
 	if (x > 0.5) return 1.;
@@ -83,12 +111,13 @@ void fragment() {
 	
 	// Reflect based on mode
 	
-	if (reflectMode == REFLECT_X) {
-		uvRelative *= vec2(-reflectScale, 1.0);
-	}
-	else {
-		uvRelative *= vec2(-reflectScale);
-	}
+	uvRelative = (vec4(uvRelative, 1., 1.) * uvReflectMatrix).xy;
+	//if (reflectMode == REFLECT_X) {
+		//uvRelative *= vec2(-reflectScale, 1.0);
+	//}
+	//else {
+		//uvRelative *= vec2(-reflectScale);
+	//}
 	
 	// Warp UVs around center based on reflection mode
 	
