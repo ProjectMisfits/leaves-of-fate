@@ -16,7 +16,9 @@ script = ExtResource("1_m8xrn")
 shape = ExtResource("2_klofp")
 
 [node name="PhantomCamera2D" type="Node2D" parent="."]
+top_level = true
 script = ExtResource("3_dmfm2")
+follow_mode = 2
 tween_resource = SubResource("Resource_ukrk8")
 draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"

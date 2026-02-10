@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://daw0h2ils3lfh"]
+[gd_scene load_steps=10 format=4 uid="uid://d2mhpg8075r1j"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_jeet2"]
 [ext_resource type="PackedScene" uid="uid://bk52stl8a3lwi" path="res://src/entities/objects/wind_zone/wind_zone.tscn" id="2_y31gs"]
@@ -107,7 +107,7 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_nbagi")
 
 [node name="PhantomCamera2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger" index="2"]
-position = Vector2(3513, -1281.9999)
+position = Vector2(3513, -1016.0001)
 zoom = Vector2(0.3, 0.3)
 limit_target = NodePath("../../../../Midground")
 
