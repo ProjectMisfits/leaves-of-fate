@@ -67,7 +67,7 @@ func npc_move(npc_name: String, move_direction: String, distance: float = 1.0, s
 		push_error("CutsceneManager: No valid NPC for name %s." % npc_name)
 		return
 	# Script the NPC to move to a position.
-	npc.move(move_direction, distance, speed, animate_walk, moonwalk)
+	npc_instance.move(move_direction, distance, speed, animate_walk, moonwalk)
 
 ## Turn the specified npc to face the given direction.
 func npc_face(npc_name: String, direction: String) -> void:
