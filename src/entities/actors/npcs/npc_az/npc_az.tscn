@@ -92,6 +92,7 @@ _data = {
 }
 
 [node name="NpcAz" instance=ExtResource("1_3e8bs")]
+npc_name = "Az"
 
 [node name="FlipAbles" parent="." index="0"]
 position = Vector2(-23, 0)
