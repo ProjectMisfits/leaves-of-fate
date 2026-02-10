@@ -36,15 +36,11 @@ func _ready() -> void:
 	# Connect phantom camera to player
 	CameraManager.set_target(player)
 	
-	#Make the cameras limits the tile map layer
-	
-	
 	# Connect the player death signal to the respawn player function
 	player.player_knocked_out.connect(respawn_player)
 	
 	# Passes player to the Hud so that Hud can update based on player actions
 	$%Hud.set_player(player)
-	
 	# Connect UI menu signals
 	_connect_menu_signals()
 
@@ -79,22 +75,8 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String) -> voi
 	_update_current_room()
 	# Add player to new current room and place them at correct door
 	current_room.spawn_player(player, target_door_name)
-	
 	# Reconnect camera to player
 	CameraManager.set_target(player)
-	
-	
-	# Play the room's music, if it exists
-	if(current_room.room_music):
-		MusicManager._play_song(current_room.room_music)
-	else:
-		MusicManager.stop()
-	
-	# Load the room's ambiance, if it exists
-	if(current_room.room_ambiance):
-		AmbianceManager._load_ambiance(current_room.room_ambiance)
-	else:
-		AmbianceManager.stop()
 
 ## Resets the Player's stats & respawns them at the last door they exited.
 func respawn_player() -> void:
@@ -117,8 +99,6 @@ func _connect_menu_signals() -> void:
 	controls_menu.get_node("%BackButton").button_up.connect(close_controls_menu)
 	# Connect volume menu
 	volume_menu.get_node("%BackButton").button_up.connect(close_volume_menu)
-
-
 
 ## Toggle the game's pause state.
 func toggle_pause() -> void:
