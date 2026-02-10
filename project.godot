@@ -54,6 +54,7 @@ window/stretch/mode="viewport"
 
 [editor]
 
+naming/node_name_num_separator=3
 script/templates_search_path="res://src/script_templates"
 
 [editor_plugins]
