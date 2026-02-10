@@ -15,6 +15,8 @@ class_name MovingPlatform extends Path2D
 @export  var open_loop_speed_scale:float = 1.0
 #Controls the easing of the platform going back and forth 
 @export var easing: float = -1.5
+#All path follow 2D nodes in the path
+@export var paths : Array[PathFollow2D]
 
 #Controls the current speed at which the platform goes along the path
 var cur_closed_loop_speed: float
@@ -40,7 +42,7 @@ func _process(_delta: float) -> void:
 
 func progress_path()->void:
 	if closed_loop:
-		for path_child in self.get_children():
+		for path_child : PathFollow2D in paths:
 			if path_child.get_class() == "PathFollow2D":
 				path_child.progress += cur_closed_loop_speed
 
