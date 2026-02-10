@@ -8,5 +8,6 @@ func _ready() -> void:
 
 
 func _reset_camera() -> void:
-	CameraManager._restore_camera(null)
+	#CameraManager._restore_camera(null)
+	EventBus.camera_change.emit()
 	

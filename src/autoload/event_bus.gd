@@ -3,6 +3,9 @@
 extends Node
 
 # Create global signals by defining them here.
+
+signal camera_change
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 

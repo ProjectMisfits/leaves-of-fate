@@ -44,15 +44,14 @@ zoom = Vector2(0.3, 0.3)
 limit_target = NodePath("../../../../Midground")
 
 [node name="CameraResetTrigger" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("3_0j266")]
-position = Vector2(9870, 238)
+position = Vector2(9591, -833)
 repeatable = true
 
 [node name="CollisionShape2D" parent="MidgroundLayer/Entities/Triggers/CameraResetTrigger" index="0"]
-position = Vector2(-561, -1056)
 shape = SubResource("RectangleShape2D_7jcmw")
 
 [node name="CameraResetTrigger2" parent="MidgroundLayer/Entities/Triggers" index="2" instance=ExtResource("3_0j266")]
-position = Vector2(3512, 238)
+position = Vector2(3111, 204)
 repeatable = true
 
 [node name="CollisionShape2D" parent="MidgroundLayer/Entities/Triggers/CameraResetTrigger2" index="0"]
