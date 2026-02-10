@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://wxvub3svduoi"]
+
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="1_d71ii"]
+[ext_resource type="Texture2D" uid="uid://ciqjgyhl0dlih" path="res://assets/entities/decor/pillars/Arch-Round-Cracked.png" id="2_d71ii"]
+
+[node name="ArchRoundCracked" type="Node2D"]
+use_parent_material = true
+script = ExtResource("1_d71ii")
+
+[node name="ArchRoundCracked" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(0, -507)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("2_d71ii")

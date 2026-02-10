@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dr4cwnspn2mf2" path="res://src/entities/actors/player/states/player_running.gd" id="4_7gsup"]
 [ext_resource type="Shape2D" uid="uid://0oo3ftpmvp21" path="res://src/entities/actors/player/collision_shapes/player_dash.tres" id="4_7j1dl"]
 [ext_resource type="Shape2D" uid="uid://b8ivarqjj8m6q" path="res://src/entities/actors/player/collision_shapes/player_normal.tres" id="4_lynpt"]
+[ext_resource type="Material" uid="uid://bv8rolwolipyw" path="res://src/shaders/RimLitPlayer.tres" id="5_e5ptp"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="5_lynpt"]
 [ext_resource type="Script" uid="uid://3uombhhv6fd6" path="res://src/entities/actors/player/components/interact_component.gd" id="6_283t5"]
 [ext_resource type="Script" uid="uid://duy7f43rn783x" path="res://src/entities/actors/player/states/player_jumping.gd" id="6_c6y0n"]
@@ -126,18 +127,6 @@ tracks/7/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath(".:scale")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_s3rhx"]
 resource_name = "player_hitstun"
@@ -169,38 +158,38 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:scale")
+tracks/2/path = NodePath("FlipNode/Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.798, 0.798)]
+"update": 1,
+"values": [0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("FlipNode/Sprite2D:frame")
+tracks/3/path = NodePath("FlipNode/Sprite2D:hframes")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [8]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("FlipNode/Sprite2D:hframes")
+tracks/4/path = NodePath("FlipNode/Sprite2D:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
+"update": 0,
+"values": [Vector2(0.798, 0.798)]
 }
 
 [sub_resource type="Animation" id="Animation_8ihyl"]
@@ -457,6 +446,7 @@ shape = ExtResource("4_lynpt")
 [node name="FlipNode" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="FlipNode"]
+material = ExtResource("5_e5ptp")
 scale = Vector2(0.798, 0.798)
 texture = ExtResource("6_efl0v")
 hframes = 8
