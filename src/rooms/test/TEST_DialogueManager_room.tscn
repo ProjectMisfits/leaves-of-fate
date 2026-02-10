@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_dxog3"]
 [ext_resource type="PackedScene" uid="uid://bgncdkpxeluh4" path="res://src/entities/triggers/interact_trigger/dialogue_trigger/dialogue_trigger.tscn" id="3_hsekl"]
-[ext_resource type="Resource" uid="uid://bg8npse24cjcw" path="res://assets/dialogue/dialogue_scripts/1-Az-Meet-GreatHall.dialogue" id="4_1fo36"]
+[ext_resource type="Resource" uid="uid://vdi6hdwmhlj1" path="res://assets/dialogue/dialogue_scripts/5-Ws-Ambush-CellarGeneral.dialogue" id="4_1fo36"]
 [ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="4_nxjoa"]
 
 [node name="TEST_DialogueManager" instance=ExtResource("1_dxog3")]
 
 [node name="AzNpc" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("4_nxjoa")]
-position = Vector2(1273, 621)
+position = Vector2(1062, 580)
 
 [node name="DialogueTrigger" parent="MidgroundLayer/Entities/NPCs/AzNpc" index="3" instance=ExtResource("3_hsekl")]
 dialogue_sequence = ExtResource("4_1fo36")
-requires_interact = true
+dialogue_start = "ambushed"

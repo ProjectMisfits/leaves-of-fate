@@ -4,7 +4,8 @@ extends LimboState
 ## Set the Player's animation.
 func _enter() -> void:
 	#print("Player State Transition: to_idle")
-	agent.animation_player.play("player_idle")
+	agent.animation_player.clear_queue()
+	agent.animation_player.queue("player_idle")
 	pass
 
 ## Check if the Player may transition into another state.

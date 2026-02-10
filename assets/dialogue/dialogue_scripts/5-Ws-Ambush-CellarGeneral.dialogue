@@ -1,3 +1,4 @@
+
 ~ ambushed
 Wizard: Well well well. What doth we has't here? A lone pint-size, is't?
 Fenn: Why do you call me that? I'm Fenn.
@@ -13,6 +14,7 @@ Wizard: AZ? Liketh apprentice Az? Like, like Az Featherstone, Az?
 Fenn: Yeah. We're like-eth best friends.
 Az: Uh. Sure.
 Wizard: Wherefore is the lady? How doth she be talking?
+do EventBus.interrupt_dialogue.emit(".2")
 Fenn: Oh! Az made these cool frienship bracelets-
 Az: Bangles
 Fenn: Bangles. And we can talk through them!
