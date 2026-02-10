@@ -135,6 +135,9 @@ var jump_gravity: float = 0.0
 var time_since_on_floor: float = 0.0	## How long (in seconds) the Player has been on the floor for. Used to validate a coyote time jump.
 var time_since_jump_queued: float = 0.0	## How long (in seconds) since the Player queued a jump. Used to validate a buffered jump.
 
+##Variable that determines if the player can build leaf meter or not
+var can_build_wind : bool = true
+
 # -------------------- SIGNALS -------------------- #
 signal player_knocked_out					## Emitted when the Player loses all of their health.
 signal health_changed(new_health: int)		## Emitted when the Player's health changes.
@@ -419,7 +422,7 @@ func update_leaf_meter(delta: float) -> void:
 		leaf_meter_change = 0.0
 	elif (signf(get_x_input()) != signf(velocity.x)): # If turning
 		leaf_meter_change = 0.0
-	elif (velocity != Vector2.ZERO):
+	elif (velocity != Vector2.ZERO and can_build_wind):
 		leaf_meter_change = meter_buildup_rate
 	else:
 		leaf_meter_change = -1.0 * meter_drain_rate
@@ -427,6 +430,14 @@ func update_leaf_meter(delta: float) -> void:
 	new_leaf_meter += (leaf_meter_change * delta)
 	
 	set_leaf_meter(new_leaf_meter)
+
+##Sets if the player can build leaf meter
+func set_can_build_wind(new_build_wind : bool) -> void:
+	can_build_wind = new_build_wind
+
+##Gets if the player can build leaf meter 
+func get_can_build_wind() -> bool:
+	return can_build_wind
 
 ## Decreases the Player's health by the given value.
 func hurt(damage: int) -> void:
