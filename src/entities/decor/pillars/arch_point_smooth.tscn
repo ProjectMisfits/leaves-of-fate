@@ -6,6 +6,8 @@
 [node name="ArchPointSmooth" type="Node2D"]
 use_parent_material = true
 script = ExtResource("1_euwff")
+in_front_of_door = true
+in_front_of_player = true
 
 [node name="ArchPointSmooth" type="Sprite2D" parent="."]
 use_parent_material = true
