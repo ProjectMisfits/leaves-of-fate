@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://e64uv5b5qveg"]
+
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="1_38vrt"]
+[ext_resource type="Texture2D" uid="uid://cmej5wknclrmn" path="res://assets/entities/decor/pillars/Arch-Round-Smooth.png" id="2_38vrt"]
+
+[node name="ArchRoundSmooth" type="Node2D"]
+use_parent_material = true
+script = ExtResource("1_38vrt")
+
+[node name="ArchRoundSmooth" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(0, -510.00006)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("2_38vrt")

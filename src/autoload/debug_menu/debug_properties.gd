@@ -13,6 +13,7 @@ const fps_ms: int = 16
 # Called once on each physics tick.
 func _physics_process(_delta: float) -> void:
 	self.add_debug_property("Seconds Elapsed", snapped(Time.get_ticks_msec() / 1000.0, 0.1), 0)
+	self.add_debug_property("FPS", Engine.get_frames_per_second(), 0);
 
 ## Add a property to the debug menu.
 func add_debug_property(id: StringName, value: Variant, time_in_frames: int) -> void:
