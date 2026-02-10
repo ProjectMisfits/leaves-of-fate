@@ -349,6 +349,7 @@ shape = ExtResource("4_lynpt")
 scale = Vector2(0.798, 0.798)
 texture = ExtResource("6_efl0v")
 hframes = 8
+frame = 6
 
 [node name="InteractComponent" type="Node2D" parent="FlipNode"]
 script = ExtResource("6_283t5")
@@ -422,6 +423,7 @@ script = ExtResource("9_q6jdu")
 libraries = {
 &"": SubResource("AnimationLibrary_8ihyl")
 }
+speed_scale = 1.5
 
 [node name="Audio" type="Node2D" parent="."]
 

@@ -8,9 +8,9 @@ data = {
 "dash_angular_turn_speed": 7.0,
 "dash_angular_turn_speed_deceleration": -1.0,
 "dash_deceleration": -1.0,
-"dash_end_velocity_multiplier": 2.5,
+"dash_end_velocity_multiplier": 2.3,
 "dash_max_speed": 2300.0,
-"fall_gravity_multiplier": 2.0,
+"fall_gravity_multiplier": 8.0,
 "fun_value": 1282026.0,
 "ground_acceleration": 18000.0,
 "ground_deceleration": 14400.0,
@@ -20,7 +20,7 @@ data = {
 "jump_corner_rounding_distance": 0.0,
 "jump_coyote_time": 0.15,
 "jump_height": 1500.0,
-"jump_time_to_peak": 0.6,
+"jump_time_to_peak": 1,
 "max_health": 3.0,
 "meter_buildup_rate": 60.0,
 "meter_dash_deceleration_start": 20.0,
@@ -39,6 +39,6 @@ data = {
 "pile_max_speed_air": 900.0,
 "pile_max_speed_ground": 450.0,
 "pile_terminal_velocity": 600.0,
-"run_max_speed": 2200.0,
+"run_max_speed": 2600.0,
 "terminal_velocity": 12000.0
 }
