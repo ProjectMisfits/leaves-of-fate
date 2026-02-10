@@ -15,12 +15,6 @@ var doors: Array[Node]
 ## The name of the Door the player entered the room from.
 var last_entered_door: String
 
-## The music that plays in this room
-@export var room_music: AudioStream
-
-## The ambiance that plays in this room
-@export var room_ambiance: Ambiance
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Connect each Door's entered signal to this Room's room swap function
@@ -49,7 +43,6 @@ func _on_player_entered_door(door: Door) -> void:
 
 ## Spawn the player at the specified Door.
 func spawn_player(player: Player, target_door_name: String) -> void:
-	
 	#Set the camera limits in the room 
 	CameraManager.set_limit($%Midground.get_path())
 	
@@ -62,7 +55,6 @@ func spawn_player(player: Player, target_door_name: String) -> void:
 			player.global_position = door.spawn_position
 			last_entered_door = target_door_name
 			return
-	
 	
 	# If the target door didn't exist anywhere in the room, report the issue
 	push_warning("Room '%s': Door '%s' does not exist in this room" % [name, target_door_name])
