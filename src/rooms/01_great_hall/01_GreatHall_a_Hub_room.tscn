@@ -108,8 +108,8 @@ scale = Vector2(3, 3)
 position = Vector2(-16128, 3584)
 
 [node name="Icicle_06" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("4_xsu4n")]
-position = Vector2(-17280.002, -448)
-rotation = 3.0128756
+position = Vector2(-17408, -320)
+rotation = 2.9160762
 scale = Vector2(2, 2)
 
 [node name="Icicle_06-2" parent="MidgroundLayer/Entities/Hazards" index="1" instance=ExtResource("4_xsu4n")]
