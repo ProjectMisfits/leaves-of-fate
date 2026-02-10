@@ -1,12 +1,13 @@
 extends AudioStreamPlayer
+## A manager for playing ambiance during runtime.
 
 var current_ambiance: Ambiance
 
 #Plays ambiance and one off sounds in the game's background
-func _load_ambiance(ambiance: Ambiance)->void:
+func _load_ambiance(ambiance: Ambiance) -> void:
 	#If ambiance is already loaded, return
 	if ambiance == current_ambiance:
-		if(!playing):
+		if not playing:
 			_play()
 		return
 	
@@ -39,7 +40,7 @@ func _play_one_off()->void:
 		player.queue_free()
 
 #Plays ambiance and random one off sounds
-func _play(from_position: float = 0.0)->void:
+func _play(from_position: float = 0.0) -> void:
 	_play_one_off()
 	play(from_position)
 	
