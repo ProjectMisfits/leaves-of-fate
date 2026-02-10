@@ -58,8 +58,9 @@ seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hnl24"]
 shader = ExtResource("8_finwd")
+shader_parameter/bloomScale = 2.0
 shader_parameter/noiseDetail = SubResource("NoiseTexture2D_hnl24")
-shader_parameter/uvNoiseScale = Vector2(8, 4)
+shader_parameter/uvNoiseScale = Vector2(1, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_0q8k1"]
 size = Vector2(1024, 512)
