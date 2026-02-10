@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dr4cwnspn2mf2" path="res://src/entities/actors/player/states/player_running.gd" id="4_7gsup"]
 [ext_resource type="Shape2D" uid="uid://0oo3ftpmvp21" path="res://src/entities/actors/player/collision_shapes/player_dash.tres" id="4_7j1dl"]
 [ext_resource type="Shape2D" uid="uid://b8ivarqjj8m6q" path="res://src/entities/actors/player/collision_shapes/player_normal.tres" id="4_lynpt"]
+[ext_resource type="Material" uid="uid://bv8rolwolipyw" path="res://src/shaders/RimLitPlayer.tres" id="5_e5ptp"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="5_lynpt"]
 [ext_resource type="Script" uid="uid://3uombhhv6fd6" path="res://src/entities/actors/player/components/interact_component.gd" id="6_283t5"]
 [ext_resource type="Script" uid="uid://duy7f43rn783x" path="res://src/entities/actors/player/states/player_jumping.gd" id="6_c6y0n"]
@@ -457,6 +458,7 @@ shape = ExtResource("4_lynpt")
 [node name="FlipNode" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="FlipNode"]
+material = ExtResource("5_e5ptp")
 scale = Vector2(0.798, 0.798)
 texture = ExtResource("6_efl0v")
 hframes = 8
