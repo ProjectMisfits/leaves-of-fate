@@ -13,7 +13,7 @@ size = Vector2(128, 140)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jrvjl"]
 size = Vector2(124, 31)
 
-[node name="BreakawayPlatform" type="AnimatableBody2D"]
+[node name="BreakawayPlatform" type="StaticBody2D"]
 collision_layer = 4
 script = ExtResource("1_crjif")
 database = ExtResource("2_3eq40")
