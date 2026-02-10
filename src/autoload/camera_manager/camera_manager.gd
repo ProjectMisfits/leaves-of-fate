@@ -88,8 +88,5 @@ func _string_to_tween_ease_type(type: String) -> PhantomCameraTween.EaseType:
 			return PhantomCameraTween.EaseType.EASE_IN_OUT
 
 ## Set the camera's limit target to a specifc tilemap layer
-func set_limit(node_path : NodePath) -> void:
-	print(node_path)
+func set_limit(node_path: NodePath) -> void:
 	phantom_camera.set_limit_target(node_path)
-	
-	

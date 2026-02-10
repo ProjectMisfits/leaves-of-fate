@@ -28,14 +28,13 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 	if not ResourceLoader.exists(scene_to_load, "PackedScene"):
 		push_warning("SceneManager: Requested scene '%s' does not exist at path." % scene_to_load)
 		return -1
-	
+	# Check that a swap isn't already in progress.
 	if swap_in_progress:
 		push_warning("SceneManager: A scene is already being loaded!")
 		return -1
 	
+	# Start the swap.
 	swap_in_progress = true
-	
-	# Start the screen transition.
 	add_screen_transition(transition_type)
 	
 	# Load the desired scene.
@@ -75,7 +74,7 @@ func add_screen_transition(transition_type: String) -> void:
 	current_screen_transition.start_transition(transition_type)
 	# Wait for the animation to finish.
 	await current_screen_transition.transition_animation_player.animation_finished
-	
+
 ## Reverse the screen transition animation and remove the screen transition from the scene tree.
 func remove_screen_transition() -> void:
 	# Reverse the screen transition animation.
