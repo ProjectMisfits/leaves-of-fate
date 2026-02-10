@@ -9,6 +9,8 @@ signal swap_room(path_to_target_room: String, target_door_name: String)
 @onready var player_holder: Node2D = $%PlayerHolder
 ## The holder node for all Doors in this Room.
 @onready var door_holder: Node2D = $%DoorHolder
+## The tilemaplayer defining the Room's collision.
+@onready var midground: TileMapLayer = $%Midground
 
 ## An array containing all Doors in this Room that lead to other Rooms.
 var doors: Array[Node]
@@ -21,9 +23,6 @@ func _ready() -> void:
 	doors = door_holder.get_children()
 	for door: Door in doors:
 		door.player_entered_door.connect(_on_player_entered_door)
-	
-	# Set the camera limits for the room
-	CameraManager.set_limit($%Midground.get_path())
 	
 	# TODO: fix to set up gameplay and teleport to the room instead
 	# If the room is being run standalone, we have to make sure the player gets instantiated.

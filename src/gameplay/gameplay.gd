@@ -71,6 +71,8 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String) -> voi
 		return
 	# Update the current room
 	_update_current_room()
+	# Set the camera limits for the room
+	CameraManager.set_limit(current_room.midground.get_path())
 	# Add player to new current room and place them at correct door
 	current_room.spawn_player(player, target_door_name)
 	# Reconnect camera to player
