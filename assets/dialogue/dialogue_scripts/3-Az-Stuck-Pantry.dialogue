@@ -1,32 +1,35 @@
 ~ start
-#do CameraManager.create_camera(Vector2(2000,0), 0.75, 2.0, "LINEAR", "EASE_IN")
+do! CameraManager.create_camera(Vector2(5000,600), 0.75, 2.0, "CUBIC", "EASE_IN_OUT")
 Az: [shake level=7 rate=30]Ugh[/shake].[wait=0.2] [i]cough[/i]. [wait=0.2]Come on.
 Fenn: [wave freq=7 amp=30]Hello again![/wave]
+do CutsceneManager.npc_face("Az","left")
 Az: Fenn?! [wait=0.2]What're you doing here? [wait=0.2][shake level=7 rate=30]I told you to stay behind![/shake]
-Fenn: Adventure![wait=0.2] [wave freq=10 amp=40]I need to [rainbow freq=0.1 speed=0.4]save the Knights[/rainbow]![/wave]
+Fenn: Adventure![wait=0.2] [wave freq=10 amp=40]I must [rainbow freq=0.1 speed=0.4]save the Knights[/rainbow]![/wave]
 Az: Ugh, [wait=0.2]whatever.[wait=0.2] I guess you're already here.
+do CutsceneManager.npc_face("Az","right")
 Az: We've got bad news, though. [wait=0.2]Big ice wall in the way.
 Fenn: Ooh! [wait=0.2]Is it fire breath time?!
-#do CameraManager.create_camera(Vector2(8000,-500), 1.33, 3.0, "LINEAR", "EASE_IN_OUT")
+do CameraManager.create_camera(Vector2(12000,100), 1.33, 3.0, "CUBIC", "EASE_IN_OUT")
 Az: Yeah I don't think so. 
-#do CameraManager.create_camera(Vector2(-8000,500), 0.75, 2.0, "LINEAR", "EASE_IN_OUT")
+do CameraManager.create_camera(Vector2(5000,600), 0.75, 2.0, "CUBIC", "EASE_IN_OUT")
+do CutsceneManager.npc_face("Az","left")
 Az: We need a way around. [wait=0.2]I [shake level=7 rate=30]need[/shake] to get to my [color="blue"]Workshop[/color].
 Fenn: [color="blue"]Workshop[/color]?
-Az: Yeah.[wait=0.2] I [i]cough[/i] need something from there. [wait=0.2]It's deeper in the cellar.[wait=0.2] Last thing I want is someone messing with my stuff
+Az: Yeah.[wait=0.2] [i]cough[/i] I need something from there. [wait=0.2]It's deeper in the cellar.[wait=0.2] Last thing I want is someone messing with my stuff.
 Fenn: Huh...[wait=0.2] the [color="purple"]Wizard[/color] also said something about a [color="blue"]Workshop[/color].
 Az: You ran into the [color="purple"][i]Wizard[/i][/color]?[wait=0.2] Are you okay?
-Fenn: Yeah. [wait=0.2]He was scary. [wait=0.2]But also [wave freq=7 amp=30]pretty cool.[/wave]
+Fenn: Yeah. [wait=0.2]He was scary. [wait=0.2][wave freq=7 amp=30]But also pretty cool.[/wave]
 Az: [font_size=30]By the Sender.[/font_size][wait=0.2] Stay [shake level=7 rate=30]AWAY[/shake] from him, okay? 
-Fenn: What if I go down through there?
-Az: That grate?
+Fenn: What if I go down there?
+Az: The grate?
 Fenn: We have to get out of here somehow.
 Az: And if that Wizard gets his hands on my [color="blue"]Workshop[/color]...
 Az: [font_size=30]Ugh, I hate this.[/font_size]
 Az: [font_size=70][shake level=7 rate=30]FINE.[/shake][/font_size] You go down there, I'll find another way out of here.
 Az: [i]cough[/i] And take one of these.
-Az hands Fenn the bangle
+Az hands Fenn something
 Fenn: A bracelet?
-Az: A bangle. I should be able to use it to help you from afar
+Az: A bangle. I should be able to use it to help you from afar.
 Fenn: Should?
 Az: Okay, [wait=0.2]I've never, uh, [wait=0.2]tried before. [wait=0.2]But it'll be fine.
 Az: And Fenn, be [i]careful[/i], okay? [wait=0.2]You see anything dangerous, [wait=0.2]you get out. Got it?

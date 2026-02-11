@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://c8aipu8vkbprc"]
+[gd_scene load_steps=15 format=4 uid="uid://c8aipu8vkbprc"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_78sth"]
-[ext_resource type="Texture2D" uid="uid://wk7tx1t1vq5f" path="res://assets/rooms/backgrounds/grad.png" id="2_c5x56"]
+[ext_resource type="Gradient" uid="uid://cy32pu1r17tvk" path="res://assets/rooms/backgrounds/cellar_gradient.tres" id="2_h5367"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_hjb0y"]
 [ext_resource type="PackedScene" uid="uid://b0kcsh4u0s6h" path="res://src/entities/hazards/icicle/icicle_group_05.tscn" id="3_i7v3y"]
 [ext_resource type="PackedScene" uid="uid://ce4jp0kkogwwt" path="res://src/entities/hazards/icicle/icicle_group_04.tscn" id="4_in5fb"]
@@ -14,12 +14,16 @@
 [ext_resource type="Resource" uid="uid://vdi6hdwmhlj1" path="res://assets/dialogue/dialogue_scripts/5-Ws-Ambush-CellarGeneral.dialogue" id="10_h5367"]
 [ext_resource type="PackedScene" uid="uid://0jijms4al2i5" path="res://src/entities/decor/pillars/pillar_cap_01.tscn" id="11_r7us7"]
 
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3oeme"]
+gradient = ExtResource("2_h5367")
+
 [node name="02_Cellar_c_Ambush" instance=ExtResource("1_78sth")]
 
 [node name="Background" parent="BackgroundLayer" index="1"]
-position = Vector2(11744, 10976.001)
-scale = Vector2(32.876717, 65.24445)
-texture = ExtResource("2_c5x56")
+position = Vector2(11937, 11181)
+rotation = -1.5707964
+scale = Vector2(375, 400)
+texture = SubResource("GradientTexture2D_3oeme")
 
 [node name="HangingLantern" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("3_hjb0y")]
 position = Vector2(15872, 19456)
