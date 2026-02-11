@@ -60,7 +60,7 @@ func _update_current_room() -> void:
 ## Swap to the specified Room and unload the current Room.
 func _on_swap_room(path_to_target_room: String, target_door_name: String) -> void:
 	# Begin a screen transition.
-	SceneManager.add_screen_transition("fade_to_black")
+	await SceneManager.add_screen_transition("circle")
 	# Disconnect camera from player
 	CameraManager.clear_target()
 	# Remove player from current room
@@ -78,18 +78,21 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String) -> voi
 	current_room.spawn_player(player, target_door_name)
 	# Reconnect camera to player
 	CameraManager.set_target(player)
+	CameraManager.teleport()
 	# Finish the screen transition.
-	SceneManager.remove_screen_transition()
+	await SceneManager.remove_screen_transition()
 
 ## Resets the Player's stats & respawns them at the last door they exited.
 func respawn_player() -> void:
 	# Begin a screen transition.
-	SceneManager.add_screen_transition("fade_to_black")
+	await get_tree().create_timer(0.5).timeout
+	await SceneManager.add_screen_transition("circle")
 	player.reset_stats()
 	player.velocity = Vector2.ZERO	# Reset Player velocity
 	current_room.respawn_player(player)
+	CameraManager.teleport()
 	# Finish the screen transition.
-	SceneManager.remove_screen_transition()
+	await SceneManager.remove_screen_transition()
 
 ## UI FUNCTIONALITY
 
