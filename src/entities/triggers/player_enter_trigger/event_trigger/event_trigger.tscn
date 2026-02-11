@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx1udxrn7bffd"]
+
+[ext_resource type="Script" uid="uid://ctjyq5f4xtgkx" path="res://src/entities/triggers/player_enter_trigger/event_trigger/event_trigger.gd" id="1_bqsy1"]
+[ext_resource type="Shape2D" uid="uid://bnrtt12ohd1ix" path="res://src/entities/triggers/trigger_collision_shape.tres" id="1_mcc8d"]
+
+[node name="EventTrigger" type="Area2D"]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_bqsy1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("1_mcc8d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

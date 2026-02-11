@@ -1,22 +1,23 @@
 ~ start
-Fenn: Uh... Azzzz?
+Fenn: [speed=0.8]Uh... Az?[/speed]
 Az: What's wrong?
-Fenn: There's a big block of ice in front of the door again.
-Az: Okay, where are you? cough What does the room look like?
-Fenn: There's... describes the room
-Az: That must be the door to the workshop, then.
-Wizard: Thou shalt never reach me whilst I am in here!
-Az: You turned off all the heaters, didn't you?
-Wizard: WHAT? HOW DIDST THOU KNOWETH THIS?
-Az: I dunno, maybe it's because you're in MY WORKSHOP.
-Wizard: Ah, thou art correct... my bad.
-Az: sigh. Hey Fenn, there should be paths to each of the heaters from the Den. There's three of 'em. Think you could turn them on?
-Fenn: Oooh yay! A new page in the hero's journey-eth!
-Az: Kid if you start talking like that too, I might just go crazy.
-Wizard: Nay! Whatev'r thou art planning, um, stop that right now!
-Az: Hey Wizard boy. You touch anything in there, I'll make sure it's the last thing you do, you hear me?
-Winston: Um. Ahem. Nay promises.
-Az: I swear- ugh, Fenn, I'll be there as soon as I can.
+Fenn: There's a big wall of ice in front of the door again.
+Az: Okay, where are you?[wait=0.2] [i]cough[/i].[wait=0.2] What does the room look like?
+Fenn: It's... [wait=0.2]like a big room with plants and books and stuff.
+Az: That must be the door to my [color="blue"]Workshop[/color].
+Wizard: [font_size=70][wave freq=10 amp=30]Thou shalt never reach me whilst I am in here![/wave][/font_size]
+Az: You turned off the heater, [wait=0.2]didn't you?
+Wizard: [font_size=80][shake level=10 rate=30]WHAT? HOW DIDST THOU KNOWETH THIS?[/shake][/font_size]
+Az: I dunno, [wait=0.2]maybe it's because you're in [font_size=60][shake level=7 rate=30]MY [color="blue"]WORKSHOP[/color].[/shake][/font_size]
+Wizard: Ah... [wait=0.2][font_size=40]thou art correct...[/font_size][font_size=30] [wait=0.2]my bad.[/font_size]
+Az: [i]sigh[/i]. Fenn, there should a grate out of the Den. You might be able to get to the heater from there. Think you could turn it on?
+Fenn: Oooh yay! [wave freq=7 amp=30]A new page in the hero's journey-eth![/wave]
+Az: Kid, [wait=0.2]if you start talking like that too, [wait=0.2]I might just go crazy.
+Wizard: [font_size=60]NO! [/font_size]Whatever thou art planning,[wait=0.2] [font_size=40]um,[/font_size][wait=0.2] [font_size=30]stop that right now.[/font_size]
+Az: Hey [shake level=7 rate=20][i]Wizard boy[/i].[/shake][wait=0.2] You touch anything in there, I'll make sure it's [shake level=7 rate=30]the last thing you do[/shake],[wait=0.2] you hear me?
+Winston: Um. [wait=0.2][font_size=35]Ahem.[/font_size] [wait=0.2]No promises.
+Az: I [i]swear[/i]- [wait=0.2]ugh, [wait=0.2]Fenn, I'll be there as soon as I can.
 Fenn: Okay-eth!
 do EventFlags.set_flag("AzWs-Arrive-Den", true)
+
 => END

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_epxov"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_61qep"]
 [ext_resource type="PackedScene" uid="uid://cob1yf4cxasej" path="res://src/ui/hud/hud.tscn" id="3_g7yt7"]
-[ext_resource type="PackedScene" uid="uid://bciovlpk07wr5" path="res://src/rooms/02_cellar/02_Cellar_a_MeetAz_room.tscn" id="5_05p43"]
+[ext_resource type="PackedScene" uid="uid://nhuquqglirtf" path="res://src/rooms/01_great_hall/01_GreatHall_a_Hub_room.tscn" id="5_61qep"]
 [ext_resource type="AudioStream" uid="uid://cw08xxvkhrlel" path="res://assets/ui/audio/PH-UI-select.ogg" id="7_61qep"]
 
 [sub_resource type="Resource" id="Resource_05p43"]
@@ -18,13 +18,15 @@ script = ExtResource("1_anqvl")
 [node name="PhantomCamera2D" type="Node2D" parent="."]
 unique_name_in_owner = true
 top_level = true
-z_index = 10
 script = ExtResource("2_05p43")
-follow_mode = 5
+priority = 1
+follow_mode = 2
 zoom = Vector2(0.3, 0.3)
 tween_resource = SubResource("Resource_05p43")
+tween_on_load = false
 follow_offset = Vector2(0, -200)
 follow_damping = true
+rotate_with_target = true
 dead_zone_width = 0.1
 dead_zone_height = 0.1
 show_viewfinder_in_play = true
@@ -46,7 +48,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="RoomHolder" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="02_Cellar_a_MeetAz" parent="RoomHolder" instance=ExtResource("5_05p43")]
+[node name="01_GreatHall_a_Hub" parent="RoomHolder" instance=ExtResource("5_61qep")]
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 4

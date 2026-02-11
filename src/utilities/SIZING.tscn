@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://78p4lxwgdq5n"]
+[gd_scene load_steps=58 format=4 uid="uid://78p4lxwgdq5n"]
 
 [ext_resource type="TileSet" uid="uid://i6wi7xcus3i" path="res://assets/rooms/tileset/TS_Cellar.tres" id="1_4keto"]
 [ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="2_1o4i6"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://bq3mv3nwc10c6" path="res://src/entities/decor/food/fruit_bowl.tscn" id="33_bhrpm"]
 [ext_resource type="PackedScene" uid="uid://dy2vli8qi5bb8" path="res://src/entities/hazards/icicle/icicle_03.tscn" id="33_ea3c5"]
 [ext_resource type="PackedScene" uid="uid://b5pl5cenkmlqy" path="res://src/entities/hazards/icicle/icicle_04.tscn" id="34_2i3r0"]
-[ext_resource type="PackedScene" uid="uid://cjmtdwm7l0dpi" path="res://src/entities/objects/grabbable_platform/grabbable_platform.tscn" id="34_f2ccx"]
 [ext_resource type="PackedScene" uid="uid://bxrltvpyhtsin" path="res://src/entities/decor/food/wine.tscn" id="34_psiks"]
 [ext_resource type="PackedScene" uid="uid://bt8rip14nbobd" path="res://src/entities/decor/plants/hanging_pot_01.tscn" id="35_4qwbf"]
 [ext_resource type="PackedScene" uid="uid://bj7fv2e6r3bp5" path="res://src/entities/hazards/icicle/icicle_05.tscn" id="35_intwn"]
@@ -57,13 +56,6 @@
 [ext_resource type="PackedScene" uid="uid://dejfbk3ejdidx" path="res://src/entities/decor/food/wine_bottle.tscn" id="55_wlcxr"]
 [ext_resource type="PackedScene" uid="uid://dqq1u02usswhf" path="res://src/entities/decor/furniture/wine_shelf_inside.tscn" id="56_s8i45"]
 [ext_resource type="PackedScene" uid="uid://cctsnqs8u4udu" path="res://src/entities/decor/furniture/wine_shelf.tscn" id="57_77ohs"]
-
-[sub_resource type="Curve2D" id="Curve2D_vx82f"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 512, 0)
-}
-point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_503cj"]
 resource_local_to_scene = true
@@ -162,10 +154,6 @@ position = Vector2(2816, 0)
 
 [node name="Icicle_06" parent="." instance=ExtResource("36_f2ccx")]
 position = Vector2(3040, 0)
-
-[node name="GrabbablePlatform" parent="." instance=ExtResource("34_f2ccx")]
-position = Vector2(160, 608)
-curve = SubResource("Curve2D_vx82f")
 
 [node name="MovingPlatform" parent="." instance=ExtResource("35_iqbef")]
 position = Vector2(1344, 640)

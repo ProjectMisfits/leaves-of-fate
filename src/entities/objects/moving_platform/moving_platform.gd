@@ -15,6 +15,8 @@ class_name MovingPlatform extends Path2D
 @export  var open_loop_speed_scale:float = 1.0
 #Controls the easing of the platform going back and forth 
 @export var easing: float = -1.5
+#All path follow 2D nodes in the path
+@export var paths : Array[PathFollow2D]
 
 #Controls the current speed at which the platform goes along the path
 var cur_closed_loop_speed: float
@@ -40,7 +42,9 @@ func _process(_delta: float) -> void:
 
 func progress_path()->void:
 	if closed_loop:
-		path.progress += cur_closed_loop_speed
+		for path_child : PathFollow2D in paths:
+			if path_child.get_class() == "PathFollow2D":
+				path_child.progress += cur_closed_loop_speed
 
 func initialize_animation()->void:
 	if not closed_loop:
@@ -48,8 +52,22 @@ func initialize_animation()->void:
 		animation_player.play("move_base_animation")
 		animation_player.speed_scale = cur_open_loop_speed_scale
 
-func set_closed_speed(newSpeed: float)->void:
-	cur_closed_loop_speed = newSpeed;
+func set_closed_speed(new_speed: float)->void:
+	cur_closed_loop_speed = new_speed;
 	
-func set_open_speed(_newSpeed: float)->void:
+func set_open_speed(_new_speed: float)->void:
 	animation_player.speed_scale = cur_open_loop_speed_scale
+
+## Stop the platform's movement when it is grabbed.
+func _grab()->void:
+	if closed_loop:
+		cur_closed_loop_speed = 0
+	else:
+		animation_player.speed_scale = 0
+
+## Resume the platform's movement when it is ungrabbed. 
+func _ungrab() -> void:
+	if closed_loop:
+		cur_closed_loop_speed = closed_loop_speed
+	else:
+		animation_player.speed_scale = cur_open_loop_speed_scale

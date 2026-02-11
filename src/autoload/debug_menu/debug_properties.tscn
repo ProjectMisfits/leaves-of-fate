@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dxkqek8cqpaer"]
 
-[ext_resource type="Script" uid="uid://bfdl18wwxvhbl" path="res://src/autoload/debug_properties.gd" id="1_o1o3j"]
+[ext_resource type="Script" uid="uid://bfdl18wwxvhbl" path="res://src/autoload/debug_menu/debug_properties.gd" id="1_o1o3j"]
 
 [node name="DebugProperties" type="PanelContainer"]
 script = ExtResource("1_o1o3j")

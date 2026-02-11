@@ -1,30 +1,35 @@
-[gd_scene load_steps=26 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=33 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/entities/actors/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
 [ext_resource type="Script" uid="uid://bar0unkhcpu3a" path="res://src/entities/actors/player/states/player_idle.gd" id="3_a1k00"]
 [ext_resource type="Script" uid="uid://dr4cwnspn2mf2" path="res://src/entities/actors/player/states/player_running.gd" id="4_7gsup"]
-[ext_resource type="Shape2D" uid="uid://0oo3ftpmvp21" path="res://src/entities/actors/player/collision_shapes/player_dash.tres" id="4_7j1dl"]
-[ext_resource type="Shape2D" uid="uid://b8ivarqjj8m6q" path="res://src/entities/actors/player/collision_shapes/player_normal.tres" id="4_lynpt"]
+[ext_resource type="Material" uid="uid://bv8rolwolipyw" path="res://src/shaders/RimLitPlayer.tres" id="5_e5ptp"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="5_lynpt"]
+[ext_resource type="Script" uid="uid://3uombhhv6fd6" path="res://src/entities/actors/player/components/interact_component.gd" id="6_283t5"]
 [ext_resource type="Script" uid="uid://duy7f43rn783x" path="res://src/entities/actors/player/states/player_jumping.gd" id="6_c6y0n"]
 [ext_resource type="Texture2D" uid="uid://bjs6k2nuta53t" path="res://assets/entities/actors/player/fenn_walkcycle_spritesheet.png" id="6_efl0v"]
+[ext_resource type="PackedScene" uid="uid://41eqg6x4f1xj" path="res://src/ui/interact_prompt/interact_prompt.tscn" id="7_e5ptp"]
 [ext_resource type="Script" uid="uid://cksn2wvaxpq54" path="res://src/entities/actors/player/states/player_airborne.gd" id="7_q4vut"]
+[ext_resource type="Script" uid="uid://b3akxlm17c274" path="res://src/entities/actors/player/components/grab_component.gd" id="7_s3rhx"]
 [ext_resource type="Script" uid="uid://bjtwcn16kj5bl" path="res://src/entities/actors/player/states/player_dashing.gd" id="8_wcwgi"]
 [ext_resource type="PackedScene" uid="uid://b4sm5hjwev778" path="res://src/particle_effects/leaf_explosion_particle.tscn" id="9_2heww"]
 [ext_resource type="PackedScene" uid="uid://cfj172hxekuqg" path="res://src/particle_effects/leaf_particles_02.tscn" id="9_nqxrs"]
 [ext_resource type="Script" uid="uid://osptlmoqos3i" path="res://src/entities/actors/player/states/player_piling.gd" id="9_q6jdu"]
 [ext_resource type="PackedScene" uid="uid://dhcepuko5y18x" path="res://src/particle_effects/leaf_ball_particles.tscn" id="9_tda88"]
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/particle_effects/wind_particles.tscn" id="14_7j1dl"]
-[ext_resource type="PackedScene" uid="uid://dqviomxk1qqcu" path="res://src/particle_effects/leaf_particles.tscn" id="15_808gp"]
 [ext_resource type="AudioStream" uid="uid://dimhdiv10a08t" path="res://assets/entities/actors/player/player_audio/PH-leaf-enter.ogg" id="17_iloh8"]
 [ext_resource type="AudioStream" uid="uid://dxmm31nsgmehb" path="res://assets/entities/actors/player/player_audio/PH-leaf-exit.ogg" id="18_283t5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_283t5"]
+radius = 78.0
+height = 486.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4vut"]
 size = Vector2(750, 540)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7uqy"]
-size = Vector2(750, 540)
+size = Vector2(1500, 1800)
 
 [sub_resource type="Animation" id="Animation_b1i8x"]
 length = 0.001
@@ -88,9 +93,110 @@ tracks/4/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D:shape:height")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [486.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CollisionShape2D:shape:radius")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [78.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_s3rhx"]
+resource_name = "player_hitstun"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipNode/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_efl0v")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.1254902)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FlipNode/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FlipNode/Sprite2D:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FlipNode/Sprite2D:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.798, 0.798)]
+}
 
 [sub_resource type="Animation" id="Animation_8ihyl"]
 resource_name = "player_idle"
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -142,6 +248,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_c5a8v"]
 resource_name = "player_leaf"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -178,9 +285,34 @@ tracks/2/keys = {
 "update": 0,
 "values": []
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:shape:height")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [486.0, 156.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:shape:radius")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [78.0]
+}
 
 [sub_resource type="Animation" id="Animation_nqxrs"]
 resource_name = "player_leaf_pile"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -216,6 +348,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1.3, 1.3)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:shape:height")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [486.0, 156.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:shape:radius")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [78.0]
 }
 
 [sub_resource type="Animation" id="Animation_efl0v"]
@@ -274,47 +430,86 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ihyl"]
 _data = {
 &"RESET": SubResource("Animation_b1i8x"),
+&"player_hitstun": SubResource("Animation_s3rhx"),
 &"player_idle": SubResource("Animation_8ihyl"),
 &"player_leaf_dash": SubResource("Animation_c5a8v"),
 &"player_leaf_pile": SubResource("Animation_nqxrs"),
 &"player_walk_cycle": SubResource("Animation_efl0v")
 }
 
+[sub_resource type="Animation" id="Animation_e5ptp"]
+resource_name = "hit_invincibility"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.1254902), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s1o6p"]
+_data = {
+&"hit_invincibility": SubResource("Animation_e5ptp")
+}
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 142
 script = ExtResource("1_npkjl")
 database = ExtResource("2_7gsup")
-collision_normal = ExtResource("4_lynpt")
-collision_dash = ExtResource("4_7j1dl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(3, 3)
-shape = ExtResource("4_lynpt")
+position = Vector2(0, -243)
+shape = SubResource("CapsuleShape2D_283t5")
 
 [node name="FlipNode" type="Node2D" parent="."]
+position = Vector2(0, -243)
 
 [node name="Sprite2D" type="Sprite2D" parent="FlipNode"]
+material = ExtResource("5_e5ptp")
 scale = Vector2(0.798, 0.798)
 texture = ExtResource("6_efl0v")
 hframes = 8
 
-[node name="InteractArea" type="Area2D" parent="FlipNode"]
-position = Vector2(80, 0)
-collision_mask = 0
-input_pickable = false
-monitoring = false
+[node name="InteractComponent" type="Node2D" parent="FlipNode"]
+script = ExtResource("6_283t5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/InteractArea"]
+[node name="InteractRange" type="Area2D" parent="FlipNode/InteractComponent"]
+position = Vector2(80, 0)
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/InteractComponent/InteractRange"]
+visible = false
 position = Vector2(200, 0)
 shape = SubResource("RectangleShape2D_q4vut")
 
-[node name="CompanionArea" type="Area2D" parent="FlipNode"]
-collision_mask = 32
+[node name="InteractPrompt" parent="FlipNode/InteractComponent" instance=ExtResource("7_e5ptp")]
+visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/CompanionArea"]
-position = Vector2(80, 0)
+[node name="GrabComponent" type="Node2D" parent="FlipNode"]
+script = ExtResource("7_s3rhx")
+
+[node name="GrabRange" type="Area2D" parent="FlipNode/GrabComponent"]
+collision_layer = 0
+collision_mask = 32
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/GrabComponent/GrabRange"]
+visible = false
+position = Vector2(660, 0)
 shape = SubResource("RectangleShape2D_u7uqy")
 debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
+
+[node name="InteractPrompt" parent="FlipNode/GrabComponent" instance=ExtResource("7_e5ptp")]
+visible = false
 
 [node name="DashParticles" type="Node2D" parent="FlipNode"]
 
@@ -354,6 +549,12 @@ script = ExtResource("9_q6jdu")
 libraries = {
 &"": SubResource("AnimationLibrary_8ihyl")
 }
+speed_scale = 1.5
+
+[node name="InvincibilityAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_s1o6p")
+}
 
 [node name="Audio" type="Node2D" parent="."]
 
@@ -365,7 +566,11 @@ bus = &"SFX"
 stream = ExtResource("18_283t5")
 bus = &"SFX"
 
-[connection signal="area_entered" from="FlipNode/InteractArea" to="." method="_on_interact_area_area_entered"]
-[connection signal="area_exited" from="FlipNode/InteractArea" to="." method="_on_interact_area_area_exited"]
-[connection signal="body_entered" from="FlipNode/InteractArea" to="." method="_on_interact_area_body_entered"]
-[connection signal="body_exited" from="FlipNode/InteractArea" to="." method="_on_interact_area_body_exited"]
+[node name="InvincibilityTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_entered"]
+[connection signal="area_exited" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_exited"]
+[connection signal="area_entered" from="FlipNode/GrabComponent/GrabRange" to="FlipNode/GrabComponent" method="_on_grab_range_area_entered"]
+[connection signal="area_exited" from="FlipNode/GrabComponent/GrabRange" to="FlipNode/GrabComponent" method="_on_grab_range_area_exited"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_end_invincibility"]

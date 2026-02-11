@@ -39,6 +39,8 @@ var locals: Dictionary = {}
 
 var _locale: String = TranslationServer.get_locale()
 
+
+
 ## The current line
 var dialogue_line: DialogueLine:
 	set(value):
@@ -69,7 +71,22 @@ var mutation_cooldown: Timer = Timer.new()
 ## Indicator to show that player can progress dialogue.
 @onready var progress: TextureRect = %Progress
 
+##Timer for interrupts
+@onready var interrupt_timer : Timer = $InterruptTimer
+
+##Character portrait
+@onready var character_portrait : TextureRect = %CharacterPortrait
+
+#Determines if the next line should be interrupted
+var do_interrupt : bool = false
+
+#Determines how fast the interrupt happens
+var interrupt_delay : float 
+
+
+
 func _ready() -> void:
+	EventBus.interrupt_dialogue.connect(interrupt)
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
@@ -82,6 +99,11 @@ func _ready() -> void:
 			assert(false, DMConstants.get_error_message(DMConstants.ERR_MISSING_RESOURCE_FOR_AUTOSTART))
 		start()
 
+##Function to set the interrupt delay and set the variable to be true
+func interrupt(delay:String) -> void:
+	interrupt_delay = delay.to_float()
+	do_interrupt = true
+	
 
 func _process(_delta: float) -> void:
 	if is_instance_valid(dialogue_line):
@@ -132,26 +154,36 @@ func apply_dialogue_line() -> void:
 		"fenn":
 			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/fenn_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#576f35")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/Fenn-Idle-CharacterProfile-001.png")
 		"az":
 			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/az_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#A86A19")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/Az-Idle-CharacterProfile-001.png")
+
 		"winston":
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#35639C")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Idle-CharacterProfile-001.png")
 		"wizard":
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#35639C")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Idle-CharacterProfile-001.png")
+
 		"wizard?":
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#35639C")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Idle-CharacterProfile-001.png")
+
 		"???":
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#35639C")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Idle-CharacterProfile-001.png")
+
 		"test":
 			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/az_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#A86A19")
 		_:
-			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/fenn_dialogue_no_profile.stylebox"))
+			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/plain_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#576f35")
 	
 	dialogue_label.hide()
@@ -168,18 +200,26 @@ func apply_dialogue_line() -> void:
 
 	# Wait for next line
 	if dialogue_line.has_tag("voice"):
+
 		audio_stream_player.stream = load(dialogue_line.get_tag_value("voice"))
 		audio_stream_player.play()
 		await audio_stream_player.finished
 		next(dialogue_line.next_id)
 	elif dialogue_line.time != "":
+		
 		var time: float = dialogue_line.text.length() * 0.02 if dialogue_line.time == "auto" else dialogue_line.time.to_float()
 		await get_tree().create_timer(time).timeout
 		next(dialogue_line.next_id)
 	else:
+	
 		is_waiting_for_input = true
 		balloon.focus_mode = Control.FOCUS_ALL
 		balloon.grab_focus()
+		if(do_interrupt):
+			print(interrupt_delay)
+			interrupt_timer.start(interrupt_delay)
+			
+			
 
 
 ## Go to the next line
@@ -204,10 +244,12 @@ func _on_mutated(_mutation: Dictionary) -> void:
 
 
 func _on_balloon_gui_input(event: InputEvent) -> void:
+
+	
 	# See if we need to skip typing of the dialogue
 	if dialogue_label.is_typing:
 		var mouse_was_clicked: bool = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
-		var skip_button_was_pressed: bool = event.is_action_pressed(skip_action)
+		var skip_button_was_pressed: bool = event.is_action_pressed("interact")
 		if mouse_was_clicked or skip_button_was_pressed:
 			get_viewport().set_input_as_handled()
 			dialogue_label.skip_typing()
@@ -220,9 +262,12 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		interact_audio_player.play()
+		do_interrupt = false
 		next(dialogue_line.next_id)
-	elif event.is_action_pressed(next_action) and get_viewport().gui_get_focus_owner() == balloon:
+		
+	elif event.is_action_pressed("interact") and get_viewport().gui_get_focus_owner() == balloon:
 		interact_audio_player.play()
+		do_interrupt = false
 		next(dialogue_line.next_id)
 
 
@@ -234,3 +279,8 @@ func _on_dialogue_label_spoke(letter: String, _letter_index: int, _speed: float)
 	if not letter in [" ", "."]:
 		audio_stream_player.pitch_scale = randf_range(.9,1.1)
 		audio_stream_player.play()
+
+func _on_interrupt_timer_timeout() -> void:
+	if(do_interrupt):
+		next(dialogue_line.next_id)
+		do_interrupt = false

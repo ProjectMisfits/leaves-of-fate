@@ -10,44 +10,61 @@ var camera: Camera2D
 func initialize_camera(player_phantom_camera: PhantomCamera2D, gameplay_camera: Camera2D) -> void:
 	phantom_camera = player_phantom_camera
 	camera = gameplay_camera
-	DialogueManager.dialogue_ended.connect(_restore_camera)
+	DialogueManager.dialogue_ended.connect(_restore_player_camera)
 
 ## Set the camera's target.
 func set_target(target: Node2D) -> void:
 	phantom_camera.set_follow_target(target)
+
+func teleport() -> void:
+	phantom_camera.teleport_position()
 
 ## Clear the camera's target.
 func clear_target() -> void:
 	phantom_camera.erase_follow_target()
 
 ## Create a new phantom camera.
-## Relative position will move it relative to wherever the current phantom camera is.
-## The current camera is either the one focused on the player or the most recent camera added by this function.
-func create_camera(relative_position: Vector2, relative_zoom: float, transition_duration: float, transition_type: String, transition_ease: String) -> void:
+func create_camera(cam_global_position: Vector2, cam_relative_zoom: float, transition_duration: float, transition_type: String, transition_ease: String) -> void:
 	# Create the new phantom camera to transition to. Set its priority, position, and zoom.
-	var new_camera: PhantomCamera2D = PhantomCamera2D.new()
-	new_camera.priority = PhantomCameraManager.get_phantom_camera_2ds().size()
-	if self.get_child_count() == 0:
-		new_camera.position = camera.position + relative_position
-	else:
-		new_camera.position = get_child(-1).position + relative_position
-	new_camera.zoom = camera.zoom / relative_zoom
+	var new_cam: PhantomCamera2D = PhantomCamera2D.new()
+	new_cam.priority = PhantomCameraManager.get_phantom_camera_2ds().size()
+	new_cam.global_position = cam_global_position
+	new_cam.zoom = camera.zoom / cam_relative_zoom
+	# Create the tween to transition to the new camera. Set its duration, type, and ease.
+	var tween: PhantomCameraTween = PhantomCameraTween.new()
+	tween.duration = transition_duration
+	tween.transition = _string_to_tween_transition_type(transition_type)
+	tween.ease = _string_to_tween_ease_type(transition_ease)
+	# Assign the tween to the new camera.
+	new_cam.tween_resource = tween
+	# Add the new camera to the scene tree. The priority being one higher than any other phantom camera means the transition will automatically occur.
+	add_child(new_cam)
+	await new_cam.tween_completed
+
+## Create a new phantom camera with set limits.
+func create_camera_with_limits(cam_global_position: Vector2, cam_relative_zoom: float, transition_duration: float, transition_type: String, transition_ease: String, limit_target: NodePath) -> void:
+	# Create the new phantom camera to transition to. Set its priority, position, and zoom.
+	var new_cam: PhantomCamera2D = PhantomCamera2D.new()
+	new_cam.priority = PhantomCameraManager.get_phantom_camera_2ds().size()
+	new_cam.position = cam_global_position
+	new_cam.zoom = camera.zoom / cam_relative_zoom
 	# Create the tween for transitioning to the new camera. Set its duration, transition type, and easing.
 	var tween: PhantomCameraTween = PhantomCameraTween.new()
 	tween.duration = transition_duration
 	tween.transition = _string_to_tween_transition_type(transition_type)
 	tween.ease = _string_to_tween_ease_type(transition_ease)
-	
 	# Assign the tween to the new camera.
-	new_camera.tween_resource = tween
-	
+	new_cam.tween_resource = tween
+	# Set the camera's limits.
+	new_cam.set_limit_target(limit_target)
 	# Add the new camera to the scene tree. The priority being one higher than any other phantom camera means the transition will automatically occur.
-	add_child(new_camera)
+	add_child(new_cam)
 
 ## Change the priorities of all cameras to tween back to the original camera.
-func _restore_camera(_resource: DialogueResource) -> void:
+func _restore_player_camera(_resource: DialogueResource) -> void:
 	for camera_to_remove: PhantomCamera2D in self.get_children():
 		remove_child(camera_to_remove)
+		camera_to_remove.queue_free()
 
 ## Get the phantom camera tween transition type for the given string.
 func _string_to_tween_transition_type(type: String) -> PhantomCameraTween.TransitionType:
@@ -89,7 +106,8 @@ func _string_to_tween_ease_type(type: String) -> PhantomCameraTween.EaseType:
 
 ## Set the camera's limit target to a specifc tilemap layer
 func set_limit(node_path : NodePath) -> void:
-	print(node_path)
 	phantom_camera.set_limit_target(node_path)
-	
-	
+
+##Sets the offset in of the camera 
+func set_offset(new_offset : Vector2) -> void:
+	phantom_camera.set_follow_offset(new_offset)

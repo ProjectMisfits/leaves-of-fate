@@ -1,13 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cob1yf4cxasej"]
+[gd_scene load_steps=6 format=3 uid="uid://cob1yf4cxasej"]
 
 [ext_resource type="Script" uid="uid://dpqqjg4ooxnno" path="res://src/ui/hud/hud.gd" id="1_cio14"]
-[ext_resource type="Texture2D" uid="uid://b18dl61a07wva" path="res://assets/ui/hud/LifeBranch-UI_001.png" id="1_cvkdw"]
 [ext_resource type="Texture2D" uid="uid://3u1e2ulns1da" path="res://assets/ui/hud/LifeLeaf1-UI-001.png" id="2_ariom"]
 [ext_resource type="Texture2D" uid="uid://bd3e4j0uklp87" path="res://assets/ui/hud/LeafDashMeter-UI-001.png" id="2_udh2q"]
-[ext_resource type="Texture2D" uid="uid://co3hwxunfl5pl" path="res://assets/ui/hud/LifeLeaf2-UI-001.png" id="3_cio14"]
-[ext_resource type="Texture2D" uid="uid://chc5x7c0rq24i" path="res://assets/ui/hud/LifeLeaf3-UI-001.png" id="4_4dm8p"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bpdxj"]
 
 [sub_resource type="Gradient" id="Gradient_076te"]
 offsets = PackedFloat32Array(1)
@@ -31,69 +26,25 @@ script = ExtResource("1_cio14")
 
 [node name="Hud Container" type="MarginContainer" parent="."]
 layout_mode = 1
-offset_right = 766.0
-offset_bottom = 115.0
-theme_override_constants/margin_top = 10
+offset_right = 599.0
+offset_bottom = 96.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
 
 [node name="HBoxContainerHUD" type="HBoxContainer" parent="Hud Container"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+theme_override_constants/separation = 20
 
-[node name="HealthContainer" type="PanelContainer" parent="Hud Container/HBoxContainerHUD"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_bpdxj")
-
-[node name="HealthBranch" type="TextureRect" parent="Hud Container/HBoxContainerHUD/HealthContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource("1_cvkdw")
-
-[node name="LivesMargin" type="MarginContainer" parent="Hud Container/HBoxContainerHUD/HealthContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = 90
-theme_override_constants/margin_right = 24
-
-[node name="HBoxContainerLives" type="HBoxContainer" parent="Hud Container/HBoxContainerHUD/HealthContainer/LivesMargin"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-
-[node name="LifeLeaf1" type="TextureRect" parent="Hud Container/HBoxContainerHUD/HealthContainer/LivesMargin/HBoxContainerLives"]
+[node name="LifeLeaf1" type="TextureRect" parent="Hud Container/HBoxContainerHUD"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 texture = ExtResource("2_ariom")
 
-[node name="Leaf2Margin" type="MarginContainer" parent="Hud Container/HBoxContainerHUD/HealthContainer/LivesMargin/HBoxContainerLives"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_constants/margin_top = -12
-theme_override_constants/margin_right = -6
-
-[node name="LifeLeaf2" type="TextureRect" parent="Hud Container/HBoxContainerHUD/HealthContainer/LivesMargin/HBoxContainerLives/Leaf2Margin"]
-unique_name_in_owner = true
-layout_mode = 2
-texture = ExtResource("3_cio14")
-
-[node name="Leaf3Margin" type="MarginContainer" parent="Hud Container/HBoxContainerHUD/HealthContainer/LivesMargin/HBoxContainerLives"]
-layout_mode = 2
-theme_override_constants/margin_top = -3
-theme_override_constants/margin_right = 28
-
-[node name="LifeLeaf3" type="TextureRect" parent="Hud Container/HBoxContainerHUD/HealthContainer/LivesMargin/HBoxContainerLives/Leaf3Margin"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource("4_4dm8p")
-
 [node name="LeafMeterContainer" type="MarginContainer" parent="Hud Container/HBoxContainerHUD"]
 layout_mode = 2
-theme_override_constants/margin_left = 5
 
 [node name="LeafMeter" type="TextureProgressBar" parent="Hud Container/HBoxContainerHUD/LeafMeterContainer"]
 unique_name_in_owner = true

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2hq2ernl83oa"]
+
+[ext_resource type="Script" uid="uid://b6seecvk4xl15" path="res://src/entities/objects/spawner/spawner.gd" id="1_7k8tw"]
+[ext_resource type="JSON" uid="uid://deug24tjb4rt5" path="res://src/entities/objects/spawner/base_spawner.tres" id="2_j08po"]
+[ext_resource type="PackedScene" uid="uid://bg2o7v2o7bjjk" path="res://src/entities/objects/breakaway_platform/breakaway_platform.tscn" id="3_8hnp5"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_7k8tw")
+database = ExtResource("2_j08po")
+object = ExtResource("3_8hnp5")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BurstTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="BurstTimer" to="." method="_on_burst_timer_timeout"]

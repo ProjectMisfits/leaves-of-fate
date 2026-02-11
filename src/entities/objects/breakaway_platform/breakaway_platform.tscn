@@ -8,10 +8,10 @@
 size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3eq40"]
-size = Vector2(128, 128)
+size = Vector2(128, 140)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jrvjl"]
-size = Vector2(124, 27)
+size = Vector2(124, 31)
 
 [node name="BreakawayPlatform" type="StaticBody2D"]
 collision_layer = 4
@@ -29,13 +29,15 @@ shape = SubResource("RectangleShape2D_crjif")
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
+position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_3eq40")
 
 [node name="BreakAwayArea" type="Area2D" parent="."]
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BreakAwayArea"]
-position = Vector2(0, -51.5)
+visible = false
+position = Vector2(0, -53.5)
 shape = SubResource("RectangleShape2D_jrvjl")
 
 [node name="BreakTime" type="Timer" parent="."]

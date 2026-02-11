@@ -1,14 +1,14 @@
 ~ start
 Az: Hello? Can you hear me?
 Fenn: Az? Where are you?
-Az: Let's go! It works! cough
+Az: Let's GO!! It works! [i]cough[/i]
 Fenn: The bangle?
 Az: Yeah! I've got the other one with me. You can talk to someone through them
-Az: Just- don't tell Post Master Parker. He'd freak out and call it sacrilege or something.
-Fenn: You made these? That's AWESOME.
-Az: Hah. You think? Thanks.
-Az: Anyways, don't let me stop you. cough.
-Fenn: You cough a lot. Are you okay?
-Az: Uh. Yeah, no, I'm fine. Just something caught in my throat.
+Az: Just- [wait=0.2]don't tell [color="red"]Post Master Parker[/color].[wait=0.2] He'd freak out and call it sacrilege or something.
+Fenn: You [i]made[/i] these? [font_size=60]That's [shake level=10 rate=30]AWESOME.[/shake][/font_size]
+Az: You think? [wait=0.2]Hah, thanks. [wait=0.2]It's really not much.
+Az: Anyways, don't let me stop you. [i]cough[/i].
+Fenn: You cough a lot. [wait=0.2]Are you okay?
+Az: Uh. [wait=0.2]Yeah, no, [wait=0.2]I'm fine.[wait=0.2] Just something caught in my throat.
 do EventFlags.set_flag("Az-BangleTalk-CellarGeneral", true)
 => END
