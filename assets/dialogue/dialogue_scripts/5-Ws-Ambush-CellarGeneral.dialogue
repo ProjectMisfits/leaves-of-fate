@@ -1,29 +1,29 @@
 
 ~ ambushed
-Wizard: [font_size=70]Well well well. [/font_size]
-Wizard: What doth we have here? A lone [shake][i]pint-size[/i][/shake]?
+Wizard: [font_size=80]Well well well. [/font_size]
+Wizard: What doth we have here? A lone [shake level=7 rate=30][i]pint-size[/i][/shake]?
 Fenn: Why do you call me that? I'm Fenn.
-Wizard: Well, [i]Fenn[/i]. [shake]If't even is thine real nameth.[/shake] Um... I don't knoweth...
-Wizard: Um... I hath lost my traineth of thought.
+Wizard: Well, [shake level=7 rate=30]Fenn.[/shake] [wait=0.2]If that [wave freq=7 amp=30]even is thine real nameth.[/wave] [wait=0.2]Um...[wait=0.2] I don't knoweth...
+Wizard: Um... [wait=0.2]I hath lost my traineth of thought.
 do EventBus.interrupt_dialogue.emit(".2")
 Fenn: Uh...
-Wizard: [font_size=70]Aha,[/font_size] of course! 
-Wizard: [font_size=100][shake]Ambushing thee![/shake][/font_size]
-Wizard: Treadeth carefully, [shake][i]pint-size.[/i][/shake] 
+Wizard: [font_size=80]Aha,[/font_size] of course! 
+Wizard: [font_size=100][shake level=7 rate=30]Ambushing thee![/shake][/font_size]
+Wizard: Treadeth carefully, [shake level=7 rate=30][i]pint-size.[/i][/shake] 
 Wizard: T'wouldst be such a shame if thee were crushed by my creations.
 Az: [i]cough[/i] Fenn, you good over there?
-Wizard: [font_size=100][shake]WHAT? WHO'S THERE? A GHOSTLY SPIRIT OF MINE OWN IMAGINATION?![/shake][/font_size]
+Wizard: [font_size=70][shake level=7 rate=30]WHAT? WHO'S THERE? A GHOSTLY SPIRIT OF MINE OWN IMAGINATION?![/shake][/font_size]
 Fenn: I'm good, Az. Wizard man is just ambushing me.
-Wizard: [color="red"][i]AZ[/i][/color]? Liketh apprentice [color="red"]Az[/color]? Like, like [color="red"][i]Az [shake]Featherstone[/shake][/i][/color], [color="red"]Az[/color]?
+Wizard: [color="red"]AZ[/color]? Liketh apprentice [color="red"]Az[/color]? Like, like [color="red"][i]Az [shake level=7 rate=30]Featherstone[/shake][/i][/color], [color="red"]Az[/color]?
 Fenn: Yeah. [wait=0.2]We're like-eth best friends.
 Az: Uh. [wait=0.2]Sure.
-Wizard: Wherefore is the lady? [wait=0.2]How doth she be talking?
+Wizard: Wherefore is the lady? [wait=0.2][shake level=7 rate=40]How doth she be talking?[/shake]
 do EventBus.interrupt_dialogue.emit("0.2")
 Fenn: Oh! Az made these cool frienship bracelets-
 Az: [i]Bangles[/i]
 Fenn: Bangles. And we can talk through them!
-Wizard: No matter! [wait=0.2]Speaketh not anymore of this curs'd device. [wait=0.2]This changes [font_size=60][shake]nothing![/shake][/font_size]
-Wizard: [font_size=100][shake]TAKETH THIS![/shake][/font_size]
+Wizard: No matter! [wait=0.2]Speaketh not anymore of this curs'd device. [wait=0.2]This changes [font_size=60][shake level=7 rate=30]nothing![/shake][/font_size]
+Wizard: [font_size=100][shake level=10 rate=50]TAKETH THIS![/shake][/font_size]
 do EventFlags.set_flag("Ws-Ambush-CellarGeneral", true)
 => END
 

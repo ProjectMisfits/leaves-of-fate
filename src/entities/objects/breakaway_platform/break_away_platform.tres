@@ -6,5 +6,5 @@ data = {
 &"gravity": 200.0,
 &"respawn_time": 3.0,
 &"respawnable": false,
-&"stationary": false
+&"stationary": true
 }
