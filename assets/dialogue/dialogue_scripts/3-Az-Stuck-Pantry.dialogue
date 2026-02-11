@@ -1,5 +1,5 @@
 ~ start
-do! CameraManager.create_camera(Vector2(5000,500), 0.75, 2.0, "CUBIC", "EASE_IN_OUT")
+do! CameraManager.create_camera(Vector2(5000,600), 0.75, 2.0, "CUBIC", "EASE_IN_OUT")
 Az: [shake level=7 rate=30]Ugh[/shake].[wait=0.2] [i]cough[/i]. [wait=0.2]Come on.
 Fenn: [wave freq=7 amp=30]Hello again![/wave]
 do CutsceneManager.npc_face("Az","left")
@@ -9,9 +9,9 @@ Az: Ugh, [wait=0.2]whatever.[wait=0.2] I guess you're already here.
 do CutsceneManager.npc_face("Az","right")
 Az: We've got bad news, though. [wait=0.2]Big ice wall in the way.
 Fenn: Ooh! [wait=0.2]Is it fire breath time?!
-do CameraManager.create_camera(Vector2(12000,0), 1.33, 3.0, "CUBIC", "EASE_IN_OUT")
+do CameraManager.create_camera(Vector2(12000,100), 1.33, 3.0, "CUBIC", "EASE_IN_OUT")
 Az: Yeah I don't think so. 
-do CameraManager.create_camera(Vector2(5000,500), 0.75, 2.0, "CUBIC", "EASE_IN_OUT")
+do CameraManager.create_camera(Vector2(5000,600), 0.75, 2.0, "CUBIC", "EASE_IN_OUT")
 do CutsceneManager.npc_face("Az","left")
 Az: We need a way around. [wait=0.2]I [shake level=7 rate=30]need[/shake] to get to my [color="blue"]Workshop[/color].
 Fenn: [color="blue"]Workshop[/color]?

@@ -1,7 +1,7 @@
 
 ~ ambushed
 do CutsceneManager.npc_face("Winston", "right")
-do CameraManager.create_camera(Vector2(20250,21250),1, 0.5, "LINEAR", "EASE_IN_OUT")
+do CameraManager.create_camera(Vector2(19800,22000),1, 0.5, "LINEAR", "EASE_IN_OUT")
 Wizard: [font_size=80]Well well well. [/font_size]
 do! EventBus.interrupt_dialogue.emit("0.2")
 Wizard: What doth we have here? A lone
