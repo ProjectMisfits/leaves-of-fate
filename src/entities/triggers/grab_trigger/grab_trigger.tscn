@@ -7,7 +7,7 @@
 
 [sub_resource type="Animation" id="Animation_7s2xi"]
 resource_name = "grab"
-length = 2.7
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -15,7 +15,7 @@ tracks/0/path = NodePath("GrabSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.4),
+"times": PackedFloat32Array(0.3, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
@@ -27,15 +27,14 @@ tracks/1/path = NodePath("GrabSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true]
 }
 
-[sub_resource type="Animation" id="Animation_0rk0m"]
-resource_name = "ungrab"
-length = 2.7
+[sub_resource type="Animation" id="Animation_5n77h"]
+resource_name = "RESET"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -43,10 +42,10 @@ tracks/0/path = NodePath("GrabSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.3, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [7, 6, 5, 3, 2, 1, 0]
+"values": [0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -55,7 +54,7 @@ tracks/1/path = NodePath("GrabSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2.7),
+"times": PackedFloat32Array(0.033333335),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
@@ -63,8 +62,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5n77h"]
 _data = {
-&"grab": SubResource("Animation_7s2xi"),
-&"ungrab": SubResource("Animation_0rk0m")
+&"RESET": SubResource("Animation_5n77h"),
+&"grab": SubResource("Animation_7s2xi")
 }
 
 [node name="GrabTrigger" type="Area2D"]
@@ -89,3 +88,4 @@ visible = false
 libraries = {
 &"": SubResource("AnimationLibrary_5n77h")
 }
+speed_scale = 3.0

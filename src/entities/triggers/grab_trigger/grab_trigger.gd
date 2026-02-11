@@ -19,12 +19,12 @@ func _on_grab() -> void:
 	# If the parent has the grab handling functions,
 	# Play the Az grab animation and call the grab handling functions
 	if get_parent().has_method("_grab") and not is_grabbed:
-		is_grabbed = true
 		grab_animation_player.play("grab")
+		is_grabbed = true
 		get_parent()._grab()
 	elif get_parent().has_method("_ungrab") and is_grabbed:
+		grab_animation_player.play_backwards("grab")
 		get_parent()._ungrab()
-		grab_animation_player.play("ungrab")
 		is_grabbed = false
 	else:
 		push_error("GrabTrigger: Parent node does not have appropriate _grab and/or _ungrab methods")
