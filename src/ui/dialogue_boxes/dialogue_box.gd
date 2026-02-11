@@ -39,6 +39,8 @@ var locals: Dictionary = {}
 
 var _locale: String = TranslationServer.get_locale()
 
+
+
 ## The current line
 var dialogue_line: DialogueLine:
 	set(value):
@@ -71,11 +73,17 @@ var mutation_cooldown: Timer = Timer.new()
 
 ##Timer for interrupts
 @onready var interrupt_timer : Timer = $InterruptTimer
+
+##Character portrait
+@onready var character_portrait : TextureRect = %CharacterPortrait
+
 #Determines if the next line should be interrupted
 var do_interrupt : bool = false
 
 #Determines how fast the interrupt happens
 var interrupt_delay : float 
+
+
 
 func _ready() -> void:
 	EventBus.interrupt_dialogue.connect(interrupt)
@@ -146,21 +154,31 @@ func apply_dialogue_line() -> void:
 		"fenn":
 			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/fenn_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#576f35")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/Fenn-Idle-CharacterProfile-001.png")
 		"az":
 			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/az_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#A86A19")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/Az-Idle-CharacterProfile-001.png")
+
 		"winston":
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#35639C")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Idle-CharacterProfile-001.png")
 		"wizard":
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#35639C")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Idle-CharacterProfile-001.png")
+
 		"wizard?":
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#35639C")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Idle-CharacterProfile-001.png")
+
 		"???":
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#35639C")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Idle-CharacterProfile-001.png")
+
 		"test":
 			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/az_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#A86A19")
