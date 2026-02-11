@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cm33qh6em0dth"]
+[gd_scene load_steps=8 format=3 uid="uid://cm33qh6em0dth"]
 
 [ext_resource type="Script" uid="uid://cqp8kvvayynkf" path="res://src/entities/triggers/grab_trigger/grab_trigger.gd" id="1_n6ad0"]
 [ext_resource type="Shape2D" uid="uid://bnrtt12ohd1ix" path="res://src/entities/triggers/trigger_collision_shape.tres" id="2_tirpy"]
@@ -55,22 +55,7 @@ tracks/1/path = NodePath("GrabSprite:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_5n77h"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GrabSprite:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(2.7),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
@@ -78,7 +63,6 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5n77h"]
 _data = {
-&"RESET": SubResource("Animation_5n77h"),
 &"grab": SubResource("Animation_7s2xi"),
 &"ungrab": SubResource("Animation_0rk0m")
 }
@@ -95,10 +79,8 @@ shape = ExtResource("2_tirpy")
 
 [node name="GrabSprite" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(66, 0)
 texture = ExtResource("3_5n77h")
 hframes = 8
-frame = 7
 
 [node name="GrabHighlight" parent="." instance=ExtResource("3_yya4r")]
 visible = false
