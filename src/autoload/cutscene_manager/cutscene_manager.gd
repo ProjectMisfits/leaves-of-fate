@@ -70,14 +70,19 @@ func npc_move(npc_name: String, destination_global_x: float = 1.0, move_speed: f
 	npc_instance.move(destination_global_x, move_speed, animate_walk, moonwalk)
 
 ## Turn the specified npc to face the given direction.
-func npc_face(npc_name: String, face_axis: float) -> void:
+func npc_face(npc_name: String, direction: String) -> void:
 	# Get a reference to the NPC
 	var npc_instance: NPC = _get_npc(npc_name)
 	if npc_instance == null:
 		push_error("CutsceneManager: No valid NPC for name %s." % npc_name)
 		return
 	# Script the NPC to face a direction.
-	npc_instance.set_look(face_axis)
+	if direction == "left":
+		npc_instance.set_look(-1.0)
+	elif direction == "right":
+		npc_instance.set_look(1.0)
+	else:
+		push_error("CutsceneManager: Invalid NPC look direction given.")
 
 ## End cutscene management.
 func _end_cutscene() -> void:
