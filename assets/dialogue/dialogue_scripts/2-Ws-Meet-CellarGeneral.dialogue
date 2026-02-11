@@ -1,37 +1,38 @@
 ~ start
+#do! CameraManager.create_camera(Vector2(1200.0, 1000.0), 0.5, 3, "CUBIC", "EASE_IN_OUT")
 ???: [font_size=30]Why, why yes![wait=0.2] That shouldst do rather nicely.[/font_size]
 ???: [font_size=30]I just needeth... [wait=0.2]certainly not... [/font_size]
 Fenn: Helloo?
-???: [font_size=100][shake]WHAT?! WHO ART THOU?[/shake][/font_size]
+???: [font_size=100][shake level=20 rate=50]WHAT?! WHO ART THOU?[/shake][/font_size]
 ???: [font_size=30]Didst we not trapeth everyone?[/font_size]
 do EventBus.interrupt_dialogue.emit("0.2")
 Fenn: No, there's a buncha people in the [color="blue"]Great Hall[/color]. There's this super cool lady-
-???: [font_size=60]Nay matter![/font_size] I shalt crush thee myself!
+???: [font_size=70]Nay matter![/font_size] [shake level=7 rate=30]I shalt crush thee myself![/shake]
 Fenn: You talk weird.
 ???: Um- [wait=0.2]stayeth right there![wait=0.2] Not another step!
 Fenn: Or...[wait=0.2] what?
 ???: Um. [wait=0.2]Well.
 Fenn: Are you a wizard?
 do EventBus.interrupt_dialogue.emit("0.2")
-Wizard?: Why, of course![wait=0.2] I am the Great Wizard of-
-Fenn: [font_size=100]Prepare yourself, [wave]Wizard! [/wave][/font_size]
-Fenn: [wave]I will defeat you and free this palace![/wave]
+Wizard?: Why,[wait=0.2] of course![wait=0.2] I am the Great Wizard of-
+Fenn: [font_size=100]PREPARE YOURSELF, [wave freq=10 amp=30]WIZARD! [/wave][/font_size]
+Fenn: [wave freq=10 amp=30]I will defeat you and free this palace![/wave]
 Wizard: Oh my. 
 Wizard: Well, [wait=0.2]you see, [wait=0.2]I doth not much timeth for this.
-Wizard: Like, [wait=0.2]I would [shake]love[/shake] to destroyeth thee,[wait=0.2] but I must findeth this [color="blue"]Workshop[/color].
+Wizard: Like, [wait=0.2]I would [shake level=10 rate=50 connected=0]love[/shake] to destroyeth thee,[wait=0.2] but I must findeth this [color="blue"]Workshop[/color].
 Fenn: Huh? What [color="blue"]Workshop[/color]? 
-Wizard: Listen hereth, [shake][i]pint-size[/i][/shake]. 
-Wizard: Stayeth out of mine own way, [wait=0.2]or [shake]I shall maketh thee regret it[/shake].
+Wizard: Listen hereth, [shake level=7 rate=30][i]pint-size[/i][/shake]. 
+Wizard: Stayeth out of mine own way, [wait=0.2]or [shake level=7 rate=30]I shall maketh thee regret it[/shake].
 do! CutsceneManager.npc_move("Winston", "right", 2000.0, 1000.0, false, false)
 Fenn: Wait! I have another question.
 do! CutsceneManager.npc_move("Winston", "left", 2000.0, 1000.0, false, false)
-Wizard: Fie! Thou art not my [shake]Mother![/shake]
+Wizard: Fie! Thou art not my [shake level=7 rate=30]Mother![/shake]
 Fenn: Uh... no?
 Wizard: [font_size=60]Nay matter!! [/font_size]What is thy question?
 Fenn: Why'd you trap all the Knights and stuff??
 Wizard: Because they deserved it! 
-Fenn: WHAT?! No they didn't! They help so many people!
-Wizard: WHO?! What doth they even do-eth? [shake]Sitteth 'round and bicker over meaningless laws?[/shake]
+Fenn: WHAT?! No they didn't![wait=0.2] [shake level=7 rate=30]They help so many people![/shake]
+Wizard: WHO?! What doth they even do-eth? [shake level=7 rate=30]Sitteth 'round and bicker over meaningless laws?[/shake]
 Wizard: Forget it. I must runneth. 
 Wizard: [font_size=60]Evil plans to maketh,[/font_size][font_size=50] traps to setteth,[/font_size][font_size=40] enemies to sendeth at thee, [/font_size][font_size=30]you know.[/font_size]
 Fenn: Yeah, I get it.
@@ -40,6 +41,6 @@ Fenn: Bye bye!
 do! CutsceneManager.npc_move("Winston", "left", 2000.0, 1000.0, false, false)
 do CutsceneManager.remove_npc("Az")
 Fenn: What a formidable foe...
-do CutsceneManager._end_cutscene()
+#do CutsceneManager._end_cutscene()
 do EventFlags.set_flag("Ws-Meet-CellarGeneral", true)
 => END
