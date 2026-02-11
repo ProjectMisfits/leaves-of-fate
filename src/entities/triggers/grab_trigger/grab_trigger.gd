@@ -5,7 +5,7 @@ class_name GrabTrigger extends Trigger
 var is_grabbed: bool = false
 
 ## A reference to the grab highlight.
-@onready var grab_highlight: Control
+@onready var grab_highlight: Sprite2D
 
 ## A reference to the grab trigger animation player.
 @onready var grab_animation_player: AnimationPlayer = $AnimationPlayer
