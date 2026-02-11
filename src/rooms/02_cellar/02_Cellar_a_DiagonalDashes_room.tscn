@@ -14,7 +14,7 @@
 
 [node name="02_Cellar_a_DiagonalDashes" instance=ExtResource("1_qcg17")]
 
-[node name="Background" parent="BackgroundLayer" index="0"]
+[node name="Background" parent="BackgroundLayer" index="1"]
 modulate = Color(0.46666667, 0.4, 0.46666667, 0.46666667)
 position = Vector2(5632, -5376)
 scale = Vector2(15.956162, 36.622223)
@@ -25,11 +25,11 @@ tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(1535.9999, 1024)
-path_to_target_room = "uid://dis7wlfvk6tfx"
+path_to_target_room = "uid://5fo0nisux4xe"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(9728, -9728.001)
-path_to_target_room = "uid://cpkeckd215xj2"
+path_to_target_room = "uid://f2l3hfy6ehdh"
 
 [node name="IceSpikeBall" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("3_ia71f")]
 position = Vector2(3840, 768)

@@ -23,10 +23,12 @@ tile_map_data = PackedByteArray("AAAAAAgABgAFAAAAAAABAAgABgAFAAAAAAACAAgABgAFAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(608.0005, 943.9999)
+path_to_target_room = "uid://f2l3hfy6ehdh"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(36272, 1008)
 rotation = 0.008716512
+path_to_target_room = "uid://c8aipu8vkbprc"
 
 [node name="First Hazard" type="Node2D" parent="MidgroundLayer/Entities/Hazards" index="0"]
 position = Vector2(2336, 320)
