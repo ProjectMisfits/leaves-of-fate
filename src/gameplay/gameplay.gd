@@ -63,6 +63,7 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String) -> voi
 	await SceneManager.add_screen_transition("circle")
 	# Disconnect camera from player
 	CameraManager.clear_target()
+	CutsceneManager._end_cutscene()
 	# Remove player from current room
 	current_room.despawn_player(player)
 	# Swap in the target room
