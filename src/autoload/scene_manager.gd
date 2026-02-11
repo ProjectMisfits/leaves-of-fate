@@ -23,24 +23,20 @@ func _physics_process(_delta: float) -> void:
 
 ## Swaps to the specified scene and unloads the specified scene.
 ## Returns -1 if the load failed for any reason and returns 0 if the load succeeded.
-func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload: Node, transition_type: String = "fade_to_black") -> int:
+func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload: Node) -> int:
 	# Check that the specified scene to load exists.
 	if not ResourceLoader.exists(scene_to_load, "PackedScene"):
 		push_warning("SceneManager: Requested scene '%s' does not exist at path." % scene_to_load)
 		return -1
-	
+	# Check that a swap isn't already in progress.
 	if swap_in_progress:
 		push_warning("SceneManager: A scene is already being loaded!")
 		return -1
 	
+	# Start the swap.
 	swap_in_progress = true
-	
-	# Start the screen transition.
-	_add_screen_transition(transition_type)
-	
 	# Load the desired scene.
 	var loaded_scene: Node = ResourceLoader.load(scene_to_load, "PackedScene").instantiate()
-	
 	# Check that the scene loaded correctly.
 	if loaded_scene == null:
 		push_warning("SceneManager: Requested scene '%s' did not load properly." % scene_to_load)
@@ -48,7 +44,8 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 		return -1
 	
 	# If no node was specified to load the scene as a child of, default to making it a child of the root node.
-	if load_as_child_of == null: load_as_child_of = get_tree().root
+	if load_as_child_of == null:
+		load_as_child_of = get_tree().root
 	
 	# Add the newly loaded scene to the scene tree.
 	print("SceneManager: Loading scene '%s'" % loaded_scene)
@@ -64,25 +61,36 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 		current_scene = loaded_scene
 	
 	# Finish up the swap.
-	_remove_screen_transition()
 	swap_in_progress = false
 	return 0
 
+## Swaps to the specified scene and unloads the specified scene with a screen transition bookending the swap.
+## Use if you need to do a rote swap and don't have any additional teardown or setup you want to hide with a screen transition.
+func swap_scenes_with_transition(scene_to_load: String, load_as_child_of: Node, scene_to_unload: Node, transition_type: String = "circle") -> int:
+	add_screen_transition(transition_type)
+	var return_code: int = swap_scenes(scene_to_load, load_as_child_of, scene_to_unload)
+	remove_screen_transition()
+	return return_code
+
 ## Create a screen transition, add it to the scene tree, and initiate the animation.
-func _add_screen_transition(transition_type: String) -> void:
+func add_screen_transition(transition_type: String) -> void:
+	print("Transitioning out...", transition_type)
 	current_screen_transition = screen_transition_scene.instantiate()
 	get_tree().root.add_child(current_screen_transition)
-	current_screen_transition.start_transition(transition_type)
+	await current_screen_transition.start_transition(transition_type)
 	# Wait for the animation to finish.
-	await current_screen_transition.transition_animation_player.animation_finished
-	
+	# await current_screen_transition.transition_animation_player.animation_finished
+	print("Transition out finished!");
+
 ## Reverse the screen transition animation and remove the screen transition from the scene tree.
-func _remove_screen_transition() -> void:
+func remove_screen_transition() -> void:
+	print("Transitioning in...")
 	# Reverse the screen transition animation.
-	current_screen_transition.finish_transition()
+	await current_screen_transition.finish_transition()
 	# Wait for the animation to finish.
-	await current_screen_transition.transition_animation_player.animation_finished
+	# await current_screen_transition.transition_animation_player.animation_finished
 	# Remove and reset the current screen transition.
 	get_tree().root.remove_child(current_screen_transition)
 	current_screen_transition.queue_free()
 	current_screen_transition = null
+	print("Transition in finished!");

@@ -15,4 +15,4 @@ func _on_timer_timeout() -> void:
 
 func _progress_to_gameplay() -> void:
 	if $TextureRect/Control.modulate.a == 1.0 && Input.is_action_just_pressed(&"ui_accept"):
-		SceneManager.swap_scenes("res://src/gameplay/gameplay.tscn", null, self)
+		SceneManager.swap_scenes_with_transition("res://src/gameplay/gameplay.tscn", null, self)

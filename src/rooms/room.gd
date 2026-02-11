@@ -9,6 +9,8 @@ signal swap_room(path_to_target_room: String, target_door_name: String)
 @onready var player_holder: Node2D = $%PlayerHolder
 ## The holder node for all Doors in this Room.
 @onready var door_holder: Node2D = $%DoorHolder
+## The tilemaplayer defining the Room's collision.
+@onready var midground: TileMapLayer = $%Midground
 
 ## An array containing all Doors in this Room that lead to other Rooms.
 var doors: Array[Node]
@@ -22,8 +24,7 @@ func _ready() -> void:
 	for door: Door in doors:
 		door.player_entered_door.connect(_on_player_entered_door)
 	
-	
-	
+	# TODO: fix to set up gameplay and teleport to the room instead
 	# If the room is being run standalone, we have to make sure the player gets instantiated.
 	if get_tree().current_scene == self:
 		var player: Player = preload("res://src/entities/actors/player/player.tscn").instantiate()
@@ -31,31 +32,23 @@ func _ready() -> void:
 
 ## Initiate room swap on player entering a Door.
 func _on_player_entered_door(door: Door) -> void:
-	
 	# Check whether the door has a destination first.
 	if (door.path_to_target_room == ""):
 		push_warning("Room '%s': Door '%s' does not have a target room set!" % [name, door.door_name])
 		return
-	
-	# Since the path to the target room is set, emit room load signal (the path may not be valid so be warned this isn't foolproof)
-	print("Room '%s': Player interacted with door '%s'" % [name, door.door_name])
+	# Since the path to the target room is set, emit room load signal
 	swap_room.emit(door.path_to_target_room, door.target_door_name)
 
 ## Spawn the player at the specified Door.
 func spawn_player(player: Player, target_door_name: String) -> void:
-	#Set the camera limits in the room 
-	CameraManager.set_limit($%Midground.get_path())
-	
 	# Check the name of the target door against the doors in this room
 	# If it exists in this room, add the player to the room and move it to the correct location
 	for door: Door in doors:
 		if door.door_name == target_door_name:
-			print("Room '%s': Placing player at door '%s'" % [name, target_door_name])
 			player_holder.add_child(player)
 			player.global_position = door.spawn_position
 			last_entered_door = target_door_name
 			return
-	
 	# If the target door didn't exist anywhere in the room, report the issue
 	push_warning("Room '%s': Door '%s' does not exist in this room" % [name, target_door_name])
 
@@ -67,9 +60,7 @@ func despawn_player(player: Player) -> void:
 func respawn_player(player: Player) -> void:
 	for door: Door in doors:
 		if door.door_name == last_entered_door:
-			print("Room '%s': Respawning player at door '%s'" % [name, last_entered_door])
 			player.global_position = door.global_position
 			return
-	
 	# If the target door didn't exist anywhere in the room, report the issue
 	push_warning("Room '%s': Door '%s' does not exist in this room" % [name, last_entered_door])
