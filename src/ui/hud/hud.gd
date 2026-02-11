@@ -27,14 +27,19 @@ func _set_player_health(new_health: int) -> void:
 		push_warning("New health is greater than number of health UI boxes.")
 		return
 	else:
-		if new_health == 3: # respawns all lives when player health is max 
+		if new_health:
 			await get_tree().create_timer(respawn_speed).timeout
-			create_tween().tween_property(%LifeLeaf1, "modulate:a", 1.0, 0.25)
-			create_tween().tween_property(%LifeLeaf2, "modulate:a", 1.0, 0.25)
-			create_tween().tween_property(%LifeLeaf3, "modulate:a", 1.0, 0.25)
-		elif new_health == 2: # removes right most leaf when looses first life
-			create_tween().tween_property(%LifeLeaf3, "modulate:a", 0.0, 0.5)
-		elif new_health == 1: # removes middle leaf when loses middle life
-			create_tween().tween_property(%LifeLeaf2, "modulate:a", 0.0, 0.5)
-		elif new_health == 0: # removes left most leaf when looses last life
+			create_tween().tween_property(%LifeLeaf1, "modulate:a", 1.0, 0.5)
+		else:
 			create_tween().tween_property(%LifeLeaf1, "modulate:a", 0.0, 0.5)
+		#if new_health == 3: # respawns all lives when player health is max 
+			#await get_tree().create_timer(respawn_speed).timeout
+			#create_tween().tween_property(%LifeLeaf1, "modulate:a", 1.0, 0.25)
+			#create_tween().tween_property(%LifeLeaf2, "modulate:a", 1.0, 0.25)
+			#create_tween().tween_property(%LifeLeaf3, "modulate:a", 1.0, 0.25)
+		#elif new_health == 2: # removes right most leaf when looses first life
+			#create_tween().tween_property(%LifeLeaf3, "modulate:a", 0.0, 0.5)
+		#elif new_health == 1: # removes middle leaf when loses middle life
+			#create_tween().tween_property(%LifeLeaf2, "modulate:a", 0.0, 0.5)
+		#elif new_health == 0: # removes left most leaf when looses last life
+			#create_tween().tween_property(%LifeLeaf1, "modulate:a", 0.0, 0.5)

@@ -184,6 +184,9 @@ theme_override_fonts/bold_italics_font = ExtResource("4_qggwp")
 theme_override_fonts/italics_font = ExtResource("5_4bcdh")
 text = "Dialogue..."
 fit_content = false
+seconds_per_step = 0.03
+pause_at_characters = "0"
+skip_pause_at_character_if_followed_by = "0"
 
 [node name="Control" type="Control" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(20, 10)
