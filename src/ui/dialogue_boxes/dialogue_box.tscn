@@ -162,6 +162,7 @@ theme_override_constants/margin_right = -35
 theme_override_constants/margin_bottom = -50
 
 [node name="CharacterPortrait" type="TextureRect" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 texture = ExtResource("3_qggwp")
