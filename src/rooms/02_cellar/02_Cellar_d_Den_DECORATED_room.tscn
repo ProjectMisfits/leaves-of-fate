@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://bdbuuoljlim4f"]
+[gd_scene load_steps=46 format=4 uid="uid://bdbuuoljlim4f"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_h8co5"]
 [ext_resource type="Gradient" uid="uid://cy32pu1r17tvk" path="res://assets/rooms/backgrounds/cellar_gradient.tres" id="2_fdcq0"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b6p26modf3ljr" path="res://src/entities/decor/furniture/window_01.tscn" id="5_y5unq"]
 [ext_resource type="PackedScene" uid="uid://dggdoj1nhnb1j" path="res://src/entities/decor/furniture/window_02.tscn" id="6_x263s"]
 [ext_resource type="PackedScene" uid="uid://n0xe74ww2rnc" path="res://src/entities/decor/furniture/window_03.tscn" id="7_04rh1"]
-[ext_resource type="Shader" path="res://src/shaders/dustgloom.gdshader" id="8_16v2u"]
+[ext_resource type="Shader" uid="uid://di2uq7k8615pm" path="res://src/shaders/dustgloom.gdshader" id="8_16v2u"]
 [ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/door/door.tscn" id="9_6e3gf"]
 [ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="10_yjioi"]
 [ext_resource type="PackedScene" uid="uid://beub4bx6t3wvh" path="res://src/entities/hazards/icicle/icicle_01.tscn" id="11_xxjwo"]
@@ -17,7 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://b5pl5cenkmlqy" path="res://src/entities/hazards/icicle/icicle_04.tscn" id="15_fpg0x"]
 [ext_resource type="PackedScene" uid="uid://dv6448b476yos" path="res://src/entities/hazards/icicle/icicle_06.tscn" id="16_fqgi6"]
 [ext_resource type="PackedScene" uid="uid://ds25qjj7x3y7o" path="res://src/entities/objects/leaf_platform/leaf_platform.tscn" id="17_g0ys4"]
+[ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="18_fdcq0"]
 [ext_resource type="Material" uid="uid://dbrwefsv6hrsv" path="res://src/shaders/RimLit.tres" id="18_jcvwt"]
+[ext_resource type="Resource" uid="uid://be8dog2eea1tm" path="res://assets/dialogue/dialogue_scripts/6-AzWs-Arrive-Den.dialogue" id="19_6l8wa"]
 [ext_resource type="PackedScene" uid="uid://wxvub3svduoi" path="res://src/entities/decor/pillars/arch_round_cracked.tscn" id="19_pd3b6"]
 [ext_resource type="PackedScene" uid="uid://4jh213w6fsb7" path="res://src/entities/decor/pillars/pillar_base_01.tscn" id="20_66gs5"]
 [ext_resource type="PackedScene" uid="uid://7c7nfo2gy8fu" path="res://src/entities/decor/pillars/pillar_cap_03.tscn" id="21_mlwqb"]
@@ -287,6 +289,11 @@ scale = Vector2(4, 8)
 [node name="LeafPlatform-4" parent="MidgroundLayer/Entities/Objects" index="2" instance=ExtResource("17_g0ys4")]
 position = Vector2(9984, -3328)
 scale = Vector2(4, 4)
+
+[node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("18_fdcq0")]
+position = Vector2(11353, -854)
+scale = Vector2(20, 60)
+dialogue_sequence = ExtResource("19_6l8wa")
 
 [node name="Decor" parent="MidgroundLayer" index="5"]
 modulate = Color(0.59, 0.59, 0.59, 1)
