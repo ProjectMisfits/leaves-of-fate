@@ -3,7 +3,7 @@ render_mode skip_vertex_transform, unshaded, blend_add;
 
 #include "./_shared.gdshaderinc"
 
-uniform sampler2D screenTexture : hint_screen_texture;
+uniform sampler2D screenTexture : hint_screen_texture, filter_linear_mipmap;
 
 varying vec2 worldVtx;
 
@@ -23,6 +23,7 @@ uniform sampler3D noiseTexture : hint_default_white;
 uniform float noiseScale : hint_range(0.1, 10.0) = 1.0;
 uniform float perspectiveAmount : hint_range(0.0, 1.0) = 0.2;
 uniform float perspectiveOffset : hint_range(0.0, 1.0) = 0.0;
+uniform vec2 positionShift = vec2(0.0, 0.0);
 uniform float scaleMax : hint_range(0.5, 1.5) = 0.9;
 uniform float noiseScrollSpeed : hint_range(-1.0, 1.0) = -0.02;
 uniform float brightnessMultiplier : hint_range(0.0, 20.0) = 4.0;
@@ -58,7 +59,7 @@ void fragment() {
 	vec2 noiseUvBase = fract(worldVtx.xy * 0.0025 * noiseScale);
 	
 	float scaleMin = (1.0 - perspectiveAmount * .2) * scaleMax;
-	vec2 stepDir = (screenUv - 0.5) * perspectiveAmount * 0.5;
+	vec2 stepDir = (screenUv - 0.5) * perspectiveAmount * 0.5 + positionShift;
 	vec3 color = vec3(0.0);
 	
 	for (int i=0; i<STEPS; i++) {

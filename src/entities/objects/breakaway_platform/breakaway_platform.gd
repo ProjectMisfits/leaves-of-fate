@@ -16,6 +16,13 @@ var respawn_time : float
 ##Decides whether or not the platform will return after a certain amount of time
 @export var respawnable : bool 
 
+##Should the platform fall
+@export var stationary : bool 
+
+##Gravity scale
+@export var gravity : float
+
+
 ##variable to keep track if the player is in the area
 var player_present : bool 
 
@@ -29,11 +36,24 @@ func _enter_tree() -> void:
 func initialize_data(data: Dictionary) -> void:
 	break_time = data["break_time"]
 	respawn_time = data["respawn_time"]
+	respawnable = data["respawnable"]
+	stationary = data["stationary"]
+	gravity = data["gravity"]
 
 #Player has entered, only the player can interact with this platform so there is no need to check 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	sprite.modulate = Color(1.0, 0.426, 0.357, 1.0)
 	break_timer.start(break_time)
+
+func _ready() -> void:
+	constant_linear_velocity = Vector2(0,gravity)
+
+
+func _physics_process(delta: float) -> void:
+	#apply gravity at all times
+	if(not stationary):
+		move_and_collide(constant_linear_velocity)
+
 
 
 #Once the break timer has gone disable collisions
@@ -44,7 +64,8 @@ func _on_break_time_timeout() -> void:
 	#If the platform can respawn start the respawn timer
 	if(respawnable):
 		respawn_timer.start(respawn_time)
-
+	else:
+		queue_free()
 
 func _on_respawn_time_timeout() -> void:
 	if(not player_present):

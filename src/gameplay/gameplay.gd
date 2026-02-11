@@ -36,15 +36,11 @@ func _ready() -> void:
 	# Connect phantom camera to player
 	CameraManager.set_target(player)
 	
-	#Make the cameras limits the tile map layer
-	
-	
 	# Connect the player death signal to the respawn player function
 	player.player_knocked_out.connect(respawn_player)
 	
 	# Passes player to the Hud so that Hud can update based on player actions
 	$%Hud.set_player(player)
-	
 	# Connect UI menu signals
 	_connect_menu_signals()
 
@@ -63,46 +59,41 @@ func _update_current_room() -> void:
 
 ## Swap to the specified Room and unload the current Room.
 func _on_swap_room(path_to_target_room: String, target_door_name: String) -> void:
+	# Begin a screen transition.
+	await SceneManager.add_screen_transition("circle")
 	# Disconnect camera from player
 	CameraManager.clear_target()
-	
+	CutsceneManager._end_cutscene()
 	# Remove player from current room
 	current_room.despawn_player(player)
-	# Call autoload SceneManager to swap the room
+	# Swap in the target room
 	var target_room_loaded: int = SceneManager.swap_scenes(path_to_target_room, $RoomHolder, current_room)
 	# Make sure the load succeeded before continuing the swap
 	if (target_room_loaded != 0):
 		return
-	
 	# Update the current room
 	_update_current_room()
+	# Set the camera limits for the room
+	CameraManager.set_limit(current_room.midground.get_path())
 	# Add player to new current room and place them at correct door
 	current_room.spawn_player(player, target_door_name)
-	
 	# Reconnect camera to player
 	CameraManager.set_target(player)
-	
-	# Set limit to the tile map
-
-	
-	
-	# Play the room's music, if it exists
-	if(current_room.room_music):
-		MusicManager._play_song(current_room.room_music)
-	else:
-		MusicManager.stop()
-	
-	# Load the room's ambiance, if it exists
-	if(current_room.room_ambiance):
-		AmbianceManager._load_ambiance(current_room.room_ambiance)
-	else:
-		AmbianceManager.stop()
+	CameraManager.teleport()
+	# Finish the screen transition.
+	await SceneManager.remove_screen_transition()
 
 ## Resets the Player's stats & respawns them at the last door they exited.
 func respawn_player() -> void:
+	# Begin a screen transition.
+	await get_tree().create_timer(0.5).timeout
+	await SceneManager.add_screen_transition("circle")
 	player.reset_stats()
 	player.velocity = Vector2.ZERO	# Reset Player velocity
 	current_room.respawn_player(player)
+	CameraManager.teleport()
+	# Finish the screen transition.
+	await SceneManager.remove_screen_transition()
 
 ## UI FUNCTIONALITY
 
@@ -114,11 +105,11 @@ func _connect_menu_signals() -> void:
 	# Connect settings menu
 	settings_menu.get_node("%ControlsButton").button_up.connect(_open_controls_menu)
 	settings_menu.get_node("%VolumeButton").button_up.connect(_open_volume_menu)
-	settings_menu.get_node("%BackButton").button_up.connect(_close_settings_menu)
+	settings_menu.get_node("%BackButton").button_up.connect(close_settings_menu)
 	# Connect controls menu
-	controls_menu.get_node("%BackButton").button_up.connect(_close_controls_menu)
+	controls_menu.get_node("%BackButton").button_up.connect(close_controls_menu)
 	# Connect volume menu
-	volume_menu.get_node("%BackButton").button_up.connect(_close_volume_menu)
+	volume_menu.get_node("%BackButton").button_up.connect(close_volume_menu)
 
 ## Toggle the game's pause state.
 func toggle_pause() -> void:
@@ -150,7 +141,7 @@ func _open_settings_menu() -> void:
 	settings_menu.get_node("%ControlsButton").grab_focus.call_deferred()
 
 # Close setting menu
-func _close_settings_menu() -> void:
+func close_settings_menu() -> void:
 	select_audio.play()
 	pause_menu.get_node("%ResumeButton").grab_focus.call_deferred()
 	menu_holder.remove_child(settings_menu)
@@ -162,7 +153,7 @@ func _open_volume_menu() -> void:
 	volume_menu.get_node("%MasterSlider").grab_focus.call_deferred()
 
 # Closes volume menu
-func _close_volume_menu() -> void:
+func close_volume_menu() -> void:
 	select_audio.play()
 	settings_menu.get_node("%ControlsButton").grab_focus.call_deferred()
 	menu_holder.remove_child(volume_menu)
@@ -174,7 +165,8 @@ func _open_controls_menu() -> void:
 	controls_menu.get_node("%BackButton").grab_focus.call_deferred()
 
 # Closes controls menu 
-func _close_controls_menu() -> void:
+func close_controls_menu() -> void:
+	#print("called")
 	select_audio.play()
 	settings_menu.get_node("%ControlsButton").grab_focus.call_deferred()
 	menu_holder.remove_child(controls_menu)
@@ -182,7 +174,7 @@ func _close_controls_menu() -> void:
 ## Quits game from pause menu
 func _quit_to_main_menu() -> void:
 	select_audio.play()
-	await select_audio.finished
+	#await select_audio.finished
 	# unpauses tree and then switches out of gameplay scene to main menu scene 
 	get_tree().paused = false
-	SceneManager.swap_scenes("res://src/ui/main_menu/main_menu.tscn", null, self)
+	SceneManager.swap_scenes_with_transition("res://src/ui/main_menu/main_menu.tscn", null, self)

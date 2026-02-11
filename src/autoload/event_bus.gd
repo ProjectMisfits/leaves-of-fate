@@ -3,6 +3,10 @@
 extends Node
 
 # Create global signals by defining them here.
+#Signal to interupt dialouge moments
+signal interrupt_dialogue(delay: String)
+
+signal camera_change
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -18,3 +22,30 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("pause"):
 		if SceneManager.current_scene.name == "Gameplay":
 			SceneManager.current_scene.toggle_pause()
+	elif event.is_action_pressed("ui_text_backspace"):
+		if SceneManager.current_scene.name == "Gameplay":
+			var gameplay_node: Node = SceneManager.current_scene
+			
+			if gameplay_node.pause_menu.get_parent() != null:
+				if gameplay_node.settings_menu.get_parent() != null:
+					if gameplay_node.controls_menu.get_parent() != null:
+						gameplay_node.close_controls_menu()
+						
+					elif gameplay_node.volume_menu.get_parent() != null:
+						gameplay_node.close_volume_menu()
+					else:
+						gameplay_node.close_settings_menu()
+		elif SceneManager.current_scene.name == "MainMenu":
+			var main_menu_node: MainMenu = SceneManager.current_scene
+			
+			if main_menu_node.settings_menu.get_parent() != null:
+				
+				if main_menu_node.controls_menu.get_parent() != null:
+					main_menu_node.close_controls_menu()
+				elif main_menu_node.volume_menu.get_parent() != null:
+					main_menu_node.close_volume_menu()
+				else:
+					main_menu_node.close_settings_menu()
+			elif main_menu_node.controls_menu.get_parent() != null:
+				main_menu_node.close_controls_menu()
+	

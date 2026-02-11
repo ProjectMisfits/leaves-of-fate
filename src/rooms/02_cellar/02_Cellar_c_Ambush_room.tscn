@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://c8aipu8vkbprc"]
+[gd_scene load_steps=14 format=4 uid="uid://c8aipu8vkbprc"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_78sth"]
 [ext_resource type="Texture2D" uid="uid://wk7tx1t1vq5f" path="res://assets/rooms/backgrounds/grad.png" id="2_c5x56"]
@@ -8,14 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://bg2o7v2o7bjjk" path="res://src/entities/objects/breakaway_platform/breakaway_platform.tscn" id="5_kak0g"]
 [ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="5_u513b"]
 [ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/npc_winston/npc_winston.tscn" id="6_af7wc"]
-[ext_resource type="PackedScene" uid="uid://bgncdkpxeluh4" path="res://src/entities/triggers/interact_trigger/dialogue_trigger/dialogue_trigger.tscn" id="6_mvpdk"]
+[ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="9_hjb0y"]
 [ext_resource type="PackedScene" uid="uid://bwadcghg6jxxu" path="res://src/entities/decor/pillars/pillar_base_03.tscn" id="9_kftvp"]
 [ext_resource type="PackedScene" uid="uid://lyc1bsnodr4q" path="res://src/entities/decor/pillars/pillar_trunk_04.tscn" id="10_7c5gk"]
+[ext_resource type="Resource" uid="uid://vdi6hdwmhlj1" path="res://assets/dialogue/dialogue_scripts/5-Ws-Ambush-CellarGeneral.dialogue" id="10_h5367"]
 [ext_resource type="PackedScene" uid="uid://0jijms4al2i5" path="res://src/entities/decor/pillars/pillar_cap_01.tscn" id="11_r7us7"]
 
 [node name="02_Cellar_c_Ambush" instance=ExtResource("1_78sth")]
 
-[node name="Background" parent="BackgroundLayer" index="0"]
+[node name="Background" parent="BackgroundLayer" index="1"]
 position = Vector2(11744, 10976.001)
 scale = Vector2(32.876717, 65.24445)
 texture = ExtResource("2_c5x56")
@@ -70,9 +71,11 @@ tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(1536, 1024)
+path_to_target_room = "uid://dmggcrgj2j47b"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(22272.002, 22016.002)
+path_to_target_room = "uid://crnmcqdp12kqw"
 
 [node name="IcicleGroup05" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("3_i7v3y")]
 position = Vector2(6208, 1344)
@@ -367,10 +370,6 @@ position = Vector2(23552, 19072)
 [node name="NpcWinston" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("6_af7wc")]
 position = Vector2(20928, 21568)
 
-[node name="DialogueTrigger" parent="MidgroundLayer/Entities/NPCs" index="1" instance=ExtResource("6_mvpdk")]
-position = Vector2(18944, 21760)
-scale = Vector2(16, 8)
-
 [node name="BreakawayPlatform" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("5_kak0g")]
 position = Vector2(15104, 896)
 scale = Vector2(4, 1)
@@ -402,6 +401,12 @@ scale = Vector2(4, 1)
 [node name="BreakawayPlatform-8" parent="MidgroundLayer/Entities/Objects" index="7" instance=ExtResource("5_kak0g")]
 position = Vector2(18176, 896)
 scale = Vector2(4, 1)
+
+[node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("9_hjb0y")]
+position = Vector2(18944, 21760)
+scale = Vector2(20, 10)
+dialogue_sequence = ExtResource("10_h5367")
+dialogue_start = "ambushed"
 
 [node name="PillarTrunk04" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("10_7c5gk")]
 position = Vector2(16896, 19968)

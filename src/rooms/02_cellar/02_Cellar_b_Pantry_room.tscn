@@ -1,9 +1,9 @@
-[gd_scene load_steps=26 format=4 uid="uid://f2l3hfy6ehdh"]
+[gd_scene load_steps=32 format=4 uid="uid://f2l3hfy6ehdh"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_upsp8"]
 [ext_resource type="PackedScene" uid="uid://n257i6n8nqs1" path="res://src/entities/decor/pillars/pillar_trunk_03.tscn" id="2_64sc0"]
 [ext_resource type="PackedScene" uid="uid://bwadcghg6jxxu" path="res://src/entities/decor/pillars/pillar_base_03.tscn" id="2_bu62q"]
-[ext_resource type="Texture2D" uid="uid://wk7tx1t1vq5f" path="res://assets/rooms/backgrounds/grad.png" id="2_pjmwj"]
+[ext_resource type="Gradient" uid="uid://cy32pu1r17tvk" path="res://assets/rooms/backgrounds/cellar_gradient.tres" id="2_uiv8d"]
 [ext_resource type="PackedScene" uid="uid://7c7nfo2gy8fu" path="res://src/entities/decor/pillars/pillar_cap_03.tscn" id="3_64sc0"]
 [ext_resource type="PackedScene" uid="uid://b6p26modf3ljr" path="res://src/entities/decor/furniture/window_01.tscn" id="5_0elvk"]
 [ext_resource type="PackedScene" uid="uid://dggdoj1nhnb1j" path="res://src/entities/decor/furniture/window_02.tscn" id="6_3hm1j"]
@@ -19,19 +19,28 @@
 [ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="11_masfk"]
 [ext_resource type="PackedScene" uid="uid://cctsnqs8u4udu" path="res://src/entities/decor/furniture/wine_shelf.tscn" id="12_3mpay"]
 [ext_resource type="PackedScene" uid="uid://ds25qjj7x3y7o" path="res://src/entities/objects/leaf_platform/leaf_platform.tscn" id="12_p8jqt"]
+[ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="13_6woac"]
 [ext_resource type="PackedScene" uid="uid://dejfbk3ejdidx" path="res://src/entities/decor/food/wine_bottle.tscn" id="13_20bw3"]
 [ext_resource type="PackedScene" uid="uid://deu2abme5ohr7" path="res://src/entities/decor/food/boar_head.tscn" id="14_017wk"]
+[ext_resource type="PackedScene" uid="uid://bgncdkpxeluh4" path="res://src/entities/triggers/interact_trigger/dialogue_trigger/dialogue_trigger.tscn" id="14_gpuhd"]
+[ext_resource type="Resource" uid="uid://ykutm1ovfjr3" path="res://assets/dialogue/dialogue_scripts/X-Az-Filler-Pantry.dialogue" id="15_1ppdk"]
+[ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="15_q7bjq"]
 [ext_resource type="PackedScene" uid="uid://cluoychij4hex" path="res://src/entities/decor/food/bread.tscn" id="15_vpbkt"]
 [ext_resource type="PackedScene" uid="uid://drbbdvcahypuc" path="res://src/entities/decor/food/green_ham.tscn" id="16_5lhxx"]
+[ext_resource type="Resource" uid="uid://cr0eyu8r26ipj" path="res://assets/dialogue/dialogue_scripts/3-Az-Stuck-Pantry.dialogue" id="16_q7bjq"]
 [ext_resource type="PackedScene" uid="uid://cjsgw2pcml8p5" path="res://src/entities/decor/food/radioactive_ham.tscn" id="17_g3u0g"]
 [ext_resource type="PackedScene" uid="uid://b8rxwl8xaqar1" path="res://src/entities/decor/food/scaly_meat.tscn" id="18_0060p"]
 
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a8h18"]
+gradient = ExtResource("2_uiv8d")
+
 [node name="02_Cellar_b_Pantry" instance=ExtResource("1_upsp8")]
 
-[node name="Background" parent="BackgroundLayer" index="0"]
-position = Vector2(9984, -2623.9998)
-scale = Vector2(27.879452, 32.711113)
-texture = ExtResource("2_pjmwj")
+[node name="Background" parent="BackgroundLayer" index="1"]
+position = Vector2(10372, -2396.0002)
+rotation = -1.5707964
+scale = Vector2(190, 325)
+texture = SubResource("GradientTexture2D_a8h18")
 
 [node name="Window01" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("5_0elvk")]
 position = Vector2(1536.0001, -3072)
@@ -125,9 +134,12 @@ position = Vector2(1535.9999, 1024)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(19456, 3071.9998)
+path_to_target_room = "uid://dmggcrgj2j47b"
 
 [node name="FakeDoorExit" parent="MidgroundLayer/DoorHolder" index="2" instance=ExtResource("7_uiv8d")]
 position = Vector2(14848.002, 1024.0001)
+door_name = "exit"
+target_door_name = "enter"
 
 [node name="Icicle_06" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("7_igaof")]
 position = Vector2(12928, 1024)
@@ -195,6 +207,13 @@ scale = Vector2(2, 2)
 position = Vector2(13120, -1472)
 scale = Vector2(2, 2)
 
+[node name="NpcAz" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("13_6woac")]
+position = Vector2(5977, 680)
+
+[node name="DialogueTrigger" parent="MidgroundLayer/Entities/NPCs/NpcAz" index="3" instance=ExtResource("14_gpuhd")]
+dialogue_sequence = ExtResource("15_1ppdk")
+required_event_flags = Array[String](["Az-Stuck-Pantry"])
+
 [node name="LeafPlatform" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("12_p8jqt")]
 position = Vector2(11264, 1088)
 scale = Vector2(8, 1)
@@ -202,6 +221,11 @@ scale = Vector2(8, 1)
 [node name="LeafPlatform-2" parent="MidgroundLayer/Entities/Objects" index="1" instance=ExtResource("12_p8jqt")]
 position = Vector2(5120, 1088)
 scale = Vector2(8, 1)
+
+[node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("15_q7bjq")]
+position = Vector2(4550, -594)
+scale = Vector2(20, 60)
+dialogue_sequence = ExtResource("16_q7bjq")
 
 [node name="PillarTrunk03" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("2_64sc0")]
 position = Vector2(3328, 128)

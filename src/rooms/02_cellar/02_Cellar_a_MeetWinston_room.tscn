@@ -8,14 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="3_cb0av"]
 [ext_resource type="PackedScene" uid="uid://bwadcghg6jxxu" path="res://src/entities/decor/pillars/pillar_base_03.tscn" id="3_yrprt"]
 [ext_resource type="PackedScene" uid="uid://dv6448b476yos" path="res://src/entities/hazards/icicle/icicle_06.tscn" id="4_o18oo"]
-[ext_resource type="PackedScene" uid="uid://bgncdkpxeluh4" path="res://src/entities/triggers/interact_trigger/dialogue_trigger/dialogue_trigger.tscn" id="4_onvyk"]
-[ext_resource type="Resource" uid="uid://btikirxfgpxb5" path="res://assets/dialogue/dialogue_scripts/2-Ws-Meet-CellarGeneral.dialogue" id="5_ha3ky"]
 [ext_resource type="PackedScene" uid="uid://bj7fv2e6r3bp5" path="res://src/entities/hazards/icicle/icicle_05.tscn" id="5_kebhb"]
 [ext_resource type="PackedScene" uid="uid://b5pl5cenkmlqy" path="res://src/entities/hazards/icicle/icicle_04.tscn" id="6_e8f4w"]
+[ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="8_51bm5"]
+[ext_resource type="Resource" uid="uid://btikirxfgpxb5" path="res://assets/dialogue/dialogue_scripts/2-Ws-Meet-CellarGeneral.dialogue" id="9_cb0av"]
 
 [node name="02_Cellar_a_MeetWinston" instance=ExtResource("1_mvvqy")]
 
-[node name="Background" parent="BackgroundLayer" index="0"]
+[node name="Background" parent="BackgroundLayer" index="1"]
 position = Vector2(4617.5, -582)
 scale = Vector2(13.124658, 9.922222)
 texture = ExtResource("2_am7sp")
@@ -25,9 +25,11 @@ tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(1023.99994, 1024)
+path_to_target_room = "uid://dis7wlfvk6tfx"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(8191.9995, 1024)
+path_to_target_room = "uid://5fo0nisux4xe"
 
 [node name="IceSpikeBall" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("3_cb0av")]
 position = Vector2(1024, -1024)
@@ -69,8 +71,10 @@ rotation = -3.1415927
 [node name="NpcWinston" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("3_2kose")]
 position = Vector2(5568, 576)
 
-[node name="DialogueTrigger" parent="MidgroundLayer/Entities/NPCs/NpcWinston" index="3" instance=ExtResource("4_onvyk")]
-dialogue_sequence = ExtResource("5_ha3ky")
+[node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("8_51bm5")]
+position = Vector2(3971, -748)
+scale = Vector2(20, 60)
+dialogue_sequence = ExtResource("9_cb0av")
 
 [node name="PillarTrunk03" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("2_yrprt")]
 position = Vector2(2048, 63.999992)

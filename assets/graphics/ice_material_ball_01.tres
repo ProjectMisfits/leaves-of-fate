@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cyagf2w8coumw"]
+
+[ext_resource type="Shader" uid="uid://c1h5ly2o30cd7" path="res://src/shaders/ice.gdshader" id="1_fg205"]
+
+[resource]
+shader = ExtResource("1_fg205")
+shader_parameter/reflectMode = 0
+shader_parameter/normalScale = 1.0
+shader_parameter/reflectScale = 0.6
+shader_parameter/textureAmount = 0.8
+shader_parameter/reflectionAmount = 0.8
+shader_parameter/positionCenter = Vector2(0, 0)
+shader_parameter/warpWidth = 16.0
+shader_parameter/warpWidthDistance = 100.0
