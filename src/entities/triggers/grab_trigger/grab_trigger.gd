@@ -4,8 +4,11 @@ class_name GrabTrigger extends Trigger
 ## Whether this grab trigger is currently grabbed.
 var is_grabbed: bool = false
 
+## A reference to the grab highlight.
+@onready var grab_highlight: Control
+
 func _ready() -> void:
-	## Set the trigger to the _on_grab function.
+	grab_highlight = $GrabHighlight
 	_on_trigger = _on_grab
 
 ## Grab the entity that this trigger is a child of.
