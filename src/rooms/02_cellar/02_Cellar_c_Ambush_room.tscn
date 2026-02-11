@@ -15,7 +15,7 @@
 
 [node name="02_Cellar_c_Ambush" instance=ExtResource("1_78sth")]
 
-[node name="Background" parent="BackgroundLayer" index="0"]
+[node name="Background" parent="BackgroundLayer" index="1"]
 position = Vector2(11744, 10976.001)
 scale = Vector2(32.876717, 65.24445)
 texture = ExtResource("2_c5x56")
@@ -70,9 +70,11 @@ tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(1536, 1024)
+path_to_target_room = "uid://dmggcrgj2j47b"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(22272.002, 22016.002)
+path_to_target_room = "uid://crnmcqdp12kqw"
 
 [node name="IcicleGroup05" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("3_i7v3y")]
 position = Vector2(6208, 1344)

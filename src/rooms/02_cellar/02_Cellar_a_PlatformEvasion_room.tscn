@@ -25,7 +25,7 @@ point_count = 2
 
 [node name="02_Cellar_a_PlatformEvasion" instance=ExtResource("1_k8dcy")]
 
-[node name="Background" parent="BackgroundLayer" index="0"]
+[node name="Background" parent="BackgroundLayer" index="1"]
 modulate = Color(0.46666667, 0.4, 0.46666667, 0.46666667)
 position = Vector2(7808, 1087.9999)
 scale = Vector2(21.567123, 12.799999)
@@ -36,11 +36,11 @@ tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(1536, 1024)
-path_to_target_room = "uid://oqq37bqbyg24"
+path_to_target_room = "uid://cadsmfa8k8oaw"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(13824.001, 1024)
-path_to_target_room = "uid://da60s8v1p6ofu"
+path_to_target_room = "uid://cyy1pshcjhq70"
 
 [node name="LeafPlatform" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("2_gsdnp")]
 position = Vector2(7680, 1088)
@@ -52,6 +52,9 @@ curve = SubResource("Curve2D_5pt3l")
 
 [node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="0"]
 progress = 7167.999
+
+[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="1"]
+position = Vector2(512, 0)
 
 [node name="Sprite2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform/AnimatableBody2D" index="1"]
 scale = Vector2(2, 16)

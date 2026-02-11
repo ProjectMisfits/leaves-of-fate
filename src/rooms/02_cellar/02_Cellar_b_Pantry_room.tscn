@@ -129,9 +129,12 @@ position = Vector2(1535.9999, 1024)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(19456, 3071.9998)
+path_to_target_room = "uid://dmggcrgj2j47b"
 
 [node name="FakeDoorExit" parent="MidgroundLayer/DoorHolder" index="2" instance=ExtResource("7_uiv8d")]
 position = Vector2(14848.002, 1024.0001)
+door_name = "exit"
+target_door_name = "enter"
 
 [node name="Icicle_06" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("7_igaof")]
 position = Vector2(12928, 1024)

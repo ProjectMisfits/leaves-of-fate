@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_epxov"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_61qep"]
 [ext_resource type="PackedScene" uid="uid://cob1yf4cxasej" path="res://src/ui/hud/hud.tscn" id="3_g7yt7"]
-[ext_resource type="PackedScene" uid="uid://bciovlpk07wr5" path="res://src/rooms/02_cellar/02_Cellar_a_MeetAz_room.tscn" id="5_05p43"]
+[ext_resource type="PackedScene" uid="uid://nhuquqglirtf" path="res://src/rooms/01_great_hall/01_GreatHall_a_Hub_room.tscn" id="5_61qep"]
 [ext_resource type="AudioStream" uid="uid://cw08xxvkhrlel" path="res://assets/ui/audio/PH-UI-select.ogg" id="7_61qep"]
 
 [sub_resource type="Resource" id="Resource_05p43"]
@@ -30,11 +30,14 @@ rotate_with_target = true
 dead_zone_width = 0.1
 dead_zone_height = 0.1
 show_viewfinder_in_play = true
+draw_limits = true
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
+top_level = true
 zoom = Vector2(0.3, 0.3)
+editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
@@ -45,7 +48,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="RoomHolder" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="02_Cellar_a_MeetAz" parent="RoomHolder" instance=ExtResource("5_05p43")]
+[node name="01_GreatHall_a_Hub" parent="RoomHolder" instance=ExtResource("5_61qep")]
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 4
