@@ -62,11 +62,11 @@ func check_player_visible() -> bool:
 		var player_abs_x : float= abs(player[0].global_position.x)
 		var enemy_abs_x :float = abs(global_position.x)
 		
-		if(player_abs_x-enemy_abs_x< 0) and look_direction == 1:
+		if(player_abs_x-enemy_abs_x < 0) and look_direction == 1:
 			flip()
 			
 			
-		elif (player_abs_x-enemy_abs_x > 0) and look_direction == -1:
+		elif (player_abs_x-enemy_abs_x >0) and look_direction == -1:
 			flip()
 			
 		player_last_known_pos = player[0].global_position

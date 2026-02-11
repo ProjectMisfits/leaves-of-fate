@@ -127,7 +127,7 @@ func check_release(delay: bool) -> void:
 			state_machine.dispatch(&"to_idle")
 
 #What happens when the cube is grabbed
-func grab() -> void:
+func _grab() -> void:
 	grab_collision.set_deferred("disabled",true)
 	velocity.x = 0;
 	

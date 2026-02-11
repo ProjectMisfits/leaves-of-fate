@@ -1,42 +1,42 @@
 [gd_scene load_steps=44 format=4 uid="uid://bdbuuoljlim4f"]
 
-[ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_yfktr"]
-[ext_resource type="Gradient" uid="uid://cy32pu1r17tvk" path="res://assets/rooms/backgrounds/cellar_gradient.tres" id="2_ad6lj"]
-[ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="3_h2ty1"]
-[ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="4_ro12q"]
-[ext_resource type="PackedScene" uid="uid://b6p26modf3ljr" path="res://src/entities/decor/furniture/window_01.tscn" id="5_s334o"]
-[ext_resource type="PackedScene" uid="uid://dggdoj1nhnb1j" path="res://src/entities/decor/furniture/window_02.tscn" id="6_rysa2"]
-[ext_resource type="PackedScene" uid="uid://n0xe74ww2rnc" path="res://src/entities/decor/furniture/window_03.tscn" id="7_lfs6k"]
-[ext_resource type="Shader" uid="uid://di2uq7k8615pm" path="res://src/shaders/dustgloom.gdshader" id="8_finwd"]
-[ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/door/door.tscn" id="9_44x0w"]
-[ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="10_kxcj5"]
-[ext_resource type="PackedScene" uid="uid://beub4bx6t3wvh" path="res://src/entities/hazards/icicle/icicle_01.tscn" id="11_e48kh"]
-[ext_resource type="PackedScene" uid="uid://domed3ucovqnj" path="res://src/entities/hazards/icicle/icicle_02.tscn" id="12_1tbpu"]
-[ext_resource type="PackedScene" uid="uid://dy2vli8qi5bb8" path="res://src/entities/hazards/icicle/icicle_03.tscn" id="13_ee2wr"]
-[ext_resource type="PackedScene" uid="uid://bj7fv2e6r3bp5" path="res://src/entities/hazards/icicle/icicle_05.tscn" id="14_fte7a"]
-[ext_resource type="PackedScene" uid="uid://b5pl5cenkmlqy" path="res://src/entities/hazards/icicle/icicle_04.tscn" id="15_k71x0"]
-[ext_resource type="PackedScene" uid="uid://dv6448b476yos" path="res://src/entities/hazards/icicle/icicle_06.tscn" id="16_wbwx6"]
-[ext_resource type="PackedScene" uid="uid://ds25qjj7x3y7o" path="res://src/entities/objects/leaf_platform/leaf_platform.tscn" id="17_4l615"]
-[ext_resource type="Material" uid="uid://dbrwefsv6hrsv" path="res://src/shaders/RimLit.tres" id="18_v0twv"]
-[ext_resource type="PackedScene" uid="uid://wxvub3svduoi" path="res://src/entities/decor/pillars/arch_round_cracked.tscn" id="19_mpapx"]
-[ext_resource type="PackedScene" uid="uid://4jh213w6fsb7" path="res://src/entities/decor/pillars/pillar_base_01.tscn" id="20_vgc2v"]
-[ext_resource type="PackedScene" uid="uid://7c7nfo2gy8fu" path="res://src/entities/decor/pillars/pillar_cap_03.tscn" id="21_jmatl"]
-[ext_resource type="PackedScene" uid="uid://c3wglsph8i5hq" path="res://src/entities/decor/plants/floor_pot_01.tscn" id="22_jc7c5"]
-[ext_resource type="PackedScene" uid="uid://b7t7pc0jj7gxa" path="res://src/entities/decor/plants/hanging_pot_02.tscn" id="23_rwqp5"]
-[ext_resource type="PackedScene" uid="uid://bt8rip14nbobd" path="res://src/entities/decor/plants/hanging_pot_01.tscn" id="24_agblx"]
-[ext_resource type="PackedScene" uid="uid://d0is0ffwd22hj" path="res://src/entities/decor/furniture/labeled_book_03.tscn" id="25_fivna"]
-[ext_resource type="PackedScene" uid="uid://byav0yxb067be" path="res://src/entities/decor/furniture/bookshelf_fancy.tscn" id="26_g3jpq"]
-[ext_resource type="PackedScene" uid="uid://c38wfukducj7p" path="res://src/entities/decor/furniture/book_03.tscn" id="27_gqr6u"]
-[ext_resource type="PackedScene" uid="uid://bsjsr3aaotqep" path="res://src/entities/decor/furniture/book_01.tscn" id="28_bme1x"]
-[ext_resource type="PackedScene" uid="uid://dpbbh0swy0fhv" path="res://src/entities/decor/furniture/book_02.tscn" id="29_2ojd1"]
-[ext_resource type="PackedScene" uid="uid://c5vfxsasn8h64" path="res://src/entities/decor/furniture/labeled_book_02.tscn" id="30_o23o6"]
-[ext_resource type="PackedScene" uid="uid://bklg6ht8motqu" path="res://src/entities/decor/furniture/labeled_book_01.tscn" id="31_mw28h"]
-[ext_resource type="PackedScene" uid="uid://cctsnqs8u4udu" path="res://src/entities/decor/furniture/wine_shelf.tscn" id="32_hgpm8"]
-[ext_resource type="Texture2D" uid="uid://bbw1y6slm5i2p" path="res://assets/entities/decor/architecture/bricks.png" id="33_xwpip"]
-[ext_resource type="PackedScene" uid="uid://b0wlcwvvy8ru2" path="res://src/entities/decor/furniture/chairs.tscn" id="34_7yycw"]
+[ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_h8co5"]
+[ext_resource type="Gradient" uid="uid://cy32pu1r17tvk" path="res://assets/rooms/backgrounds/cellar_gradient.tres" id="2_fdcq0"]
+[ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="3_6l8wa"]
+[ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="4_jpcdc"]
+[ext_resource type="PackedScene" uid="uid://b6p26modf3ljr" path="res://src/entities/decor/furniture/window_01.tscn" id="5_y5unq"]
+[ext_resource type="PackedScene" uid="uid://dggdoj1nhnb1j" path="res://src/entities/decor/furniture/window_02.tscn" id="6_x263s"]
+[ext_resource type="PackedScene" uid="uid://n0xe74ww2rnc" path="res://src/entities/decor/furniture/window_03.tscn" id="7_04rh1"]
+[ext_resource type="Shader" path="res://src/shaders/dustgloom.gdshader" id="8_16v2u"]
+[ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/door/door.tscn" id="9_6e3gf"]
+[ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="10_yjioi"]
+[ext_resource type="PackedScene" uid="uid://beub4bx6t3wvh" path="res://src/entities/hazards/icicle/icicle_01.tscn" id="11_xxjwo"]
+[ext_resource type="PackedScene" uid="uid://domed3ucovqnj" path="res://src/entities/hazards/icicle/icicle_02.tscn" id="12_bqkkn"]
+[ext_resource type="PackedScene" uid="uid://dy2vli8qi5bb8" path="res://src/entities/hazards/icicle/icicle_03.tscn" id="13_ge8n3"]
+[ext_resource type="PackedScene" uid="uid://bj7fv2e6r3bp5" path="res://src/entities/hazards/icicle/icicle_05.tscn" id="14_0cmhq"]
+[ext_resource type="PackedScene" uid="uid://b5pl5cenkmlqy" path="res://src/entities/hazards/icicle/icicle_04.tscn" id="15_fpg0x"]
+[ext_resource type="PackedScene" uid="uid://dv6448b476yos" path="res://src/entities/hazards/icicle/icicle_06.tscn" id="16_fqgi6"]
+[ext_resource type="PackedScene" uid="uid://ds25qjj7x3y7o" path="res://src/entities/objects/leaf_platform/leaf_platform.tscn" id="17_g0ys4"]
+[ext_resource type="Material" uid="uid://dbrwefsv6hrsv" path="res://src/shaders/RimLit.tres" id="18_jcvwt"]
+[ext_resource type="PackedScene" uid="uid://wxvub3svduoi" path="res://src/entities/decor/pillars/arch_round_cracked.tscn" id="19_pd3b6"]
+[ext_resource type="PackedScene" uid="uid://4jh213w6fsb7" path="res://src/entities/decor/pillars/pillar_base_01.tscn" id="20_66gs5"]
+[ext_resource type="PackedScene" uid="uid://7c7nfo2gy8fu" path="res://src/entities/decor/pillars/pillar_cap_03.tscn" id="21_mlwqb"]
+[ext_resource type="PackedScene" uid="uid://c3wglsph8i5hq" path="res://src/entities/decor/plants/floor_pot_01.tscn" id="22_834gw"]
+[ext_resource type="PackedScene" uid="uid://b7t7pc0jj7gxa" path="res://src/entities/decor/plants/hanging_pot_02.tscn" id="23_01ma7"]
+[ext_resource type="PackedScene" uid="uid://bt8rip14nbobd" path="res://src/entities/decor/plants/hanging_pot_01.tscn" id="24_8lack"]
+[ext_resource type="PackedScene" uid="uid://d0is0ffwd22hj" path="res://src/entities/decor/furniture/labeled_book_03.tscn" id="25_q5d28"]
+[ext_resource type="PackedScene" uid="uid://byav0yxb067be" path="res://src/entities/decor/furniture/bookshelf_fancy.tscn" id="26_oewy6"]
+[ext_resource type="PackedScene" uid="uid://c38wfukducj7p" path="res://src/entities/decor/furniture/book_03.tscn" id="27_vujns"]
+[ext_resource type="PackedScene" uid="uid://bsjsr3aaotqep" path="res://src/entities/decor/furniture/book_01.tscn" id="28_hjuhs"]
+[ext_resource type="PackedScene" uid="uid://dpbbh0swy0fhv" path="res://src/entities/decor/furniture/book_02.tscn" id="29_be066"]
+[ext_resource type="PackedScene" uid="uid://c5vfxsasn8h64" path="res://src/entities/decor/furniture/labeled_book_02.tscn" id="30_r521l"]
+[ext_resource type="PackedScene" uid="uid://bklg6ht8motqu" path="res://src/entities/decor/furniture/labeled_book_01.tscn" id="31_7iffk"]
+[ext_resource type="PackedScene" uid="uid://cctsnqs8u4udu" path="res://src/entities/decor/furniture/wine_shelf.tscn" id="32_gw7y0"]
+[ext_resource type="Texture2D" uid="uid://bbw1y6slm5i2p" path="res://assets/entities/decor/architecture/bricks.png" id="33_y68st"]
+[ext_resource type="PackedScene" uid="uid://b0wlcwvvy8ru2" path="res://src/entities/decor/furniture/chairs.tscn" id="34_2ajd0"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_fiwqb"]
-gradient = ExtResource("2_ad6lj")
+gradient = ExtResource("2_fdcq0")
 height = 128
 fill_from = Vector2(1, 1)
 
@@ -57,7 +57,7 @@ color_ramp = SubResource("Gradient_fiwqb")
 seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hnl24"]
-shader = ExtResource("8_finwd")
+shader = ExtResource("8_16v2u")
 shader_parameter/bloomScale = 2.0
 shader_parameter/noiseDetail = SubResource("NoiseTexture2D_hnl24")
 shader_parameter/uvNoiseScale = Vector2(1, 1)
@@ -75,7 +75,7 @@ colors = PackedColorArray(0.14509805, 0.15686275, 0.1882353, 1, 0.14535548, 0.15
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hnl24"]
 gradient = SubResource("Gradient_0clmk")
 
-[node name="02_Cellar_d_Den" instance=ExtResource("1_yfktr")]
+[node name="02_Cellar_d_Den_DECORATED" instance=ExtResource("1_h8co5")]
 
 [node name="BackgroundLayer" parent="." index="0"]
 follow_viewport_scale = 0.9
@@ -88,72 +88,72 @@ texture = SubResource("GradientTexture2D_fiwqb")
 [node name="CanvasGroup" type="CanvasGroup" parent="BackgroundLayer/Decor" index="0"]
 modulate = Color(0.76, 0.76, 0.76, 0.6039216)
 
-[node name="PillarTrunk01-5" parent="BackgroundLayer/Decor/CanvasGroup" index="0" instance=ExtResource("3_h2ty1")]
+[node name="PillarTrunk01-5" parent="BackgroundLayer/Decor/CanvasGroup" index="0" instance=ExtResource("3_6l8wa")]
 modulate = Color(0.4, 0.4, 0.4, 1)
 use_parent_material = true
 position = Vector2(10467.778, -2676.6667)
 rotation = -1.5707964
 scale = Vector2(1, 6.0444446)
 
-[node name="PillarTrunk01-6" parent="BackgroundLayer/Decor/CanvasGroup" index="1" instance=ExtResource("3_h2ty1")]
+[node name="PillarTrunk01-6" parent="BackgroundLayer/Decor/CanvasGroup" index="1" instance=ExtResource("3_6l8wa")]
 modulate = Color(0.4, 0.4, 0.4, 1)
 use_parent_material = true
 position = Vector2(1363.333, -2676.6667)
 rotation = -1.5707964
 scale = Vector2(1, 6.0444446)
 
-[node name="PillarTrunk01-7" parent="BackgroundLayer/Decor/CanvasGroup" index="2" instance=ExtResource("3_h2ty1")]
+[node name="PillarTrunk01-7" parent="BackgroundLayer/Decor/CanvasGroup" index="2" instance=ExtResource("3_6l8wa")]
 modulate = Color(0.4, 0.4, 0.4, 1)
 use_parent_material = true
 position = Vector2(10467.778, 878.8889)
 rotation = -1.5707964
 scale = Vector2(1, 6.0444446)
 
-[node name="PillarTrunk01-8" parent="BackgroundLayer/Decor/CanvasGroup" index="3" instance=ExtResource("3_h2ty1")]
+[node name="PillarTrunk01-8" parent="BackgroundLayer/Decor/CanvasGroup" index="3" instance=ExtResource("3_6l8wa")]
 modulate = Color(0.4, 0.4, 0.4, 1)
 use_parent_material = true
 position = Vector2(1363.333, 878.8889)
 rotation = -1.5707964
 scale = Vector2(1, 6.0444446)
 
-[node name="HangingLantern" parent="BackgroundLayer/Decor" index="1" instance=ExtResource("4_ro12q")]
+[node name="HangingLantern" parent="BackgroundLayer/Decor" index="1" instance=ExtResource("4_jpcdc")]
 position = Vector2(615.55554, -2535.5554)
 
-[node name="HangingLantern-7" parent="BackgroundLayer/Decor" index="2" instance=ExtResource("4_ro12q")]
+[node name="HangingLantern-7" parent="BackgroundLayer/Decor" index="2" instance=ExtResource("4_jpcdc")]
 position = Vector2(-1254.4445, -2517.7778)
 
-[node name="HangingLantern-2" parent="BackgroundLayer/Decor" index="3" instance=ExtResource("4_ro12q")]
+[node name="HangingLantern-2" parent="BackgroundLayer/Decor" index="3" instance=ExtResource("4_jpcdc")]
 position = Vector2(2717.7778, -2542.2222)
 
-[node name="HangingLantern-3" parent="BackgroundLayer/Decor" index="4" instance=ExtResource("4_ro12q")]
+[node name="HangingLantern-3" parent="BackgroundLayer/Decor" index="4" instance=ExtResource("4_jpcdc")]
 position = Vector2(12365.556, -2541.111)
 
-[node name="HangingLantern-4" parent="BackgroundLayer/Decor" index="5" instance=ExtResource("4_ro12q")]
+[node name="HangingLantern-4" parent="BackgroundLayer/Decor" index="5" instance=ExtResource("4_jpcdc")]
 position = Vector2(10022.222, -2540)
 
-[node name="HangingLantern-5" parent="BackgroundLayer/Decor" index="6" instance=ExtResource("4_ro12q")]
+[node name="HangingLantern-5" parent="BackgroundLayer/Decor" index="6" instance=ExtResource("4_jpcdc")]
 position = Vector2(6362.2227, -2604.4446)
 
-[node name="HangingLantern-6" parent="BackgroundLayer/Decor" index="7" instance=ExtResource("4_ro12q")]
+[node name="HangingLantern-6" parent="BackgroundLayer/Decor" index="7" instance=ExtResource("4_jpcdc")]
 position = Vector2(12189.999, -4543.334)
 rotation = 0.017589075
 
-[node name="Window01" parent="BackgroundLayer/Decor" index="8" instance=ExtResource("5_s334o")]
+[node name="Window01" parent="BackgroundLayer/Decor" index="8" instance=ExtResource("5_y5unq")]
 position = Vector2(768, 0)
 
-[node name="Window01-2" parent="BackgroundLayer/Decor" index="9" instance=ExtResource("5_s334o")]
+[node name="Window01-2" parent="BackgroundLayer/Decor" index="9" instance=ExtResource("5_y5unq")]
 position = Vector2(12032, -64)
 
-[node name="Window02" parent="BackgroundLayer/Decor" index="10" instance=ExtResource("6_rysa2")]
+[node name="Window02" parent="BackgroundLayer/Decor" index="10" instance=ExtResource("6_x263s")]
 position = Vector2(9958, -861)
 
-[node name="Window02-2" parent="BackgroundLayer/Decor" index="11" instance=ExtResource("6_rysa2")]
+[node name="Window02-2" parent="BackgroundLayer/Decor" index="11" instance=ExtResource("6_x263s")]
 position = Vector2(2816, -768)
 
-[node name="Window03" parent="BackgroundLayer/Decor" index="12" instance=ExtResource("7_lfs6k")]
+[node name="Window03" parent="BackgroundLayer/Decor" index="12" instance=ExtResource("7_04rh1")]
 position = Vector2(4864, -1024)
 
-[node name="Window03-2" parent="BackgroundLayer/Decor" index="13" instance=ExtResource("7_lfs6k")]
+[node name="Window03-2" parent="BackgroundLayer/Decor" index="13" instance=ExtResource("7_04rh1")]
 position = Vector2(7936, -1024)
 
 [node name="DustLayer" type="MeshInstance2D" parent="MidgroundLayer" index="0"]
@@ -170,324 +170,325 @@ tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(-1024, 1024)
+path_to_target_room = "uid://crnmcqdp12kqw"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(6399.9995, -4607.9995)
 door_name = "heater01"
 
-[node name="DoorExit-2" parent="MidgroundLayer/DoorHolder" index="2" instance=ExtResource("9_44x0w")]
+[node name="DoorExit-2" parent="MidgroundLayer/DoorHolder" index="2" instance=ExtResource("9_6e3gf")]
 position = Vector2(1280.0005, -3584)
 
-[node name="DoorExit-3" parent="MidgroundLayer/DoorHolder" index="3" instance=ExtResource("9_44x0w")]
+[node name="DoorExit-3" parent="MidgroundLayer/DoorHolder" index="3" instance=ExtResource("9_6e3gf")]
 modulate = Color(0.85463405, 0.8546339, 0.8546339, 1)
 position = Vector2(11520, -3584)
 
 [node name="Hazards" parent="MidgroundLayer/Entities" index="1"]
 visible = false
 
-[node name="IceSpikeBall" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("10_yjioi")]
 position = Vector2(64, -3648)
 
-[node name="IceSpikeBall-2" parent="MidgroundLayer/Entities/Hazards" index="1" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-2" parent="MidgroundLayer/Entities/Hazards" index="1" instance=ExtResource("10_yjioi")]
 position = Vector2(192, -3968)
 
-[node name="IceSpikeBall-3" parent="MidgroundLayer/Entities/Hazards" index="2" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-3" parent="MidgroundLayer/Entities/Hazards" index="2" instance=ExtResource("10_yjioi")]
 position = Vector2(448, -3712)
 
-[node name="IceSpikeBall-4" parent="MidgroundLayer/Entities/Hazards" index="3" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-4" parent="MidgroundLayer/Entities/Hazards" index="3" instance=ExtResource("10_yjioi")]
 position = Vector2(64, -4352)
 
-[node name="IceSpikeBall-5" parent="MidgroundLayer/Entities/Hazards" index="4" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-5" parent="MidgroundLayer/Entities/Hazards" index="4" instance=ExtResource("10_yjioi")]
 position = Vector2(12800, -4224)
 
-[node name="IceSpikeBall-6" parent="MidgroundLayer/Entities/Hazards" index="5" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-6" parent="MidgroundLayer/Entities/Hazards" index="5" instance=ExtResource("10_yjioi")]
 position = Vector2(12736, -3712)
 
-[node name="IceSpikeBall-7" parent="MidgroundLayer/Entities/Hazards" index="6" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-7" parent="MidgroundLayer/Entities/Hazards" index="6" instance=ExtResource("10_yjioi")]
 position = Vector2(12288, -3584)
 
-[node name="IceSpikeBall-9" parent="MidgroundLayer/Entities/Hazards" index="7" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-9" parent="MidgroundLayer/Entities/Hazards" index="7" instance=ExtResource("10_yjioi")]
 position = Vector2(7680, -5760)
 
-[node name="IceSpikeBall-10" parent="MidgroundLayer/Entities/Hazards" index="8" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-10" parent="MidgroundLayer/Entities/Hazards" index="8" instance=ExtResource("10_yjioi")]
 position = Vector2(7424, -6080)
 
-[node name="IceSpikeBall-11" parent="MidgroundLayer/Entities/Hazards" index="9" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-11" parent="MidgroundLayer/Entities/Hazards" index="9" instance=ExtResource("10_yjioi")]
 position = Vector2(7104, -6272)
 
-[node name="IceSpikeBall-12" parent="MidgroundLayer/Entities/Hazards" index="10" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-12" parent="MidgroundLayer/Entities/Hazards" index="10" instance=ExtResource("10_yjioi")]
 position = Vector2(6720, -6400)
 
-[node name="IceSpikeBall-13" parent="MidgroundLayer/Entities/Hazards" index="11" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-13" parent="MidgroundLayer/Entities/Hazards" index="11" instance=ExtResource("10_yjioi")]
 position = Vector2(6400, -6400)
 
-[node name="IceSpikeBall-14" parent="MidgroundLayer/Entities/Hazards" index="12" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-14" parent="MidgroundLayer/Entities/Hazards" index="12" instance=ExtResource("10_yjioi")]
 position = Vector2(6080, -6400)
 
-[node name="IceSpikeBall-15" parent="MidgroundLayer/Entities/Hazards" index="13" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-15" parent="MidgroundLayer/Entities/Hazards" index="13" instance=ExtResource("10_yjioi")]
 position = Vector2(5760, -6272)
 
-[node name="IceSpikeBall-16" parent="MidgroundLayer/Entities/Hazards" index="14" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-16" parent="MidgroundLayer/Entities/Hazards" index="14" instance=ExtResource("10_yjioi")]
 position = Vector2(5376, -6080)
 
-[node name="IceSpikeBall-17" parent="MidgroundLayer/Entities/Hazards" index="15" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-17" parent="MidgroundLayer/Entities/Hazards" index="15" instance=ExtResource("10_yjioi")]
 position = Vector2(5120, -5760)
 
-[node name="IceSpikeBall-8" parent="MidgroundLayer/Entities/Hazards" index="16" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-8" parent="MidgroundLayer/Entities/Hazards" index="16" instance=ExtResource("10_yjioi")]
 position = Vector2(12480, -4032)
 
-[node name="Icicle_01-2" parent="MidgroundLayer/Entities/Hazards" index="17" instance=ExtResource("11_e48kh")]
+[node name="Icicle_01-2" parent="MidgroundLayer/Entities/Hazards" index="17" instance=ExtResource("11_xxjwo")]
 position = Vector2(5440, -4608)
 
-[node name="Icicle_01-3" parent="MidgroundLayer/Entities/Hazards" index="18" instance=ExtResource("11_e48kh")]
+[node name="Icicle_01-3" parent="MidgroundLayer/Entities/Hazards" index="18" instance=ExtResource("11_xxjwo")]
 position = Vector2(5568, -4608)
 
-[node name="Icicle_01-4" parent="MidgroundLayer/Entities/Hazards" index="19" instance=ExtResource("11_e48kh")]
+[node name="Icicle_01-4" parent="MidgroundLayer/Entities/Hazards" index="19" instance=ExtResource("11_xxjwo")]
 position = Vector2(7168, -4608)
 
-[node name="Icicle_02" parent="MidgroundLayer/Entities/Hazards" index="20" instance=ExtResource("12_1tbpu")]
+[node name="Icicle_02" parent="MidgroundLayer/Entities/Hazards" index="20" instance=ExtResource("12_bqkkn")]
 position = Vector2(5184, -4736)
 
-[node name="Icicle_03" parent="MidgroundLayer/Entities/Hazards" index="21" instance=ExtResource("13_ee2wr")]
+[node name="Icicle_03" parent="MidgroundLayer/Entities/Hazards" index="21" instance=ExtResource("13_ge8n3")]
 position = Vector2(5312, -4608)
 
-[node name="Icicle_02-2" parent="MidgroundLayer/Entities/Hazards" index="22" instance=ExtResource("12_1tbpu")]
+[node name="Icicle_02-2" parent="MidgroundLayer/Entities/Hazards" index="22" instance=ExtResource("12_bqkkn")]
 position = Vector2(5696, -4608)
 
-[node name="Icicle_05" parent="MidgroundLayer/Entities/Hazards" index="23" instance=ExtResource("14_fte7a")]
+[node name="Icicle_05" parent="MidgroundLayer/Entities/Hazards" index="23" instance=ExtResource("14_0cmhq")]
 position = Vector2(7360, -4608)
 
-[node name="Icicle_04" parent="MidgroundLayer/Entities/Hazards" index="24" instance=ExtResource("15_k71x0")]
+[node name="Icicle_04" parent="MidgroundLayer/Entities/Hazards" index="24" instance=ExtResource("15_fpg0x")]
 position = Vector2(7616, -4736)
 
-[node name="Icicle_06" parent="MidgroundLayer/Entities/Hazards" index="25" instance=ExtResource("16_wbwx6")]
+[node name="Icicle_06" parent="MidgroundLayer/Entities/Hazards" index="25" instance=ExtResource("16_fqgi6")]
 position = Vector2(7488, -4608)
 
-[node name="Icicle_02-3" parent="MidgroundLayer/Entities/Hazards" index="26" instance=ExtResource("12_1tbpu")]
+[node name="Icicle_02-3" parent="MidgroundLayer/Entities/Hazards" index="26" instance=ExtResource("12_bqkkn")]
 position = Vector2(7232, -4608)
 
-[node name="Icicle_05-2" parent="MidgroundLayer/Entities/Hazards" index="27" instance=ExtResource("14_fte7a")]
+[node name="Icicle_05-2" parent="MidgroundLayer/Entities/Hazards" index="27" instance=ExtResource("14_0cmhq")]
 position = Vector2(13824, -2816)
 rotation = 3.1415927
 scale = Vector2(3, 3)
 
-[node name="Icicle_04-2" parent="MidgroundLayer/Entities/Hazards" index="28" instance=ExtResource("15_k71x0")]
+[node name="Icicle_04-2" parent="MidgroundLayer/Entities/Hazards" index="28" instance=ExtResource("15_fpg0x")]
 position = Vector2(13952, 1024)
 scale = Vector2(3, 3)
 
-[node name="LeafPlatform" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("17_4l615")]
+[node name="LeafPlatform" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("17_g0ys4")]
 position = Vector2(2816, -3328)
 scale = Vector2(4, 4)
 
-[node name="LeafPlatform-3" parent="MidgroundLayer/Entities/Objects" index="1" instance=ExtResource("17_4l615")]
+[node name="LeafPlatform-3" parent="MidgroundLayer/Entities/Objects" index="1" instance=ExtResource("17_g0ys4")]
 position = Vector2(6400, -4096)
 scale = Vector2(4, 8)
 
-[node name="LeafPlatform-4" parent="MidgroundLayer/Entities/Objects" index="2" instance=ExtResource("17_4l615")]
+[node name="LeafPlatform-4" parent="MidgroundLayer/Entities/Objects" index="2" instance=ExtResource("17_g0ys4")]
 position = Vector2(9984, -3328)
 scale = Vector2(4, 4)
 
 [node name="Decor" parent="MidgroundLayer" index="5"]
 modulate = Color(0.59, 0.59, 0.59, 1)
-material = ExtResource("18_v0twv")
+material = ExtResource("18_jcvwt")
 
-[node name="Arch" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("19_mpapx")]
+[node name="Arch" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("19_pd3b6")]
 position = Vector2(12035, -2120)
 scale = Vector2(1.1276945, 1.1276945)
 
-[node name="Arch2" parent="MidgroundLayer/Decor" index="1" instance=ExtResource("19_mpapx")]
+[node name="Arch2" parent="MidgroundLayer/Decor" index="1" instance=ExtResource("19_pd3b6")]
 position = Vector2(10006, -2120)
 scale = Vector2(1.1276945, 1.1276945)
 
-[node name="Arch3" parent="MidgroundLayer/Decor" index="2" instance=ExtResource("19_mpapx")]
+[node name="Arch3" parent="MidgroundLayer/Decor" index="2" instance=ExtResource("19_pd3b6")]
 position = Vector2(2830, -2120)
 scale = Vector2(1.1276945, 1.1276945)
 
-[node name="Arch4" parent="MidgroundLayer/Decor" index="3" instance=ExtResource("19_mpapx")]
+[node name="Arch4" parent="MidgroundLayer/Decor" index="3" instance=ExtResource("19_pd3b6")]
 position = Vector2(739, -2120)
 scale = Vector2(1.1276945, 1.1276945)
 
-[node name="Arch5" parent="MidgroundLayer/Decor" index="4" instance=ExtResource("19_mpapx")]
+[node name="Arch5" parent="MidgroundLayer/Decor" index="4" instance=ExtResource("19_pd3b6")]
 position = Vector2(-1222, -2120)
 scale = Vector2(1.1276945, 1.1276945)
 
-[node name="Arch6" parent="MidgroundLayer/Decor" index="5" instance=ExtResource("19_mpapx")]
+[node name="Arch6" parent="MidgroundLayer/Decor" index="5" instance=ExtResource("19_pd3b6")]
 position = Vector2(7991, -2692)
 scale = Vector2(1.0305555, 1.0305555)
 
-[node name="Arch7" parent="MidgroundLayer/Decor" index="6" instance=ExtResource("19_mpapx")]
+[node name="Arch7" parent="MidgroundLayer/Decor" index="6" instance=ExtResource("19_pd3b6")]
 position = Vector2(4856, -2692)
 scale = Vector2(1.0305555, 1.0305555)
 
-[node name="PillarTrunk01" parent="MidgroundLayer/Decor" index="7" instance=ExtResource("3_h2ty1")]
+[node name="PillarTrunk01" parent="MidgroundLayer/Decor" index="7" instance=ExtResource("3_6l8wa")]
 use_parent_material = true
 position = Vector2(1792, -1123)
 scale = Vector2(1, 2.8799996)
 
-[node name="PillarBase01" parent="MidgroundLayer/Decor" index="8" instance=ExtResource("20_vgc2v")]
+[node name="PillarBase01" parent="MidgroundLayer/Decor" index="8" instance=ExtResource("20_66gs5")]
 use_parent_material = true
 position = Vector2(1792, 1024)
 
-[node name="PillarTrunk01-3" parent="MidgroundLayer/Decor" index="9" instance=ExtResource("3_h2ty1")]
+[node name="PillarTrunk01-3" parent="MidgroundLayer/Decor" index="9" instance=ExtResource("3_6l8wa")]
 use_parent_material = true
 position = Vector2(-256, -1123)
 scale = Vector2(1, 2.8799996)
 
-[node name="PillarBase01-3" parent="MidgroundLayer/Decor" index="10" instance=ExtResource("20_vgc2v")]
+[node name="PillarBase01-3" parent="MidgroundLayer/Decor" index="10" instance=ExtResource("20_66gs5")]
 use_parent_material = true
 position = Vector2(-256, 1024)
 
-[node name="PillarCap03" parent="MidgroundLayer/Decor" index="11" instance=ExtResource("21_jmatl")]
+[node name="PillarCap03" parent="MidgroundLayer/Decor" index="11" instance=ExtResource("21_mlwqb")]
 use_parent_material = true
 position = Vector2(1792, -2128)
 
-[node name="PillarCap03-3" parent="MidgroundLayer/Decor" index="12" instance=ExtResource("21_jmatl")]
+[node name="PillarCap03-3" parent="MidgroundLayer/Decor" index="12" instance=ExtResource("21_mlwqb")]
 use_parent_material = true
 position = Vector2(-256, -2128)
 
-[node name="PillarTrunk01-2" parent="MidgroundLayer/Decor" index="13" instance=ExtResource("3_h2ty1")]
+[node name="PillarTrunk01-2" parent="MidgroundLayer/Decor" index="13" instance=ExtResource("3_6l8wa")]
 use_parent_material = true
 position = Vector2(11008, -1199)
 scale = Vector2(1, 2.8799992)
 
-[node name="PillarTrunk01-10" parent="MidgroundLayer/Decor" index="14" instance=ExtResource("3_h2ty1")]
+[node name="PillarTrunk01-10" parent="MidgroundLayer/Decor" index="14" instance=ExtResource("3_6l8wa")]
 use_parent_material = true
 position = Vector2(8988, -4500)
 scale = Vector2(1, 2.8799992)
 
-[node name="PillarTrunk01-11" parent="MidgroundLayer/Decor" index="15" instance=ExtResource("3_h2ty1")]
+[node name="PillarTrunk01-11" parent="MidgroundLayer/Decor" index="15" instance=ExtResource("3_6l8wa")]
 use_parent_material = true
 position = Vector2(3882, -4496)
 scale = Vector2(1, 2.8799992)
 
-[node name="PillarBase01-2" parent="MidgroundLayer/Decor" index="16" instance=ExtResource("20_vgc2v")]
+[node name="PillarBase01-2" parent="MidgroundLayer/Decor" index="16" instance=ExtResource("20_66gs5")]
 use_parent_material = true
 position = Vector2(11008, 1024)
 
-[node name="PillarCap03-2" parent="MidgroundLayer/Decor" index="17" instance=ExtResource("21_jmatl")]
+[node name="PillarCap03-2" parent="MidgroundLayer/Decor" index="17" instance=ExtResource("21_mlwqb")]
 use_parent_material = true
 position = Vector2(11008, -2134)
 
-[node name="PillarCap03-4" parent="MidgroundLayer/Decor" index="18" instance=ExtResource("21_jmatl")]
+[node name="PillarCap03-4" parent="MidgroundLayer/Decor" index="18" instance=ExtResource("21_mlwqb")]
 use_parent_material = true
 position = Vector2(8967.001, -2712)
 scale = Vector2(1.1675746, 1.1675746)
 
-[node name="PillarCap03-5" parent="MidgroundLayer/Decor" index="19" instance=ExtResource("21_jmatl")]
+[node name="PillarCap03-5" parent="MidgroundLayer/Decor" index="19" instance=ExtResource("21_mlwqb")]
 use_parent_material = true
 position = Vector2(3876.0002, -2712.0002)
 scale = Vector2(1.1675746, 1.1675746)
 
-[node name="FloorPot01" parent="MidgroundLayer/Decor" index="20" instance=ExtResource("22_jc7c5")]
+[node name="FloorPot01" parent="MidgroundLayer/Decor" index="20" instance=ExtResource("22_834gw")]
 use_parent_material = true
 position = Vector2(2240, 1024)
 
-[node name="FloorPot01-3" parent="MidgroundLayer/Decor" index="21" instance=ExtResource("22_jc7c5")]
+[node name="FloorPot01-3" parent="MidgroundLayer/Decor" index="21" instance=ExtResource("22_834gw")]
 use_parent_material = true
 position = Vector2(10496, 1024)
 
-[node name="FloorPot01-4" parent="MidgroundLayer/Decor" index="22" instance=ExtResource("22_jc7c5")]
+[node name="FloorPot01-4" parent="MidgroundLayer/Decor" index="22" instance=ExtResource("22_834gw")]
 use_parent_material = true
 position = Vector2(11520, 1024)
 
-[node name="FloorPot01-2" parent="MidgroundLayer/Decor" index="23" instance=ExtResource("22_jc7c5")]
+[node name="FloorPot01-2" parent="MidgroundLayer/Decor" index="23" instance=ExtResource("22_834gw")]
 use_parent_material = true
 position = Vector2(1344, 1024)
 
-[node name="HangingPot02" parent="MidgroundLayer/Decor" index="24" instance=ExtResource("23_rwqp5")]
+[node name="HangingPot02" parent="MidgroundLayer/Decor" index="24" instance=ExtResource("23_01ma7")]
 position = Vector2(5632, -2176)
 
-[node name="HangingPot02-2" parent="MidgroundLayer/Decor" index="25" instance=ExtResource("23_rwqp5")]
+[node name="HangingPot02-2" parent="MidgroundLayer/Decor" index="25" instance=ExtResource("23_01ma7")]
 position = Vector2(7168, -2176)
 scale = Vector2(-1, 1)
 
-[node name="HangingPot01-3" parent="MidgroundLayer/Decor" index="26" instance=ExtResource("24_agblx")]
+[node name="HangingPot01-3" parent="MidgroundLayer/Decor" index="26" instance=ExtResource("24_8lack")]
 position = Vector2(5632, -1856)
 
-[node name="HangingPot01" parent="MidgroundLayer/Decor" index="27" instance=ExtResource("24_agblx")]
+[node name="HangingPot01" parent="MidgroundLayer/Decor" index="27" instance=ExtResource("24_8lack")]
 position = Vector2(5632, -3072)
 
-[node name="HangingPot02-3" parent="MidgroundLayer/Decor" index="28" instance=ExtResource("23_rwqp5")]
+[node name="HangingPot02-3" parent="MidgroundLayer/Decor" index="28" instance=ExtResource("23_01ma7")]
 position = Vector2(7168, -1728)
 
-[node name="HangingPot01-2" parent="MidgroundLayer/Decor" index="29" instance=ExtResource("24_agblx")]
+[node name="HangingPot01-2" parent="MidgroundLayer/Decor" index="29" instance=ExtResource("24_8lack")]
 position = Vector2(7168, -3072)
 
-[node name="HangingPot02-4" parent="MidgroundLayer/Decor" index="30" instance=ExtResource("23_rwqp5")]
+[node name="HangingPot02-4" parent="MidgroundLayer/Decor" index="30" instance=ExtResource("23_01ma7")]
 position = Vector2(3840, -2560)
 
-[node name="LabeledBook03" parent="MidgroundLayer/Decor" index="31" instance=ExtResource("25_fivna")]
+[node name="LabeledBook03" parent="MidgroundLayer/Decor" index="31" instance=ExtResource("25_q5d28")]
 use_parent_material = true
 position = Vector2(3840, 876)
 rotation = -1.5707964
 in_front_of_player = true
 
-[node name="BookshelfFancy" parent="MidgroundLayer/Decor" index="32" instance=ExtResource("26_g3jpq")]
+[node name="BookshelfFancy" parent="MidgroundLayer/Decor" index="32" instance=ExtResource("26_oewy6")]
 use_parent_material = true
 position = Vector2(2816, 1024)
 
-[node name="BookshelfFancy-2" parent="MidgroundLayer/Decor" index="33" instance=ExtResource("26_g3jpq")]
+[node name="BookshelfFancy-2" parent="MidgroundLayer/Decor" index="33" instance=ExtResource("26_oewy6")]
 use_parent_material = true
 position = Vector2(9984, 1024)
 
-[node name="Book03" parent="MidgroundLayer/Decor" index="34" instance=ExtResource("27_gqr6u")]
+[node name="Book03" parent="MidgroundLayer/Decor" index="34" instance=ExtResource("27_vujns")]
 use_parent_material = true
 position = Vector2(4160, 748)
 rotation = 1.5707964
 
-[node name="Book01" parent="MidgroundLayer/Decor" index="35" instance=ExtResource("28_bme1x")]
+[node name="Book01" parent="MidgroundLayer/Decor" index="35" instance=ExtResource("28_hjuhs")]
 use_parent_material = true
 position = Vector2(2602, 677)
 
-[node name="Book02" parent="MidgroundLayer/Decor" index="36" instance=ExtResource("29_2ojd1")]
+[node name="Book02" parent="MidgroundLayer/Decor" index="36" instance=ExtResource("29_be066")]
 use_parent_material = true
 position = Vector2(2667, 677)
 
-[node name="Book03-2" parent="MidgroundLayer/Decor" index="37" instance=ExtResource("27_gqr6u")]
+[node name="Book03-2" parent="MidgroundLayer/Decor" index="37" instance=ExtResource("27_vujns")]
 use_parent_material = true
 position = Vector2(2771, 676.00006)
 rotation = -0.2617994
 
-[node name="LabeledBook03-2" parent="MidgroundLayer/Decor" index="38" instance=ExtResource("25_fivna")]
+[node name="LabeledBook03-2" parent="MidgroundLayer/Decor" index="38" instance=ExtResource("25_q5d28")]
 use_parent_material = true
 position = Vector2(2906, 918)
 
-[node name="LabeledBook02" parent="MidgroundLayer/Decor" index="39" instance=ExtResource("30_o23o6")]
+[node name="LabeledBook02" parent="MidgroundLayer/Decor" index="39" instance=ExtResource("30_r521l")]
 use_parent_material = true
 position = Vector2(3022, 916)
 
-[node name="LabeledBook01" parent="MidgroundLayer/Decor" index="40" instance=ExtResource("31_mw28h")]
+[node name="LabeledBook01" parent="MidgroundLayer/Decor" index="40" instance=ExtResource("31_7iffk")]
 use_parent_material = true
 position = Vector2(2958, 917)
 
-[node name="Book03-3" parent="MidgroundLayer/Decor" index="41" instance=ExtResource("27_gqr6u")]
+[node name="Book03-3" parent="MidgroundLayer/Decor" index="41" instance=ExtResource("27_vujns")]
 use_parent_material = true
 position = Vector2(10205, 400)
 rotation = -1.5707964
 
-[node name="Book02-2" parent="MidgroundLayer/Decor" index="42" instance=ExtResource("29_2ojd1")]
+[node name="Book02-2" parent="MidgroundLayer/Decor" index="42" instance=ExtResource("29_be066")]
 use_parent_material = true
 position = Vector2(10187, 347)
 rotation = -1.5707964
 
-[node name="Book01-2" parent="MidgroundLayer/Decor" index="43" instance=ExtResource("28_bme1x")]
+[node name="Book01-2" parent="MidgroundLayer/Decor" index="43" instance=ExtResource("28_hjuhs")]
 use_parent_material = true
 position = Vector2(9776, 675)
 
-[node name="LabeledBook02-2" parent="MidgroundLayer/Decor" index="44" instance=ExtResource("30_o23o6")]
+[node name="LabeledBook02-2" parent="MidgroundLayer/Decor" index="44" instance=ExtResource("30_r521l")]
 use_parent_material = true
 position = Vector2(9841, 676)
 
-[node name="LabeledBook03-3" parent="MidgroundLayer/Decor" index="45" instance=ExtResource("25_fivna")]
+[node name="LabeledBook03-3" parent="MidgroundLayer/Decor" index="45" instance=ExtResource("25_q5d28")]
 use_parent_material = true
 position = Vector2(10165.999, 918.99976)
 rotation = 0.2617994
 
-[node name="WineShelf" parent="MidgroundLayer/Decor" index="46" instance=ExtResource("32_hgpm8")]
+[node name="WineShelf" parent="MidgroundLayer/Decor" index="46" instance=ExtResource("32_gw7y0")]
 use_parent_material = true
 position = Vector2(5632, 512)
 
-[node name="WineShelf-2" parent="MidgroundLayer/Decor" index="47" instance=ExtResource("32_hgpm8")]
+[node name="WineShelf-2" parent="MidgroundLayer/Decor" index="47" instance=ExtResource("32_gw7y0")]
 use_parent_material = true
 position = Vector2(7168, 512)
 
@@ -497,62 +498,62 @@ position = Vector2(7168, 512)
 modulate = Color(0.6293588, 0.7046569, 0.7851478, 1)
 position = Vector2(6397, 590)
 scale = Vector2(0.56766385, 0.434)
-texture = ExtResource("33_xwpip")
+texture = ExtResource("33_y68st")
 
 [node name="Bricks8" type="Sprite2D" parent="MidgroundLayer/Decor/Node2D" index="1"]
 modulate = Color(0.71838117, 0.8044361, 0.8964257, 1)
 position = Vector2(6396, 713.00006)
 scale = Vector2(0.7928516, 0.3940453)
-texture = ExtResource("33_xwpip")
+texture = ExtResource("33_y68st")
 
 [node name="Bricks7" type="Sprite2D" parent="MidgroundLayer/Decor/Node2D" index="2"]
 modulate = Color(0.75011575, 0.84049654, 0.93711036, 1)
 position = Vector2(6398, 835)
 scale = Vector2(1.021758, 0.38295883)
-texture = ExtResource("33_xwpip")
+texture = ExtResource("33_y68st")
 
 [node name="Bricks6" type="Sprite2D" parent="MidgroundLayer/Decor/Node2D" index="3"]
 modulate = Color(0.8973744, 1.0045314, 1.1190786, 1)
 position = Vector2(6396.9995, 962.00006)
 scale = Vector2(1.2385602, 0.43381923)
-texture = ExtResource("33_xwpip")
+texture = ExtResource("33_y68st")
 
-[node name="PillarTrunk01-4" parent="MidgroundLayer/Decor" index="49" instance=ExtResource("3_h2ty1")]
+[node name="PillarTrunk01-4" parent="MidgroundLayer/Decor" index="49" instance=ExtResource("3_6l8wa")]
 modulate = Color(0.36659998, 0.37985998, 0.39, 1)
 use_parent_material = true
 position = Vector2(12138, 1363)
 rotation = 1.5707964
 scale = Vector2(1, 2)
 
-[node name="PillarTrunk01-5" parent="MidgroundLayer/Decor" index="50" instance=ExtResource("3_h2ty1")]
+[node name="PillarTrunk01-5" parent="MidgroundLayer/Decor" index="50" instance=ExtResource("3_6l8wa")]
 modulate = Color(0.36659998, 0.37985998, 0.39, 1)
 use_parent_material = true
 position = Vector2(9150, 1366)
 rotation = -1.5707964
 scale = Vector2(1, 2)
 
-[node name="PillarTrunk01-6" parent="MidgroundLayer/Decor" index="51" instance=ExtResource("3_h2ty1")]
+[node name="PillarTrunk01-6" parent="MidgroundLayer/Decor" index="51" instance=ExtResource("3_6l8wa")]
 modulate = Color(0.36659998, 0.37985998, 0.39, 1)
 use_parent_material = true
 position = Vector2(6115, 1363)
 rotation = 1.5707964
 scale = Vector2(1, 2)
 
-[node name="PillarTrunk01-7" parent="MidgroundLayer/Decor" index="52" instance=ExtResource("3_h2ty1")]
+[node name="PillarTrunk01-7" parent="MidgroundLayer/Decor" index="52" instance=ExtResource("3_6l8wa")]
 modulate = Color(0.36659998, 0.37985998, 0.39, 1)
 use_parent_material = true
 position = Vector2(3089, 1365)
 rotation = 4.712389
 scale = Vector2(1, 2)
 
-[node name="PillarTrunk01-8" parent="MidgroundLayer/Decor" index="53" instance=ExtResource("3_h2ty1")]
+[node name="PillarTrunk01-8" parent="MidgroundLayer/Decor" index="53" instance=ExtResource("3_6l8wa")]
 modulate = Color(0.36659998, 0.37985998, 0.39, 1)
 use_parent_material = true
 position = Vector2(71, 1363)
 rotation = 1.5707964
 scale = Vector2(1, 2)
 
-[node name="PillarTrunk01-9" parent="MidgroundLayer/Decor" index="54" instance=ExtResource("3_h2ty1")]
+[node name="PillarTrunk01-9" parent="MidgroundLayer/Decor" index="54" instance=ExtResource("3_6l8wa")]
 modulate = Color(0.36659998, 0.37985998, 0.39, 1)
 use_parent_material = true
 position = Vector2(-2946, 1366)
@@ -562,33 +563,33 @@ scale = Vector2(1, 2)
 [node name="Bricks" type="Sprite2D" parent="MidgroundLayer/Decor" index="55"]
 position = Vector2(11858, 1148.0001)
 scale = Vector2(0.6779877, 0.6779877)
-texture = ExtResource("33_xwpip")
+texture = ExtResource("33_y68st")
 
 [node name="Bricks2" type="Sprite2D" parent="MidgroundLayer/Decor" index="56"]
 position = Vector2(8784, 1148.0001)
 scale = Vector2(0.6779877, 0.6779877)
-texture = ExtResource("33_xwpip")
+texture = ExtResource("33_y68st")
 
 [node name="Bricks3" type="Sprite2D" parent="MidgroundLayer/Decor" index="57"]
 position = Vector2(5711.0005, 1148.0001)
 scale = Vector2(0.6779877, 0.6779877)
-texture = ExtResource("33_xwpip")
+texture = ExtResource("33_y68st")
 
 [node name="Bricks4" type="Sprite2D" parent="MidgroundLayer/Decor" index="58"]
 position = Vector2(2639.0002, 1148)
 scale = Vector2(0.6779877, 0.6779877)
-texture = ExtResource("33_xwpip")
+texture = ExtResource("33_y68st")
 
 [node name="Bricks5" type="Sprite2D" parent="MidgroundLayer/Decor" index="59"]
 position = Vector2(-526, 1148)
 scale = Vector2(0.7179886, 0.6779877)
-texture = ExtResource("33_xwpip")
+texture = ExtResource("33_y68st")
 
-[node name="Chairs" parent="MidgroundLayer/Decor" index="60" instance=ExtResource("34_7yycw")]
+[node name="Chairs" parent="MidgroundLayer/Decor" index="60" instance=ExtResource("34_2ajd0")]
 use_parent_material = true
 position = Vector2(6208, 128)
 
-[node name="Icicle_06-8" parent="ForegroundLayer" index="1" instance=ExtResource("16_wbwx6")]
+[node name="Icicle_06-8" parent="ForegroundLayer" index="1" instance=ExtResource("16_fqgi6")]
 z_index = -1
 position = Vector2(13720, 1071)
 rotation = 0.19937432
@@ -601,103 +602,103 @@ scale = Vector2(6.7447844, 6.7447844)
 scroll_scale = Vector2(0.95, 1)
 scroll_offset = Vector2(-852.62, 0)
 
-[node name="Icicle_06-6" parent="ForegroundLayer/Parallax2D" index="0" instance=ExtResource("16_wbwx6")]
+[node name="Icicle_06-6" parent="ForegroundLayer/Parallax2D" index="0" instance=ExtResource("16_fqgi6")]
 z_index = -1
 position = Vector2(2108.461, 134.29216)
 
-[node name="Icicle_06-5" parent="ForegroundLayer/Parallax2D" index="1" instance=ExtResource("16_wbwx6")]
+[node name="Icicle_06-5" parent="ForegroundLayer/Parallax2D" index="1" instance=ExtResource("16_fqgi6")]
 z_index = -1
 position = Vector2(1998.9398, -445.74854)
 rotation = -3.0810583
 scale = Vector2(0.5608709, 0.5608709)
 
-[node name="Icicle_06-7" parent="ForegroundLayer" index="3" instance=ExtResource("16_wbwx6")]
+[node name="Icicle_06-7" parent="ForegroundLayer" index="3" instance=ExtResource("16_fqgi6")]
 z_index = -1
 position = Vector2(13544.001, 161.0004)
 rotation = 0.2178515
 scale = Vector2(2.1013453, 2.1013453)
 
-[node name="Icicle_06-2" parent="ForegroundLayer" index="4" instance=ExtResource("16_wbwx6")]
+[node name="Icicle_06-2" parent="ForegroundLayer" index="4" instance=ExtResource("16_fqgi6")]
 z_index = -1
 position = Vector2(13304.001, -2984.9998)
 rotation = -2.8894227
 scale = Vector2(3.0000002, 3.0000002)
 
-[node name="Icicle_06-4" parent="ForegroundLayer" index="5" instance=ExtResource("16_wbwx6")]
+[node name="Icicle_06-4" parent="ForegroundLayer" index="5" instance=ExtResource("16_fqgi6")]
 z_index = -1
 position = Vector2(13311, 1072)
 rotation = -0.3692593
 scale = Vector2(3.0280504, 1.819576)
 
-[node name="Icicle_06-3" parent="ForegroundLayer" index="6" instance=ExtResource("16_wbwx6")]
+[node name="Icicle_06-3" parent="ForegroundLayer" index="6" instance=ExtResource("16_fqgi6")]
 z_index = -1
 position = Vector2(13752.999, 1019)
 rotation = -0.24763945
 scale = Vector2(3, 3)
 
-[node name="IceSpikeBall" parent="ForegroundLayer" index="7" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall" parent="ForegroundLayer" index="7" instance=ExtResource("10_yjioi")]
 position = Vector2(64, -3648)
 
-[node name="IceSpikeBall-2" parent="ForegroundLayer" index="8" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-2" parent="ForegroundLayer" index="8" instance=ExtResource("10_yjioi")]
 position = Vector2(192, -3968)
 
-[node name="IceSpikeBall-3" parent="ForegroundLayer" index="9" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-3" parent="ForegroundLayer" index="9" instance=ExtResource("10_yjioi")]
 position = Vector2(448, -3712)
 
-[node name="IceSpikeBall-4" parent="ForegroundLayer" index="10" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-4" parent="ForegroundLayer" index="10" instance=ExtResource("10_yjioi")]
 position = Vector2(64, -4352)
 
-[node name="IceSpikeBall-5" parent="ForegroundLayer" index="11" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-5" parent="ForegroundLayer" index="11" instance=ExtResource("10_yjioi")]
 position = Vector2(12750.001, -4207)
 scale = Vector2(0.7667537, 0.7667537)
 
-[node name="IceSpikeBall-6" parent="ForegroundLayer" index="12" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-6" parent="ForegroundLayer" index="12" instance=ExtResource("10_yjioi")]
 position = Vector2(12642, -3685.0002)
 rotation = -0.8152467
 scale = Vector2(1.3137554, 1.2801384)
 
-[node name="IceSpikeBall-20" parent="ForegroundLayer" index="13" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-20" parent="ForegroundLayer" index="13" instance=ExtResource("10_yjioi")]
 position = Vector2(13847.001, 937.99976)
 rotation = -0.8152467
 scale = Vector2(3.298986, 3.21457)
 
-[node name="IceSpikeBall-19" parent="ForegroundLayer" index="14" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-19" parent="ForegroundLayer" index="14" instance=ExtResource("10_yjioi")]
 position = Vector2(13652, -2724.9998)
 rotation = -0.8152467
 scale = Vector2(4.10092, 3.9959838)
 
-[node name="IceSpikeBall-7" parent="ForegroundLayer" index="15" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-7" parent="ForegroundLayer" index="15" instance=ExtResource("10_yjioi")]
 position = Vector2(12313, -3591)
 scale = Vector2(0.7297833, 0.7297833)
 
-[node name="IceSpikeBall-9" parent="ForegroundLayer" index="16" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-9" parent="ForegroundLayer" index="16" instance=ExtResource("10_yjioi")]
 position = Vector2(7680, -5760)
 
-[node name="IceSpikeBall-10" parent="ForegroundLayer" index="17" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-10" parent="ForegroundLayer" index="17" instance=ExtResource("10_yjioi")]
 position = Vector2(7424, -6080)
 
-[node name="IceSpikeBall-11" parent="ForegroundLayer" index="18" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-11" parent="ForegroundLayer" index="18" instance=ExtResource("10_yjioi")]
 position = Vector2(7104, -6272)
 
-[node name="IceSpikeBall-12" parent="ForegroundLayer" index="19" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-12" parent="ForegroundLayer" index="19" instance=ExtResource("10_yjioi")]
 position = Vector2(6720, -6400)
 
-[node name="IceSpikeBall-13" parent="ForegroundLayer" index="20" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-13" parent="ForegroundLayer" index="20" instance=ExtResource("10_yjioi")]
 position = Vector2(6400, -6400)
 
-[node name="IceSpikeBall-14" parent="ForegroundLayer" index="21" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-14" parent="ForegroundLayer" index="21" instance=ExtResource("10_yjioi")]
 position = Vector2(6080, -6400)
 
-[node name="IceSpikeBall-15" parent="ForegroundLayer" index="22" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-15" parent="ForegroundLayer" index="22" instance=ExtResource("10_yjioi")]
 position = Vector2(5760, -6272)
 
-[node name="IceSpikeBall-16" parent="ForegroundLayer" index="23" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-16" parent="ForegroundLayer" index="23" instance=ExtResource("10_yjioi")]
 position = Vector2(2882, -4896)
 
-[node name="IceSpikeBall-17" parent="ForegroundLayer" index="24" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-17" parent="ForegroundLayer" index="24" instance=ExtResource("10_yjioi")]
 position = Vector2(5120, -5760)
 
-[node name="IceSpikeBall-8" parent="ForegroundLayer" index="25" instance=ExtResource("10_kxcj5")]
+[node name="IceSpikeBall-8" parent="ForegroundLayer" index="25" instance=ExtResource("10_yjioi")]
 position = Vector2(12724.999, -3945)
 rotation = 0.6177265
 scale = Vector2(0.95783186, 0.95783186)

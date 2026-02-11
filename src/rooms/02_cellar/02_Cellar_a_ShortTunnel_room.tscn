@@ -9,7 +9,7 @@
 
 [node name="02_Cellar_a_ShortTunnel" instance=ExtResource("1_lioa7")]
 
-[node name="Background" parent="BackgroundLayer" index="0"]
+[node name="Background" parent="BackgroundLayer" index="1"]
 modulate = Color(0.46666667, 0.4, 0.46666667, 0.46666667)
 position = Vector2(6217.5, -6)
 scale = Vector2(17.157534, 6.7222223)
@@ -20,7 +20,6 @@ tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(768, 1024)
-path_to_target_room = "uid://bciovlpk07wr5"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(11520, 1024)
