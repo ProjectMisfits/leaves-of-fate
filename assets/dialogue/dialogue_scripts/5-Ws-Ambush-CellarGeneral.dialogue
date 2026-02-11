@@ -1,10 +1,21 @@
 
 ~ ambushed
+do CutsceneManager.npc_face("Winston", "right")
+do CameraManager.create_camera(Vector2(20250,21250),1, 0.5, "LINEAR", "EASE_IN_OUT")
 Wizard: [font_size=80]Well well well. [/font_size]
-Wizard: What doth we have here? A lone [shake level=7 rate=30][i]pint-size[/i][/shake]?
+do! EventBus.interrupt_dialogue.emit("0.2")
+Wizard: What doth we have here? A lone
+do CutsceneManager.npc_face("Winston", "left")
+Wizard: [font_size=80][shake level=7 rate=30][i]Pint-size?[/i][/shake][/font_size]
 Fenn: Why do you call me that? I'm Fenn.
-Wizard: Well, [shake level=7 rate=30]Fenn.[/shake] [wait=0.2]If that [wave freq=7 amp=30]even is thine real nameth.[/wave] [wait=0.2]Um...[wait=0.2] I don't knoweth...
-Wizard: Um... [wait=0.2]I hath lost my traineth of thought.
+Wizard: Well, [shake level=7 rate=30]Fenn.[/shake] [wait=0.2]If that [wave freq=7 amp=30]even is thine real nameth.[/wave] [wait=0.2]
+do CutsceneManager.npc_face("Winston", "left")
+Wizard: Um...[wait=0.2] 
+do CutsceneManager.npc_face("Winston", "right")
+Wizard: I don't knoweth...
+Wizard: ...
+do CutsceneManager.npc_face("Winston", "left")
+Wizard: I hath lost my traineth of thought.
 do EventBus.interrupt_dialogue.emit(".2")
 Fenn: Uh...
 Wizard: [font_size=80]Aha,[/font_size] of course! 
@@ -23,7 +34,10 @@ Fenn: Oh! Az made these cool frienship bracelets-
 Az: [i]Bangles[/i]
 Fenn: Bangles. And we can talk through them!
 Wizard: No matter! [wait=0.2]Speaketh not anymore of this curs'd device. [wait=0.2]This changes [font_size=60][shake level=7 rate=30]nothing![/shake][/font_size]
-Wizard: [font_size=100][shake level=10 rate=50]TAKETH THIS![/shake][/font_size]
+Wizard: [font_size=100][shake level=10 rate=50]THOU ART TRAPPED! MUAHAHA![/shake][/font_size]
+Wizard: [font_size=80][wave freq=10 amp=30]Have fun escaping!![/wave][/font_size]
+do CutsceneManager.npc_move("Winston", "right", 500, 250, false, false)
+do CutsceneManager.remove_npc("Winston")
 do EventFlags.set_flag("Ws-Ambush-CellarGeneral", true)
 => END
 
