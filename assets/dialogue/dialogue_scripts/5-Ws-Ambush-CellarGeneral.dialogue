@@ -36,7 +36,7 @@ Fenn: Bangles. And we can talk through them!
 Wizard: No matter! [wait=0.2]Speaketh not anymore of this curs'd device. [wait=0.2]This changes [font_size=60][shake level=7 rate=30]nothing![/shake][/font_size]
 Wizard: [font_size=100][shake level=10 rate=50]THOU ART TRAPPED! MUAHAHA![/shake][/font_size]
 Wizard: [font_size=80][wave freq=10 amp=30]Have fun escaping!![/wave][/font_size]
-do CutsceneManager.npc_move("Winston", "right", 500, 250, false, false)
+do CutsceneManager.npc_move("Winston", 22272, 250, false, false)
 do CutsceneManager.remove_npc("Winston")
 do EventFlags.set_flag("Ws-Ambush-CellarGeneral", true)
 => END
