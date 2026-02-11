@@ -10,30 +10,31 @@ var can_grab: bool = true
 ## The currently grabbed entity. Kept so that it can be ungrabbed.
 var current_grab: GrabTrigger = null
 
-## The grab highlight indicator.
-@onready var grab_highlight: Control = $InteractPrompt
-
 func _input(event: InputEvent) -> void:
+	# When the grab input is pressed:
 	if event.is_action_pressed("grab"):
-		# If something is currently grabbed, release it.
-		if current_grab:
+		# If nothing is grabbed and something can be grabbed, grab it.
+		if current_grab == null and current_grabbables:
+			can_grab = false
+			current_grab = current_grabbables[0]
+			current_grab.grab_highlight.hide()
+			current_grab.trigger()
+		# If something is grabbed, release it.
+		elif current_grab != null:
 			current_grab.trigger()
 			current_grab = null
 			can_grab = true
-		# If nothing is currently grabbed and there is something available to grab, grab it.
-		elif not current_grab and current_grabbables:
-			can_grab = false
-			current_grab = current_grabbables[0]
-			current_grab.trigger()
 
 func _process(_delta: float) -> void:
 	if current_grabbables and can_grab:
 		current_grabbables.sort_custom(_sort_by_nearest)
 		if current_grabbables[0].enabled:
-			grab_highlight.global_position = current_grabbables[0].global_position
-			grab_highlight.show()
-	else:
-		grab_highlight.hide()
+			# Hide any visible highlights of grabbables that aren't the closest one.
+			for grabbable: GrabTrigger in current_grabbables:
+				if grabbable != current_grabbables[0] and grabbable.grab_highlight.visible == true:
+					grabbable.grab_highlight.hide()
+			# Make sure the closest grabbable's highlight is visible.
+			current_grabbables[0].grab_highlight.show()
 
 ## Return a boolean representing whether an area is closer to this area than another area.
 func _sort_by_nearest(area1: Area2D, area2: Area2D) -> bool:
@@ -47,4 +48,6 @@ func _on_grab_range_area_entered(area: Area2D) -> void:
 
 ## Remove the area that left the grab range from the current grabbables array.
 func _on_grab_range_area_exited(area: Area2D) -> void:
+	if area is GrabTrigger:
+		area.grab_highlight.hide()
 	current_grabbables.erase(area)
