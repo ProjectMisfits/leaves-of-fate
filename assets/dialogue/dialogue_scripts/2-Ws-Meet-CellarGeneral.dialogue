@@ -1,5 +1,5 @@
 ~ start
-#do! CameraManager.create_camera(Vector2(1200.0, 1000.0), 0.5, 3, "CUBIC", "EASE_IN_OUT")
+do! CameraManager.create_camera(Vector2(4600.0, 500.0), 0.6, 3, "CUBIC", "EASE_IN_OUT")
 ???: [font_size=30]Why, why yes![wait=0.2] That shouldst do rather nicely.[/font_size]
 ???: [font_size=30]I just needeth... [wait=0.2]certainly not... [/font_size]
 Fenn: Helloo?
@@ -19,7 +19,7 @@ Fenn: Are you a wizard?
 do EventBus.interrupt_dialogue.emit("0.2")
 Wizard?: Why,[wait=0.2] of course![wait=0.2] I am the Great Wizard of-
 Fenn: [font_size=100]PREPARE YOURSELF, [shake level=10 rate=50]WIZARD! [/shake][/font_size]
-Fenn: [wave freq=7 amp=30]I will defeat you and free this palace![/wave]
+Fenn: [font_size=60][wave freq=7 amp=25]I will defeat you and free this palace![/wave][/font_size]
 Wizard: Oh my...
 Wizard: Well, [wait=0.2]you see, [wait=0.2]I doth not much timeth for this.
 Wizard: Like, [wait=0.2]I would [shake level=7 rate=10]love[/shake] to destroyeth thee,[wait=0.2] but I must findeth this [color="blue"]Workshop[/color].
@@ -43,7 +43,7 @@ Fenn: Yeah, I get it.
 Wizard: Um.[wait=0.2] Goodbye, pint-size.
 Fenn: Bye bye!
 do! CutsceneManager.npc_move("Winston", "left", 2000.0, 1000.0, false, false)
-do CutsceneManager.remove_npc("Az")
+do CutsceneManager.remove_npc("Winston")
 Fenn: What a formidable foe...
 do CutsceneManager._end_cutscene()
 do EventFlags.set_flag("Ws-Meet-CellarGeneral", true)

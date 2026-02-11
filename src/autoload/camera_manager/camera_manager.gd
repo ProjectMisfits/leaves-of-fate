@@ -39,6 +39,7 @@ func create_camera(cam_global_position: Vector2, cam_relative_zoom: float, trans
 	new_cam.tween_resource = tween
 	# Add the new camera to the scene tree. The priority being one higher than any other phantom camera means the transition will automatically occur.
 	add_child(new_cam)
+	await new_cam.tween_completed
 
 ## Create a new phantom camera with set limits.
 func create_camera_with_limits(cam_global_position: Vector2, cam_relative_zoom: float, transition_duration: float, transition_type: String, transition_ease: String, limit_target: NodePath) -> void:
