@@ -21,7 +21,7 @@ Wizard: Well, [wait=0.2]you see, [wait=0.2]I doth not much timeth for this.
 Wizard: Like, [wait=0.2]I would [shake]love[/shake] to destroyeth thee,[wait=0.2] but I must findeth this [color="blue"]Workshop[/color].
 Fenn: Huh? What [color="blue"]Workshop[/color]? 
 Wizard: Listen hereth, [shake][i]pint-size[/i][/shake]. 
-Wizard: Stayeth out of mine own way, or [shake]I shall maketh thee regret it[/shake].
+Wizard: Stayeth out of mine own way, [wait=0.2]or [shake]I shall maketh thee regret it[/shake].
 do! CutsceneManager.npc_move("Winston", "right", 2000.0, 1000.0, false, false)
 Fenn: Wait! I have another question.
 do! CutsceneManager.npc_move("Winston", "left", 2000.0, 1000.0, false, false)
