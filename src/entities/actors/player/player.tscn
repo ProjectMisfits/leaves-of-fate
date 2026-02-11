@@ -4,8 +4,6 @@
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
 [ext_resource type="Script" uid="uid://bar0unkhcpu3a" path="res://src/entities/actors/player/states/player_idle.gd" id="3_a1k00"]
 [ext_resource type="Script" uid="uid://dr4cwnspn2mf2" path="res://src/entities/actors/player/states/player_running.gd" id="4_7gsup"]
-[ext_resource type="Shape2D" uid="uid://0oo3ftpmvp21" path="res://src/entities/actors/player/collision_shapes/player_dash.tres" id="4_7j1dl"]
-[ext_resource type="Shape2D" uid="uid://b8ivarqjj8m6q" path="res://src/entities/actors/player/collision_shapes/player_normal.tres" id="4_lynpt"]
 [ext_resource type="Material" uid="uid://bv8rolwolipyw" path="res://src/shaders/RimLitPlayer.tres" id="5_e5ptp"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="5_lynpt"]
 [ext_resource type="Script" uid="uid://3uombhhv6fd6" path="res://src/entities/actors/player/components/interact_component.gd" id="6_283t5"]
@@ -22,6 +20,10 @@
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/particle_effects/wind_particles.tscn" id="14_7j1dl"]
 [ext_resource type="AudioStream" uid="uid://dimhdiv10a08t" path="res://assets/entities/actors/player/player_audio/PH-leaf-enter.ogg" id="17_iloh8"]
 [ext_resource type="AudioStream" uid="uid://dxmm31nsgmehb" path="res://assets/entities/actors/player/player_audio/PH-leaf-exit.ogg" id="18_283t5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_283t5"]
+radius = 78.0
+height = 486.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4vut"]
 size = Vector2(750, 540)
@@ -101,7 +103,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [162.0]
+"values": [486.0]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -113,7 +115,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [26.0]
+"values": [78.0]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -293,7 +295,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.099999994),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [162.0, 52.0]
+"values": [486.0, 156.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -305,11 +307,12 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [26.0]
+"values": [78.0]
 }
 
 [sub_resource type="Animation" id="Animation_nqxrs"]
 resource_name = "player_leaf_pile"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -345,6 +348,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1.3, 1.3)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:shape:height")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.099999994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [486.0, 156.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:shape:radius")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [78.0]
 }
 
 [sub_resource type="Animation" id="Animation_efl0v"]
@@ -436,14 +463,13 @@ _data = {
 collision_mask = 142
 script = ExtResource("1_npkjl")
 database = ExtResource("2_7gsup")
-collision_normal = ExtResource("4_lynpt")
-collision_dash = ExtResource("4_7j1dl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(3, 3)
-shape = ExtResource("4_lynpt")
+position = Vector2(0, -243)
+shape = SubResource("CapsuleShape2D_283t5")
 
 [node name="FlipNode" type="Node2D" parent="."]
+position = Vector2(0, -243)
 
 [node name="Sprite2D" type="Sprite2D" parent="FlipNode"]
 material = ExtResource("5_e5ptp")
