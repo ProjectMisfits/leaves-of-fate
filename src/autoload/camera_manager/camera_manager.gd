@@ -16,6 +16,9 @@ func initialize_camera(player_phantom_camera: PhantomCamera2D, gameplay_camera: 
 func set_target(target: Node2D) -> void:
 	phantom_camera.set_follow_target(target)
 
+func teleport() -> void:
+	phantom_camera.teleport_position()
+
 ## Clear the camera's target.
 func clear_target() -> void:
 	phantom_camera.erase_follow_target()
