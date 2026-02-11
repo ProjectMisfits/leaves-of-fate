@@ -15,7 +15,7 @@
 
 [node name="02_Cellar_c_Ambush" instance=ExtResource("1_78sth")]
 
-[node name="Background" parent="BackgroundLayer" index="0"]
+[node name="Background" parent="BackgroundLayer" index="1"]
 position = Vector2(11744, 10976.001)
 scale = Vector2(32.876717, 65.24445)
 texture = ExtResource("2_c5x56")

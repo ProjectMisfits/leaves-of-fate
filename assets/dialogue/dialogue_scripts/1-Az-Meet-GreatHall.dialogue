@@ -1,24 +1,30 @@
 ~ start
 do! CameraManager.create_camera(Vector2(750.0, -100.0), 0.5, 3, "CUBIC", "EASE_IN_OUT")
-do! CutsceneManager.npc_move("Az", "left", 200.0, 100.0, false)
-Fenn: Whoa! Are you Az? Az Featherstone?
+#					haracter, direction, distance, speed, animate, moonwalk
+#do! CutsceneManager.npc_move("Az", "left", 200.0, 100.0, false, false)
+Fenn: Whoa! Are you [color="red"]Az[/color]? [color="red"]Az Featherstone[/color]?
 #							Relative Position,		Zoom x and y, trans duration, transition type, ease type
 #do! CameraManager.create_camera(Vector2(200.0, 200.0), Vector2(1.0, 1.0), 2.0, "LINEAR", "EASE_IN")
-Az: Yeah- Wait, what?
-Fenn: The great blacksmith apprentice and daughter of the incredible Knight of Smithing, Abdullah Featherstone?
-Fenn: Oh by Post! This is really happening. What is he like? Abdul? Is he cool? I bet he's really cool. What's the coolest thing he's made? Is it-
+Az: Yeah- [wait=0.2]Wait, what?
+Fenn: [speed=1.5]The great blacksmith apprentice and daughter of the [/speed][speed=2][wave]incredible Knight of Smithing, [color="red"]Abdullah Featherstone[/color]?[/wave][/speed]
+do EventBus.interrupt_dialogue.emit("0.2")
+Fenn: [speed=2]Oh by Post! This is really happening. [speed=3]What is he like? Abdul? Is he cool? I bet he's really cool. What's the coolest thing he's made? Is it-
 Az: [i]cough[/i] Slow down, kid. What's your name?
 Fenn: Fenn!
 Az: Okay, Fenn. Love the enthusiasm, but I'm kinda busy right now. 
-Az: My Baba is trapped in the Council Chamber, and I saw one of the Wizards who did it escape into the Cellar.
-Fenn: Really?! Adventure awaits!! Let's go!
+Az: My [color="red"]Baba[/color] is trapped in the Council Chamber, and I saw one of those [color="purple"]"Wizards"[/color] escape into the Cellar.
+Fenn: Really?! [shake]ADVENTURE AWAITS!![/shake]
 Az: Absolutely not, kid. It's not safe. Stay here.
-Fenn: [speed=1.2]Wait, wait, wait. Are you gonna breathe fire? [speed=1.5]I know Adbul can breathe fire. That's so cool. I wish I could breathe fire. Are-[/speed][/speed]
-Az: Okay, okay. Listen, I need to go grab something. I'll be back soon. Will you stay here?
+do EventBus.interrupt_dialogue.emit("0.2")
+Fenn: [speed=1.5]Wait, wait, wait. [/speed][speed=2]Are you gonna breathe fire? [/speed][speed=3]I know Adbul can breathe fire. That's so cool. I wish I could breathe fire. Are-[/speed]
+Az: Okay! Okay. Listen, I need to go grab something. I'll be back soon. Will you stay here?
 Fenn: Hm... no promises.
 Az: [i]cough[/i] Seriously?
 Fenn: Yup!
-Az: Ugh. Whatever.
+Az: [shake]Ugh[/shake]. Whatever.
 #Az runs off.
+do CutsceneManager.remove_npc("Az")
+[wait=1]
+do CutsceneManager._end_cutscene()
 do EventFlags.set_flag("Az-Meet-GreatHall", true)
 => END
