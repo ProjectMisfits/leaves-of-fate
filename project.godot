@@ -47,6 +47,7 @@ runtime/balloon_path="uid://du42aku0qy3o5"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=2
 window/size/resizable=false
 window/size/window_width_override=1920
 window/size/window_height_override=1080
@@ -54,6 +55,7 @@ window/stretch/mode="viewport"
 
 [editor]
 
+naming/node_name_num_separator=3
 script/templates_search_path="res://src/script_templates"
 
 [editor_plugins]

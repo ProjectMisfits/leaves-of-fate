@@ -59,30 +59,40 @@ func _update_current_room() -> void:
 
 ## Swap to the specified Room and unload the current Room.
 func _on_swap_room(path_to_target_room: String, target_door_name: String) -> void:
+	# Begin a screen transition.
+	await SceneManager.add_screen_transition("circle")
 	# Disconnect camera from player
 	CameraManager.clear_target()
-	
 	# Remove player from current room
 	current_room.despawn_player(player)
-	# Call autoload SceneManager to swap the room
-
+	# Swap in the target room
 	var target_room_loaded: int = SceneManager.swap_scenes(path_to_target_room, $RoomHolder, current_room)
 	# Make sure the load succeeded before continuing the swap
 	if (target_room_loaded != 0):
 		return
-	
 	# Update the current room
 	_update_current_room()
+	# Set the camera limits for the room
+	CameraManager.set_limit(current_room.midground.get_path())
 	# Add player to new current room and place them at correct door
 	current_room.spawn_player(player, target_door_name)
 	# Reconnect camera to player
 	CameraManager.set_target(player)
+	CameraManager.teleport()
+	# Finish the screen transition.
+	await SceneManager.remove_screen_transition()
 
 ## Resets the Player's stats & respawns them at the last door they exited.
 func respawn_player() -> void:
+	# Begin a screen transition.
+	await get_tree().create_timer(0.5).timeout
+	await SceneManager.add_screen_transition("circle")
 	player.reset_stats()
 	player.velocity = Vector2.ZERO	# Reset Player velocity
 	current_room.respawn_player(player)
+	CameraManager.teleport()
+	# Finish the screen transition.
+	await SceneManager.remove_screen_transition()
 
 ## UI FUNCTIONALITY
 
@@ -166,4 +176,4 @@ func _quit_to_main_menu() -> void:
 	#await select_audio.finished
 	# unpauses tree and then switches out of gameplay scene to main menu scene 
 	get_tree().paused = false
-	SceneManager.swap_scenes("res://src/ui/main_menu/main_menu.tscn", null, self)
+	SceneManager.swap_scenes_with_transition("res://src/ui/main_menu/main_menu.tscn", null, self)

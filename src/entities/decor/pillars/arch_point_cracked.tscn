@@ -6,6 +6,8 @@
 [node name="ArchPointCracked" type="Node2D"]
 use_parent_material = true
 script = ExtResource("1_5ogax")
+in_front_of_door = true
+in_front_of_player = true
 
 [node name="ArchPointCracked" type="Sprite2D" parent="."]
 use_parent_material = true
