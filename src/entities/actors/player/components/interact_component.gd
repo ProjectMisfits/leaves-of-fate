@@ -7,24 +7,26 @@ var current_interactables: Array[InteractTrigger]
 ## A boolean representing whether the player can interact.
 var can_interact: bool = true
 
-## The interact prompt.
-@onready var interact_prompt: Control = $InteractPrompt
-
 func _input(event: InputEvent) -> void:
+	# When the interact input is pressed:
 	if event.is_action_pressed("interact") and can_interact:
+		# If there is something to interact with, interact with it.
 		if current_interactables:
 			can_interact = false
+			current_interactables[0].interact_prompt.hide()
 			current_interactables[0].trigger()
 			can_interact = true
 
 func _process(_delta: float) -> void:
 	if current_interactables and can_interact:
 		current_interactables.sort_custom(_sort_by_nearest)
+		# Hide any visible prompts of interactables that aren't the closest one.
 		if current_interactables[0].enabled:
-			interact_prompt.global_position = current_interactables[0].global_position
-			interact_prompt.show()
-	else:
-		interact_prompt.hide()
+			for interactable: InteractTrigger in current_interactables:
+				if interactable != current_interactables[0] and interactable.interact_prompt.visible == true:
+					interactable.interact_prompt.hide()
+			# Make sure the closest interactables's prompt is visible.
+			current_interactables[0].interact_prompt.show()
 
 ## Return a boolean representing whether an area is closer to this area than another area.
 func _sort_by_nearest(area1: Area2D, area2: Area2D) -> bool:
@@ -38,4 +40,6 @@ func _on_interact_range_area_entered(area: Area2D) -> void:
 
 ## Remove the area that exited the interact range from the current interactables array.
 func _on_interact_range_area_exited(area: Area2D) -> void:
+	if area is InteractTrigger:
+		area.interact_prompt.hide()
 	current_interactables.erase(area)

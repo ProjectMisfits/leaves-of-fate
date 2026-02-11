@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cm33qh6em0dth"]
+[gd_scene load_steps=4 format=3 uid="uid://cm33qh6em0dth"]
 
 [ext_resource type="Script" uid="uid://cqp8kvvayynkf" path="res://src/entities/triggers/grab_trigger/grab_trigger.gd" id="1_n6ad0"]
 [ext_resource type="Shape2D" uid="uid://bnrtt12ohd1ix" path="res://src/entities/triggers/trigger_collision_shape.tres" id="2_tirpy"]
+[ext_resource type="PackedScene" uid="uid://41eqg6x4f1xj" path="res://src/ui/interact_prompt/interact_prompt.tscn" id="3_yya4r"]
 
 [node name="GrabTrigger" type="Area2D"]
 collision_layer = 32
@@ -12,3 +13,6 @@ repeatable = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = ExtResource("2_tirpy")
+
+[node name="GrabHighlight" parent="." instance=ExtResource("3_yya4r")]
+visible = false
