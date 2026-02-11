@@ -6,8 +6,6 @@ class_name Player
 
 # -------------------- RESOURCES -------------------- #
 @export var database: JSON = null
-@export var collision_normal: CapsuleShape2D = null
-@export var collision_dash: CircleShape2D = null
 
 # -------------------- DATABASE VARIABLES -------------------- #
 var max_health: int					## The Player's maximum health.
