@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://1lva6fbgnwyn"]
+
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="1_euwff"]
+[ext_resource type="Texture2D" uid="uid://dasv1lacgv54e" path="res://assets/entities/decor/pillars/Arch-Point-Smooth.png" id="2_euwff"]
+
+[node name="ArchPointSmooth" type="Node2D"]
+use_parent_material = true
+script = ExtResource("1_euwff")
+in_front_of_door = true
+in_front_of_player = true
+
+[node name="ArchPointSmooth" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(0, -639.00006)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("2_euwff")

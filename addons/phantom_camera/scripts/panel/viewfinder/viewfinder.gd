@@ -398,22 +398,24 @@ func _set_viewfinder(root: Node, editor: bool) -> void:
 
 func _set_viewfinder_camera(new_pcam_host: PhantomCameraHost, editor: bool) -> void:
 	pcam_host = new_pcam_host
+	
 
-	if _is_2d:
-		_selected_camera = pcam_host.camera_2d
+	_selected_camera = pcam_host.camera_2d
 
-		if editor:
-			sub_viewport.disable_3d = true
-			pcam_host = pcam_host
-			_camera_2d.zoom = pcam_host.camera_2d.zoom
-			_camera_2d.offset = pcam_host.camera_2d.offset
-			_camera_2d.ignore_rotation = pcam_host.camera_2d.ignore_rotation
+	if editor:
+		sub_viewport.disable_3d = true
+		pcam_host = pcam_host
+		_camera_2d.zoom = pcam_host.camera_2d.zoom
+		_camera_2d.offset = pcam_host.camera_2d.offset
+		_camera_2d.ignore_rotation = pcam_host.camera_2d.ignore_rotation
 
-			sub_viewport.world_2d = pcam_host.camera_2d.get_world_2d()
-			sub_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
-			sub_viewport.render_target_clear_mode = SubViewport.CLEAR_MODE_ALWAYS
-			sub_viewport.size_2d_override_stretch = true
-	else:
+		sub_viewport.world_2d = pcam_host.camera_2d.get_world_2d()
+		sub_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+		sub_viewport.render_target_clear_mode = SubViewport.CLEAR_MODE_ALWAYS
+		sub_viewport.size_2d_override_stretch = true
+		
+		"""
+			else:
 		_selected_camera = pcam_host.camera_3d
 		if editor:
 			var camera_3d_rid: RID = _selected_camera.get_camera_rid()
@@ -425,6 +427,9 @@ func _set_viewfinder_camera(new_pcam_host: PhantomCameraHost, editor: bool) -> v
 			aspect_ratio_container.set_stretch_mode(AspectRatioContainer.STRETCH_HEIGHT_CONTROLS_WIDTH)
 		else:
 			aspect_ratio_container.set_stretch_mode(AspectRatioContainer.STRETCH_WIDTH_CONTROLS_HEIGHT)
+		"""
+
+
 
 	set_process(true)
 

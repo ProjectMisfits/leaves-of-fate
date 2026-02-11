@@ -24,7 +24,7 @@ position = Vector2(5.5, -133.5)
 shape = SubResource("RectangleShape2D_yhnhy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -144)
+position = Vector2(0, -140)
 texture = ExtResource("2_417gy")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -51,10 +51,11 @@ _data = {
 &"move_base_animation": SubResource("Animation_7gtbv")
 }
 
-[node name="MovingPlatform" type="Path2D"]
+[node name="MovingPlatform" type="Path2D" node_paths=PackedStringArray("paths")]
 curve = SubResource("Curve2D_bs6ok")
 script = ExtResource("1_wq0hb")
 closed_loop = false
+paths = [NodePath("PathFollow2D")]
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(512, 0)
@@ -64,7 +65,6 @@ progress = 512.0
 remote_path = NodePath("../../AnimatableBody2D")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-position = Vector2(512, 0)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]

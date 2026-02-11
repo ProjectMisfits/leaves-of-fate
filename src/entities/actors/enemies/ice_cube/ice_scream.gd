@@ -13,6 +13,8 @@ class_name IceScream
 
 @export var database : JSON = null
 
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
+
 
 #Acceleration when charging normally
 var normal_acceleration : float 
@@ -125,7 +127,7 @@ func check_release(delay: bool) -> void:
 			state_machine.dispatch(&"to_idle")
 
 #What happens when the cube is grabbed
-func grab() -> void:
+func _grab() -> void:
 	grab_collision.set_deferred("disabled",true)
 	velocity.x = 0;
 	

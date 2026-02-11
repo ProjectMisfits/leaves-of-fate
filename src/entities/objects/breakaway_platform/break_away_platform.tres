@@ -2,6 +2,9 @@
 
 [resource]
 data = {
-&"break_time": 1.0,
-&"respawn_time": 3.0
+"break_time": 1.0,
+"gravity": 200.0,
+"respawn_time": 3.0,
+"respawnable": true,
+"stationary": true
 }

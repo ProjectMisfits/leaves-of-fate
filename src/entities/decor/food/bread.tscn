@@ -3,7 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://7fb7piofpxgp" path="res://assets/entities/decor/food/Bread-Prop.png" id="1_w7scd"]
 [ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_54e8y"]
 
-[node name="Bread" type="Sprite2D"]
+[node name="Bread" type="Node2D"]
+script = ExtResource("2_54e8y")
+
+[node name="Bread" type="Sprite2D" parent="."]
+position = Vector2(0, -64.99999)
+rotation = -0.022768069
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_w7scd")
-script = ExtResource("2_54e8y")

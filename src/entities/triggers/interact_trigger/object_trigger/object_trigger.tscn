@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://xrrmak07aeag"]
+
+[ext_resource type="Shape2D" uid="uid://bnrtt12ohd1ix" path="res://src/entities/triggers/trigger_collision_shape.tres" id="1_24ob0"]
+[ext_resource type="Script" uid="uid://t3dmjvfkush8" path="res://src/entities/triggers/interact_trigger/object_trigger/object_trigger.gd" id="1_nkox1"]
+[ext_resource type="PackedScene" uid="uid://41eqg6x4f1xj" path="res://src/ui/interact_prompt/interact_prompt.tscn" id="3_losg2"]
+
+[node name="ObjectTrigger" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_nkox1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("1_24ob0")
+
+[node name="InteractPrompt" parent="." instance=ExtResource("3_losg2")]
+visible = false

@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://d12wggiw7s1kv" path="res://assets/entities/decor/food/BoarHead-Prop.png" id="1_0wiku"]
 [ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_3kww2"]
 
-[node name="BoarHead" type="Sprite2D"]
-texture = ExtResource("1_0wiku")
+[node name="BoarHead" type="Node2D"]
 script = ExtResource("2_3kww2")
+
+[node name="BoarHead" type="Sprite2D" parent="."]
+position = Vector2(0, -149)
+texture = ExtResource("1_0wiku")
