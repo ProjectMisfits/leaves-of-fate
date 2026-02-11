@@ -11,6 +11,7 @@ class_name DialogueTrigger extends InteractTrigger
 @onready var interact_audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready() -> void:
+	interact_prompt = $InteractPrompt
 	_on_trigger = _start_dialogue
 
 ## Start the dialogue sequence associated with this trigger.
