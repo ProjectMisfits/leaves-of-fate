@@ -1,14 +1,13 @@
 ## The Player's Leaf Pile state and all relevant code for it.
 extends LimboState
 
-## Set the Player's animation, collision shape, and change their collision mask to 
+## Set the Player's animation and change their collision mask to 
 ## let them pass through Leaf Mode platforms.
 ## Finally, reset their Y-velocity.
 func _enter() -> void:
 	#print("Player State Transition: to_pileing")
 	agent.animation_player.play("player_leaf_pile")
 	agent.set_collision_mask_value(8,false)
-	agent.collision_shape_2d.shape = agent.collision_dash
 	agent.velocity.y = 0.0
 
 ## Move the Player. If the dash button is not held or the Player runs out of wind,
@@ -28,10 +27,10 @@ func _update(delta: float) -> void:
 	else:
 		move_horizontal_pile_air(delta)
 
-## Revert the Player's collision shape & mask.
+## Revert the Player's collision mask.
 func _exit() -> void:
 	agent.set_collision_mask_value(8,true)
-	agent.collision_shape_2d.shape = agent.collision_normal
+	agent.animation_player.play_backwards("player_leaf_pile")
 	
 	agent.post_dash_mode = true
 
