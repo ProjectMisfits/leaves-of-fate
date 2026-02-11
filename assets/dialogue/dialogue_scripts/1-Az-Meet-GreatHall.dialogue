@@ -4,9 +4,9 @@
 
 #					haracter, direction, distance, speed, animate, moonwalk
 #do! CutsceneManager.npc_move("Az", "left", 200.0, 100.0, false, false)
-Fenn: Whoa! Are you [color="red"]Az[/color]? [color="red"]Az Featherstone[/color]?
+Fenn: Whoa! Are you [color="red"]Az[/color]? [shake level=7 rate=30][color="red"]Az Featherstone[/color][/shake]?
 Az: Yeah- [wait=0.2]Wait, what?
-Fenn: [speed=2]The great blacksmith apprentice and [/speed][speed=2.5]daughter of the [wave freq=8 amp=40]incredible Knight of Smithing, [color="red"]Abdullah Featherstone[/color]?[/wave][/speed]
+Fenn: [speed=2]The great blacksmith apprentice and [/speed][speed=2.5]daughter of the [wave freq=7 amp=30]incredible Knight of Smithing, [color="red"]Abdullah Featherstone[/color]?[/wave][/speed]
 do EventBus.interrupt_dialogue.emit("0.2")
 Fenn: [speed=2]Oh by Post! This is really happening. [/speed][speed=2.5]What is he like? [color="red"]Abdul[/color]? Is he cool? I bet he's really cool. What's the coolest thing he's made? Is it-[/speed]
 Az: [i]cough[/i] Slow down, kid. What's your name?
