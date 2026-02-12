@@ -2,9 +2,6 @@ class_name Gameplay extends Node2D
 ## Wrapper for gameplay scenes during runtime.
 ## Manages scenes like the current Room, HUD, Camera, menus.
 
-## A reference to the player.
-var player: Player = preload("res://src/entities/actors/player/player.tscn").instantiate()
-
 ## A Node2D that acts as a persistent parent of the Room the player is in.
 @onready var room_holder: Node2D = $%RoomHolder
 ## The Room the player is currently in.
@@ -32,15 +29,11 @@ func _ready() -> void:
 	_update_current_room()
 	
 	# Spawn the player at the first door now that the room has been loaded
-	current_room.spawn_player(player, 'enter')
+	current_room.spawn_player_at_door('enter')
 	# Connect phantom camera to player
-	CameraManager.set_target(player)
-	
-	# Connect the player death signal to the respawn player function
-	player.player_knocked_out.connect(respawn_player)
-	
+	CameraManager.set_target(current_room.player)
 	# Passes player to the Hud so that Hud can update based on player actions
-	$%Hud.set_player(player)
+	$%Hud.set_player(current_room.player)
 	# Connect UI menu signals
 	_connect_menu_signals()
 
@@ -50,12 +43,13 @@ func _physics_process(_delta: float) -> void:
 
 ## Update the reference to the current scene.
 func _update_current_room() -> void:
-	# Get the last child of RoomHolder, as that will always be the current room.
+	# Get the last child of RoomHolder, as that will always be the current room
 	current_room = room_holder.get_child(-1) as Room
-	# Because the room was replaced, we have to update the connected signal.
-	# But only if the connection doesn't already exist.
+	# Connect room signals for rooms that don't have them connected yet
 	if not current_room.swap_room.is_connected(_on_swap_room):
 		current_room.swap_room.connect(_on_swap_room)
+	if not current_room.reset_room.is_connected(_on_reset_room):
+		current_room.reset_room.connect(_on_reset_room)
 
 ## Swap to the specified Room and unload the current Room.
 func _on_swap_room(path_to_target_room: String, target_door_name: String) -> void:
@@ -63,9 +57,8 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String) -> voi
 	await SceneManager.add_screen_transition("circle")
 	# Disconnect camera from player
 	CameraManager.clear_target()
+	# Janky call to make sure cutscene stuff functions correctly
 	CutsceneManager._end_cutscene()
-	# Remove player from current room
-	current_room.despawn_player(player)
 	# Swap in the target room
 	var target_room_loaded: int = SceneManager.swap_scenes(path_to_target_room, $RoomHolder, current_room)
 	# Make sure the load succeeded before continuing the swap
@@ -76,27 +69,27 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String) -> voi
 	# Set the camera limits for the room
 	CameraManager.set_limit(current_room.midground.get_path())
 	# Add player to new current room and place them at correct door
-	current_room.spawn_player(player, target_door_name)
+	current_room.spawn_player_at_door(target_door_name)
 	# Reconnect camera to player
-	CameraManager.set_target(player)
+	CameraManager.set_target(current_room.player)
 	CameraManager.teleport()
 	# Finish the screen transition.
 	await SceneManager.remove_screen_transition()
 
-## Resets the Player's stats & respawns them at the last door they exited.
-func respawn_player() -> void:
+## Resets the current room, putting the player at their last spawn location.
+func _on_reset_room() -> void:
 	# Begin a screen transition.
 	await get_tree().create_timer(0.5).timeout
 	await SceneManager.add_screen_transition("circle")
-	player.reset_stats()
-	player.velocity = Vector2.ZERO	# Reset Player velocity
-	current_room.respawn_player(player)
+	# TODO: hook into swap scenes but with the room itself
+	
 	CameraManager.teleport()
 	# Finish the screen transition.
 	await SceneManager.remove_screen_transition()
 
 ## UI FUNCTIONALITY
 
+## Connect each menu screen's buttons to the desired menus
 func _connect_menu_signals() -> void:
 	# Connect pause menu
 	pause_menu.get_node("%ResumeButton").button_up.connect(_close_pause_menu)

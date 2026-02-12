@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://bhndpauy1j7sw"]
+[gd_scene load_steps=5 format=4 uid="uid://bhndpauy1j7sw"]
 
 [ext_resource type="Script" uid="uid://clfv0vvbc4hdy" path="res://src/rooms/room.gd" id="1_t665v"]
 [ext_resource type="TileSet" uid="uid://i6wi7xcus3i" path="res://assets/rooms/tileset/TS_Cellar.tres" id="2_7i7i2"]
 [ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/door/door.tscn" id="2_pdypr"]
+[ext_resource type="PackedScene" uid="uid://cjkpybae7njrh" path="res://src/entities/actors/player/player.tscn" id="4_8eo6q"]
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_t665v")
@@ -49,10 +50,8 @@ position = Vector2(1472, 1024)
 door_name = "exit"
 target_door_name = "enter"
 
-[node name="PlayerHolder" type="Node2D" parent="MidgroundLayer"]
+[node name="Player" parent="MidgroundLayer" instance=ExtResource("4_8eo6q")]
 unique_name_in_owner = true
-z_index = 4
-metadata/_edit_lock_ = true
 
 [node name="Entities" type="Node2D" parent="MidgroundLayer"]
 metadata/_edit_lock_ = true
@@ -80,3 +79,5 @@ follow_viewport_enabled = true
 
 [node name="Decor" type="Node2D" parent="ForegroundLayer"]
 metadata/_edit_lock_ = true
+
+[connection signal="player_knocked_out" from="MidgroundLayer/Player" to="." method="_on_player_player_knocked_out"]
