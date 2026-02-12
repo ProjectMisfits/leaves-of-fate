@@ -11,5 +11,6 @@ func _ready() -> void:
 ## Begin sending the player through the bronze pipe.
 func _enter_pipe() -> void:
 	# Check if the player is in leaf mode
-	# If so, emit a pipe entered signal with the player for the pipe to catch
-	pipe_entered.emit(player)
+	if player.state_machine.get_active_state() == player.dashing_state:
+		# If so, emit a pipe entered signal with the player for the pipe to catch
+		pipe_entered.emit(player)
