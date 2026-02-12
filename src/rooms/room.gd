@@ -3,7 +3,7 @@ class_name Room extends Node2D
 ## All rooms must extend from this class.
 
 ## Triggered when the player interacts with a door to transition to a new room.
-signal swap_room(path_to_target_room: String, spawn_location: String)
+signal swap_room(target_room_path: String, spawn_location: String)
 ## Triggered when the player is knocked out to reset the current room.
 signal reset_room(respawn_location: String)
 
@@ -34,28 +34,26 @@ func _ready() -> void:
 
 ## Initiate room swap on player entering a Door.
 func _on_player_entered_door(door: Door) -> void:
-	# Check whether the door has a destination first.
-	if (door.path_to_target_room == ""):
-		push_warning("Room '%s': Door '%s' does not have a target room set!" % [name, door.door_name])
+	# Check whether the door has a destination
+	if door.path_to_target_room == "":
+		push_warning("Room '%s': Door '%s' does not have a target room set" % [name, door.door_name])
 		return
-	
-	# Disable player processing
+	# Disable player processing so they don't move during the transition
 	player.process_mode = Node.PROCESS_MODE_DISABLED
-	# Since the path to the target room is set, emit room load signal
 	swap_room.emit(door.path_to_target_room, door.target_door_name)
 
 ## Emit a signal to reset the room when the player gets knocked out.
 func _on_player_player_knocked_out() -> void:
-	reset_room.emit()
+	# Disable player processing so signal is only emitted once
+	player.process_mode = Node.PROCESS_MODE_DISABLED
+	reset_room.emit(last_entered_door)
 
 ## Spawn the player at the given door.
 func spawn_player_at_door(target_door_name: String) -> void:
 	for door: Door in doors:
 		if door.door_name == target_door_name:
 			# If a door with the given name exists:
-			# Put the player there
 			player.global_position = door.global_position
-			# set the last entered door for respawning
 			last_entered_door = target_door_name
 			# Enable player processing
 			player.process_mode = Node.PROCESS_MODE_INHERIT

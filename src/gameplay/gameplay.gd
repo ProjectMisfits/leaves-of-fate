@@ -2,10 +2,12 @@ class_name Gameplay extends Node2D
 ## Wrapper for gameplay scenes during runtime.
 ## Manages scenes like the current Room, HUD, Camera, menus.
 
-## A Node2D that acts as a persistent parent of the Room the player is in.
+## A holder node for the room the player is currently in.
 @onready var room_holder: Node2D = $%RoomHolder
-## The Room the player is currently in.
+## The room the player is currently in.
 var current_room: Room = null
+## The path to the current room's file. Used for resetting rooms.
+var current_room_path: String = ""
 
 ## A reference to the MenuHolder CanvasLayer.
 @onready var menu_holder: CanvasLayer = $MenuHolder
@@ -52,7 +54,7 @@ func _update_current_room() -> void:
 		current_room.reset_room.connect(_on_reset_room)
 
 ## Swap to the specified Room and unload the current Room.
-func _on_swap_room(path_to_target_room: String, target_door_name: String) -> void:
+func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
 	# Begin a screen transition.
 	await SceneManager.add_screen_transition("circle")
 	# Disconnect camera from player
@@ -60,9 +62,10 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String) -> voi
 	# Janky call to make sure cutscene stuff functions correctly
 	CutsceneManager._end_cutscene()
 	# Swap in the target room
-	SceneManager.swap_scenes(path_to_target_room, room_holder, current_room)
+	SceneManager.swap_scenes(target_room_path, room_holder, current_room)
 	# Update the current room
 	_update_current_room()
+	current_room_path = target_room_path
 	# Set the camera limits for the room
 	CameraManager.set_limit(current_room.midground.get_path())
 	# Add player to new current room and place them at correct door
@@ -74,15 +77,8 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String) -> voi
 	await SceneManager.remove_screen_transition()
 
 ## Resets the current room, putting the player at their last spawn location.
-func _on_reset_room() -> void:
-	# Begin a screen transition.
-	await get_tree().create_timer(0.5).timeout
-	await SceneManager.add_screen_transition("circle")
-	# TODO: hook into swap scenes but with the room itself
-	
-	CameraManager.teleport()
-	# Finish the screen transition.
-	await SceneManager.remove_screen_transition()
+func _on_reset_room(last_entered_door_name: String) -> void:
+	_on_swap_room(current_room_path, last_entered_door_name)
 
 ## UI FUNCTIONALITY
 
@@ -156,7 +152,6 @@ func _open_controls_menu() -> void:
 
 # Closes controls menu 
 func close_controls_menu() -> void:
-	#print("called")
 	select_audio.play()
 	settings_menu.get_node("%ControlsButton").grab_focus.call_deferred()
 	menu_holder.remove_child(controls_menu)
