@@ -486,11 +486,6 @@ func _end_invincibility() -> void:
 ## Set the Player's current health, update the health UI, and check for Player knockout.
 ## Health set in this way disregards invincibility.
 func set_health(new_health: int) -> void:
-	# If input is disabled, ignore changes to Player health
-	# There may be situations where the health should be update when input is disabled, so don't push a warning if this happens.
-	if input_disabled:
-		return
-	
 	if (new_health > max_health):	# If health greater than max health
 		push_warning("set_health(): new_health is greater than max health.")
 	
