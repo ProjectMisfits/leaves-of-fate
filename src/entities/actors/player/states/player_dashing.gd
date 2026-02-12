@@ -56,8 +56,6 @@ func _update(_delta: float) -> void:
 	
 	agent.velocity = move_direction * agent.dash_max_speed
 	agent.flip_node.rotation = Vector2.RIGHT.angle_to(move_direction)
-	
-	agent.move_and_slide()
 
 ## Revert the Player's animation, particles, and rotation back to their normal mode.
 func _exit() -> void:
