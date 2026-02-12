@@ -23,6 +23,7 @@ unique_name_in_owner = true
 loop = false
 
 [node name="ColorRect" type="ColorRect" parent="Path2D/PathFollow2D"]
+unique_name_in_owner = true
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,5 +38,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
+unique_name_in_owner = true
 update_rotation = false
 update_scale = false
