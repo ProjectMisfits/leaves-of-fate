@@ -336,11 +336,13 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 			# Trying to use clampf here with -velocity.x & velocity.x breaks the function,
 			# causing it to always return a positive value. So instead, we clamp manually here.
 			var temp_velocity: float = velocity.x + new_acceleration
+			#print("MEWO")
 			
 			if (abs(temp_velocity) > abs(velocity.x)):
 				new_velocity = velocity.x
 			else:
 				new_velocity = temp_velocity
+			
 			
 			# If on floor, decrease velocity by ground friction. Also enables bunny-hopping and ground-dashing.
 			if (is_on_floor()):
