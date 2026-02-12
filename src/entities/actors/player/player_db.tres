@@ -14,7 +14,7 @@ data = {
 "fun_value": 1282026.0,
 "ground_acceleration": 3000.0,
 "ground_deceleration": 1500.0,
-"ground_friction": 20000.0,
+"ground_friction": 2000.0,
 "ground_turn_speed": 25000.0,
 "hit_invincibility_time": 1.5,
 "hit_recoil_direction": Vector2(-1, -1),
@@ -45,5 +45,5 @@ data = {
 "post_dash_fast_fall_gravity_multiplier": 2.0,
 "post_dash_gravity": 8000.0,
 "run_max_speed": 3500.0,
-"terminal_velocity": 1800.0
+"terminal_velocity": 21000.0
 }
