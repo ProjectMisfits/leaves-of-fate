@@ -172,7 +172,7 @@ func _physics_process(delta: float) -> void:
 		post_dash_mode = false
 	
 	# If player input is disabled, do not update the jump queue or leaf meter.
-	if input_disabled:
+	if not input_disabled:
 		update_jump_queue(delta)
 		update_leaf_meter(delta)
 	
