@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbpm02j1io7y6"]
+
+[sub_resource type="Curve2D" id="Curve2D_esdh6"]
+resource_local_to_scene = true
+
+[node name="BronzePipe" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_esdh6")
