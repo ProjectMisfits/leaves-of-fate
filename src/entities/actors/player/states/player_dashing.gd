@@ -32,14 +32,14 @@ func _enter() -> void:
 ## check if they may transition into another state.
 func _update(_delta: float) -> void:
 	# Check if Player stopped holding dash Action
-	if (not Input.is_action_pressed("dash") or (agent.leaf_meter <= 0) or agent.input_disabled):
+	if (not Input.is_action_pressed("dash") or (agent.leaf_meter <= 0) or not agent.input_processing):
 		agent.check_airborne_state()
 		agent.check_running_state()
 		agent.check_idle_state()
 	
 	# Get new input vector depending on held Actions
 	var new_input_direction: Vector2
-	if agent.input_disabled:
+	if not agent.input_processing:
 		new_input_direction = Vector2.ZERO
 	else:
 		new_input_direction = get_input_direction()
