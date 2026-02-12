@@ -39,5 +39,6 @@ grow_vertical = 2
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
 unique_name_in_owner = true
+position = Vector2(0, 243)
 update_rotation = false
 update_scale = false
