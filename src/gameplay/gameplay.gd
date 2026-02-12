@@ -60,10 +60,7 @@ func _on_swap_room(path_to_target_room: String, target_door_name: String) -> voi
 	# Janky call to make sure cutscene stuff functions correctly
 	CutsceneManager._end_cutscene()
 	# Swap in the target room
-	var target_room_loaded: int = SceneManager.swap_scenes(path_to_target_room, $RoomHolder, current_room)
-	# Make sure the load succeeded before continuing the swap
-	if (target_room_loaded != 0):
-		return
+	SceneManager.swap_scenes(path_to_target_room, room_holder, current_room)
 	# Update the current room
 	_update_current_room()
 	# Set the camera limits for the room
