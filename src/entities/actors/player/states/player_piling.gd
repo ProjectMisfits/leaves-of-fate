@@ -14,7 +14,7 @@ func _enter() -> void:
 ## check if they may transition into another state.
 func _update(delta: float) -> void:
 	# Check if Player stopped holding dash Action
-	if (not Input.is_action_pressed(&"dash") or (agent.leaf_meter <= 0) or agent.cutscene_mode):
+	if (not Input.is_action_pressed(&"dash") or (agent.leaf_meter <= 0) or agent.input_disabled):
 		agent.check_airborne_state()
 		agent.check_running_state()
 		agent.check_idle_state()
