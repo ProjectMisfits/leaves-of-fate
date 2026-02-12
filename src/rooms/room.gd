@@ -21,7 +21,7 @@ var last_entered_door: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Connect each Door's entered signal to this Room's room swap function
+	# Connect each door signal to the enter door method
 	doors = door_holder.get_children()
 	for door: Door in doors:
 		door.player_entered_door.connect(_on_player_entered_door)
@@ -38,6 +38,9 @@ func _on_player_entered_door(door: Door) -> void:
 	if (door.path_to_target_room == ""):
 		push_warning("Room '%s': Door '%s' does not have a target room set!" % [name, door.door_name])
 		return
+	
+	# Disable player processing
+	player.process_mode = Node.PROCESS_MODE_DISABLED
 	# Since the path to the target room is set, emit room load signal
 	swap_room.emit(door.path_to_target_room, door.target_door_name)
 
@@ -47,11 +50,15 @@ func _on_player_player_knocked_out() -> void:
 
 ## Spawn the player at the given door.
 func spawn_player_at_door(target_door_name: String) -> void:
-	# If a door with the given name exists, put the player there.
 	for door: Door in doors:
 		if door.door_name == target_door_name:
+			# If a door with the given name exists:
+			# Put the player there
 			player.global_position = door.global_position
+			# set the last entered door for respawning
 			last_entered_door = target_door_name
+			# Enable player processing
+			player.process_mode = Node.PROCESS_MODE_INHERIT
 			return
 	# If the target door didn't exist anywhere in the room, report the issue
 	push_warning("Room '%s': Door '%s' does not exist in this room" % [name, target_door_name])
