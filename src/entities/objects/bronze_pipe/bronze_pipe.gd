@@ -9,7 +9,7 @@ class_name BronzePipe extends Node2D
 @onready var _pipe_path_visual: ColorRect = $Path2D/PathFollow2D/ColorRect
 
 ## The speed at which bronze pipes progress. Represents the number of pixels the path advances per second. 
-var _speed: float = 100.0
+var _speed: float = 300.0
 
 ## Whether the player is currently traveling through this bronze pipe.
 var _player_in_pipe: bool = false
@@ -23,6 +23,10 @@ func _ready() -> void:
 	$BronzePipeTrigger.pipe_entered.connect(_enter_pipe)
 
 func _physics_process(delta: float) -> void:
+	# Add debug parameters for testing
+	DebugMenu.add_debug_property("Bronze Pipe Remote Transform Remote Path", $Path2D/PathFollow2D/RemoteTransform2D.remote_path, 0)
+	DebugMenu.add_debug_property("Bronze Pipe Progress Ratio", _pipe_path_follower.get_progress_ratio(), 0)
+	
 	# Only do pipe logic if there is a player in the pipe
 	if _player_in_pipe:
 		if _at_pipe_path_end():
@@ -44,7 +48,10 @@ func _progress_pipe_path(delta: float) -> void:
 func _enter_pipe(player: Player) -> void:
 	# Set local player reference
 	_player = player
+	# Connect RemoteTransform2D to player so it follows the visual while hidden
+	$Path2D/PathFollow2D/RemoteTransform2D.remote_path = _player.get_path()
 	# Disable player input
+	_player.disable_player_input()
 	# Hide player
 	player.hide()
 	# Show animation or particle visual of entering pipe
@@ -52,10 +59,6 @@ func _enter_pipe(player: Player) -> void:
 	_pipe_path_visual.show()
 	# Set player in pipe to true
 	_player_in_pipe = true
-	# Have pipe visual follow pipe path
-	# When path follow reaches end, swap to exiting pipe
-
-	pass
 
 ## Swap out of "pipe mode" when exiting a pipe.
 func _exit_pipe() -> void:
@@ -67,3 +70,4 @@ func _exit_pipe() -> void:
 	# Show player
 	_player.show()
 	# Enable player input
+	_player.enable_player_input()
