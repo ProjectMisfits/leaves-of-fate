@@ -105,7 +105,7 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 # -------------------- DYNAMIC VARIABLES -------------------- #
 ## If True, disable all user input.
 ## The Player's process_mode is NOT disabled and they may still move & change states.
-var cutscene_mode: bool = false
+var input_disabled: bool = false
 
 ## If True, Player just exited a dash & is airborne.
 ## The Player may NOT Leaf Dash/Pile & has no air deceleration.
@@ -159,8 +159,10 @@ func _ready() -> void:
 	
 	var dialogue_manager: Object = Engine.get_singleton(&"DialogueManager")
 	if (dialogue_manager != null):
-		dialogue_manager.dialogue_started.connect(enable_cutscene_mode.unbind(1))
-		dialogue_manager.dialogue_ended.connect(disable_cutscene_mode.unbind(1))
+		# Connect dialogue to Player input processing.
+		# Player input gets disabled when dialogue starts and enabled when dialogue ends.
+		dialogue_manager.dialogue_started.connect(enable_player_input.unbind(1))
+		dialogue_manager.dialogue_ended.connect(disable_player_input.unbind(1))
 
 ## Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
@@ -169,8 +171,8 @@ func _physics_process(delta: float) -> void:
 	if (post_dash_mode and is_on_floor()):	# If landed on floor during post-dash mode, disable post-dash mode.
 		post_dash_mode = false
 	
-	# If in cutscene state, do not check for these
-	if (not cutscene_mode):
+	# If player input is disabled, do not update the jump queue or leaf meter.
+	if input_disabled:
 		update_jump_queue(delta)
 		update_leaf_meter(delta)
 	
@@ -255,7 +257,8 @@ func check_running_state() -> void:
 
 ## If the player queued a jump & is on floor or within coyote time, change to jumping state.
 func check_jumping_state() -> void:
-	if (cutscene_mode):	# Do not handle input actions in Cutscene Mode
+	# If input is disabled, don't handle jump inputs
+	if input_disabled:
 		return
 	
 	if jump_queued:
@@ -273,7 +276,8 @@ func check_airborne_state() -> void:
 
 ## If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to piling state.
 func check_dashing_state() -> void:
-	if (cutscene_mode):	# Do not handle input actions in Cutscene Mode
+	# If input is disabled, don't handle dash inputs
+	if input_disabled:
 		return
 	
 	if Input.is_action_just_pressed(&"dash"):
@@ -286,7 +290,8 @@ func check_dashing_state() -> void:
 
 ## If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to piling state.
 func check_piling_state() -> void:
-	if (cutscene_mode):	# Do not handle input actions in Cutscene Mode
+	# If input is disabled, don't handle pile inputs
+	if input_disabled:
 		return
 	
 	if Input.is_action_just_pressed(&"dash"):
@@ -297,18 +302,18 @@ func check_piling_state() -> void:
 			leaf_enter_audio.play()
 			state_machine.dispatch(&"to_piling")
 
-## Enables the Player's Cutscene Mode & returns the Cutscene Mode's new value
-func enable_cutscene_mode() -> bool:
-	return set_cutscene_mode(true)
+## Set the Player's input processing to true and return the value.
+func enable_player_input() -> bool:
+	return set_input_processing(true)
 
-## Disables the Player's Cutscene Mode & returns the Cutscene Mode's new value
-func disable_cutscene_mode() -> bool:
-	return set_cutscene_mode(false)
+## Set the Player's input processing to false and return the value.
+func disable_player_input() -> bool:
+	return set_input_processing(false)
 
-## Sets the Player's Cutscene Mode & returns the Cutscene Mode's new value
-func set_cutscene_mode(value: bool) -> bool:
-	cutscene_mode = value
-	return cutscene_mode
+## Sets the Player's input processing to the given value and return it.
+func set_input_processing(new_input_disabled: bool) -> bool:
+	input_disabled = new_input_disabled
+	return input_disabled
 
 ## Get the input direction and handle the movement/deceleration.
 func move_horizontal(acceleration: float, deceleration: float, turn_speed: float, delta: float) -> void:
@@ -367,7 +372,8 @@ func move_horizontal_air(delta: float) -> void:
 
 ## Returns the player's normalized x-input value.
 func get_x_input() -> float:
-	if (cutscene_mode):
+	# If input is disabled, don't handle x direction inputs
+	if input_disabled:
 		return 0.0
 	else:
 		return ceilf(Input.get_axis(&"move_left", &"move_right"))	# Ceilf to get normalized input.
@@ -443,17 +449,19 @@ func hurt(damage: int) -> void:
 		return	# Do not deal damage.
 	else:
 		set_health(current_health - damage)
-		cutscene_mode = true	# Temporarily disable user controls.
-		
+		# Temporarily disable player input after getting hurt
+		input_disabled = true
 		# Launch the Player in the reverse of their look direction by an amount.
 		velocity = hit_recoil_direction.normalized() * hit_recoil_velocity * ceilf(look_direction)
 		
+		# Play the hitstun animation
 		animation_player.play(&"player_hitstun")
-		
 		await animation_player.animation_finished
 		
-		cutscene_mode = false	# Re-enable user controls.
-		start_invincibility(hit_invincibility_time)	# Make Player invincible for an amount of time.
+		# Re-enable player input 
+		input_disabled = false
+		# Make Player invincible for an amount of time.
+		start_invincibility(hit_invincibility_time)
 
 ## Make the Player invincible & starts the Invincibility Timer.
 func start_invincibility(time: float) -> void:
@@ -478,8 +486,9 @@ func _end_invincibility() -> void:
 ## Set the Player's current health, update the health UI, and check for Player knockout.
 ## Health set in this way disregards invincibility.
 func set_health(new_health: int) -> void:
-	if (cutscene_mode):
-		push_warning("set_health(): Cutscene Mode active, health not set.")
+	# If input is disabled, ignore changes to Player health
+	# There may be situations where the health should be update when input is disabled, so don't push a warning if this happens.
+	if input_disabled:
 		return
 	
 	if (new_health > max_health):	# If health greater than max health
@@ -493,8 +502,10 @@ func set_health(new_health: int) -> void:
 
 ## Sets the Player's current Leaf Meter & updates the Leaf Meter UI.
 func set_leaf_meter(new_leaf_meter: float) -> void:
-	if (cutscene_mode):
-		push_warning("set_leaf_meter(): Cutscene Mode active, Leaf Meter not set.")
+	# If input is disabled, ignore changes to Player leaf meter.
+	# There are no situations where the leaf meter should be updated when input is disabled, so push a warning if that happens.
+	if input_disabled:
+		push_warning("set_leaf_meter(): Player input disabled, Leaf Meter not set.")
 		return
 	
 	leaf_meter = clampf(new_leaf_meter, 0.0, 100.0)
@@ -572,6 +583,6 @@ func initialize_data(data: Dictionary) -> void:
 ## Adds various Player variables to the Debug Menu.
 func add_debug_parameters() -> void:
 	DebugMenu.add_debug_property("Player State", state_machine.get_active_state().name, 0)
-	DebugMenu.add_debug_property("Player Cutscene Mode", cutscene_mode, 0)
+	DebugMenu.add_debug_property("Player Input Processing", input_disabled, 0)
 	DebugMenu.add_debug_property("Player Post-dash Mode", post_dash_mode, 0)
 	DebugMenu.add_debug_property("Player Velocity", velocity, 5)
