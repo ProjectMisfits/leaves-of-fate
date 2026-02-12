@@ -1,12 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbpm02j1io7y6"]
+[gd_scene load_steps=4 format=3 uid="uid://bbpm02j1io7y6"]
 
 [ext_resource type="Script" uid="uid://drbvuvi57e415" path="res://src/entities/objects/bronze_pipe/bronze_pipe.gd" id="1_u0ny2"]
+[ext_resource type="PackedScene" uid="uid://da6ytc6ksd7lb" path="res://src/entities/triggers/player_enter_trigger/bronze_pipe_trigger/bronze_pipe_trigger.tscn" id="2_8gm2e"]
 
 [sub_resource type="Curve2D" id="Curve2D_esdh6"]
 resource_local_to_scene = true
 
 [node name="BronzePipe" type="Node2D"]
 script = ExtResource("1_u0ny2")
+
+[node name="BronzePipeTrigger" parent="." instance=ExtResource("2_8gm2e")]
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_esdh6")
