@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://da6ytc6ksd7lb"]
 
-[ext_resource type="Script" uid="uid://cl5kafywdyfv6" path="res://src/entities/triggers/player_enter_trigger/camera_reset_trigger/camera_reset_trigger.gd" id="1_fhjmg"]
+[ext_resource type="Script" uid="uid://b1mpym7cfr26b" path="res://src/entities/triggers/player_enter_trigger/bronze_pipe_trigger/bronze_pipe_trigger.gd" id="1_or0vo"]
 [ext_resource type="Shape2D" uid="uid://bnrtt12ohd1ix" path="res://src/entities/triggers/trigger_collision_shape.tres" id="2_01nuc"]
 
 [node name="BronzePipeTrigger" type="Area2D"]
 collision_mask = 0
 monitorable = false
-script = ExtResource("1_fhjmg")
+script = ExtResource("1_or0vo")
 repeatable = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
