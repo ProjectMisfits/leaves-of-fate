@@ -34,11 +34,12 @@
 [node name="02_Cellar_b_Pantry" instance=ExtResource("1_upsp8")]
 
 [node name="Background" parent="BackgroundLayer" index="1"]
+visible = false
 position = Vector2(7949, -2545)
 texture = ExtResource("2_6fjcw")
 
 [node name="Background-Cut" type="Node2D" parent="BackgroundLayer" index="2"]
-position = Vector2(3932, -3115)
+position = Vector2(3941, -3115.0002)
 scale = Vector2(265.52, 90)
 
 [node name="BG-00" type="Sprite2D" parent="BackgroundLayer/Background-Cut" index="0"]
