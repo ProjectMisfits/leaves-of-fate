@@ -153,6 +153,8 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	initialize_state_machine()
 	compute_jump_parameters()
+	InputMap.action_set_deadzone("move_left",.05)
+	InputMap.action_set_deadzone("move_right",.05)
 	
 	current_health = max_health
 	health_changed.emit(current_health)
@@ -372,12 +374,15 @@ func get_x_input() -> float:
 	if (cutscene_mode):
 		return 0.0
 	else:
-		return ceilf(Input.get_axis(&"move_left", &"move_right"))	# Ceilf to get normalized input.
+		
+		#print(Input.get_axis(&"move_left", &"move_right"))
+		return Input.get_axis(&"move_left", &"move_right")	# Ceilf to get normalized input.
 
 ## Updates jump velocity & gravity variables
 func compute_jump_parameters() -> void:
 	jump_velocity = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 	jump_gravity = ((-2.0 * jump_height) / (jump_time_to_peak ** 2)) * -1.0
+	
 
 ## Returns the Player's gravity, which varies depending on whether they are jumping & holding the jump button or not.
 func compute_gravity() -> float:
@@ -577,3 +582,5 @@ func add_debug_parameters() -> void:
 	DebugMenu.add_debug_property("Player Cutscene Mode", cutscene_mode, 0)
 	DebugMenu.add_debug_property("Player Post-dash Mode", post_dash_mode, 0)
 	DebugMenu.add_debug_property("Player Velocity", velocity, 5)
+	DebugMenu.add_debug_property("Jump Velocity",jump_velocity,0)
+	DebugMenu.add_debug_property("Jump Gravity",jump_gravity,0)
