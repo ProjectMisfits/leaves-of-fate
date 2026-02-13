@@ -7,8 +7,6 @@ signal swap_room(target_room_path: String, spawn_location: String)
 ## Triggered when the player is knocked out to reset the current room.
 signal reset_room(respawn_location: String)
 
-var player_dead: bool = false
-
 ## The Player scene.
 @onready var player: Player = %Player
 ## A holder node for all doors in this Room.
@@ -46,13 +44,9 @@ func _on_player_entered_door(door: Door) -> void:
 
 ## Emit a signal to reset the room when the player gets knocked out.
 func _on_player_player_knocked_out() -> void:
-	if not player_dead:
-		# Disable player processing so signal is only emitted once
-		player_dead = true
-		player.disable_player_input()
-		await player.invincibility_timer.timeout
-		player.process_mode = Node.PROCESS_MODE_DISABLED
-		reset_room.emit(last_entered_door)
+	# Disable player processing so signal is only emitted once
+	player.process_mode = Node.PROCESS_MODE_DISABLED
+	reset_room.emit(last_entered_door)
 
 ## Spawn the player at the given door.
 func spawn_player_at_door(target_door_name: String) -> void:

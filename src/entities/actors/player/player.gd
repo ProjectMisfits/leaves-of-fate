@@ -451,17 +451,21 @@ func hurt(damage: int) -> void:
 		set_health(current_health - damage)
 		# Temporarily disable player input after getting hurt
 		input_disabled = true
-		# Launch the Player in the reverse of their look direction by an amount.
-		velocity = hit_recoil_direction.normalized() * hit_recoil_velocity * ceilf(look_direction)
-		
 		# Play the hitstun animation
 		animation_player.play(&"player_hitstun")
-		await animation_player.animation_finished
-		
-		# Re-enable player input 
-		input_disabled = false
+		# Launch the Player in the reverse of their look direction by an amount.
+		velocity = hit_recoil_direction.normalized() * hit_recoil_velocity * ceilf(look_direction)
 		# Make Player invincible for an amount of time.
 		start_invincibility(hit_invincibility_time)
+		
+		if (current_health <= 0):
+			# If the player is dead, don't give input back and wait for the invincibility timer to run out
+			await invincibility_timer.timeout
+			# Emit the knocked out signal once invincibility is over
+			player_knocked_out.emit()
+		else:
+			# Otherwise re-enable player input
+			input_disabled = false
 
 ## Make the Player invincible & starts the Invincibility Timer.
 func start_invincibility(time: float) -> void:
@@ -491,9 +495,6 @@ func set_health(new_health: int) -> void:
 	
 	current_health = clampi(new_health, 0, max_health)
 	health_changed.emit(current_health)
-	
-	if (current_health <= 0):
-		player_knocked_out.emit()
 
 ## Sets the Player's current Leaf Meter & updates the Leaf Meter UI.
 func set_leaf_meter(new_leaf_meter: float) -> void:
