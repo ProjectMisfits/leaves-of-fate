@@ -35,12 +35,12 @@ func _ready() -> void:
 ## Initiate room swap on player entering a Door.
 func _on_player_entered_door(door: Door) -> void:
 	# Check whether the door has a destination
-	if door.path_to_target_room == "":
+	if door.target_room_path == "":
 		push_warning("Room '%s': Door '%s' does not have a target room set" % [name, door.door_name])
 		return
 	# Disable player processing so they don't move during the transition
 	player.process_mode = Node.PROCESS_MODE_DISABLED
-	swap_room.emit(door.path_to_target_room, door.target_door_name)
+	swap_room.emit(door.target_room_path, door.target_door_name)
 
 ## Emit a signal to reset the room when the player gets knocked out.
 func _on_player_player_knocked_out() -> void:
