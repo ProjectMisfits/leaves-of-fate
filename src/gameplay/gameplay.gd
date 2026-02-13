@@ -9,6 +9,8 @@ var current_room: Room = null
 ## The path to the current room's file. Used for resetting rooms.
 var current_room_path: String = ""
 
+## A reference to the HUD.
+@onready var hud: Hud = %Hud
 ## A reference to the MenuHolder CanvasLayer.
 @onready var menu_holder: CanvasLayer = $MenuHolder
 ## A reference to the pause menu scene.
@@ -34,8 +36,6 @@ func _ready() -> void:
 	current_room.spawn_player_at_door('enter')
 	# Connect phantom camera to player
 	CameraManager.set_target(current_room.player)
-	# Passes player to the Hud so that Hud can update based on player actions
-	$%Hud.set_player(current_room.player)
 	# Connect UI menu signals
 	_connect_menu_signals()
 
@@ -68,6 +68,8 @@ func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
 	current_room_path = target_room_path
 	# Set the camera limits for the room
 	CameraManager.set_limit(current_room.midground.get_path())
+	# Connect the HUD to the new player
+	hud.set_player(current_room.player)
 	# Add player to new current room and place them at correct door
 	current_room.spawn_player_at_door(target_door_name)
 	# Reconnect camera to player
