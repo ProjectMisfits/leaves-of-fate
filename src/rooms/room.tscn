@@ -53,6 +53,7 @@ target_door_name = "enter"
 [node name="Player" parent="MidgroundLayer" instance=ExtResource("4_8eo6q")]
 unique_name_in_owner = true
 process_mode = 4
+z_index = 4
 
 [node name="Entities" type="Node2D" parent="MidgroundLayer"]
 metadata/_edit_lock_ = true
