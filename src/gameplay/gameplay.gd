@@ -68,6 +68,8 @@ func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
 	current_room_path = target_room_path
 	# Set the camera limits for the room
 	CameraManager.set_limit(current_room.midground.get_path())
+	# Reset hud state
+	hud.reset_hud()
 	# Connect the HUD to the new player
 	hud.set_player(current_room.player)
 	# Add player to new current room and place them at correct door
