@@ -17,8 +17,6 @@ func _change_camera() -> void:
 	EventBus.camera_change.emit()
 	if(follow_player):
 		camera.set_follow_target(player)
-	if(not change_offset == Vector2.ZERO):
-		camera.set_follow_offset(change_offset)
 	camera.priority = 2
 	#CameraManager.create_camera_with_limits($PhantomCamera2D.global_position,1,.5,"LINEAR","EASE_IN",limit_target.get_path())
 
