@@ -20,6 +20,11 @@ var _player: Player = null
 ## A reference to the RemoteTransform2D node used to control the player when in a pipe.
 @onready var _player_pipe_transform: RemoteTransform2D = %RemoteTransform2D
 
+func _ready() -> void:
+	# Set up the pipe texture along the pipe's path.
+	$Path2D/Line2D.points = $Path2D.curve.get_baked_points()
+
+# Called every physics tick.
 func _physics_process(delta: float) -> void:
 	# Only do pipe logic if the player is in the pipe
 	if _player_in_pipe:
