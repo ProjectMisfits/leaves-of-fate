@@ -14,6 +14,5 @@ texture = ExtResource("2_ji2s8")
 
 [node name="DoorTrigger" parent="." instance=ExtResource("3_yqyn5")]
 position = Vector2(0, -384)
-scale = Vector2(4, 6)
 
 [connection signal="door_trigger_activated" from="DoorTrigger" to="." method="_on_door_trigger_activated"]

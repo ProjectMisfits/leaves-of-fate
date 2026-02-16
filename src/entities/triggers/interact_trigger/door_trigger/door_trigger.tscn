@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c3wdna84w68c4" path="res://src/entities/triggers/interact_trigger/door_trigger/door_trigger.gd" id="1_fnejp"]
 [ext_resource type="PackedScene" uid="uid://41eqg6x4f1xj" path="res://src/ui/interact_prompt/interact_prompt.tscn" id="2_0p1io"]
-[ext_resource type="Shape2D" uid="uid://bnrtt12ohd1ix" path="res://src/entities/triggers/trigger_collision_shape.tres" id="2_613oq"]
+[ext_resource type="Shape2D" uid="uid://cvvb1kex2mioa" path="res://src/entities/triggers/interact_trigger/door_trigger/door_trigger_collision_shape.tres" id="2_613oq"]
 
 [node name="DoorTrigger" type="Area2D"]
 collision_layer = 16
@@ -16,3 +16,5 @@ shape = ExtResource("2_613oq")
 
 [node name="InteractPrompt" parent="." instance=ExtResource("2_0p1io")]
 visible = false
+offset_top = -768.0
+offset_bottom = -768.0
