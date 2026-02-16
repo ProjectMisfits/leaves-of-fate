@@ -24,6 +24,9 @@ var current_room_path: String = ""
 ## An audio player for the select sound effect.
 @onready var select_audio: AudioStreamPlayer = $Audio/SelectAudio
 
+## The spawn/respawn/checkpoint location for the player.
+var player_spawn_location: Vector2
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Set up the camera manager.
@@ -56,10 +59,8 @@ func _update_current_room() -> void:
 	if not current_room.reset_room.is_connected(_on_reset_room):
 		current_room.reset_room.connect(_on_reset_room)
 
-## Swap to the specified Room and unload the current Room.
-func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
-	# Begin a screen transition.
-	await SceneManager.add_screen_transition("circle")
+## Handle room swap logic.
+func _do_room_swap(target_room_path: String, target_door_name: String) -> void:
 	# Disconnect camera from player
 	CameraManager.clear_target()
 	# Janky call to make sure cutscene stuff functions correctly
@@ -76,16 +77,31 @@ func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
 	# Connect the HUD to the new player
 	hud.set_player(current_room.player)
 	# Add player to new current room and place them at correct door
-	current_room.spawn_player_at_door(target_door_name)
+	player_spawn_location = current_room.spawn_player_at_door(target_door_name)
 	# Reconnect camera to player
 	CameraManager.set_target(current_room.player)
 	CameraManager.teleport()
+
+## Swap to the specified Room and unload the current Room.
+func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
+	# Begin a screen transition.
+	await SceneManager.add_screen_transition("circle")
+	# Do the room swap
+	_do_room_swap(target_room_path, target_door_name)
 	# Finish the screen transition.
 	await SceneManager.remove_screen_transition()
 
 ## Resets the current room, putting the player at their last spawn location.
-func _on_reset_room(last_entered_door_name: String) -> void:
-	_on_swap_room(current_room_path, last_entered_door_name)
+func _on_reset_room() -> void:
+	# Begin a screen transition.
+	await SceneManager.add_screen_transition("circle")
+	var temp_player_spawn_location: Vector2 = player_spawn_location
+	_do_room_swap(current_room_path, 'enter')
+	player_spawn_location = temp_player_spawn_location
+	current_room.set_player_location(player_spawn_location)
+	CameraManager.teleport()
+	# Finish the screen transition.
+	await SceneManager.remove_screen_transition()
 
 ## UI FUNCTIONALITY
 
