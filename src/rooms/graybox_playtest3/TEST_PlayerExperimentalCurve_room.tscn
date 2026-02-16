@@ -97,7 +97,7 @@ shape = SubResource("RectangleShape2D_7slg8")
 [node name="PhantomCamera2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger" index="1"]
 position = Vector2(3456, 144)
 zoom = Vector2(0.25, 0.25)
-follow_offset = Vector2(500, -200)
+follow_offset = Vector2(1000, -200)
 limit_target = NodePath("../../../../Midground")
 
 [node name="CameraTrigger-2" parent="MidgroundLayer/Entities/Triggers" index="1" node_paths=PackedStringArray("limit_target") instance=ExtResource("3_0yeaw")]
@@ -113,7 +113,7 @@ shape = SubResource("RectangleShape2D_p6qfq")
 position = Vector2(26146, -5745)
 zoom = Vector2(0.25, 0.25)
 tween_resource = SubResource("Resource_0yeaw")
-follow_offset = Vector2(-2000, -200)
+follow_offset = Vector2(-1000, -200)
 limit_target = NodePath("../../../../Midground")
 limit_margin = Vector4i(0, 0, 0, 5889)
 

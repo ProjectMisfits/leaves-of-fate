@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=35 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/entities/actors/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/particle_effects/wind_particles.tscn" id="14_7j1dl"]
 [ext_resource type="AudioStream" uid="uid://dimhdiv10a08t" path="res://assets/entities/actors/player/player_audio/PH-leaf-enter.ogg" id="17_iloh8"]
 [ext_resource type="AudioStream" uid="uid://dxmm31nsgmehb" path="res://assets/entities/actors/player/player_audio/PH-leaf-exit.ogg" id="18_283t5"]
+[ext_resource type="Texture2D" uid="uid://jvsobi5gw7di" path="res://assets/entities/actors/player/TEMP-fenn-jump-spritesheet.png" id="19_s3rhx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_283t5"]
 radius = 78.0
@@ -374,6 +375,21 @@ tracks/4/keys = {
 "values": [78.0]
 }
 
+[sub_resource type="Animation" id="Animation_s1o6p"]
+resource_name = "player_skid"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipNode/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("19_s3rhx")]
+}
+
 [sub_resource type="Animation" id="Animation_efl0v"]
 resource_name = "player_walk_cycle"
 length = 0.6355
@@ -434,6 +450,7 @@ _data = {
 &"player_idle": SubResource("Animation_8ihyl"),
 &"player_leaf_dash": SubResource("Animation_c5a8v"),
 &"player_leaf_pile": SubResource("Animation_nqxrs"),
+&"player_skid": SubResource("Animation_s1o6p"),
 &"player_walk_cycle": SubResource("Animation_efl0v")
 }
 
@@ -476,6 +493,7 @@ material = ExtResource("5_e5ptp")
 scale = Vector2(0.798, 0.798)
 texture = ExtResource("6_efl0v")
 hframes = 8
+region_rect = Rect2(0, 0, 6400, 800)
 
 [node name="InteractComponent" type="Node2D" parent="FlipNode"]
 script = ExtResource("6_283t5")

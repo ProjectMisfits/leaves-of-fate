@@ -291,13 +291,15 @@ func check_piling_state() -> void:
 	if (cutscene_mode):	# Do not handle input actions in Cutscene Mode
 		return
 	
-	if Input.is_action_just_pressed(&"dash"):
+	if Input.is_action_just_pressed(&"leaf_pile"):
 		var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
 		var is_no_direction_pressed: bool = (Input.get_vector("move_left", "move_right", "move_up", "move_down") == Vector2.ZERO)
+		state_machine.dispatch(&"to_piling")
 		
 		if is_no_direction_pressed and is_leaf_meter_not_empty:
-			leaf_enter_audio.play()
-			state_machine.dispatch(&"to_piling")
+			#leaf_enter_audio.play()
+			pass
+			#
 
 ## Enables the Player's Cutscene Mode & returns the Cutscene Mode's new value
 func enable_cutscene_mode() -> bool:
@@ -326,6 +328,7 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 		if (signf(direction) == signf(velocity.x)): 	# Direction matches current velocity
 			new_acceleration = direction * acceleration * delta
 		else: 											# Direction is opposite to current velocity
+			
 			new_acceleration = direction * turn_speed * delta
 		
 		# If just exited Leaf Dash, limit velocity by dash max speed

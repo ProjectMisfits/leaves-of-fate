@@ -8,13 +8,13 @@ func _enter() -> void:
 	#print("Player State Transition: to_pileing")
 	agent.animation_player.play("player_leaf_pile")
 	agent.set_collision_mask_value(8,false)
-	agent.velocity.y = 0.0
+	#agent.velocity.y = 0.0
 
 ## Move the Player. If the dash button is not held or the Player runs out of wind,
 ## check if they may transition into another state.
 func _update(delta: float) -> void:
 	# Check if Player stopped holding dash Action
-	if (not Input.is_action_pressed(&"dash") or (agent.leaf_meter <= 0) or agent.cutscene_mode):
+	if (not Input.is_action_pressed(&"leaf_pile")):
 		agent.check_airborne_state()
 		agent.check_running_state()
 		agent.check_idle_state()
