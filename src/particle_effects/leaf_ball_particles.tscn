@@ -37,8 +37,8 @@ linear_accel_min = 16.599997
 linear_accel_max = 46.789997
 tangential_accel_min = -2.2351742e-06
 tangential_accel_max = -2.2351742e-06
-scale_min = 0.099999994
-scale_max = 0.19999999
+scale_min = 0.29999998
+scale_max = 0.59999996
 color_ramp = SubResource("GradientTexture1D_6o3te")
 color_initial_ramp = SubResource("GradientTexture1D_omwqu")
 anim_offset_min = 0.0495
@@ -48,11 +48,11 @@ turbulence_noise_scale = 0.74
 
 [node name="LeafBall" type="GPUParticles2D"]
 material = SubResource("CanvasItemMaterial_wqs8c")
-amount = 300
+amount = 50
 texture = ExtResource("1_0qyrh")
 lifetime = 3.0
-preprocess = 1.48
-speed_scale = 3.0
+preprocess = 1.12
+speed_scale = 6.36
 explosiveness = 0.17
 randomness = 1.0
 local_coords = true

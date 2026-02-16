@@ -2,22 +2,17 @@
 
 [ext_resource type="Script" uid="uid://bsof8xxvb00ep" path="res://src/entities/objects/door/door.gd" id="1_deedn"]
 [ext_resource type="Texture2D" uid="uid://dprhdtd43c5ol" path="res://assets/entities/objects/door/PH-door-open.svg" id="2_ji2s8"]
+[ext_resource type="PackedScene" uid="uid://dsy2abl6kiatx" path="res://src/entities/triggers/interact_trigger/door_trigger/door_trigger.tscn" id="3_yqyn5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ny07"]
-size = Vector2(270, 500)
-
-[node name="Door" type="Area2D"]
-scale = Vector2(1.75, 1.75)
-monitorable = false
+[node name="Door" type="Node2D"]
 script = ExtResource("1_deedn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -347)
+position = Vector2(0, -607)
+scale = Vector2(1.75, 1.75)
 texture = ExtResource("2_ji2s8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -250)
-shape = SubResource("RectangleShape2D_1ny07")
+[node name="DoorTrigger" parent="." instance=ExtResource("3_yqyn5")]
+position = Vector2(0, -384)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="door_trigger_activated" from="DoorTrigger" to="." method="_on_door_trigger_activated"]
