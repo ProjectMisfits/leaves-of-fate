@@ -592,4 +592,5 @@ func add_debug_parameters() -> void:
 ## Handle player state when a cutscene starts.
 func enable_cutscene_mode() -> void:
 	disable_player_input()
+	state_machine.change_active_state(idle_state)
 	velocity = Vector2(0.0, 0.0)
