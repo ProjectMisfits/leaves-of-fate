@@ -588,3 +588,9 @@ func add_debug_parameters() -> void:
 	DebugMenu.add_debug_property("Player Velocity", velocity, 5)
 	DebugMenu.add_debug_property("Jump Velocity",jump_velocity,0)
 	DebugMenu.add_debug_property("Jump Gravity",jump_gravity,0)
+
+## Handle player state when a cutscene starts.
+func enable_cutscene_mode() -> void:
+	disable_player_input()
+	state_machine.change_active_state(idle_state)
+	velocity = Vector2(0.0, 0.0)

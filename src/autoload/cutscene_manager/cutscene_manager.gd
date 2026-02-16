@@ -1,8 +1,7 @@
 extends Node
 ## A manager for cutscene sequences.Primarily allows for easier npc movement scripting from dialogue resource files.
 
-## A signal emitted whenever a cutscene is started.
-signal cutscene_started
+## A signal emitted whenever a cutscene ends.
 signal cutscene_ended
 
 ## An array containing all npcs in the current room that are available for movement scripting during a cutscene.
