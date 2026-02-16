@@ -43,7 +43,7 @@ void fragment() {
 	
 	vec2 uv = worldVtxPos;
 	vec3 noiseSample = texture(noiseDetail, uv * uvNoiseScale + vec2(0., TIME * -0.02)).rgb;
-	noiseSample *= saturation(bloomPow, 5.0) * 3.0;
+	noiseSample *= saturation(bloomPow, 5.0) * 1.5;
 	
 	// GLOOM
 	
