@@ -8,6 +8,7 @@ uniform float bloomScale : hint_range(0.0, 4.0) = 2.0;
 uniform sampler2D screenTexture : hint_screen_texture, filter_linear_mipmap;
 uniform sampler2D noiseDetail : hint_default_black, repeat_enable;
 uniform vec2 uvNoiseScale = vec2(1., 1.);
+uniform vec2 uvNoiseSpeed = vec2(0., -0.015);
 
 varying vec2 worldVtxPos;
 
@@ -42,7 +43,7 @@ void fragment() {
 	// DUST
 	
 	vec2 uv = worldVtxPos;
-	vec3 noiseSample = texture(noiseDetail, uv * uvNoiseScale + vec2(0., TIME * -0.02)).rgb;
+	vec3 noiseSample = texture(noiseDetail, uv * uvNoiseScale + TIME * uvNoiseSpeed).rgb;
 	noiseSample *= saturation(bloomPow, 5.0) * 1.5;
 	
 	// GLOOM
