@@ -20,6 +20,7 @@ curve = SubResource("Curve2D_esdh6")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 unique_name_in_owner = true
+cubic_interp = false
 loop = false
 
 [node name="ColorRect" type="ColorRect" parent="Path2D/PathFollow2D"]

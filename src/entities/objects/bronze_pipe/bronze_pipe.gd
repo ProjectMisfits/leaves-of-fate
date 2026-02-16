@@ -8,7 +8,7 @@ class_name BronzePipe extends Node2D
 ## A reference to the visual that shows when the player is in a pipe.
 @onready var _pipe_path_visual: ColorRect = %ColorRect
 
-## The speed at which bronze pipes progress. Represents the percentage of the path that it advances each second.
+## The speed at which bronze pipes progress. Represents the percentage of the path that it advances each second. Here, 1.0 means 100% of the path will be traversed in one second.
 var _speed_percentage: float = 1.0
 
 ## Whether the player is currently traveling through this bronze pipe.
@@ -61,6 +61,9 @@ func _exit_pipe() -> void:
 	# Disable pipe visual
 	_pipe_path_visual.hide()
 	# Show animation or particle visual of exiting pipe
+	# Reset player velocity so it launches out of the pipe instead of wonkily at the ground due to gravity
+	var new_player_velocity: Vector2 = Vector2.RIGHT.rotated(_pipe_path_follower.rotation) * _player.dash_end_velocity_multiplier * $Path2D.curve.get_baked_length() * _speed_percentage
+	_player.velocity = new_player_velocity
 	# Show player
 	_player.show()
 	# Enable player input
