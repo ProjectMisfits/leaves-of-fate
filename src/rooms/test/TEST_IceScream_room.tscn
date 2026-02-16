@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=4 uid="uid://5sxbg0rp0hpc"]
+[gd_scene load_steps=4 format=4 uid="uid://5sxbg0rp0hpc"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_1b7dh"]
 [ext_resource type="PackedScene" uid="uid://cnhvjqd23j3hu" path="res://src/entities/actors/enemies/ice_cube/ice_scream.tscn" id="2_e7iqb"]
+[ext_resource type="PackedScene" uid="uid://b5pl5cenkmlqy" path="res://src/entities/hazards/icicle/icicle_04.tscn" id="3_e7iqb"]
 
 [node name="TEST_IceScream" instance=ExtResource("1_1b7dh")]
+
+[node name="ColorRect" parent="BackgroundLayer" index="0"]
+offset_left = -2810.0
+offset_top = -675.0
+offset_right = -2810.0
+offset_bottom = -675.0
 
 [node name="Midground" parent="MidgroundLayer" index="0"]
 tile_map_data = PackedByteArray("AAD5/w4ABgAEAAAAAAD6/w4ABgAEAAAAAAD7/w4ABgAEAAAAAAD8/w4ABgAEAAAAAAD9/w4ABgAEAAAAAAD+/w4ABgAEAAAAAAD//w4ABgAEAAAAAAAAAA4ABgAEAAAAAAABAA4ABgAEAAAAAAACAA4ABgAEAAAAAAADAA4ABgAEAAAAAAAEAA4ABgAEAAAAAAAFAA4ABgAEAAAAAAAGAA4ABgAEAAAAAAAHAA4ABgAEAAAAAAAIAA4ABgAEAAAAAAAJAA4ABgAEAAAAAAAKAA4ABgAEAAAAAAALAA4ABgAEAAAAAAAMAA4ABgAEAAAAAAANAA4ABgAEAAAAAAAOAA4ABgAEAAAAAAAPAA4ABgAEAAAAAAAQAA4ABgAEAAAAAAARAA4ABgAEAAAAAAASAA4ABgAEAAAAAAATAA4ABgAEAAAAAAAUAA4ABgAEAAAAAAAVAA4ABgAEAAAAAAAWAA4ABgAEAAAAAAAXAA4ABgAEAAAAAAAYAA4ABgAEAAAAAAAZAA4ABgAEAAAAAAAaAA4ABgAEAAAAAAAbAA4ABgAEAAAAAAAcAA4ABgAEAAAAAAAdAA4ABgAEAAAAAAAeAA4ABgAEAAAAAAAfAA4ABgAEAAAAAAAgAA4ABgAEAAAAAAAhAA4ABgAEAAAAAAAiAA4ABgAEAAAAAAAjAA4ABgAEAAAAAAAkAA4ABgAEAAAAAAAlAA4ABgAEAAAAAAAmAA4ABgAEAAAAAAAnAA4ABgAEAAAAAAAoAA4ABgAEAAAAAAApAA4ABgAEAAAAAAAqAA4ABgAEAAAAAAArAA4ABgAEAAAAAAAsAA4ABgAEAAAAAAAtAA4ABgAEAAAAAAAuAA4ABgAEAAAAAAAvAA4ABgAEAAAAAAAvAA0ABgAEAAAAAAAvAAwABgAEAAAAAAAvAAsABgAEAAAAAAAvAAoABgAEAAAAAAAvAAkABgAEAAAAAAAvAAgABgAEAAAAAAAvAAcABgAEAAAAAAD4/w4ABgAEAAAAAAD3/w4ABgAEAAAAAAD2/w4ABgAEAAAAAAD1/w4ABgAEAAAAAAD0/w4ABgAEAAAAAADz/w4ABgAEAAAAAADy/w4ABgAEAAAAAADx/w4ABgAEAAAAAADw/w4ABgAEAAAAAADv/w4ABgAEAAAAAADu/w4ABgAEAAAAAADu/w0ABgAEAAAAAADu/wwABgAEAAAAAADu/wsABgAEAAAAAADu/woABgAEAAAAAADu/wkABgAEAAAAAADu/wgABgAEAAAAAADu/wcABgAEAAAAAADu/wYABgAEAAAAAADu/wUABgAEAAAAAADu/wQABgAEAAAAAAA=")
@@ -14,5 +21,11 @@ position = Vector2(-1737.9998, 1650)
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(5482, 1643)
 
-[node name="IceScream" parent="." index="3" instance=ExtResource("2_e7iqb")]
+[node name="IceScream" parent="MidgroundLayer/Entities/Enemies" index="0" instance=ExtResource("2_e7iqb")]
 position = Vector2(1233, 920)
+
+[node name="IceScream-2" parent="MidgroundLayer/Entities/Enemies" index="1" instance=ExtResource("2_e7iqb")]
+position = Vector2(3422, 1391)
+
+[node name="Icicle_04" parent="." index="3" instance=ExtResource("3_e7iqb")]
+position = Vector2(244, 1787)
