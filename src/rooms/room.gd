@@ -48,16 +48,11 @@ func _on_player_player_knocked_out() -> void:
 
 ## Spawn the player at the given door.
 func spawn_player_at_door(target_door_name: String) -> Vector2:
-	for door: Door in doors:
-		if door.door_name == target_door_name:
-			# If a door with the given name exists:
-			set_player_location(door.global_position)
-			# Enable player processing
-			player.process_mode = Node.PROCESS_MODE_INHERIT
-			return door.global_position
-	# If the target door didn't exist anywhere in the room, report the issue
-	push_warning("Room '%s': Door '%s' does not exist in this room" % [name, target_door_name])
-	return Vector2(0, 0)
+	var spawn_position: Vector2 = get_door_position(target_door_name)
+	set_player_location(spawn_position)
+	# Enable player processing
+	player.process_mode = Node.PROCESS_MODE_INHERIT
+	return spawn_position
 
 ## Set the player's location.
 func set_player_location(new_location: Vector2) -> void:
@@ -69,5 +64,5 @@ func get_door_position(new_door_name: String) -> Vector2:
 		if door.door_name == new_door_name:
 			return door.global_position
 	# If the target door didn't exist anywhere in the room, report the issue
-	push_warning("Room: Door '%s' does not exist in this room" % new_door_name)
+	push_error("Room: Door '%s' does not exist in this room" % new_door_name)
 	return Vector2(0, 0)

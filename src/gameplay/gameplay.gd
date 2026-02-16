@@ -56,10 +56,8 @@ func _update_current_room() -> void:
 	if not current_room.reset_room.is_connected(_on_reset_room):
 		current_room.reset_room.connect(_on_reset_room)
 
-## Swap to the specified Room and unload the current Room.
-func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
-	# Begin a screen transition.
-	await SceneManager.add_screen_transition("circle")
+## Handle room swap logic.
+func _do_room_swap(target_room_path: String, target_door_name: String) -> void:
 	# Disconnect camera from player
 	CameraManager.clear_target()
 	# Janky call to make sure cutscene stuff functions correctly
@@ -80,15 +78,27 @@ func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
 	# Reconnect camera to player
 	CameraManager.set_target(current_room.player)
 	CameraManager.teleport()
+
+## Swap to the specified Room and unload the current Room.
+func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
+	# Begin a screen transition.
+	await SceneManager.add_screen_transition("circle")
+	# Do the room swap
+	_do_room_swap(target_room_path, target_door_name)
 	# Finish the screen transition.
 	await SceneManager.remove_screen_transition()
 
 ## Resets the current room, putting the player at their last spawn location.
 func _on_reset_room() -> void:
+	# Begin a screen transition.
+	await SceneManager.add_screen_transition("circle")
 	var temp_player_spawn_location: Vector2 = player_spawn_location
-	await _on_swap_room(current_room_path, 'enter')
+	_do_room_swap(current_room_path, 'enter')
 	player_spawn_location = temp_player_spawn_location
 	current_room.set_player_location(player_spawn_location)
+	CameraManager.teleport()
+	# Finish the screen transition.
+	await SceneManager.remove_screen_transition()
 
 ## UI FUNCTIONALITY
 
