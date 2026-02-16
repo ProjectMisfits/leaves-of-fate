@@ -24,6 +24,9 @@ var current_room_path: String = ""
 ## An audio player for the select sound effect.
 @onready var select_audio: AudioStreamPlayer = $Audio/SelectAudio
 
+## The spawn/respawn/checkpoint location for the player.
+var player_spawn_location: Vector2
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Set up the camera manager.
@@ -73,7 +76,7 @@ func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
 	# Connect the HUD to the new player
 	hud.set_player(current_room.player)
 	# Add player to new current room and place them at correct door
-	current_room.spawn_player_at_door(target_door_name)
+	player_spawn_location = current_room.spawn_player_at_door(target_door_name)
 	# Reconnect camera to player
 	CameraManager.set_target(current_room.player)
 	CameraManager.teleport()
@@ -81,8 +84,11 @@ func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
 	await SceneManager.remove_screen_transition()
 
 ## Resets the current room, putting the player at their last spawn location.
-func _on_reset_room(last_entered_door_name: String) -> void:
-	_on_swap_room(current_room_path, last_entered_door_name)
+func _on_reset_room() -> void:
+	var temp_player_spawn_location: Vector2 = player_spawn_location
+	await _on_swap_room(current_room_path, 'enter')
+	player_spawn_location = temp_player_spawn_location
+	current_room.set_player_location(player_spawn_location)
 
 ## UI FUNCTIONALITY
 
