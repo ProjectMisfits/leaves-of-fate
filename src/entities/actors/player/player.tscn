@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=32 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/entities/actors/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://3uombhhv6fd6" path="res://src/entities/actors/player/components/interact_component.gd" id="6_283t5"]
 [ext_resource type="Script" uid="uid://duy7f43rn783x" path="res://src/entities/actors/player/states/player_jumping.gd" id="6_c6y0n"]
 [ext_resource type="Texture2D" uid="uid://bjs6k2nuta53t" path="res://assets/entities/actors/player/fenn_walkcycle_spritesheet.png" id="6_efl0v"]
-[ext_resource type="PackedScene" uid="uid://41eqg6x4f1xj" path="res://src/ui/interact_prompt/interact_prompt.tscn" id="7_e5ptp"]
 [ext_resource type="Script" uid="uid://cksn2wvaxpq54" path="res://src/entities/actors/player/states/player_airborne.gd" id="7_q4vut"]
 [ext_resource type="Script" uid="uid://b3akxlm17c274" path="res://src/entities/actors/player/components/grab_component.gd" id="7_s3rhx"]
 [ext_resource type="Script" uid="uid://bjtwcn16kj5bl" path="res://src/entities/actors/player/states/player_dashing.gd" id="8_wcwgi"]
@@ -491,9 +490,6 @@ visible = false
 position = Vector2(200, 0)
 shape = SubResource("RectangleShape2D_q4vut")
 
-[node name="InteractPrompt" parent="FlipNode/InteractComponent" instance=ExtResource("7_e5ptp")]
-visible = false
-
 [node name="GrabComponent" type="Node2D" parent="FlipNode"]
 script = ExtResource("7_s3rhx")
 
@@ -507,9 +503,6 @@ visible = false
 position = Vector2(660, 0)
 shape = SubResource("RectangleShape2D_u7uqy")
 debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
-
-[node name="InteractPrompt" parent="FlipNode/GrabComponent" instance=ExtResource("7_e5ptp")]
-visible = false
 
 [node name="DashParticles" type="Node2D" parent="FlipNode"]
 
