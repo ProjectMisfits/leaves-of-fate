@@ -292,14 +292,8 @@ func check_piling_state() -> void:
 		return
 	
 	if Input.is_action_just_pressed(&"leaf_pile"):
-		var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
-		var is_no_direction_pressed: bool = (Input.get_vector("move_left", "move_right", "move_up", "move_down") == Vector2.ZERO)
+		#leaf_enter_audio.play()
 		state_machine.dispatch(&"to_piling")
-		
-		if is_no_direction_pressed and is_leaf_meter_not_empty:
-			#leaf_enter_audio.play()
-			pass
-			#
 
 ## Enables the Player's Cutscene Mode & returns the Cutscene Mode's new value
 func enable_cutscene_mode() -> bool:
