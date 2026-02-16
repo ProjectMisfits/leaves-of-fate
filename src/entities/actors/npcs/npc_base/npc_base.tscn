@@ -9,7 +9,7 @@ size = Vector2(128, 128)
 
 [node name="NpcBase" type="CharacterBody2D"]
 collision_layer = 256
-collision_mask = 2
+collision_mask = 134
 script = ExtResource("1_hqiaf")
 
 [node name="FlipNode" type="Node2D" parent="."]
