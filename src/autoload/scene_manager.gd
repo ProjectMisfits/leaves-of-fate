@@ -40,7 +40,8 @@ func _unload_scene(scene_to_unload: Node) -> int:
 		return 0
 
 ## Add the given scene to the scene tree as a child of the given node.
-func _load_scene(scene_to_load: String, load_as_child_of: Node) -> int:
+## Returns null if the load was unsuccessful and a reference to the node otherwise.
+func _load_scene(scene_to_load: String, load_as_child_of: Node) -> Node:
 	# If the given scene to load the scene under is null, default to the tree root
 	if load_as_child_of == null:
 		load_as_child_of = get_tree().root
@@ -48,34 +49,35 @@ func _load_scene(scene_to_load: String, load_as_child_of: Node) -> int:
 	if not is_instance_valid(load_as_child_of):
 		# If the node to load the scene as a child of is invalid, report the error and abort
 		push_error("SceneManager: Asked to load scene as a child of an invalid scene")
-		return -1
+		return null
 	elif not load_as_child_of.is_inside_tree():
 		# If the not to load the scene as a child of is in the scene tree, report the error and abort
 		push_error("SceneManager: Node to load scene as child of is not inside scene tree")
-		return -1
+		return null
 	elif not ResourceLoader.exists(scene_to_load, "PackedScene"):
 		# If the scene to load does not exist, report the error and abort
 		push_warning("SceneManager: Requested scene '%s' does not exist" % scene_to_load)
-		return -1
+		return null
 	else:
 		# Otherwise follow through with the load
 		var loaded_scene: Node = ResourceLoader.load(scene_to_load, "PackedScene").instantiate()
 		if loaded_scene == null:
 			# If the scene loaded incorrectly, report the error and abort
 			push_warning("SceneManager: Requested scene '%s' did not load correctly" % scene_to_load)
-			return -1
+			return null
 		else:
 			load_as_child_of.add_child(loaded_scene)
 			if load_as_child_of == get_tree().root:
 				current_scene = loaded_scene
-			return 0
+			return loaded_scene
 
 ## Swaps to the specified scene and unloads the specified scene.
-func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload: Node) -> int:
+## Returns null if the swap failed for any reason, otherwise returns a reference to the newly loaded node.
+func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload: Node) -> Node:
 	if swap_in_progress:
 		# If a swap is already in progress, report the issue and abort
 		push_warning("SceneManager: A swap is already in progress")
-		return -1
+		return null
 	
 	# Start the swap
 	swap_in_progress = true
@@ -83,24 +85,25 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 	# Unload the desired scene
 	if _unload_scene(scene_to_unload) != 0:
 		swap_in_progress = false
-		return -1
+		return null
 	
 	# Load the desired scene
-	if _load_scene(scene_to_load, load_as_child_of) != 0:
+	var loaded_scene: Node = _load_scene(scene_to_load, load_as_child_of)
+	if loaded_scene == null:
 		swap_in_progress = false
-		return -1
+		return null
 	
 	# If nothing failed, finish the swap
 	swap_in_progress = false
-	return 0
+	return loaded_scene
 
 ## Swap scenes, but during a screen transition.
 ## Use if you need to do a rote swap and don't have any additional teardown or setup you want to hide with a screen transition.
-func swap_scenes_with_transition(scene_to_load: String, load_as_child_of: Node, scene_to_unload: Node, transition_type: String = "circle") -> int:
+func swap_scenes_with_transition(scene_to_load: String, load_as_child_of: Node, scene_to_unload: Node, transition_type: String = "circle") -> Node:
 	add_screen_transition(transition_type)
-	var return_code: int = swap_scenes(scene_to_load, load_as_child_of, scene_to_unload)
+	var loaded_scene: Node = swap_scenes(scene_to_load, load_as_child_of, scene_to_unload)
 	remove_screen_transition()
-	return return_code
+	return loaded_scene
 
 ## Create a screen transition, add it to the scene tree, and initiate the animation.
 func add_screen_transition(transition_type: String) -> void:
