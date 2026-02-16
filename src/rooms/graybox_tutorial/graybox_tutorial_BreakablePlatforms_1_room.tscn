@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://dv66q42nkm8hd"]
+[gd_scene load_steps=9 format=4 uid="uid://dv66q42nkm8hd"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_v8cb2"]
 [ext_resource type="Texture2D" uid="uid://wk7tx1t1vq5f" path="res://assets/rooms/backgrounds/grad.png" id="2_8i2yo"]
@@ -9,19 +9,20 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u0jh7"]
 size = Vector2(32640, 4736)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1cgei"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_03g50"]
 resource_local_to_scene = true
-size = Vector2(4624, 4384)
+size = Vector2(1920, 1792)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vatws"]
+resource_local_to_scene = true
+size = Vector2(2240, 2688)
 
 [node name="graybox_tutorial_BreakablePlatforms_1_room" instance=ExtResource("1_v8cb2")]
 
-[node name="BackgroundLayer" parent="." index="0"]
-visible = false
-
 [node name="Background" parent="BackgroundLayer" index="1"]
 modulate = Color(0.46666667, 0.4, 0.46666667, 0.46666667)
-position = Vector2(14560.002, -3508.5005)
-scale = Vector2(39.671234, 32.413887)
+position = Vector2(21224.002, 2496.0002)
+scale = Vector2(57.92877, 18.844444)
 texture = ExtResource("2_8i2yo")
 
 [node name="Midground" parent="MidgroundLayer" index="0"]
@@ -29,7 +30,7 @@ tile_map_data = PackedByteArray("AAAAAAgABgAHAAAAAAABAAgABgAHAAAAAAACAAgABgAHAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(592, 1024)
-target_room_path = "uid://nhuquqglirtf"
+target_room_path = "uid://ebpnfipahfjq"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(41536, 1024)
@@ -158,8 +159,8 @@ limit_target = NodePath("../../../Midground")
 follow_player = true
 
 [node name="CollisionShape2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger" index="0"]
-position = Vector2(976, -1092)
-shape = SubResource("RectangleShape2D_1cgei")
+position = Vector2(896, -832)
+shape = SubResource("RectangleShape2D_03g50")
 
 [node name="PhantomCamera2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger" index="1"]
 position = Vector2(3840, 1264)
@@ -173,8 +174,8 @@ limit_target = NodePath("../../../Midground")
 follow_player = true
 
 [node name="CollisionShape2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger-2" index="0"]
-position = Vector2(2248, -2128)
-shape = SubResource("RectangleShape2D_1cgei")
+position = Vector2(1056, -1440)
+shape = SubResource("RectangleShape2D_vatws")
 
 [node name="PhantomCamera2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger-2" index="1"]
 position = Vector2(3840, 1264)
