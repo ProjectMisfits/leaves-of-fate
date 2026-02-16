@@ -283,7 +283,7 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 func _on_dialogue_label_spoke(letter: String, _letter_index: int, _speed: float) -> void:
 	#don't make sounds on space
-	if not letter in [" ", ".","!","?"]:
+	if not letter in [" ", ".","!","?",","]:
 		beep_speech_player.play()
 
 func _on_interrupt_timer_timeout() -> void:

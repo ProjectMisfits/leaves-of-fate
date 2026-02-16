@@ -1,17 +1,12 @@
-[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://cdb8cpfh560pi"]
+[gd_resource type="AudioStreamRandomizer" load_steps=3 format=3 uid="uid://cdb8cpfh560pi"]
 
-[ext_resource type="AudioStream" uid="uid://btksytpshngrq" path="res://assets/dialogue/beep_speech/PH-bleep-03.ogg" id="1_g6ucf"]
 [ext_resource type="AudioStream" uid="uid://cgnuawqd4s3er" path="res://assets/dialogue/beep_speech/PH-bleep-08.ogg" id="2_ouhq0"]
 [ext_resource type="AudioStream" uid="uid://ddrufaqqx8aco" path="res://assets/dialogue/beep_speech/PH-bleep-18.ogg" id="3_4yebh"]
-[ext_resource type="AudioStream" uid="uid://dnppnuo42dr1s" path="res://assets/dialogue/beep_speech/PH-bleep-23.ogg" id="4_pq2jv"]
-[ext_resource type="AudioStream" uid="uid://cgd53xvs5tjq1" path="res://assets/dialogue/beep_speech/PH-bleep-24.ogg" id="5_l2tmt"]
 
 [resource]
 random_pitch = 1.2
 random_volume_offset_db = 0.5
-streams_count = 5
-stream_0/stream = ExtResource("1_g6ucf")
-stream_1/stream = ExtResource("2_ouhq0")
-stream_2/stream = ExtResource("3_4yebh")
-stream_3/stream = ExtResource("4_pq2jv")
-stream_4/stream = ExtResource("5_l2tmt")
+streams_count = 2
+stream_0/stream = ExtResource("2_ouhq0")
+stream_1/stream = ExtResource("3_4yebh")
+stream_1/weight = 0.4
