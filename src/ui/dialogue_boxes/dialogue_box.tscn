@@ -8,8 +8,8 @@
 [ext_resource type="FontFile" uid="uid://chnyqtl058eja" path="res://assets/ui/fonts/Beholden-Italic-Font.ttf" id="5_4bcdh"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="6_wdn3c"]
 [ext_resource type="Texture2D" uid="uid://dl0v6h33gej7g" path="res://assets/ui/dialogue_boxes/ContinueSymbol-UI-001.png" id="7_0vwuh"]
-[ext_resource type="AudioStream" uid="uid://cegtcd1uydire" path="res://assets/dialogue/beep_speech/PH-bleep-28.ogg" id="8_43tt1"]
 [ext_resource type="AudioStream" uid="uid://d2n7ym8iwm7dw" path="res://assets/entities/actors/player/player_audio/PH-interact.ogg" id="9_gt0ih"]
+[ext_resource type="AudioStream" uid="uid://dxw4xa2iebqjv" path="res://assets/dialogue/beep_speech/az-bleep-01.ogg" id="9_r7viq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
@@ -237,7 +237,7 @@ autoplay = "progress"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("8_43tt1")
+stream = ExtResource("9_r7viq")
 bus = &"SFX"
 
 [node name="InteractAudio" type="AudioStreamPlayer" parent="."]
