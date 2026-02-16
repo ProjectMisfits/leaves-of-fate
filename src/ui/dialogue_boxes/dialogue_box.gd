@@ -20,7 +20,7 @@ extends CanvasLayer
 @export var skip_action: StringName = &"ui_cancel"
 
 ## A sound player for voice lines (if they exist).
-@onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
+@onready var beep_speech_player: AudioStreamPlayer = %BeepSpeechPlayer
 
 ## A sound player for progressing dialouge
 @onready var interact_audio_player: AudioStreamPlayer = $InteractAudio
@@ -155,10 +155,12 @@ func apply_dialogue_line() -> void:
 			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/fenn_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#576f35")
 			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/Fenn-Idle-CharacterProfile-001.png")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Player-DialogueBeep-RandomContainer.tres")
 		"az":
 			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/az_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#A86A19")
 			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/Az-Idle-CharacterProfile-001.png")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Az-DialogueBeep-RandomContainer.tres")
 
 		"winston":
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
@@ -168,23 +170,28 @@ func apply_dialogue_line() -> void:
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#35639C")
 			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Idle-CharacterProfile-001.png")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
 
 		"wizard?":
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#35639C")
 			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Idle-CharacterProfile-001.png")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
 
 		"???":
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#35639C")
 			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Idle-CharacterProfile-001.png")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
 
 		"test":
 			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/az_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#A86A19")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Default-DialogueBeep-RandomContainer.tres")
 		_:
 			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/plain_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#576f35")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Default-DialogueBeep-RandomContainer.tres")
 	
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
@@ -201,9 +208,9 @@ func apply_dialogue_line() -> void:
 	# Wait for next line
 	if dialogue_line.has_tag("voice"):
 
-		audio_stream_player.stream = load(dialogue_line.get_tag_value("voice"))
-		audio_stream_player.play()
-		await audio_stream_player.finished
+		beep_speech_player.stream = load(dialogue_line.get_tag_value("voice"))
+		beep_speech_player.play()
+		await beep_speech_player.finished
 		next(dialogue_line.next_id)
 	elif dialogue_line.time != "":
 		
@@ -276,9 +283,8 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 func _on_dialogue_label_spoke(letter: String, _letter_index: int, _speed: float) -> void:
 	#don't make sounds on space
-	if not letter in [" ", "."]:
-		audio_stream_player.pitch_scale = randf_range(.9,1.1)
-		audio_stream_player.play()
+	if not letter in [" ", ".","!","?"]:
+		beep_speech_player.play()
 
 func _on_interrupt_timer_timeout() -> void:
 	if(do_interrupt):
