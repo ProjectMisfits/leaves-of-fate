@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://fdecrtiqrw14"]
+[gd_scene load_steps=11 format=3 uid="uid://fdecrtiqrw14"]
 
 [ext_resource type="Script" uid="uid://ccsrl6mlxbla7" path="res://src/gameplay/gameplay.gd" id="1_anqvl"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_05p43"]
@@ -6,11 +6,15 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_61qep"]
 [ext_resource type="PackedScene" uid="uid://cob1yf4cxasej" path="res://src/ui/hud/hud.tscn" id="3_g7yt7"]
 [ext_resource type="PackedScene" uid="uid://nhuquqglirtf" path="res://src/rooms/01_great_hall/01_GreatHall_a_Hub_room.tscn" id="5_61qep"]
+[ext_resource type="Shader" uid="uid://ddk4fj0g2mmvc" path="res://src/shaders/film.gdshader" id="6_t2n4y"]
 [ext_resource type="AudioStream" uid="uid://cw08xxvkhrlel" path="res://assets/ui/audio/PH-UI-select.ogg" id="7_61qep"]
 
 [sub_resource type="Resource" id="Resource_05p43"]
 script = ExtResource("3_61qep")
 transition = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mgbdt"]
+shader = ExtResource("6_t2n4y")
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource("1_anqvl")
@@ -52,6 +56,15 @@ unique_name_in_owner = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 4
+
+[node name="FilmGrain" type="ColorRect" parent="HUD"]
+material = SubResource("ShaderMaterial_mgbdt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.04, 0.04, 1)
 
 [node name="Hud" parent="HUD" instance=ExtResource("3_g7yt7")]
 unique_name_in_owner = true
