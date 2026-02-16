@@ -38,7 +38,10 @@ var will_hide_balloon: bool = false
 var locals: Dictionary = {}
 
 var _locale: String = TranslationServer.get_locale()
-
+#Frequency that beep speech is spoken (0 = ever word, 1 = every other word)
+var beep_frequency : int = 1
+#Current beep count
+var cur_beep : int = 0
 
 
 ## The current line
@@ -87,6 +90,7 @@ var interrupt_delay : float
 
 func _ready() -> void:
 	EventBus.interrupt_dialogue.connect(interrupt)
+	EventBus.frequency_change.connect(change_frequency)
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
@@ -104,7 +108,10 @@ func interrupt(delay:String) -> void:
 	interrupt_delay = delay.to_float()
 	do_interrupt = true
 	
-
+func change_frequency(new_frequency: int) -> void:
+	beep_frequency = new_frequency
+	cur_beep = 0
+	
 func _process(_delta: float) -> void:
 	if is_instance_valid(dialogue_line):
 		progress.visible = not dialogue_label.is_typing  and not dialogue_line.has_tag("voice")
@@ -282,9 +289,13 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 
 func _on_dialogue_label_spoke(letter: String, _letter_index: int, _speed: float) -> void:
+	
 	#don't make sounds on space
-	if not letter in [" ", ".","!","?",","]:
+	if not letter in [" ", ".","!","?",","] and cur_beep == 0:
 		beep_speech_player.play()
+		cur_beep = beep_frequency
+	elif not letter in [" ", ".","!","?",","] :
+		cur_beep -= 1
 
 func _on_interrupt_timer_timeout() -> void:
 	if(do_interrupt):
