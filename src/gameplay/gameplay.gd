@@ -32,6 +32,9 @@ func _ready() -> void:
 	# Set the starting Room
 	_update_current_room()
 	
+	# Connect the HUD to the new player
+	hud.set_player(current_room.player)
+	
 	# Spawn the player at the first door now that the room has been loaded
 	current_room.spawn_player_at_door('enter')
 	# Connect phantom camera to player
