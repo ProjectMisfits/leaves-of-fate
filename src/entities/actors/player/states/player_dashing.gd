@@ -14,6 +14,7 @@ func _enter() -> void:
 	agent.animation_player.play("player_leaf_dash")
 
 	agent.set_collision_mask_value(8,false)
+	agent.set_collision_mask_value(10,true)
 	for ps: GPUParticles2D in agent.dash_particles.get_children(): # Enable Leaf Dash particles
 		
 		
@@ -64,6 +65,7 @@ func _update(_delta: float) -> void:
 func _exit() -> void:
 	agent.animation_player.play_backwards("player_leaf_dash")
 	agent.set_collision_mask_value(8,true)
+	agent.set_collision_mask_value(10,false)
 	for ps: GPUParticles2D in agent.dash_particles.get_children(): # Enable Leaf Dash particles
 		ps.emitting = false
 		ps.scale.x  = abs(ps.scale.x)
