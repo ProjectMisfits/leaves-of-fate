@@ -9,8 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="6_wdn3c"]
 [ext_resource type="Texture2D" uid="uid://dl0v6h33gej7g" path="res://assets/ui/dialogue_boxes/ContinueSymbol-UI-001.png" id="7_0vwuh"]
 [ext_resource type="AudioStream" uid="uid://d2n7ym8iwm7dw" path="res://assets/entities/actors/player/player_audio/PH-interact.ogg" id="9_gt0ih"]
-
-[ext_resource type="AudioStream" uid="uid://dxw4xa2iebqjv" path="res://assets/dialogue/beep_speech/az-bleep-01.ogg" id="9_r7viq"]
+[ext_resource type="AudioStream" uid="uid://32gqxl0layfo" path="res://assets/dialogue/beep_speech/Default-DialogueBeep-RandomContainer.tres" id="9_r7viq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
 bg_color = Color(0, 0, 0, 1)
