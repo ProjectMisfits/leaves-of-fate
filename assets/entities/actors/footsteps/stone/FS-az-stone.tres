@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://cwp7al027m2ut"]
+
+[ext_resource type="AudioStream" uid="uid://bg6uy4mf2alw4" path="res://assets/entities/actors/footsteps/stone/FS-az-stone-01.ogg" id="1_y2gmg"]
+[ext_resource type="AudioStream" uid="uid://bew5m32pm5op6" path="res://assets/entities/actors/footsteps/stone/FS-az-stone-02.ogg" id="2_7nrf4"]
+[ext_resource type="AudioStream" uid="uid://cm542tx6bllm7" path="res://assets/entities/actors/footsteps/stone/FS-az-stone-03.ogg" id="3_grv4m"]
+[ext_resource type="AudioStream" uid="uid://q2c01hyx1qpx" path="res://assets/entities/actors/footsteps/stone/FS-az-stone-04.ogg" id="4_st6jt"]
+
+[resource]
+random_pitch = 1.5
+random_volume_offset_db = 1.0
+streams_count = 4
+stream_0/stream = ExtResource("1_y2gmg")
+stream_1/stream = ExtResource("2_7nrf4")
+stream_2/stream = ExtResource("3_grv4m")
+stream_3/stream = ExtResource("4_st6jt")
