@@ -191,7 +191,7 @@ _data = {
 
 [node name="IceScream" instance=ExtResource("1_21xy4")]
 scale = Vector2(2, 2)
-collision_mask = 142
+collision_mask = 14
 script = ExtResource("2_0jlda")
 database = ExtResource("3_ogl8l")
 
