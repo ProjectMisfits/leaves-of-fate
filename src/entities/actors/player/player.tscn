@@ -475,6 +475,7 @@ material = ExtResource("5_e5ptp")
 scale = Vector2(0.798, 0.798)
 texture = ExtResource("6_efl0v")
 hframes = 8
+region_rect = Rect2(0, 0, 6400, 800)
 
 [node name="InteractComponent" type="Node2D" parent="FlipNode"]
 script = ExtResource("6_283t5")

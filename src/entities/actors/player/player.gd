@@ -153,6 +153,8 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	initialize_state_machine()
 	compute_jump_parameters()
+	InputMap.action_set_deadzone("move_left",.05)
+	InputMap.action_set_deadzone("move_right",.05)
 	
 	current_health = max_health
 	health_changed.emit(current_health)
@@ -294,13 +296,9 @@ func check_piling_state() -> void:
 	if input_disabled:
 		return
 	
-	if Input.is_action_just_pressed(&"dash"):
-		var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
-		var is_no_direction_pressed: bool = (Input.get_vector("move_left", "move_right", "move_up", "move_down") == Vector2.ZERO)
-		
-		if is_no_direction_pressed and is_leaf_meter_not_empty:
-			leaf_enter_audio.play()
-			state_machine.dispatch(&"to_piling")
+	if Input.is_action_just_pressed(&"leaf_pile"):
+		#leaf_enter_audio.play()
+		state_machine.dispatch(&"to_piling")
 
 ## Set the Player's input processing to true and return the value.
 func enable_player_input() -> bool:
@@ -329,6 +327,7 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 		if (signf(direction) == signf(velocity.x)): 	# Direction matches current velocity
 			new_acceleration = direction * acceleration * delta
 		else: 											# Direction is opposite to current velocity
+			
 			new_acceleration = direction * turn_speed * delta
 		
 		# If just exited Leaf Dash, limit velocity by dash max speed
@@ -341,11 +340,13 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 			# Trying to use clampf here with -velocity.x & velocity.x breaks the function,
 			# causing it to always return a positive value. So instead, we clamp manually here.
 			var temp_velocity: float = velocity.x + new_acceleration
+			#print("MEWO")
 			
 			if (abs(temp_velocity) > abs(velocity.x)):
 				new_velocity = velocity.x
 			else:
 				new_velocity = temp_velocity
+			
 			
 			# If on floor, decrease velocity by ground friction. Also enables bunny-hopping and ground-dashing.
 			if (is_on_floor()):
@@ -376,12 +377,15 @@ func get_x_input() -> float:
 	if input_disabled:
 		return 0.0
 	else:
-		return ceilf(Input.get_axis(&"move_left", &"move_right"))	# Ceilf to get normalized input.
+		
+		#print(Input.get_axis(&"move_left", &"move_right"))
+		return Input.get_axis(&"move_left", &"move_right")	# Ceilf to get normalized input.
 
 ## Updates jump velocity & gravity variables
 func compute_jump_parameters() -> void:
 	jump_velocity = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 	jump_gravity = ((-2.0 * jump_height) / (jump_time_to_peak ** 2)) * -1.0
+	
 
 ## Returns the Player's gravity, which varies depending on whether they are jumping & holding the jump button or not.
 func compute_gravity() -> float:
@@ -582,3 +586,5 @@ func add_debug_parameters() -> void:
 	DebugMenu.add_debug_property("Player Input Processing", input_disabled, 0)
 	DebugMenu.add_debug_property("Player Post-dash Mode", post_dash_mode, 0)
 	DebugMenu.add_debug_property("Player Velocity", velocity, 5)
+	DebugMenu.add_debug_property("Jump Velocity",jump_velocity,0)
+	DebugMenu.add_debug_property("Jump Gravity",jump_gravity,0)
