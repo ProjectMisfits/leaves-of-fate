@@ -80,6 +80,7 @@ func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
 	SceneManager.swap_scenes(target_room_path, room_holder, current_room)
 	_init_room(target_door_name)
 	current_room_path = target_room_path
+	player_spawn_location = current_room.get_door_position(target_door_name)
 	# Finish the screen transition.
 	await SceneManager.remove_screen_transition()
 
