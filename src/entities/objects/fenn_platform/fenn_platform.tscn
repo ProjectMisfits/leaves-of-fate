@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm0xouvbpmqos"]
+
+[ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="1_4ek2g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irscj"]
+size = Vector2(128, 128)
+
+[node name="FennPlatform" type="StaticBody2D"]
+collision_layer = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_irscj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.62405205, 0.5968843, 0.3969746, 1)
+texture = ExtResource("1_4ek2g")
