@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqmupmvuf03we"]
+[gd_scene load_steps=10 format=3 uid="uid://cqmupmvuf03we"]
 
 [ext_resource type="Script" uid="uid://lrd4ytnsswka" path="res://src/entities/hazards/icicle/icicle.gd" id="1_20ecx"]
-[ext_resource type="Texture2D" uid="uid://co02j1n6hqgy4" path="res://assets/entities/hazards/icicle/Icicle-03.png" id="2_gj4gr"]
-[ext_resource type="Texture2D" uid="uid://44yrl3bsd17t" path="res://assets/entities/hazards/icicle/Icicle-04.png" id="3_r30jx"]
-[ext_resource type="Texture2D" uid="uid://dtdlidtnfkuah" path="res://assets/entities/hazards/icicle/Icicle-06.png" id="4_dikxp"]
-[ext_resource type="Texture2D" uid="uid://dtlb7dnnba4ka" path="res://assets/entities/hazards/icicle/Icicle-05.png" id="5_vh21e"]
-[ext_resource type="Texture2D" uid="uid://nsc4gwcg2lhf" path="res://assets/entities/hazards/icicle/Icicle-02.png" id="6_hu7dp"]
+[ext_resource type="Material" uid="uid://dde8s4xg3ueai" path="res://assets/graphics/ice_material_spike_06.tres" id="2_b43gw"]
+[ext_resource type="Texture2D" uid="uid://57m4hxr3gwjo" path="res://assets/entities/hazards/canvas_icicle/C-Icicle-03.tres" id="3_b43gw"]
+[ext_resource type="Texture2D" uid="uid://bx28liau4vpss" path="res://assets/entities/hazards/canvas_icicle/C-Icicle-04.tres" id="4_b43gw"]
+[ext_resource type="Texture2D" uid="uid://daadn0wg6wint" path="res://assets/entities/hazards/canvas_icicle/C-Icicle-06.tres" id="5_b43gw"]
+[ext_resource type="Texture2D" uid="uid://dd8k6ekkusmt2" path="res://assets/entities/hazards/canvas_icicle/C-Icicle-05.tres" id="6_b43gw"]
+[ext_resource type="Texture2D" uid="uid://b5s7cj64npymr" path="res://assets/entities/hazards/canvas_icicle/C-Icicle-02.tres" id="7_b43gw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5sn6"]
 size = Vector2(192, 128)
@@ -23,29 +24,34 @@ shape = SubResource("RectangleShape2D_a5sn6")
 disabled = true
 
 [node name="Icicle03" type="Sprite2D" parent="."]
+material = ExtResource("2_b43gw")
 position = Vector2(64, -96)
 scale = Vector2(0.46891165, 0.46891165)
-texture = ExtResource("2_gj4gr")
+texture = ExtResource("3_b43gw")
 
 [node name="Icicle04" type="Sprite2D" parent="."]
+material = ExtResource("2_b43gw")
 position = Vector2(9.000001, -97.99999)
 scale = Vector2(0.39036873, 0.39036873)
-texture = ExtResource("3_r30jx")
+texture = ExtResource("4_b43gw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_b43gw")
 position = Vector2(-63.999992, -117)
 scale = Vector2(0.32386923, 0.32386923)
-texture = ExtResource("4_dikxp")
+texture = ExtResource("5_b43gw")
 
 [node name="Icicle05" type="Sprite2D" parent="."]
+material = ExtResource("2_b43gw")
 position = Vector2(-28, -106)
 scale = Vector2(0.37021363, 0.37021363)
-texture = ExtResource("5_vh21e")
+texture = ExtResource("6_b43gw")
 
 [node name="Icicle02" type="Sprite2D" parent="."]
+material = ExtResource("2_b43gw")
 position = Vector2(28.000023, -78.999985)
 scale = Vector2(0.5785339, 0.5785339)
-texture = ExtResource("6_hu7dp")
+texture = ExtResource("7_b43gw")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8

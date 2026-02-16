@@ -1,9 +1,9 @@
-[gd_scene load_steps=32 format=4 uid="uid://f2l3hfy6ehdh"]
+[gd_scene load_steps=31 format=4 uid="uid://f2l3hfy6ehdh"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_upsp8"]
+[ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_6fjcw"]
 [ext_resource type="PackedScene" uid="uid://n257i6n8nqs1" path="res://src/entities/decor/pillars/pillar_trunk_03.tscn" id="2_64sc0"]
 [ext_resource type="PackedScene" uid="uid://bwadcghg6jxxu" path="res://src/entities/decor/pillars/pillar_base_03.tscn" id="2_bu62q"]
-[ext_resource type="Gradient" uid="uid://cy32pu1r17tvk" path="res://assets/rooms/backgrounds/cellar_gradient.tres" id="2_uiv8d"]
 [ext_resource type="PackedScene" uid="uid://7c7nfo2gy8fu" path="res://src/entities/decor/pillars/pillar_cap_03.tscn" id="3_64sc0"]
 [ext_resource type="PackedScene" uid="uid://b6p26modf3ljr" path="res://src/entities/decor/furniture/window_01.tscn" id="5_0elvk"]
 [ext_resource type="PackedScene" uid="uid://dggdoj1nhnb1j" path="res://src/entities/decor/furniture/window_02.tscn" id="6_3hm1j"]
@@ -31,16 +31,65 @@
 [ext_resource type="PackedScene" uid="uid://cjsgw2pcml8p5" path="res://src/entities/decor/food/radioactive_ham.tscn" id="17_g3u0g"]
 [ext_resource type="PackedScene" uid="uid://b8rxwl8xaqar1" path="res://src/entities/decor/food/scaly_meat.tscn" id="18_0060p"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_a8h18"]
-gradient = ExtResource("2_uiv8d")
-
 [node name="02_Cellar_b_Pantry" instance=ExtResource("1_upsp8")]
 
 [node name="Background" parent="BackgroundLayer" index="1"]
-position = Vector2(10372, -2396.0002)
-rotation = -1.5707964
-scale = Vector2(190, 325)
-texture = SubResource("GradientTexture2D_a8h18")
+visible = false
+position = Vector2(7949, -2545)
+texture = ExtResource("2_6fjcw")
+
+[node name="Background-Cut" type="Node2D" parent="BackgroundLayer" index="2"]
+position = Vector2(3941, -3115.0002)
+scale = Vector2(265.52, 90)
+
+[node name="BG-00" type="Sprite2D" parent="BackgroundLayer/Background-Cut" index="0"]
+position = Vector2(0, -44)
+texture = ExtResource("2_6fjcw")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 40)
+
+[node name="BG-01" type="Sprite2D" parent="BackgroundLayer/Background-Cut" index="1"]
+position = Vector2(0, -4)
+texture = ExtResource("2_6fjcw")
+region_enabled = true
+region_rect = Rect2(0, 40, 32, 40)
+
+[node name="BG-02" type="Sprite2D" parent="BackgroundLayer/Background-Cut" index="2"]
+position = Vector2(0.0012045203, 44.367558)
+scale = Vector2(1, 1.188)
+texture = ExtResource("2_6fjcw")
+region_enabled = true
+region_rect = Rect2(0, 80, 32, 48)
+
+[node name="Background-Cut-2" type="Node2D" parent="BackgroundLayer" index="3"]
+position = Vector2(12435, -3115.0002)
+scale = Vector2(265.52, 90)
+
+[node name="BG-00" type="Sprite2D" parent="BackgroundLayer/Background-Cut-2" index="0"]
+position = Vector2(0, -44)
+texture = ExtResource("2_6fjcw")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 40)
+
+[node name="BG-01" type="Sprite2D" parent="BackgroundLayer/Background-Cut-2" index="1"]
+position = Vector2(0, -4)
+texture = ExtResource("2_6fjcw")
+region_enabled = true
+region_rect = Rect2(0, 40, 32, 40)
+
+[node name="BG-02" type="Sprite2D" parent="BackgroundLayer/Background-Cut-2" index="2"]
+position = Vector2(0.0012045203, 44.367558)
+scale = Vector2(1, 1.188)
+texture = ExtResource("2_6fjcw")
+region_enabled = true
+region_rect = Rect2(0, 80, 32, 48)
+
+[node name="BG-03" type="Sprite2D" parent="BackgroundLayer/Background-Cut-2" index="3"]
+position = Vector2(23.403131, 44.36667)
+scale = Vector2(0.478, 1.188)
+texture = ExtResource("2_6fjcw")
+region_enabled = true
+region_rect = Rect2(0, 80, 32, 48)
 
 [node name="Window01" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("5_0elvk")]
 position = Vector2(1536.0001, -3072)
@@ -118,7 +167,7 @@ position = Vector2(15872, -512)
 position = Vector2(15872.001, -3584)
 
 [node name="HangingLantern2-4" parent="BackgroundLayer/Decor" index="25" instance=ExtResource("10_q30p6")]
-position = Vector2(7168.001, -3584)
+position = Vector2(7086, -3461)
 
 [node name="HangingLantern2-9" parent="BackgroundLayer/Decor" index="26" instance=ExtResource("10_q30p6")]
 position = Vector2(7168, -512)
