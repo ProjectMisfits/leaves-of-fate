@@ -16,13 +16,16 @@ func _enter() -> void:
 	agent.set_collision_mask_value(8,false)
 	for ps: GPUParticles2D in agent.dash_particles.get_children(): # Enable Leaf Dash particles
 		
-		ps.scale.x = -1 *agent.look_direction
+		
 		if ps.name == "LeafBall":
 			ps.show()
+			
+			
 		if ps.name == "LeafExplosionParticle":
 			ps.local_coords = false
 			ps.restart()
-		
+			
+	
 		ps.emitting = true
 	
 	move_direction = get_input_direction()
@@ -56,8 +59,6 @@ func _update(_delta: float) -> void:
 	
 	agent.velocity = move_direction * agent.dash_max_speed
 	agent.flip_node.rotation = Vector2.RIGHT.angle_to(move_direction)
-	
-	agent.move_and_slide()
 
 ## Revert the Player's animation, particles, and rotation back to their normal mode.
 func _exit() -> void:

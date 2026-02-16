@@ -12,4 +12,5 @@ func _ready() -> void:
 
 ## Start the cutscene associated with this trigger.
 func _start_cutscene() -> void:
+	player.enable_cutscene_mode()
 	DialogueManager.show_dialogue_balloon(dialogue_sequence, dialogue_start)
