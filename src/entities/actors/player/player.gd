@@ -166,8 +166,8 @@ func _ready() -> void:
 	if (dialogue_manager != null):
 		# Connect dialogue to Player input processing.
 		# Player input gets disabled when dialogue starts and enabled when dialogue ends.
-		dialogue_manager.dialogue_started.connect(enable_player_input.unbind(1))
-		dialogue_manager.dialogue_ended.connect(disable_player_input.unbind(1))
+		dialogue_manager.dialogue_started.connect(disable_player_input.unbind(1))
+		dialogue_manager.dialogue_ended.connect(enable_player_input.unbind(1))
 
 ## Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
