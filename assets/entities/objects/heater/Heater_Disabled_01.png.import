@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4a42l1lq6nvp"
-path="res://.godot/imported/Az-SpriteSheet-Walk-01.png-220e36f11a282288f4c6dd3038435b52.ctex"
+uid="uid://cgwar63t1qw1o"
+path="res://.godot/imported/Heater_Disabled_01.png-e916130fdbba0cee6614fe87500de124.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/actors/npcs/az/Az-SpriteSheet-Walk-01.png"
-dest_files=["res://.godot/imported/Az-SpriteSheet-Walk-01.png-220e36f11a282288f4c6dd3038435b52.ctex"]
+source_file="res://assets/entities/objects/heater/Heater_Disabled_01.png"
+dest_files=["res://.godot/imported/Heater_Disabled_01.png-e916130fdbba0cee6614fe87500de124.ctex"]
 
 [params]
 

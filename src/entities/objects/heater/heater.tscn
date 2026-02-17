@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://mn6k4g5kkt5q"]
+
+[ext_resource type="Script" uid="uid://c0xk34jxlmyyy" path="res://src/entities/objects/heater/heater.gd" id="1_mnh2j"]
+[ext_resource type="Texture2D" uid="uid://cgwar63t1qw1o" path="res://assets/entities/objects/heater/Heater_Disabled_01.png" id="2_ynm22"]
+[ext_resource type="Texture2D" uid="uid://da7td38u0y66x" path="res://assets/entities/objects/heater/Heater_Enabled_01.png" id="3_8vcga"]
+
+[sub_resource type="Animation" id="Animation_lwf6y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D-2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mnh2j"]
+resource_name = "heater_on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D-2:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.7411014, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ynm22"]
+_data = {
+&"RESET": SubResource("Animation_lwf6y"),
+&"heater_on": SubResource("Animation_mnh2j")
+}
+
+[node name="Heater" type="Node2D"]
+z_as_relative = false
+script = ExtResource("1_mnh2j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1274)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_ynm22")
+
+[node name="Sprite2D-2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -1274)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_8vcga")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ynm22")
+}

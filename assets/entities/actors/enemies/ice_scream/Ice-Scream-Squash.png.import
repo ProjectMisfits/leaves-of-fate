@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j8fl3nwc0uak"
-path="res://.godot/imported/IceScream-Idle.png-e46e713df6cb4135ce9c4a2f7f3bb91d.ctex"
+uid="uid://du8g6vgmxhnrb"
+path="res://.godot/imported/Ice-Scream-Squash.png-b4284aa63194ce4a7e6b611f0685fc39.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/actors/npcs/ice_scream/IceScream-Idle.png"
-dest_files=["res://.godot/imported/IceScream-Idle.png-e46e713df6cb4135ce9c4a2f7f3bb91d.ctex"]
+source_file="res://assets/entities/actors/enemies/ice_scream/Ice-Scream-Squash.png"
+dest_files=["res://.godot/imported/Ice-Scream-Squash.png-b4284aa63194ce4a7e6b611f0685fc39.ctex"]
 
 [params]
 
