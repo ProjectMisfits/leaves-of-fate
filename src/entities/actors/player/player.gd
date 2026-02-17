@@ -268,6 +268,7 @@ func check_jumping_state() -> void:
 	if jump_queued:
 		var is_within_coyote_time: bool = (time_since_on_floor <= jump_coyote_time)
 		if is_on_floor() or is_within_coyote_time:
+			
 			state_machine.dispatch(&"to_jumping")
 
 ## If the player is airborne AND the coyote timer has expired, change to airborne state.
