@@ -1551,8 +1551,11 @@ scale = Vector2(44.572994, 5.504)
 color = Color(0, 0.38431373, 0, 0.27450982)
 
 [node name="WindZone-2" parent="MidgroundLayer/Entities/Objects" index="1" instance=ExtResource("7_eap67")]
-position = Vector2(35504, -4400)
+position = Vector2(35440, -5360.0005)
 scale = Vector2(3.3876824, 14.357806)
+
+[node name="Polygon2D" parent="MidgroundLayer/Entities/Objects/WindZone-2" index="1"]
+color = Color(0, 0.38431373, 0, 0.27450982)
 
 [node name="CameraTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("8_2pnjf")]
 position = Vector2(-11484, 4911)
@@ -1596,5 +1599,6 @@ limit_margin = Vector4i(0, 0, 0, 12929)
 [editable path="MidgroundLayer/Entities/Hazards/LowerPlatforms/MovingPlatform-7"]
 [editable path="MidgroundLayer/Entities/Hazards/LowerPlatforms/MovingPlatform-8"]
 [editable path="MidgroundLayer/Entities/Objects/WindZone"]
+[editable path="MidgroundLayer/Entities/Objects/WindZone-2"]
 [editable path="MidgroundLayer/Entities/Triggers/CameraTrigger"]
 [editable path="MidgroundLayer/Entities/Triggers/CameraTrigger-2"]
