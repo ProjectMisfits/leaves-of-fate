@@ -14,15 +14,19 @@ func _enter() -> void:
 	agent.animation_player.play("player_leaf_dash")
 
 	agent.set_collision_mask_value(8,false)
+	agent.set_collision_mask_value(10,true)
 	for ps: GPUParticles2D in agent.dash_particles.get_children(): # Enable Leaf Dash particles
 		
-		ps.scale.x = -1 *agent.look_direction
+		
 		if ps.name == "LeafBall":
 			ps.show()
+			
+			
 		if ps.name == "LeafExplosionParticle":
 			ps.local_coords = false
 			ps.restart()
-		
+			
+	
 		ps.emitting = true
 	
 	move_direction = get_input_direction()
@@ -31,15 +35,20 @@ func _enter() -> void:
 ## Move & turn the Player. If the dash button is not held or the Player runs out of wind,
 ## check if they may transition into another state.
 func _update(_delta: float) -> void:
-	# Check if Player stopped holding dash Action
-	if (not Input.is_action_pressed("dash") or (agent.leaf_meter <= 0) or agent.cutscene_mode):
+	# Check for state changes
+	var is_leaf_dash_mode_dash_only: bool = agent._current_leaf_dash_mode == Player.leaf_dash_mode.DASH_ONLY
+	var is_leaf_dash_mode_no_dash: bool = agent._current_leaf_dash_mode == Player.leaf_dash_mode.NO_DASH
+	var is_leaf_meter_empty: bool = agent.leaf_meter <= 0.0
+	var is_dash_action_not_pressed: bool = not Input.is_action_pressed("dash")
+	
+	if not agent.input_processing or is_leaf_dash_mode_no_dash or ((not is_leaf_dash_mode_dash_only) and (is_dash_action_not_pressed or is_leaf_meter_empty)):
 		agent.check_airborne_state()
 		agent.check_running_state()
 		agent.check_idle_state()
 	
 	# Get new input vector depending on held Actions
 	var new_input_direction: Vector2
-	if (agent.cutscene_mode):
+	if not agent.input_processing:
 		new_input_direction = Vector2.ZERO
 	else:
 		new_input_direction = get_input_direction()
@@ -56,13 +65,12 @@ func _update(_delta: float) -> void:
 	
 	agent.velocity = move_direction * agent.dash_max_speed
 	agent.flip_node.rotation = Vector2.RIGHT.angle_to(move_direction)
-	
-	agent.move_and_slide()
 
 ## Revert the Player's animation, particles, and rotation back to their normal mode.
 func _exit() -> void:
 	agent.animation_player.play_backwards("player_leaf_dash")
 	agent.set_collision_mask_value(8,true)
+	agent.set_collision_mask_value(10,false)
 	for ps: GPUParticles2D in agent.dash_particles.get_children(): # Enable Leaf Dash particles
 		ps.emitting = false
 		ps.scale.x  = abs(ps.scale.x)

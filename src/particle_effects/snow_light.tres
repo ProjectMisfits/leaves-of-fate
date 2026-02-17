@@ -1,0 +1,46 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=7 format=3 uid="uid://dt1qwjoi3jiu6"]
+
+[sub_resource type="Curve" id="Curve_y5unq"]
+_data = [Vector2(0, 0), 0.0, 3.9885626, 0, 0, Vector2(0.19382021, 1), 0.0, 0.0, 0, 0, Vector2(0.5421349, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.1840494, 0.0, 1, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_x263s"]
+width = 64
+texture_mode = 1
+curve = SubResource("Curve_y5unq")
+
+[sub_resource type="Curve" id="Curve_x263s"]
+_data = [Vector2(0, 0.48871416), 0.0, 0.0, 0, 0, Vector2(0.25842696, 1), 0.0, 0.0, 0, 0, Vector2(0.75561804, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5331738), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_04rh1"]
+width = 128
+curve = SubResource("Curve_x263s")
+
+[sub_resource type="Curve" id="Curve_16v2u"]
+_limits = [0.5, 3.5, 0.0, 1.0]
+_data = [Vector2(0, 0.5), 0.0, 3.0, 0, 1, Vector2(1, 3.5), 3.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6e3gf"]
+width = 64
+curve = SubResource("Curve_16v2u")
+
+[resource]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(256, 256, 1)
+direction = Vector3(0, 1, 0)
+spread = 5.0
+initial_velocity_min = 0.19999999
+initial_velocity_max = 8.0
+gravity = Vector3(0, 0, 0)
+attractor_interaction_enabled = false
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_04rh1")
+scale_over_velocity_max = 350.0
+scale_over_velocity_curve = SubResource("CurveTexture_6e3gf")
+color = Color(0.63, 0.63, 0.63, 1)
+alpha_curve = SubResource("CurveTexture_x263s")
