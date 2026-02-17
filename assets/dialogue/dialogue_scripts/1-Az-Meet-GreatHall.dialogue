@@ -16,8 +16,8 @@ Az: [i]cough[/i] The [color="8A0194"]Wizards[/color] scattered all over the cast
 Fenn starry: [font_size=60]We have to help them!![wait=0.2] [shake level=10 rate=50 connected=0]ADVENTURE AWAITS!![/shake][/font_size]
 Az: No way. I need to  grab something from my [color="0B4F4A"]Workshop[/color]. Stay here til I get back.
 Fenn: Hmm... No promises!
-Az: Seriously? [wait=0.3][shake level=7 rate=20 connected=0]Ugh[/shake]. Whatever.
-do CutsceneManager.npc_move("Az", -16128, 250, true, false)
+Az annoy: Seriously? [wait=0.3][shake level=7 rate=20 connected=0]Ugh[/shake]. Whatever.
+do CutsceneManager.npc_move("Az", -16128, 400, true, false)
 do CutsceneManager.remove_npc("Az")
 do EventFlags.set_flag("Az-Meet-GreatHall", true)
 => END

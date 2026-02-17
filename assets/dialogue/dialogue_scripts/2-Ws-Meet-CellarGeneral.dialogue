@@ -11,7 +11,7 @@ do CutsceneManager.npc_face("Winston", "right")
 Fenn starry: Nope!
 do CutsceneManager.npc_face("Winston", "left")
 ??? ws grit: [font_size=70][i]No matter.[/i][/font_size] [wait=0.2]I shalt crush thee [shake level=10 rate=30]myself![/shake]
-??? ws: Not another step, [shake level=10 rate=30][i]pint-size[/i][/shake]
+??? ws: Not another step, [shake level=10 rate=30][i]pint-size[/i][/shake].
 Fenn: Or... what?
 ??? ws awkward: Um. Well.
 Fenn: Are you a wizard?
@@ -33,5 +33,3 @@ Fenn: Uh...
 Fenn: Indeed, it shalt... eth?
 do EventFlags.set_flag("Ws-Meet-CellarGeneral", true)
 => END
-
-
