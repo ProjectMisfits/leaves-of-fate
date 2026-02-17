@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf70wrqc5s35o"
-path="res://.godot/imported/game_icon.PNG-0c647d9d289e1686765fc0a85c58f382.ctex"
+uid="uid://cvq7dcp4ksriw"
+path="res://.godot/imported/Rusty_Grate.png-6bf3954e73a9103a88bfe0bf6cd4b71f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/game_icon.PNG"
-dest_files=["res://.godot/imported/game_icon.PNG-0c647d9d289e1686765fc0a85c58f382.ctex"]
+source_file="res://assets/entities/decor/furniture/Rusty_Grate.png"
+dest_files=["res://.godot/imported/Rusty_Grate.png-6bf3954e73a9103a88bfe0bf6cd4b71f.ctex"]
 
 [params]
 
