@@ -1,0 +1,15 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bnysb55hwhjyd"]
+
+[ext_resource type="Texture2D" uid="uid://bacfs5fh7tttn" path="res://assets/entities/hazards/icicle/Icicle-01.png" id="1_qib5l"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kqfm"]
+texture = ExtResource("1_qib5l")
+margins = Vector2i(3, 0)
+texture_region_size = Vector2i(16, 17)
+0:0/size_in_atlas = Vector2i(7, 9)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-45.980003, -76.229996, 41.13999, -62.92, 54.450005, 61.710007, -58.08, 56.87001)
+
+[resource]
+physics_layer_0/collision_layer = 8
+sources/0 = SubResource("TileSetAtlasSource_1kqfm")
