@@ -1,20 +1,20 @@
 ~ start
 do! CameraManager.create_camera(Vector2(4600.0, 600.0), 0.6, 2, "CUBIC", "EASE_IN_OUT")
-???: [font_size=30]Why, why yes![wait=0.2] That shouldst do rather nicely.[/font_size]
-???: [font_size=30]I just needeth... [wait=0.2]certainly not... [/font_size]
+??? ws: [font_size=30]Why, why yes![wait=0.2] That shouldst do rather nicely.[/font_size]
+??? ws: [font_size=30]I just needeth... [wait=0.2]certainly not... [/font_size]
 Fenn: Helloo?
 do CutsceneManager.npc_face("Winston", "left")
-???: [font_size=100][shake level=20 rate=50]WHAT?! WHO ART THOU?[/shake][/font_size]
+??? ws: [font_size=100][shake level=20 rate=50]WHAT?! WHO ART THOU?[/shake][/font_size]
 do CutsceneManager.npc_face("Winston", "right")
-???: [font_size=30]Didst we not trapeth everyone?[/font_size]
+??? ws: [font_size=30]Didst we not trapeth everyone?[/font_size]
 do EventBus.interrupt_dialogue.emit("0.2")
 Fenn: No, there's a buncha people in the [color="blue"]Great Hall[/color]. There's this super cool lady-
 do CutsceneManager.npc_face("Winston", "left")
-???: [font_size=70]Nay matter![/font_size] [shake level=7 rate=30]I shalt crush thee myself![/shake]
+??? ws: [font_size=70]Nay matter![/font_size] [shake level=7 rate=30]I shalt crush thee myself![/shake]
 Fenn: You talk weird.
-???: Um- [wait=0.2]stayeth right there![wait=0.2] Not another step!
+??? ws: Um- [wait=0.2]stayeth right there![wait=0.2] Not another step!
 Fenn: Or...[wait=0.2] what?
-???: Um. [wait=0.2]Well.
+??? ws: Um. [wait=0.2]Well.
 Fenn: Are you a wizard?
 do EventBus.interrupt_dialogue.emit("0.2")
 Wizard?: Why,[wait=0.2] of course![wait=0.2] I am the Great Wizard of-

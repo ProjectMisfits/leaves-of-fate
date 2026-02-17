@@ -103,9 +103,10 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 @onready var piling_state: LimboState = $LimboHSM/Piling		## Reference to the Player's Leaf Pile state.
 
 # -------------------- DYNAMIC VARIABLES -------------------- #
-## If True, disable all user input.
+## If true, allows player input.
+## If false, disables all player input.
 ## The Player's process_mode is NOT disabled and they may still move & change states.
-var input_disabled: bool = false
+var input_processing: bool = true
 
 ## If True, Player just exited a dash & is airborne.
 ## The Player may NOT Leaf Dash/Pile & has no air deceleration.
@@ -133,8 +134,10 @@ var jump_gravity: float = 0.0
 var time_since_on_floor: float = 0.0	## How long (in seconds) the Player has been on the floor for. Used to validate a coyote time jump.
 var time_since_jump_queued: float = 0.0	## How long (in seconds) since the Player queued a jump. Used to validate a buffered jump.
 
-##Variable that determines if the player can build leaf meter or not
-var can_build_wind : bool = true
+## Determines whether the Player is forced to Leaf Dash, cannot Leaf Dash, or behaves as normal.
+## Wind Zones set the Player's current leaf dash mode.
+enum leaf_dash_mode {NORMAL, DASH_ONLY, NO_DASH}
+var _current_leaf_dash_mode: leaf_dash_mode = leaf_dash_mode.NORMAL
 
 # -------------------- SIGNALS -------------------- #
 signal player_knocked_out					## Emitted when the Player loses all of their health.
@@ -163,8 +166,8 @@ func _ready() -> void:
 	if (dialogue_manager != null):
 		# Connect dialogue to Player input processing.
 		# Player input gets disabled when dialogue starts and enabled when dialogue ends.
-		dialogue_manager.dialogue_started.connect(enable_player_input.unbind(1))
-		dialogue_manager.dialogue_ended.connect(disable_player_input.unbind(1))
+		dialogue_manager.dialogue_started.connect(disable_player_input.unbind(1))
+		dialogue_manager.dialogue_ended.connect(enable_player_input.unbind(1))
 
 ## Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
@@ -174,7 +177,7 @@ func _physics_process(delta: float) -> void:
 		post_dash_mode = false
 	
 	# If player input is disabled, do not update the jump queue or leaf meter.
-	if not input_disabled:
+	if input_processing:
 		update_jump_queue(delta)
 		update_leaf_meter(delta)
 	
@@ -260,12 +263,13 @@ func check_running_state() -> void:
 ## If the player queued a jump & is on floor or within coyote time, change to jumping state.
 func check_jumping_state() -> void:
 	# If input is disabled, don't handle jump inputs
-	if input_disabled:
+	if not input_processing:
 		return
 	
 	if jump_queued:
 		var is_within_coyote_time: bool = (time_since_on_floor <= jump_coyote_time)
 		if is_on_floor() or is_within_coyote_time:
+			
 			state_machine.dispatch(&"to_jumping")
 
 ## If the player is airborne AND the coyote timer has expired, change to airborne state.
@@ -278,22 +282,24 @@ func check_airborne_state() -> void:
 
 ## If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to piling state.
 func check_dashing_state() -> void:
-	# If input is disabled, don't handle dash inputs
-	if input_disabled:
-		return
+	var is_leaf_dash_mode_no_dash: bool = _current_leaf_dash_mode == leaf_dash_mode.NO_DASH
 	
-	if Input.is_action_just_pressed(&"dash"):
+	# If input is disabled, don't handle dash inputs
+	if not input_processing or is_leaf_dash_mode_no_dash:
+		return
+	else:
+		var is_leaf_dash_mode_dash_only: bool = _current_leaf_dash_mode == leaf_dash_mode.DASH_ONLY
+		var is_dash_action_just_pressed: bool = Input.is_action_just_pressed(&"dash")
 		var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
-		var is_direction_pressed: bool = (Input.get_vector("move_left", "move_right", "move_up", "move_down") != Vector2.ZERO)
 		
-		if is_direction_pressed and is_leaf_meter_not_empty:
+		if (is_leaf_dash_mode_dash_only) or (is_dash_action_just_pressed and is_leaf_meter_not_empty):
 			leaf_enter_audio.play()
 			state_machine.dispatch(&"to_dashing")
 
 ## If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to piling state.
 func check_piling_state() -> void:
 	# If input is disabled, don't handle pile inputs
-	if input_disabled:
+	if not input_processing:
 		return
 	
 	if Input.is_action_just_pressed(&"leaf_pile"):
@@ -309,9 +315,9 @@ func disable_player_input() -> bool:
 	return set_input_processing(false)
 
 ## Sets the Player's input processing to the given value and return it.
-func set_input_processing(new_input_disabled: bool) -> bool:
-	input_disabled = new_input_disabled
-	return input_disabled
+func set_input_processing(new_input_processing: bool) -> bool:
+	input_processing = new_input_processing
+	return input_processing
 
 ## Get the input direction and handle the movement/deceleration.
 func move_horizontal(acceleration: float, deceleration: float, turn_speed: float, delta: float) -> void:
@@ -374,7 +380,7 @@ func move_horizontal_air(delta: float) -> void:
 ## Returns the player's normalized x-input value.
 func get_x_input() -> float:
 	# If input is disabled, don't handle x direction inputs
-	if input_disabled:
+	if not input_processing:
 		return 0.0
 	else:
 		
@@ -422,7 +428,9 @@ func update_leaf_meter(delta: float) -> void:
 	# Compute change in leaf meter
 	var leaf_meter_change: float = 0.0
 	
-	if (dashing_state.is_active()):
+	if (_current_leaf_dash_mode != leaf_dash_mode.NORMAL):
+		leaf_meter_change = 0.0	# Do not change Leaf Meter while Player is not in control of Leaf Dash
+	elif (dashing_state.is_active()):
 		leaf_meter_change = -1.0 * meter_dash_drain_rate
 	elif (piling_state.is_active()):
 		leaf_meter_change = -1.0 * meter_pile_drain_rate
@@ -430,7 +438,7 @@ func update_leaf_meter(delta: float) -> void:
 		leaf_meter_change = 0.0
 	elif (signf(get_x_input()) != signf(velocity.x)): # If turning
 		leaf_meter_change = 0.0
-	elif (velocity != Vector2.ZERO and can_build_wind):
+	elif (velocity != Vector2.ZERO):
 		leaf_meter_change = meter_buildup_rate
 	else:
 		leaf_meter_change = -1.0 * meter_drain_rate
@@ -439,13 +447,13 @@ func update_leaf_meter(delta: float) -> void:
 	
 	set_leaf_meter(new_leaf_meter)
 
-##Sets if the player can build leaf meter
-func set_can_build_wind(new_build_wind : bool) -> void:
-	can_build_wind = new_build_wind
+## Getter for the Player's current leaf dash mode.
+func get_current_leaf_dash_mode() -> bool:
+	return _current_leaf_dash_mode
 
-##Gets if the player can build leaf meter 
-func get_can_build_wind() -> bool:
-	return can_build_wind
+## Setter for the Player's current leaf dash mode.
+func set_current_leaf_dash_mode(new_leaf_dash_mode: Player.leaf_dash_mode) -> void:
+	_current_leaf_dash_mode = new_leaf_dash_mode
 
 ## Decreases the Player's health by the given value.
 func hurt(damage: int) -> void:
@@ -454,11 +462,14 @@ func hurt(damage: int) -> void:
 	else:
 		set_health(current_health - damage)
 		# Temporarily disable player input after getting hurt
-		input_disabled = true
-		# Play the hitstun animation
-		animation_player.play(&"player_hitstun")
+		input_processing = false
 		# Launch the Player in the reverse of their look direction by an amount.
 		velocity = hit_recoil_direction.normalized() * hit_recoil_velocity * ceilf(look_direction)
+		
+		# Play the hitstun animation
+		animation_player.play(&"player_hitstun")
+		await animation_player.animation_finished
+		
 		# Make Player invincible for an amount of time.
 		start_invincibility(hit_invincibility_time)
 		
@@ -469,7 +480,7 @@ func hurt(damage: int) -> void:
 			player_knocked_out.emit()
 		else:
 			# Otherwise re-enable player input
-			input_disabled = false
+			input_processing = true
 
 ## Make the Player invincible & starts the Invincibility Timer.
 func start_invincibility(time: float) -> void:
@@ -504,7 +515,7 @@ func set_health(new_health: int) -> void:
 func set_leaf_meter(new_leaf_meter: float) -> void:
 	# If input is disabled, ignore changes to Player leaf meter.
 	# There are no situations where the leaf meter should be updated when input is disabled, so push a warning if that happens.
-	if input_disabled:
+	if not input_processing:
 		push_warning("set_leaf_meter(): Player input disabled, Leaf Meter not set.")
 		return
 	
@@ -583,7 +594,7 @@ func initialize_data(data: Dictionary) -> void:
 ## Adds various Player variables to the Debug Menu.
 func add_debug_parameters() -> void:
 	DebugMenu.add_debug_property("Player State", state_machine.get_active_state().name, 0)
-	DebugMenu.add_debug_property("Player Input Processing", input_disabled, 0)
+	DebugMenu.add_debug_property("Is Player Processing Input", input_processing, 0)
 	DebugMenu.add_debug_property("Player Post-dash Mode", post_dash_mode, 0)
 	DebugMenu.add_debug_property("Player Velocity", velocity, 5)
 	DebugMenu.add_debug_property("Jump Velocity",jump_velocity,0)

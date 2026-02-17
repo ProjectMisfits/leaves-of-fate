@@ -1,5 +1,8 @@
 extends Node
 
+## Emitted when a flag is updated.
+signal flag_updated(flag_name: String, value: bool)
+
 var _database: JSON = null
 var database_path: String = "res://src/autoload/event_flags/event_flags_db.tres"
 var _event_flags: Dictionary[String, bool]
@@ -44,17 +47,18 @@ func set_flag(flag_name: String, value: bool) -> bool:
 	if ("heater" in flag_name):
 		update_num_heaters_activated()
 	
+	flag_updated.emit(flag_name, value)
 	return true
 
 ## Updates num_heaters_activated; increases by 1 for each heater_activated flag set to true.
 func update_num_heaters_activated() -> void:
 	var new_num_heaters_activated: int = 0
 	
-	if (_event_flags.get("heater_one_activated")):
+	if (_event_flags.get("heater_1_activated")):
 		new_num_heaters_activated += 1
-	if (_event_flags.get("heater_two_activated")):
+	if (_event_flags.get("heater_2_activated")):
 		new_num_heaters_activated += 1
-	if (_event_flags.get("heater_three_activated")):
+	if (_event_flags.get("heater_3_activated")):
 		new_num_heaters_activated += 1
 	
 	num_heaters_activated = new_num_heaters_activated
