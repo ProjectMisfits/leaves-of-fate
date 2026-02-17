@@ -16,18 +16,19 @@ script = ExtResource("1_u0ny2")
 
 [node name="BronzePipeTrigger" parent="." instance=ExtResource("2_8gm2e")]
 
-[node name="Line2D" type="Line2D" parent="."]
-texture_repeat = 3
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_esdh6")
+
+[node name="Line2D" type="Line2D" parent="Path2D"]
+texture_repeat = 2
 width = 400.0
 texture = ExtResource("3_2knel")
 texture_mode = 1
 joint_mode = 2
 
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_esdh6")
-
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 unique_name_in_owner = true
+rotates = false
 cubic_interp = false
 loop = false
 
@@ -49,7 +50,7 @@ grow_vertical = 2
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
 unique_name_in_owner = true
-position = Vector2(0, 243)
+position = Vector2(0, 100)
 update_rotation = false
 update_scale = false
 
