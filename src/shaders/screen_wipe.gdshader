@@ -3,10 +3,6 @@ render_mode unshaded;
 
 uniform float threshold : hint_range(0., 1.) = 0.0;
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
-
 void fragment() {
 	float aspect = SCREEN_PIXEL_SIZE.y / SCREEN_PIXEL_SIZE.x;
 	vec2 uvScale = aspect > 1. ? vec2(aspect, 1.0) : vec2(1.0, 1.0 / aspect);

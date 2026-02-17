@@ -1,7 +1,7 @@
-[gd_scene load_steps=46 format=4 uid="uid://bdbuuoljlim4f"]
+[gd_scene load_steps=45 format=4 uid="uid://bdbuuoljlim4f"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_h8co5"]
-[ext_resource type="Gradient" uid="uid://cy32pu1r17tvk" path="res://assets/rooms/backgrounds/cellar_gradient.tres" id="2_fdcq0"]
+[ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_6l8wa"]
 [ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="3_6l8wa"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="4_jpcdc"]
 [ext_resource type="PackedScene" uid="uid://b6p26modf3ljr" path="res://src/entities/decor/furniture/window_01.tscn" id="5_y5unq"]
@@ -36,11 +36,6 @@
 [ext_resource type="PackedScene" uid="uid://cctsnqs8u4udu" path="res://src/entities/decor/furniture/wine_shelf.tscn" id="32_gw7y0"]
 [ext_resource type="Texture2D" uid="uid://bbw1y6slm5i2p" path="res://assets/entities/decor/architecture/bricks.png" id="33_y68st"]
 [ext_resource type="PackedScene" uid="uid://b0wlcwvvy8ru2" path="res://src/entities/decor/furniture/chairs.tscn" id="34_2ajd0"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_fiwqb"]
-gradient = ExtResource("2_fdcq0")
-height = 128
-fill_from = Vector2(1, 1)
 
 [sub_resource type="Gradient" id="Gradient_fiwqb"]
 offsets = PackedFloat32Array(0, 0.15277778, 0.24444444, 1)
@@ -83,9 +78,14 @@ gradient = SubResource("Gradient_0clmk")
 follow_viewport_scale = 0.9
 
 [node name="Background" parent="BackgroundLayer" index="1"]
-position = Vector2(6399.499, -2810.5)
-scale = Vector2(306.71536, 70.906555)
-texture = SubResource("GradientTexture2D_fiwqb")
+position = Vector2(930, -2759.9998)
+scale = Vector2(300.75555, 70.906555)
+texture = ExtResource("2_6l8wa")
+
+[node name="Background-2" type="Sprite2D" parent="BackgroundLayer" index="2"]
+position = Vector2(10860, -2810)
+scale = Vector2(320, 70.906555)
+texture = ExtResource("2_6l8wa")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="BackgroundLayer/Decor" index="0"]
 modulate = Color(0.76, 0.76, 0.76, 0.6039216)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg46b7ebdrgmv"]
+
+[ext_resource type="Script" uid="uid://cm658k8xlbjj" path="res://src/entities/triggers/player_enter_trigger/checkpoint_trigger/checkpoint_trigger.gd" id="1_wevs5"]
+[ext_resource type="Shape2D" uid="uid://bnrtt12ohd1ix" path="res://src/entities/triggers/trigger_collision_shape.tres" id="2_ia7ky"]
+
+[node name="CheckpointTrigger" type="Area2D"]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_wevs5")
+repeatable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = ExtResource("2_ia7ky")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

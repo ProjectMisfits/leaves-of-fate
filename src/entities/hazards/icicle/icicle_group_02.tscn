@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://clniejfdpj824"]
+[gd_scene load_steps=8 format=3 uid="uid://clniejfdpj824"]
 
 [ext_resource type="Script" uid="uid://lrd4ytnsswka" path="res://src/entities/hazards/icicle/icicle.gd" id="1_fmm18"]
-[ext_resource type="Texture2D" uid="uid://co02j1n6hqgy4" path="res://assets/entities/hazards/icicle/Icicle-03.png" id="2_p1f84"]
-[ext_resource type="Texture2D" uid="uid://dtlb7dnnba4ka" path="res://assets/entities/hazards/icicle/Icicle-05.png" id="3_rbm2v"]
-[ext_resource type="Texture2D" uid="uid://nsc4gwcg2lhf" path="res://assets/entities/hazards/icicle/Icicle-02.png" id="4_r6qr2"]
+[ext_resource type="Material" uid="uid://dde8s4xg3ueai" path="res://assets/graphics/ice_material_spike_06.tres" id="2_0s0b7"]
+[ext_resource type="Texture2D" uid="uid://57m4hxr3gwjo" path="res://assets/entities/hazards/canvas_icicle/C-Icicle-03.tres" id="3_j5axg"]
+[ext_resource type="Texture2D" uid="uid://dd8k6ekkusmt2" path="res://assets/entities/hazards/canvas_icicle/C-Icicle-05.tres" id="4_0s0b7"]
+[ext_resource type="Texture2D" uid="uid://b5s7cj64npymr" path="res://assets/entities/hazards/canvas_icicle/C-Icicle-02.tres" id="5_0s0b7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5sn6"]
 size = Vector2(27, 33)
@@ -28,31 +29,27 @@ position = Vector2(4.5, -53)
 shape = SubResource("RectangleShape2D_o6rya")
 
 [node name="Icicle04" type="Sprite2D" parent="."]
+material = ExtResource("2_0s0b7")
 position = Vector2(45.000004, -37)
 scale = Vector2(0.2638889, 0.2638889)
-texture = ExtResource("2_p1f84")
+texture = ExtResource("3_j5axg")
 
 [node name="Icicle03" type="Sprite2D" parent="."]
+material = ExtResource("2_0s0b7")
 position = Vector2(-13, -55)
 scale = Vector2(0.32616228, 0.32616228)
-texture = ExtResource("2_p1f84")
+texture = ExtResource("3_j5axg")
 
 [node name="Icicle05" type="Sprite2D" parent="."]
+material = ExtResource("2_0s0b7")
 position = Vector2(14, -55)
 scale = Vector2(0.25, 0.24999997)
-texture = ExtResource("3_rbm2v")
+texture = ExtResource("4_0s0b7")
 
 [node name="Icicle02" type="Sprite2D" parent="."]
+material = ExtResource("2_0s0b7")
 position = Vector2(-29, -26)
 scale = Vector2(0.3059936, 0.3059936)
-texture = ExtResource("4_r6qr2")
-
-[node name="Icicle01" type="Sprite2D" parent="."]
-position = Vector2(2, -1)
-scale = Vector2(0.34022546, 0.34022546)
-
-[node name="Icicle06" type="Sprite2D" parent="."]
-position = Vector2(35.000004, 3.000001)
-scale = Vector2(0.22621563, 0.22621563)
+texture = ExtResource("5_0s0b7")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

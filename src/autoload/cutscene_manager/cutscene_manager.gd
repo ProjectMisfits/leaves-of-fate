@@ -1,8 +1,7 @@
 extends Node
 ## A manager for cutscene sequences.Primarily allows for easier npc movement scripting from dialogue resource files.
 
-## A signal emitted whenever a cutscene is started.
-signal cutscene_started
+## A signal emitted whenever a cutscene ends.
 signal cutscene_ended
 
 ## An array containing all npcs in the current room that are available for movement scripting during a cutscene.
@@ -60,14 +59,14 @@ func remove_npc(npc_name: String) -> void:
 	npc_instance.queue_free()
 
 ## Move the specified npc in the given direction for the given duration or distance.
-func npc_move(npc_name: String, move_direction: String, distance: float = 1.0, speed: float = 1.0, animate_walk: bool = true, moonwalk: bool = false) -> void:
+func npc_move(npc_name: String, destination_global_x: float = 1.0, move_speed: float = 1.0, animate_walk: bool = true, moonwalk: bool = false) -> void:
 	# Get a reference to the NPC
 	var npc_instance: NPC = _get_npc(npc_name)
 	if npc_instance == null:
 		push_error("CutsceneManager: No valid NPC for name %s." % npc_name)
 		return
 	# Script the NPC to move to a position.
-	npc_instance.move(move_direction, distance, speed, animate_walk, moonwalk)
+	npc_instance.move(destination_global_x, move_speed, animate_walk, moonwalk)
 
 ## Turn the specified npc to face the given direction.
 func npc_face(npc_name: String, direction: String) -> void:
@@ -77,7 +76,12 @@ func npc_face(npc_name: String, direction: String) -> void:
 		push_error("CutsceneManager: No valid NPC for name %s." % npc_name)
 		return
 	# Script the NPC to face a direction.
-	npc_instance.set_look(direction)
+	if direction == "left":
+		npc_instance.set_look(-1.0)
+	elif direction == "right":
+		npc_instance.set_look(1.0)
+	else:
+		push_error("CutsceneManager: Invalid NPC look direction given.")
 
 ## End cutscene management.
 func _end_cutscene() -> void:
