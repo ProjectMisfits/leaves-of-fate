@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvmqfcdwe36eo"
-path="res://.godot/imported/Az-SpriteSheet-Idle-01.png-3246518994351e5fb0648e1f457609a8.ctex"
+uid="uid://bobecrpwgxhv4"
+path="res://.godot/imported/winston_placeHolder_01.png-edb18b4ddc4d15fe595ce60939f60c46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/actors/npcs/az/Az-SpriteSheet-Idle-01.png"
-dest_files=["res://.godot/imported/Az-SpriteSheet-Idle-01.png-3246518994351e5fb0648e1f457609a8.ctex"]
+source_file="res://assets/entities/actors/npcs/npc_winston/winston_placeHolder_01.png"
+dest_files=["res://.godot/imported/winston_placeHolder_01.png-edb18b4ddc4d15fe595ce60939f60c46.ctex"]
 
 [params]
 

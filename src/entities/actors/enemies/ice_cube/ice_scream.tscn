@@ -6,12 +6,12 @@
 [ext_resource type="Script" uid="uid://jvar131cx0xv" path="res://src/entities/actors/enemies/ice_cube/states/ice_scream_idle.gd" id="3_nfa6x"]
 [ext_resource type="JSON" uid="uid://disdrdqnqvu7p" path="res://src/entities/actors/enemies/ice_cube/ice_scream_db.tres" id="3_ogl8l"]
 [ext_resource type="Script" uid="uid://dca4lwytnv8qy" path="res://src/entities/actors/enemies/ice_cube/states/ice_scream_chase_normal.gd" id="4_q3qi2"]
-[ext_resource type="Texture2D" uid="uid://j8fl3nwc0uak" path="res://assets/entities/actors/npcs/ice_scream/IceScream-Idle.png" id="5_6lktt"]
+[ext_resource type="Texture2D" uid="uid://j8fl3nwc0uak" path="res://assets/entities/actors/enemies/ice_scream/IceScream-Idle.png" id="5_6lktt"]
 [ext_resource type="Script" uid="uid://5t11fihqj56q" path="res://src/entities/actors/enemies/ice_cube/states/ice_scream_chase_angry.gd" id="5_q3qi2"]
 [ext_resource type="Script" uid="uid://o4tkls23gkfy" path="res://src/entities/actors/enemies/ice_cube/states/ice_scream_grabbed.gd" id="6_377jy"]
 [ext_resource type="Script" uid="uid://pix67ly1y4m7" path="res://src/entities/actors/enemies/ice_cube/states/ice_scream_death.gd" id="8_eoff7"]
-[ext_resource type="Texture2D" uid="uid://cpa8djv8lxc06" path="res://assets/entities/actors/npcs/ice_scream/IceScream-Charge.png" id="11_vddlt"]
-[ext_resource type="Texture2D" uid="uid://dljudi1qrrhm0" path="res://assets/entities/actors/npcs/ice_scream/IceScream-Push.png" id="12_ncxt7"]
+[ext_resource type="Texture2D" uid="uid://cpa8djv8lxc06" path="res://assets/entities/actors/enemies/ice_scream/IceScream-Charge.png" id="11_vddlt"]
+[ext_resource type="Texture2D" uid="uid://dljudi1qrrhm0" path="res://assets/entities/actors/enemies/ice_scream/IceScream-Push.png" id="12_ncxt7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ncxt7"]
 size = Vector2(131, 264.6)

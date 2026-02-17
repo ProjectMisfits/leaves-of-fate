@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci4p145y6siyu"
-path="res://.godot/imported/Az-SpriteSheet-Idle-02.png-70bd3f6711847ca38ab063f6e5cd3c01.ctex"
+uid="uid://4a42l1lq6nvp"
+path="res://.godot/imported/Az-SpriteSheet-Walk-01.png-2408e391d64757eb1cb03ca37ebc2ea4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/actors/npcs/az/Az-SpriteSheet-Idle-02.png"
-dest_files=["res://.godot/imported/Az-SpriteSheet-Idle-02.png-70bd3f6711847ca38ab063f6e5cd3c01.ctex"]
+source_file="res://assets/entities/actors/npcs/npc_az/Az-SpriteSheet-Walk-01.png"
+dest_files=["res://.godot/imported/Az-SpriteSheet-Walk-01.png-2408e391d64757eb1cb03ca37ebc2ea4.ctex"]
 
 [params]
 
