@@ -50,11 +50,11 @@ func set_flag(flag_name: String, value: bool) -> bool:
 func update_num_heaters_activated() -> void:
 	var new_num_heaters_activated: int = 0
 	
-	if (_event_flags.get("heater_one_activated")):
+	if (_event_flags.get("heater_1_activated")):
 		new_num_heaters_activated += 1
-	if (_event_flags.get("heater_two_activated")):
+	if (_event_flags.get("heater_2_activated")):
 		new_num_heaters_activated += 1
-	if (_event_flags.get("heater_three_activated")):
+	if (_event_flags.get("heater_3_activated")):
 		new_num_heaters_activated += 1
 	
 	num_heaters_activated = new_num_heaters_activated

@@ -49,7 +49,7 @@ data = {
 "Ws-Meet-CellarGeneral": false,
 "Ws-PostAmbush-CellarGeneral": false,
 "Ws-PostCageTrap-HeaterArea": false,
-"heater_one_activated": false,
-"heater_three_activated": false,
-"heater_two_activated": false
+"heater_1_activated": false,
+"heater_2_activated": false,
+"heater_3_activated": false
 }
