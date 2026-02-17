@@ -13,4 +13,3 @@ func _on_event_flag_updated(flag_name: String, value: bool) -> void:
 	if "heater" in flag_name and value and heater_off:
 		$AnimationPlayer.play(&"heater_on")
 		heater_off = false
-		print("working")
