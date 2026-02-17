@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://c567nmtkfbfn4"]
+[gd_scene load_steps=4 format=3 uid="uid://c567nmtkfbfn4"]
 
 [ext_resource type="Script" uid="uid://c662ihbmtaqfh" path="res://src/entities/objects/heater_lever/heater_lever.gd" id="1_57hib"]
 [ext_resource type="PackedScene" uid="uid://xrrmak07aeag" path="res://src/entities/triggers/interact_trigger/object_trigger/object_trigger.tscn" id="1_llhun"]
+[ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="2_erdux"]
 
 [node name="HeaterLever" type="Node2D"]
 script = ExtResource("1_57hib")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = ExtResource("2_erdux")
 
 [node name="ObjectTrigger" parent="." instance=ExtResource("1_llhun")]
+position = Vector2(0, -64)
 new_flag_value = true
