@@ -22,7 +22,8 @@ var _player: Player = null
 
 func _ready() -> void:
 	# Set up the pipe texture along the pipe's path.
-	$Path2D/Line2D.points = $Path2D.curve.get_baked_points()
+	for idx: int in $Path2D.curve.point_count:
+		$Path2D/Line2D.add_point($Path2D.curve.get_point_position(idx))
 	# Put the cap textures at the start and end of the pipe.
 	var start_cap_sprite: Sprite2D = Sprite2D.new()
 	start_cap_sprite.texture = preload("res://assets/entities/objects/bronze_pipe/PipeStraight-01-capstart.PNG")
