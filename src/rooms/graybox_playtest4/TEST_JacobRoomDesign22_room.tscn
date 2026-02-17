@@ -752,14 +752,14 @@ open_loop_speed_scale = 0.5
 [node name="PathFollow2D" parent="MidgroundLayer/Entities/Hazards/MovingPlatform" index="0"]
 position = Vector2(4351.9976, 3776)
 rotation = 1.5707964
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2.5)
 progress = 7936.0
 rotates = false
 
 [node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Hazards/MovingPlatform" index="1"]
 position = Vector2(4351.9976, 3776)
 rotation = 1.5707964
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2.5)
 
 [node name="Node2D2" type="Node2D" parent="MidgroundLayer/Entities/Hazards/MovingPlatform/AnimatableBody2D" index="0"]
 position = Vector2(233, -937.9995)
@@ -877,14 +877,14 @@ open_loop_speed_scale = 0.5
 [node name="PathFollow2D" parent="MidgroundLayer/Entities/Hazards/MovingPlatform-2" index="0"]
 position = Vector2(1152, 8512)
 rotation = 1.5707964
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2.5)
 progress = 0.0
 rotates = false
 
 [node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Hazards/MovingPlatform-2" index="1"]
 position = Vector2(1152, 8512)
 rotation = 1.5707964
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2.5)
 
 [node name="Node2D2" type="Node2D" parent="MidgroundLayer/Entities/Hazards/MovingPlatform-2/AnimatableBody2D" index="0"]
 position = Vector2(233, -937.9995)
