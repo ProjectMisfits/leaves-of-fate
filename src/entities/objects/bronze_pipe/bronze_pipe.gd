@@ -23,6 +23,19 @@ var _player: Player = null
 func _ready() -> void:
 	# Set up the pipe texture along the pipe's path.
 	$Path2D/Line2D.points = $Path2D.curve.get_baked_points()
+	# Put the cap textures at the start and end of the pipe.
+	var start_cap_sprite: Sprite2D = Sprite2D.new()
+	start_cap_sprite.texture = preload("res://assets/entities/objects/bronze_pipe/PipeStraight-01-capstart.PNG")
+	start_cap_sprite.position = $Path2D.curve.get_point_position(0)
+	start_cap_sprite.rotate($Path2D.curve.get_point_position(0).angle_to($Path2D.curve.get_point_position(1)))
+	start_cap_sprite.scale = Vector2(1.5, 1.5)
+	add_child(start_cap_sprite)
+	var end_cap_sprite: Sprite2D = Sprite2D.new()
+	end_cap_sprite.texture = preload("res://assets/entities/objects/bronze_pipe/PipeStraight-01-capend.PNG")
+	end_cap_sprite.position = $Path2D.curve.get_point_position($Path2D.curve.point_count - 1)
+	end_cap_sprite.rotate($Path2D.curve.get_point_position($Path2D.curve.point_count - 2).angle_to_point($Path2D.curve.get_point_position($Path2D.curve.point_count - 1)))
+	end_cap_sprite.scale = Vector2(1.5, 1.5)
+	add_child(end_cap_sprite)
 
 # Called every physics tick.
 func _physics_process(delta: float) -> void:

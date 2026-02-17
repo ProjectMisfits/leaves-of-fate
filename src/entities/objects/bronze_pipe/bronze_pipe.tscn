@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drbvuvi57e415" path="res://src/entities/objects/bronze_pipe/bronze_pipe.gd" id="1_u0ny2"]
 [ext_resource type="PackedScene" uid="uid://da6ytc6ksd7lb" path="res://src/entities/triggers/player_enter_trigger/bronze_pipe_trigger/bronze_pipe_trigger.tscn" id="2_8gm2e"]
-[ext_resource type="Texture2D" uid="uid://ccl1jo62ovfr8" path="res://assets/entities/objects/bronze_pipe/PipeStraight-01.PNG" id="3_2knel"]
+[ext_resource type="Texture2D" uid="uid://da11vqswv7vik" path="res://assets/entities/objects/bronze_pipe/PipeStraight-01-body.PNG" id="3_2knel"]
 
 [sub_resource type="Curve2D" id="Curve2D_esdh6"]
 resource_local_to_scene = true
@@ -15,6 +15,13 @@ point_count = 2
 script = ExtResource("1_u0ny2")
 
 [node name="BronzePipeTrigger" parent="." instance=ExtResource("2_8gm2e")]
+
+[node name="Line2D" type="Line2D" parent="."]
+texture_repeat = 3
+width = 400.0
+texture = ExtResource("3_2knel")
+texture_mode = 1
+joint_mode = 2
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_esdh6")
@@ -45,12 +52,5 @@ unique_name_in_owner = true
 position = Vector2(0, 243)
 update_rotation = false
 update_scale = false
-
-[node name="Line2D" type="Line2D" parent="Path2D"]
-texture_repeat = 3
-width = 800.0
-texture = ExtResource("3_2knel")
-texture_mode = 1
-joint_mode = 2
 
 [connection signal="pipe_entered" from="BronzePipeTrigger" to="." method="_enter_pipe"]
