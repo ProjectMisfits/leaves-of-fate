@@ -133,8 +133,10 @@ var jump_gravity: float = 0.0
 var time_since_on_floor: float = 0.0	## How long (in seconds) the Player has been on the floor for. Used to validate a coyote time jump.
 var time_since_jump_queued: float = 0.0	## How long (in seconds) since the Player queued a jump. Used to validate a buffered jump.
 
-##Variable that determines if the player can build leaf meter or not
-var can_build_wind : bool = true
+## Determines whether the Player is forced to Leaf Dash, cannot Leaf Dash, or behaves as normal.
+## Wind Zones set the Player's current leaf dash mode.
+enum leaf_dash_mode {NORMAL, DASH_ONLY, NO_DASH}
+var _current_leaf_dash_mode: leaf_dash_mode = leaf_dash_mode.NORMAL
 
 # -------------------- SIGNALS -------------------- #
 signal player_knocked_out					## Emitted when the Player loses all of their health.
@@ -278,15 +280,17 @@ func check_airborne_state() -> void:
 
 ## If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to piling state.
 func check_dashing_state() -> void:
-	# If input is disabled, don't handle dash inputs
-	if input_disabled:
-		return
+	var is_leaf_dash_mode_no_dash: bool = _current_leaf_dash_mode == leaf_dash_mode.NO_DASH
 	
-	if Input.is_action_just_pressed(&"dash"):
+	# If input is disabled, don't handle dash inputs
+	if input_disabled or is_leaf_dash_mode_no_dash:
+		return
+	else:
+		var is_leaf_dash_mode_dash_only: bool = _current_leaf_dash_mode == leaf_dash_mode.DASH_ONLY
+		var is_dash_action_just_pressed: bool = Input.is_action_just_pressed(&"dash")
 		var is_leaf_meter_not_empty: bool = (leaf_meter > 0.0)
-		var is_direction_pressed: bool = (Input.get_vector("move_left", "move_right", "move_up", "move_down") != Vector2.ZERO)
 		
-		if is_direction_pressed and is_leaf_meter_not_empty:
+		if (is_leaf_dash_mode_dash_only) or (is_dash_action_just_pressed and is_leaf_meter_not_empty):
 			leaf_enter_audio.play()
 			state_machine.dispatch(&"to_dashing")
 
@@ -422,7 +426,9 @@ func update_leaf_meter(delta: float) -> void:
 	# Compute change in leaf meter
 	var leaf_meter_change: float = 0.0
 	
-	if (dashing_state.is_active()):
+	if (_current_leaf_dash_mode != leaf_dash_mode.NORMAL):
+		leaf_meter_change = 0.0	# Do not change Leaf Meter while Player is not in control of Leaf Dash
+	elif (dashing_state.is_active()):
 		leaf_meter_change = -1.0 * meter_dash_drain_rate
 	elif (piling_state.is_active()):
 		leaf_meter_change = -1.0 * meter_pile_drain_rate
@@ -430,7 +436,7 @@ func update_leaf_meter(delta: float) -> void:
 		leaf_meter_change = 0.0
 	elif (signf(get_x_input()) != signf(velocity.x)): # If turning
 		leaf_meter_change = 0.0
-	elif (velocity != Vector2.ZERO and can_build_wind):
+	elif (velocity != Vector2.ZERO):
 		leaf_meter_change = meter_buildup_rate
 	else:
 		leaf_meter_change = -1.0 * meter_drain_rate
@@ -439,13 +445,13 @@ func update_leaf_meter(delta: float) -> void:
 	
 	set_leaf_meter(new_leaf_meter)
 
-##Sets if the player can build leaf meter
-func set_can_build_wind(new_build_wind : bool) -> void:
-	can_build_wind = new_build_wind
+## Getter for the Player's current leaf dash mode.
+func get_current_leaf_dash_mode() -> bool:
+	return _current_leaf_dash_mode
 
-##Gets if the player can build leaf meter 
-func get_can_build_wind() -> bool:
-	return can_build_wind
+## Setter for the Player's current leaf dash mode.
+func set_current_leaf_dash_mode(new_leaf_dash_mode: Player.leaf_dash_mode) -> void:
+	_current_leaf_dash_mode = new_leaf_dash_mode
 
 ## Decreases the Player's health by the given value.
 func hurt(damage: int) -> void:
