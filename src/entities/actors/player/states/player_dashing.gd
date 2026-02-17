@@ -41,7 +41,7 @@ func _update(_delta: float) -> void:
 	var is_leaf_meter_empty: bool = agent.leaf_meter <= 0.0
 	var is_dash_action_not_pressed: bool = not Input.is_action_pressed("dash")
 	
-	if (not is_leaf_dash_mode_dash_only) and (is_leaf_dash_mode_no_dash or is_dash_action_not_pressed or is_leaf_meter_empty or agent.input_disabled):
+	if agent.input_disabled or is_leaf_dash_mode_no_dash or ((not is_leaf_dash_mode_dash_only) and (is_dash_action_not_pressed or is_leaf_meter_empty)):
 		agent.check_airborne_state()
 		agent.check_running_state()
 		agent.check_idle_state()
