@@ -47,7 +47,7 @@ position = Vector2(20160, 1024)
 position = Vector2(11072, -2688)
 
 [node name="HeaterLever" parent="MidgroundLayer/Entities/Objects" index="1" instance=ExtResource("3_4tr4r")]
-position = Vector2(4928, -1152)
+position = Vector2(11072, -2688)
 heater_number = 1
 
 [node name="BronzePipe" parent="MidgroundLayer/Entities/Objects" index="2" instance=ExtResource("4_f2owy")]
