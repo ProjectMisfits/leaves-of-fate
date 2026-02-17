@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnc5ghx3ns12"]
+[gd_scene load_steps=9 format=3 uid="uid://cnc5ghx3ns12"]
 
 [ext_resource type="PackedScene" uid="uid://daw5s2hjs0tq1" path="res://src/entities/actors/npcs/npc_base/npc_base.tscn" id="1_3e8bs"]
 [ext_resource type="Texture2D" uid="uid://ckbv0pikghyok" path="res://assets/entities/actors/npcs/az/Az-SpriteSheet-Idle-05.png" id="2_0vfkb"]
 [ext_resource type="Shape2D" uid="uid://dckafgmp1s840" path="res://src/entities/actors/npcs/npc_az/npc_az_collision_shape.tres" id="3_1o21l"]
+[ext_resource type="Texture2D" uid="uid://4a42l1lq6nvp" path="res://assets/entities/actors/npcs/az/Az-SpriteSheet-Walk-01.png" id="4_xtrrx"]
 
 [sub_resource type="Animation" id="Animation_1o21l"]
 length = 0.001
@@ -45,9 +46,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_0vfkb"]
 resource_name = "az_idle"
-length = 1.01
 loop_mode = 1
-step = 24.0
+step = 0.041666668
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -85,10 +85,53 @@ tracks/2/keys = {
 "values": [0, 1, 2, 3, 4]
 }
 
+[sub_resource type="Animation" id="Animation_xtrrx"]
+resource_name = "az_walk"
+length = 0.58333755
+loop_mode = 1
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipNode/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_xtrrx")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlipNode/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FlipNode/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.16666667, 0.25, 0.33333334, 0.41666666, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1o21l"]
 _data = {
 &"RESET": SubResource("Animation_1o21l"),
-&"az_idle": SubResource("Animation_0vfkb")
+&"az_idle": SubResource("Animation_0vfkb"),
+&"az_walk": SubResource("Animation_xtrrx")
 }
 
 [node name="NpcAz" instance=ExtResource("1_3e8bs")]
