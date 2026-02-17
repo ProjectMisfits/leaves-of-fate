@@ -41,14 +41,14 @@ func _update(_delta: float) -> void:
 	var is_leaf_meter_empty: bool = agent.leaf_meter <= 0.0
 	var is_dash_action_not_pressed: bool = not Input.is_action_pressed("dash")
 	
-	if agent.input_disabled or is_leaf_dash_mode_no_dash or ((not is_leaf_dash_mode_dash_only) and (is_dash_action_not_pressed or is_leaf_meter_empty)):
+	if not agent.input_processing or is_leaf_dash_mode_no_dash or ((not is_leaf_dash_mode_dash_only) and (is_dash_action_not_pressed or is_leaf_meter_empty)):
 		agent.check_airborne_state()
 		agent.check_running_state()
 		agent.check_idle_state()
 	
 	# Get new input vector depending on held Actions
 	var new_input_direction: Vector2
-	if agent.input_disabled:
+	if not agent.input_processing:
 		new_input_direction = Vector2.ZERO
 	else:
 		new_input_direction = get_input_direction()
