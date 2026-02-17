@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://d1xpibplt3uqb"]
+[gd_scene load_steps=11 format=4 uid="uid://d1xpibplt3uqb"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_qkmm6"]
 [ext_resource type="PackedScene" uid="uid://mn6k4g5kkt5q" path="res://src/entities/objects/heater/heater.tscn" id="2_57jf6"]
 [ext_resource type="PackedScene" uid="uid://bdjego1dul8qg" path="res://src/entities/decor/pillars/arch_point_cracked.tscn" id="2_b4s1q"]
+[ext_resource type="PackedScene" uid="uid://c567nmtkfbfn4" path="res://src/entities/objects/heater_lever/heater_lever.tscn" id="3_4tr4r"]
 [ext_resource type="PackedScene" uid="uid://wxvub3svduoi" path="res://src/entities/decor/pillars/arch_round_cracked.tscn" id="3_en7vy"]
 [ext_resource type="PackedScene" uid="uid://lyc1bsnodr4q" path="res://src/entities/decor/pillars/pillar_trunk_04.tscn" id="5_3ersv"]
 [ext_resource type="PackedScene" uid="uid://bdovxpf4gaxv6" path="res://src/entities/decor/pillars/pillar_cap_02.tscn" id="5_uv0yq"]
@@ -29,6 +30,10 @@ position = Vector2(20096, 1024)
 
 [node name="Heater" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("2_57jf6")]
 position = Vector2(11072, -2688)
+
+[node name="HeaterLever" parent="MidgroundLayer/Entities/Objects" index="1" instance=ExtResource("3_4tr4r")]
+position = Vector2(4928, -1152)
+heater_number = 1
 
 [node name="ArchRoundCracked" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("3_en7vy")]
 position = Vector2(4928, -5120)
