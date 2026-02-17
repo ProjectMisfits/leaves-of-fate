@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bj7fv2e6r3bp5"]
+[gd_scene load_steps=6 format=3 uid="uid://bj7fv2e6r3bp5"]
 
 [ext_resource type="Script" uid="uid://lrd4ytnsswka" path="res://src/entities/hazards/icicle/icicle.gd" id="1_flfsn"]
-[ext_resource type="Texture2D" uid="uid://dtlb7dnnba4ka" path="res://assets/entities/hazards/icicle/Icicle-05.png" id="2_flfsn"]
+[ext_resource type="Material" uid="uid://dde8s4xg3ueai" path="res://assets/graphics/ice_material_spike_06.tres" id="2_p8amc"]
+[ext_resource type="Texture2D" uid="uid://dd8k6ekkusmt2" path="res://assets/entities/hazards/canvas_icicle/C-Icicle-05.tres" id="3_p8amc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5sn6"]
 size = Vector2(133, 560)
@@ -24,7 +25,8 @@ position = Vector2(0, -207)
 shape = SubResource("RectangleShape2D_yhnhy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_p8amc")
 position = Vector2(-1.009742e-28, -301)
-texture = ExtResource("2_flfsn")
+texture = ExtResource("3_p8amc")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

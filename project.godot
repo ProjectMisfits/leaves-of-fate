@@ -14,7 +14,7 @@ config/name="Misfits MQP Project"
 run/main_scene="uid://18bv6betadgh"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=120
-config/icon="uid://cf70wrqc5s35o"
+config/icon="uid://caq6rtsgyv6lm"
 
 [audio]
 
