@@ -27,9 +27,8 @@ target_room_path = "uid://bl0pji1ab2qhu"
 position = Vector2(27902, -6405)
 target_room_path = "uid://ebpnfipahfjq"
 
-[node name="CameraTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" node_paths=PackedStringArray("limit_target") instance=ExtResource("3_0l54u")]
+[node name="CameraTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("3_0l54u")]
 position = Vector2(192, 960)
-limit_target = NodePath("../../../Midground")
 follow_player = true
 
 [node name="CollisionShape2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger" index="0"]
@@ -52,7 +51,18 @@ text = "Hold LT + Any Direction:
 Leaf Dash"
 horizontal_alignment = 1
 
-[node name="UpArrowLabel" type="Label" parent="MidgroundLayer/Decor" index="1"]
+[node name="TutorialLabel-2" type="Label" parent="MidgroundLayer/Decor" index="1"]
+offset_left = 14010.0
+offset_top = -2891.0
+offset_right = 15694.0
+offset_bottom = -2486.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 150
+text = "Leaf Dash uses Wind
+Charge Wind by moving "
+horizontal_alignment = 1
+
+[node name="UpArrowLabel" type="Label" parent="MidgroundLayer/Decor" index="2"]
 offset_left = 16495.0
 offset_top = -2964.0
 offset_right = 16562.0
