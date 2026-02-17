@@ -12,7 +12,8 @@ _data = {
 point_count = 2
 
 [node name="BronzePipe" type="Node2D"]
-z_index = 3
+z_index = 1
+z_as_relative = false
 script = ExtResource("1_u0ny2")
 
 [node name="BronzePipeTrigger" parent="." instance=ExtResource("2_8gm2e")]
