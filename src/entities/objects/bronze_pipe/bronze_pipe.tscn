@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bbpm02j1io7y6"]
 
 [ext_resource type="Script" uid="uid://drbvuvi57e415" path="res://src/entities/objects/bronze_pipe/bronze_pipe.gd" id="1_u0ny2"]
-[ext_resource type="Texture2D" uid="uid://ccl1jo62ovfr8" path="res://assets/entities/objects/bronze_pipe/PipeStraight-01.PNG" id="2_2knel"]
 [ext_resource type="PackedScene" uid="uid://da6ytc6ksd7lb" path="res://src/entities/triggers/player_enter_trigger/bronze_pipe_trigger/bronze_pipe_trigger.tscn" id="2_8gm2e"]
+[ext_resource type="Texture2D" uid="uid://4oji6ch0810r" path="res://assets/entities/objects/bronze_pipe/PipeStraight-01-cropped-again.PNG" id="3_2knel"]
 
 [sub_resource type="Curve2D" id="Curve2D_esdh6"]
 resource_local_to_scene = true
@@ -47,9 +47,10 @@ update_rotation = false
 update_scale = false
 
 [node name="Line2D" type="Line2D" parent="Path2D"]
-texture_repeat = 2
+texture_repeat = 3
 width = 800.0
-texture = ExtResource("2_2knel")
+texture = ExtResource("3_2knel")
 texture_mode = 1
+joint_mode = 2
 
 [connection signal="pipe_entered" from="BronzePipeTrigger" to="." method="_enter_pipe"]
