@@ -15,4 +15,3 @@ func _ready() -> void:
 		z_index = 3
 	else:
 		z_index = 1
-		modulate = Color(0.521, 0.521, 0.521, 1.0)

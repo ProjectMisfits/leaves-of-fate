@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cokainunikolj"
-path="res://.godot/imported/Ice-Scream-Charge-2.png-af05f86c8f6a75e2a5eaebe42254e36a.ctex"
+uid="uid://cyytjvmfo5gj5"
+path="res://.godot/imported/Ice-Scream-Idle.png-a76c1a3bb52d4177840c69b93d5201f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/actors/npcs/ice_scream/Ice-Scream-Charge-2.png"
-dest_files=["res://.godot/imported/Ice-Scream-Charge-2.png-af05f86c8f6a75e2a5eaebe42254e36a.ctex"]
+source_file="res://assets/entities/actors/enemies/ice_scream/Ice-Scream-Idle.png"
+dest_files=["res://.godot/imported/Ice-Scream-Idle.png-a76c1a3bb52d4177840c69b93d5201f9.ctex"]
 
 [params]
 

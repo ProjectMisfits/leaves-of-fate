@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://girfq624oon6"
-path="res://.godot/imported/Az-SpriteSheet-Idle-03.png-c8122250353787a9e0429114c260a208.ctex"
+uid="uid://dljudi1qrrhm0"
+path="res://.godot/imported/IceScream-Push.png-081ca25cf8415882f46e221a62a635b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/actors/npcs/az/Az-SpriteSheet-Idle-03.png"
-dest_files=["res://.godot/imported/Az-SpriteSheet-Idle-03.png-c8122250353787a9e0429114c260a208.ctex"]
+source_file="res://assets/entities/actors/enemies/ice_scream/IceScream-Push.png"
+dest_files=["res://.godot/imported/IceScream-Push.png-081ca25cf8415882f46e221a62a635b3.ctex"]
 
 [params]
 
