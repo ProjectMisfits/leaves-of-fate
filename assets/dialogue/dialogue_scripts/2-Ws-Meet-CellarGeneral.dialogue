@@ -1,50 +1,37 @@
 ~ start
 do! CameraManager.create_camera(Vector2(4600.0, 600.0), 0.6, 2, "CUBIC", "EASE_IN_OUT")
-??? ws: [font_size=30]Why, why yes![wait=0.2] That shouldst do rather nicely.[/font_size]
-??? ws: [font_size=30]I just needeth... [wait=0.2]certainly not... [/font_size]
-Fenn: Helloo?
+??? ws: [font_size=30]Ah, tis perfect. That shouldst do rather well.[/font_size]
+do EventBus.interrupt_dialogue.emit("0.5")
+??? ws: [font_size=30]I just needeth...[/font_size]
+Fenn: Hello??
 do CutsceneManager.npc_face("Winston", "left")
-??? ws: [font_size=100][shake level=20 rate=50]WHAT?! WHO ART THOU?[/shake][/font_size]
+??? ws: [font_size=100][shake level=15 rate=50]WHAT?! WHO ART THOU?[/shake][/font_size]
 do CutsceneManager.npc_face("Winston", "right")
 ??? ws: [font_size=30]Didst we not trapeth everyone?[/font_size]
-do EventBus.interrupt_dialogue.emit("0.2")
-Fenn: No, there's a buncha people in the [color="blue"]Great Hall[/color]. There's this super cool lady-
+Fenn starry: Nope!
 do CutsceneManager.npc_face("Winston", "left")
-??? ws: [font_size=70]Nay matter![/font_size] [shake level=7 rate=30]I shalt crush thee myself![/shake]
-Fenn: You talk weird.
-??? ws: Um- [wait=0.2]stayeth right there![wait=0.2] Not another step!
-Fenn: Or...[wait=0.2] what?
-??? ws: Um. [wait=0.2]Well.
+??? ws grit: [font_size=70][i]No matter.[/i][/font_size] [wait=0.2]I shalt crush thee [shake level=10 rate=30]myself![/shake]
+??? ws: Not another step, [shake level=10 rate=30][i]pint-size[/i][/shake]
+Fenn: Or... what?
+??? ws awkward: Um. Well.
 Fenn: Are you a wizard?
 do EventBus.interrupt_dialogue.emit("0.2")
 Wizard?: Why,[wait=0.2] of course![wait=0.2] I am the Great Wizard of-
-Fenn: [font_size=100]PREPARE YOURSELF, [shake level=10 rate=50]WIZARD! [/shake][/font_size]
-Fenn: [font_size=60][wave freq=7 amp=25]I will defeat you and free this palace![/wave][/font_size]
-Wizard: Oh my...
-Wizard: Well, [wait=0.2]you see, [wait=0.2]I doth not much timeth for this.
-Wizard: Like, [wait=0.2]I would [shake level=7 rate=10]love[/shake] to destroyeth thee,[wait=0.2] but I must findeth this [color="blue"]Workshop[/color].
-Fenn: Huh? What [color="blue"]Workshop[/color]? 
-Wizard: Listen hereth, [shake level=7 rate=30][i]pint-size[/i][/shake]. 
-Wizard: Stayeth out of mine own way, [wait=0.2][shake level=7 rate=30]or I shall maketh thee regret it[/shake].
-do! CutsceneManager.npc_move("Winston", 7200.0, 2000.0, false, false)
-Fenn: Wait! I have another question.
-do! CutsceneManager.npc_move("Winston", 5568.0, 2000.0, false, false)
-Wizard: Fie! Thou art not my [shake level=7 rate=30]Mother![/shake]
-do EventBus.interrupt_dialogue.emit("0.2")
-Fenn: Uh...
-Wizard: [font_size=60]Nay matter!! [/font_size]What is thy question?
-Fenn: Why'd you trap all the Knights and stuff??
-Wizard: Because they deserved it! 
-Fenn: WHAT?! No they didn't![wait=0.2] [shake level=5 rate=20]They help so many people![/shake]
-Wizard: WHO?! What doth they even do-eth? [shake level=7 rate=30]Sitteth 'round and bicker over meaningless laws?[/shake]
-Wizard: Forget it. I must runneth. 
-Wizard: [font_size=60]Evil plans to maketh,[/font_size][font_size=50] traps to setteth,[/font_size][font_size=40] enemies to sendeth at thee, [/font_size][font_size=30]you know.[/font_size]
-Fenn: Yeah, I get it.
-Wizard: Um.[wait=0.2] Goodbye, pint-size.
-Fenn: Bye bye!
-do! CutsceneManager.npc_move("Winston", 7200.0, 2000.0, false, false)
+Fenn: [font_size=100]PREPARE YOURSELF, [shake level=15 rate=50]WIZARD! [/shake][/font_size]
+Fenn: [font_size=60][wave freq=8 amp=30]I will defeat you and free this palace![/wave][/font_size]
+do CutsceneManager.npc_face("Winston", "right")
+Wizard grit: [font_size=40][shake level=7 rate=20]ARGH[/shake]. [i]I do not have timeth for this.[/i] [/font_size]
+Wizard grit: [font_size=40]I must findeth that [color="0B4F4A"]Workshop[/color]![/font_size]
+do CutsceneManager.npc_face("Winston", "left")
+Wizard awkward: [font_size=80]Ahem.[/font_size]
+Wizard: [wave freq=7 amp=30]In due timeth, [i]pint-size[/i].[/wave]
+do CutsceneManager.npc_move("Winston", 6200.0, 1000.0, false, false)
+Wizard grit: I look forward to our battle. [shake level=7 rate=30]Thy defeat shalt be one for the ages.[/shake]
+do CutsceneManager.npc_move("Winston", 7200.0, 2000.0, false, false)
 do CutsceneManager.remove_npc("Winston")
-Fenn: What a formidable foe...
-do CutsceneManager._end_cutscene()
+Fenn: Uh...
+Fenn: Indeed, it shalt... eth?
 do EventFlags.set_flag("Ws-Meet-CellarGeneral", true)
 => END
+
+
