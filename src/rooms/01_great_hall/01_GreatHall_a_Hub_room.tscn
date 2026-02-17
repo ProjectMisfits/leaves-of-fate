@@ -70,34 +70,31 @@ position = Vector2(-2432, -1920)
 [node name="HangingLantern-3" parent="BackgroundLayer/Decor" index="12" instance=ExtResource("3_n43ap")]
 position = Vector2(-5760, -832)
 
-[node name="HangingLantern-4" parent="BackgroundLayer/Decor" index="13" instance=ExtResource("3_n43ap")]
-position = Vector2(-5760, -832)
-
-[node name="HangingLantern2" parent="BackgroundLayer/Decor" index="14" instance=ExtResource("3_n43ap")]
+[node name="HangingLantern2" parent="BackgroundLayer/Decor" index="13" instance=ExtResource("3_n43ap")]
 position = Vector2(-16128, 1536)
 
-[node name="HangingLantern2-2" parent="BackgroundLayer/Decor" index="15" instance=ExtResource("3_n43ap")]
+[node name="HangingLantern2-2" parent="BackgroundLayer/Decor" index="14" instance=ExtResource("3_n43ap")]
 position = Vector2(-13056, 1536)
 
-[node name="HangingLantern2-3" parent="BackgroundLayer/Decor" index="16" instance=ExtResource("3_n43ap")]
+[node name="HangingLantern2-3" parent="BackgroundLayer/Decor" index="15" instance=ExtResource("3_n43ap")]
 position = Vector2(-11200, 1088)
 
-[node name="HangingLantern3" parent="BackgroundLayer/Decor" index="17" instance=ExtResource("3_n43ap")]
+[node name="HangingLantern3" parent="BackgroundLayer/Decor" index="16" instance=ExtResource("3_n43ap")]
 position = Vector2(18176, -2048)
 
-[node name="HangingLantern4" parent="BackgroundLayer/Decor" index="18" instance=ExtResource("3_n43ap")]
+[node name="HangingLantern4" parent="BackgroundLayer/Decor" index="17" instance=ExtResource("3_n43ap")]
 position = Vector2(22656, -2048)
 
-[node name="HangingLantern4-2" parent="BackgroundLayer/Decor" index="19" instance=ExtResource("3_n43ap")]
+[node name="HangingLantern4-2" parent="BackgroundLayer/Decor" index="18" instance=ExtResource("3_n43ap")]
 position = Vector2(36352, 1536)
 
-[node name="HangingLantern4-3" parent="BackgroundLayer/Decor" index="20" instance=ExtResource("3_n43ap")]
+[node name="HangingLantern4-3" parent="BackgroundLayer/Decor" index="19" instance=ExtResource("3_n43ap")]
 position = Vector2(25984, -832)
 
-[node name="HangingLantern4-4" parent="BackgroundLayer/Decor" index="21" instance=ExtResource("3_n43ap")]
+[node name="HangingLantern4-4" parent="BackgroundLayer/Decor" index="20" instance=ExtResource("3_n43ap")]
 position = Vector2(31424, 1024)
 
-[node name="HangingLantern4-5" parent="BackgroundLayer/Decor" index="22" instance=ExtResource("3_n43ap")]
+[node name="HangingLantern4-5" parent="BackgroundLayer/Decor" index="21" instance=ExtResource("3_n43ap")]
 position = Vector2(33280, 1536)
 
 [node name="Midground" parent="MidgroundLayer" index="0"]
@@ -109,7 +106,7 @@ scale = Vector2(3, 3)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(-16128, 3584)
-path_to_target_room = "uid://qnwmehxlttwm"
+target_room_path = "uid://cadsmfa8k8oaw"
 
 [node name="Icicle_06" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("4_xsu4n")]
 position = Vector2(-17408, -320)

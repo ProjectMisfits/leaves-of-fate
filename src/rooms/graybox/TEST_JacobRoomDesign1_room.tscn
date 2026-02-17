@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://drih50ff8ecg5"]
+[gd_scene load_steps=6 format=4 uid="uid://drih50ff8ecg5"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_wrxx8"]
 [ext_resource type="PackedScene" uid="uid://b0kcsh4u0s6h" path="res://src/entities/hazards/icicle/icicle_group_05.tscn" id="2_r2fqj"]
 [ext_resource type="PackedScene" uid="uid://d2hq2ernl83oa" path="res://src/entities/objects/spawner/spawner.tscn" id="4_5lkvv"]
 [ext_resource type="PackedScene" uid="uid://bg2o7v2o7bjjk" path="res://src/entities/objects/breakaway_platform/breakaway_platform.tscn" id="4_gr36w"]
+[ext_resource type="PackedScene" uid="uid://bm0xouvbpmqos" path="res://src/entities/objects/fenn_platform/fenn_platform.tscn" id="5_5lkvv"]
 
 [node name="TEST_JacobRoomDesign1" instance=ExtResource("1_wrxx8")]
 
@@ -109,3 +110,7 @@ respawnable = true
 
 [node name="Spawner" parent="MidgroundLayer/Entities/Objects" index="1" instance=ExtResource("4_5lkvv")]
 position = Vector2(-888, -957)
+
+[node name="FennPlatform" parent="." index="3" instance=ExtResource("5_5lkvv")]
+position = Vector2(-500, 454)
+scale = Vector2(3.775, 3.775)

@@ -3,9 +3,9 @@ class_name Gameplay extends Node2D
 ## Manages scenes like the current Room, HUD, Camera, menus.
 
 ## A holder node for the room the player is currently in.
-@onready var room_holder: Node2D = $%RoomHolder
+@onready var room_holder: Node2D = %RoomHolder
 ## The room the player is currently in.
-var current_room: Room = null
+@onready var current_room: Room = %RoomHolder.get_child(0)
 ## The path to the current room's file. Used for resetting rooms.
 var current_room_path: String = ""
 
@@ -24,65 +24,77 @@ var current_room_path: String = ""
 ## An audio player for the select sound effect.
 @onready var select_audio: AudioStreamPlayer = $Audio/SelectAudio
 
+## The spawn/respawn/checkpoint location for the player.
+var player_spawn_location: Vector2
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Set up the camera manager.
 	CameraManager.initialize_camera($%PhantomCamera2D, $%Camera2D)
 	
-	# Set the starting Room
-	_update_current_room()
+	# Put the player in the first room.
+	_init_room('enter')
 	
-	# Spawn the player at the first door now that the room has been loaded
-	current_room.spawn_player_at_door('enter')
-	# Connect phantom camera to player
-	CameraManager.set_target(current_room.player)
 	# Connect UI menu signals
 	_connect_menu_signals()
 
 # Called once every physics tick.
 func _physics_process(_delta: float) -> void:
-	DebugMenu.add_debug_property("Current Room", current_room.name, 0)
+	if is_instance_valid(current_room):
+		DebugMenu.add_debug_property("Current Room", current_room.name, 0)
 
-## Update the reference to the current scene.
-func _update_current_room() -> void:
-	# Get the last child of RoomHolder, as that will always be the current room
+## Tear down a room before a swap.
+func _tear_down_room() -> void:
+	# Disconnect camera from player
+	CameraManager.clear_target()
+	# Janky call to make sure cutscene stuff functions correctly
+	CutsceneManager._end_cutscene()
+
+## Set up a room after a swap.
+func _init_room(target_door_name: String) -> void:
+	# Update the current room
 	current_room = room_holder.get_child(-1) as Room
 	# Connect room signals for rooms that don't have them connected yet
 	if not current_room.swap_room.is_connected(_on_swap_room):
 		current_room.swap_room.connect(_on_swap_room)
 	if not current_room.reset_room.is_connected(_on_reset_room):
 		current_room.reset_room.connect(_on_reset_room)
-
-## Swap to the specified Room and unload the current Room.
-func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
-	# Begin a screen transition.
-	await SceneManager.add_screen_transition("circle")
-	# Disconnect camera from player
-	CameraManager.clear_target()
-	# Janky call to make sure cutscene stuff functions correctly
-	CutsceneManager._end_cutscene()
-	# Swap in the target room
-	SceneManager.swap_scenes(target_room_path, room_holder, current_room)
-	# Update the current room
-	_update_current_room()
-	current_room_path = target_room_path
-	# Set the camera limits for the room
+	# Set the room's camera limits
 	CameraManager.set_limit(current_room.midground.get_path())
 	# Reset hud state
 	hud.reset_hud()
 	# Connect the HUD to the new player
 	hud.set_player(current_room.player)
-	# Add player to new current room and place them at correct door
+	# Add player to the room and place them at correct door
 	current_room.spawn_player_at_door(target_door_name)
 	# Reconnect camera to player
 	CameraManager.set_target(current_room.player)
 	CameraManager.teleport()
+
+## Swap to the specified Room and unload the current Room.
+func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
+	# Begin a screen transition.
+	await SceneManager.add_screen_transition("circle")
+	# Do the room swap
+	_tear_down_room()
+	SceneManager.swap_scenes(target_room_path, room_holder, current_room)
+	_init_room(target_door_name)
+	current_room_path = target_room_path
+	player_spawn_location = current_room.get_door_position(target_door_name)
 	# Finish the screen transition.
 	await SceneManager.remove_screen_transition()
 
 ## Resets the current room, putting the player at their last spawn location.
-func _on_reset_room(last_entered_door_name: String) -> void:
-	_on_swap_room(current_room_path, last_entered_door_name)
+func _on_reset_room() -> void:
+	# Begin a screen transition.
+	await SceneManager.add_screen_transition("circle")
+	_tear_down_room()
+	SceneManager.swap_scenes(current_room_path, room_holder, current_room)
+	_init_room('enter')
+	current_room.set_player_location(player_spawn_location)
+	CameraManager.teleport()
+	# Finish the screen transition.
+	await SceneManager.remove_screen_transition()
 
 ## UI FUNCTIONALITY
 

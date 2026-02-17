@@ -23,6 +23,8 @@ var move_axis: float = 0
 var target_x: float = global_position.x
 
 func _ready() -> void:
+	# Start out by playing their idle animation
+	animation_player.play(idle_animation)
 	# Register this NPC with the cutscene manager.
 	CutsceneManager.register_npc(self)
 
@@ -44,33 +46,23 @@ func _physics_process(delta: float) -> void:
 
 ## Move the NPC based on the given parameters.
 ## move_direction: one of "left" or "right"
-func move(move_direction: String, distance: float = 1.0, speed: float = 1.0, animate_walk: bool = true, moonwalk: bool = false) -> void:
-	# Set the direction to face
+func move(destination_global_x: float, move_speed: float, animate_walk: bool = true, moonwalk: bool = false) -> void:
+	# Determine which direction the NPC needs to move
+	move_axis = -1.0 if destination_global_x < global_position.x else 1.0
+	# Set the direction to face based on the direction to move and moonwalk
 	if not moonwalk:
-		set_look(move_direction)
+		set_look(move_axis)
 	else:
-		if move_direction == "left":
-			set_look("right")
-		elif move_direction == "right":
-			set_look("left")
-		else:
-			push_error("NPC: Invalid look direction given.")
-			return
+		set_look(move_axis * -1.0)
 	
 	# Set NPC velocity
-	move_axis = -1 if move_direction == "left" else 1
-	target_x = global_position.x + distance * move_axis
-	velocity = Vector2(speed * move_axis, 0)
+	target_x = destination_global_x
+	velocity = Vector2(move_speed * move_axis, 0)
 	# Set NPC move animation
 	if animate_walk:
 		animation_player.play(walk_animation)
 
 ## Set the NPC to look in the given direction.
 ## look_direction: "left" or "right"
-func set_look(look_direction: String) -> void:
-	if look_direction == "left":
-		flip_node.scale.x = -1.0
-	elif look_direction == "right":
-		flip_node.scale.x = 1.0
-	else:
-		push_error("NPC %s: Invalid look direction given." % npc_name)
+func set_look(face_axis: float) -> void:
+	flip_node.scale.x = face_axis

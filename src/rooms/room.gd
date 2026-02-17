@@ -3,9 +3,9 @@ class_name Room extends Node2D
 ## All rooms must extend from this class.
 
 ## Triggered when the player interacts with a door to transition to a new room.
-signal swap_room(target_room_path: String, spawn_location: String)
+signal swap_room(target_room_path: String, target_door_name: String)
 ## Triggered when the player is knocked out to reset the current room.
-signal reset_room(respawn_location: String)
+signal reset_room
 
 ## The Player scene.
 @onready var player: Player = %Player
@@ -16,8 +16,6 @@ signal reset_room(respawn_location: String)
 
 ## An array containing all Doors in this Room that lead to other Rooms.
 var doors: Array[Node]
-## The name of the Door the player entered the room from.
-var last_entered_door: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -46,17 +44,25 @@ func _on_player_entered_door(door: Door) -> void:
 func _on_player_player_knocked_out() -> void:
 	# Disable player processing so signal is only emitted once
 	player.process_mode = Node.PROCESS_MODE_DISABLED
-	reset_room.emit(last_entered_door)
+	reset_room.emit()
 
 ## Spawn the player at the given door.
-func spawn_player_at_door(target_door_name: String) -> void:
+func spawn_player_at_door(target_door_name: String) -> Vector2:
+	var spawn_position: Vector2 = get_door_position(target_door_name)
+	set_player_location(spawn_position)
+	# Enable player processing
+	player.process_mode = Node.PROCESS_MODE_INHERIT
+	return spawn_position
+
+## Set the player's location.
+func set_player_location(new_location: Vector2) -> void:
+	player.global_position = new_location
+
+## Get the position of a particular door.
+func get_door_position(new_door_name: String) -> Vector2:
 	for door: Door in doors:
-		if door.door_name == target_door_name:
-			# If a door with the given name exists:
-			player.global_position = door.global_position
-			last_entered_door = target_door_name
-			# Enable player processing
-			player.process_mode = Node.PROCESS_MODE_INHERIT
-			return
+		if door.door_name == new_door_name:
+			return door.global_position
 	# If the target door didn't exist anywhere in the room, report the issue
-	push_warning("Room '%s': Door '%s' does not exist in this room" % [name, target_door_name])
+	push_error("Room: Door '%s' does not exist in this room" % new_door_name)
+	return Vector2(0, 0)
