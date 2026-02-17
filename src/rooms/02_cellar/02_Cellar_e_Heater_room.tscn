@@ -1,15 +1,30 @@
-[gd_scene load_steps=11 format=4 uid="uid://d1xpibplt3uqb"]
+[gd_scene load_steps=14 format=4 uid="uid://5jpe62x2iq5m"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_qkmm6"]
 [ext_resource type="PackedScene" uid="uid://mn6k4g5kkt5q" path="res://src/entities/objects/heater/heater.tscn" id="2_57jf6"]
 [ext_resource type="PackedScene" uid="uid://bdjego1dul8qg" path="res://src/entities/decor/pillars/arch_point_cracked.tscn" id="2_b4s1q"]
 [ext_resource type="PackedScene" uid="uid://c567nmtkfbfn4" path="res://src/entities/objects/heater_lever/heater_lever.tscn" id="3_4tr4r"]
 [ext_resource type="PackedScene" uid="uid://wxvub3svduoi" path="res://src/entities/decor/pillars/arch_round_cracked.tscn" id="3_en7vy"]
+[ext_resource type="PackedScene" uid="uid://bbpm02j1io7y6" path="res://src/entities/objects/bronze_pipe/bronze_pipe.tscn" id="4_f2owy"]
 [ext_resource type="PackedScene" uid="uid://lyc1bsnodr4q" path="res://src/entities/decor/pillars/pillar_trunk_04.tscn" id="5_3ersv"]
 [ext_resource type="PackedScene" uid="uid://bdovxpf4gaxv6" path="res://src/entities/decor/pillars/pillar_cap_02.tscn" id="5_uv0yq"]
 [ext_resource type="PackedScene" uid="uid://7c7nfo2gy8fu" path="res://src/entities/decor/pillars/pillar_cap_03.tscn" id="6_1ul8l"]
 [ext_resource type="PackedScene" uid="uid://bwadcghg6jxxu" path="res://src/entities/decor/pillars/pillar_base_03.tscn" id="7_uv0yq"]
 [ext_resource type="PackedScene" uid="uid://0jijms4al2i5" path="res://src/entities/decor/pillars/pillar_cap_01.tscn" id="8_d1egp"]
+
+[sub_resource type="Curve2D" id="Curve2D_f2owy"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -384, 0, 0, 0, 0, -2880, -384, 0, 0, 0, 0, -2880, -768)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_kof3r"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 384, 0, 0, 0, 0, -2944, 384, 0, 0, 0, 0, -2944, 768)
+}
+point_count = 4
 
 [node name="02_Cellar_e_Heater" instance=ExtResource("1_qkmm6")]
 
@@ -26,7 +41,7 @@ tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAA
 position = Vector2(1984, 1024)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
-position = Vector2(20096, 1024)
+position = Vector2(20160, 1024)
 
 [node name="Heater" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("2_57jf6")]
 position = Vector2(11072, -2688)
@@ -34,6 +49,18 @@ position = Vector2(11072, -2688)
 [node name="HeaterLever" parent="MidgroundLayer/Entities/Objects" index="1" instance=ExtResource("3_4tr4r")]
 position = Vector2(4928, -1152)
 heater_number = 1
+
+[node name="BronzePipe" parent="MidgroundLayer/Entities/Objects" index="2" instance=ExtResource("4_f2owy")]
+position = Vector2(4864, -512)
+
+[node name="Path2D" parent="MidgroundLayer/Entities/Objects/BronzePipe" index="1"]
+curve = SubResource("Curve2D_f2owy")
+
+[node name="BronzePipe-2" parent="MidgroundLayer/Entities/Objects" index="3" instance=ExtResource("4_f2owy")]
+position = Vector2(20160, -1280)
+
+[node name="Path2D" parent="MidgroundLayer/Entities/Objects/BronzePipe-2" index="1"]
+curve = SubResource("Curve2D_kof3r")
 
 [node name="ArchRoundCracked" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("3_en7vy")]
 position = Vector2(4928, -5120)
@@ -268,3 +295,6 @@ position = Vector2(12672, -9024)
 
 [node name="PillarCap03" parent="MidgroundLayer/Decor" index="72" instance=ExtResource("6_1ul8l")]
 position = Vector2(12672, -7104)
+
+[editable path="MidgroundLayer/Entities/Objects/BronzePipe"]
+[editable path="MidgroundLayer/Entities/Objects/BronzePipe-2"]
