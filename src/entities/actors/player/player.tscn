@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=40 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/entities/actors/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://3uombhhv6fd6" path="res://src/entities/actors/player/components/interact_component.gd" id="6_283t5"]
 [ext_resource type="Script" uid="uid://duy7f43rn783x" path="res://src/entities/actors/player/states/player_jumping.gd" id="6_c6y0n"]
 [ext_resource type="Texture2D" uid="uid://bjs6k2nuta53t" path="res://assets/entities/actors/player/fenn_walkcycle_spritesheet.png" id="6_efl0v"]
+[ext_resource type="Script" uid="uid://ch38qexm1hgj7" path="res://src/entities/actors/player/components/wind_zone_component.gd" id="6_ri474"]
 [ext_resource type="Script" uid="uid://cksn2wvaxpq54" path="res://src/entities/actors/player/states/player_airborne.gd" id="7_q4vut"]
 [ext_resource type="Script" uid="uid://b3akxlm17c274" path="res://src/entities/actors/player/components/grab_component.gd" id="7_s3rhx"]
 [ext_resource type="Script" uid="uid://bjtwcn16kj5bl" path="res://src/entities/actors/player/states/player_dashing.gd" id="8_wcwgi"]
@@ -604,6 +605,23 @@ hframes = 8
 region_enabled = true
 region_rect = Rect2(0, 0, 6400, 800)
 
+[node name="WindZoneComponent" type="Node2D" parent="FlipNode"]
+script = ExtResource("6_ri474")
+
+[node name="DashDetectionArea" type="Area2D" parent="FlipNode/WindZoneComponent"]
+collision_layer = 0
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/WindZoneComponent/DashDetectionArea"]
+shape = ExtResource("3_e5ptp")
+
+[node name="NoDashDetectionArea" type="Area2D" parent="FlipNode/WindZoneComponent"]
+collision_layer = 0
+collision_mask = 2048
+
+[node name="CollisionShape2D-2" type="CollisionShape2D" parent="FlipNode/WindZoneComponent/NoDashDetectionArea"]
+shape = ExtResource("3_e5ptp")
+
 [node name="InteractComponent" type="Node2D" parent="FlipNode"]
 script = ExtResource("6_283t5")
 
@@ -715,6 +733,10 @@ one_shot = true
 [node name="FootStepTimer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="body_entered" from="FlipNode/WindZoneComponent/DashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_dash_detection_area_body_entered"]
+[connection signal="body_exited" from="FlipNode/WindZoneComponent/DashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_dash_detection_area_body_exited"]
+[connection signal="body_entered" from="FlipNode/WindZoneComponent/NoDashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_no_dash_detection_area_body_entered"]
+[connection signal="body_exited" from="FlipNode/WindZoneComponent/NoDashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_no_dash_detection_area_body_exited"]
 [connection signal="area_entered" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_entered"]
 [connection signal="area_exited" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_exited"]
 [connection signal="area_entered" from="FlipNode/GrabComponent/GrabRange" to="FlipNode/GrabComponent" method="_on_grab_range_area_entered"]
