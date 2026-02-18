@@ -104,11 +104,13 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 # -------------------- DYNAMIC VARIABLES -------------------- #
 ## If true, allows player input.
 ## If false, disables all player input.
-var input_processing: bool = true
+## Initialized as false so that the player does not have control until the game is ready (mainly the room has finished loading).
+var input_processing: bool = false
 
 ## If true, allows player physics processing.
 ## If false, player will be frozen in place.
-var move_processing: bool = true
+## Initialized as false so that physics are not processed until the game is ready (mainly the room has finished loading).
+var move_processing: bool = false
 
 ## If True, Player just exited a dash & is airborne.
 ## The Player may NOT Leaf Dash/Pile & has no air deceleration.
@@ -116,7 +118,8 @@ var move_processing: bool = true
 var post_dash_mode: bool = false
 
 ## If True, Player is invincible & cannot be damaged normally.
-var invincible: bool = false
+## Initialized as true so that the player cannot be damaged until the game is ready (mainly the room has finished loading).
+var invincible: bool = true
 
 @onready var leaf_enter_audio: AudioStreamPlayer2D = $Audio/LeafEnter
 @onready var leaf_exit_audio: AudioStreamPlayer2D = $Audio/LeafExit
@@ -453,15 +456,19 @@ func set_current_leaf_dash_mode(new_leaf_dash_mode: Player.leaf_dash_mode) -> vo
 
 ## Emit the player knocked out signal when the player is knocked out.
 func knock_out() -> void:
-	freeze()
-	# TODO: await hitstun animation
-	EventBus.player_knocked_out.emit()
+	# Prevent repeat knockouts
+	if not invincible:
+		freeze()
+		invincibility_animation_player.play("hit_invincibility")
+		await invincibility_animation_player.animation_finished
+		EventBus.player_knocked_out.emit()
 
 ## Disable player input, disable player physics movement, and enable invincibility.
 func freeze() -> void:
 	input_processing = false
 	move_processing = false
 	invincible = true
+	animation_player.pause()
 
 ## Enable player input, enable player physics movement, and disable invincibility.
 func unfreeze() -> void:

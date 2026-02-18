@@ -37,6 +37,8 @@ func _ready() -> void:
 	
 	# Put the player in the first room.
 	_init_room(current_room.get_door_position('enter'))
+	player_spawn_location = current_room.get_door_position('enter')
+	current_room.player.unfreeze()
 	
 	# Connect UI menu signals
 	_connect_menu_signals()
