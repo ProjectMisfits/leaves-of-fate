@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/entities/actors/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
 [ext_resource type="Script" uid="uid://bar0unkhcpu3a" path="res://src/entities/actors/player/states/player_idle.gd" id="3_a1k00"]
+[ext_resource type="Shape2D" uid="uid://7p0hecb5yu7t" path="res://src/entities/actors/player/player_collision_shape.tres" id="3_e5ptp"]
 [ext_resource type="Script" uid="uid://dr4cwnspn2mf2" path="res://src/entities/actors/player/states/player_running.gd" id="4_7gsup"]
 [ext_resource type="Material" uid="uid://bv8rolwolipyw" path="res://src/shaders/RimLitPlayer.tres" id="5_e5ptp"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="5_lynpt"]
@@ -21,10 +22,6 @@
 [ext_resource type="AudioStream" uid="uid://dimhdiv10a08t" path="res://assets/entities/actors/player/player_audio/PH-leaf-enter.ogg" id="17_iloh8"]
 [ext_resource type="AudioStream" uid="uid://dxmm31nsgmehb" path="res://assets/entities/actors/player/player_audio/PH-leaf-exit.ogg" id="18_283t5"]
 [ext_resource type="Texture2D" uid="uid://jvsobi5gw7di" path="res://assets/entities/actors/player/TEMP-fenn-jump-spritesheet.png" id="18_s3rhx"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_283t5"]
-radius = 78.0
-height = 486.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4vut"]
 size = Vector2(750, 540)
@@ -593,7 +590,7 @@ database = ExtResource("2_7gsup")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -243)
-shape = SubResource("CapsuleShape2D_283t5")
+shape = ExtResource("3_e5ptp")
 
 [node name="FlipNode" type="Node2D" parent="."]
 position = Vector2(0, -243)
@@ -622,7 +619,6 @@ position = Vector2(200, 0)
 shape = SubResource("RectangleShape2D_q4vut")
 
 [node name="GrabComponent" type="Node2D" parent="FlipNode"]
-visible = false
 script = ExtResource("7_s3rhx")
 
 [node name="GrabRange" type="Area2D" parent="FlipNode/GrabComponent"]
@@ -635,6 +631,16 @@ visible = false
 position = Vector2(660, 0)
 shape = SubResource("RectangleShape2D_u7uqy")
 debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
+
+[node name="HurtComponent" type="Node2D" parent="FlipNode"]
+script = ExtResource("11_s3rhx")
+
+[node name="HurtArea" type="Area2D" parent="FlipNode/HurtComponent"]
+collision_layer = 0
+collision_mask = 72
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/HurtComponent/HurtArea"]
+shape = ExtResource("3_e5ptp")
 
 [node name="DashParticles" type="Node2D" parent="FlipNode"]
 
@@ -649,15 +655,6 @@ emitting = false
 emitting = false
 
 [node name="LeafExplosionParticle" parent="FlipNode/DashParticles" instance=ExtResource("9_2heww")]
-
-[node name="HurtComponent" type="Node2D" parent="FlipNode"]
-script = ExtResource("11_s3rhx")
-
-[node name="HurtArea" type="Area2D" parent="FlipNode/HurtComponent"]
-collision_layer = 0
-collision_mask = 72
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/HurtComponent/HurtArea"]
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
 
@@ -706,5 +703,6 @@ one_shot = true
 [connection signal="area_exited" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_exited"]
 [connection signal="area_entered" from="FlipNode/GrabComponent/GrabRange" to="FlipNode/GrabComponent" method="_on_grab_range_area_entered"]
 [connection signal="area_exited" from="FlipNode/GrabComponent/GrabRange" to="FlipNode/GrabComponent" method="_on_grab_range_area_exited"]
+[connection signal="hurt" from="FlipNode/HurtComponent" to="." method="knock_out"]
 [connection signal="body_entered" from="FlipNode/HurtComponent/HurtArea" to="FlipNode/HurtComponent" method="_on_hurt_area_body_entered"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_end_invincibility"]

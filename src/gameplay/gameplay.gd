@@ -57,8 +57,6 @@ func _init_room(target_door_name: String) -> void:
 	# Connect room signals for rooms that don't have them connected yet
 	if not current_room.swap_room.is_connected(_on_swap_room):
 		current_room.swap_room.connect(_on_swap_room)
-	if not current_room.reset_room.is_connected(_on_reset_room):
-		current_room.reset_room.connect(_on_reset_room)
 	# Set the room's camera limits
 	CameraManager.set_limit(current_room.midground.get_path())
 	# Reset hud state
@@ -84,8 +82,8 @@ func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
 	# Finish the screen transition.
 	await SceneManager.remove_screen_transition()
 
-## Resets the current room, putting the player at their last spawn location.
-func _on_reset_room() -> void:
+## When the player is knocked out, reset the room and put the player at their last spawn location.
+func _on_player_knocked_out() -> void:
 	# Begin a screen transition.
 	await SceneManager.add_screen_transition("circle")
 	_tear_down_room()

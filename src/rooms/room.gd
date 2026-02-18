@@ -4,8 +4,6 @@ class_name Room extends Node2D
 
 ## Triggered when the player interacts with a door to transition to a new room.
 signal swap_room(target_room_path: String, target_door_name: String)
-## Triggered when the player is knocked out to reset the current room.
-signal reset_room
 
 ## The Player scene.
 @onready var player: Player = %Player
@@ -19,6 +17,9 @@ var doors: Array[Node]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Connect player knocked out signal from event bus to method here.
+	EventBus.player_knocked_out.connect(_on_player_knocked_out)
+	
 	# Connect each door signal to the enter door method
 	doors = door_holder.get_children()
 	for door: Door in doors:
@@ -40,11 +41,9 @@ func _on_player_entered_door(door: Door) -> void:
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 	swap_room.emit(door.target_room_path, door.target_door_name)
 
-## Emit a signal to reset the room when the player gets knocked out.
-func _on_player_player_knocked_out() -> void:
-	# Disable player processing so signal is only emitted once
-	player.process_mode = Node.PROCESS_MODE_DISABLED
-	reset_room.emit()
+## Disable player processing when they are knocked out.
+func _on_player_knocked_out() -> void:
+	player.disable_player_input()
 
 ## Spawn the player at the given door.
 func spawn_player_at_door(target_door_name: String) -> Vector2:

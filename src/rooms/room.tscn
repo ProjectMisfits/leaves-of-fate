@@ -92,5 +92,3 @@ follow_viewport_enabled = true
 
 [node name="Decor" type="Node2D" parent="ForegroundLayer"]
 metadata/_edit_lock_ = true
-
-[connection signal="player_knocked_out" from="MidgroundLayer/Player" to="." method="_on_player_player_knocked_out"]

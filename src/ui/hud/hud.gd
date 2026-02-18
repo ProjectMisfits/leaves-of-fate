@@ -11,7 +11,6 @@ class_name Hud
 ## Called by gameplay to connect the exact Player instance to the Hud
 func set_player(current_player: Player) -> void:
 	player = current_player
-	player.health_changed.connect(_set_player_health)
 	player.leaf_meter_changed.connect(_set_leaf_meter)
 
 ## Sets the leaf meter visual to the given value if it is within 0.0 - 100.0

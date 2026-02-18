@@ -8,7 +8,6 @@ class_name Player
 @export var database: JSON = null
 
 # -------------------- DATABASE VARIABLES -------------------- #
-var max_health: int					## The Player's maximum health.
 var terminal_velocity: float		## The Player's maximum positive Y-velocity.
 
 # ---------- Run ---------- #
@@ -119,7 +118,6 @@ var invincible: bool = false
 @onready var leaf_enter_audio: AudioStreamPlayer2D = $Audio/LeafEnter
 @onready var leaf_exit_audio: AudioStreamPlayer2D = $Audio/LeafExit
 
-var current_health: int			## The Player's current health remaining.
 var look_direction: float = 1.0	## The direction the Player is looking. < 0 is left, >= 0 is right.
 var jump_queued: bool = false	## If True, the user queued a jump which will trigger immediately when the Player lands on the ground.
 var leaf_meter: float = 0.0		## How much wind the Player currently has.
@@ -140,8 +138,6 @@ enum leaf_dash_mode {NORMAL, DASH_ONLY, NO_DASH}
 var _current_leaf_dash_mode: leaf_dash_mode = leaf_dash_mode.NORMAL
 
 # -------------------- SIGNALS -------------------- #
-signal player_knocked_out					## Emitted when the Player loses all of their health.
-signal health_changed(new_health: int)		## Emitted when the Player's health changes.
 signal leaf_meter_changed(new_value: float)	## Emitted when the Player's stored wind changes.
 
 ## Fetch database resource. If valid, initialize all variables.
@@ -158,9 +154,6 @@ func _ready() -> void:
 	compute_jump_parameters()
 	InputMap.action_set_deadzone("move_left",.05)
 	InputMap.action_set_deadzone("move_right",.05)
-	
-	current_health = max_health
-	health_changed.emit(current_health)
 	
 	var dialogue_manager: Object = Engine.get_singleton(&"DialogueManager")
 	if (dialogue_manager != null):
@@ -455,13 +448,9 @@ func get_current_leaf_dash_mode() -> bool:
 func set_current_leaf_dash_mode(new_leaf_dash_mode: Player.leaf_dash_mode) -> void:
 	_current_leaf_dash_mode = new_leaf_dash_mode
 
-## Decreases the Player's health by the given value.
-func hurt(damage: int) -> void:
-	pass
-
+## Emit the player knocked out signal when the player is knocked out.
 func knock_out() -> void:
-	print("MEOW")
-	player_knocked_out.emit()
+	EventBus.player_knocked_out.emit()
 
 ## Make the Player invincible & starts the Invincibility Timer.
 func start_invincibility(time: float) -> void:
@@ -483,15 +472,6 @@ func _end_invincibility() -> void:
 	invincible = false
 	invincibility_animation_player.stop()
 
-## Set the Player's current health, update the health UI, and check for Player knockout.
-## Health set in this way disregards invincibility.
-func set_health(new_health: int) -> void:
-	if (new_health > max_health):	# If health greater than max health
-		push_warning("set_health(): new_health is greater than max health.")
-	
-	current_health = clampi(new_health, 0, max_health)
-	health_changed.emit(current_health)
-
 ## Sets the Player's current Leaf Meter & updates the Leaf Meter UI.
 func set_leaf_meter(new_leaf_meter: float) -> void:
 	# If input is disabled, ignore changes to Player leaf meter.
@@ -503,9 +483,8 @@ func set_leaf_meter(new_leaf_meter: float) -> void:
 	leaf_meter = clampf(new_leaf_meter, 0.0, 100.0)
 	leaf_meter_changed.emit(leaf_meter)
 
-## Resets the Player's health and Leaf Meter to their initial values.
+## Resets the Player's Leaf Meter to their initial values.
 func reset_stats() -> void:
-	set_health(max_health)
 	set_leaf_meter(0.0)
 	
 	# Reset state. Uses call_deferred() to allow the current state's exit function to run.
@@ -514,7 +493,6 @@ func reset_stats() -> void:
 ## Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
 		# Base Data #
-		max_health = data["max_health"]
 		terminal_velocity = data["terminal_velocity"]
 		
 		# Run #
