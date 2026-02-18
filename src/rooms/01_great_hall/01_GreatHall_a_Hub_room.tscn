@@ -105,7 +105,7 @@ position = Vector2(10112.001, -1152)
 scale = Vector2(3, 3)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
-position = Vector2(36112, 3584)
+position = Vector2(36352, 3592)
 
 [node name="Icicle_06" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("4_xsu4n")]
 position = Vector2(35104, -320)
@@ -161,7 +161,7 @@ position = Vector2(37344, -192)
 scale = Vector2(1.5, 1.5)
 
 [node name="NpcAz" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("9_223xl")]
-position = Vector2(36720, 3232)
+position = Vector2(35693.996, 3231)
 
 [node name="MusicTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("4_tshu8")]
 position = Vector2(10164, -1088)
@@ -169,8 +169,8 @@ scale = Vector2(100, 100)
 music_track = ExtResource("11_223xl")
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("12_1h37y")]
-position = Vector2(35376, 1678.0002)
-scale = Vector2(20, 60)
+position = Vector2(34894, 2077.0002)
+scale = Vector2(10, 40)
 dialogue_sequence = ExtResource("13_lln1l")
 dialogue_start = null
 enabled = null

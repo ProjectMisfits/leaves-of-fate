@@ -4,10 +4,12 @@
 
 #							name 	x destination, speed, animate, moonwalk
 #do! CutsceneManager.npc_move("Az", 500.0, 		200.0,	 100.0, false, false)
-do! CameraManager.create_camera(Vector2(-15000,3200), 0.5, 2, "CUBIC", "EASE_IN_OUT")
+do CameraManager.create_camera(Vector2(35000.0,3200), 0.75, 1.5, "CUBIC", "EASE_IN_OUT")
+do CutsceneManager.npc_face("Az","left")
 Fenn starry: Whoa! You're [color="B80006"]Az[/color]!! [wave freq=7 amp=30][color="B80006"]Sir Abdullah's[/color] daughter?[/wave]
 Az: Dude, I'm a little busy right now.
-Fenn: [speed=2]Do you know where the Knights are? I'm Fenn!! [wave freq=7 amp=30]The King invited me to come meet them!![/wave][/speed]
+Fenn: [speed=2]Do you know where the Knights are? [/speed]
+Fenn starry: [speed=2]I'm Fenn!! [wave freq=7 amp=30]The King invited me to come meet them!![/wave][/speed]
 Az: Hmph. Well, [wait=0.3]they're trapped. [i]cough[/i][wait=0.3] Some rookie [color="8A0194"]Wizards[/color] locked them in the Council Chamber.
 do EventBus.interrupt_dialogue.emit("0.6")
 Fenn worry: What? Wait, does that mean your Dad-
@@ -17,7 +19,7 @@ Fenn starry: [font_size=60]We have to help them!![wait=0.2] [shake level=10 rate
 Az: No way. I need to  grab something from my [color="0B4F4A"]Workshop[/color]. Stay here til I get back.
 Fenn: Hmm... No promises!
 Az annoy: Seriously? [wait=0.3][shake level=7 rate=20 connected=0]Ugh[/shake]. Whatever.
-do CutsceneManager.npc_move("Az", -16128, 400, true, false)
+do CutsceneManager.npc_move("Az", 36352.0, 400, true, false)
 do CutsceneManager.remove_npc("Az")
 do EventFlags.set_flag("Az-Meet-GreatHall", true)
 => END
