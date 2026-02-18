@@ -138,6 +138,7 @@ var can_build_wind : bool = true
 
 # -------------------- SIGNALS -------------------- #
 signal player_knocked_out					## Emitted when the Player loses all of their health.
+signal player_knockout_animation 			## Emitted when the Player loses all of their health, but before the invincibility has run out.
 signal health_changed(new_health: int)		## Emitted when the Player's health changes.
 signal leaf_meter_changed(new_value: float)	## Emitted when the Player's stored wind changes.
 
@@ -463,6 +464,10 @@ func hurt(damage: int) -> void:
 		start_invincibility(hit_invincibility_time)
 		
 		if (current_health <= 0):
+			# Hide the player sprite
+			$FlipNode/Sprite2D.hide();
+			# Emit the signal to start playing the player knocked out animation
+			player_knockout_animation.emit()
 			# If the player is dead, don't give input back and wait for the invincibility timer to run out
 			await invincibility_timer.timeout
 			# Emit the knocked out signal once invincibility is over
