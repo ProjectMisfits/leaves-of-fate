@@ -44,6 +44,6 @@ data = {
 "Ws-Lost-HeaterArea": false,
 "Ws-Meet-CellarGeneral": false,
 "Ws-PostAmbush-CellarGeneral": false,
-"heater_main_activated": false,
-"heater_boss_activated": false
+"heater_boss_activated": false,
+"heater_main_activated": false
 }
