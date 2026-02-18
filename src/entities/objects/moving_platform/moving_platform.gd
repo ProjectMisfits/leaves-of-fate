@@ -43,7 +43,8 @@ func _process(_delta: float) -> void:
 func progress_path()->void:
 	if closed_loop:
 		for path_child : PathFollow2D in paths:
-			if path_child.get_class() == "PathFollow2D":
+			if path_child is PathFollow2D:
+	
 				path_child.progress += cur_closed_loop_speed
 
 func initialize_animation()->void:
