@@ -254,18 +254,18 @@ func apply_dialogue_line() -> void:
 			character_label.add_theme_color_override("default_color", "#35639C")
 			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Idle-CharacterProfile-001.png")
 			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
-		"wizard? grit":
+		"??? ws grit":
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#35639C")
 			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Gritting-CharacterProfile-001.png")
 			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
-			character_label.text = "Wizard?"
-		"wizard? awkward":
+			character_label.text = "???"
+		"??? ws awkward":
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#35639C")
 			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Awkward-CharacterProfile-001.png")
 			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
-			character_label.text = "Wizard?"
+			character_label.text = "???"
 
 		"??? ws":
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))

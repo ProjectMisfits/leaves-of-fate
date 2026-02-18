@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://1r1id251x1o4"]
 
 [ext_resource type="PackedScene" uid="uid://daw5s2hjs0tq1" path="res://src/entities/actors/npcs/npc_base/npc_base.tscn" id="1_tg4e0"]
-[ext_resource type="Texture2D" uid="uid://bobecrpwgxhv4" path="res://assets/entities/actors/npcs/winston/winston_placeHolder_01.png" id="2_8nges"]
+[ext_resource type="Texture2D" uid="uid://bobecrpwgxhv4" path="res://assets/entities/actors/npcs/npc_winston/winston_placeHolder_01.png" id="2_8nges"]
 [ext_resource type="Shape2D" uid="uid://d0n0pamshu4kv" path="res://src/entities/actors/npcs/npc_winston/npc_winston_collision_shape.tres" id="2_k2brm"]
 
 [node name="NpcWinston" instance=ExtResource("1_tg4e0")]
