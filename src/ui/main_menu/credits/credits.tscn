@@ -1,4 +1,12 @@
-[gd_scene format=3 uid="uid://c6xvss7uk2hqi"]
+[gd_scene load_steps=4 format=3 uid="uid://c6xvss7uk2hqi"]
+
+[ext_resource type="Texture2D" uid="uid://c44j0kj2rhy3b" path="res://assets/ui/FullLetter-UI-001.png" id="1_unm4c"]
+[ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="2_x0eqx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fwcfw"]
+texture = ExtResource("1_unm4c")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -8,4 +16,74 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -589.5
+offset_top = -412.0
+offset_right = 589.5
+offset_bottom = 412.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fwcfw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+offset_right = 313.0
+offset_bottom = 101.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 50
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.34117648, 0.43529412, 0.20784314, 1)
+theme_override_fonts/font = ExtResource("2_x0eqx")
+theme_override_font_sizes/font_size = 100
+text = "Credits"
+
+[node name="MarginContainer-2" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer/MarginContainer-2"]
+custom_minimum_size = Vector2(1045, 600)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer-2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer-2/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MarginContainer-2/ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Left Side"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/MarginContainer-2/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_left = 15
+
+[node name="VBoxContainer-2" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer-2/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+[node name="Label-2" type="Label" parent="Panel/VBoxContainer/MarginContainer-2/ScrollContainer/HBoxContainer/VBoxContainer-2"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Right Side"
