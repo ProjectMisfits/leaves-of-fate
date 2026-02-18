@@ -1,0 +1,16 @@
+class_name CreditsMenu extends Control
+
+@export var scroll_speed: int = 1
+@export var scroll_box: ScrollContainer
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	await get_tree().create_timer(0.65).timeout
+	scroll_box =  %ScrollContainer
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	if Engine.get_process_frames() % 2 == 0:
+		if scroll_box != null && !(scroll_box.scroll_vertical >= scroll_box.get_v_scroll_bar().max_value):
+			scroll_box.scroll_vertical += scroll_speed
