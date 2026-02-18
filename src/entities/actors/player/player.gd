@@ -92,6 +92,12 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 ## While active, the Player is invincible & cannot be damaged normally.
 @onready var invincibility_timer: Timer = $InvincibilityTimer
 
+##Footstep delay
+@onready var foot_step_timer :Timer = $FootStepTimer
+
+##Footstep Audio
+@onready var foot_step_audio_player : AudioStreamPlayer2D = $Audio/Footsteps
+
 # ---------- State Machine & States ---------- #
 @onready var state_machine: LimboHSM = $LimboHSM				## Reference to the Player's State Machine.
 @onready var idle_state: LimboState = $LimboHSM/Idle			## Reference to the Player's Idle State.
@@ -143,6 +149,8 @@ var time_since_jump_queued: float = 0.0	## How long (in seconds) since the Playe
 enum leaf_dash_mode {NORMAL, DASH_ONLY, NO_DASH}
 var _current_leaf_dash_mode: leaf_dash_mode = leaf_dash_mode.NORMAL
 
+var can_play_footstep : bool = true
+
 # -------------------- SIGNALS -------------------- #
 signal leaf_meter_changed(new_value: float)	## Emitted when the Player's stored wind changes.
 
@@ -193,7 +201,7 @@ func _physics_process(delta: float) -> void:
 			flip_node.scale.x = 1.0
 	
 	move_and_slide()
-	
+
 	# Update floor-dependent variables.
 	# This MUST be done AFTER move_and_slide(), which updates is_on_floor().
 	if is_on_floor():
@@ -366,6 +374,11 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 	
 	velocity.x = new_velocity
 	
+	if can_play_footstep:
+		can_play_footstep = false
+		foot_step_audio_player.play()
+		foot_step_timer.start(foot_step_audio_player.stream.get_length())
+	
 	# Pos/0 velocity = look right, neg velocity = look left
 	var new_look_direction: float = signf(direction)
 	look_direction = new_look_direction if (new_look_direction != 0.0) else look_direction
@@ -373,6 +386,9 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 ## Calls move_horizontal with ground parameters.
 func move_horizontal_ground(delta: float) -> void:
 	move_horizontal(ground_acceleration, ground_deceleration, ground_turn_speed, delta)
+
+	
+
 
 ## Calls move_horizontal with air parameters.
 func move_horizontal_air(delta: float) -> void:
@@ -581,3 +597,8 @@ func enable_cutscene_mode() -> void:
 	disable_player_input()
 	state_machine.change_active_state(idle_state)
 	velocity = Vector2(0.0, 0.0)
+
+
+func _on_foot_step_timer_timeout() -> void:
+	can_play_footstep = true
+	

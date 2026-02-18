@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=39 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/entities/actors/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
@@ -18,6 +18,8 @@
 [ext_resource type="Script" uid="uid://osptlmoqos3i" path="res://src/entities/actors/player/states/player_piling.gd" id="9_q6jdu"]
 [ext_resource type="PackedScene" uid="uid://dhcepuko5y18x" path="res://src/particle_effects/leaf_ball_particles.tscn" id="9_tda88"]
 [ext_resource type="Script" uid="uid://bhytbo7u825lb" path="res://src/entities/actors/player/components/hurt_component.gd" id="11_s3rhx"]
+[ext_resource type="JSON" uid="uid://ctjfhxb7akvyx" path="res://src/entities/actors/player/footstep_dictionaries/player_footstep_data.tres" id="12_e5ptp"]
+[ext_resource type="Script" uid="uid://cq2g2o708n5hl" path="res://src/entities/actors/player/footstep_component.gd" id="13_s1o6p"]
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/particle_effects/wind_particles.tscn" id="14_7j1dl"]
 [ext_resource type="AudioStream" uid="uid://dimhdiv10a08t" path="res://assets/entities/actors/player/player_audio/PH-leaf-enter.ogg" id="17_iloh8"]
 [ext_resource type="AudioStream" uid="uid://dxmm31nsgmehb" path="res://assets/entities/actors/player/player_audio/PH-leaf-exit.ogg" id="18_283t5"]
@@ -654,6 +656,15 @@ emitting = false
 
 [node name="LeafExplosionParticle" parent="FlipNode/DashParticles" instance=ExtResource("9_2heww")]
 
+[node name="FootstepComponent" type="Node2D" parent="FlipNode" node_paths=PackedStringArray("marker", "audio_component")]
+script = ExtResource("13_s1o6p")
+marker = NodePath("Marker2D")
+audio_component = NodePath("../../Audio/Footsteps")
+sound_dictionary = ExtResource("12_e5ptp")
+
+[node name="Marker2D" type="Marker2D" parent="FlipNode/FootstepComponent"]
+position = Vector2(0, 259)
+
 [node name="LimboHSM" type="LimboHSM" parent="."]
 
 [node name="Idle" type="LimboState" parent="LimboHSM"]
@@ -694,7 +705,14 @@ bus = &"SFX"
 stream = ExtResource("18_283t5")
 bus = &"SFX"
 
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="Audio"]
+volume_db = 2.0
+bus = &"SFX"
+
 [node name="InvincibilityTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="FootStepTimer" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="area_entered" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_entered"]
@@ -704,3 +722,4 @@ one_shot = true
 [connection signal="hurt" from="FlipNode/HurtComponent" to="." method="knock_out"]
 [connection signal="body_entered" from="FlipNode/HurtComponent/HurtArea" to="FlipNode/HurtComponent" method="_on_hurt_area_body_entered"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_end_invincibility"]
+[connection signal="timeout" from="FootStepTimer" to="." method="_on_foot_step_timer_timeout"]
