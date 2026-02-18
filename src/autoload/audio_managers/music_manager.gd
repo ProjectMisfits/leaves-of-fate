@@ -4,7 +4,7 @@ extends AudioStreamPlayer
 ## Play the given music stream at the specified volume.
 ## If the given music is already playing, do nothing.
 ## If the given music is not already playing, crossfade to the given music.
-func _play_song(music: AudioStream, volume: float = 0.0) -> void:
+func _play_song(music: AudioStream, volume: float = -6.0) -> void:
 	# If the provided music is already playing, do nothing
 	if stream == music:
 		return
