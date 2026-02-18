@@ -10,8 +10,20 @@ func _play_song(music: AudioStream, volume: float = 0.0) -> void:
 		if not playing:
 			play()
 		return
-	
-	#Plays the specified music
+
+	elif playing:
+		crossfade(music, volume)
+
+	else:
+		#Plays the specified music
+		stream = music
+		volume_db = volume
+		play()
+
+
+func crossfade(music: AudioStream, volume: float = 0.0) -> void:
+	var tween : Tween = create_tween()
+	tween.tween_property(self,"volume_db", -60.0, 2)
 	stream = music
-	volume_db = volume
 	play()
+	tween.tween_property(self,"volume_db",volume,1)
