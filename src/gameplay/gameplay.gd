@@ -32,6 +32,9 @@ func _ready() -> void:
 	# Set up the camera manager.
 	CameraManager.initialize_camera($%PhantomCamera2D, $%Camera2D)
 	
+	# Connect the player knocked out signal.
+	EventBus.player_knocked_out.connect(_on_player_knocked_out)
+	
 	# Put the player in the first room.
 	_init_room('enter')
 	

@@ -17,9 +17,6 @@ var doors: Array[Node]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Connect player knocked out signal from event bus to method here.
-	EventBus.player_knocked_out.connect(_on_player_knocked_out)
-	
 	# Connect each door signal to the enter door method
 	doors = door_holder.get_children()
 	for door: Door in doors:
@@ -28,7 +25,6 @@ func _ready() -> void:
 	# TODO: fix to set up gameplay and teleport to the room instead
 	# If the room is being run standalone, we have to make sure the player gets instantiated.
 	if get_tree().current_scene == self:
-		# IDK yet
 		pass
 
 ## Initiate room swap on player entering a Door.
@@ -40,10 +36,6 @@ func _on_player_entered_door(door: Door) -> void:
 	# Disable player processing so they don't move during the transition
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 	swap_room.emit(door.target_room_path, door.target_door_name)
-
-## Disable player processing when they are knocked out.
-func _on_player_knocked_out() -> void:
-	player.disable_player_input()
 
 ## Spawn the player at the given door.
 func spawn_player_at_door(target_door_name: String) -> Vector2:
