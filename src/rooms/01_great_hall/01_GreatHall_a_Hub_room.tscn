@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://nhuquqglirtf"]
+[gd_scene load_steps=24 format=4 uid="uid://nhuquqglirtf"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_gihvd"]
 [ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="2_0mqie"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="9_223xl"]
 [ext_resource type="AudioStream" uid="uid://djjfdt63im57i" path="res://assets/music/GreatHall-120bpm-4_4-P1b-loop.mp3" id="11_223xl"]
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="12_1h37y"]
-[ext_resource type="AudioStream" uid="uid://drruhiyd0fi51" path="res://assets/music/Cellar-120bpm-4_4-P64b-loop.mp3" id="12_lln1l"]
 [ext_resource type="PackedScene" uid="uid://wxvub3svduoi" path="res://src/entities/decor/pillars/arch_round_cracked.tscn" id="12_ouria"]
 [ext_resource type="PackedScene" uid="uid://1lva6fbgnwyn" path="res://src/entities/decor/pillars/arch_point_smooth.tscn" id="13_8hban"]
 [ext_resource type="Resource" uid="uid://bg8npse24cjcw" path="res://assets/dialogue/dialogue_scripts/1-Az-Meet-GreatHall.dialogue" id="13_lln1l"]
@@ -169,12 +168,7 @@ position = Vector2(10164, -1088)
 scale = Vector2(100, 100)
 music_track = ExtResource("11_223xl")
 
-[node name="MusicTrigger-2" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("4_tshu8")]
-position = Vector2(-3775, 120)
-scale = Vector2(100, 100)
-music_track = ExtResource("12_lln1l")
-
-[node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="2" instance=ExtResource("12_1h37y")]
+[node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("12_1h37y")]
 position = Vector2(-14675, 1678.0002)
 scale = Vector2(20, 60)
 dialogue_sequence = ExtResource("13_lln1l")
