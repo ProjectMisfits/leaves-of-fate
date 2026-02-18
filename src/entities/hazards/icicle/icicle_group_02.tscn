@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://clniejfdpj824"]
+[gd_scene load_steps=6 format=3 uid="uid://clniejfdpj824"]
 
 [ext_resource type="Material" uid="uid://dde8s4xg3ueai" path="res://assets/graphics/ice_material_spike_06.tres" id="2_0s0b7"]
 [ext_resource type="Texture2D" uid="uid://57m4hxr3gwjo" path="res://assets/entities/hazards/canvas_icicle/C-Icicle-03.tres" id="3_j5axg"]
@@ -6,48 +6,36 @@
 [ext_resource type="Texture2D" uid="uid://b5s7cj64npymr" path="res://assets/entities/hazards/canvas_icicle/C-Icicle-02.tres" id="5_0s0b7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5sn6"]
-size = Vector2(27, 33)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6rya"]
-size = Vector2(91, 142)
+size = Vector2(96, 100)
 
 [node name="IcicleGroup02" type="StaticBody2D"]
-collision_layer = 12
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.5, 0.5)
-shape = SubResource("RectangleShape2D_a5sn6")
-disabled = true
-
-[node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(4.5, -53)
-shape = SubResource("RectangleShape2D_o6rya")
+collision_mask = 0
 
 [node name="Icicle04" type="Sprite2D" parent="."]
 material = ExtResource("2_0s0b7")
-position = Vector2(45.000004, -37)
+position = Vector2(33, -54)
 scale = Vector2(0.2638889, 0.2638889)
 texture = ExtResource("3_j5axg")
 
 [node name="Icicle03" type="Sprite2D" parent="."]
 material = ExtResource("2_0s0b7")
-position = Vector2(-13, -55)
+position = Vector2(-24.000002, -68)
 scale = Vector2(0.32616228, 0.32616228)
 texture = ExtResource("3_j5axg")
 
 [node name="Icicle05" type="Sprite2D" parent="."]
 material = ExtResource("2_0s0b7")
-position = Vector2(14, -55)
+position = Vector2(3, -73)
 scale = Vector2(0.25, 0.24999997)
 texture = ExtResource("4_0s0b7")
 
 [node name="Icicle02" type="Sprite2D" parent="."]
 material = ExtResource("2_0s0b7")
-position = Vector2(-29, -26)
+position = Vector2(-40.49843, -43)
 scale = Vector2(0.3059936, 0.3059936)
 texture = ExtResource("5_0s0b7")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, -50)
+shape = SubResource("RectangleShape2D_a5sn6")
