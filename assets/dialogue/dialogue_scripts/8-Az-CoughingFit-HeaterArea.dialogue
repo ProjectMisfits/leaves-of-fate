@@ -7,14 +7,11 @@ Fenn: Are you okay?
 Az: Yeah, I'm- cough cough
 Fenn: Az?
 Az: I'm fi- cough
-sound of Az falling to the groun
+sound of Az falling to the ground
 Fenn: Az, are you okay?
 Az: cough. cough. I'm fine! cough I'm FINE!
 Az: cough. Go on ahead. cough. I'll be fine.
 Fenn: Okay...
-do EventFlags.set_flag("Az-ConditionalConvo-CellarGeneral", true)
+do EventFlags.set_flag("Az-CoughingFit-HeaterArea", true)
 
 => END
-
-#This line should be imported into the other 7 dialogue things
-#If the number of heaters turned on is 0, it will play... after the convos end

@@ -1,0 +1,24 @@
+~ start
+Fenn: Wizard?
+Wizard: BY POSTLY HEAVEN!
+Fenn: It's me! Fenn?
+Winston: Oh. Pint-size...
+Fenn: I'm ready for you, Wizard Man! Give me everything you got. I WILL defeat you, this time!
+Wizard: Oh... well... you see...
+Wizard: My tools art in thy workshop. I was out looking for something, and-
+Az: Wait- are you LOST?!
+Wizard: No! NO! I'm not lost! I knoweth my way out of here perfectly fine!
+Wizard: Or... I did.
+Az: HAHA! HAH. This is GREAT. Boy you really ARE pathetic. How in postly heaven did you even capture the Knights?
+Wizard: UGH! Shut up!!
+Wizard: Hey, pint-size... wh-whereth be thine exit?
+Fenn: Oh! It's just behind you. I see it there.
+Wizard: Oh... thanks.
+Fenn: No problem! Happy to help.
+Az: Did- did you just let him get away?
+Fenn: OH WAIT!! COME BACK!
+Wizard: UMM. LALALA I CAN'T HEARETH YOU!
+Az: Oh by Post. They're both idiots.
+do EventFlags.set_flag("Ws-Lost-HeaterArea", true)
+
+=> END
