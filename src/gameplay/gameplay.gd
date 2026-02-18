@@ -32,8 +32,13 @@ func _ready() -> void:
 	# Set up the camera manager.
 	CameraManager.initialize_camera($%PhantomCamera2D, $%Camera2D)
 	
+	# Connect the player knocked out signal.
+	EventBus.player_knocked_out.connect(_on_player_knocked_out)
+	
 	# Put the player in the first room.
-	_init_room('enter')
+	_init_room(current_room.get_door_position('enter'))
+	player_spawn_location = current_room.get_door_position('enter')
+	current_room.player.unfreeze()
 	
 	# Connect UI menu signals
 	_connect_menu_signals()
@@ -51,14 +56,10 @@ func _tear_down_room() -> void:
 	CutsceneManager._end_cutscene()
 
 ## Set up a room after a swap.
-func _init_room(target_door_name: String) -> void:
-	# Update the current room
-	current_room = room_holder.get_child(-1) as Room
+func _init_room(init_player_location: Vector2) -> void:
 	# Connect room signals for rooms that don't have them connected yet
 	if not current_room.swap_room.is_connected(_on_swap_room):
 		current_room.swap_room.connect(_on_swap_room)
-	if not current_room.reset_room.is_connected(_on_reset_room):
-		current_room.reset_room.connect(_on_reset_room)
 	# Set the room's camera limits
 	CameraManager.set_limit(current_room.midground.get_path())
 	# Reset hud state
@@ -66,35 +67,39 @@ func _init_room(target_door_name: String) -> void:
 	# Connect the HUD to the new player
 	hud.set_player(current_room.player)
 	# Add player to the room and place them at correct door
-	current_room.spawn_player_at_door(target_door_name)
+	current_room.set_player_location(init_player_location)
 	# Reconnect camera to player
 	CameraManager.set_target(current_room.player)
 	CameraManager.teleport()
 
 ## Swap to the specified Room and unload the current Room.
 func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
+	current_room.player.freeze()
 	# Begin a screen transition.
 	await SceneManager.add_screen_transition("circle")
-	# Do the room swap
 	_tear_down_room()
 	SceneManager.swap_scenes(target_room_path, room_holder, current_room)
-	_init_room(target_door_name)
+	# Update the current room
+	current_room = room_holder.get_child(-1) as Room
+	_init_room(current_room.get_door_position(target_door_name))
 	current_room_path = target_room_path
 	player_spawn_location = current_room.get_door_position(target_door_name)
 	# Finish the screen transition.
 	await SceneManager.remove_screen_transition()
+	current_room.player.unfreeze()
 
-## Resets the current room, putting the player at their last spawn location.
-func _on_reset_room() -> void:
+## When the player is knocked out, reset the room and put the player at their last spawn location.
+func _on_player_knocked_out() -> void:
 	# Begin a screen transition.
 	await SceneManager.add_screen_transition("circle")
 	_tear_down_room()
 	SceneManager.swap_scenes(current_room_path, room_holder, current_room)
-	_init_room('enter')
-	current_room.set_player_location(player_spawn_location)
-	CameraManager.teleport()
+	# Update the current room
+	current_room = room_holder.get_child(-1) as Room
+	_init_room(player_spawn_location)
 	# Finish the screen transition.
 	await SceneManager.remove_screen_transition()
+	current_room.player.unfreeze()
 
 ## UI FUNCTIONALITY
 
