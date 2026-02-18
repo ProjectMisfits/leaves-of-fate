@@ -105,63 +105,63 @@ position = Vector2(10112.001, -1152)
 scale = Vector2(3, 3)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
-position = Vector2(-16128, 3584)
+position = Vector2(36352, 3592)
 
 [node name="Icicle_06" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("4_xsu4n")]
-position = Vector2(-17408, -320)
+position = Vector2(35104, -320)
 rotation = 2.9160762
 scale = Vector2(2, 2)
 
 [node name="Icicle_06-2" parent="MidgroundLayer/Entities/Hazards" index="1" instance=ExtResource("4_xsu4n")]
-position = Vector2(-16768, -767.99976)
+position = Vector2(35744, -767.99976)
 rotation = 2.9812193
 scale = Vector2(2, 2)
 
 [node name="Icicle_06-3" parent="MidgroundLayer/Entities/Hazards" index="2" instance=ExtResource("4_xsu4n")]
-position = Vector2(-16128, -1152)
+position = Vector2(36384.008, -1152)
 rotation = 3.1415927
 scale = Vector2(2.919611, 2.919611)
 
 [node name="Icicle_06-4" parent="MidgroundLayer/Entities/Hazards" index="3" instance=ExtResource("4_xsu4n")]
-position = Vector2(-15488.001, -832)
+position = Vector2(37024, -832)
 rotation = 3.183991
 scale = Vector2(2, 2)
 
 [node name="Icicle_06-5" parent="MidgroundLayer/Entities/Hazards" index="4" instance=ExtResource("4_xsu4n")]
-position = Vector2(-14848.001, -256)
+position = Vector2(37664, -256)
 rotation = 3.183991
 scale = Vector2(2, 2)
 
 [node name="IceSpikeBall" parent="MidgroundLayer/Entities/Hazards" index="5" instance=ExtResource("5_ouria")]
-position = Vector2(-16937, -225)
+position = Vector2(35575, -225)
 scale = Vector2(1.5, 1.5)
 
 [node name="IceSpikeBall-5" parent="MidgroundLayer/Entities/Hazards" index="6" instance=ExtResource("5_ouria")]
-position = Vector2(-17408, 64)
+position = Vector2(35104, 64)
 rotation = -1.0283297
 scale = Vector2(1.5, 1.5)
 
 [node name="IceSpikeBall-6" parent="MidgroundLayer/Entities/Hazards" index="7" instance=ExtResource("5_ouria")]
-position = Vector2(-14668, 287.00012)
+position = Vector2(37843.996, 287.00012)
 rotation = 0.11315858
 scale = Vector2(1.5, 1.5)
 
 [node name="IceSpikeBall-4" parent="MidgroundLayer/Entities/Hazards" index="8" instance=ExtResource("5_ouria")]
-position = Vector2(-16448, -512)
+position = Vector2(36064, -511.9996)
 rotation = 0.07582272
 scale = Vector2(2, 2)
 
 [node name="IceSpikeBall-2" parent="MidgroundLayer/Entities/Hazards" index="9" instance=ExtResource("5_ouria")]
-position = Vector2(-15817, -466)
+position = Vector2(36695, -466)
 rotation = 1.3343608
 scale = Vector2(2, 2)
 
 [node name="IceSpikeBall-3" parent="MidgroundLayer/Entities/Hazards" index="10" instance=ExtResource("5_ouria")]
-position = Vector2(-15168, -192)
+position = Vector2(37344, -192)
 scale = Vector2(1.5, 1.5)
 
 [node name="NpcAz" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("9_223xl")]
-position = Vector2(-15448, 3226)
+position = Vector2(35693.996, 3231)
 
 [node name="MusicTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("4_tshu8")]
 position = Vector2(10164, -1088)
@@ -169,8 +169,8 @@ scale = Vector2(100, 100)
 music_track = ExtResource("11_223xl")
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("12_1h37y")]
-position = Vector2(-14675, 1678.0002)
-scale = Vector2(20, 60)
+position = Vector2(34894, 2077.0002)
+scale = Vector2(10, 40)
 dialogue_sequence = ExtResource("13_lln1l")
 dialogue_start = null
 enabled = null
