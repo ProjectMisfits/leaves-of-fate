@@ -104,8 +104,11 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 # -------------------- DYNAMIC VARIABLES -------------------- #
 ## If true, allows player input.
 ## If false, disables all player input.
-## The Player's process_mode is NOT disabled and they may still move & change states.
 var input_processing: bool = true
+
+## If true, allows player physics processing.
+## If false, player will be frozen in place.
+var move_processing: bool = true
 
 ## If True, Player just exited a dash & is airborne.
 ## The Player may NOT Leaf Dash/Pile & has no air deceleration.
@@ -165,6 +168,9 @@ func _ready() -> void:
 ## Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
 	add_debug_parameters()
+	
+	if not move_processing:
+		return
 	
 	if (post_dash_mode and is_on_floor()):	# If landed on floor during post-dash mode, disable post-dash mode.
 		post_dash_mode = false
@@ -314,7 +320,6 @@ func set_input_processing(new_input_processing: bool) -> bool:
 
 ## Get the input direction and handle the movement/deceleration.
 func move_horizontal(acceleration: float, deceleration: float, turn_speed: float, delta: float) -> void:
-	
 	var direction: float = get_x_input()
 	var new_velocity: float = 0.0
 	
@@ -376,8 +381,6 @@ func get_x_input() -> float:
 	if not input_processing:
 		return 0.0
 	else:
-		
-		#print(Input.get_axis(&"move_left", &"move_right"))
 		return Input.get_axis(&"move_left", &"move_right")	# Ceilf to get normalized input.
 
 ## Updates jump velocity & gravity variables
@@ -450,6 +453,9 @@ func set_current_leaf_dash_mode(new_leaf_dash_mode: Player.leaf_dash_mode) -> vo
 
 ## Emit the player knocked out signal when the player is knocked out.
 func knock_out() -> void:
+	# Do player death animations and such.
+	move_processing = false
+	# TODO: await hitstun animation
 	EventBus.player_knocked_out.emit()
 
 ## Make the Player invincible & starts the Invincibility Timer.
