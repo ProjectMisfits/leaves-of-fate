@@ -9,9 +9,12 @@ class_name HurtComponent
 ##Reference to player
 @onready var player : Player = $"../.."
 
+var dead : bool = false
+
 
 func _ready() -> void:
 	hurt_box.shape = player_collision.shape
 
-func _on_hurt_area_body_entered(body: Node2D) -> void:
-	player.hurt(1)
+func _on_hurt_area_body_entered(_body: Node2D) -> void:
+	player.knock_out()
+	

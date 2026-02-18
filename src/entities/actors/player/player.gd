@@ -457,6 +457,7 @@ func set_current_leaf_dash_mode(new_leaf_dash_mode: Player.leaf_dash_mode) -> vo
 
 ## Decreases the Player's health by the given value.
 func hurt(damage: int) -> void:
+	return
 	if (invincible):
 		return	# Do not deal damage.
 	else:
@@ -481,6 +482,10 @@ func hurt(damage: int) -> void:
 		else:
 			# Otherwise re-enable player input
 			input_processing = true
+
+func knock_out() -> void:
+	print("MEOW")
+	player_knocked_out.emit()
 
 ## Make the Player invincible & starts the Invincibility Timer.
 func start_invincibility(time: float) -> void:
