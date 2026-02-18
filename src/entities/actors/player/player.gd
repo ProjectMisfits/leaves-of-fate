@@ -453,10 +453,21 @@ func set_current_leaf_dash_mode(new_leaf_dash_mode: Player.leaf_dash_mode) -> vo
 
 ## Emit the player knocked out signal when the player is knocked out.
 func knock_out() -> void:
-	# Do player death animations and such.
-	move_processing = false
+	freeze()
 	# TODO: await hitstun animation
 	EventBus.player_knocked_out.emit()
+
+## Disable player input, disable player physics movement, and enable invincibility.
+func freeze() -> void:
+	input_processing = false
+	move_processing = false
+	invincible = true
+
+## Enable player input, enable player physics movement, and disable invincibility.
+func unfreeze() -> void:
+	input_processing = true
+	move_processing = true
+	invincible = false
 
 ## Make the Player invincible & starts the Invincibility Timer.
 func start_invincibility(time: float) -> void:
