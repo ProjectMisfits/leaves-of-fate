@@ -106,6 +106,7 @@ scale = Vector2(3, 3)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(36352, 3592)
+target_room_path = "uid://bl0pji1ab2qhu"
 
 [node name="Icicle_06" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("4_xsu4n")]
 position = Vector2(35104, -320)
