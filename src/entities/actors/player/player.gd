@@ -48,19 +48,19 @@ var post_dash_gravity: float						## Gravity applied to Player during the post-d
 var post_dash_fast_fall_gravity_multiplier: float	## Multiplier for Player gravity while pressing the move_down action during the post-dash mode.
 
 # ---------- Leaf Pile ---------- #
-var pile_gravity: float					## The Player's gravity while in Leaf Pile mode.
-var pile_terminal_velocity: float		## The Player's maximum downward Y-velocity while in Leaf Pile mode.
-
-var pile_max_speed_ground: float		## The Player's maximum X-velocity while in Leaf Pile mode & on the ground. The Player's actual X-velocity may exceed this value if forces beside moving momentum are applied.
-var pile_ground_acceleration: float		## The Player's X-velocity gain per second while moving in Leaf Pile mode & on the ground.
-var pile_ground_deceleration: float		## The Player's X-velocity loss per second while not moving in Leaf Pile mode & on the ground.
-var pile_ground_turn_speed: float		## The Player's X-velocity gain per second while turning to move in the opposite direction in Leaf Pile mode & on the ground.
-var pile_ground_friction: float			## UNUSED: The Player's X-velocity loss per second while over their max ground speed in Leaf Pile mode.
-
-var pile_max_speed_air: float			## The Player's maximum X-velocity while in Leaf Pile mode & in the air. The Player's actual X-velocity may exceed this value if forces beside moving momentum are applied.
-var pile_air_acceleration: float		## The Player's X-velocity gain per second while moving in Leaf Pile mode & in the air.
-var pile_air_deceleration: float		## The Player's X-velocity loss per second while NOT moving in Leaf Pile mode & in the air.
-var pile_air_turn_speed: float			## The Player's X-velocity gain per second while turning to move in the opposite direction in Leaf Pile mode & in the air.
+#var pile_gravity: float					## The Player's gravity while in Leaf Pile mode.
+#var pile_terminal_velocity: float		## The Player's maximum downward Y-velocity while in Leaf Pile mode.
+#
+#var pile_max_speed_ground: float		## The Player's maximum X-velocity while in Leaf Pile mode & on the ground. The Player's actual X-velocity may exceed this value if forces beside moving momentum are applied.
+#var pile_ground_acceleration: float		## The Player's X-velocity gain per second while moving in Leaf Pile mode & on the ground.
+#var pile_ground_deceleration: float		## The Player's X-velocity loss per second while not moving in Leaf Pile mode & on the ground.
+#var pile_ground_turn_speed: float		## The Player's X-velocity gain per second while turning to move in the opposite direction in Leaf Pile mode & on the ground.
+#var pile_ground_friction: float			## UNUSED: The Player's X-velocity loss per second while over their max ground speed in Leaf Pile mode.
+#
+#var pile_max_speed_air: float			## The Player's maximum X-velocity while in Leaf Pile mode & in the air. The Player's actual X-velocity may exceed this value if forces beside moving momentum are applied.
+#var pile_air_acceleration: float		## The Player's X-velocity gain per second while moving in Leaf Pile mode & in the air.
+#var pile_air_deceleration: float		## The Player's X-velocity loss per second while NOT moving in Leaf Pile mode & in the air.
+#var pile_air_turn_speed: float			## The Player's X-velocity gain per second while turning to move in the opposite direction in Leaf Pile mode & in the air.
 
 # ---------- Misc. ---------- #
 var hit_recoil_velocity: float			## How far the Player is launched after being hit.
@@ -100,7 +100,7 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 @onready var jumping_state: LimboState = $LimboHSM/Jumping		## Reference to the Player's Jumping State.
 @onready var airborne_state: LimboState = $LimboHSM/Airborne	## Reference to the Player's Airborne State.
 @onready var dashing_state: LimboState = $LimboHSM/Dashing		## Reference to the Player's Leaf Dash State.
-@onready var piling_state: LimboState = $LimboHSM/Piling		## Reference to the Player's Leaf Pile state.
+#@onready var piling_state: LimboState = $LimboHSM/Piling		## Reference to the Player's Leaf Pile state.
 
 # -------------------- DYNAMIC VARIABLES -------------------- #
 ## If true, allows player input.
@@ -181,7 +181,8 @@ func _physics_process(delta: float) -> void:
 		update_jump_queue(delta)
 		update_leaf_meter(delta)
 	
-	if ((not dashing_state.is_active()) and (not piling_state.is_active())):
+	#if ((not dashing_state.is_active()) and (not piling_state.is_active())):
+	if (not dashing_state.is_active()):
 		velocity.y += compute_gravity() * delta
 		velocity.y = clampf(velocity.y, -INF, terminal_velocity) # velocity cannot exceed terminal velocity
 		
@@ -206,25 +207,25 @@ func initialize_state_machine() -> void:
 	state_machine.add_transition(idle_state,jumping_state,&"to_jumping")
 	state_machine.add_transition(idle_state,airborne_state,&"to_airborne")
 	state_machine.add_transition(idle_state,dashing_state,&"to_dashing")
-	state_machine.add_transition(idle_state,piling_state,&"to_piling")
+	#state_machine.add_transition(idle_state,piling_state,&"to_piling")
 	
 	# Running State
 	state_machine.add_transition(running_state,idle_state,&"to_idle")
 	state_machine.add_transition(running_state,jumping_state,&"to_jumping")
 	state_machine.add_transition(running_state,airborne_state,&"to_airborne")
 	state_machine.add_transition(running_state,dashing_state,&"to_dashing")
-	state_machine.add_transition(running_state,piling_state,&"to_piling")
+	#state_machine.add_transition(running_state,piling_state,&"to_piling")
 	
 	# Jumping State
 	state_machine.add_transition(jumping_state,airborne_state,&"to_airborne")
 	state_machine.add_transition(jumping_state,dashing_state,&"to_dashing")
-	state_machine.add_transition(jumping_state,piling_state,&"to_piling")
+	#state_machine.add_transition(jumping_state,piling_state,&"to_piling")
 	
 	# Airborne State
 	state_machine.add_transition(airborne_state,idle_state,&"to_idle")
 	state_machine.add_transition(airborne_state,running_state,&"to_running")
 	state_machine.add_transition(airborne_state,dashing_state,&"to_dashing")
-	state_machine.add_transition(airborne_state,piling_state,&"to_piling")
+	#state_machine.add_transition(airborne_state,piling_state,&"to_piling")
 	
 	# Dashing State
 	state_machine.add_transition(dashing_state,idle_state,&"to_idle")
@@ -232,9 +233,9 @@ func initialize_state_machine() -> void:
 	state_machine.add_transition(dashing_state,airborne_state,&"to_airborne")
 	
 	# Piling State
-	state_machine.add_transition(piling_state,idle_state,&"to_idle")
-	state_machine.add_transition(piling_state,running_state,&"to_running")
-	state_machine.add_transition(piling_state,airborne_state,&"to_airborne")
+	#state_machine.add_transition(piling_state,idle_state,&"to_idle")
+	#state_machine.add_transition(piling_state,running_state,&"to_running")
+	#state_machine.add_transition(piling_state,airborne_state,&"to_airborne")
 	
 	state_machine.initial_state = idle_state
 	state_machine.initialize(self)
@@ -247,7 +248,8 @@ func check_idle_state() -> void:
 		var x_input_is_zero: bool = (get_x_input() == 0.0)
 		
 		if velocity_is_zero and x_input_is_zero:
-			if(state_machine.get_active_state()==dashing_state||state_machine.get_active_state()==piling_state):
+			#if(state_machine.get_active_state()==dashing_state||state_machine.get_active_state()==piling_state):
+			if (state_machine.get_active_state() == dashing_state):
 				leaf_exit_audio.play()
 			state_machine.dispatch(&"to_idle")
 
@@ -276,7 +278,8 @@ func check_jumping_state() -> void:
 func check_airborne_state() -> void:
 	var is_coyote_timer_expired: bool = (time_since_on_floor > jump_coyote_time)
 	if not is_on_floor() and is_coyote_timer_expired:
-		if(state_machine.get_active_state()==dashing_state||state_machine.get_active_state()==piling_state):
+		#if(state_machine.get_active_state()==dashing_state||state_machine.get_active_state()==piling_state):
+		if (state_machine.get_active_state() == dashing_state):
 			leaf_exit_audio.play()
 		state_machine.dispatch(&"to_airborne")
 
@@ -296,15 +299,15 @@ func check_dashing_state() -> void:
 			leaf_enter_audio.play()
 			state_machine.dispatch(&"to_dashing")
 
-## If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to piling state.
-func check_piling_state() -> void:
-	# If input is disabled, don't handle pile inputs
-	if not input_processing:
-		return
-	
-	if Input.is_action_just_pressed(&"leaf_pile"):
-		#leaf_enter_audio.play()
-		state_machine.dispatch(&"to_piling")
+### If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to piling state.
+#func check_piling_state() -> void:
+	## If input is disabled, don't handle pile inputs
+	#if not input_processing:
+		#return
+	#
+	#if Input.is_action_just_pressed(&"leaf_pile"):
+		##leaf_enter_audio.play()
+		#state_machine.dispatch(&"to_piling")
 
 ## Set the Player's input processing to true and return the value.
 func enable_player_input() -> bool:
@@ -337,12 +340,12 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 			new_acceleration = direction * turn_speed * delta
 		
 		# If just exited Leaf Dash, limit velocity by dash max speed
-		if (piling_state.is_active()):	# Player in Leaf Pile mode
-			if (is_on_floor()):
-				new_velocity = clampf(velocity.x + new_acceleration, -pile_max_speed_ground, pile_max_speed_ground)
-			else:
-				new_velocity = clampf(velocity.x + new_acceleration, -pile_max_speed_air, pile_max_speed_air)
-		elif (abs(velocity.x) > run_max_speed):	# If Player above max run speed, do not let them add additional move velocity
+		#if (piling_state.is_active()):	# Player in Leaf Pile mode
+			#if (is_on_floor()):
+				#new_velocity = clampf(velocity.x + new_acceleration, -pile_max_speed_ground, pile_max_speed_ground)
+			#else:
+				#new_velocity = clampf(velocity.x + new_acceleration, -pile_max_speed_air, pile_max_speed_air)
+		if (abs(velocity.x) > run_max_speed):	# If Player above max run speed, do not let them add additional move velocity
 			# Trying to use clampf here with -velocity.x & velocity.x breaks the function,
 			# causing it to always return a positive value. So instead, we clamp manually here.
 			var temp_velocity: float = velocity.x + new_acceleration
@@ -432,8 +435,8 @@ func update_leaf_meter(delta: float) -> void:
 		leaf_meter_change = 0.0	# Do not change Leaf Meter while Player is not in control of Leaf Dash
 	elif (dashing_state.is_active()):
 		leaf_meter_change = -1.0 * meter_dash_drain_rate
-	elif (piling_state.is_active()):
-		leaf_meter_change = -1.0 * meter_pile_drain_rate
+	#elif (piling_state.is_active()):
+		#leaf_meter_change = -1.0 * meter_pile_drain_rate
 	elif (post_dash_mode): # Do not change Leaf Meter post-dash until Player hits the ground
 		leaf_meter_change = 0.0
 	elif (signf(get_x_input()) != signf(velocity.x)): # If turning
@@ -572,19 +575,19 @@ func initialize_data(data: Dictionary) -> void:
 		post_dash_gravity = data["post_dash_gravity"]
 		post_dash_fast_fall_gravity_multiplier = data["post_dash_fast_fall_gravity_multiplier"]
 		
-		pile_gravity = data["pile_gravity"]
-		pile_terminal_velocity = data["pile_terminal_velocity"]
-
-		pile_max_speed_ground = data["pile_max_speed_ground"]
-		pile_ground_acceleration = data["pile_ground_acceleration"]
-		pile_ground_deceleration = data["pile_ground_deceleration"]
-		pile_ground_turn_speed = data["pile_ground_turn_speed"]
-		pile_ground_friction = data["pile_ground_friction"]
-
-		pile_max_speed_air = data["pile_max_speed_air"]
-		pile_air_acceleration = data["pile_air_acceleration"]
-		pile_air_deceleration = data["pile_air_deceleration"]
-		pile_air_turn_speed = data["pile_air_turn_speed"]
+		#pile_gravity = data["pile_gravity"]
+		#pile_terminal_velocity = data["pile_terminal_velocity"]
+#
+		#pile_max_speed_ground = data["pile_max_speed_ground"]
+		#pile_ground_acceleration = data["pile_ground_acceleration"]
+		#pile_ground_deceleration = data["pile_ground_deceleration"]
+		#pile_ground_turn_speed = data["pile_ground_turn_speed"]
+		#pile_ground_friction = data["pile_ground_friction"]
+#
+		#pile_max_speed_air = data["pile_max_speed_air"]
+		#pile_air_acceleration = data["pile_air_acceleration"]
+		#pile_air_deceleration = data["pile_air_deceleration"]
+		#pile_air_turn_speed = data["pile_air_turn_speed"]
 		
 		hit_recoil_velocity = data["hit_recoil_velocity"]
 		hit_recoil_direction = data["hit_recoil_direction"]
