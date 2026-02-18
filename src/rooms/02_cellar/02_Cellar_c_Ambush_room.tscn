@@ -231,105 +231,100 @@ scale = Vector2(2, 2)
 position = Vector2(18048, 1344)
 scale = Vector2(2, 2)
 
-[node name="IcicleGroup05-51" parent="MidgroundLayer/Entities/Hazards" index="38" instance=ExtResource("3_i7v3y")]
-position = Vector2(18240, 1343.9995)
-rotation = 0.5235988
-scale = Vector2(2, 2)
-
-[node name="IcicleGroup05-46" parent="MidgroundLayer/Entities/Hazards" index="39" instance=ExtResource("3_i7v3y")]
+[node name="IcicleGroup05-46" parent="MidgroundLayer/Entities/Hazards" index="38" instance=ExtResource("3_i7v3y")]
 position = Vector2(21056, 1024)
 rotation = -6.2831855
 scale = Vector2(2, 2)
 
-[node name="IcicleGroup05-47" parent="MidgroundLayer/Entities/Hazards" index="40" instance=ExtResource("3_i7v3y")]
+[node name="IcicleGroup05-47" parent="MidgroundLayer/Entities/Hazards" index="39" instance=ExtResource("3_i7v3y")]
 position = Vector2(21376, 1024)
 rotation = -6.2831855
 scale = Vector2(2, 2)
 
-[node name="IcicleGroup05-48" parent="MidgroundLayer/Entities/Hazards" index="41" instance=ExtResource("3_i7v3y")]
+[node name="IcicleGroup05-48" parent="MidgroundLayer/Entities/Hazards" index="40" instance=ExtResource("3_i7v3y")]
 position = Vector2(21696, 1024)
 rotation = -6.2831855
 scale = Vector2(2, 2)
 
-[node name="IcicleGroup05-49" parent="MidgroundLayer/Entities/Hazards" index="42" instance=ExtResource("3_i7v3y")]
+[node name="IcicleGroup05-49" parent="MidgroundLayer/Entities/Hazards" index="41" instance=ExtResource("3_i7v3y")]
 position = Vector2(22016, 1024)
 rotation = -6.2831855
 scale = Vector2(2, 2)
 
-[node name="IcicleGroup05-50" parent="MidgroundLayer/Entities/Hazards" index="43" instance=ExtResource("3_i7v3y")]
+[node name="IcicleGroup05-50" parent="MidgroundLayer/Entities/Hazards" index="42" instance=ExtResource("3_i7v3y")]
 position = Vector2(22016, 1024)
 rotation = -6.2831855
 scale = Vector2(2, 2)
 
-[node name="IcicleGroup05-53" parent="MidgroundLayer/Entities/Hazards" index="44" instance=ExtResource("3_i7v3y")]
+[node name="IcicleGroup05-53" parent="MidgroundLayer/Entities/Hazards" index="43" instance=ExtResource("3_i7v3y")]
 position = Vector2(22336, 1024)
 rotation = -6.2831855
 scale = Vector2(2, 2)
 
-[node name="IcicleGroup04" parent="MidgroundLayer/Entities/Hazards" index="45" instance=ExtResource("4_in5fb")]
+[node name="IcicleGroup04" parent="MidgroundLayer/Entities/Hazards" index="44" instance=ExtResource("4_in5fb")]
 position = Vector2(20672, 576)
 scale = Vector2(4, 4)
 
-[node name="IcicleGroup04-2" parent="MidgroundLayer/Entities/Hazards" index="46" instance=ExtResource("4_in5fb")]
+[node name="IcicleGroup04-2" parent="MidgroundLayer/Entities/Hazards" index="45" instance=ExtResource("4_in5fb")]
 position = Vector2(20800, -64)
 rotation = -3.1415925
 scale = Vector2(4, 4)
 
-[node name="IcicleGroup05-54" parent="MidgroundLayer/Entities/Hazards" index="47" instance=ExtResource("3_i7v3y")]
+[node name="IcicleGroup05-54" parent="MidgroundLayer/Entities/Hazards" index="46" instance=ExtResource("3_i7v3y")]
 position = Vector2(14143.999, 21376)
 rotation = 0.7853982
 scale = Vector2(4, 4)
 
-[node name="IcicleGroup05-55" parent="MidgroundLayer/Entities/Hazards" index="48" instance=ExtResource("3_i7v3y")]
+[node name="IcicleGroup05-55" parent="MidgroundLayer/Entities/Hazards" index="47" instance=ExtResource("3_i7v3y")]
 position = Vector2(14976, 21952)
 scale = Vector2(4, 4)
 
-[node name="IceSpikeBall" parent="MidgroundLayer/Entities/Hazards" index="49" instance=ExtResource("5_u513b")]
+[node name="IceSpikeBall" parent="MidgroundLayer/Entities/Hazards" index="48" instance=ExtResource("5_u513b")]
 position = Vector2(14400, 21952)
 
-[node name="IceSpikeBall-2" parent="MidgroundLayer/Entities/Hazards" index="50" instance=ExtResource("5_u513b")]
+[node name="IceSpikeBall-2" parent="MidgroundLayer/Entities/Hazards" index="49" instance=ExtResource("5_u513b")]
 position = Vector2(14848, 22016)
 
-[node name="IceSpikeBall-3" parent="MidgroundLayer/Entities/Hazards" index="51" instance=ExtResource("5_u513b")]
+[node name="IceSpikeBall-3" parent="MidgroundLayer/Entities/Hazards" index="50" instance=ExtResource("5_u513b")]
 position = Vector2(14656, 21696)
 
-[node name="IceSpikeBall-4" parent="MidgroundLayer/Entities/Hazards" index="52" instance=ExtResource("5_u513b")]
+[node name="IceSpikeBall-4" parent="MidgroundLayer/Entities/Hazards" index="51" instance=ExtResource("5_u513b")]
 position = Vector2(14336, 21504)
 
-[node name="IceSpikeBall-5" parent="MidgroundLayer/Entities/Hazards" index="53" instance=ExtResource("5_u513b")]
+[node name="IceSpikeBall-5" parent="MidgroundLayer/Entities/Hazards" index="52" instance=ExtResource("5_u513b")]
 position = Vector2(14336, 19072)
 
-[node name="IceSpikeBall-6" parent="MidgroundLayer/Entities/Hazards" index="54" instance=ExtResource("5_u513b")]
+[node name="IceSpikeBall-6" parent="MidgroundLayer/Entities/Hazards" index="53" instance=ExtResource("5_u513b")]
 position = Vector2(14528, 18496)
 
-[node name="IceSpikeBall-7" parent="MidgroundLayer/Entities/Hazards" index="55" instance=ExtResource("5_u513b")]
+[node name="IceSpikeBall-7" parent="MidgroundLayer/Entities/Hazards" index="54" instance=ExtResource("5_u513b")]
 position = Vector2(14912, 18112)
 
-[node name="IceSpikeBall-8" parent="MidgroundLayer/Entities/Hazards" index="56" instance=ExtResource("5_u513b")]
+[node name="IceSpikeBall-8" parent="MidgroundLayer/Entities/Hazards" index="55" instance=ExtResource("5_u513b")]
 position = Vector2(15488, 17920)
 
-[node name="IceSpikeBall-13" parent="MidgroundLayer/Entities/Hazards" index="57" instance=ExtResource("5_u513b")]
+[node name="IceSpikeBall-13" parent="MidgroundLayer/Entities/Hazards" index="56" instance=ExtResource("5_u513b")]
 position = Vector2(16128, 17856)
 
-[node name="IceSpikeBall-15" parent="MidgroundLayer/Entities/Hazards" index="58" instance=ExtResource("5_u513b")]
+[node name="IceSpikeBall-15" parent="MidgroundLayer/Entities/Hazards" index="57" instance=ExtResource("5_u513b")]
 position = Vector2(17440, 18016)
 
-[node name="IceSpikeBall-16" parent="MidgroundLayer/Entities/Hazards" index="59" instance=ExtResource("5_u513b")]
+[node name="IceSpikeBall-16" parent="MidgroundLayer/Entities/Hazards" index="58" instance=ExtResource("5_u513b")]
 position = Vector2(20416, 17808)
 
-[node name="IceSpikeBall-14" parent="MidgroundLayer/Entities/Hazards" index="60" instance=ExtResource("5_u513b")]
+[node name="IceSpikeBall-14" parent="MidgroundLayer/Entities/Hazards" index="59" instance=ExtResource("5_u513b")]
 position = Vector2(21760, 17856)
 
-[node name="IceSpikeBall-9" parent="MidgroundLayer/Entities/Hazards" index="61" instance=ExtResource("5_u513b")]
+[node name="IceSpikeBall-9" parent="MidgroundLayer/Entities/Hazards" index="60" instance=ExtResource("5_u513b")]
 position = Vector2(22400, 17920)
 
-[node name="IceSpikeBall-10" parent="MidgroundLayer/Entities/Hazards" index="62" instance=ExtResource("5_u513b")]
+[node name="IceSpikeBall-10" parent="MidgroundLayer/Entities/Hazards" index="61" instance=ExtResource("5_u513b")]
 position = Vector2(22976, 18112)
 
-[node name="IceSpikeBall-11" parent="MidgroundLayer/Entities/Hazards" index="63" instance=ExtResource("5_u513b")]
+[node name="IceSpikeBall-11" parent="MidgroundLayer/Entities/Hazards" index="62" instance=ExtResource("5_u513b")]
 position = Vector2(23360, 18496)
 
-[node name="IceSpikeBall-12" parent="MidgroundLayer/Entities/Hazards" index="64" instance=ExtResource("5_u513b")]
+[node name="IceSpikeBall-12" parent="MidgroundLayer/Entities/Hazards" index="63" instance=ExtResource("5_u513b")]
 position = Vector2(23552, 19072)
 
 [node name="NpcWinston" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("6_af7wc")]
@@ -356,7 +351,7 @@ position = Vector2(16640, 896)
 scale = Vector2(4, 1)
 
 [node name="BreakawayPlatform-7" parent="MidgroundLayer/Entities/Objects" index="5" instance=ExtResource("5_kak0g")]
-position = Vector2(17584, 896)
+position = Vector2(17424, 896)
 scale = Vector2(4, 1)
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("9_hjb0y")]
