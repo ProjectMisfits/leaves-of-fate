@@ -1,28 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://b0kcsh4u0s6h"]
+[gd_scene load_steps=7 format=3 uid="uid://b0kcsh4u0s6h"]
 
-[ext_resource type="Script" uid="uid://lrd4ytnsswka" path="res://src/entities/hazards/icicle/icicle.gd" id="1_6k0f2"]
 [ext_resource type="Texture2D" uid="uid://co02j1n6hqgy4" path="res://assets/entities/hazards/icicle/Icicle-03.png" id="1_my6r4"]
 [ext_resource type="Texture2D" uid="uid://dtdlidtnfkuah" path="res://assets/entities/hazards/icicle/Icicle-06.png" id="2_6k0f2"]
 [ext_resource type="Texture2D" uid="uid://dtlb7dnnba4ka" path="res://assets/entities/hazards/icicle/Icicle-05.png" id="3_x3mhl"]
 [ext_resource type="Texture2D" uid="uid://nsc4gwcg2lhf" path="res://assets/entities/hazards/icicle/Icicle-02.png" id="4_1bo1o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5sn6"]
-size = Vector2(27, 33)
+size = Vector2(160, 225)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k38pr"]
 size = Vector2(141, 172)
 
 [node name="IcicleGroup05" type="StaticBody2D"]
-collision_layer = 12
-script = ExtResource("1_6k0f2")
+collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3.5, 0.5)
+position = Vector2(48, -95.5)
 shape = SubResource("RectangleShape2D_a5sn6")
-disabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(38.5, -76)
@@ -51,5 +50,3 @@ scale = Vector2(0.51347196, 0.51347196)
 position = Vector2(18, -49)
 scale = Vector2(0.5037037, 0.5037037)
 texture = ExtResource("4_1bo1o")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

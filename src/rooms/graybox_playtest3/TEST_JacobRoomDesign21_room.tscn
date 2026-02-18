@@ -1,9 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://crnmcqdp12kqw"]
+[gd_scene load_steps=12 format=4 uid="uid://crnmcqdp12kqw"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_l38yo"]
-[ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="2_3andh"]
 [ext_resource type="PackedScene" uid="uid://ds25qjj7x3y7o" path="res://src/entities/objects/leaf_platform/leaf_platform.tscn" id="3_1nv4g"]
-[ext_resource type="PackedScene" uid="uid://b0ddm7ewk0bkn" path="res://src/entities/hazards/leaf_ice_spike_ball/leaf_ice_spike_ball.tscn" id="3_r5w8g"]
 [ext_resource type="PackedScene" uid="uid://bk52stl8a3lwi" path="res://src/entities/objects/wind_zone/wind_zone.tscn" id="4_6fvqx"]
 [ext_resource type="PackedScene" uid="uid://disa83btdjjsk" path="res://src/entities/objects/moving_platform/moving_platform.tscn" id="4_tufma"]
 [ext_resource type="PackedScene" uid="uid://b0kcsh4u0s6h" path="res://src/entities/hazards/icicle/icicle_group_05.tscn" id="5_e5jue"]
@@ -40,173 +38,12 @@ tile_map_data = PackedByteArray("AAAAAAgABgAFAAAAAAABAAgABgAFAAAAAAACAAgABgAFAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(608.0005, 943.9999)
-path_to_target_room = "uid://c8aipu8vkbprc"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(36272, 1008)
 rotation = 0.008716512
-path_to_target_room = "uid://bdbuuoljlim4f"
 
-[node name="IceSpikeBall" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("2_3andh")]
-position = Vector2(7472, 3872)
-
-[node name="IceSpikeBall2" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall" index="2" instance=ExtResource("2_3andh")]
-position = Vector2(240, -96)
-
-[node name="IceSpikeBall3" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall" index="3" instance=ExtResource("2_3andh")]
-position = Vector2(512, -128)
-
-[node name="IceSpikeBall4" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall" index="4" instance=ExtResource("2_3andh")]
-position = Vector2(816, -112)
-
-[node name="IceSpikeBall5" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall" index="5" instance=ExtResource("2_3andh")]
-position = Vector2(1008, 32)
-
-[node name="IceSpikeBall2" parent="MidgroundLayer/Entities/Hazards" index="1" instance=ExtResource("2_3andh")]
-position = Vector2(10112, 3040)
-rotation = -3.130476
-
-[node name="IceSpikeBall2" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall2" index="2" instance=ExtResource("2_3andh")]
-position = Vector2(240, -96)
-
-[node name="IceSpikeBall3" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall2" index="3" instance=ExtResource("2_3andh")]
-position = Vector2(512, -128)
-
-[node name="IceSpikeBall4" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall2" index="4" instance=ExtResource("2_3andh")]
-position = Vector2(816, -112)
-
-[node name="IceSpikeBall5" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall2" index="5" instance=ExtResource("2_3andh")]
-position = Vector2(1008, 32)
-
-[node name="IceSpikeBall3" parent="MidgroundLayer/Entities/Hazards" index="2" instance=ExtResource("2_3andh")]
-position = Vector2(13632, 3040)
-rotation = -3.130476
-
-[node name="IceSpikeBall2" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall3" index="2" instance=ExtResource("2_3andh")]
-position = Vector2(240, -96)
-
-[node name="IceSpikeBall3" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall3" index="3" instance=ExtResource("2_3andh")]
-position = Vector2(512, -128)
-
-[node name="IceSpikeBall4" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall3" index="4" instance=ExtResource("2_3andh")]
-position = Vector2(816, -112)
-
-[node name="IceSpikeBall5" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall3" index="5" instance=ExtResource("2_3andh")]
-position = Vector2(1008, 32)
-
-[node name="IceSpikeBall4" parent="MidgroundLayer/Entities/Hazards" index="3" instance=ExtResource("2_3andh")]
-position = Vector2(10864, 3872)
-
-[node name="IceSpikeBall2" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall4" index="2" instance=ExtResource("2_3andh")]
-position = Vector2(240, -96)
-
-[node name="IceSpikeBall3" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall4" index="3" instance=ExtResource("2_3andh")]
-position = Vector2(512, -128)
-
-[node name="IceSpikeBall4" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall4" index="4" instance=ExtResource("2_3andh")]
-position = Vector2(816, -112)
-
-[node name="IceSpikeBall5" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall4" index="5" instance=ExtResource("2_3andh")]
-position = Vector2(976, 32)
-
-[node name="IceSpikeBall5" parent="MidgroundLayer/Entities/Hazards" index="4" instance=ExtResource("2_3andh")]
-position = Vector2(14304, 3872)
-
-[node name="IceSpikeBall2" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall5" index="2" instance=ExtResource("2_3andh")]
-position = Vector2(240, -96)
-
-[node name="IceSpikeBall3" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall5" index="3" instance=ExtResource("2_3andh")]
-position = Vector2(512, -128)
-
-[node name="IceSpikeBall4" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall5" index="4" instance=ExtResource("2_3andh")]
-position = Vector2(816, -112)
-
-[node name="IceSpikeBall5" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall5" index="5" instance=ExtResource("2_3andh")]
-position = Vector2(1008, 32)
-
-[node name="IceSpikeBall7" parent="MidgroundLayer/Entities/Hazards" index="5" instance=ExtResource("2_3andh")]
-position = Vector2(16912, 2128)
-
-[node name="IceSpikeBall8" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall7" index="2" instance=ExtResource("2_3andh")]
-position = Vector2(-160, -112)
-
-[node name="IceSpikeBall9" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall7" index="3" instance=ExtResource("2_3andh")]
-position = Vector2(-256, -400)
-
-[node name="IceSpikeBall10" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall7" index="4" instance=ExtResource("2_3andh")]
-position = Vector2(-240, -704)
-
-[node name="IceSpikeBall11" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall7" index="5" instance=ExtResource("2_3andh")]
-position = Vector2(-224, -976)
-
-[node name="IceSpikeBall12" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall7" index="6" instance=ExtResource("2_3andh")]
-position = Vector2(-48, -1200)
-
-[node name="IceSpikeBall8" parent="MidgroundLayer/Entities/Hazards" index="6" instance=ExtResource("2_3andh")]
-position = Vector2(15984, 368)
-scale = Vector2(-1, 1)
-
-[node name="IceSpikeBall8" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall8" index="2" instance=ExtResource("2_3andh")]
-position = Vector2(-160, -112)
-
-[node name="IceSpikeBall9" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall8" index="3" instance=ExtResource("2_3andh")]
-position = Vector2(-256, -400)
-
-[node name="IceSpikeBall10" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall8" index="4" instance=ExtResource("2_3andh")]
-position = Vector2(-240, -704)
-
-[node name="IceSpikeBall11" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall8" index="5" instance=ExtResource("2_3andh")]
-position = Vector2(-224, -976)
-
-[node name="IceSpikeBall12" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall8" index="6" instance=ExtResource("2_3andh")]
-position = Vector2(-48, -1200)
-
-[node name="IceSpikeBall9" parent="MidgroundLayer/Entities/Hazards" index="7" instance=ExtResource("2_3andh")]
-position = Vector2(16912, -1392)
-
-[node name="IceSpikeBall8" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall9" index="2" instance=ExtResource("2_3andh")]
-position = Vector2(-160, -112)
-
-[node name="IceSpikeBall9" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall9" index="3" instance=ExtResource("2_3andh")]
-position = Vector2(-256, -400)
-
-[node name="IceSpikeBall10" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall9" index="4" instance=ExtResource("2_3andh")]
-position = Vector2(-240, -704)
-
-[node name="IceSpikeBall11" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall9" index="5" instance=ExtResource("2_3andh")]
-position = Vector2(-224, -976)
-
-[node name="IceSpikeBall12" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall9" index="6" instance=ExtResource("2_3andh")]
-position = Vector2(-48, -1200)
-
-[node name="LeafSpikeBall" parent="MidgroundLayer/Entities/Hazards" index="8" instance=ExtResource("3_r5w8g")]
-position = Vector2(15984, -2848)
-
-[node name="LeafSpikeBall2" parent="MidgroundLayer/Entities/Hazards/LeafSpikeBall" index="2" instance=ExtResource("3_r5w8g")]
-position = Vector2(304, 0)
-
-[node name="LeafSpikeBall3" parent="MidgroundLayer/Entities/Hazards/LeafSpikeBall" index="3" instance=ExtResource("3_r5w8g")]
-position = Vector2(560, 0)
-
-[node name="LeafSpikeBall4" parent="MidgroundLayer/Entities/Hazards/LeafSpikeBall" index="4" instance=ExtResource("3_r5w8g")]
-position = Vector2(816, -32)
-
-[node name="IceSpikeBall6" parent="MidgroundLayer/Entities/Hazards" index="9" instance=ExtResource("2_3andh")]
-position = Vector2(17184, -2992)
-
-[node name="IceSpikeBall2" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall6" index="2" instance=ExtResource("2_3andh")]
-position = Vector2(240, -96)
-
-[node name="IceSpikeBall3" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall6" index="3" instance=ExtResource("2_3andh")]
-position = Vector2(512, -128)
-
-[node name="IceSpikeBall4" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall6" index="4" instance=ExtResource("2_3andh")]
-position = Vector2(816, -112)
-
-[node name="IceSpikeBall5" parent="MidgroundLayer/Entities/Hazards/IceSpikeBall6" index="5" instance=ExtResource("2_3andh")]
-position = Vector2(1008, 32)
-
-[node name="MovingPlatform" parent="MidgroundLayer/Entities/Hazards" index="10" instance=ExtResource("4_tufma")]
+[node name="MovingPlatform" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("4_tufma")]
 position = Vector2(10752, 0)
 curve = SubResource("Curve2D_seg0o")
 open_loop_speed_scale = 0.3
@@ -352,7 +189,7 @@ rotation = -1.5707964
 [node name="AnimationPlayer" parent="MidgroundLayer/Entities/Hazards/MovingPlatform" index="2"]
 reset_on_save = false
 
-[node name="MovingPlatform2" parent="MidgroundLayer/Entities/Hazards" index="11" instance=ExtResource("4_tufma")]
+[node name="MovingPlatform2" parent="MidgroundLayer/Entities/Hazards" index="1" instance=ExtResource("4_tufma")]
 position = Vector2(31984, 112)
 curve = SubResource("Curve2D_6fvqx")
 open_loop_speed_scale = 0.3
@@ -504,7 +341,6 @@ reset_on_save = false
 modulate = Color(1, 1, 1, 0.19607843)
 position = Vector2(7280, 3072)
 mode = 1
-leaf_only = true
 
 [node name="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/WindZone" index="0"]
 visible = false
@@ -540,11 +376,9 @@ scale = Vector2(9.08, 1)
 position = Vector2(26288, -2880)
 scale = Vector2(9.08, 1)
 
-[node name="CameraTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" node_paths=PackedStringArray("limit_target") instance=ExtResource("5_tufma")]
+[node name="CameraTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("5_tufma")]
 position = Vector2(-768, 32)
-limit_target = NodePath("../../../Midground")
 follow_player = true
-change_offset = Vector2(200, -200)
 
 [node name="CollisionShape2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger" index="0"]
 position = Vector2(1926, -923.75)

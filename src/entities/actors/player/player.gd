@@ -457,31 +457,7 @@ func set_current_leaf_dash_mode(new_leaf_dash_mode: Player.leaf_dash_mode) -> vo
 
 ## Decreases the Player's health by the given value.
 func hurt(damage: int) -> void:
-	return
-	if (invincible):
-		return	# Do not deal damage.
-	else:
-		set_health(current_health - damage)
-		# Temporarily disable player input after getting hurt
-		input_processing = false
-		# Launch the Player in the reverse of their look direction by an amount.
-		velocity = hit_recoil_direction.normalized() * hit_recoil_velocity * ceilf(look_direction)
-		
-		# Play the hitstun animation
-		animation_player.play(&"player_hitstun")
-		await animation_player.animation_finished
-		
-		# Make Player invincible for an amount of time.
-		start_invincibility(hit_invincibility_time)
-		
-		if (current_health <= 0):
-			# If the player is dead, don't give input back and wait for the invincibility timer to run out
-			await invincibility_timer.timeout
-			# Emit the knocked out signal once invincibility is over
-			player_knocked_out.emit()
-		else:
-			# Otherwise re-enable player input
-			input_processing = true
+	pass
 
 func knock_out() -> void:
 	print("MEOW")
