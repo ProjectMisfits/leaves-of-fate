@@ -120,3 +120,5 @@ func close_credits_menu() -> void:
 	_show_main_menu()
 	$%PlayButton.grab_focus.call_deferred()
 	menu_holder.remove_child(credits_menu)
+	credits_menu.get_node("%ScrollContainer").scroll_vertical = 0
+	credits_menu.was_closed = true
