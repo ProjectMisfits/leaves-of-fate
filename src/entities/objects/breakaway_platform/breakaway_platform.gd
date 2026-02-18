@@ -49,12 +49,10 @@ func _ready() -> void:
 	constant_linear_velocity = Vector2(0,gravity)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	#apply gravity at all times
 	if(not stationary):
 		move_and_collide(constant_linear_velocity)
-
-
 
 #Once the break timer has gone disable collisions
 func _on_break_time_timeout() -> void:
