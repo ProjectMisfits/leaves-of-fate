@@ -8,10 +8,12 @@ class_name Hud
 ## A reference to the player.
 @onready var player: Player = null
 
+func _ready() -> void:
+	EventBus.player_knocked_out.connect(_on_player_knocked_out)
+
 ## Called by gameplay to connect the exact Player instance to the Hud
 func set_player(current_player: Player) -> void:
 	player = current_player
-	player.health_changed.connect(_set_player_health)
 	player.leaf_meter_changed.connect(_set_leaf_meter)
 
 ## Sets the leaf meter visual to the given value if it is within 0.0 - 100.0
@@ -26,23 +28,8 @@ func _set_leaf_meter(new_value: float) -> void:
 		leaf_meter.tint_progress = Color(1, (leaf_meter.value / 75), (leaf_meter.value / 75), 1)
 
 ## Updates health in the HUD based on the players current health
-func _set_player_health(new_health: int) -> void:
-	if new_health > player.max_health:
-		push_warning("New health is greater than number of health UI boxes.")
-		return
-	else:
-		create_tween().tween_property(%LifeLeaf1, "modulate:a", 0.0, 0.5)
-		#if new_health == 3: # respawns all lives when player health is max 
-			#await get_tree().create_timer(respawn_speed).timeout
-			#create_tween().tween_property(%LifeLeaf1, "modulate:a", 1.0, 0.25)
-			#create_tween().tween_property(%LifeLeaf2, "modulate:a", 1.0, 0.25)
-			#create_tween().tween_property(%LifeLeaf3, "modulate:a", 1.0, 0.25)
-		#elif new_health == 2: # removes right most leaf when looses first life
-			#create_tween().tween_property(%LifeLeaf3, "modulate:a", 0.0, 0.5)
-		#elif new_health == 1: # removes middle leaf when loses middle life
-			#create_tween().tween_property(%LifeLeaf2, "modulate:a", 0.0, 0.5)
-		#elif new_health == 0: # removes left most leaf when looses last life
-			#create_tween().tween_property(%LifeLeaf1, "modulate:a", 0.0, 0.5)
+func _on_player_knocked_out() -> void:
+	create_tween().tween_property(%LifeLeaf1, "modulate:a", 0.0, 0.5)
 
 ## Reset HUD state.
 func reset_hud() -> void:

@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://h13x4nmh8pso"]
+[gd_scene load_steps=6 format=3 uid="uid://h13x4nmh8pso"]
 
-[ext_resource type="Script" uid="uid://cgf3c3d1oi8ql" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.gd" id="1_4vxkl"]
 [ext_resource type="Texture2D" uid="uid://cetapo5oxl1e8" path="res://assets/entities/hazards/ice_spike_ball/Ice-Spike-Ball.png" id="2_4vxkl"]
 [ext_resource type="Material" uid="uid://cyagf2w8coumw" path="res://assets/graphics/ice_material_ball_01.tres" id="2_col5u"]
 [ext_resource type="Texture2D" uid="uid://c2s7oorsjlvwf" path="res://assets/graphics/ice_normal_small.tres" id="4_col5u"]
@@ -15,7 +14,6 @@ normal_texture = ExtResource("4_col5u")
 [node name="IceSpikeBall" type="Area2D"]
 collision_layer = 8
 collision_mask = 65
-script = ExtResource("1_4vxkl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4vxkl")
@@ -25,5 +23,3 @@ material = ExtResource("2_col5u")
 position = Vector2(25, -9)
 scale = Vector2(0.75, 0.75)
 texture = SubResource("CanvasTexture_col5u")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]

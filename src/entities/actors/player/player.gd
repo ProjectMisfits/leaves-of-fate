@@ -8,7 +8,6 @@ class_name Player
 @export var database: JSON = null
 
 # -------------------- DATABASE VARIABLES -------------------- #
-var max_health: int					## The Player's maximum health.
 var terminal_velocity: float		## The Player's maximum positive Y-velocity.
 
 # ---------- Run ---------- #
@@ -111,8 +110,13 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 # -------------------- DYNAMIC VARIABLES -------------------- #
 ## If true, allows player input.
 ## If false, disables all player input.
-## The Player's process_mode is NOT disabled and they may still move & change states.
-var input_processing: bool = true
+## Initialized as false so that the player does not have control until the game is ready (mainly the room has finished loading).
+var input_processing: bool = false
+
+## If true, allows player physics processing.
+## If false, player will be frozen in place.
+## Initialized as false so that physics are not processed until the game is ready (mainly the room has finished loading).
+var move_processing: bool = false
 
 ## If True, Player just exited a dash & is airborne.
 ## The Player may NOT Leaf Dash/Pile & has no air deceleration.
@@ -120,12 +124,12 @@ var input_processing: bool = true
 var post_dash_mode: bool = false
 
 ## If True, Player is invincible & cannot be damaged normally.
-var invincible: bool = false
+## Initialized as true so that the player cannot be damaged until the game is ready (mainly the room has finished loading).
+var invincible: bool = true
 
 @onready var leaf_enter_audio: AudioStreamPlayer2D = $Audio/LeafEnter
 @onready var leaf_exit_audio: AudioStreamPlayer2D = $Audio/LeafExit
 
-var current_health: int			## The Player's current health remaining.
 var look_direction: float = 1.0	## The direction the Player is looking. < 0 is left, >= 0 is right.
 var jump_queued: bool = false	## If True, the user queued a jump which will trigger immediately when the Player lands on the ground.
 var leaf_meter: float = 0.0		## How much wind the Player currently has.
@@ -148,8 +152,6 @@ var _current_leaf_dash_mode: leaf_dash_mode = leaf_dash_mode.NORMAL
 var can_play_footstep : bool = true
 
 # -------------------- SIGNALS -------------------- #
-signal player_knocked_out					## Emitted when the Player loses all of their health.
-signal health_changed(new_health: int)		## Emitted when the Player's health changes.
 signal leaf_meter_changed(new_value: float)	## Emitted when the Player's stored wind changes.
 
 ## Fetch database resource. If valid, initialize all variables.
@@ -167,9 +169,6 @@ func _ready() -> void:
 	InputMap.action_set_deadzone("move_left",.05)
 	InputMap.action_set_deadzone("move_right",.05)
 	
-	current_health = max_health
-	health_changed.emit(current_health)
-	
 	var dialogue_manager: Object = Engine.get_singleton(&"DialogueManager")
 	if (dialogue_manager != null):
 		# Connect dialogue to Player input processing.
@@ -180,6 +179,9 @@ func _ready() -> void:
 ## Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
 	add_debug_parameters()
+	
+	if not move_processing:
+		return
 	
 	if (post_dash_mode and is_on_floor()):	# If landed on floor during post-dash mode, disable post-dash mode.
 		post_dash_mode = false
@@ -329,7 +331,6 @@ func set_input_processing(new_input_processing: bool) -> bool:
 
 ## Get the input direction and handle the movement/deceleration.
 func move_horizontal(acceleration: float, deceleration: float, turn_speed: float, delta: float) -> void:
-	
 	var direction: float = get_x_input()
 	var new_velocity: float = 0.0
 	
@@ -399,8 +400,6 @@ func get_x_input() -> float:
 	if not input_processing:
 		return 0.0
 	else:
-		
-		#print(Input.get_axis(&"move_left", &"move_right"))
 		return Input.get_axis(&"move_left", &"move_right")	# Ceilf to get normalized input.
 
 ## Updates jump velocity & gravity variables
@@ -471,32 +470,27 @@ func get_current_leaf_dash_mode() -> bool:
 func set_current_leaf_dash_mode(new_leaf_dash_mode: Player.leaf_dash_mode) -> void:
 	_current_leaf_dash_mode = new_leaf_dash_mode
 
-## Decreases the Player's health by the given value.
-func hurt(damage: int) -> void:
-	if (invincible):
-		return	# Do not deal damage.
-	else:
-		set_health(current_health - damage)
-		# Temporarily disable player input after getting hurt
-		input_processing = false
-		# Launch the Player in the reverse of their look direction by an amount.
-		velocity = hit_recoil_direction.normalized() * hit_recoil_velocity * ceilf(look_direction)
-		
-		# Play the hitstun animation
-		animation_player.play(&"player_hitstun")
-		await animation_player.animation_finished
-		
-		# Make Player invincible for an amount of time.
-		start_invincibility(hit_invincibility_time)
-		
-		if (current_health <= 0):
-			# If the player is dead, don't give input back and wait for the invincibility timer to run out
-			await invincibility_timer.timeout
-			# Emit the knocked out signal once invincibility is over
-			player_knocked_out.emit()
-		else:
-			# Otherwise re-enable player input
-			input_processing = true
+## Emit the player knocked out signal when the player is knocked out.
+func knock_out() -> void:
+	# Prevent repeat knockouts
+	if not invincible:
+		freeze()
+		invincibility_animation_player.play("hit_invincibility")
+		await invincibility_animation_player.animation_finished
+		EventBus.player_knocked_out.emit()
+
+## Disable player input, disable player physics movement, and enable invincibility.
+func freeze() -> void:
+	input_processing = false
+	move_processing = false
+	invincible = true
+	animation_player.pause()
+
+## Enable player input, enable player physics movement, and disable invincibility.
+func unfreeze() -> void:
+	input_processing = true
+	move_processing = true
+	invincible = false
 
 ## Make the Player invincible & starts the Invincibility Timer.
 func start_invincibility(time: float) -> void:
@@ -518,15 +512,6 @@ func _end_invincibility() -> void:
 	invincible = false
 	invincibility_animation_player.stop()
 
-## Set the Player's current health, update the health UI, and check for Player knockout.
-## Health set in this way disregards invincibility.
-func set_health(new_health: int) -> void:
-	if (new_health > max_health):	# If health greater than max health
-		push_warning("set_health(): new_health is greater than max health.")
-	
-	current_health = clampi(new_health, 0, max_health)
-	health_changed.emit(current_health)
-
 ## Sets the Player's current Leaf Meter & updates the Leaf Meter UI.
 func set_leaf_meter(new_leaf_meter: float) -> void:
 	# If input is disabled, ignore changes to Player leaf meter.
@@ -538,18 +523,9 @@ func set_leaf_meter(new_leaf_meter: float) -> void:
 	leaf_meter = clampf(new_leaf_meter, 0.0, 100.0)
 	leaf_meter_changed.emit(leaf_meter)
 
-## Resets the Player's health and Leaf Meter to their initial values.
-func reset_stats() -> void:
-	set_health(max_health)
-	set_leaf_meter(0.0)
-	
-	# Reset state. Uses call_deferred() to allow the current state's exit function to run.
-	state_machine.call_deferred("change_active_state", idle_state)
-
 ## Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
 		# Base Data #
-		max_health = data["max_health"]
 		terminal_velocity = data["terminal_velocity"]
 		
 		# Run #

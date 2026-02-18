@@ -1,13 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://daw0h2ils3lfh"]
+[gd_scene load_steps=7 format=4 uid="uid://daw0h2ils3lfh"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_00qh0"]
 [ext_resource type="PackedScene" uid="uid://cnkr1x18dvnec" path="res://src/entities/triggers/player_enter_trigger/camera_trigger/camera_trigger.tscn" id="2_nbagi"]
-[ext_resource type="PackedScene" uid="uid://bk52stl8a3lwi" path="res://src/entities/objects/wind_zone/wind_zone.tscn" id="2_qpfhj"]
 [ext_resource type="PackedScene" uid="uid://k2syntar7do" path="res://src/entities/triggers/player_enter_trigger/camera_reset_trigger/camera_reset_trigger.tscn" id="3_0j266"]
-[ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="3_6i47g"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6v6oo"]
-size = Vector2(5664, 3855)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbagi"]
 size = Vector2(511.00012, 3685.0002)
@@ -32,67 +27,8 @@ position = Vector2(326, 1020)
 position = Vector2(12944, 1008)
 rotation = 0.008716512
 
-[node name="WindZone" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("2_qpfhj")]
-position = Vector2(5935, -1255)
-mode = 1
-
-[node name="CollisionShape2D" parent="MidgroundLayer/Entities/Hazards/WindZone" index="0"]
-position = Vector2(310, 467.5)
-shape = SubResource("RectangleShape2D_6v6oo")
-
-[node name="Polygon2D" parent="MidgroundLayer/Entities/Hazards/WindZone" index="1"]
-position = Vector2(316.00024, 453.99994)
-scale = Vector2(5.6959996, 3.8459997)
-color = Color(0, 0.6745098, 0, 0.36862746)
-
-[node name="IceSpikeBall" parent="MidgroundLayer/Entities/Hazards" index="1" instance=ExtResource("3_6i47g")]
-position = Vector2(3721, 843)
-
-[node name="IceSpikeBall2" parent="MidgroundLayer/Entities/Hazards" index="2" instance=ExtResource("3_6i47g")]
-position = Vector2(4082, 714)
-
-[node name="IceSpikeBall3" parent="MidgroundLayer/Entities/Hazards" index="3" instance=ExtResource("3_6i47g")]
-position = Vector2(4367, 588)
-
-[node name="IceSpikeBall4" parent="MidgroundLayer/Entities/Hazards" index="4" instance=ExtResource("3_6i47g")]
-position = Vector2(4705, 566)
-
-[node name="IceSpikeBall5" parent="MidgroundLayer/Entities/Hazards" index="5" instance=ExtResource("3_6i47g")]
-position = Vector2(5073, 539)
-
-[node name="IceSpikeBall6" parent="MidgroundLayer/Entities/Hazards" index="6" instance=ExtResource("3_6i47g")]
-position = Vector2(5461, 566)
-
-[node name="IceSpikeBall7" parent="MidgroundLayer/Entities/Hazards" index="7" instance=ExtResource("3_6i47g")]
-position = Vector2(5810, 566)
-
-[node name="IceSpikeBall8" parent="MidgroundLayer/Entities/Hazards" index="8" instance=ExtResource("3_6i47g")]
-position = Vector2(6182, 539)
-
-[node name="IceSpikeBall9" parent="MidgroundLayer/Entities/Hazards" index="9" instance=ExtResource("3_6i47g")]
-position = Vector2(6527, 550)
-
-[node name="IceSpikeBall10" parent="MidgroundLayer/Entities/Hazards" index="10" instance=ExtResource("3_6i47g")]
-position = Vector2(6881, 551)
-
-[node name="IceSpikeBall11" parent="MidgroundLayer/Entities/Hazards" index="11" instance=ExtResource("3_6i47g")]
-position = Vector2(7276, 561)
-
-[node name="IceSpikeBall12" parent="MidgroundLayer/Entities/Hazards" index="12" instance=ExtResource("3_6i47g")]
-position = Vector2(7678, 585)
-
-[node name="IceSpikeBall13" parent="MidgroundLayer/Entities/Hazards" index="13" instance=ExtResource("3_6i47g")]
-position = Vector2(8043, 664)
-
-[node name="IceSpikeBall14" parent="MidgroundLayer/Entities/Hazards" index="14" instance=ExtResource("3_6i47g")]
-position = Vector2(8316, 790)
-
-[node name="IceSpikeBall15" parent="MidgroundLayer/Entities/Hazards" index="15" instance=ExtResource("3_6i47g")]
-position = Vector2(8685, 907)
-
-[node name="CameraTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" node_paths=PackedStringArray("limit_target") instance=ExtResource("2_nbagi")]
+[node name="CameraTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("2_nbagi")]
 position = Vector2(2576, 624.00006)
-limit_target = NodePath("../../../Midground")
 follow_player = true
 repeatable = true
 
@@ -107,7 +43,7 @@ scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_nbagi")
 
 [node name="PhantomCamera2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger" index="2"]
-position = Vector2(3513, -1281.9999)
+position = Vector2(3513, -1016.0001)
 zoom = Vector2(0.3, 0.3)
 limit_target = NodePath("../../../../Midground")
 
@@ -127,7 +63,6 @@ repeatable = true
 position = Vector2(-1637, -1056)
 shape = SubResource("RectangleShape2D_6i47g")
 
-[editable path="MidgroundLayer/Entities/Hazards/WindZone"]
 [editable path="MidgroundLayer/Entities/Triggers/CameraTrigger"]
 [editable path="MidgroundLayer/Entities/Triggers/CameraResetTrigger"]
 [editable path="MidgroundLayer/Entities/Triggers/CameraResetTrigger2"]
