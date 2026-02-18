@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://bnysb55hwhjyd"]
+[gd_resource type="TileSet" load_steps=16 format=3 uid="uid://bnysb55hwhjyd"]
 
 [ext_resource type="Texture2D" uid="uid://bacfs5fh7tttn" path="res://assets/entities/hazards/icicle/Icicle-01.png" id="1_qib5l"]
 [ext_resource type="Texture2D" uid="uid://nsc4gwcg2lhf" path="res://assets/entities/hazards/icicle/Icicle-02.png" id="2_1kqfm"]
@@ -12,6 +12,9 @@ tile_data = PackedInt32Array(786432, 2, 268435456, 6, 1114117, 0, 1245196, 0, 0,
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_u3s71"]
 tile_data = PackedInt32Array(0, 1, 0, 7, 1, 268435456)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_gpc7r"]
+tile_data = PackedInt32Array(0, 3, 0, 10, 3, 0, 20, 3, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kqfm"]
 texture = ExtResource("1_qib5l")
@@ -53,6 +56,7 @@ texture = ExtResource("6_63dno")
 
 [resource]
 physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_1kqfm")
 sources/1 = SubResource("TileSetAtlasSource_2cs1f")
 sources/2 = SubResource("TileSetAtlasSource_36kqp")
@@ -61,3 +65,4 @@ sources/4 = SubResource("TileSetAtlasSource_63dno")
 sources/5 = SubResource("TileSetAtlasSource_u3s71")
 pattern_0 = SubResource("TileMapPattern_63dno")
 pattern_1 = SubResource("TileMapPattern_u3s71")
+pattern_2 = SubResource("TileMapPattern_gpc7r")
