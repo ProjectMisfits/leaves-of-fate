@@ -4,5 +4,10 @@ class_name HurtComponent extends Node2D
 ## A signal to indicate this component has registered a hurt.
 signal hurt
 
+## Whether the hurt has already occurred. Used to prevent repeat hurt triggers.
+var is_hurt: bool = false
+
 func _on_hurt_area_body_entered(_body: Node2D) -> void:
-	hurt.emit()
+	if not is_hurt:
+		hurt.emit()
+		is_hurt = true
