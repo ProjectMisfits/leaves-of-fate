@@ -1,0 +1,29 @@
+~ start
+Fenn: Az... are you there?
+Az: Yeah. sigh. Still stuck... 'sup?
+Fenn: Why do you need your workshop so bady?
+Az: All my stuff's there. Tools, devices. You know.
+Az: I don't want anyone going through it, let alone that pathetic excuse of a Wizard.
+Fenn: Hey! That's mean.
+Az: He trapped all the Knights, Fenn.
+Fenn: Well... you said you needed something from your Workshop?
+Az: sigh. Yeah, alright. Fine. I need an inhaler. Baba always has a few on him, and I keep the rest in my workshop.
+Fenn: Like... for asthma?
+Az: YES for asthma. Why do you think I can't melt all the ice around here?
+Fenn: The smoke... you'll have an attack?
+Az: Yeah. It's not pretty.
+Fenn: That's why we need the heater?
+Az: Yeah. My Baba is insane about my asthma. He installed the heater so I can control the temp down here.
+Az: He taught me everything I know about blacksmithing, but it's so rare I can even do it.
+Az: You know, where I'm from, dirt and grime are signs of hard work. A badge of honor.
+Az: And I've got the cleanest clothes of any blacksmith in Codoma.
+Az: You know how embarrassing that is?
+Fenn: ...
+Fenn: Uh... kinda, I guess...
+Fenn: I'm sorry, Az.
+Az: It's fine. Not your problem, anyway. 
+Az: Go grab that heater. We've still got a Wizard to deal with.
+Fenn: Okay... On it.
+do EventFlags.set_flag("Az-FiresideChat-1-HeaterArea", true)
+
+=> END

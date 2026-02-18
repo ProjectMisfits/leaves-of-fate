@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://s85sqpk0o187"
+path="res://.godot/imported/9-Az-FiresideChat-1-HeaterArea.dialogue-3782c81e72a4ffbd582208a6ce8441bd.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/9-Az-FiresideChat-1-HeaterArea.dialogue"
+dest_files=["res://.godot/imported/9-Az-FiresideChat-1-HeaterArea.dialogue-3782c81e72a4ffbd582208a6ce8441bd.tres"]
+
+[params]
+
+defaults=true
