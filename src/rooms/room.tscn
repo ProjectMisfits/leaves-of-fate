@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://bhndpauy1j7sw"]
+[gd_scene load_steps=7 format=4 uid="uid://bhndpauy1j7sw"]
 
 [ext_resource type="Script" uid="uid://clfv0vvbc4hdy" path="res://src/rooms/room.gd" id="1_t665v"]
 [ext_resource type="TileSet" uid="uid://i6wi7xcus3i" path="res://assets/rooms/tileset/TS_Cellar.tres" id="2_7i7i2"]
 [ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/door/door.tscn" id="2_pdypr"]
 [ext_resource type="TileSet" uid="uid://bnysb55hwhjyd" path="res://assets/rooms/tileset/TS_Hazards.tres" id="3_0bf0a"]
 [ext_resource type="PackedScene" uid="uid://cjkpybae7njrh" path="res://src/entities/actors/player/player.tscn" id="4_8eo6q"]
+[ext_resource type="TileSet" uid="uid://cjoeqxdlr5mcm" path="res://assets/rooms/tileset/TS_Windzone.tres" id="4_n3e44"]
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_t665v")
@@ -39,6 +40,10 @@ metadata/_edit_lock_ = true
 [node name="Hazards" type="TileMapLayer" parent="MidgroundLayer"]
 tile_set = ExtResource("3_0bf0a")
 metadata/_edit_lock_ = true
+
+[node name="Windzones" type="TileMapLayer" parent="MidgroundLayer"]
+modulate = Color(1, 1, 1, 0.40784314)
+tile_set = ExtResource("4_n3e44")
 
 [node name="DoorHolder" type="Node2D" parent="MidgroundLayer"]
 unique_name_in_owner = true
