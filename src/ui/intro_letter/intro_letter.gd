@@ -15,7 +15,7 @@ func _unhandled_input(event: InputEvent) -> void:
 ## Show the continue prompt
 func _show_continue_prompt() -> void:
 	var prompt_tween: Tween = create_tween()
-	prompt_tween.tween_property($TextureRect/Control, "modulate:a", 1.0, 0.5)
+	prompt_tween.tween_property($TextureRect/Control, "modulate:a", 1.0, 0.25)
 	prompt_tween.tween_callback(_mark_continue_prompt_as_visible)
 
 ## Mark the continue prompt as visible
