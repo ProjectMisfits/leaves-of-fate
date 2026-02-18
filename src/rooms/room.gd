@@ -37,14 +37,6 @@ func _on_player_entered_door(door: Door) -> void:
 	player.process_mode = Node.PROCESS_MODE_DISABLED
 	swap_room.emit(door.target_room_path, door.target_door_name)
 
-## Spawn the player at the given door.
-func spawn_player_at_door(target_door_name: String) -> Vector2:
-	var spawn_position: Vector2 = get_door_position(target_door_name)
-	set_player_location(spawn_position)
-	# Enable player processing
-	player.process_mode = Node.PROCESS_MODE_INHERIT
-	return spawn_position
-
 ## Set the player's location.
 func set_player_location(new_location: Vector2) -> void:
 	player.global_position = new_location
