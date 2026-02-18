@@ -706,7 +706,7 @@ bus = &"SFX"
 [node name="InvincibilityTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="Timer" type="Timer" parent="."]
+[node name="FootStepTimer" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="area_entered" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_entered"]
@@ -714,4 +714,4 @@ one_shot = true
 [connection signal="area_entered" from="FlipNode/GrabComponent/GrabRange" to="FlipNode/GrabComponent" method="_on_grab_range_area_entered"]
 [connection signal="area_exited" from="FlipNode/GrabComponent/GrabRange" to="FlipNode/GrabComponent" method="_on_grab_range_area_exited"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_end_invincibility"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="FootStepTimer" to="." method="_on_foot_step_timer_timeout"]

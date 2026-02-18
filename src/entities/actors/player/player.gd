@@ -93,6 +93,12 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 ## While active, the Player is invincible & cannot be damaged normally.
 @onready var invincibility_timer: Timer = $InvincibilityTimer
 
+##Footstep delay
+@onready var foot_step_timer :Timer = $FootStepTimer
+
+##Footstep Audio
+@onready var foot_step_audio_player : AudioStreamPlayer2D = $Audio/Footsteps
+
 # ---------- State Machine & States ---------- #
 @onready var state_machine: LimboHSM = $LimboHSM				## Reference to the Player's State Machine.
 @onready var idle_state: LimboState = $LimboHSM/Idle			## Reference to the Player's Idle State.
@@ -369,9 +375,8 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 	
 	if can_play_footstep:
 		can_play_footstep = false
-		$Audio/Footsteps.play()
-		print($Audio/Footsteps.stream.get_length())
-		$Timer.start($Audio/Footsteps.stream.get_length())
+		foot_step_audio_player.play()
+		foot_step_timer.start(foot_step_audio_player.stream.get_length())
 	
 	# Pos/0 velocity = look right, neg velocity = look left
 	var new_look_direction: float = signf(direction)
@@ -618,6 +623,6 @@ func enable_cutscene_mode() -> void:
 	velocity = Vector2(0.0, 0.0)
 
 
-func _on_timer_timeout() -> void:
+func _on_foot_step_timer_timeout() -> void:
 	can_play_footstep = true
-	pass # Replace with function body.
+	
