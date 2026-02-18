@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vtvkdsax7agv"
-path="res://.godot/imported/Az-Grab-Sprite-Sheet.png-e44942c565ac6526d0c8b657df8163ef.ctex"
+uid="uid://ci4p145y6siyu"
+path="res://.godot/imported/Az-SpriteSheet-Idle-02.png-4a34c08a591c19b41b03a41912735dfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/actors/npcs/az/Az-Grab-Sprite-Sheet.png"
-dest_files=["res://.godot/imported/Az-Grab-Sprite-Sheet.png-e44942c565ac6526d0c8b657df8163ef.ctex"]
+source_file="res://assets/entities/actors/npcs/npc_az/Az-SpriteSheet-Idle-02.png"
+dest_files=["res://.godot/imported/Az-SpriteSheet-Idle-02.png-4a34c08a591c19b41b03a41912735dfb.ctex"]
 
 [params]
 

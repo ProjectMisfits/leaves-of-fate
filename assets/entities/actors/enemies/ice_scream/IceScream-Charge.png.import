@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bobecrpwgxhv4"
-path="res://.godot/imported/winston_placeHolder_01.png-e2ec0e361b1961af00c97f5b59efa17c.ctex"
+uid="uid://cpa8djv8lxc06"
+path="res://.godot/imported/IceScream-Charge.png-aa32fe350e6db80ca5c0a41b29608e72.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/actors/npcs/winston/winston_placeHolder_01.png"
-dest_files=["res://.godot/imported/winston_placeHolder_01.png-e2ec0e361b1961af00c97f5b59efa17c.ctex"]
+source_file="res://assets/entities/actors/enemies/ice_scream/IceScream-Charge.png"
+dest_files=["res://.godot/imported/IceScream-Charge.png-aa32fe350e6db80ca5c0a41b29608e72.ctex"]
 
 [params]
 
