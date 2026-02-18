@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://288ourp86102" path="res://assets/entities/actors/footsteps/snow/FS-fenn-snow-04.ogg" id="4_4rm87"]
 
 [resource]
+random_pitch = 1.5
 random_volume_offset_db = 1.0
 streams_count = 4
 stream_0/stream = ExtResource("1_jtgc1")
