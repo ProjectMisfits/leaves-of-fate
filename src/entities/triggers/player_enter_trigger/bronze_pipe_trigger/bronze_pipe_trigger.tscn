@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://da6ytc6ksd7lb"]
+
+[ext_resource type="Script" uid="uid://b1mpym7cfr26b" path="res://src/entities/triggers/player_enter_trigger/bronze_pipe_trigger/bronze_pipe_trigger.gd" id="1_or0vo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4wiy"]
+resource_local_to_scene = true
+size = Vector2(512, 512)
+
+[node name="BronzePipeTrigger" type="Area2D"]
+collision_layer = 0
+monitorable = false
+script = ExtResource("1_or0vo")
+repeatable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_y4wiy")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

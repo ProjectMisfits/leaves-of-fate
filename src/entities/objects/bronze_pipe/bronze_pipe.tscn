@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbpm02j1io7y6"]
+
+[ext_resource type="Script" uid="uid://drbvuvi57e415" path="res://src/entities/objects/bronze_pipe/bronze_pipe.gd" id="1_u0ny2"]
+[ext_resource type="PackedScene" uid="uid://da6ytc6ksd7lb" path="res://src/entities/triggers/player_enter_trigger/bronze_pipe_trigger/bronze_pipe_trigger.tscn" id="2_8gm2e"]
+[ext_resource type="Texture2D" uid="uid://da11vqswv7vik" path="res://assets/entities/objects/bronze_pipe/PipeStraight-01-body.PNG" id="3_2knel"]
+
+[sub_resource type="Curve2D" id="Curve2D_esdh6"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4096, 0)
+}
+point_count = 2
+
+[node name="BronzePipe" type="Node2D"]
+z_index = 1
+z_as_relative = false
+script = ExtResource("1_u0ny2")
+
+[node name="BronzePipeTrigger" parent="." instance=ExtResource("2_8gm2e")]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_esdh6")
+
+[node name="Line2D" type="Line2D" parent="Path2D"]
+texture_repeat = 2
+width = 400.0
+texture = ExtResource("3_2knel")
+texture_mode = 1
+joint_mode = 2
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+unique_name_in_owner = true
+rotates = false
+cubic_interp = false
+loop = false
+
+[node name="ColorRect" type="ColorRect" parent="Path2D/PathFollow2D"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0.5019608)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -243.0
+offset_right = 243.0
+offset_bottom = 243.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D"]
+unique_name_in_owner = true
+position = Vector2(0, 100)
+update_rotation = false
+update_scale = false
+
+[connection signal="pipe_entered" from="BronzePipeTrigger" to="." method="_enter_pipe"]

@@ -106,7 +106,6 @@ scale = Vector2(3, 3)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(-16128, 3584)
-target_room_path = "uid://cadsmfa8k8oaw"
 
 [node name="Icicle_06" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("4_xsu4n")]
 position = Vector2(-17408, -320)
@@ -173,6 +172,10 @@ music_track = ExtResource("11_223xl")
 position = Vector2(-14675, 1678.0002)
 scale = Vector2(20, 60)
 dialogue_sequence = ExtResource("13_lln1l")
+dialogue_start = null
+enabled = null
+repeatable = null
+required_event_flags = null
 
 [node name="PillarTrunk01" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("2_0mqie")]
 position = Vector2(4288, 64)
