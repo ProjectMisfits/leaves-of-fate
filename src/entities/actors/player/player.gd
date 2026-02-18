@@ -489,13 +489,6 @@ func set_leaf_meter(new_leaf_meter: float) -> void:
 	leaf_meter = clampf(new_leaf_meter, 0.0, 100.0)
 	leaf_meter_changed.emit(leaf_meter)
 
-## Resets the Player's Leaf Meter to their initial values.
-func reset_stats() -> void:
-	set_leaf_meter(0.0)
-	
-	# Reset state. Uses call_deferred() to allow the current state's exit function to run.
-	state_machine.call_deferred("change_active_state", idle_state)
-
 ## Initializes all variables to values extracted from the entity's database.
 func initialize_data(data: Dictionary) -> void:
 		# Base Data #
