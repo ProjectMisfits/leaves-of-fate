@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://oqq37bqbyg24"]
+[gd_scene load_steps=12 format=4 uid="uid://oqq37bqbyg24"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_qcg17"]
 [ext_resource type="Texture2D" uid="uid://wk7tx1t1vq5f" path="res://assets/rooms/backgrounds/grad.png" id="2_pn0id"]
@@ -7,12 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://7c7nfo2gy8fu" path="res://src/entities/decor/pillars/pillar_cap_03.tscn" id="4_5l317"]
 [ext_resource type="PackedScene" uid="uid://cqmupmvuf03we" path="res://src/entities/hazards/icicle/icicle_group_01.tscn" id="4_nquvo"]
 [ext_resource type="PackedScene" uid="uid://bwadcghg6jxxu" path="res://src/entities/decor/pillars/pillar_base_03.tscn" id="5_c2gut"]
+[ext_resource type="PackedScene" uid="uid://bk52stl8a3lwi" path="res://src/entities/objects/wind_zone/wind_zone.tscn" id="5_hfybl"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="6_vgphg"]
 [ext_resource type="PackedScene" uid="uid://bi76j25xbej58" path="res://src/entities/decor/plants/floor_pot_02.tscn" id="7_13fhp"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a7y5q"]
+size = Vector2(10240, 4096)
+
 [node name="02_Cellar_a_UpAndDownTunnel" instance=ExtResource("1_qcg17")]
 
-[node name="Background" parent="BackgroundLayer" index="0"]
+[node name="Background" parent="BackgroundLayer" index="1"]
 modulate = Color(0.46666667, 0.4, 0.46666667, 0.46666667)
 position = Vector2(8329.5, -1030)
 scale = Vector2(22.943836, 12.411111)
@@ -23,11 +27,9 @@ tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(1023.99994, 1024)
-path_to_target_room = "uid://dis7wlfvk6tfx"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(15872, -1536)
-path_to_target_room = "uid://5fo0nisux4xe"
 
 [node name="IceSpikeBall" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("3_ia71f")]
 position = Vector2(4352, -1280)
@@ -180,6 +182,17 @@ scale = Vector2(2, 2)
 position = Vector2(14400, 1024)
 scale = Vector2(2, 2)
 
+[node name="WindZone" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("5_hfybl")]
+z_index = -6
+position = Vector2(9220, -896)
+
+[node name="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/WindZone" index="0"]
+position = Vector2(124, -128)
+shape = SubResource("RectangleShape2D_a7y5q")
+
+[node name="Polygon2D" parent="MidgroundLayer/Entities/Objects/WindZone" index="1"]
+polygon = PackedVector2Array(-4996, -2176, 5244, -2176, 5244, 1920, -4996, 1920)
+
 [node name="PillarTrunk04" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("3_jl11r")]
 position = Vector2(10752, 256)
 
@@ -239,3 +252,5 @@ in_front_of_player = true
 [node name="FloorPot02" parent="MidgroundLayer/Decor" index="18" instance=ExtResource("7_13fhp")]
 position = Vector2(3200, 600)
 in_front_of_player = true
+
+[editable path="MidgroundLayer/Entities/Objects/WindZone"]
