@@ -40,14 +40,13 @@ tracks/0/keys = {
 "values": [0.0, 1.0]
 }
 
-[sub_resource type="Animation" id="Animation_i3fqj"]
-resource_name = "spikes"
+[sub_resource type="Animation" id="Animation_cpage"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2fw44"]
 _data = {
 &"RESET": SubResource("Animation_2fw44"),
 &"circle": SubResource("Animation_gwekv"),
-&"spikes": SubResource("Animation_i3fqj")
+&"fade": SubResource("Animation_cpage")
 }
 
 [node name="ScreenTransition" type="Control"]
