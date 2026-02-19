@@ -2,11 +2,10 @@
 
 [resource]
 data = {
-&"angry_acceleration": 250.0,
 &"end_range": 1,
 &"gravity": 980,
-&"max_speed": 4500.0,
-&"normal_acceleration": 2000.0,
+&"max_speed": 3500.0,
+&"normal_acceleration": 500.0,
 &"normal_deceleration": 1000.0,
 &"turn_speed": 800.0
 }

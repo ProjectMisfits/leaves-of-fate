@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://b6ajex0e2b8y"]
+[gd_scene load_steps=25 format=4 uid="uid://b6ajex0e2b8y"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_inqmo"]
 [ext_resource type="Texture2D" uid="uid://wk7tx1t1vq5f" path="res://assets/rooms/backgrounds/grad.png" id="2_iuwkj"]
@@ -14,14 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="8_s7h82"]
 [ext_resource type="PackedScene" uid="uid://bt8rip14nbobd" path="res://src/entities/decor/plants/hanging_pot_01.tscn" id="9_fb7hv"]
 [ext_resource type="PackedScene" uid="uid://b7t7pc0jj7gxa" path="res://src/entities/decor/plants/hanging_pot_02.tscn" id="9_tjl7s"]
-[ext_resource type="PackedScene" uid="uid://beub4bx6t3wvh" path="res://src/entities/hazards/icicle/icicle_01.tscn" id="9_toimf"]
-[ext_resource type="PackedScene" uid="uid://domed3ucovqnj" path="res://src/entities/hazards/icicle/icicle_02.tscn" id="10_gmjjr"]
 [ext_resource type="PackedScene" uid="uid://b0wlcwvvy8ru2" path="res://src/entities/decor/furniture/chairs.tscn" id="11_bx233"]
-[ext_resource type="PackedScene" uid="uid://dy2vli8qi5bb8" path="res://src/entities/hazards/icicle/icicle_03.tscn" id="11_gmjjr"]
-[ext_resource type="PackedScene" uid="uid://dv6448b476yos" path="res://src/entities/hazards/icicle/icicle_06.tscn" id="12_m2xyl"]
-[ext_resource type="PackedScene" uid="uid://bj7fv2e6r3bp5" path="res://src/entities/hazards/icicle/icicle_05.tscn" id="13_smalf"]
 [ext_resource type="PackedScene" uid="uid://b6p26modf3ljr" path="res://src/entities/decor/furniture/window_01.tscn" id="13_tkwes"]
-[ext_resource type="PackedScene" uid="uid://b5pl5cenkmlqy" path="res://src/entities/hazards/icicle/icicle_04.tscn" id="14_pg5mx"]
 [ext_resource type="PackedScene" uid="uid://d0is0ffwd22hj" path="res://src/entities/decor/furniture/labeled_book_03.tscn" id="23_6wo5t"]
 [ext_resource type="PackedScene" uid="uid://byav0yxb067be" path="res://src/entities/decor/furniture/bookshelf_fancy.tscn" id="24_nbxqd"]
 [ext_resource type="PackedScene" uid="uid://c38wfukducj7p" path="res://src/entities/decor/furniture/book_03.tscn" id="25_c6ihv"]
@@ -33,7 +27,7 @@
 
 [node name="02_Cellar_d_Den" instance=ExtResource("1_inqmo")]
 
-[node name="Background" parent="BackgroundLayer" index="0"]
+[node name="Background" parent="BackgroundLayer" index="1"]
 position = Vector2(6400.001, -2816.0002)
 scale = Vector2(23.671232, 22.4)
 texture = ExtResource("2_iuwkj")
@@ -143,58 +137,6 @@ position = Vector2(5120, -5760)
 
 [node name="IceSpikeBall-8" parent="MidgroundLayer/Entities/Hazards" index="16" instance=ExtResource("8_s7h82")]
 position = Vector2(12480, -4032)
-
-[node name="Icicle_01-2" parent="MidgroundLayer/Entities/Hazards" index="17" instance=ExtResource("9_toimf")]
-position = Vector2(5440, -4608)
-
-[node name="Icicle_01-3" parent="MidgroundLayer/Entities/Hazards" index="18" instance=ExtResource("9_toimf")]
-position = Vector2(5568, -4608)
-
-[node name="Icicle_01-4" parent="MidgroundLayer/Entities/Hazards" index="19" instance=ExtResource("9_toimf")]
-position = Vector2(7168, -4608)
-
-[node name="Icicle_02" parent="MidgroundLayer/Entities/Hazards" index="20" instance=ExtResource("10_gmjjr")]
-position = Vector2(5184, -4736)
-
-[node name="Icicle_03" parent="MidgroundLayer/Entities/Hazards" index="21" instance=ExtResource("11_gmjjr")]
-position = Vector2(5312, -4608)
-
-[node name="Icicle_02-2" parent="MidgroundLayer/Entities/Hazards" index="22" instance=ExtResource("10_gmjjr")]
-position = Vector2(5696, -4608)
-
-[node name="Icicle_05" parent="MidgroundLayer/Entities/Hazards" index="23" instance=ExtResource("13_smalf")]
-position = Vector2(7360, -4608)
-
-[node name="Icicle_04" parent="MidgroundLayer/Entities/Hazards" index="24" instance=ExtResource("14_pg5mx")]
-position = Vector2(7616, -4736)
-
-[node name="Icicle_06" parent="MidgroundLayer/Entities/Hazards" index="25" instance=ExtResource("12_m2xyl")]
-position = Vector2(7488, -4608)
-
-[node name="Icicle_02-3" parent="MidgroundLayer/Entities/Hazards" index="26" instance=ExtResource("10_gmjjr")]
-position = Vector2(7232, -4608)
-
-[node name="Icicle_06-2" parent="MidgroundLayer/Entities/Hazards" index="27" instance=ExtResource("12_m2xyl")]
-position = Vector2(13056, -2560)
-rotation = -3.1415927
-scale = Vector2(3, 3)
-
-[node name="Icicle_06-3" parent="MidgroundLayer/Entities/Hazards" index="28" instance=ExtResource("12_m2xyl")]
-position = Vector2(13440, 1024)
-scale = Vector2(3, 3)
-
-[node name="Icicle_05-2" parent="MidgroundLayer/Entities/Hazards" index="29" instance=ExtResource("13_smalf")]
-position = Vector2(13824, -2816)
-rotation = 3.1415927
-scale = Vector2(3, 3)
-
-[node name="Icicle_06-4" parent="MidgroundLayer/Entities/Hazards" index="30" instance=ExtResource("12_m2xyl")]
-position = Vector2(12864, 1024)
-scale = Vector2(3, 3)
-
-[node name="Icicle_04-2" parent="MidgroundLayer/Entities/Hazards" index="31" instance=ExtResource("14_pg5mx")]
-position = Vector2(13952, 1024)
-scale = Vector2(3, 3)
 
 [node name="LeafPlatform" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("4_pb3xx")]
 position = Vector2(2816, -3328)

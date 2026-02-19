@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=41 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/entities/actors/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
@@ -25,12 +25,13 @@
 [ext_resource type="AudioStream" uid="uid://dimhdiv10a08t" path="res://assets/entities/actors/player/player_audio/PH-leaf-enter.ogg" id="17_iloh8"]
 [ext_resource type="AudioStream" uid="uid://dxmm31nsgmehb" path="res://assets/entities/actors/player/player_audio/PH-leaf-exit.ogg" id="18_283t5"]
 [ext_resource type="Texture2D" uid="uid://jvsobi5gw7di" path="res://assets/entities/actors/player/TEMP-fenn-jump-spritesheet.png" id="18_s3rhx"]
+[ext_resource type="AudioStream" uid="uid://ca5i8864h7llp" path="res://assets/entities/actors/footsteps/stone/FS-fenn-stone.tres" id="26_hn11x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4vut"]
 size = Vector2(750, 540)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7uqy"]
-size = Vector2(1500, 1800)
+size = Vector2(2074, 2848)
 
 [sub_resource type="Animation" id="Animation_b1i8x"]
 length = 0.001
@@ -622,6 +623,13 @@ collision_mask = 2048
 [node name="CollisionShape2D-2" type="CollisionShape2D" parent="FlipNode/WindZoneComponent/NoDashDetectionArea"]
 shape = ExtResource("3_e5ptp")
 
+[node name="ResetZoneArea" type="Area2D" parent="FlipNode/WindZoneComponent"]
+collision_layer = 0
+collision_mask = 4096
+
+[node name="CollisionShape2D-3" type="CollisionShape2D" parent="FlipNode/WindZoneComponent/ResetZoneArea"]
+shape = ExtResource("3_e5ptp")
+
 [node name="InteractComponent" type="Node2D" parent="FlipNode"]
 script = ExtResource("6_283t5")
 
@@ -646,7 +654,7 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/GrabComponent/GrabRange"]
 visible = false
-position = Vector2(660, 0)
+position = Vector2(947, -189)
 shape = SubResource("RectangleShape2D_u7uqy")
 debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
 
@@ -724,6 +732,7 @@ stream = ExtResource("18_283t5")
 bus = &"SFX"
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("26_hn11x")
 volume_db = 2.0
 bus = &"SFX"
 
@@ -737,6 +746,7 @@ one_shot = true
 [connection signal="body_exited" from="FlipNode/WindZoneComponent/DashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_dash_detection_area_body_exited"]
 [connection signal="body_entered" from="FlipNode/WindZoneComponent/NoDashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_no_dash_detection_area_body_entered"]
 [connection signal="body_exited" from="FlipNode/WindZoneComponent/NoDashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_no_dash_detection_area_body_exited"]
+[connection signal="body_entered" from="FlipNode/WindZoneComponent/ResetZoneArea" to="FlipNode/WindZoneComponent" method="_on_reset_zone_area_body_entered"]
 [connection signal="area_entered" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_entered"]
 [connection signal="area_exited" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_exited"]
 [connection signal="area_entered" from="FlipNode/GrabComponent/GrabRange" to="FlipNode/GrabComponent" method="_on_grab_range_area_entered"]
