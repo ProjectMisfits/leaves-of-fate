@@ -1,36 +1,42 @@
 ~ great_hall_filler
-% => convo_1
-% => convo_2
-% => convo_3
-% => convo_4
-% => convo_5
-% => convo_6
+% [if not EventFlags.get_flag("X-AzWs-GreatHall-1")] => convo_1
+% [if not EventFlags.get_flag("X-AzWs-GreatHall-2")] => convo_2
+% [if not EventFlags.get_flag("X-AzWs-GreatHall-3")] => convo_3
+% [if not EventFlags.get_flag("X-AzWs-GreatHall-4")] => convo_4
+% [if not EventFlags.get_flag("X-AzWs-GreatHall-5")] => convo_5
+% [if not EventFlags.get_flag("X-AzWs-GreatHall-6")] => convo_6
+% [if not EventFlags.get_flag("X-AzWs-GreatHall-7")] => convo_7
+% [if EventFlags.num_great_hall_conversations == 7] => ending_convo
 => END
 
 ~ convo_1
-Az: So, like, what are your powers exactly?
-Winston: I controleth ice makers! I createth magical things! Can't exactly... controleth... my creations, though.
-Az: Wait- this is a stretch- do you Palina Glover? Ice Wizard? Owner of Enginice?
-Winston: Ugh. Doth not remind me of mine own Mother's name.
-Az: Mother?! She's your MOM?! No way!
+Az: So, like, what are your powers exactly? Controlling ice?
+Winston: Um, no. Not exactly... tis ice makers. I createth magical things! Cannot quite... controleth them, though.
+Az: Wait, ok, this is kind of a stretch... do you know Palina Glover? Ice Wizard? Owner of Enginice?
+Winston: Ugh. Do not remindeth me of my Mother's nameth.
+Az: Mother? She's your MOM?!
 Winston: What?! Why art thee star stricken?
 Az: No WAY! I've been obsessed with Enginice since I was a kid! I used to tinker with all their devices all the time.
-Az: One time, I transformed the fridge into a fully functional oven. Baba came home to burnt steaks and soggy vegetables. It was awesome.
-Winston: Oh my! That is so cool. Tis not quite the sameth, but I once made snowmen in mine own basement using Mother's laundry device.
-Az: What?? You have to tell me how you did that.
-Winston: Haha! Why, of course!
-do EventFlags.set_flag("F-1-AzWs-GreatHall", true)
+Az: I remember one time, I turned the fridge into a fully functional oven. Baba came home to burnt steaks and soggy vegetables. It was awesome.
+Winston: Seriously?! That is so cool!
+Winston: Tis not quite the sameth, but I once made snowmen in the basement using Mother's laundry device.
+Az: Really?? You have to tell me how you did that.
+Winston: Ha! Why, of course!
+do EventFlags.set_flag("X-AzWs-GreatHall-1", true)
+do EventFlags.num_great_hall_conversations += 1
 => END
 
 ~ convo_2
 Winston: Az?
-Az: Yeah, 'sup?
-Winston: I wanteth to apologize to thee once more.
-Az: Hey, look. We're good. You may have tried to kill us, but you saved me, and you helped me get closer to freeing my Baba
-Winston: But I feeleth t'rrible. I gaveth thee thy inhaler, but I madeth thee breatheth fire when I kneweth about thy asthma
+Az: 'Sup?
+Winston: I wanteth to apologize once more...
+Az: Hey, don't worry about it, man.
+Az: Sure, you tried to kill us, but you also gave me my inhaler and helped me get closer to freeing my Baba.
+Winston: But I feeleth terrible! I forced thee to breath fire when I kneweth about thy asthma!
 Az: You didn't make me do anything. I lost my cool. You're good, dude.
-Winston: Well... alright.
-do EventFlags.set_flag("F-2-AzWs-GreatHall", true)
+Winston: Well... alright. Thank you.
+do EventFlags.set_flag("X-AzWs-GreatHall-2", true)
+do EventFlags.num_great_hall_conversations += 1
 => END
 
 ~ convo_3
@@ -40,7 +46,8 @@ Fenn: Well I couldn't have done much without your bangles, either...
 Winston: Sorry for, like, trying to killeth thee, and stuff.
 Fenn: It wouldn't be an adventure without any danger!
 Az: Winston, you're good. Don't worry about it.
-do EventFlags.set_flag("F-3-AzWs-GreatHall", true)
+do EventFlags.set_flag("X-AzWs-GreatHall-3", true)
+do EventFlags.num_great_hall_conversations += 1
 => END
 
 ~ convo_4
@@ -52,7 +59,8 @@ Winston: Nay, seriously! Thy patterns art so intricate and clean. They hardly lo
 Winston: This must hath taken thee months!
 Az: It was a few weeks, yeah...
 Winston: Weeks?! Whoa. 
-do EventFlags.set_flag("F-4-AzWs-GreatHall", true)
+do EventFlags.set_flag("X-AzWs-GreatHall-4", true)
+do EventFlags.num_great_hall_conversations += 1
 => END
 
 ~ convo_5
@@ -67,7 +75,8 @@ Az: Why are you apologizing? You didn't really do anything wrong.
 Winston: Well... for scaring thee.
 Az: Water under the bridge, man.
 Winston: Alright. Thank you.
-do EventFlags.set_flag("F-5-AzWs-GreatHall", true)
+do EventFlags.set_flag("X-AzWs-GreatHall-5", true)
+do EventFlags.num_great_hall_conversations += 1
 => END
 
 ~ convo_6
@@ -83,6 +92,27 @@ Az: Yeah? That'd be awesome! We could call it "ice-smithing" or something
 Winston: Really??
 Az: Yeah, it'd be cool.
 Winston: Cool.
-do EventFlags.set_flag("F-6-AzWs-GreatHall", true)
+do EventFlags.set_flag("X-AzWs-GreatHall-6", true)
+do EventFlags.num_great_hall_conversations += 1
 => END
 
+~ convo_7
+Az: Yo, Winston, I was wondering.
+Az: I've never heard anyone, like, speak like you do. Where are you from?
+Winston: Ah. Tis the snowy region, Lumin.
+Az: Wait, really? I've been on vacation there. It's pretty nice.
+Az: But... I still haven't heard anyone talk like that.
+Winston: sigh. Yes. I knoweth. I didn't used to speaketh like this.
+Az: Really? Why'd you start?
+Winston: Twas a ploy for my Mother's attention. 
+Winston: It... did not work. And then it becameth a habit.
+Az: Huh. I'm sorry, man, I didn't know.
+Winston: Tis fine! No one hath actually asked me before.
+Az: Huh.
+do EventFlags.set_flag("X-AzWs-GreatHall-7", true)
+do EventFlags.num_great_hall_conversations += 1
+=> END
+
+~ ending_convo
+You have exhausted all dialogue sequences
+=> END
