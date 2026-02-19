@@ -1,10 +1,11 @@
 ~ pantry_filler
-% => convo_1
-% => convo_2
-% => convo_3
-% => convo_4
-% => convo_5
-% => convo_6
+% [if not EventFlags.get_flag("X-Az-Pantry-1")] => convo_1
+% [if not EventFlags.get_flag("X-Az-Pantry-2")] => convo_2
+% [if not EventFlags.get_flag("X-Az-Pantry-3")] => convo_3
+% [if not EventFlags.get_flag("X-Az-Pantry-4")] => convo_4
+% [if not EventFlags.get_flag("X-Az-Pantry-5")] => convo_5
+% [if not EventFlags.get_flag("X-Az-Pantry-6")] => convo_6
+% [if EventFlags.num_pantry_conversations == 6] => ending_convo
 => END
 
 ~ convo_1
@@ -14,6 +15,7 @@ Az: I need to get to my workshop. I hate being stuck.
 Fenn: It's okay! I'm here!
 Az: That you are...
 do EventFlags.set_flag("X-Az-Pantry-1", true)
+do EventFlags.num_pantry_conversations += 1
 => END
 
 ~ convo_2
@@ -25,6 +27,7 @@ Fenn: Whoa.... yeah! The patterns!
 Az: I... well, I carved them. It's really not that hard.
 Fenn: AWESOME.
 do EventFlags.set_flag("X-Az-Pantry-2", true)
+do EventFlags.num_pantry_conversations += 1
 => END
 
 ~ convo_3
@@ -32,6 +35,7 @@ Az: I need to get my Baba out of there.
 Fenn: Well, once we defeat Mr. Wizard Man, he'll help us!
 Az: He doesn't seem to be in a helping mood, Fenn.
 do EventFlags.set_flag("X-Az-Pantry-3", true)
+do EventFlags.num_pantry_conversations += 1
 => END
 
 ~ convo_4
@@ -41,6 +45,7 @@ Az: In the palace?
 Fenn: Oh! I was invited! Uh... King Oakley sent a letter to me. 
 Fenn: He... uh... he's looking for candidates for new Knights!!
 do EventFlags.set_flag("X-Az-Pantry-4", true)
+do EventFlags.num_pantry_conversations += 1
 => END
 
 ~ convo_5
@@ -54,6 +59,7 @@ Az: Huh... I didn't know they made trading cards of the Knights.
 Fenn: They don't!
 Az: Ah...
 do EventFlags.set_flag("X-Az-Pantry-5", true)
+do EventFlags.num_pantry_conversations += 1
 => END
 
 
@@ -68,4 +74,10 @@ Az: Ah... right.
 Fenn: You grew up on Straw Ave, had two best friends, and won crafts shows before getting into smithing! Oh and also, that one ti-
 Az: Okay! Okay, that's enough out of you, Fenn.
 do EventFlags.set_flag("X-Az-Pantry-6", true)
+do EventFlags.num_pantry_conversations += 1
+=> END
+
+~ ending_convo
+Az: You should probably go.
+Az: Don't worry about me, I'll find a way around.
 => END

@@ -3,7 +3,7 @@
 % [if not EventFlags.get_flag("X-Az-Den-2")] => convo_2
 % [if not EventFlags.get_flag("X-Az-Den-3")] => convo_3
 % [if not EventFlags.get_flag("X-Az-Den-4")] => convo_4
-% [if EventFlags.num_den_conversations == 4] => convo_5
+% [if EventFlags.num_den_conversations == 4] => ending_convo
 => END
 
 
@@ -58,6 +58,6 @@ do EventFlags.set_flag("X-Az-Den-4", true)
 do EventFlags.num_den_conversations += 1
 => END
 
-~ convo_5
+~ ending_convo
 Az: Alright, let's go. We've got a wizard to deal with.
 => END

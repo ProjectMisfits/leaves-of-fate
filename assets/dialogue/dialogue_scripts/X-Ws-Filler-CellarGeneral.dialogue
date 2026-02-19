@@ -1,15 +1,16 @@
 ~ level_filler
-% => convo_1
-% => convo_2
-% => convo_3
-% => convo_4
-% => convo_5
-% => convo_6
-% => convo_7
-% => convo_8
-% => convo_9
-% => convo_10
-% => convo_11
+% [if not EventFlags.get_flag("X-Ws-Cellar-1")] => convo_1
+% [if not EventFlags.get_flag("X-Ws-Cellar-2")] => convo_2
+% [if not EventFlags.get_flag("X-Ws-Cellar-3")] => convo_3
+% [if not EventFlags.get_flag("X-Ws-Cellar-4")] => convo_4
+% [if not EventFlags.get_flag("X-Ws-Cellar-5")] => convo_5
+% [if not EventFlags.get_flag("X-Ws-Cellar-6")] => convo_6
+% [if not EventFlags.get_flag("X-Ws-Cellar-7")] => convo_7
+% [if not EventFlags.get_flag("X-Ws-Cellar-8")] => convo_8
+% [if not EventFlags.get_flag("X-Ws-Cellar-9")] => convo_9
+% [if not EventFlags.get_flag("X-Ws-Cellar-10")] => convo_10
+% [if not EventFlags.get_flag("X-Ws-Cellar-11")] => convo_11
+% [if EventFlags.num_cellar_conversations == 11] => ending_convo
 => END
 
 
@@ -25,6 +26,7 @@ Fenn: Well, are you?
 Winston: Tis besides the point!
 Fenn: Huh... no wonder all those ice creams are so mad.
 do EventFlags.set_flag("X-Ws-Cellar-1", true)
+do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_2
@@ -33,6 +35,7 @@ Fenn: Why?
 Winston: Um... Shut up! I doth be busy! Go away.
 Fenn: Aw okay.
 do EventFlags.set_flag("X-Ws-Cellar-2", true)
+do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_3
@@ -48,6 +51,7 @@ Az: NO! Fenn, stop making stuff up.
 Fenn: But I wasn't...
 Winston whispering: I forgoteth she was there...
 do EventFlags.set_flag("X-Ws-Cellar-3", true)
+do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_4
@@ -58,6 +62,7 @@ Winston: Yeah... wouldst be. If she even cared.
 Fenn: What do you mean?
 Winston: Nothing. Worry not 'bout it.
 do EventFlags.set_flag("X-Ws-Cellar-4", true)
+do EventFlags.num_cellar_conversations += 1
 => END
 
 #Potentially delete if this conversation is moved to when the player meets winston
@@ -70,6 +75,7 @@ Az: Eh. Fair enough, I guess.
 Az: I also get the feeling he needs it.
 Winston: Do not pity me!!
 do EventFlags.set_flag("X-Ws-Cellar-5", true)
+do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_6
@@ -79,6 +85,7 @@ Fenn: What's demise mean?
 Winston: Um... VERY PAINFUL DEATH!!
 Fenn: Oh... cool!
 do EventFlags.set_flag("X-Ws-Cellar-6", true)
+do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_7
@@ -93,6 +100,7 @@ Winston: Uhhhhh...
 Az: Fenn! Stop bothering the squatter. He's busy being a freak, or whatever.
 Winston: HEY!
 do EventFlags.set_flag("X-Ws-Cellar-7", true)
+do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_8
@@ -105,6 +113,7 @@ Fenn: Hey Az! Can Wizard man hath some of the walnuts in your workshop?
 Az: What??? I guess?? But you mess up my workshop, I'll crush you.
 Winston: Score! Walnuts be mine!
 do EventFlags.set_flag("X-Ws-Cellar-8", true)
+do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_9
@@ -116,6 +125,7 @@ Fenn: Rose? I wouldn't have guessed that... I thought maybe Henric or something.
 Winston: Well it doth not matter anyway! They're all stupid and lame!
 Fenn: Okay then!
 do EventFlags.set_flag("X-Ws-Cellar-9", true)
+do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_10
@@ -131,6 +141,7 @@ Winston leaves
 Fenn: What a formidable foe...
 Az: Seriously?
 do EventFlags.set_flag("X-Ws-Cellar-10", true)
+do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_11
@@ -140,4 +151,9 @@ Winston: Wh-what doth she be doing?
 Fenn: I dunno. Standing, maybe?
 Winston: Hmph. Tis cool. Cool. That's cool. Whatevereth.
 do EventFlags.set_flag("X-Ws-Cellar-11", true)
+do EventFlags.num_cellar_conversations += 1
+=> END
+
+~ ending_convo
+You have exhausted all dialogue sequences
 => END
