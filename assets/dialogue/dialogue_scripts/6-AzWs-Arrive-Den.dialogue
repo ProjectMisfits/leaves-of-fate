@@ -18,5 +18,5 @@ Az annoy: Hey, [shake level=7 rate=20][i]Wizard boy[/i].[/shake] You touch anyth
 Wizard awkward: Um. [font_size=35]Ahem.[/font_size] No promises.
 Az: [shake level=7 rate=30]Ugh[/shake], [wait=0.3]I [i]swear[/i]- [wait=0.3]Fenn, I'll be there as soon as I can.
 Fenn: Okay-eth!
-do EventFlags.set_flag("AzWs-Arrive-Den", true)
+do EventFlags.set_flag("6-AzWs-Arrive-Den", true)
 => END

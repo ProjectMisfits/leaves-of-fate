@@ -1,0 +1,42 @@
+~ start
+Az: Fenn!! You did it!
+Fenn: Are you guys okay?
+Az: We're good. Few scratches, nothing bad.
+Winston: Oh Post... I can not believeth I- ugh...
+Fenn: What's wrong?
+Winston: I'm the worst! Tis what's wrong. I am a failure, Fenn. I hath failed.
+Fenn: What? What are you talking about?
+Winston: I can't do anything right. I hath tried ambushing thee. I threweth minions in thy way.
+Winston: I even hath cloned myself, something I knoweth very well, and nothing worked.
+Winston: Tis broken. Tis all broken.
+Winston: I do not hath anything left. Thou hast won. Congratulations, Fenn.
+Fenn: Wh- why are you being so mean?
+Winston: What?
+Fenn: You're being really mean to yourself. I had fun today... I think that's more important!
+Winston: Y- you... what?
+Fenn: I had fun! It was fun, right Az?
+Az: I mean, your creations were pretty cool.
+Winston: Wait... really?
+Az: Yeah. And my workshop looked even cleaner than before. You managed to make all that with the scraps I had lying around?
+Winston: Oh- yeah? I am sorry! I can return thy parts!
+Az: Nah man, it's all good. You kinda saved me with that inhaler.
+Winston: Oh... well... yeah. I saweth a few in thy workshop. I didn't- I mean- I didn't wanteth thee to- to die.
+Az: I mean. Az least you DID something today. I sat around and waited for Fenn.
+Fenn: That's not true! I had your bangle. I couldn't have gotten around without it!
+Winston: And t-thou also saved me from... uh.... from I- Iceton. So... thanks.
+Winston: And, those bangles art, liketh, super cool.
+Az: Eh... you should be thanking Fenn. He convinced me to get over myself and help you.
+Fenn: Yeah! If you died, who else would make cool icy things?
+Winston: Hah... I do not knoweth... I suppose
+Winston: Art we... art we good?
+Az: Yeah. Help me free my Baba, and we're good.
+Winston: Ah, of course.
+Fade to black, fade back in with characters in front of the door seal
+Winston raises his hand, magical particles appear, and then the glowing ice symbol stops glowing on the door.
+Winston: All done! Though... tis not much help without the other Wizards.
+Fenn: Where could I find them?
+Winston: I believe I heard Randy headeth towards the kitchen, but tis all I knoweth. I am sorry.
+Fenn: Well... to the kitchen!
+Fenn: End of Demo! Thanks for playing Project Misfits <3
+do EventFlags.set_flag("15-AzWs-ReachSafety-GreatHall", true)
+=> END

@@ -1,4 +1,21 @@
-[gd_scene format=3 uid="uid://c6xvss7uk2hqi"]
+[gd_scene load_steps=11 format=3 uid="uid://c6xvss7uk2hqi"]
+
+[ext_resource type="Texture2D" uid="uid://c44j0kj2rhy3b" path="res://assets/ui/FullLetter-UI-001.png" id="1_unm4c"]
+[ext_resource type="Script" uid="uid://cyjvk4g1fe16d" path="res://src/ui/main_menu/credits/credits.gd" id="1_x0fiv"]
+[ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="2_x0eqx"]
+[ext_resource type="FontFile" uid="uid://bfkqpuw7ncqc3" path="res://assets/ui/fonts/Beholden-Bold-Italic-Font.ttf" id="3_fwcfw"]
+[ext_resource type="FontFile" uid="uid://chnyqtl058eja" path="res://assets/ui/fonts/Beholden-Italic-Font.ttf" id="4_x0fiv"]
+[ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="6_qolr8"]
+[ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="7_idxc2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fwcfw"]
+texture = ExtResource("1_unm4c")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qolr8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_idxc2"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -7,5 +24,397 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_x0fiv")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -589.5
+offset_top = -412.0
+offset_right = 589.5
+offset_bottom = 412.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fwcfw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+offset_right = 313.0
+offset_bottom = 101.0
+
+[node name="TitleContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 50
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer/TitleContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.34117648, 0.43529412, 0.20784314, 1)
+theme_override_fonts/font = ExtResource("2_x0eqx")
+theme_override_font_sizes/font_size = 100
+text = "Credits"
+
+[node name="CreditsContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer/CreditsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1045, 537.14)
+layout_mode = 2
+focus_neighbor_left = NodePath("../../MarginContainer/BackButton")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="CreditsHolder" type="VBoxContainer" parent="Panel/VBoxContainer/CreditsContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/CreditsContainer/ScrollContainer/CreditsHolder"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TitlesContainer" type="VBoxContainer" parent="Panel/VBoxContainer/CreditsContainer/ScrollContainer/CreditsHolder/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 2
+
+[node name="Titles" type="RichTextLabel" parent="Panel/VBoxContainer/CreditsContainer/ScrollContainer/CreditsHolder/HBoxContainer/TitlesContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
+theme_override_fonts/bold_font = ExtResource("2_x0eqx")
+theme_override_fonts/bold_italics_font = ExtResource("3_fwcfw")
+theme_override_fonts/italics_font = ExtResource("4_x0fiv")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+bbcode_enabled = true
+text = "[b]Production[/b]
+Producer
+GitHub Project Manager
+Financial Manager
+Documentation Manager
+
+[b]Technical[/b]
+Technical Lead
+Systems Design and Programming
+
+
+Player Programming
+Hazard Programming
+Objects and Events Programming
+
+Level Design and Programming
+
+
+UI/UX Programming
+Audio Programming
+
+[b]Art[/b]
+Art Leads
+
+Character Art
+
+
+
+Environmental Art
+
+
+
+
+Enemy Art
+UI Art
+
+
+[b]Narrative[/b]
+Narrative and Writing Lead
+
+[b]Audio[/b]
+Audio Lead
+Audio Design
+
+Music
+
+[b]Playtesting[/b]
+Playtesting Lead
+Playtesting Coordinators
+
+Playtesters
+"
+fit_content = true
+horizontal_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/CreditsContainer/ScrollContainer/CreditsHolder/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="NamesContainer" type="VBoxContainer" parent="Panel/VBoxContainer/CreditsContainer/ScrollContainer/CreditsHolder/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+[node name="Names" type="RichTextLabel" parent="Panel/VBoxContainer/CreditsContainer/ScrollContainer/CreditsHolder/HBoxContainer/NamesContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
+theme_override_fonts/bold_font = ExtResource("2_x0eqx")
+theme_override_fonts/bold_italics_font = ExtResource("3_fwcfw")
+theme_override_fonts/italics_font = ExtResource("4_x0fiv")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+bbcode_enabled = true
+text = "
+Casey Costa
+Jeremy King
+Jacob Antepli
+Katherine Tse
+
+
+Benjamin Levy
+Jacob Antepli
+Jeremy King
+Benjamin Levy
+Benjamin Levy
+Jacob Antepli
+Jeremy King (Lead)
+Benjamin Levy
+Jacob Antepli
+Jeremy King
+Benjamin Levy
+Katherine Tse
+Gabriel Tyler
+
+
+Jacob Antepli
+Irene Wu
+Daniel Hudon
+Bella Jiang
+Ephren Oliveira
+Irene Wu
+Bianca Brezinsky
+Bella Jiang
+Jadon Lemkin
+Paige Webster
+Isabella Yu
+Bella Jiang
+Katherine Tse (Lead)
+Isabella Yu
+
+
+Casey Costa
+
+
+Casey Costa
+Casey Costa
+Gabriel Tyler
+Casey Costa
+
+
+Benjamin Levy
+Jacob Antepli
+Benjamin Levy
+Jacob Almo
+Emma Alpert
+Carter Cermak
+Charles Engler
+Dennis Field
+Nick Kurtz
+Noah Memel
+Michael Monda
+Carter Moore
+Adam Nagar
+Connor Nardiello
+Allison Nguyen
+Keenan Porter
+Pan Raskin
+Xander Recca
+Emily Rivers
+Sri Satya Satwik Sirigineedi
+Muntasir Shahabuddin
+Andre Staebler
+Anel Van Der Merwe
+"
+fit_content = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/CreditsContainer/ScrollContainer/CreditsHolder"]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Advisors+Assets" type="RichTextLabel" parent="Panel/VBoxContainer/CreditsContainer/ScrollContainer/CreditsHolder"]
+custom_minimum_size = Vector2(1045, 0)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+theme_override_font_sizes/mono_font_size = 30
+bbcode_enabled = true
+text = "[b]A Special Thanks to Our Advisors[/b]
+Gillian Smith
+Ben Schneider
+
+[b]Asset Attribution[/b]
+[u]Audio[/u]
+Gravel Footsteps Pack by Ali_6868 
+https://freesound.org/people/Ali_6868/packs/21608/ 
+License: Creative Commons 0
+--
+Joyful Game Loop - Kitty Yarn Play by Visidy 
+https://freesound.org/s/840648/ 
+License: Creative Commons 0
+--
+04 pollie soft.mp3 by summonhue 
+https://freesound.org/s/21685/ 
+License: Creative Commons 0
+--
+Knight's Footsteps on Gravel Pack by Ali_6868 
+https://freesound.org/people/Ali_6868/packs/21609/ 
+License: Creative Commons 0
+--
+Grassy Footsteps Pack by Ali_6868 
+https://freesound.org/people/Ali_6868/packs/21607/
+License: Creative Commons 0
+--
+Knight's Forest Footsteps by Ali_6868 
+https://freesound.org/people/Ali_6868/packs/21610/
+License: Creative Commons 0
+--
+Arch Leaf.wav by bsumusictech 
+https://freesound.org/s/62591/ 
+License: Creative Commons 0
+--
+Ambiance_Stream_Calm_Loop_Stereo.wav by Nox_Sound 
+https://freesound.org/s/548373/ 
+License: Creative Commons 0
+--
+Spring Birds Loop with Low-Cut (New Jersey) by hargissssound 
+https://freesound.org/s/345852/ 
+License: Creative Commons 0
+--
+Drop - Water by mattfinarelli 
+https://freesound.org/s/533146/ 
+License: Creative Commons 0
+--
+Birds Chirping 02 by swiftoid 
+https://freesound.org/s/182502/ 
+License: Creative Commons 0
+--
+Select by TiesWijnen 
+https://freesound.org/s/413310/ 
+License: Creative Commons 0
+--
+Text/Dialogue Bleeps Pack by dmochas 
+https://dmochas-assets.itch.io/dmochas-bleeps-pack 
+License: Creative Commons 4.0
+--
+Work boots on wood floor by Stefan021 
+https://freesound.org/s/798870/ 
+License: Creative Commons 0 
+--
+WoodType_1_Footstep_MensDressShoe_.wav by monte32 
+https://freesound.org/s/405115/ 
+License: Creative Commons 0
+--
+Hiking Boot Footsteps on Stone by Fission9 
+https://freesound.org/s/521590/ 
+License: Creative Commons 0
+--
+Footsteps stone + sneaker by xkeril 
+https://freesound.org/s/677069/ 
+License: Creative Commons 0
+--
+four coughs.wav by Reitanna 
+https://freesound.org/s/343986/ 
+License: Creative Commons 0
+--
+snow footsteps (outside recording) by Nimlos 
+https://freesound.org/s/432285/ 
+License: Creative Commons 0
+--
+Footsteps on Metal Floor by nate_asdfg 
+https://freesound.org/s/463811/ 
+License: Creative Commons 0
+--
+Fireball, Woosh, Pass, fast by julianmateo_ 
+https://freesound.org/s/522705/ 
+License: Creative Commons 0
+--
+Ice cubes broken apart.wav by SDLx 
+https://freesound.org/s/211158/ 
+License: Attribution 3.0
+--
+Cane_Hitting_Pavement_3.wav by Tdude9000 
+https://freesound.org/s/138295/ 
+License: Attribution 3.0
+--
+Lighter.wav by MaGs_007 
+https://freesound.org/s/349364/ 
+License: Creative Commons 0
+--
+Wood Knock by Mrguff 
+https://freesound.org/s/369710/ 
+License: Creative Commons 0
+
+[u]Fonts[/u]
+Behold Font by Amorphous 
+https://amorphous.itch.io/beholden 
+License: SIL Open Font License
+--
+ZT Mota Font by Zelow Type 
+https://www.1001fonts.com/zt-mota-font.html 
+License: 1001Fonts Free For Commercial Use License (FFC)
+"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+
+[node name="BackButton" type="Button" parent="Panel/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(192, 101)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../../CreditsContainer/ScrollContainer")
+focus_neighbor_right = NodePath("../../CreditsContainer/ScrollContainer")
+theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qolr8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_idxc2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_idxc2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_idxc2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_idxc2")
+text = "Back
+"
+alignment = 2
+script = ExtResource("6_qolr8")
+
+[node name="LeafPointer" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer/BackButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.5
+offset_right = 67.0
+offset_bottom = 32.5
+grow_vertical = 2
+texture = ExtResource("7_idxc2")
+expand_mode = 1
+stretch_mode = 4

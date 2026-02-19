@@ -24,6 +24,6 @@ Fenn: I'm sorry, Az.
 Az: It's fine. Not your problem, anyway. 
 Az: Go grab that heater. We've still got a Wizard to deal with.
 Fenn: Okay... On it.
-do EventFlags.set_flag("Az-FiresideChat-1-HeaterArea", true)
+do EventFlags.set_flag("9-Az-FiresideChat-1-HeaterArea", true)
 
 => END

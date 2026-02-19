@@ -12,6 +12,6 @@ Fenn: Az, are you okay?
 Az: cough. cough. I'm fine! cough I'm FINE!
 Az: cough. Go on ahead. cough. I'll be fine.
 Fenn: Okay...
-do EventFlags.set_flag("Az-CoughingFit-HeaterArea", true)
+do EventFlags.set_flag("8-Az-CoughingFit-HeaterArea", true)
 
 => END

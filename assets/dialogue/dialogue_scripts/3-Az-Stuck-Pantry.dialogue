@@ -31,5 +31,5 @@ Fenn starry: Whoa... really?? [wait=0.3]That's so cool!
 Az: Be careful, Fenn.
 Fenn starry: [wave freq=7 amp=30]No promises![/wave]
 Az annoy: Nevermind.
-do EventFlags.set_flag("Az-Stuck-Pantry", true)
+do EventFlags.set_flag("3-Az-Stuck-Pantry", true)
 => END
