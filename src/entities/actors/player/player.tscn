@@ -645,6 +645,7 @@ collision_mask = 32
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/GrabComponent/GrabRange"]
+visible = false
 position = Vector2(947, -189)
 shape = SubResource("RectangleShape2D_u7uqy")
 debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
