@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=34 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/entities/actors/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://osptlmoqos3i" path="res://src/entities/actors/player/states/player_piling.gd" id="9_q6jdu"]
 [ext_resource type="PackedScene" uid="uid://dhcepuko5y18x" path="res://src/particle_effects/leaf_ball_particles.tscn" id="9_tda88"]
 [ext_resource type="PackedScene" uid="uid://cpp5w8yc6jxm8" path="res://src/particle_effects/leaf_death_particle.tscn" id="11_283t5"]
+[ext_resource type="PackedScene" uid="uid://d4k216trrf235" path="res://src/particle_effects/leaf_respawn_particle.tscn" id="12_s3rhx"]
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/particle_effects/wind_particles.tscn" id="14_7j1dl"]
 [ext_resource type="AudioStream" uid="uid://dimhdiv10a08t" path="res://assets/entities/actors/player/player_audio/PH-leaf-enter.ogg" id="17_iloh8"]
 [ext_resource type="AudioStream" uid="uid://dxmm31nsgmehb" path="res://assets/entities/actors/player/player_audio/PH-leaf-exit.ogg" id="18_283t5"]
@@ -523,6 +524,10 @@ emitting = false
 [node name="HurtParticles" type="Node2D" parent="FlipNode"]
 
 [node name="LeafDeathParticle" parent="FlipNode/HurtParticles" instance=ExtResource("11_283t5")]
+
+[node name="LeafRespawnParticle" parent="FlipNode/HurtParticles" instance=ExtResource("12_s3rhx")]
+emitting = false
+amount = 450
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
 
