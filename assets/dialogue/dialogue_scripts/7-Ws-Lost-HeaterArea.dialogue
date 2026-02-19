@@ -19,6 +19,6 @@ Az: Did- did you just let him get away?
 Fenn: OH WAIT!! COME BACK!
 Wizard: UMM. LALALA I CAN'T HEARETH YOU!
 Az: Oh by Post. They're both idiots.
-do EventFlags.set_flag("Ws-Lost-HeaterArea", true)
+do EventFlags.set_flag("7-Ws-Lost-HeaterArea", true)
 
 => END

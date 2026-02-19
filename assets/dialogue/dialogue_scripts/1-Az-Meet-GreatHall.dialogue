@@ -21,8 +21,5 @@ Fenn: Hmm... No promises!
 Az annoy: Seriously? [wait=0.3][shake level=7 rate=20 connected=0]Ugh[/shake]. Whatever.
 do CutsceneManager.npc_move("Az", 36352.0, 400, true, false)
 do CutsceneManager.remove_npc("Az")
-do EventFlags.set_flag("Az-Meet-GreatHall", true)
+do EventFlags.set_flag("1-Az-Meet-GreatHall", true)
 => END
-
-
-

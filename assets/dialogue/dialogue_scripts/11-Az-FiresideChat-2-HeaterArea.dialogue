@@ -20,5 +20,5 @@ Az: Dude, no one cares.
 Winston: Geez! I'm sorry. I thoughteth we were sharing.
 Fenn: I care!! It's good to meetheth you, Winston.
 Winston: Ah... g- good to meeteth thee too.
-do EventFlags.set_flag("Az-FiresideChat-1-HeaterArea", true)
+do EventFlags.set_flag("11-Az-FiresideChat-1-HeaterArea", true)
 => END

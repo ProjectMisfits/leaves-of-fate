@@ -10,5 +10,5 @@ Az: You think? [wait=0.3]Hah, thanks. It's really not much.
 Az: Anyways, don't let me stop you. [i]cough[/i].
 Fenn worry: You cough a lot. Are you okay?
 Az: Uh. Yeah, no, [wait=0.3]I'm fine. Just something caught in my throat.
-do EventFlags.set_flag("Az-BangleTalk-CellarGeneral", true)
+do EventFlags.set_flag("4-Az-BangleTalk-CellarGeneral", true)
 => END

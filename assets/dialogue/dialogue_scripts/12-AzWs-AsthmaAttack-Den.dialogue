@@ -48,5 +48,5 @@ Az: inhale. cough. in a bit, yeah.
 silence, fade to black, deep inhale sound effect, fade out from black
 Fenn: Are you sure you're okay?
 Az: I'm good, Fenn! Stop worrying. Let's go get him.
-do EventFlags.set_flag("AzWs-AsthmaAttack-Den", true)
+do EventFlags.set_flag("12-AzWs-AsthmaAttack-Den", true)
 => END
