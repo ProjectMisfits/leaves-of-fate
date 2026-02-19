@@ -1,4 +1,4 @@
-~ pantry_filler
+~ start
 % [if not EventFlags.get_flag("X-Az-Pantry-1")] => convo_1
 % [if not EventFlags.get_flag("X-Az-Pantry-2")] => convo_2
 % [if not EventFlags.get_flag("X-Az-Pantry-3")] => convo_3
