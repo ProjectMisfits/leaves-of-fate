@@ -116,7 +116,7 @@ func swap_scenes_with_transition(scene_to_load: String, load_as_child_of: Node, 
 	return loaded_scene
 
 ## Create a screen transition, add it to the scene tree, and initiate the animation.
-func add_screen_transition(transition_type: String, pos = null) -> void:
+func add_screen_transition(transition_type: String, pos: Vector2 = Vector2.INF) -> void:
 	print("Transitioning out...", transition_type)
 	current_screen_transition = screen_transition_scene.instantiate()
 	get_tree().root.add_child(current_screen_transition)
@@ -124,7 +124,7 @@ func add_screen_transition(transition_type: String, pos = null) -> void:
 	print("Transition out finished!")
 
 ## Reverse the screen transition animation and remove the screen transition from the scene tree.
-func remove_screen_transition(pos = null) -> void:
+func remove_screen_transition(pos: Vector2 = Vector2.INF) -> void:
 	print("Transitioning in...")
 	await current_screen_transition.finish_transition(pos)
 	get_tree().root.remove_child(current_screen_transition)
