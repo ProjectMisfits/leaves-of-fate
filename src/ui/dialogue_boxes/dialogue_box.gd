@@ -163,41 +163,126 @@ func apply_dialogue_line() -> void:
 			character_label.add_theme_color_override("default_color", "#576f35")
 			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/Fenn-Idle-CharacterProfile-001.png")
 			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Player-DialogueBeep-RandomContainer.tres")
+		"fenn starry":
+			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/fenn_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#576f35")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/Fenn-StarryEyed-CharacterProfile-001.png")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Player-DialogueBeep-RandomContainer.tres")
+			character_label.text = "Fenn"
+		"fenn worry":
+			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/fenn_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#576f35")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/Fenn-Worried-CharacterProfile-001.png")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Player-DialogueBeep-RandomContainer.tres")
+			character_label.text = "Fenn"
+		
 		"az":
 			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/az_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#A86A19")
 			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/Az-Idle-CharacterProfile-001.png")
 			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Az-DialogueBeep-RandomContainer.tres")
+		"az annoy":
+			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/az_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#A86A19")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/Az-Annoyed-CharacterProfile-001.png")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Az-DialogueBeep-RandomContainer.tres")
+			character_label.text = "Az"
+		"az laugh":
+			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/az_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#A86A19")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/Az-Laugh-CharacterProfile-001.PNG")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Az-DialogueBeep-RandomContainer.tres")
+			character_label.text = "Az"
 
 		"winston":
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#35639C")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/Winston-Idle-CharacterProfile-001.png")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
+		"winston grit":
+			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#35639C")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/Winston-Gritting-CharacterProfile-001.png")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
+			character_label.text = "Winston"
+		"winston awkward":
+			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#35639C")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/Winston-Awkward-CharacterProfile-001.png")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
+			character_label.text = "Winston"
+		"winston hood":
+			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#35639C")
 			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Idle-CharacterProfile-001.png")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
+			character_label.text = "Winston"
+		"winston hood grit":
+			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#35639C")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Gritting-CharacterProfile-001.png")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
+			character_label.text = "Winston"
+		"winston hood awkward":			
+			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#35639C")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Awkward-CharacterProfile-001.png")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
+			character_label.text = "Winston"
+	
 		"wizard":
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#35639C")
 			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Idle-CharacterProfile-001.png")
 			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
+		"wizard grit":
+			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#35639C")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Gritting-CharacterProfile-001.png")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
+			character_label.text = "Wizard"
+		"wizard awkward":
+			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#35639C")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Awkward-CharacterProfile-001.png")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
+			character_label.text = "Wizard"
+
 
 		"wizard?":
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#35639C")
 			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Idle-CharacterProfile-001.png")
 			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
+		"??? ws grit":
+			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#35639C")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Gritting-CharacterProfile-001.png")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
+			character_label.text = "???"
+		"??? ws awkward":
+			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#35639C")
+			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Awkward-CharacterProfile-001.png")
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
+			character_label.text = "???"
 
-		"???":
+		"??? ws":
 			dialogue_panel.add_theme_stylebox_override("panel", ResourceLoader.load("res://src/ui/dialogue_boxes/winston_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#35639C")
 			character_portrait.texture = ResourceLoader.load("res://assets/ui/dialogue_boxes/character_portraits/WinstonHooded-Idle-CharacterProfile-001.png")
 			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Ws-DialogueBeep-RandomContainer.tres")
+			character_label.text = "???"
 
 		"test":
 			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/az_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#A86A19")
+			character_portrait.texture = null
 			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Default-DialogueBeep-RandomContainer.tres")
 		_:
 			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/plain_dialogue_no_profile.stylebox"))
 			character_label.add_theme_color_override("default_color", "#576f35")
+			character_portrait.texture = null
 			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Default-DialogueBeep-RandomContainer.tres")
 	
 	dialogue_label.hide()
@@ -263,7 +348,7 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 	# See if we need to skip typing of the dialogue
 	if dialogue_label.is_typing:
 		var mouse_was_clicked: bool = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
-		var skip_button_was_pressed: bool = event.is_action_pressed("interact")
+		var skip_button_was_pressed: bool = event.is_action_pressed("ui_accept")
 		if mouse_was_clicked or skip_button_was_pressed:
 			get_viewport().set_input_as_handled()
 			dialogue_label.skip_typing()
@@ -279,7 +364,7 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 		do_interrupt = false
 		next(dialogue_line.next_id)
 		
-	elif event.is_action_pressed("interact") and get_viewport().gui_get_focus_owner() == balloon:
+	elif event.is_action_pressed("ui_accept") and get_viewport().gui_get_focus_owner() == balloon:
 		interact_audio_player.play()
 		do_interrupt = false
 		next(dialogue_line.next_id)

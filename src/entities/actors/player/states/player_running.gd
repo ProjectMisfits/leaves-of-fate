@@ -13,9 +13,9 @@ func _exit() -> void:
 
 ## Move the Player & check if they may transition into another state.
 func _update(delta: float) -> void:
-
+	
 	agent.check_dashing_state()
-	agent.check_piling_state()
+	#agent.check_piling_state()
 	agent.check_jumping_state()
 	agent.check_airborne_state()
 	agent.check_idle_state()

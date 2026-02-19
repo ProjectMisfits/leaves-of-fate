@@ -334,6 +334,7 @@ anchors_preset = 0
 stream = ExtResource("8_2rik1")
 bus = &"SFX"
 
+[connection signal="button_up" from="EnvelopeBase/StampButton" to="." method="_open_credits_menu"]
 [connection signal="button_up" from="EnvelopeBase/ReturnLabelButton" to="." method="_open_controls_menu"]
 [connection signal="button_up" from="MainSelectionsContainer/PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="MainSelectionsContainer/SettingsButton" to="." method="_open_settings_menu"]

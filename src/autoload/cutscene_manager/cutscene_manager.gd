@@ -1,13 +1,19 @@
 extends Node
-## A manager for cutscene sequences.Primarily allows for easier npc movement scripting from dialogue resource files.
+## A manager for cutscene sequences. Allows npc movement to be scripted from dialogue resource files.
 
 ## A signal emitted whenever a cutscene ends.
 signal cutscene_ended
+
+## A signal emitted when an NPC finishes moving.
+signal npc_finished_moving
 
 ## An array containing all npcs in the current room that are available for movement scripting during a cutscene.
 var npcs: Array[NPC]
 
 func _ready() -> void:
+	# If the scene ever gets swapped, reset cutscenes
+	SceneManager.scene_swap_started.connect(_end_cutscene)
+	# When a cutscene ends, reset cutscenes
 	cutscene_ended.connect(_end_cutscene)
 
 ## Takes an npc name and returns an instance of the npc associated with that name.
@@ -67,6 +73,7 @@ func npc_move(npc_name: String, destination_global_x: float = 1.0, move_speed: f
 		return
 	# Script the NPC to move to a position.
 	npc_instance.move(destination_global_x, move_speed, animate_walk, moonwalk)
+	await npc_finished_moving
 
 ## Turn the specified npc to face the given direction.
 func npc_face(npc_name: String, direction: String) -> void:

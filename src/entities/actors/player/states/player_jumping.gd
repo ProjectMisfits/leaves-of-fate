@@ -4,7 +4,7 @@ extends LimboState
 ## Set the Player's animation & initiate a jump.
 func _enter() -> void:
 	#print("Player State Transition: to_jumping")
-	agent.animation_player.play("player_idle")
+	agent.animation_player.queue("player_jump_start")
 	jump()
 
 ## Move the Player & check if they may transition into another state.
@@ -12,7 +12,7 @@ func _enter() -> void:
 func _update(delta: float) -> void:
 
 	agent.check_dashing_state()
-	agent.check_piling_state()
+	#agent.check_piling_state()
 	
 	if (agent.velocity.y >= 0.0):	# Can only transition into airborne once jump reaches peak
 		agent.check_airborne_state()

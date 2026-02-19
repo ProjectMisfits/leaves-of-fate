@@ -35,15 +35,20 @@ func _enter() -> void:
 ## Move & turn the Player. If the dash button is not held or the Player runs out of wind,
 ## check if they may transition into another state.
 func _update(_delta: float) -> void:
-	# Check if Player stopped holding dash Action
-	if (not Input.is_action_pressed("dash") or (agent.leaf_meter <= 0) or agent.input_disabled):
+	# Check for state changes
+	var is_leaf_dash_mode_dash_only: bool = agent._current_leaf_dash_mode == Player.leaf_dash_mode.DASH_ONLY
+	var is_leaf_dash_mode_no_dash: bool = agent._current_leaf_dash_mode == Player.leaf_dash_mode.NO_DASH
+	var is_leaf_meter_empty: bool = agent.leaf_meter <= 0.0
+	var is_dash_action_not_pressed: bool = not Input.is_action_pressed("dash")
+	
+	if not agent.input_processing or is_leaf_dash_mode_no_dash or ((not is_leaf_dash_mode_dash_only) and (is_dash_action_not_pressed or is_leaf_meter_empty)):
 		agent.check_airborne_state()
 		agent.check_running_state()
 		agent.check_idle_state()
 	
 	# Get new input vector depending on held Actions
 	var new_input_direction: Vector2
-	if agent.input_disabled:
+	if not agent.input_processing:
 		new_input_direction = Vector2.ZERO
 	else:
 		new_input_direction = get_input_direction()

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b30sxf274xono"
+path="res://.godot/imported/8-Az-CoughingFit-HeaterArea.dialogue-a1e88035cce2f26ee3a383a7734b09ab.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/8-Az-CoughingFit-HeaterArea.dialogue"
+dest_files=["res://.godot/imported/8-Az-CoughingFit-HeaterArea.dialogue-a1e88035cce2f26ee3a383a7734b09ab.tres"]
+
+[params]
+
+defaults=true
