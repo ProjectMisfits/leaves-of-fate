@@ -40,12 +40,11 @@ do EventFlags.num_great_hall_conversations += 1
 => END
 
 ~ convo_3
-Fenn: Hey guys!
-Az: Hey kid. Thanks for the help in the Cellar. Couldn't have done it without you.
-Fenn: Well I couldn't have done much without your bangles, either...
-Winston: Sorry for, like, trying to killeth thee, and stuff.
+Az: Hey Fenn! Thanks for your help in the Cellar. Appreciate it.
+Fenn: Well, i couldn't have done much without your bangles, either...
+Winston: Sorry for, like, trying to killeth thee, and stuff...
 Fenn: It wouldn't be an adventure without any danger!
-Az: Winston, you're good. Don't worry about it.
+Az: Winston, you're good, don't worry about it.
 do EventFlags.set_flag("X-AzWs-GreatHall-3", true)
 do EventFlags.num_great_hall_conversations += 1
 => END
@@ -53,12 +52,12 @@ do EventFlags.num_great_hall_conversations += 1
 ~ convo_4
 Winston: May I taketh a look at thy bangles?
 Az: Yeah sure.
-Winston: Whoa... this is incredible!
+Winston: Whoa... tis incredible!
 Az: It's really nothing special.
-Winston: Nay, seriously! Thy patterns art so intricate and clean. They hardly look handmade.
+Winston: No, seriously! Thy patterns art so intricate and clean!
 Winston: This must hath taken thee months!
-Az: It was a few weeks, yeah...
-Winston: Weeks?! Whoa. 
+Az: It was a few weeks, but yeah...
+Winston: Weeks?! Seriously? Whoa... 
 do EventFlags.set_flag("X-AzWs-GreatHall-4", true)
 do EventFlags.num_great_hall_conversations += 1
 => END
@@ -67,31 +66,31 @@ do EventFlags.num_great_hall_conversations += 1
 Az: Hey, Winston. I want to ask you something.
 Winston: What is on thy mind?
 Az: The picture frame? In my workshop?
-Winston: NAY! Didst I break it? I'm sorry!
-Az: No! No, actually. The opposite. I thought you smashed it. I saw it in one piece right before you made Iceton.
-Winston: Oh... no. I couldn't bringeth myself to breaketh it. I did smash some ice and pretend like it hath broken
+Winston: NO! Didst I break it? I'm sorry!
+Az: No! Actually. The opposite. I thought you smashed it. I saw it in one piece right before you made Iceton.
+Winston: Oh... I could not bring myself to breaketh it. I did smash some ice instead.
 Winston: I'm sorry.
-Az: Why are you apologizing? You didn't really do anything wrong.
+Az: Why? You didn't really do anything wrong.
 Winston: Well... for scaring thee.
 Az: Water under the bridge, man.
-Winston: Alright. Thank you.
+Winston: Alright. Thanks.
 do EventFlags.set_flag("X-AzWs-GreatHall-5", true)
 do EventFlags.num_great_hall_conversations += 1
 => END
 
 ~ convo_6
 Az: So, Winston... you make things with ice, right?
-Winston: Aye, basically.
-Az: So all those little creatures running through the cellar? The ice cubes? That was you?
-Winston: Well, yeah...
+Winston: Indeed.
+Az: So all those little creatures running through the cellar? That was you?
+Winston: Well, yes...
 Az: Seriously?! 
-Winston: I hath many machines and molds to maketh them. If only they did listen to me.
-Az: That's incredible dude. I wish blacksmithing was that cool.
+Winston: I hath many machines and molds to maketh them! If only they did listen to me.
+Az: That's incredible, dude. I wish blacksmithing was that cool.
 Winston: Perhaps we couldst, like, work together sometime.
-Az: Yeah? That'd be awesome! We could call it "ice-smithing" or something
-Winston: Really??
+Az: Yeah? That'd be awesome! We could do, like, "ice-smithing" or whatever.
+Winston: WAIT REALLY??
 Az: Yeah, it'd be cool.
-Winston: Cool.
+Winston: Cool. Soundeth good. Tis cool.
 do EventFlags.set_flag("X-AzWs-GreatHall-6", true)
 do EventFlags.num_great_hall_conversations += 1
 => END
