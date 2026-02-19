@@ -40,7 +40,7 @@ do CutsceneManager.remove_npc("Winston")
 Fenn: Did... did he just leave?
 Wizard grit: Look. The budget tis thin.
 Wizard awkward: Just- [wait=0.3][font_size=40]could- [/font_size][wait=0.3]couldst thou walketh through that door?
-do EventFlags.set_flag("Ws-Ambush-CellarGeneral", true)
+do EventFlags.set_flag("5a-Ws-Ambush-CellarGeneral", true)
 # !!! Come back to this when the new challenge gets implemented
 => END
 
@@ -63,5 +63,5 @@ Fenn: [wave freq=7 amp=30] Wasn't it so cool?[/wave]
 Wizard: [font_size=70][shake level=7 rate=30]I hath never said it was cool![/shake][/font_size]
 Wizard: [font_size=100][shake level=7 rate=30]ARRGH![/shake][/font_size]
 #Wizard runs off
-do EventFlags.set_flag("Ws-PostAmbush-CellarGeneral", true)
+do EventFlags.set_flag("5b-Ws-PostAmbush-CellarGeneral", true)
 => END
