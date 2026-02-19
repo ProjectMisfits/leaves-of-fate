@@ -17,6 +17,8 @@ class_name MovingPlatform extends Path2D
 @export var easing: float = -1.5
 #All path follow 2D nodes in the path
 @export var paths : Array[PathFollow2D]
+##A progress point to return to when grabbed
+@export var grab_point : float
 
 #Controls the current speed at which the platform goes along the path
 var cur_closed_loop_speed: float
@@ -38,6 +40,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	progress_path()
+	
 	pass
 
 func progress_path()->void:
@@ -63,11 +66,14 @@ func set_open_speed(_new_speed: float)->void:
 func _grab()->void:
 	if closed_loop:
 		cur_closed_loop_speed = 0
+		path.progress_ratio = grab_point
 	else:
 		animation_player.speed_scale = 0
+		animation_player.seek(grab_point)
 
 ## Resume the platform's movement when it is ungrabbed. 
 func _ungrab() -> void:
+	
 	if closed_loop:
 		cur_closed_loop_speed = closed_loop_speed
 	else:
