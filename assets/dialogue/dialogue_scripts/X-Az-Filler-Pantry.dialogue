@@ -2,31 +2,67 @@
 % => convo_1
 % => convo_2
 % => convo_3
+% => convo_4
+% => convo_5
+% => convo_6
 => END
 
 ~ convo_1
 Az: Ugh, this sucks.
 Fenn: Why?
-Az: I need to get to my workshop as soon as possible. I hate just being stuck.
+Az: I need to get to my workshop. I hate being stuck.
 Fenn: It's okay! I'm here!
-Az: Yeah...
-do EventFlags.set_flag("F-1-Az-Pantry", true)
+Az: That you are...
+#do EventFlags.set_flag("F-1-Az-Pantry", true)
 => END
 
 ~ convo_2
 Fenn: So you made these bangles?
 Az: Yeah, why?
 Fenn: That's... SO COOL. How did you get these tiny little indents in there?
-Az: The... the patterns?
-Fenn: Yeah! The patterns!
-Az: I... well I carved them. It's really not that hard.
+Az: The... patterns?
+Fenn: Whoa.... yeah! The patterns!
+Az: I... well, I carved them. It's really not that hard.
 Fenn: AWESOME.
-do EventFlags.set_flag("F-2-Az-Pantry", true)
+#do EventFlags.set_flag("F-2-Az-Pantry", true)
 => END
 
 ~ convo_3
 Az: I need to get my Baba out of there. 
 Fenn: Well, once we defeat Mr. Wizard Man, he'll help us!
 Az: He doesn't seem to be in a helping mood, Fenn.
-do EventFlags.set_flag("F-3-Az-Pantry", true)
+#do EventFlags.set_flag("F-3-Az-Pantry", true)
+=> END
+
+~ convo_4
+Az: I don't mean to be rude, but, like, why are you here?
+Fenn: What do you mean?
+Az: In the palace? 
+Fenn: Oh! I was invited! Uh... King Oakley sent a letter to me. 
+Fenn: He... uh... he's looking for candidates for new Knights!!
+=> END
+
+~ convo_5
+Fenn: Who's your favorite Knight? Like, besides your Dad?
+Az: Hmm... besides Baba? I haven't really spent time with them
+Az: Henric and Ophelia are, like, kinda intense. I'd say Maysa. She's chill.
+Fenn: Oooh, good choice. I think I have a few Maysas. Mostly Adira and Henric full-arts.
+Az: Wait- are you talking about trading cards?
+Fenn: Yeah I have a ton of them!
+Az: Huh... I didn't know they made trading cards of the Knights.
+Fenn: They don't!
+Az: Ah...
+=> END
+
+
+~ convo_6
+Fenn: Do you like living at the palace?
+Az: Eh. It's cool, I guess. I got my own workshop... plenty of stuff to tinker with... all the time in the world.
+Az: Not the same as home, though.
+Fenn: Kuva, right?
+Az: Yeah... how'd you know?
+Fenn: It's in your biography at the Grasen History Museum!
+Az: Ah... right. 
+Fenn: You grew up on Straw Ave, had two best friends, and won crafts shows before getting into smithing! Oh and also, that one ti-
+Az: Okay! Okay, that's enough out of you, Fenn.
 => END
