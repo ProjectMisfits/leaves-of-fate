@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=41 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/entities/actors/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
@@ -25,6 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://dimhdiv10a08t" path="res://assets/entities/actors/player/player_audio/PH-leaf-enter.ogg" id="17_iloh8"]
 [ext_resource type="AudioStream" uid="uid://dxmm31nsgmehb" path="res://assets/entities/actors/player/player_audio/PH-leaf-exit.ogg" id="18_283t5"]
 [ext_resource type="Texture2D" uid="uid://jvsobi5gw7di" path="res://assets/entities/actors/player/TEMP-fenn-jump-spritesheet.png" id="18_s3rhx"]
+[ext_resource type="AudioStream" uid="uid://ca5i8864h7llp" path="res://assets/entities/actors/footsteps/stone/FS-fenn-stone.tres" id="26_hn11x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4vut"]
 size = Vector2(750, 540)
@@ -731,6 +732,7 @@ stream = ExtResource("18_283t5")
 bus = &"SFX"
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("26_hn11x")
 volume_db = 2.0
 bus = &"SFX"
 
