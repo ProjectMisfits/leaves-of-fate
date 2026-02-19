@@ -11,6 +11,9 @@ signal npc_finished_moving
 var npcs: Array[NPC]
 
 func _ready() -> void:
+	# If the scene ever gets swapped, reset cutscenes
+	SceneManager.scene_swap_started.connect(_end_cutscene)
+	# When a cutscene ends, reset cutscenes
 	cutscene_ended.connect(_end_cutscene)
 
 ## Takes an npc name and returns an instance of the npc associated with that name.
