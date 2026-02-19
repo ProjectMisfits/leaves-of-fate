@@ -186,9 +186,6 @@ rotation = -1.5707964
 position = Vector2(-128, 960)
 rotation = -1.5707964
 
-[node name="AnimationPlayer" parent="MidgroundLayer/Entities/Hazards/MovingPlatform" index="2"]
-reset_on_save = false
-
 [node name="MovingPlatform2" parent="MidgroundLayer/Entities/Hazards" index="1" instance=ExtResource("2_22sls")]
 position = Vector2(31984, 112)
 curve = SubResource("Curve2D_6fvqx")
@@ -334,9 +331,6 @@ rotation = -1.5707964
 position = Vector2(-128, 960)
 rotation = -1.5707964
 
-[node name="AnimationPlayer" parent="MidgroundLayer/Entities/Hazards/MovingPlatform2" index="2"]
-reset_on_save = false
-
 [node name="WindZone" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("4_perjf")]
 modulate = Color(1, 1, 1, 0.19607843)
 position = Vector2(7280, 3072)
@@ -385,7 +379,7 @@ position = Vector2(1926, -923.75)
 shape = SubResource("RectangleShape2D_7slg8")
 
 [node name="PhantomCamera2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger" index="1"]
-position = Vector2(4416, -784)
+position = Vector2(3392, 400)
 zoom = Vector2(0.25, 0.25)
 limit_target = NodePath("../../../../Midground")
 
