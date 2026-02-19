@@ -1,5 +1,5 @@
 extends Node
-## A manager for cutscene sequences.Primarily allows for easier npc movement scripting from dialogue resource files.
+## A manager for cutscene sequences. Allows npc movement to be scripted from dialogue resource files.
 
 ## A signal emitted whenever a cutscene ends.
 signal cutscene_ended

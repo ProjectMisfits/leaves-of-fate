@@ -1,6 +1,12 @@
 extends Node
 ## Manages the scene tree during runtime. Handles swapping scenes, particularly between menus and gameplay.
 
+## Emitted when a scene swap begins.
+signal scene_swap_started
+
+## Emitted when a scene swap ends.
+signal scene_swap_ended
+
 ## The current first child scene of the tree root.
 var current_scene: Node = null
 
@@ -81,6 +87,8 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 	
 	# Start the swap
 	swap_in_progress = true
+	# Emit the swap started signal
+	scene_swap_started.emit()
 	
 	# Unload the desired scene
 	if _unload_scene(scene_to_unload) != 0:
@@ -95,6 +103,8 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 	
 	# If nothing failed, finish the swap
 	swap_in_progress = false
+	# Emit the scene swap ended signal
+	scene_swap_ended.emit()
 	return loaded_scene
 
 ## Swap scenes, but during a screen transition.
