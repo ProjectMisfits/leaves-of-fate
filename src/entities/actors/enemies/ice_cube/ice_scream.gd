@@ -99,11 +99,8 @@ func _on_hurt_area_body_entered(body: Node2D) -> void:
 		state_machine.dispatch(&"to_death")
 		#this ensures that both this cube dies and the other one dies as well	
 		body.death()
-	elif(not body == self and body is Player):
-		body.hurt(1)
-	elif(not body == self and (body is Icicle or body is IceSpikeBall) ):
-		
-		state_machine.dispatch(&"to_death")
+	
+	
 
 func _on_sight_body_entered(body: Node2D) -> void:
 	if(body.global_position.x-global_position.x < 0) and look_direction == 1:
