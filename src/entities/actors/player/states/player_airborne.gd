@@ -11,7 +11,7 @@ func _enter() -> void:
 func _update(delta: float) -> void:
 
 	agent.check_dashing_state()
-	agent.check_piling_state()
+	#agent.check_piling_state()
 	agent.check_running_state()
 	agent.check_idle_state()
 	

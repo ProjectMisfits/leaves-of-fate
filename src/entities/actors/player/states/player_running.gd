@@ -15,7 +15,7 @@ func _exit() -> void:
 func _update(delta: float) -> void:
 	
 	agent.check_dashing_state()
-	agent.check_piling_state()
+	#agent.check_piling_state()
 	agent.check_jumping_state()
 	agent.check_airborne_state()
 	agent.check_idle_state()
