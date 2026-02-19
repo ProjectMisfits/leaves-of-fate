@@ -1,11 +1,14 @@
 ~ start
+#do CameraManager.create_camera(Vector2(700.0, 700.0), 0.4, 1, "CUBIC", "EASE_IN_OUT")
+do CameraManager.create_camera(Vector2(3072.0, 0.0), 1, 1, "CUBIC", "EASE_IN_OUT")
 Fenn: Hello? Winston?
 Az: I know the light's here, gimme a sec.
+#do CameraManager.create_camera(Vector2(700.0.0, 700.0), 0.6, 3, "CUBIC", "EASE_IN_OUT")
 Lights flash on.
 Az: Hmph. Everything looks okay.
 Az: And the pict- oh. Huh.
 Winston: WELCOME, FOOLS
-Camera pans out to reveal the big machine
+#do CameraManager.create_camera(Vector2(3072.0.0, 0.0), 1, 3, "CUBIC", "EASE_IN_OUT")
 Az: Whoa. Nevermind.
 Az: Wait- that's what you look like?
 Winston: WHAT? Do I hath something on my faceth?
