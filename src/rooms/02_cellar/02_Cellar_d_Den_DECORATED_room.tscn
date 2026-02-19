@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://bdbuuoljlim4f"]
+[gd_scene load_steps=39 format=4 uid="uid://bdbuuoljlim4f"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_h8co5"]
 [ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_6l8wa"]
@@ -10,12 +10,6 @@
 [ext_resource type="Shader" uid="uid://di2uq7k8615pm" path="res://src/shaders/dustgloom.gdshader" id="8_16v2u"]
 [ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/door/door.tscn" id="9_6e3gf"]
 [ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="10_yjioi"]
-[ext_resource type="PackedScene" uid="uid://beub4bx6t3wvh" path="res://src/entities/hazards/icicle/icicle_01.tscn" id="11_xxjwo"]
-[ext_resource type="PackedScene" uid="uid://domed3ucovqnj" path="res://src/entities/hazards/icicle/icicle_02.tscn" id="12_bqkkn"]
-[ext_resource type="PackedScene" uid="uid://dy2vli8qi5bb8" path="res://src/entities/hazards/icicle/icicle_03.tscn" id="13_ge8n3"]
-[ext_resource type="PackedScene" uid="uid://bj7fv2e6r3bp5" path="res://src/entities/hazards/icicle/icicle_05.tscn" id="14_0cmhq"]
-[ext_resource type="PackedScene" uid="uid://b5pl5cenkmlqy" path="res://src/entities/hazards/icicle/icicle_04.tscn" id="15_fpg0x"]
-[ext_resource type="PackedScene" uid="uid://dv6448b476yos" path="res://src/entities/hazards/icicle/icicle_06.tscn" id="16_fqgi6"]
 [ext_resource type="PackedScene" uid="uid://ds25qjj7x3y7o" path="res://src/entities/objects/leaf_platform/leaf_platform.tscn" id="17_g0ys4"]
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="18_fdcq0"]
 [ext_resource type="Material" uid="uid://dbrwefsv6hrsv" path="res://src/shaders/RimLit.tres" id="18_jcvwt"]
@@ -58,6 +52,7 @@ shader = ExtResource("8_16v2u")
 shader_parameter/bloomScale = 2.0
 shader_parameter/noiseDetail = SubResource("NoiseTexture2D_hnl24")
 shader_parameter/uvNoiseScale = Vector2(1, 1)
+shader_parameter/uvNoiseSpeed = Vector2(0, -0.015)
 
 [sub_resource type="QuadMesh" id="QuadMesh_0q8k1"]
 size = Vector2(1024, 512)
@@ -172,7 +167,6 @@ tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(-1024, 1024)
-path_to_target_room = "uid://crnmcqdp12kqw"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(6399.9995, -4607.9995)
@@ -239,45 +233,6 @@ position = Vector2(5120, -5760)
 [node name="IceSpikeBall-8" parent="MidgroundLayer/Entities/Hazards" index="16" instance=ExtResource("10_yjioi")]
 position = Vector2(12480, -4032)
 
-[node name="Icicle_01-2" parent="MidgroundLayer/Entities/Hazards" index="17" instance=ExtResource("11_xxjwo")]
-position = Vector2(5440, -4608)
-
-[node name="Icicle_01-3" parent="MidgroundLayer/Entities/Hazards" index="18" instance=ExtResource("11_xxjwo")]
-position = Vector2(5568, -4608)
-
-[node name="Icicle_01-4" parent="MidgroundLayer/Entities/Hazards" index="19" instance=ExtResource("11_xxjwo")]
-position = Vector2(7168, -4608)
-
-[node name="Icicle_02" parent="MidgroundLayer/Entities/Hazards" index="20" instance=ExtResource("12_bqkkn")]
-position = Vector2(5184, -4736)
-
-[node name="Icicle_03" parent="MidgroundLayer/Entities/Hazards" index="21" instance=ExtResource("13_ge8n3")]
-position = Vector2(5312, -4608)
-
-[node name="Icicle_02-2" parent="MidgroundLayer/Entities/Hazards" index="22" instance=ExtResource("12_bqkkn")]
-position = Vector2(5696, -4608)
-
-[node name="Icicle_05" parent="MidgroundLayer/Entities/Hazards" index="23" instance=ExtResource("14_0cmhq")]
-position = Vector2(7360, -4608)
-
-[node name="Icicle_04" parent="MidgroundLayer/Entities/Hazards" index="24" instance=ExtResource("15_fpg0x")]
-position = Vector2(7616, -4736)
-
-[node name="Icicle_06" parent="MidgroundLayer/Entities/Hazards" index="25" instance=ExtResource("16_fqgi6")]
-position = Vector2(7488, -4608)
-
-[node name="Icicle_02-3" parent="MidgroundLayer/Entities/Hazards" index="26" instance=ExtResource("12_bqkkn")]
-position = Vector2(7232, -4608)
-
-[node name="Icicle_05-2" parent="MidgroundLayer/Entities/Hazards" index="27" instance=ExtResource("14_0cmhq")]
-position = Vector2(13824, -2816)
-rotation = 3.1415927
-scale = Vector2(3, 3)
-
-[node name="Icicle_04-2" parent="MidgroundLayer/Entities/Hazards" index="28" instance=ExtResource("15_fpg0x")]
-position = Vector2(13952, 1024)
-scale = Vector2(3, 3)
-
 [node name="LeafPlatform" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("17_g0ys4")]
 position = Vector2(2816, -3328)
 scale = Vector2(4, 4)
@@ -295,7 +250,7 @@ position = Vector2(11353, -854)
 scale = Vector2(20, 60)
 dialogue_sequence = ExtResource("19_6l8wa")
 
-[node name="Decor" parent="MidgroundLayer" index="5"]
+[node name="Decor" parent="MidgroundLayer" index="7"]
 modulate = Color(0.59, 0.59, 0.59, 1)
 material = ExtResource("18_jcvwt")
 
@@ -596,11 +551,21 @@ texture = ExtResource("33_y68st")
 use_parent_material = true
 position = Vector2(6208, 128)
 
-[node name="Icicle_06-8" parent="ForegroundLayer" index="1" instance=ExtResource("16_fqgi6")]
+[node name="Icicle_06-8" parent="ForegroundLayer" index="1"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 z_index = -1
 position = Vector2(13720, 1071)
 rotation = 0.19937432
 scale = Vector2(6.7447844, 6.7447844)
+script = null
 
 [node name="Parallax2D" type="Parallax2D" parent="ForegroundLayer" index="2"]
 modulate = Color(0.69, 0.69, 0.69, 1)
@@ -609,39 +574,99 @@ scale = Vector2(6.7447844, 6.7447844)
 scroll_scale = Vector2(0.95, 1)
 scroll_offset = Vector2(-852.62, 0)
 
-[node name="Icicle_06-6" parent="ForegroundLayer/Parallax2D" index="0" instance=ExtResource("16_fqgi6")]
+[node name="Icicle_06-6" parent="ForegroundLayer/Parallax2D" index="0"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 z_index = -1
 position = Vector2(2108.461, 134.29216)
+script = null
 
-[node name="Icicle_06-5" parent="ForegroundLayer/Parallax2D" index="1" instance=ExtResource("16_fqgi6")]
+[node name="Icicle_06-5" parent="ForegroundLayer/Parallax2D" index="1"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 z_index = -1
 position = Vector2(1998.9398, -445.74854)
 rotation = -3.0810583
 scale = Vector2(0.5608709, 0.5608709)
+script = null
 
-[node name="Icicle_06-7" parent="ForegroundLayer" index="3" instance=ExtResource("16_fqgi6")]
+[node name="Icicle_06-7" parent="ForegroundLayer" index="3"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 z_index = -1
 position = Vector2(13544.001, 161.0004)
 rotation = 0.2178515
 scale = Vector2(2.1013453, 2.1013453)
+script = null
 
-[node name="Icicle_06-2" parent="ForegroundLayer" index="4" instance=ExtResource("16_fqgi6")]
+[node name="Icicle_06-2" parent="ForegroundLayer" index="4"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 z_index = -1
 position = Vector2(13304.001, -2984.9998)
 rotation = -2.8894227
 scale = Vector2(3.0000002, 3.0000002)
+script = null
 
-[node name="Icicle_06-4" parent="ForegroundLayer" index="5" instance=ExtResource("16_fqgi6")]
+[node name="Icicle_06-4" parent="ForegroundLayer" index="5"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 z_index = -1
 position = Vector2(13311, 1072)
 rotation = -0.3692593
 scale = Vector2(3.0280504, 1.819576)
+script = null
 
-[node name="Icicle_06-3" parent="ForegroundLayer" index="6" instance=ExtResource("16_fqgi6")]
+[node name="Icicle_06-3" parent="ForegroundLayer" index="6"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 z_index = -1
 position = Vector2(13752.999, 1019)
 rotation = -0.24763945
 scale = Vector2(3, 3)
+script = null
 
 [node name="IceSpikeBall" parent="ForegroundLayer" index="7" instance=ExtResource("10_yjioi")]
 position = Vector2(64, -3648)
