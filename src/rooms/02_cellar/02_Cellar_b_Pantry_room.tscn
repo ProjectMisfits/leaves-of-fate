@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://f2l3hfy6ehdh"]
+[gd_scene load_steps=33 format=4 uid="uid://f2l3hfy6ehdh"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_upsp8"]
 [ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_6fjcw"]
@@ -8,13 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://b6p26modf3ljr" path="res://src/entities/decor/furniture/window_01.tscn" id="5_0elvk"]
 [ext_resource type="PackedScene" uid="uid://dggdoj1nhnb1j" path="res://src/entities/decor/furniture/window_02.tscn" id="6_3hm1j"]
 [ext_resource type="PackedScene" uid="uid://n0xe74ww2rnc" path="res://src/entities/decor/furniture/window_03.tscn" id="7_7enyx"]
-[ext_resource type="PackedScene" uid="uid://dv6448b476yos" path="res://src/entities/hazards/icicle/icicle_06.tscn" id="7_igaof"]
-[ext_resource type="PackedScene" uid="uid://bj7fv2e6r3bp5" path="res://src/entities/hazards/icicle/icicle_05.tscn" id="7_npwt3"]
 [ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/door/door.tscn" id="7_uiv8d"]
 [ext_resource type="PackedScene" uid="uid://c0e5ya2ej5avs" path="res://src/entities/decor/furniture/bookshelf.tscn" id="8_4wlxj"]
 [ext_resource type="PackedScene" uid="uid://byav0yxb067be" path="res://src/entities/decor/furniture/bookshelf_fancy.tscn" id="9_fbjer"]
-[ext_resource type="PackedScene" uid="uid://dy2vli8qi5bb8" path="res://src/entities/hazards/icicle/icicle_03.tscn" id="9_y2ldj"]
-[ext_resource type="PackedScene" uid="uid://domed3ucovqnj" path="res://src/entities/hazards/icicle/icicle_02.tscn" id="10_7vdfi"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="10_q30p6"]
 [ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="11_masfk"]
 [ext_resource type="PackedScene" uid="uid://cctsnqs8u4udu" path="res://src/entities/decor/furniture/wine_shelf.tscn" id="12_3mpay"]
@@ -30,6 +26,14 @@
 [ext_resource type="Resource" uid="uid://cr0eyu8r26ipj" path="res://assets/dialogue/dialogue_scripts/3-Az-Stuck-Pantry.dialogue" id="16_q7bjq"]
 [ext_resource type="PackedScene" uid="uid://cjsgw2pcml8p5" path="res://src/entities/decor/food/radioactive_ham.tscn" id="17_g3u0g"]
 [ext_resource type="PackedScene" uid="uid://b8rxwl8xaqar1" path="res://src/entities/decor/food/scaly_meat.tscn" id="18_0060p"]
+[ext_resource type="PackedScene" uid="uid://dueb2snetgjyf" path="res://src/entities/decor/ice/icicle_06.tscn" id="27_6woac"]
+[ext_resource type="PackedScene" uid="uid://db6ckeae2eb0e" path="res://src/entities/decor/ice/icicle_05.tscn" id="27_q7bjq"]
+[ext_resource type="PackedScene" uid="uid://cbyoyss1vo43o" path="res://src/entities/decor/ice/ice_spike_ball.tscn" id="29_gpuhd"]
+[ext_resource type="PackedScene" uid="uid://do1txexpwjmqq" path="res://src/entities/decor/ice/icicle_03.tscn" id="30_1ppdk"]
+[ext_resource type="PackedScene" uid="uid://cvkclb0u7opsh" path="res://src/entities/decor/ice/icicle_01.tscn" id="31_6fjcw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8h18"]
+size = Vector2(800, 3200)
 
 [node name="02_Cellar_b_Pantry" instance=ExtResource("1_upsp8")]
 
@@ -180,81 +184,37 @@ tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(1535.9999, 1024)
+target_room_path = "uid://dgnt3sjnoumv3"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(19456, 3071.9998)
-path_to_target_room = "uid://dmggcrgj2j47b"
+target_room_path = "uid://7yrsxlkres1e"
 
 [node name="FakeDoorExit" parent="MidgroundLayer/DoorHolder" index="2" instance=ExtResource("7_uiv8d")]
 position = Vector2(14848.002, 1024.0001)
 door_name = "exit"
 target_door_name = "enter"
 
-[node name="Icicle_06" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("7_igaof")]
-position = Vector2(12928, 1024)
-scale = Vector2(2, 2)
-
-[node name="Icicle_06-2" parent="MidgroundLayer/Entities/Hazards" index="1" instance=ExtResource("7_igaof")]
-position = Vector2(12672, -1024)
-rotation = 3.1415927
-scale = Vector2(2, 2)
-
-[node name="Icicle_05" parent="MidgroundLayer/Entities/Hazards" index="2" instance=ExtResource("7_npwt3")]
-position = Vector2(13184, 1024)
-scale = Vector2(2, 2)
-
-[node name="Icicle_05-2" parent="MidgroundLayer/Entities/Hazards" index="3" instance=ExtResource("7_npwt3")]
-position = Vector2(13120, -1024)
-rotation = 3.1415927
-scale = Vector2(2, 2)
-
-[node name="Icicle_03" parent="MidgroundLayer/Entities/Hazards" index="4" instance=ExtResource("9_y2ldj")]
-position = Vector2(12928, -1024)
-rotation = 3.1415927
-scale = Vector2(2, 2)
-
-[node name="Icicle_02" parent="MidgroundLayer/Entities/Hazards" index="5" instance=ExtResource("10_7vdfi")]
-position = Vector2(12672, 1024)
-scale = Vector2(2, 2)
-
-[node name="Icicle_06-3" parent="MidgroundLayer/Entities/Hazards" index="6" instance=ExtResource("7_igaof")]
-position = Vector2(12928, -2048)
-scale = Vector2(2, 2)
-
-[node name="Icicle_06-4" parent="MidgroundLayer/Entities/Hazards" index="7" instance=ExtResource("7_igaof")]
-position = Vector2(13056, -4096)
-rotation = 3.1415927
-scale = Vector2(2, 2)
-
-[node name="Icicle_05-3" parent="MidgroundLayer/Entities/Hazards" index="8" instance=ExtResource("7_npwt3")]
-position = Vector2(13248, -2048)
-scale = Vector2(2, 2)
-
-[node name="Icicle_05-4" parent="MidgroundLayer/Entities/Hazards" index="9" instance=ExtResource("7_npwt3")]
-position = Vector2(13504, -4096)
-rotation = 3.1415927
-scale = Vector2(2, 2)
-
-[node name="Icicle_03-2" parent="MidgroundLayer/Entities/Hazards" index="10" instance=ExtResource("9_y2ldj")]
-position = Vector2(13248, -4096)
-rotation = 3.1415927
-scale = Vector2(2, 2)
-
-[node name="Icicle_02-2" parent="MidgroundLayer/Entities/Hazards" index="11" instance=ExtResource("10_7vdfi")]
-position = Vector2(12800, -2048)
-scale = Vector2(2, 2)
-
-[node name="IceSpikeBall" parent="MidgroundLayer/Entities/Hazards" index="12" instance=ExtResource("11_masfk")]
+[node name="IceSpikeBall" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("11_masfk")]
 position = Vector2(12544, -1152)
 scale = Vector2(2, 2)
 
-[node name="IceSpikeBall-2" parent="MidgroundLayer/Entities/Hazards" index="13" instance=ExtResource("11_masfk")]
+[node name="IceSpikeBall-2" parent="MidgroundLayer/Entities/Hazards" index="1" instance=ExtResource("11_masfk")]
 position = Vector2(12608, -1920)
 scale = Vector2(2, 2)
 
-[node name="IceSpikeBall-3" parent="MidgroundLayer/Entities/Hazards" index="14" instance=ExtResource("11_masfk")]
+[node name="IceSpikeBall-3" parent="MidgroundLayer/Entities/Hazards" index="2" instance=ExtResource("11_masfk")]
 position = Vector2(13120, -1472)
 scale = Vector2(2, 2)
+
+[node name="PlayerKiller" type="StaticBody2D" parent="MidgroundLayer/Entities/Hazards" index="3"]
+position = Vector2(-113, 0)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MidgroundLayer/Entities/Hazards/PlayerKiller" index="0"]
+position = Vector2(12864, -448)
+shape = SubResource("RectangleShape2D_a8h18")
 
 [node name="NpcAz" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("13_6woac")]
 position = Vector2(5977, 680)
@@ -593,3 +553,53 @@ position = Vector2(16068, -3174)
 
 [node name="ScalyMeat-12" parent="MidgroundLayer/Decor" index="103" instance=ExtResource("18_0060p")]
 position = Vector2(16160, -3430)
+
+[node name="Icicle06-3" parent="MidgroundLayer/Decor" index="104" instance=ExtResource("27_6woac")]
+position = Vector2(13107.001, -1515.0001)
+rotation = -2.9505222
+scale = Vector2(3.0000002, 3.0000002)
+
+[node name="Icicle05" parent="MidgroundLayer/Decor" index="105" instance=ExtResource("27_q7bjq")]
+position = Vector2(12902, 998.0001)
+rotation = -0.12816004
+scale = Vector2(3, 3)
+
+[node name="Icicle06" parent="MidgroundLayer/Decor" index="106" instance=ExtResource("27_6woac")]
+position = Vector2(12608, 1024)
+rotation = -0.05747667
+scale = Vector2(2, 2)
+
+[node name="Icicle06-2" parent="MidgroundLayer/Decor" index="107" instance=ExtResource("27_6woac")]
+position = Vector2(13055.001, 1018)
+rotation = 0.13082145
+scale = Vector2(2.5, 2.5)
+
+[node name="Icicle03" parent="MidgroundLayer/Decor" index="108" instance=ExtResource("30_1ppdk")]
+position = Vector2(13286, 572.9999)
+rotation = 0.38853264
+scale = Vector2(2, 2)
+
+[node name="IceSpikeBall" parent="MidgroundLayer/Decor" index="109" instance=ExtResource("29_gpuhd")]
+position = Vector2(13162, 658)
+rotation = -0.26569894
+scale = Vector2(2, 2)
+
+[node name="Icicle05-2" parent="MidgroundLayer/Decor" index="110" instance=ExtResource("27_q7bjq")]
+position = Vector2(12636.999, -1461.0002)
+rotation = 3.3783832
+scale = Vector2(2, 2)
+
+[node name="Icicle03-2" parent="MidgroundLayer/Decor" index="111" instance=ExtResource("30_1ppdk")]
+position = Vector2(13139.999, -1429.0002)
+rotation = 2.9935427
+scale = Vector2(3, 3)
+
+[node name="Icicle01" parent="MidgroundLayer/Decor" index="112" instance=ExtResource("31_6fjcw")]
+position = Vector2(12406.999, 1023)
+rotation = -0.16316333
+scale = Vector2(2, 2)
+
+[node name="Icicle01-2" parent="MidgroundLayer/Decor" index="113" instance=ExtResource("31_6fjcw")]
+position = Vector2(12384.001, -862.0005)
+rotation = -2.573743
+scale = Vector2(2, 2)

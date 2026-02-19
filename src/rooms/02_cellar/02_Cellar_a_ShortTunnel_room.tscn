@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://qnwmehxlttwm"]
+[gd_scene load_steps=6 format=4 uid="uid://qnwmehxlttwm"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_lioa7"]
 [ext_resource type="Texture2D" uid="uid://wk7tx1t1vq5f" path="res://assets/rooms/backgrounds/grad.png" id="2_lgfmj"]
-[ext_resource type="PackedScene" uid="uid://cqmupmvuf03we" path="res://src/entities/hazards/icicle/icicle_group_01.tscn" id="3_2v7ci"]
 [ext_resource type="PackedScene" uid="uid://n257i6n8nqs1" path="res://src/entities/decor/pillars/pillar_trunk_03.tscn" id="3_ih5or"]
 [ext_resource type="PackedScene" uid="uid://0jijms4al2i5" path="res://src/entities/decor/pillars/pillar_cap_01.tscn" id="3_s2vx3"]
 [ext_resource type="PackedScene" uid="uid://bwadcghg6jxxu" path="res://src/entities/decor/pillars/pillar_base_03.tscn" id="5_ndkis"]
@@ -23,98 +22,6 @@ position = Vector2(768, 1024)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(11520, 1024)
-path_to_target_room = "uid://dis7wlfvk6tfx"
-
-[node name="IcicleGroup01" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("3_2v7ci")]
-position = Vector2(4544, 1024)
-
-[node name="IcicleGroup02" parent="MidgroundLayer/Entities/Hazards" index="1" instance=ExtResource("3_2v7ci")]
-position = Vector2(4864, 768)
-
-[node name="IcicleGroup03" parent="MidgroundLayer/Entities/Hazards" index="2" instance=ExtResource("3_2v7ci")]
-position = Vector2(5120, 640)
-
-[node name="IcicleGroup04" parent="MidgroundLayer/Entities/Hazards" index="3" instance=ExtResource("3_2v7ci")]
-position = Vector2(5376, 640)
-
-[node name="IcicleGroup05" parent="MidgroundLayer/Entities/Hazards" index="4" instance=ExtResource("3_2v7ci")]
-position = Vector2(5632, 640)
-
-[node name="IcicleGroup06" parent="MidgroundLayer/Entities/Hazards" index="5" instance=ExtResource("3_2v7ci")]
-position = Vector2(5888, 640)
-
-[node name="IcicleGroup07" parent="MidgroundLayer/Entities/Hazards" index="6" instance=ExtResource("3_2v7ci")]
-position = Vector2(6144, 640)
-
-[node name="IcicleGroup08" parent="MidgroundLayer/Entities/Hazards" index="7" instance=ExtResource("3_2v7ci")]
-position = Vector2(6400, 640)
-
-[node name="IcicleGroup09" parent="MidgroundLayer/Entities/Hazards" index="8" instance=ExtResource("3_2v7ci")]
-position = Vector2(6656, 640)
-
-[node name="IcicleGroup10" parent="MidgroundLayer/Entities/Hazards" index="9" instance=ExtResource("3_2v7ci")]
-position = Vector2(6912, 640)
-
-[node name="IcicleGroup11" parent="MidgroundLayer/Entities/Hazards" index="10" instance=ExtResource("3_2v7ci")]
-position = Vector2(7168, 640)
-
-[node name="IcicleGroup12" parent="MidgroundLayer/Entities/Hazards" index="11" instance=ExtResource("3_2v7ci")]
-position = Vector2(7424, 768)
-
-[node name="IcicleGroup13" parent="MidgroundLayer/Entities/Hazards" index="12" instance=ExtResource("3_2v7ci")]
-position = Vector2(7808, 1024)
-
-[node name="IcicleGroup14" parent="MidgroundLayer/Entities/Hazards" index="13" instance=ExtResource("3_2v7ci")]
-position = Vector2(4480, -1024)
-rotation = 3.1415927
-
-[node name="IcicleGroup15" parent="MidgroundLayer/Entities/Hazards" index="14" instance=ExtResource("3_2v7ci")]
-position = Vector2(4864, -768)
-rotation = 3.1415927
-
-[node name="IcicleGroup16" parent="MidgroundLayer/Entities/Hazards" index="15" instance=ExtResource("3_2v7ci")]
-position = Vector2(5120, -640)
-rotation = -3.1478486
-
-[node name="IcicleGroup17" parent="MidgroundLayer/Entities/Hazards" index="16" instance=ExtResource("3_2v7ci")]
-position = Vector2(5376, -640)
-rotation = -3.1415927
-
-[node name="IcicleGroup18" parent="MidgroundLayer/Entities/Hazards" index="17" instance=ExtResource("3_2v7ci")]
-position = Vector2(5632, -640)
-rotation = -3.1415927
-
-[node name="IcicleGroup19" parent="MidgroundLayer/Entities/Hazards" index="18" instance=ExtResource("3_2v7ci")]
-position = Vector2(5888, -640)
-rotation = -3.1415927
-
-[node name="IcicleGroup20" parent="MidgroundLayer/Entities/Hazards" index="19" instance=ExtResource("3_2v7ci")]
-position = Vector2(6144, -640)
-rotation = 3.1415927
-
-[node name="IcicleGroup21" parent="MidgroundLayer/Entities/Hazards" index="20" instance=ExtResource("3_2v7ci")]
-position = Vector2(6400, -640)
-rotation = -3.1415927
-
-[node name="IcicleGroup22" parent="MidgroundLayer/Entities/Hazards" index="21" instance=ExtResource("3_2v7ci")]
-position = Vector2(6656, -640)
-rotation = -3.1415927
-
-[node name="IcicleGroup23" parent="MidgroundLayer/Entities/Hazards" index="22" instance=ExtResource("3_2v7ci")]
-position = Vector2(6912, -640)
-rotation = -3.1415927
-
-[node name="IcicleGroup24" parent="MidgroundLayer/Entities/Hazards" index="23" instance=ExtResource("3_2v7ci")]
-position = Vector2(7168, -640)
-rotation = -3.1415927
-
-[node name="IcicleGroup25" parent="MidgroundLayer/Entities/Hazards" index="24" instance=ExtResource("3_2v7ci")]
-position = Vector2(7424, -768)
-rotation = -3.1415927
-
-[node name="IcicleGroup26" parent="MidgroundLayer/Entities/Hazards" index="25" instance=ExtResource("3_2v7ci")]
-position = Vector2(7808, -1024)
-rotation = -3.1415927
 
 [node name="PillarTrunk03" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("3_ih5or")]
 position = Vector2(1535.9999, 63.999996)

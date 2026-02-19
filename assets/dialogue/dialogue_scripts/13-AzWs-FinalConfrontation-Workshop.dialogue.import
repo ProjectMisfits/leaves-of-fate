@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bbwxxjmh5jp4p"
+path="res://.godot/imported/13-AzWs-FinalConfrontation-Workshop.dialogue-4c28ed6e09ea6c6d41a908b3b76395dd.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/13-AzWs-FinalConfrontation-Workshop.dialogue"
+dest_files=["res://.godot/imported/13-AzWs-FinalConfrontation-Workshop.dialogue-4c28ed6e09ea6c6d41a908b3b76395dd.tres"]
+
+[params]
+
+defaults=true

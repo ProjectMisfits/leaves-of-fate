@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ctgdxodsiakm6"
+path="res://.godot/imported/10-AzWs-TurnOn-HeaterArea.dialogue-d6ea6b6fed3540d1ce7e61e6d1c2e1c7.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/10-AzWs-TurnOn-HeaterArea.dialogue"
+dest_files=["res://.godot/imported/10-AzWs-TurnOn-HeaterArea.dialogue-d6ea6b6fed3540d1ce7e61e6d1c2e1c7.tres"]
+
+[params]
+
+defaults=true
