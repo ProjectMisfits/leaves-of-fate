@@ -82,15 +82,6 @@ func move_idle(delta:float) -> void:
 func check_wall() -> void:
 	if is_on_wall():
 		state_machine.dispatch(&"to_idle")
-	
-
-#Check whether or not the player as released the cube 
-func check_release(delay: bool) -> void:
-	if(Input.is_action_just_pressed("companion") and delay):
-		if(not player_last_known_pos == Vector2.ZERO):
-			state_machine.dispatch(&"to_chase_angry")
-		else:
-			state_machine.dispatch(&"to_idle")
 
 #If the ice cube collides with another ice cube or spike at ANY state it should explode
 func _on_hurt_area_body_entered(body: Node2D) -> void:
