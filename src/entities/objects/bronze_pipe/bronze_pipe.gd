@@ -66,11 +66,11 @@ func _enter_pipe(player: Player) -> void:
 	_player = player
 	# Connect RemoteTransform2D to player so it follows the visual while hidden
 	_player_pipe_transform.remote_path = _player.get_path()
-	# Disable player input
-	_player.disable_player_input()
+	# Disable player
+	_player.freeze()
 	# Hide player
 	_player.hide()
-	# Show animation or particle visual of entering pipe
+	# TODO: Show animation or particle visual of entering pipe
 	# Show pipe visual
 	_pipe_path_visual.show()
 	# Set player in pipe to true
@@ -82,12 +82,12 @@ func _exit_pipe() -> void:
 	_player_in_pipe = false
 	# Disable pipe visual
 	_pipe_path_visual.hide()
-	# Show animation or particle visual of exiting pipe
+	# TODO: Show animation or particle visual of exiting pipe
 	# Reset player velocity so it launches out of the pipe instead of wonkily at the ground due to gravity
 	var new_player_velocity: Vector2 = Vector2.RIGHT.rotated(_pipe_path_curve.get_point_position(_pipe_path_curve.point_count - 2).angle_to_point(_pipe_path_curve.get_point_position(_pipe_path_curve.point_count - 1))) * _player.dash_end_velocity_multiplier * _pipe_path_curve.get_baked_length()
 	_player.velocity = new_player_velocity
-	# Enable player input
-	_player.enable_player_input()
+	# Enable player
+	_player.unfreeze()
 	# Disconnect the RemoteTransform2D from the player
 	_player_pipe_transform.remote_path = ""
 	# Reset the pipe's progress ratio
