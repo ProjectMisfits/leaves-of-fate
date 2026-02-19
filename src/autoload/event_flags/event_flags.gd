@@ -18,7 +18,7 @@ func _enter_tree() -> void:
 ## Returns the value of the given flag in the Dictionary.
 func get_flag(flag_name: String) -> bool:
 	if (not _event_flags.has(flag_name)):	# Error checking
-		push_warning("set_flag(): Flag name could not be found in dictionary.")
+		push_warning("set_flag(): Flag name '%s' could not be found in dictionary." % flag_name)
 		return false
 	
 	return _event_flags.get(flag_name)
