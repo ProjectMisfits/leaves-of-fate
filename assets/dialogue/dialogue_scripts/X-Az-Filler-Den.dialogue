@@ -1,9 +1,9 @@
 ~ den_filler
-% => convo_1
-% => convo_2
-% => convo_3
-% => convo_4
-% => convo_5
+% [if not EventFlags.get_flag("X-Az-Den-1")] => convo_1
+% [if not EventFlags.get_flag("X-Az-Den-2")] => convo_2
+% [if not EventFlags.get_flag("X-Az-Den-3")] => convo_3
+% [if not EventFlags.get_flag("X-Az-Den-4")] => convo_4
+% [if EventFlags.num_den_conversations == 4] => convo_5
 => END
 
 
@@ -14,7 +14,8 @@ Az: Hm. Never heard of it. Where is it?
 Fenn: It's north. Lots of trees and farms and stuff.
 Az: Ah, the countryside?
 Fenn: Yeah! Not a lot of people... to talk to.
-#do EventFlags.set_flag("F-1-Az-Den", true)
+do EventFlags.set_flag("X-Az-Den-1", true)
+do EventFlags.num_den_conversations += 1
 => END
 
 ~ convo_2
@@ -27,7 +28,8 @@ Az: Sorry to break it to you, kid. Adira is... kinda terrible.
 Fenn: Really?
 Az: Hey, don't worry about it. Most of 'em are fine. Adira specifically is terrible.
 Fenn: Oh. Aw...
-#do EventFlags.set_flag("F-2-Az-Den", true)
+do EventFlags.set_flag("X-Az-Den-2", true)
+do EventFlags.num_den_conversations += 1
 => END
 
 ~ convo_3
@@ -39,7 +41,8 @@ Az: Fenn, I don't think there's been a princess that needed saving in, like, at 
 Fenn: But... but...
 Az: Nah. Don't worry. I get it.
 Az: I remember when Baba became a Knight. It was pretty cool.
-#do EventFlags.set_flag("F-3-Az-Den", true)
+do EventFlags.set_flag("X-Az-Den-3", true)
+do EventFlags.num_den_conversations += 1
 => END
 
 ~ convo_4
@@ -51,10 +54,10 @@ Az: If I want something for my wrists, I usually make stuff with yarn or beads
 Fenn: REALLY?! Could I have one?
 Az: Uh, yeah, I guess. They're in my room, though.
 Fenn: YAY! I can't wait.
-#do EventFlags.set_flag("F-4-Az-Den", true)
+do EventFlags.set_flag("X-Az-Den-4", true)
+do EventFlags.num_den_conversations += 1
 => END
 
 ~ convo_5
 Az: Alright, let's go. We've got a wizard to deal with.
-#do EventFlags.set_flag("F-5-Az-Den", true)
 => END

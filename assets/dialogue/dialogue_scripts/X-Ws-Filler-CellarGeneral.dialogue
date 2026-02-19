@@ -24,7 +24,7 @@ Winston: And there thou goes! Assuming I'm lactose intolerant just because I lik
 Fenn: Well, are you?
 Winston: Tis besides the point!
 Fenn: Huh... no wonder all those ice creams are so mad.
-#do EventFlags.set_flag("F-1-Ws-CellarGeneral", true)
+do EventFlags.set_flag("X-Ws-Cellar-1", true)
 => END
 
 ~ convo_2
@@ -32,7 +32,7 @@ Winston: Go away, pint-size.
 Fenn: Why?
 Winston: Um... Shut up! I doth be busy! Go away.
 Fenn: Aw okay.
-#do EventFlags.set_flag("F-2-Ws-CellarGeneral", true)
+do EventFlags.set_flag("X-Ws-Cellar-2", true)
 => END
 
 ~ convo_3
@@ -47,7 +47,7 @@ Winston: Really?!
 Az: NO! Fenn, stop making stuff up.
 Fenn: But I wasn't...
 Winston whispering: I forgoteth she was there...
-#do EventFlags.set_flag("F-3-Ws-CellarGeneral", true)
+do EventFlags.set_flag("X-Ws-Cellar-3", true)
 => END
 
 ~ convo_4
@@ -57,7 +57,7 @@ Fenn: That's really nice! You must have a really cool Mom.
 Winston: Yeah... wouldst be. If she even cared.
 Fenn: What do you mean?
 Winston: Nothing. Worry not 'bout it.
-#do EventFlags.set_flag("F-4-Ws-CellarGeneral", true)
+do EventFlags.set_flag("X-Ws-Cellar-4", true)
 => END
 
 #Potentially delete if this conversation is moved to when the player meets winston
@@ -69,7 +69,7 @@ Fenn: Of course! The hero is nothing without his villain!
 Az: Eh. Fair enough, I guess.
 Az: I also get the feeling he needs it.
 Winston: Do not pity me!!
-#do EventFlags.set_flag("F-5-Ws-CellarGeneral", true)
+do EventFlags.set_flag("X-Ws-Cellar-5", true)
 => END
 
 ~ convo_6
@@ -78,6 +78,7 @@ Winston: Go away! I am planning thy demise.
 Fenn: What's demise mean?
 Winston: Um... VERY PAINFUL DEATH!!
 Fenn: Oh... cool!
+do EventFlags.set_flag("X-Ws-Cellar-6", true)
 => END
 
 ~ convo_7
@@ -91,6 +92,7 @@ Fenn: That's super cool! I like comic books. Do you read comics? I love Garbage 
 Winston: Uhhhhh...
 Az: Fenn! Stop bothering the squatter. He's busy being a freak, or whatever.
 Winston: HEY!
+do EventFlags.set_flag("X-Ws-Cellar-7", true)
 => END
 
 ~ convo_8
@@ -102,6 +104,7 @@ Winston: Well, I foundeth some walnuts. Ho, pint-size. Couldst thee ask Az if I 
 Fenn: Hey Az! Can Wizard man hath some of the walnuts in your workshop?
 Az: What??? I guess?? But you mess up my workshop, I'll crush you.
 Winston: Score! Walnuts be mine!
+do EventFlags.set_flag("X-Ws-Cellar-8", true)
 => END
 
 ~ convo_9
@@ -112,6 +115,7 @@ Winston: Well... probably like... the Knight of Fury. She seemeth cool.
 Fenn: Rose? I wouldn't have guessed that... I thought maybe Henric or something.
 Winston: Well it doth not matter anyway! They're all stupid and lame!
 Fenn: Okay then!
+do EventFlags.set_flag("X-Ws-Cellar-9", true)
 => END
 
 ~ convo_10
@@ -126,6 +130,7 @@ Fenn: Bye bye!
 Winston leaves
 Fenn: What a formidable foe...
 Az: Seriously?
+do EventFlags.set_flag("X-Ws-Cellar-10", true)
 => END
 
 ~ convo_11
@@ -134,4 +139,5 @@ Fenn: Yeah? Well, her bangle is.
 Winston: Wh-what doth she be doing?
 Fenn: I dunno. Standing, maybe?
 Winston: Hmph. Tis cool. Cool. That's cool. Whatevereth.
+do EventFlags.set_flag("X-Ws-Cellar-11", true)
 => END

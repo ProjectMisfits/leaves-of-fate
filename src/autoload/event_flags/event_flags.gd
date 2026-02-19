@@ -7,6 +7,8 @@ var _database: JSON = null
 var database_path: String = "res://src/autoload/event_flags/event_flags_db.tres"
 var _event_flags: Dictionary[String, bool]
 
+var num_den_conversations : int = 0
+
 func _enter_tree() -> void:
 	# Grab database programatically
 	_database = load(database_path)
