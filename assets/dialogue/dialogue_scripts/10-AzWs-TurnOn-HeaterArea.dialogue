@@ -1,0 +1,11 @@
+~ start
+Winston: NO WAITETH!
+Az: Oh come on.
+Fenn: What happened?
+Az: UGH. I should've known.
+Winston: Waiteth- AHA! Of course!
+Az: Fenn, there's another heater in the Cellar, but it's behind my Workshop. So... the ice didn't melt all the way.
+Winston: HAHA! That was the planneth all along! Yes! Go ahead, waste thy time.
+Az: Ignore him. Come back and we'll figure something out.
+do EventFlags.set_flag("AzWs-TurnOn-HeaterArea", true)
+=> END

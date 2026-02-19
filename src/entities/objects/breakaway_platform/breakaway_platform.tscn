@@ -5,13 +5,13 @@
 [ext_resource type="JSON" uid="uid://ucpe3jpcwmfn" path="res://src/entities/objects/breakaway_platform/break_away_platform.tres" id="2_3eq40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_crjif"]
-size = Vector2(128, 128)
+size = Vector2(512, 512)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3eq40"]
-size = Vector2(128, 140)
+size = Vector2(512, 512)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrvjl"]
-size = Vector2(124, 31)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ne2qi"]
+size = Vector2(512, 100)
 
 [node name="BreakawayPlatform" type="StaticBody2D"]
 collision_layer = 4
@@ -20,6 +20,7 @@ database = ExtResource("2_3eq40")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.9935339, 0.51197547, 1, 1)
+scale = Vector2(4, 4)
 texture = ExtResource("1_jrvjl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -29,16 +30,14 @@ shape = SubResource("RectangleShape2D_crjif")
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
-position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_3eq40")
 
 [node name="BreakAwayArea" type="Area2D" parent="."]
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BreakAwayArea"]
-visible = false
-position = Vector2(0, -53.5)
-shape = SubResource("RectangleShape2D_jrvjl")
+position = Vector2(0, -306)
+shape = SubResource("RectangleShape2D_ne2qi")
 
 [node name="BreakTime" type="Timer" parent="."]
 one_shot = true

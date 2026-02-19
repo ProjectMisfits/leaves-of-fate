@@ -1,14 +1,16 @@
-[gd_scene load_steps=36 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=40 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/entities/actors/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
 [ext_resource type="Script" uid="uid://bar0unkhcpu3a" path="res://src/entities/actors/player/states/player_idle.gd" id="3_a1k00"]
+[ext_resource type="Shape2D" uid="uid://7p0hecb5yu7t" path="res://src/entities/actors/player/player_collision_shape.tres" id="3_e5ptp"]
 [ext_resource type="Script" uid="uid://dr4cwnspn2mf2" path="res://src/entities/actors/player/states/player_running.gd" id="4_7gsup"]
 [ext_resource type="Material" uid="uid://bv8rolwolipyw" path="res://src/shaders/RimLitPlayer.tres" id="5_e5ptp"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="5_lynpt"]
 [ext_resource type="Script" uid="uid://3uombhhv6fd6" path="res://src/entities/actors/player/components/interact_component.gd" id="6_283t5"]
 [ext_resource type="Script" uid="uid://duy7f43rn783x" path="res://src/entities/actors/player/states/player_jumping.gd" id="6_c6y0n"]
 [ext_resource type="Texture2D" uid="uid://bjs6k2nuta53t" path="res://assets/entities/actors/player/fenn_walkcycle_spritesheet.png" id="6_efl0v"]
+[ext_resource type="Script" uid="uid://ch38qexm1hgj7" path="res://src/entities/actors/player/components/wind_zone_component.gd" id="6_ri474"]
 [ext_resource type="Script" uid="uid://cksn2wvaxpq54" path="res://src/entities/actors/player/states/player_airborne.gd" id="7_q4vut"]
 [ext_resource type="Script" uid="uid://b3akxlm17c274" path="res://src/entities/actors/player/components/grab_component.gd" id="7_s3rhx"]
 [ext_resource type="Script" uid="uid://bjtwcn16kj5bl" path="res://src/entities/actors/player/states/player_dashing.gd" id="8_wcwgi"]
@@ -16,20 +18,19 @@
 [ext_resource type="PackedScene" uid="uid://cfj172hxekuqg" path="res://src/particle_effects/leaf_particles_02.tscn" id="9_nqxrs"]
 [ext_resource type="Script" uid="uid://osptlmoqos3i" path="res://src/entities/actors/player/states/player_piling.gd" id="9_q6jdu"]
 [ext_resource type="PackedScene" uid="uid://dhcepuko5y18x" path="res://src/particle_effects/leaf_ball_particles.tscn" id="9_tda88"]
+[ext_resource type="Script" uid="uid://bhytbo7u825lb" path="res://src/entities/actors/player/components/hurt_component.gd" id="11_s3rhx"]
+[ext_resource type="JSON" uid="uid://ctjfhxb7akvyx" path="res://src/entities/actors/player/footstep_dictionaries/player_footstep_data.tres" id="12_e5ptp"]
+[ext_resource type="Script" uid="uid://cq2g2o708n5hl" path="res://src/entities/actors/player/footstep_component.gd" id="13_s1o6p"]
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/particle_effects/wind_particles.tscn" id="14_7j1dl"]
 [ext_resource type="AudioStream" uid="uid://dimhdiv10a08t" path="res://assets/entities/actors/player/player_audio/PH-leaf-enter.ogg" id="17_iloh8"]
 [ext_resource type="AudioStream" uid="uid://dxmm31nsgmehb" path="res://assets/entities/actors/player/player_audio/PH-leaf-exit.ogg" id="18_283t5"]
 [ext_resource type="Texture2D" uid="uid://jvsobi5gw7di" path="res://assets/entities/actors/player/TEMP-fenn-jump-spritesheet.png" id="18_s3rhx"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_283t5"]
-radius = 78.0
-height = 486.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4vut"]
 size = Vector2(750, 540)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7uqy"]
-size = Vector2(1500, 1800)
+size = Vector2(2074, 2848)
 
 [sub_resource type="Animation" id="Animation_b1i8x"]
 length = 0.001
@@ -565,8 +566,6 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_e5ptp"]
 resource_name = "hit_invincibility"
-length = 0.3
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -574,10 +573,10 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.1254902), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.1254902), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s1o6p"]
@@ -586,13 +585,13 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_mask = 142
+collision_mask = 134
 script = ExtResource("1_npkjl")
 database = ExtResource("2_7gsup")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -243)
-shape = SubResource("CapsuleShape2D_283t5")
+shape = ExtResource("3_e5ptp")
 
 [node name="FlipNode" type="Node2D" parent="."]
 position = Vector2(0, -243)
@@ -605,6 +604,30 @@ texture = ExtResource("6_efl0v")
 hframes = 8
 region_enabled = true
 region_rect = Rect2(0, 0, 6400, 800)
+
+[node name="WindZoneComponent" type="Node2D" parent="FlipNode"]
+script = ExtResource("6_ri474")
+
+[node name="DashDetectionArea" type="Area2D" parent="FlipNode/WindZoneComponent"]
+collision_layer = 0
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/WindZoneComponent/DashDetectionArea"]
+shape = ExtResource("3_e5ptp")
+
+[node name="NoDashDetectionArea" type="Area2D" parent="FlipNode/WindZoneComponent"]
+collision_layer = 0
+collision_mask = 2048
+
+[node name="CollisionShape2D-2" type="CollisionShape2D" parent="FlipNode/WindZoneComponent/NoDashDetectionArea"]
+shape = ExtResource("3_e5ptp")
+
+[node name="ResetZoneArea" type="Area2D" parent="FlipNode/WindZoneComponent"]
+collision_layer = 0
+collision_mask = 4096
+
+[node name="CollisionShape2D-3" type="CollisionShape2D" parent="FlipNode/WindZoneComponent/ResetZoneArea"]
+shape = ExtResource("3_e5ptp")
 
 [node name="InteractComponent" type="Node2D" parent="FlipNode"]
 script = ExtResource("6_283t5")
@@ -630,9 +653,19 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/GrabComponent/GrabRange"]
 visible = false
-position = Vector2(660, 0)
+position = Vector2(947, -189)
 shape = SubResource("RectangleShape2D_u7uqy")
 debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
+
+[node name="HurtComponent" type="Node2D" parent="FlipNode"]
+script = ExtResource("11_s3rhx")
+
+[node name="HurtArea" type="Area2D" parent="FlipNode/HurtComponent"]
+collision_layer = 0
+collision_mask = 72
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/HurtComponent/HurtArea"]
+shape = ExtResource("3_e5ptp")
 
 [node name="DashParticles" type="Node2D" parent="FlipNode"]
 
@@ -647,6 +680,15 @@ emitting = false
 emitting = false
 
 [node name="LeafExplosionParticle" parent="FlipNode/DashParticles" instance=ExtResource("9_2heww")]
+
+[node name="FootstepComponent" type="Node2D" parent="FlipNode" node_paths=PackedStringArray("marker", "audio_component")]
+script = ExtResource("13_s1o6p")
+marker = NodePath("Marker2D")
+audio_component = NodePath("../../Audio/Footsteps")
+sound_dictionary = ExtResource("12_e5ptp")
+
+[node name="Marker2D" type="Marker2D" parent="FlipNode/FootstepComponent"]
+position = Vector2(0, 259)
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
 
@@ -688,11 +730,26 @@ bus = &"SFX"
 stream = ExtResource("18_283t5")
 bus = &"SFX"
 
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="Audio"]
+volume_db = 2.0
+bus = &"SFX"
+
 [node name="InvincibilityTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="FootStepTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="FlipNode/WindZoneComponent/DashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_dash_detection_area_body_entered"]
+[connection signal="body_exited" from="FlipNode/WindZoneComponent/DashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_dash_detection_area_body_exited"]
+[connection signal="body_entered" from="FlipNode/WindZoneComponent/NoDashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_no_dash_detection_area_body_entered"]
+[connection signal="body_exited" from="FlipNode/WindZoneComponent/NoDashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_no_dash_detection_area_body_exited"]
+[connection signal="body_entered" from="FlipNode/WindZoneComponent/ResetZoneArea" to="FlipNode/WindZoneComponent" method="_on_reset_zone_area_body_entered"]
 [connection signal="area_entered" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_entered"]
 [connection signal="area_exited" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_exited"]
 [connection signal="area_entered" from="FlipNode/GrabComponent/GrabRange" to="FlipNode/GrabComponent" method="_on_grab_range_area_entered"]
 [connection signal="area_exited" from="FlipNode/GrabComponent/GrabRange" to="FlipNode/GrabComponent" method="_on_grab_range_area_exited"]
+[connection signal="hurt" from="FlipNode/HurtComponent" to="." method="knock_out"]
+[connection signal="body_entered" from="FlipNode/HurtComponent/HurtArea" to="FlipNode/HurtComponent" method="_on_hurt_area_body_entered"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_end_invincibility"]
+[connection signal="timeout" from="FootStepTimer" to="." method="_on_foot_step_timer_timeout"]
