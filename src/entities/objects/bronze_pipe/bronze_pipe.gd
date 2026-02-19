@@ -27,18 +27,21 @@ func _ready() -> void:
 	# Set up the pipe texture along the pipe's path.
 	for idx: int in _pipe_path_curve.point_count:
 		$Path2D/Line2D.add_point(_pipe_path_curve.get_point_position(idx))
-	# Put the cap textures at the start and end of the pipe.
+	
+	# Cap the start of the pipe.
 	var start_cap_sprite: Sprite2D = Sprite2D.new()
 	start_cap_sprite.texture = preload("res://assets/entities/objects/bronze_pipe/PipeStraight-01-capstart.PNG")
 	start_cap_sprite.position = _pipe_path_curve.get_point_position(0)
-	start_cap_sprite.rotate(_pipe_path_curve.get_point_position(0).angle_to(_pipe_path_curve.get_point_position(1)))
-	start_cap_sprite.scale = Vector2(1.5, 1.5)
+	start_cap_sprite.rotate(_pipe_path_curve.get_point_position(0).angle_to_point(_pipe_path_curve.get_point_position(1)))
+	start_cap_sprite.scale = Vector2(1.4, 1.4)
 	add_child(start_cap_sprite)
+	
+	# Cap the end of the pipe.
 	var end_cap_sprite: Sprite2D = Sprite2D.new()
 	end_cap_sprite.texture = preload("res://assets/entities/objects/bronze_pipe/PipeStraight-01-capend.PNG")
 	end_cap_sprite.position = _pipe_path_curve.get_point_position(_pipe_path_curve.point_count - 1)
 	end_cap_sprite.rotate(_pipe_path_curve.get_point_position(_pipe_path_curve.point_count - 2).angle_to_point(_pipe_path_curve.get_point_position(_pipe_path_curve.point_count - 1)))
-	end_cap_sprite.scale = Vector2(1.5, 1.5)
+	end_cap_sprite.scale = Vector2(1.4, 1.4)
 	add_child(end_cap_sprite)
 
 # Called every physics tick.
