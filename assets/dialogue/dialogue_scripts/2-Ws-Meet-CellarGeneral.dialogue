@@ -31,5 +31,5 @@ do CutsceneManager.npc_move("Winston", 7200.0, 2000.0, false, false)
 do CutsceneManager.remove_npc("Winston")
 Fenn: Uh...
 Fenn: Indeed, it shalt... eth?
-do EventFlags.set_flag("Ws-Meet-CellarGeneral", true)
+do EventFlags.set_flag("2-Ws-Meet-CellarGeneral", true)
 => END
