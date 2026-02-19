@@ -108,31 +108,31 @@ position = Vector2(36352, 3592)
 target_room_path = "uid://bl0pji1ab2qhu"
 
 [node name="IceSpikeBall" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("5_ouria")]
-position = Vector2(-16937, -225)
+position = Vector2(35575, -225)
 scale = Vector2(1.5, 1.5)
 
 [node name="IceSpikeBall-5" parent="MidgroundLayer/Entities/Hazards" index="1" instance=ExtResource("5_ouria")]
-position = Vector2(-17408, 64)
+position = Vector2(35104, 64)
 rotation = -1.0283297
 scale = Vector2(1.5, 1.5)
 
 [node name="IceSpikeBall-6" parent="MidgroundLayer/Entities/Hazards" index="2" instance=ExtResource("5_ouria")]
-position = Vector2(-14668, 287.00012)
+position = Vector2(37843.996, 287.00012)
 rotation = 0.11315858
 scale = Vector2(1.5, 1.5)
 
 [node name="IceSpikeBall-4" parent="MidgroundLayer/Entities/Hazards" index="3" instance=ExtResource("5_ouria")]
-position = Vector2(-16448, -512)
+position = Vector2(36064, -511.9996)
 rotation = 0.07582272
 scale = Vector2(2, 2)
 
 [node name="IceSpikeBall-2" parent="MidgroundLayer/Entities/Hazards" index="4" instance=ExtResource("5_ouria")]
-position = Vector2(-15817, -466)
+position = Vector2(36695, -466)
 rotation = 1.3343608
 scale = Vector2(2, 2)
 
 [node name="IceSpikeBall-3" parent="MidgroundLayer/Entities/Hazards" index="5" instance=ExtResource("5_ouria")]
-position = Vector2(-15168, -192)
+position = Vector2(37344, -192)
 scale = Vector2(1.5, 1.5)
 
 [node name="NpcAz" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("9_223xl")]

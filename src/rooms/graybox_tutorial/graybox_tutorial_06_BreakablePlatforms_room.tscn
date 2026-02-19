@@ -30,10 +30,11 @@ tile_map_data = PackedByteArray("AAAAAAgABgAHAAAAAAABAAgABgAHAAAAAAACAAgABgAHAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(592, 1024)
-target_room_path = "uid://vijrgoilf3vw"
+target_room_path = "uid://7yrsxlkres1e"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(41536, 1024)
+target_room_path = "uid://bdqq266050luj"
 
 [node name="BreakawayPlatform-6" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("3_gdttv")]
 position = Vector2(24960, 4896)
