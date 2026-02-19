@@ -1,32 +1,83 @@
-~ pantry_filler
-% => convo_1
-% => convo_2
-% => convo_3
+~ start
+% [if not EventFlags.get_flag("X-Az-Pantry-1")] => convo_1
+% [if not EventFlags.get_flag("X-Az-Pantry-2")] => convo_2
+% [if not EventFlags.get_flag("X-Az-Pantry-3")] => convo_3
+% [if not EventFlags.get_flag("X-Az-Pantry-4")] => convo_4
+% [if not EventFlags.get_flag("X-Az-Pantry-5")] => convo_5
+% [if not EventFlags.get_flag("X-Az-Pantry-6")] => convo_6
+% [if EventFlags.num_pantry_conversations == 6] => ending_convo
 => END
 
 ~ convo_1
 Az: Ugh, this sucks.
 Fenn: Why?
-Az: I need to get to my workshop as soon as possible. I hate just being stuck.
+Az: I need to get to my workshop. I hate being stuck.
 Fenn: It's okay! I'm here!
-Az: Yeah...
-do EventFlags.set_flag("F-1-Az-Pantry", true)
+Az: That you are...
+do EventFlags.set_flag("X-Az-Pantry-1", true)
+do EventFlags.num_pantry_conversations += 1
 => END
 
 ~ convo_2
 Fenn: So you made these bangles?
 Az: Yeah, why?
 Fenn: That's... SO COOL. How did you get these tiny little indents in there?
-Az: The... the patterns?
-Fenn: Yeah! The patterns!
-Az: I... well I carved them. It's really not that hard.
+Az: The... patterns?
+Fenn: Whoa.... yeah! The patterns!
+Az: I... well, I carved them. It's really not that hard.
 Fenn: AWESOME.
-do EventFlags.set_flag("F-2-Az-Pantry", true)
+do EventFlags.set_flag("X-Az-Pantry-2", true)
+do EventFlags.num_pantry_conversations += 1
 => END
 
 ~ convo_3
 Az: I need to get my Baba out of there. 
 Fenn: Well, once we defeat Mr. Wizard Man, he'll help us!
 Az: He doesn't seem to be in a helping mood, Fenn.
-do EventFlags.set_flag("F-3-Az-Pantry", true)
+do EventFlags.set_flag("X-Az-Pantry-3", true)
+do EventFlags.num_pantry_conversations += 1
+=> END
+
+~ convo_4
+Az: I don't mean to be rude, but, like, why are you here?
+Fenn: What do you mean?
+Az: In the palace? 
+Fenn: Oh! I was invited! Uh... King Oakley sent a letter to me. 
+Fenn: He... uh... he's looking for candidates for new Knights!!
+do EventFlags.set_flag("X-Az-Pantry-4", true)
+do EventFlags.num_pantry_conversations += 1
+=> END
+
+~ convo_5
+Fenn: Who's your favorite Knight? Like, besides your Dad?
+Az: Hmm... besides Baba? I haven't really spent time with them
+Az: Henric and Ophelia are, like, kinda intense. I'd say Maysa. She's chill.
+Fenn: Oooh, good choice. I think I have a few Maysas. Mostly Adira and Henric full-arts.
+Az: Wait- are you talking about trading cards?
+Fenn: Yeah I have a ton of them!
+Az: Huh... I didn't know they made trading cards of the Knights.
+Fenn: They don't!
+Az: Ah...
+do EventFlags.set_flag("X-Az-Pantry-5", true)
+do EventFlags.num_pantry_conversations += 1
+=> END
+
+
+~ convo_6
+Fenn: Do you like living at the palace?
+Az: Eh. It's cool, I guess. I got my own workshop... plenty of stuff to tinker with... all the time in the world.
+Az: Not the same as home, though.
+Fenn: Kuva, right?
+Az: Yeah... how'd you know?
+Fenn: It's in your biography at the Grasen History Museum!
+Az: Ah... right. 
+Fenn: You grew up on Straw Ave, had two best friends, and won crafts shows before getting into smithing! Oh and also, that one ti-
+Az: Okay! Okay, that's enough out of you, Fenn.
+do EventFlags.set_flag("X-Az-Pantry-6", true)
+do EventFlags.num_pantry_conversations += 1
+=> END
+
+~ ending_convo
+Az: You should probably go.
+Az: Don't worry about me, I'll find a way around.
 => END
