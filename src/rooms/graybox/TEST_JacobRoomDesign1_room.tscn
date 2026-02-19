@@ -1,12 +1,21 @@
-[gd_scene load_steps=6 format=4 uid="uid://drih50ff8ecg5"]
+[gd_scene load_steps=9 format=4 uid="uid://drih50ff8ecg5"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_wrxx8"]
 [ext_resource type="PackedScene" uid="uid://d2hq2ernl83oa" path="res://src/entities/objects/spawner/spawner.tscn" id="4_5lkvv"]
 [ext_resource type="PackedScene" uid="uid://bg2o7v2o7bjjk" path="res://src/entities/objects/breakaway_platform/breakaway_platform.tscn" id="4_gr36w"]
 [ext_resource type="PackedScene" uid="uid://bm0xouvbpmqos" path="res://src/entities/objects/fenn_platform/fenn_platform.tscn" id="5_5lkvv"]
+[ext_resource type="PackedScene" uid="uid://disa83btdjjsk" path="res://src/entities/objects/moving_platform/moving_platform.tscn" id="5_840rs"]
+[ext_resource type="PackedScene" uid="uid://cm33qh6em0dth" path="res://src/entities/triggers/grab_trigger/grab_trigger.tscn" id="6_840rs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5lkvv"]
 size = Vector2(356, 870.515)
+
+[sub_resource type="Curve2D" id="Curve2D_t1a8g"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1616, 16, 0, 0, 0, 0, 512, 0)
+}
+point_count = 2
 
 [node name="TEST_JacobRoomDesign1" instance=ExtResource("1_wrxx8")]
 
@@ -44,3 +53,23 @@ collision_layer = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/Area2D" index="0"]
 position = Vector2(168, 423.7425)
 shape = SubResource("RectangleShape2D_5lkvv")
+
+[node name="MovingPlatform" parent="." index="3" node_paths=PackedStringArray("paths") instance=ExtResource("5_840rs")]
+position = Vector2(4928, 72)
+curve = SubResource("Curve2D_t1a8g")
+open_loop_speed_scale = 10.0
+paths = []
+
+[node name="PathFollow2D" parent="MovingPlatform" index="0"]
+position = Vector2(-1616, 16)
+rotation = -0.007518655
+progress = 0.0
+
+[node name="AnimatableBody2D" parent="MovingPlatform" index="1"]
+position = Vector2(-1616, 16)
+rotation = -0.007518655
+
+[node name="GrabTrigger" parent="MovingPlatform" index="3" instance=ExtResource("6_840rs")]
+scale = Vector2(26.959995, 1)
+
+[editable path="MovingPlatform"]
