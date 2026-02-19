@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://jvar131cx0xv" path="res://src/entities/actors/enemies/ice_cube/states/ice_scream_idle.gd" id="3_nfa6x"]
 [ext_resource type="JSON" uid="uid://disdrdqnqvu7p" path="res://src/entities/actors/enemies/ice_cube/ice_scream_db.tres" id="3_ogl8l"]
 [ext_resource type="Script" uid="uid://dca4lwytnv8qy" path="res://src/entities/actors/enemies/ice_cube/states/ice_scream_chase_normal.gd" id="4_q3qi2"]
-[ext_resource type="Texture2D" uid="uid://j8fl3nwc0uak" path="res://assets/entities/actors/npcs/ice_scream/IceScream-Idle.png" id="5_6lktt"]
+[ext_resource type="Texture2D" uid="uid://j8fl3nwc0uak" path="res://assets/entities/actors/enemies/ice_scream/IceScream-Idle.png" id="5_6lktt"]
 [ext_resource type="Script" uid="uid://pix67ly1y4m7" path="res://src/entities/actors/enemies/ice_cube/states/ice_scream_death.gd" id="8_eoff7"]
 [ext_resource type="Texture2D" uid="uid://cpa8djv8lxc06" path="res://assets/entities/actors/enemies/ice_scream/IceScream-Charge.png" id="11_vddlt"]
 [ext_resource type="Texture2D" uid="uid://dljudi1qrrhm0" path="res://assets/entities/actors/enemies/ice_scream/IceScream-Push.png" id="12_ncxt7"]
@@ -191,6 +191,7 @@ _data = {
 
 [node name="IceScream" instance=ExtResource("1_21xy4")]
 scale = Vector2(2, 2)
+collision_layer = 72
 collision_mask = 14
 script = ExtResource("2_0jlda")
 database = ExtResource("3_ogl8l")

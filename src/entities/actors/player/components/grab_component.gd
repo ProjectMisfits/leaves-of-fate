@@ -12,7 +12,8 @@ var current_grab: GrabTrigger = null
 
 func _input(event: InputEvent) -> void:
 	# When the grab input is pressed:
-	if event.is_action_pressed("grab"):
+	if Input.is_action_just_pressed("grab"):
+		
 		# If nothing is grabbed and something can be grabbed, grab it.
 		if current_grab == null and current_grabbables:
 			can_grab = false
