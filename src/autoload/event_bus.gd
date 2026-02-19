@@ -5,8 +5,13 @@ extends Node
 # Create global signals by defining them here.
 #Signal to interupt dialouge moments
 signal interrupt_dialogue(delay: String)
-
+#Signal that a camera has changed
 signal camera_change
+#Signal to change beep speech frequency
+signal frequency_change(new_freqeuncy : int)
+
+## Signal triggered when the player is knocked out.
+signal player_knocked_out
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS

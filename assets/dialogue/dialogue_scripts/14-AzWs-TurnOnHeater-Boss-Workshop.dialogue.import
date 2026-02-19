@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://xabsh72rvu4q"
+path="res://.godot/imported/14-AzWs-TurnOnHeater-Boss-Workshop.dialogue-e263840a4029925a569ef1af6707a6be.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/14-AzWs-TurnOnHeater-Boss-Workshop.dialogue"
+dest_files=["res://.godot/imported/14-AzWs-TurnOnHeater-Boss-Workshop.dialogue-e263840a4029925a569ef1af6707a6be.tres"]
+
+[params]
+
+defaults=true

@@ -9,6 +9,8 @@ class_name MainMenu extends Control
 @onready var controls_menu: ControlsMenu = preload("res://src/ui/settings_menu/controls_menu/controls_menu.tscn").instantiate()
 ## A reference to the volume menu scene.
 @onready var volume_menu: VolumeMenu = preload("res://src/ui/settings_menu/volume_menu/volume_menu.tscn").instantiate()
+## A reference to the controls menu scene.
+@onready var credits_menu: CreditsMenu = preload("res://src/ui/main_menu/credits/credits.tscn").instantiate()
 ## An audio player for the select sound effect.
 @onready var select_audio: AudioStreamPlayer = $Audio/SelectAudio
 
@@ -55,6 +57,8 @@ func _connect_menu_signals() -> void:
 	controls_menu.get_node("%BackButton").button_up.connect(close_controls_menu)
 	# Connect volume menu
 	volume_menu.get_node("%BackButton").button_up.connect(close_volume_menu)
+	#Connect credits menu
+	credits_menu.get_node("%BackButton").button_up.connect(close_credits_menu)
 
 # Opens settings menu
 func _open_settings_menu() -> void:
@@ -100,4 +104,21 @@ func close_controls_menu() -> void:
 	else:
 		settings_menu.get_node("%ControlsButton").grab_focus.call_deferred()
 	menu_holder.remove_child(controls_menu)
+
+# Opens Credits menu
+func _open_credits_menu() -> void:
+	select_audio.play()
+	if not menu_holder.has_node("SettingsMenu"):
+		_hide_main_menu()
 	
+	menu_holder.add_child(credits_menu)
+	credits_menu.get_node("%BackButton").grab_focus.call_deferred()
+
+# Closes controls menu 
+func close_credits_menu() -> void:
+	select_audio.play()
+	_show_main_menu()
+	$%PlayButton.grab_focus.call_deferred()
+	menu_holder.remove_child(credits_menu)
+	credits_menu.get_node("%ScrollContainer").scroll_vertical = 0
+	credits_menu.was_closed = true

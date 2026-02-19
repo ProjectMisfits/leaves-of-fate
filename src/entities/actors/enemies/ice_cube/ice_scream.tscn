@@ -1,23 +1,20 @@
-[gd_scene load_steps=20 format=3 uid="uid://cnhvjqd23j3hu"]
+[gd_scene load_steps=17 format=3 uid="uid://cnhvjqd23j3hu"]
 
 [ext_resource type="PackedScene" uid="uid://7y024tsh7ciq" path="res://src/entities/actors/enemies/base_enemy.tscn" id="1_21xy4"]
 [ext_resource type="Script" uid="uid://drkteg328pwgv" path="res://src/entities/actors/enemies/ice_cube/ice_scream.gd" id="2_0jlda"]
-[ext_resource type="Script" uid="uid://4efl3svn12vy" path="res://src/entities/actors/enemies/ice_cube/ice_cube_grab_area.gd" id="3_n2c0r"]
 [ext_resource type="Script" uid="uid://jvar131cx0xv" path="res://src/entities/actors/enemies/ice_cube/states/ice_scream_idle.gd" id="3_nfa6x"]
 [ext_resource type="JSON" uid="uid://disdrdqnqvu7p" path="res://src/entities/actors/enemies/ice_cube/ice_scream_db.tres" id="3_ogl8l"]
 [ext_resource type="Script" uid="uid://dca4lwytnv8qy" path="res://src/entities/actors/enemies/ice_cube/states/ice_scream_chase_normal.gd" id="4_q3qi2"]
-[ext_resource type="Texture2D" uid="uid://j8fl3nwc0uak" path="res://assets/entities/actors/npcs/ice_scream/IceScream-Idle.png" id="5_6lktt"]
-[ext_resource type="Script" uid="uid://5t11fihqj56q" path="res://src/entities/actors/enemies/ice_cube/states/ice_scream_chase_angry.gd" id="5_q3qi2"]
-[ext_resource type="Script" uid="uid://o4tkls23gkfy" path="res://src/entities/actors/enemies/ice_cube/states/ice_scream_grabbed.gd" id="6_377jy"]
+[ext_resource type="Texture2D" uid="uid://j8fl3nwc0uak" path="res://assets/entities/actors/enemies/ice_scream/IceScream-Idle.png" id="5_6lktt"]
 [ext_resource type="Script" uid="uid://pix67ly1y4m7" path="res://src/entities/actors/enemies/ice_cube/states/ice_scream_death.gd" id="8_eoff7"]
-[ext_resource type="Texture2D" uid="uid://cpa8djv8lxc06" path="res://assets/entities/actors/npcs/ice_scream/IceScream-Charge.png" id="11_vddlt"]
-[ext_resource type="Texture2D" uid="uid://dljudi1qrrhm0" path="res://assets/entities/actors/npcs/ice_scream/IceScream-Push.png" id="12_ncxt7"]
+[ext_resource type="Texture2D" uid="uid://cpa8djv8lxc06" path="res://assets/entities/actors/enemies/ice_scream/IceScream-Charge.png" id="11_vddlt"]
+[ext_resource type="Texture2D" uid="uid://dljudi1qrrhm0" path="res://assets/entities/actors/enemies/ice_scream/IceScream-Push.png" id="12_ncxt7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8x22k"]
+size = Vector2(72.5, 49.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ncxt7"]
 size = Vector2(131, 264.6)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_377jy"]
-size = Vector2(265, 223)
 
 [sub_resource type="Animation" id="Animation_vddlt"]
 length = 0.001
@@ -194,24 +191,25 @@ _data = {
 
 [node name="IceScream" instance=ExtResource("1_21xy4")]
 scale = Vector2(2, 2)
-collision_mask = 6
+collision_layer = 72
+collision_mask = 14
 script = ExtResource("2_0jlda")
 database = ExtResource("3_ogl8l")
+
+[node name="HurtArea" parent="." index="0"]
+collision_mask = 73
+
+[node name="CollisionShape2D" parent="HurtArea" index="0"]
+position = Vector2(1.2500029, 8.749999)
+
+[node name="CollisionShape2D-2" type="CollisionShape2D" parent="HurtArea" index="1"]
+position = Vector2(22.75, -87.75)
+shape = SubResource("RectangleShape2D_8x22k")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(2.4999998, -54.699986)
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_ncxt7")
-
-[node name="GrabbableArea" type="Area2D" parent="." index="2"]
-visible = false
-collision_layer = 32
-script = ExtResource("3_n2c0r")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabbableArea" index="0"]
-visible = false
-scale = Vector2(2.0800002, 2.0800002)
-shape = SubResource("RectangleShape2D_377jy")
 
 [node name="Sprite2D" parent="FlipNode" index="0"]
 position = Vector2(63.806026, -67.68353)
@@ -230,18 +228,13 @@ script = ExtResource("3_nfa6x")
 [node name="ChaseNormal" type="LimboState" parent="LimboHSM" index="1"]
 script = ExtResource("4_q3qi2")
 
-[node name="ChaseAngry" type="LimboState" parent="LimboHSM" index="2"]
-script = ExtResource("5_q3qi2")
-
-[node name="Grabbed" type="LimboState" parent="LimboHSM" index="3"]
-script = ExtResource("6_377jy")
-
-[node name="Death" type="LimboState" parent="LimboHSM" index="4"]
+[node name="Death" type="LimboState" parent="LimboHSM" index="2"]
 script = ExtResource("8_eoff7")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
 libraries = {
 &"": SubResource("AnimationLibrary_ncxt7")
 }
 
 [connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]
+[connection signal="body_entered" from="FlipNode/Sight" to="." method="_on_sight_body_entered"]

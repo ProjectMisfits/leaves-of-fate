@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy3hgi5rbk6ve"]
+
+[ext_resource type="Texture2D" uid="uid://co02j1n6hqgy4" path="res://assets/entities/hazards/icicle/Icicle-03.png" id="1_bxdfv"]
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="1_j22h6"]
+[ext_resource type="Texture2D" uid="uid://dtdlidtnfkuah" path="res://assets/entities/hazards/icicle/Icicle-06.png" id="2_j22h6"]
+[ext_resource type="Texture2D" uid="uid://dtlb7dnnba4ka" path="res://assets/entities/hazards/icicle/Icicle-05.png" id="3_ux0kc"]
+[ext_resource type="Texture2D" uid="uid://nsc4gwcg2lhf" path="res://assets/entities/hazards/icicle/Icicle-02.png" id="4_dm7gt"]
+
+[node name="IcicleGroup05" type="Node2D"]
+script = ExtResource("1_j22h6")
+in_front_of_door = true
+in_front_of_player = true
+
+[node name="Icicle03" type="Sprite2D" parent="."]
+position = Vector2(58.84444, -94.15558)
+scale = Vector2(0.44408786, 0.44408786)
+texture = ExtResource("1_bxdfv")
+
+[node name="Icicle06" type="Sprite2D" parent="."]
+position = Vector2(17, -98)
+scale = Vector2(0.2671111, 0.2671111)
+texture = ExtResource("2_j22h6")
+
+[node name="Icicle05" type="Sprite2D" parent="."]
+position = Vector2(-58.000004, -91)
+scale = Vector2(0.30263162, 0.3026315)
+texture = ExtResource("3_ux0kc")
+
+[node name="Icicle02" type="Sprite2D" parent="."]
+position = Vector2(-24, -71.00001)
+scale = Vector2(0.5037037, 0.5037037)
+texture = ExtResource("4_dm7gt")
