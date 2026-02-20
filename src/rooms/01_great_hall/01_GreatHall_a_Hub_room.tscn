@@ -142,6 +142,7 @@ position = Vector2(35693.996, 3231)
 position = Vector2(10164, -1088)
 scale = Vector2(100, 100)
 music_track = ExtResource("11_223xl")
+music_volume = -6.0
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("12_1h37y")]
 position = Vector2(34894, 2077.0002)
