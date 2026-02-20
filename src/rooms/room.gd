@@ -1,3 +1,4 @@
+@icon("res://assets/editor/door-open-blue.svg")
 class_name Room extends Node2D
 ## A generic script for rooms that the player travels through.
 ## All rooms must extend from this class.
