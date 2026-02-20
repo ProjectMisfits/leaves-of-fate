@@ -58,6 +58,6 @@ func _input(event: InputEvent) -> void:
 		# - go back to the main menu
 		SceneManager.swap_scenes("res://src/ui/main_menu/main_menu.tscn", null, SceneManager.current_scene)
 		# - reset all event flags to their defaults
-		EventFlags._reset_all_flags()
+		EventFlags.reset_all_flags()
 		# - anything else needed to reset the game
 	

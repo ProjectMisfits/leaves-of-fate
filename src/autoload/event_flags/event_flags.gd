@@ -45,7 +45,7 @@ func set_flag(flag_name: String, value: bool) -> bool:
 	return true
 
 ## Reset all flags to their default values.
-func _reset_all_flags() -> void:
+func reset_all_flags() -> void:
 	# Clear all existing flags.
 	_event_flags.clear()
 	# Reload the flag data file.
