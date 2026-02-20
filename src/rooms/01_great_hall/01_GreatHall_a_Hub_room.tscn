@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="5_ouria"]
 [ext_resource type="PackedScene" uid="uid://dkyvqmdhj2oih" path="res://src/entities/decor/pillars/pillar_trunk_02.tscn" id="8_prryp"]
 [ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="9_223xl"]
-[ext_resource type="AudioStream" uid="uid://djjfdt63im57i" path="res://assets/music/GreatHall-120bpm-4_4-P1b-loop.mp3" id="11_223xl"]
+[ext_resource type="AudioStream" uid="uid://c3xr8y52qmi2y" path="res://assets/music/GreatHall-120bpm-4_4-P1b-loop.ogg" id="10_7vaf5"]
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="12_1h37y"]
 [ext_resource type="PackedScene" uid="uid://wxvub3svduoi" path="res://src/entities/decor/pillars/arch_round_cracked.tscn" id="12_ouria"]
 [ext_resource type="PackedScene" uid="uid://1lva6fbgnwyn" path="res://src/entities/decor/pillars/arch_point_smooth.tscn" id="13_8hban"]
@@ -141,8 +141,7 @@ position = Vector2(35693.996, 3231)
 [node name="MusicTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("4_tshu8")]
 position = Vector2(10164, -1088)
 scale = Vector2(100, 100)
-music_track = ExtResource("11_223xl")
-music_volume = -6.0
+music_track = ExtResource("10_7vaf5")
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("12_1h37y")]
 position = Vector2(34894, 2077.0002)
