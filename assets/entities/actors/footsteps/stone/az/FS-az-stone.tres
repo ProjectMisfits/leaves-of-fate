@@ -6,8 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://q2c01hyx1qpx" path="res://assets/entities/actors/footsteps/stone/az/FS-az-stone-04.ogg" id="4_st6jt"]
 
 [resource]
-random_pitch = 1.5
-random_volume_offset_db = 1.0
+random_pitch = 1.2
+random_volume_offset_db = 0.5
 streams_count = 4
 stream_0/stream = ExtResource("1_y2gmg")
 stream_1/stream = ExtResource("2_7nrf4")

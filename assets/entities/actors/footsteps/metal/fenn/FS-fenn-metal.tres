@@ -6,8 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://bs82ajhkaux23" path="res://assets/entities/actors/footsteps/metal/fenn/FS-fenn-metal-04.ogg" id="4_822i3"]
 
 [resource]
-random_pitch = 1.5
-random_volume_offset_db = 1.0
+random_pitch = 1.2
+random_volume_offset_db = 0.5
 streams_count = 4
 stream_0/stream = ExtResource("1_k6omq")
 stream_1/stream = ExtResource("2_ohiwc")
