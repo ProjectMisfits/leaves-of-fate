@@ -27,7 +27,7 @@ seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lcmor"]
 shader = ExtResource("3_raeym")
-shader_parameter/bloomScale = 4.0
+shader_parameter/bloomScale = 2.000000095
 shader_parameter/noiseDetail = SubResource("NoiseTexture2D_hnl24")
 shader_parameter/uvNoiseScale = Vector2(1, 1)
 shader_parameter/uvNoiseSpeed = Vector2(0, -0.015)
@@ -42,15 +42,6 @@ script = ExtResource("1_t665v")
 [node name="BackgroundLayer" type="Parallax2D" parent="."]
 z_index = -20
 
-[node name="BackgroundColor" type="ColorRect" parent="BackgroundLayer"]
-z_index = -1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.138, 0.15866669, 0.2, 1)
-
 [node name="BackgroundTexture" type="Node2D" parent="BackgroundLayer"]
 
 [node name="DenGradient" type="Sprite2D" parent="BackgroundLayer/BackgroundTexture"]
@@ -63,8 +54,8 @@ metadata/_edit_lock_ = true
 
 [node name="DustLayer" type="MeshInstance2D" parent="BackgroundLayer"]
 material = SubResource("ShaderMaterial_lcmor")
-position = Vector2(-168, -144)
-scale = Vector2(2.2416756, 1.4161278)
+position = Vector2(-63.999992, -72)
+scale = Vector2(2.04, 1.2800001)
 mesh = SubResource("QuadMesh_tglb0")
 
 [node name="MidgroundLayer" type="Node2D" parent="."]

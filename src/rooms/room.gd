@@ -13,8 +13,19 @@ signal swap_room(target_room_path: String, target_door_name: String)
 ## A tilemaplayer defining collision surfaces for this room.
 @onready var midground: TileMapLayer = %Midground
 
+@export var backgroundColor: Color = Color("232833"):
+	set(value):
+		backgroundColor = value
+		_update_bg_color()
+
 ## An array containing all Doors in this Room that lead to other Rooms.
 var doors: Array[Node]
+
+func _enter_tree() -> void:
+	_update_bg_color()
+
+func _update_bg_color():
+	RenderingServer.set_default_clear_color(backgroundColor);
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
