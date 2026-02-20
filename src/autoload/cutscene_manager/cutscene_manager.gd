@@ -95,8 +95,5 @@ func npc_face(npc_name: String, direction: String) -> void:
 
 ## End cutscene management.
 func _on_cutscene_ended() -> void:
-	# Remove all registered npcs.
-	for npc: NPC in npcs:
-		if is_instance_valid(npc):
-			npc.queue_free()
+	# Clear all registered npcs.
 	npcs.clear()
