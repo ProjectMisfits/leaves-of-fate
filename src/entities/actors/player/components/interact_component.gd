@@ -7,6 +7,10 @@ var current_interactables: Array[InteractTrigger]
 ## A boolean representing whether the player can interact.
 var can_interact: bool = true
 
+func _ready() -> void:
+	DialogueManager.dialogue_started.connect(_on_dialogue_started.unbind(1))
+	DialogueManager.dialogue_ended.connect(_on_dialogue_ended.unbind(1))
+
 func _input(event: InputEvent) -> void:
 	# When the interact input is pressed:
 	if event.is_action_pressed("interact") and can_interact:
@@ -43,3 +47,11 @@ func _on_interact_range_area_exited(area: Area2D) -> void:
 	if area is InteractTrigger:
 		area.interact_prompt.hide()
 	current_interactables.erase(area)
+
+## Disable interacting on dialogue start.
+func _on_dialogue_started() -> void:
+	can_interact = false
+
+## Enable interacting on dialogue end.
+func _on_dialogue_ended() -> void:
+	can_interact = true
