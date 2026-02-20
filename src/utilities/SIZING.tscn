@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://78p4lxwgdq5n"]
+[gd_scene load_steps=55 format=4 uid="uid://78p4lxwgdq5n"]
 
 [ext_resource type="TileSet" uid="uid://i6wi7xcus3i" path="res://assets/rooms/tileset/TS_Cellar.tres" id="1_4keto"]
 [ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="2_1o4i6"]
@@ -10,22 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://b0wlcwvvy8ru2" path="res://src/entities/decor/furniture/chairs.tscn" id="28_gooil"]
 [ext_resource type="PackedScene" uid="uid://b7j64qhjhyt7o" path="res://src/entities/decor/furniture/table.tscn" id="29_y4lt4"]
 [ext_resource type="PackedScene" uid="uid://deu2abme5ohr7" path="res://src/entities/decor/food/boar_head.tscn" id="30_iitwy"]
-[ext_resource type="PackedScene" path="res://src/entities/hazards/icicle/icicle_01.tscn" id="31_4qwbf"]
 [ext_resource type="PackedScene" uid="uid://cluoychij4hex" path="res://src/entities/decor/food/bread.tscn" id="31_bhrpm"]
-[ext_resource type="PackedScene" path="res://src/entities/hazards/icicle/icicle_02.tscn" id="32_1o4i6"]
 [ext_resource type="PackedScene" uid="uid://c7fe4dvse0qy0" path="res://src/entities/decor/food/cheese.tscn" id="32_iitwy"]
 [ext_resource type="PackedScene" uid="uid://bq3mv3nwc10c6" path="res://src/entities/decor/food/fruit_bowl.tscn" id="33_bhrpm"]
-[ext_resource type="PackedScene" path="res://src/entities/hazards/icicle/icicle_03.tscn" id="33_ea3c5"]
-[ext_resource type="PackedScene" path="res://src/entities/hazards/icicle/icicle_04.tscn" id="34_2i3r0"]
 [ext_resource type="PackedScene" uid="uid://bxrltvpyhtsin" path="res://src/entities/decor/food/wine.tscn" id="34_psiks"]
 [ext_resource type="PackedScene" uid="uid://bt8rip14nbobd" path="res://src/entities/decor/plants/hanging_pot_01.tscn" id="35_4qwbf"]
-[ext_resource type="PackedScene" path="res://src/entities/hazards/icicle/icicle_05.tscn" id="35_intwn"]
 [ext_resource type="PackedScene" uid="uid://disa83btdjjsk" path="res://src/entities/objects/moving_platform/moving_platform.tscn" id="35_iqbef"]
 [ext_resource type="PackedScene" uid="uid://bi76j25xbej58" path="res://src/entities/decor/plants/floor_pot_02.tscn" id="36_1o4i6"]
 [ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="36_2i3r0"]
 [ext_resource type="PackedScene" uid="uid://cnhvjqd23j3hu" path="res://src/entities/actors/enemies/ice_cube/ice_scream.tscn" id="36_4qwbf"]
 [ext_resource type="PackedScene" uid="uid://b7t7pc0jj7gxa" path="res://src/entities/decor/plants/hanging_pot_02.tscn" id="36_ea3c5"]
-[ext_resource type="PackedScene" path="res://src/entities/hazards/icicle/icicle_06.tscn" id="36_f2ccx"]
 [ext_resource type="PackedScene" uid="uid://4jh213w6fsb7" path="res://src/entities/decor/pillars/pillar_base_01.tscn" id="36_lste5"]
 [ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/doors/door.tscn" id="37_1o4i6"]
 [ext_resource type="PackedScene" uid="uid://umcnqsgim2kt" path="res://src/entities/decor/pillars/pillar_base_02.tscn" id="37_dp6n5"]
@@ -51,7 +45,10 @@
 [ext_resource type="PackedScene" uid="uid://cjsgw2pcml8p5" path="res://src/entities/decor/food/radioactive_ham.tscn" id="49_vx82f"]
 [ext_resource type="PackedScene" uid="uid://b8rxwl8xaqar1" path="res://src/entities/decor/food/scaly_meat.tscn" id="50_503cj"]
 [ext_resource type="PackedScene" uid="uid://b6p26modf3ljr" path="res://src/entities/decor/furniture/window_01.tscn" id="51_ad1v0"]
+[ext_resource type="PackedScene" uid="uid://cu30a4y6b243q" path="res://src/entities/objects/doors/door_boss.tscn" id="51_eo2fb"]
+[ext_resource type="PackedScene" uid="uid://1raxqvkiv2mf" path="res://src/entities/objects/doors/door_grate_rusty.tscn" id="52_kscox"]
 [ext_resource type="PackedScene" uid="uid://n0xe74ww2rnc" path="res://src/entities/decor/furniture/window_03.tscn" id="53_eo2fb"]
+[ext_resource type="PackedScene" uid="uid://d2w50ptxgmhj4" path="res://src/entities/objects/doors/door_grate.tscn" id="53_wlcxr"]
 [ext_resource type="PackedScene" uid="uid://f1wqnfugk7vl" path="res://src/entities/decor/furniture/wine_shelf_frame.tscn" id="54_kscox"]
 [ext_resource type="PackedScene" uid="uid://dejfbk3ejdidx" path="res://src/entities/decor/food/wine_bottle.tscn" id="55_wlcxr"]
 [ext_resource type="PackedScene" uid="uid://dqq1u02usswhf" path="res://src/entities/decor/furniture/wine_shelf_inside.tscn" id="56_s8i45"]
@@ -136,24 +133,6 @@ position = Vector2(3008, -992.00006)
 
 [node name="IceSpikeBall2" parent="." instance=ExtResource("36_2i3r0")]
 position = Vector2(384, -1184)
-
-[node name="Icicle_01" parent="." instance=ExtResource("31_4qwbf")]
-position = Vector2(2080, 0)
-
-[node name="Icicle_02" parent="." instance=ExtResource("32_1o4i6")]
-position = Vector2(2240, 0)
-
-[node name="Icicle_03" parent="." instance=ExtResource("33_ea3c5")]
-position = Vector2(2432, 0)
-
-[node name="Icicle_04" parent="." instance=ExtResource("34_2i3r0")]
-position = Vector2(2624, 0)
-
-[node name="Icicle_05" parent="." instance=ExtResource("35_intwn")]
-position = Vector2(2816, 0)
-
-[node name="Icicle_06" parent="." instance=ExtResource("36_f2ccx")]
-position = Vector2(3040, 0)
 
 [node name="MovingPlatform" parent="." instance=ExtResource("35_iqbef")]
 position = Vector2(1344, 640)
@@ -242,3 +221,12 @@ position = Vector2(5009, -224)
 
 [node name="WineShelf" parent="." instance=ExtResource("57_77ohs")]
 position = Vector2(6016, -448)
+
+[node name="DoorBoss" parent="." instance=ExtResource("51_eo2fb")]
+position = Vector2(3072, 2112)
+
+[node name="DoorGrateRusty" parent="." instance=ExtResource("52_kscox")]
+position = Vector2(320, 896)
+
+[node name="DoorGrate" parent="." instance=ExtResource("53_wlcxr")]
+position = Vector2(1024, 896)

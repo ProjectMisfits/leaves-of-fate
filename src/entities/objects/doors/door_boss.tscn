@@ -9,8 +9,8 @@
 script = ExtResource("1_4ofkr")
 
 [node name="Door" type="Sprite2D" parent="."]
-position = Vector2(-36, -685)
-scale = Vector2(1.75, 1.75)
+position = Vector2(-36, -881)
+scale = Vector2(2.25, 2.25)
 texture = ExtResource("2_tkm78")
 
 [node name="DoorTrigger" parent="." instance=ExtResource("3_8ltwa")]
