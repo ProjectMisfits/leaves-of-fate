@@ -11,8 +11,13 @@ var can_grab: bool = true
 var current_grab: GrabTrigger = null
 
 func _ready() -> void:
-	DialogueManager.dialogue_started.connect(_on_dialogue_started.unbind(1))
-	DialogueManager.dialogue_ended.connect(_on_dialogue_ended.unbind(1))
+	# Connect dialogue to grab
+	DialogueManager.dialogue_started.connect(_disable_grab.unbind(1))
+	DialogueManager.dialogue_ended.connect(_enable_grab.unbind(1))
+	
+	# Connect cutscenes to grab
+	CutsceneManager.cutscene_started.connect(_disable_grab)
+	CutsceneManager.cutscene_ended.connect(_enable_grab)
 
 func _input(event: InputEvent) -> void:
 	# When the grab input is pressed:
@@ -57,7 +62,7 @@ func _on_grab_range_area_exited(area: Area2D) -> void:
 	current_grabbables.erase(area)
 
 ## Disable grabbing on dialogue start.
-func _on_dialogue_started() -> void:
+func _disable_grab() -> void:
 	# If something is grabbed, release it.
 	if current_grab != null:
 		current_grab.trigger()
@@ -66,5 +71,5 @@ func _on_dialogue_started() -> void:
 	can_grab = false
 
 ## Enable grabbing on dialogue end.
-func _on_dialogue_ended() -> void:
+func _enable_grab() -> void:
 	can_grab = true
