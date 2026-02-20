@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://cnuup4y6va1wm"]
+
+[ext_resource type="AudioStream" uid="uid://c5si4bqucjosw" path="res://assets/entities/actors/footsteps/stone/winston/FS-winston-stone-01.ogg" id="1_yrtsf"]
+[ext_resource type="AudioStream" uid="uid://c3lgf78wifpbe" path="res://assets/entities/actors/footsteps/stone/winston/FS-winston-stone-02.ogg" id="2_52qx8"]
+[ext_resource type="AudioStream" uid="uid://cmqt3kixn3qb7" path="res://assets/entities/actors/footsteps/stone/winston/FS-winston-stone-03.ogg" id="3_l7m0j"]
+[ext_resource type="AudioStream" uid="uid://bo7bddamlrxgi" path="res://assets/entities/actors/footsteps/stone/winston/FS-winston-stone-04.ogg" id="4_ejj0l"]
+
+[resource]
+random_pitch = 1.5
+random_volume_offset_db = 1.0
+streams_count = 4
+stream_0/stream = ExtResource("1_yrtsf")
+stream_1/stream = ExtResource("2_52qx8")
+stream_2/stream = ExtResource("3_l7m0j")
+stream_3/stream = ExtResource("4_ejj0l")

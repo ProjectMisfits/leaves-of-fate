@@ -1,9 +1,9 @@
 [gd_resource type="JSON" load_steps=5 format=3 uid="uid://ctjfhxb7akvyx"]
 
-[ext_resource type="AudioStream" uid="uid://ca5i8864h7llp" path="res://assets/entities/actors/footsteps/stone/FS-fenn-stone.tres" id="1_3cx43"]
-[ext_resource type="AudioStream" uid="uid://cx57acqmjfvf6" path="res://assets/entities/actors/footsteps/wood/FS-fenn-wood.tres" id="2_vpwak"]
-[ext_resource type="AudioStream" uid="uid://clfvlfdw8clgo" path="res://assets/entities/actors/footsteps/snow/FS-fenn-snow.tres" id="3_qjwnp"]
-[ext_resource type="AudioStream" uid="uid://dxaude3kevxt4" path="res://assets/entities/actors/footsteps/metal/FS-fenn-metal.tres" id="4_vpwak"]
+[ext_resource type="AudioStream" uid="uid://ca5i8864h7llp" path="res://assets/entities/actors/footsteps/stone/fenn/FS-fenn-stone.tres" id="1_3cx43"]
+[ext_resource type="AudioStream" uid="uid://cx57acqmjfvf6" path="res://assets/entities/actors/footsteps/wood/fenn/FS-fenn-wood.tres" id="2_vpwak"]
+[ext_resource type="AudioStream" uid="uid://clfvlfdw8clgo" path="res://assets/entities/actors/footsteps/snow/fenn/FS-fenn-snow.tres" id="3_qjwnp"]
+[ext_resource type="AudioStream" uid="uid://dxaude3kevxt4" path="res://assets/entities/actors/footsteps/metal/fenn/FS-fenn-metal.tres" id="4_vpwak"]
 
 [resource]
 data = {
