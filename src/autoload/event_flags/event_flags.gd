@@ -12,9 +12,8 @@ var num_great_hall_conversations : int = 0
 var num_pantry_conversations : int = 0
 var num_cellar_conversations : int = 0
 
-
 func _enter_tree() -> void:
-	# Grab database programatically
+	# Grab database programmatically
 	_database = load(database_path)
 	if (_database != null):
 		_event_flags.assign(_database.data)
@@ -44,3 +43,12 @@ func set_flag(flag_name: String, value: bool) -> bool:
 	
 	flag_updated.emit(flag_name, value)
 	return true
+
+## Reset all flags to their default values.
+func reset_all_flags() -> void:
+	# Clear all existing flags.
+	_event_flags.clear()
+	# Reload the flag data file.
+	_database = load(database_path)
+	if _database != null:
+		_event_flags.assign(_database.data)
