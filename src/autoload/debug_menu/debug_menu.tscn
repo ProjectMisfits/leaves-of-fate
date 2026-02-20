@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bwp2lf38h3xwg" path="res://src/autoload/debug_menu/noclip.tscn" id="4_mtsk3"]
 
 [node name="DebugMenu" type="CanvasLayer"]
-layer = 2
+layer = 3
 script = ExtResource("1_t2fp8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
