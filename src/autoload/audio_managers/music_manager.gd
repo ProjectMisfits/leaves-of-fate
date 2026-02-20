@@ -9,18 +9,15 @@ func _play_song(music: AudioStream, volume: float = 0.0) -> void:
 	if stream == music:
 		return
 	
-	if not playing:
-		# If nothing is playing, start the music directly without a fade.
-		stream = music
-		play()
-	else:
-		# Otherwise crossfade to the new music.
-		# If something is already playing, fade it out.
+	# If something is already playing, fade it out. If nothing is playing, the new music will just start directly.
+	if playing:
 		await _fade_out()
 		stop()
-		stream = music
-		volume_db = volume
-		play()
+	
+	# Start the new music.
+	stream = music
+	volume_db = volume
+	play()
 
 ## Fade out the currently playing music.
 func _fade_out() -> void:

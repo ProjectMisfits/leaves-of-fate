@@ -13,5 +13,4 @@ func _ready() -> void:
 
 ## Play the set music track.
 func _play_music() -> void:
-	print("playing music")
 	MusicManager._play_song(music_track, music_volume)
