@@ -1,14 +1,11 @@
-[gd_resource type="JSON" load_steps=5 format=3 uid="uid://ctjfhxb7akvyx"]
+[gd_resource type="JSON" load_steps=2 format=3 uid="uid://ctjfhxb7akvyx"]
 
-[ext_resource type="AudioStream" uid="uid://ca5i8864h7llp" path="res://assets/entities/actors/footsteps/stone/FS-fenn-stone.tres" id="1_3cx43"]
 [ext_resource type="AudioStream" uid="uid://cx57acqmjfvf6" path="res://assets/entities/actors/footsteps/wood/FS-fenn-wood.tres" id="2_vpwak"]
-[ext_resource type="AudioStream" uid="uid://clfvlfdw8clgo" path="res://assets/entities/actors/footsteps/snow/FS-fenn-snow.tres" id="3_qjwnp"]
-[ext_resource type="AudioStream" uid="uid://dxaude3kevxt4" path="res://assets/entities/actors/footsteps/metal/FS-fenn-metal.tres" id="4_vpwak"]
 
 [resource]
 data = {
-"metal": ExtResource("4_vpwak"),
-"snow": ExtResource("3_qjwnp"),
-"stone": ExtResource("1_3cx43"),
+"metal": ExtResource("2_vpwak"),
+"snow": ExtResource("2_vpwak"),
+"stone": ExtResource("2_vpwak"),
 "wood": ExtResource("2_vpwak")
 }

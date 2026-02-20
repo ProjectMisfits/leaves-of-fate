@@ -609,6 +609,7 @@ region_rect = Rect2(0, 0, 6400, 800)
 [node name="EyeMarker" type="Marker2D" parent="FlipNode"]
 unique_name_in_owner = true
 position = Vector2(34, -124)
+
 [node name="WindZoneComponent" type="Node2D" parent="FlipNode"]
 script = ExtResource("6_ri474")
 
