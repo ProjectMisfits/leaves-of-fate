@@ -176,6 +176,10 @@ func _ready() -> void:
 		dialogue_manager.dialogue_started.connect(disable_player_input.unbind(1))
 		dialogue_manager.dialogue_ended.connect(enable_player_input.unbind(1))
 
+	# Connect cutscenes to Player.
+	CutsceneManager.cutscene_started.connect(_on_cutscene_started)
+	CutsceneManager.cutscene_ended.connect(_on_cutscene_ended)
+
 ## Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
 	add_debug_parameters()
@@ -488,6 +492,7 @@ func freeze() -> void:
 	input_processing = false
 	move_processing = false
 	invincible = true
+	# Need to check whether below line is really needed
 	animation_player.pause()
 
 ## Enable player input, enable player physics movement, and disable invincibility.
@@ -597,14 +602,17 @@ func add_debug_parameters() -> void:
 	DebugMenu.add_debug_property("Jump Gravity",jump_gravity,0)
 
 ## Handle player state when a cutscene starts.
-func enable_cutscene_mode() -> void:
+func _on_cutscene_started() -> void:
 	disable_player_input()
 	state_machine.change_active_state(idle_state)
 	velocity = Vector2(0.0, 0.0)
+
+## Handle player state when a cutscene ends.
+func _on_cutscene_ended() -> void:
+	enable_player_input()
 
 func get_eye_position() -> Vector2:
 	return %EyeMarker.global_position;
 
 func _on_foot_step_timer_timeout() -> void:
 	can_play_footstep = true
-	

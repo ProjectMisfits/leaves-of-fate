@@ -55,8 +55,6 @@ func _physics_process(_delta: float) -> void:
 func _tear_down_room() -> void:
 	# Disconnect camera from player
 	CameraManager.clear_target()
-	# Janky call to make sure cutscene stuff functions correctly
-	CutsceneManager._end_cutscene()
 
 ## Set up a room after a swap.
 func _init_room(init_player_location: Vector2) -> void:
