@@ -11,7 +11,6 @@ class_name MusicTrigger extends PlayerEnterTrigger
 func _ready() -> void:
 	_on_trigger = _play_music
 
-## Play the set music track.
+## Play the given music.
 func _play_music() -> void:
-	print("playing music")
 	MusicManager._play_song(music_track, music_volume)
