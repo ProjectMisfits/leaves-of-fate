@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu30a4y6b243q"]
+
+[ext_resource type="Script" uid="uid://bsof8xxvb00ep" path="res://src/entities/objects/doors/door.gd" id="1_4ofkr"]
+[ext_resource type="Texture2D" uid="uid://depnjq18dvqbd" path="res://assets/entities/objects/doors/Boss_Door.png" id="2_tkm78"]
+[ext_resource type="PackedScene" uid="uid://dsy2abl6kiatx" path="res://src/entities/triggers/interact_trigger/door_trigger/door_trigger.tscn" id="3_8ltwa"]
+
+[node name="DoorBoss" type="Node2D"]
+script = ExtResource("1_4ofkr")
+
+[node name="Door" type="Sprite2D" parent="."]
+position = Vector2(-41.999996, -685)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("2_tkm78")
+
+[node name="DoorTrigger" parent="." instance=ExtResource("3_8ltwa")]
+position = Vector2(0, -512)
+
+[connection signal="door_trigger_activated" from="DoorTrigger" to="." method="_on_door_trigger_activated"]
