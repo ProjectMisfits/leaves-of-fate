@@ -12,7 +12,7 @@ var cutscene_active: bool = false
 
 func _ready() -> void:
 	_on_trigger = _start_cutscene
-	DialogueManager.dialogue_ended.connect(_end_cutscene)
+	DialogueManager.dialogue_ended.connect(_end_cutscene.unbind(1))
 
 ## Start the cutscene associated with this trigger.
 func _start_cutscene() -> void:
