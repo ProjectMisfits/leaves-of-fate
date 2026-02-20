@@ -97,3 +97,11 @@ func npc_face(npc_name: String, direction: String) -> void:
 func _on_cutscene_ended() -> void:
 	# Clear all registered npcs.
 	npcs.clear()
+
+## Fade the screen to black for a cutscene.
+func fade_to_black() -> void:
+	SceneManager.add_screen_transition("fade_to_black")
+
+## Fade the screen from black for a cutscene.
+func fade_from_black() -> void:
+	SceneManager.remove_screen_transition()
