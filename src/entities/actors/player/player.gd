@@ -602,6 +602,8 @@ func enable_cutscene_mode() -> void:
 	state_machine.change_active_state(idle_state)
 	velocity = Vector2(0.0, 0.0)
 
+func get_eye_position() -> Vector2:
+	return %EyeMarker.global_position;
 
 func _on_foot_step_timer_timeout() -> void:
 	can_play_footstep = true
