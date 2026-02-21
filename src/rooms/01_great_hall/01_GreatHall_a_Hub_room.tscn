@@ -24,9 +24,9 @@
 
 [node name="01_GreatHall_a_Hub" instance=ExtResource("1_gihvd")]
 
-[node name="DenGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
-position = Vector2(-18923, -11191)
-scale = Vector2(57976.992, 153.46094)
+[node name="BackgroundGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
+position = Vector2(-18944, -12519)
+scale = Vector2(58106.996, 170.46877)
 
 [node name="Window02-5" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("5_5o5ng")]
 position = Vector2(31424, 2624)

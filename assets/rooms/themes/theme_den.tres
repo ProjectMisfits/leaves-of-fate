@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RoomThemeConfig" load_steps=3 format=3 uid="uid://cd0cflkuqo8bc"]
+
+[ext_resource type="Script" uid="uid://nrwk3t4fulja" path="res://src/rooms/room_config.gd" id="1_i17yg"]
+[ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_ic230"]
+
+[resource]
+script = ExtResource("1_i17yg")
+color = Color(0.13725491, 0.15686275, 0.2, 1)
+texture = ExtResource("2_ic230")
+metadata/_custom_type_script = "uid://nrwk3t4fulja"

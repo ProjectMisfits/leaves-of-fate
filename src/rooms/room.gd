@@ -12,20 +12,26 @@ signal swap_room(target_room_path: String, target_door_name: String)
 @onready var door_holder: Node2D = %DoorHolder
 ## A tilemaplayer defining collision surfaces for this room.
 @onready var midground: TileMapLayer = %Midground
-
-@export var backgroundColor: Color = Color("232833"):
+## The color/texture configuration for this room.
+@export var roomTheme: RoomThemeConfig:
 	set(value):
-		backgroundColor = value
-		_update_bg_color()
+		roomTheme = value;
+		_update_room_theme();
 
 ## An array containing all Doors in this Room that lead to other Rooms.
 var doors: Array[Node]
 
 func _enter_tree() -> void:
-	_update_bg_color()
+	_update_room_theme();
 
-func _update_bg_color():
-	RenderingServer.set_default_clear_color(backgroundColor);
+func _update_room_theme() -> void:
+	if not roomTheme:
+		return;
+	if roomTheme.color:
+		RenderingServer.set_default_clear_color(roomTheme.color);
+	if roomTheme.texture:
+		for child in find_children("*", "RoomBackgroundSprite2D"):
+			child.texture = roomTheme.texture;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

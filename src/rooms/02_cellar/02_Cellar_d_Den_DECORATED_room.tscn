@@ -1,8 +1,9 @@
-[gd_scene load_steps=38 format=4 uid="uid://bdbuuoljlim4f"]
+[gd_scene load_steps=39 format=4 uid="uid://bdbuuoljlim4f"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_h8co5"]
 [ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_6l8wa"]
 [ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="3_6l8wa"]
+[ext_resource type="Script" uid="uid://b37tghtr6ps5o" path="res://src/rooms/room_bg_sprite.gd" id="3_h8co5"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="4_jpcdc"]
 [ext_resource type="PackedScene" uid="uid://b6p26modf3ljr" path="res://src/entities/decor/furniture/window_01.tscn" id="5_y5unq"]
 [ext_resource type="PackedScene" uid="uid://dggdoj1nhnb1j" path="res://src/entities/decor/furniture/window_02.tscn" id="6_x263s"]
@@ -52,15 +53,20 @@ gradient = SubResource("Gradient_0clmk")
 [node name="BackgroundLayer" parent="." index="0"]
 scroll_scale = Vector2(0.9, 0.9)
 
-[node name="DenGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
-position = Vector2(-3259, -7233)
-scale = Vector2(9642, 71.171875)
+[node name="BackgroundGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
+position = Vector2(-2941, -7233)
+scale = Vector2(9294, 71.17187)
 
-[node name="DenGradient-2" type="Sprite2D" parent="BackgroundLayer/BackgroundTexture" index="1"]
-position = Vector2(6353, -7233)
-scale = Vector2(9642, 71.171875)
+[node name="BackgroundGradient-2" type="Sprite2D" parent="BackgroundLayer/BackgroundTexture" index="1"]
+position = Vector2(6351, -7233)
+scale = Vector2(9294, 71.17187)
 texture = ExtResource("2_6l8wa")
 centered = false
+script = ExtResource("3_h8co5")
+metadata/_custom_type_script = "uid://b37tghtr6ps5o"
+
+[node name="Decor" parent="BackgroundLayer" index="1"]
+scale = Vector2(0.9, 0.9)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="BackgroundLayer/Decor" index="0"]
 modulate = Color(0.76, 0.76, 0.76, 0.6039216)
@@ -133,7 +139,7 @@ position = Vector2(4864, -1024)
 [node name="Window03-2" parent="BackgroundLayer/Decor" index="13" instance=ExtResource("7_04rh1")]
 position = Vector2(7936, -1024)
 
-[node name="DustLayer" parent="BackgroundLayer" index="3"]
+[node name="DustLayer" parent="BackgroundLayer" index="2"]
 position = Vector2(-2850.0002, -7003.0005)
 scale = Vector2(18.039997, 8.791001)
 metadata/_edit_lock_ = true

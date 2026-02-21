@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=4 uid="uid://bhndpauy1j7sw"]
+[gd_scene load_steps=16 format=4 uid="uid://bhndpauy1j7sw"]
 
 [ext_resource type="Script" uid="uid://clfv0vvbc4hdy" path="res://src/rooms/room.gd" id="1_t665v"]
 [ext_resource type="TileSet" uid="uid://i6wi7xcus3i" path="res://assets/rooms/tileset/TS_Cellar.tres" id="2_7i7i2"]
 [ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_d7se1"]
+[ext_resource type="Resource" uid="uid://cd0cflkuqo8bc" path="res://assets/rooms/themes/theme_den.tres" id="2_msfkg"]
 [ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/doors/door.tscn" id="2_pdypr"]
 [ext_resource type="TileSet" uid="uid://bnysb55hwhjyd" path="res://assets/rooms/tileset/TS_Hazards.tres" id="3_0bf0a"]
+[ext_resource type="Script" uid="uid://b37tghtr6ps5o" path="res://src/rooms/room_bg_sprite.gd" id="3_n6lpe"]
 [ext_resource type="Shader" uid="uid://di2uq7k8615pm" path="res://src/shaders/dustgloom.gdshader" id="3_raeym"]
 [ext_resource type="PackedScene" uid="uid://cjkpybae7njrh" path="res://src/entities/actors/player/player.tscn" id="4_8eo6q"]
 [ext_resource type="TileSet" uid="uid://ca07scdfwk0u2" path="res://assets/rooms/tileset/TS_Windzone.tres" id="4_n3e44"]
@@ -38,16 +40,19 @@ center_offset = Vector3(500, 500, 0)
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_t665v")
+roomTheme = ExtResource("2_msfkg")
 
 [node name="BackgroundLayer" type="Parallax2D" parent="."]
 z_index = -20
 
 [node name="BackgroundTexture" type="Node2D" parent="BackgroundLayer"]
 
-[node name="DenGradient" type="Sprite2D" parent="BackgroundLayer/BackgroundTexture"]
+[node name="BackgroundGradient" type="Sprite2D" parent="BackgroundLayer/BackgroundTexture"]
 scale = Vector2(1920, 9)
 texture = ExtResource("2_d7se1")
 centered = false
+script = ExtResource("3_n6lpe")
+metadata/_custom_type_script = "uid://b37tghtr6ps5o"
 
 [node name="Decor" type="Node2D" parent="BackgroundLayer"]
 metadata/_edit_lock_ = true

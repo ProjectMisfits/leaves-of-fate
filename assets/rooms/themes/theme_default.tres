@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RoomThemeConfig" load_steps=3 format=3 uid="uid://cr3dq8p5ydwws"]
+
+[ext_resource type="Script" uid="uid://nrwk3t4fulja" path="res://src/rooms/room_config.gd" id="1_omgn2"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_pkr42"]
+size = Vector2(1, 128)
+
+[resource]
+script = ExtResource("1_omgn2")
+texture = SubResource("PlaceholderTexture2D_pkr42")
+metadata/_custom_type_script = "uid://nrwk3t4fulja"
