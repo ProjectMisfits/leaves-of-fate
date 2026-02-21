@@ -1,10 +1,8 @@
-[gd_resource type="Resource" script_class="RoomThemeConfig" load_steps=3 format=3 uid="uid://cd0cflkuqo8bc"]
+[gd_resource type="Resource" script_class="RoomThemeConfig" load_steps=3 format=3 uid="uid://cb8per67ossjr"]
 
-[ext_resource type="Script" uid="uid://nrwk3t4fulja" path="res://src/rooms/room_config.gd" id="1_i17yg"]
-[ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_ic230"]
+[ext_resource type="Script" uid="uid://nrwk3t4fulja" path="res://src/rooms/room_theme_config.gd" id="1_nkasi"]
 
 [resource]
-script = ExtResource("1_i17yg")
-color = Color(0.13725491, 0.15686275, 0.2, 1)
-texture = ExtResource("2_ic230")
+script = ExtResource("1_nkasi")
+color = Color(0.20392157, 0.22352941, 0.2627451, 1)
 metadata/_custom_type_script = "uid://nrwk3t4fulja"

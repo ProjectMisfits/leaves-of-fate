@@ -6,6 +6,6 @@ class_name RoomThemeConfig extends Resource
 ## The background fill color.
 @export var color: Color;
 
-## The background texture.
-## Applies to all [RoomBackgroundSprite2D]s.
-@export var texture: Texture;
+# ## The background texture.
+# ## Applies to all [RoomBackgroundSprite2D]s.
+# @export var texture: Texture;
