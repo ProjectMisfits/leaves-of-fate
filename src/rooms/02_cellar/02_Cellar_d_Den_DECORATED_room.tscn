@@ -538,9 +538,11 @@ use_parent_material = true
 position = Vector2(6208, 128)
 
 [node name="CanvasLayer" type="BackBufferCopy" parent="ForegroundLayer" index="1"]
+z_index = 5
 copy_mode = 2
 
 [node name="MidSec" type="Node2D" parent="ForegroundLayer/CanvasLayer" index="0"]
+z_index = -5
 
 [node name="Icicle05" parent="ForegroundLayer/CanvasLayer/MidSec" index="0" instance=ExtResource("31_q6fh7")]
 position = Vector2(13400.001, 1000)
@@ -648,9 +650,10 @@ position = Vector2(12724.999, -3945)
 rotation = 0.61772656
 scale = Vector2(0.9578319, 0.9578319)
 
-[node name="Fades" type="Node2D" parent="ForegroundLayer/CanvasLayer" index="20"]
+[node name="Fades" type="Node2D" parent="ForegroundLayer" index="2"]
+z_index = 5
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="ForegroundLayer/CanvasLayer/Fades" index="0"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="ForegroundLayer/Fades" index="0"]
 light_mask = 0
 z_index = 1
 position = Vector2(14290.401, -2253)
@@ -659,7 +662,7 @@ scale = Vector2(16.285177, 69.00497)
 mesh = SubResource("QuadMesh_5us1k")
 texture = SubResource("GradientTexture2D_hnl24")
 
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="ForegroundLayer/CanvasLayer/Fades" index="1"]
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="ForegroundLayer/Fades" index="1"]
 light_mask = 0
 z_index = 1
 position = Vector2(11011.001, -3192)
@@ -668,7 +671,7 @@ scale = Vector2(4.9302917, 2.4115546)
 mesh = SubResource("QuadMesh_5us1k")
 texture = SubResource("GradientTexture2D_hnl24")
 
-[node name="MeshInstance2D3" type="MeshInstance2D" parent="ForegroundLayer/CanvasLayer/Fades" index="2"]
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="ForegroundLayer/Fades" index="2"]
 light_mask = 0
 z_index = 1
 position = Vector2(1799.0001, -3192)
@@ -677,7 +680,7 @@ scale = Vector2(4.9302917, 2.4115546)
 mesh = SubResource("QuadMesh_5us1k")
 texture = SubResource("GradientTexture2D_hnl24")
 
-[node name="MeshInstance2D4" type="MeshInstance2D" parent="ForegroundLayer/CanvasLayer/Fades" index="3"]
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="ForegroundLayer/Fades" index="3"]
 light_mask = 0
 z_index = 1
 position = Vector2(-256.99963, -3117.0002)

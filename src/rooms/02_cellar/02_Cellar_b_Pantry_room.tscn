@@ -37,63 +37,27 @@ size = Vector2(800, 3200)
 
 [node name="02_Cellar_b_Pantry" instance=ExtResource("1_upsp8")]
 
-[node name="Background" parent="BackgroundLayer" index="1"]
-visible = false
-position = Vector2(7949, -2545)
+[node name="DenGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
+position = Vector2(-128.00002, -8448)
+scale = Vector2(5247.9995, 91.99999)
+
+[node name="DenGradient-2" type="Sprite2D" parent="BackgroundLayer/BackgroundTexture" index="1"]
+position = Vector2(5120, -8448)
+scale = Vector2(5247.9995, 91.99999)
 texture = ExtResource("2_6fjcw")
+centered = false
 
-[node name="Background-Cut" type="Node2D" parent="BackgroundLayer" index="2"]
-position = Vector2(3941, -3115.0002)
-scale = Vector2(265.52, 90)
-
-[node name="BG-00" type="Sprite2D" parent="BackgroundLayer/Background-Cut" index="0"]
-position = Vector2(0, -44)
+[node name="DenGradient-3" type="Sprite2D" parent="BackgroundLayer/BackgroundTexture" index="2"]
+position = Vector2(10368, -8448)
+scale = Vector2(6016, 92)
 texture = ExtResource("2_6fjcw")
-region_enabled = true
-region_rect = Rect2(0, 0, 32, 40)
+centered = false
 
-[node name="BG-01" type="Sprite2D" parent="BackgroundLayer/Background-Cut" index="1"]
-position = Vector2(0, -4)
+[node name="DenGradient-4" type="Sprite2D" parent="BackgroundLayer/BackgroundTexture" index="3"]
+position = Vector2(16384, -8448)
+scale = Vector2(3711.9993, 92)
 texture = ExtResource("2_6fjcw")
-region_enabled = true
-region_rect = Rect2(0, 40, 32, 40)
-
-[node name="BG-02" type="Sprite2D" parent="BackgroundLayer/Background-Cut" index="2"]
-position = Vector2(0.0012045203, 44.367558)
-scale = Vector2(1, 1.188)
-texture = ExtResource("2_6fjcw")
-region_enabled = true
-region_rect = Rect2(0, 80, 32, 48)
-
-[node name="Background-Cut-2" type="Node2D" parent="BackgroundLayer" index="3"]
-position = Vector2(12435, -3115.0002)
-scale = Vector2(265.52, 90)
-
-[node name="BG-00" type="Sprite2D" parent="BackgroundLayer/Background-Cut-2" index="0"]
-position = Vector2(0, -44)
-texture = ExtResource("2_6fjcw")
-region_enabled = true
-region_rect = Rect2(0, 0, 32, 40)
-
-[node name="BG-01" type="Sprite2D" parent="BackgroundLayer/Background-Cut-2" index="1"]
-position = Vector2(0, -4)
-texture = ExtResource("2_6fjcw")
-region_enabled = true
-region_rect = Rect2(0, 40, 32, 40)
-
-[node name="BG-02" type="Sprite2D" parent="BackgroundLayer/Background-Cut-2" index="2"]
-position = Vector2(0.0012045203, 44.367558)
-scale = Vector2(1, 1.188)
-texture = ExtResource("2_6fjcw")
-region_enabled = true
-region_rect = Rect2(0, 80, 32, 48)
-
-[node name="BG-03" type="Sprite2D" parent="BackgroundLayer/Background-Cut-2" index="3"]
-position = Vector2(23.403131, 44.36667)
-scale = Vector2(0.478, 1.188)
-texture = ExtResource("2_6fjcw")
-region_enabled = true
-region_rect = Rect2(0, 80, 32, 48)
+centered = false
 
 [node name="Window01" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("5_0elvk")]
 position = Vector2(1536.0001, -3072)
