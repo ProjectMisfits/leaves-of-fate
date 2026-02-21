@@ -13,7 +13,7 @@ signal swap_room(target_room_path: String, target_door_name: String)
 ## A tilemaplayer defining collision surfaces for this room.
 @onready var midground: TileMapLayer = %Midground
 ## The color configuration for this room.
-@export var room_theme: RoomThemeConfig:
+@export var room_theme: RoomThemeConfig = preload("res://assets/rooms/themes/theme_den.tres"):
 	set(value):
 		room_theme = value;
 		_update_room_theme();

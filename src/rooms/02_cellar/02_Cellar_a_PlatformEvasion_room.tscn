@@ -23,6 +23,10 @@ point_count = 2
 
 [node name="02_Cellar_a_PlatformEvasion" instance=ExtResource("1_k8dcy")]
 
+[node name="BackgroundGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
+position = Vector2(0, -1104)
+scale = Vector2(15559.999, 34.3125)
+
 [node name="DustLayer" parent="BackgroundLayer" index="2"]
 position = Vector2(-64, -1209)
 scale = Vector2(15.746, 4.5590005)
