@@ -111,6 +111,19 @@ func fade_from_black() -> void:
 func change_music(music_file_path: String) -> void:
 	MusicManager._play_song(load(music_file_path))
 
+## Play the given sound effect during a cutscene.
+func play_sound(sound_file_path: String) -> void:
+	# Create a temporary AudioStreamPlayer to play the sound effect
+	var sound_player: AudioStreamPlayer = AudioStreamPlayer.new()
+	sound_player.name = "CutsceneSoundEffectPlayer"
+	sound_player.stream = load(sound_file_path)
+	# Add the player to the scene and play its sound
+	add_child(sound_player)
+	sound_player.play()
+	# Once the sound is done, remove the temporary AudioStreamPlayer
+	await sound_player.finished
+	sound_player.queue_free()
+
 ## Wait for a given number of seconds before continuing a cutscene.
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
