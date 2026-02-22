@@ -98,11 +98,11 @@ func _on_cutscene_ended() -> void:
 	# Clear all registered npcs.
 	npcs.clear()
 
-## Fade the screen to black for a cutscene.
+## Fade the screen to black for use in cutscenes.
 func fade_to_black() -> void:
-	SceneManager.add_screen_transition("fade_to_black")
+	SceneManager.add_screen_transition("fade")
 
-## Fade the screen from black for a cutscene.
+## Fade the screen from black for use in cutscenes.
 func fade_from_black() -> void:
 	SceneManager.remove_screen_transition()
 
