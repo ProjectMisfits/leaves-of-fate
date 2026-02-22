@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/Cellar-120bpm-4_4-P64b-loop.ogg-77190c13d059d
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=32.0
+bpm=120.0
 beat_count=0
 bar_beats=4

@@ -1,6 +1,9 @@
 extends Node
 ## A manager for cutscene sequences. Allows npc movement to be scripted from dialogue resource files.
 
+## A signal emitted whenever a cutscene starts.
+signal cutscene_started
+
 ## A signal emitted whenever a cutscene ends.
 signal cutscene_ended
 
@@ -12,9 +15,9 @@ var npcs: Array[NPC]
 
 func _ready() -> void:
 	# If the scene ever gets swapped, reset cutscenes
-	SceneManager.scene_swap_started.connect(_end_cutscene)
+	SceneManager.scene_swap_started.connect(_on_cutscene_ended)
 	# When a cutscene ends, reset cutscenes
-	cutscene_ended.connect(_end_cutscene)
+	cutscene_ended.connect(_on_cutscene_ended)
 
 ## Takes an npc name and returns an instance of the npc associated with that name.
 func _npc_name_to_instance(npc_name: String) -> NPC:
@@ -91,9 +94,6 @@ func npc_face(npc_name: String, direction: String) -> void:
 		push_error("CutsceneManager: Invalid NPC look direction given.")
 
 ## End cutscene management.
-func _end_cutscene() -> void:
-	# Remove all registered npcs.
-	for npc: NPC in npcs:
-		if is_instance_valid(npc):
-			npc.queue_free()
+func _on_cutscene_ended() -> void:
+	# Clear all registered npcs.
 	npcs.clear()

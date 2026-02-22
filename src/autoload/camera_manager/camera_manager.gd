@@ -14,8 +14,8 @@ func _ready() -> void:
 func initialize_camera(player_phantom_camera: PhantomCamera2D, gameplay_camera: Camera2D) -> void:
 	phantom_camera = player_phantom_camera
 	camera = gameplay_camera
-	if not DialogueManager.dialogue_ended.is_connected(_dialogue_remove_all_cameras):
-		DialogueManager.dialogue_ended.connect(_dialogue_remove_all_cameras)
+	if not DialogueManager.dialogue_ended.is_connected(_remove_all_cameras.unbind(1)):
+		DialogueManager.dialogue_ended.connect(_remove_all_cameras.unbind(1))
 
 ## Set the camera's target.
 func set_target(target: Node2D) -> void:
@@ -64,10 +64,6 @@ func create_camera_with_limits(cam_global_position: Vector2, cam_relative_zoom: 
 	new_cam.set_limit_target(limit_target)
 	# Add the new camera to the scene tree. The priority being one higher than any other phantom camera means the transition will automatically occur.
 	add_child(new_cam)
-
-## Dialogue remove all cameras. Fixes issue with dialogue ended signal emitting with a resource that we don't need.
-func _dialogue_remove_all_cameras(_resource: DialogueResource) -> void:
-	_remove_all_cameras()
 
 ## Remove all cameras currently managed by this manager.
 func _remove_all_cameras() -> void:

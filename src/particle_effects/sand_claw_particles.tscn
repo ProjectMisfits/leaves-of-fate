@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi3f7ga8k8wgw"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iyik7"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(300, 1, 1)
+gravity = Vector3(0, -10, 0)
+scale_min = 8.84
+scale_max = 8.84
+color = Color(0.4, 0.5647059, 0.29411766, 1)
+
+[node name="SandClawParticles" type="GPUParticles2D"]
+amount = 50
+lifetime = 9.0
+process_material = SubResource("ParticleProcessMaterial_iyik7")
