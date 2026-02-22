@@ -105,3 +105,7 @@ func fade_to_black() -> void:
 ## Fade the screen from black for a cutscene.
 func fade_from_black() -> void:
 	SceneManager.remove_screen_transition()
+
+## Wait for a given number of seconds before continuing a cutscene.
+func wait(seconds: float) -> void:
+	await get_tree().create_timer(seconds).timeout
