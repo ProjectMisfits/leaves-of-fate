@@ -106,6 +106,11 @@ func fade_to_black() -> void:
 func fade_from_black() -> void:
 	SceneManager.remove_screen_transition()
 
+## Change the music to the given file during a cutscene.
+## The given argument must be the full path ("res://assets/...") to the desired music file.
+func change_music(music_file_path: String) -> void:
+	MusicManager._play_song(load(music_file_path))
+
 ## Wait for a given number of seconds before continuing a cutscene.
 func wait(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
