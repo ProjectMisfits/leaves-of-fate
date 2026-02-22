@@ -45,11 +45,6 @@ func _play_one_off() -> void:
 		await player.finished
 		player.queue_free()
 
-#Plays ambiance and random one off sounds
-func _play(from_position: float = 0.0) -> void:
-	_play_one_off()
-	play(from_position)
-
 ## Fade out the currently playing ambiance.
 func _fade_out() -> void:
 	var fade_out_tween: Tween = create_tween()
