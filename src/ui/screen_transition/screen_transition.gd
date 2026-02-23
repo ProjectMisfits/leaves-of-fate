@@ -7,18 +7,7 @@ class_name ScreenTransition extends Control
 var screen_transition_type: String
 
 ## Set by start_transition if a transition should start at some position.
-var input_position: Vector2 = Vector2.INF;
-
-## Sets up the the circle wipe positioning uniforms from the value of input_position.
-func _circle_wipe_set_position() -> void:
-	var mat: ShaderMaterial = $CanvasLayer/ColorRect.material
-	if input_position == Vector2.INF:
-		# If the irising position is not set, default to using the center of the screen for the transition.
-		mat.set_shader_parameter("useCenterPosition", false)
-	else:
-		# Otherwise iris on the set position.
-		mat.set_shader_parameter("useCenterPosition", true)
-		mat.set_shader_parameter("centerPosition", get_canvas_transform() * input_position)
+var input_position: Vector2 = Vector2.INF
 
 ## Start a screen transition.
 func start_transition(transition_type: String, pos: Vector2 = Vector2.INF) -> void:
@@ -49,6 +38,17 @@ func finish_transition(pos: Vector2 = Vector2.INF) -> void:
 ## Handle the circle transition animation.
 func _circle_transition() -> void:
 	pass
+
+## Sets up the the circle wipe positioning uniforms from the value of input_position.
+func _circle_wipe_set_position() -> void:
+	var mat: ShaderMaterial = $CanvasLayer/ColorRect.material
+	if input_position == Vector2.INF:
+		# If the irising position is not set, default to using the center of the screen for the transition.
+		mat.set_shader_parameter("useCenterPosition", false)
+	else:
+		# Otherwise iris on the set position.
+		mat.set_shader_parameter("useCenterPosition", true)
+		mat.set_shader_parameter("centerPosition", get_canvas_transform() * input_position)
 
 ## Handle the fade transition animation.
 func _fade_transition() -> void:
