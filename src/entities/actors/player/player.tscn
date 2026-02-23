@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=43 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/entities/actors/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
@@ -26,6 +26,14 @@
 [ext_resource type="AudioStream" uid="uid://dxmm31nsgmehb" path="res://assets/entities/actors/player/player_audio/PH-leaf-exit.ogg" id="18_283t5"]
 [ext_resource type="Texture2D" uid="uid://jvsobi5gw7di" path="res://assets/entities/actors/player/TEMP-fenn-jump-spritesheet.png" id="18_s3rhx"]
 [ext_resource type="AudioStream" uid="uid://ca5i8864h7llp" path="res://assets/entities/actors/footsteps/stone/FS-fenn-stone.tres" id="26_hn11x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hn11x"]
+radius = 67.0
+height = 198.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xm3ve"]
+radius = 51.0
+height = 102.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4vut"]
 size = Vector2(750, 540)
@@ -591,6 +599,7 @@ script = ExtResource("1_npkjl")
 database = ExtResource("2_7gsup")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -243)
 shape = ExtResource("3_e5ptp")
 
@@ -606,6 +615,10 @@ hframes = 8
 region_enabled = true
 region_rect = Rect2(0, 0, 6400, 800)
 
+[node name="EyeMarker" type="Marker2D" parent="FlipNode"]
+unique_name_in_owner = true
+position = Vector2(34, -124)
+
 [node name="WindZoneComponent" type="Node2D" parent="FlipNode"]
 script = ExtResource("6_ri474")
 
@@ -614,21 +627,14 @@ collision_layer = 0
 collision_mask = 1024
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/WindZoneComponent/DashDetectionArea"]
-shape = ExtResource("3_e5ptp")
+shape = SubResource("CapsuleShape2D_hn11x")
 
 [node name="NoDashDetectionArea" type="Area2D" parent="FlipNode/WindZoneComponent"]
 collision_layer = 0
 collision_mask = 2048
 
 [node name="CollisionShape2D-2" type="CollisionShape2D" parent="FlipNode/WindZoneComponent/NoDashDetectionArea"]
-shape = ExtResource("3_e5ptp")
-
-[node name="ResetZoneArea" type="Area2D" parent="FlipNode/WindZoneComponent"]
-collision_layer = 0
-collision_mask = 4096
-
-[node name="CollisionShape2D-3" type="CollisionShape2D" parent="FlipNode/WindZoneComponent/ResetZoneArea"]
-shape = ExtResource("3_e5ptp")
+shape = SubResource("CapsuleShape2D_xm3ve")
 
 [node name="InteractComponent" type="Node2D" parent="FlipNode"]
 script = ExtResource("6_283t5")
@@ -746,7 +752,6 @@ one_shot = true
 [connection signal="body_exited" from="FlipNode/WindZoneComponent/DashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_dash_detection_area_body_exited"]
 [connection signal="body_entered" from="FlipNode/WindZoneComponent/NoDashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_no_dash_detection_area_body_entered"]
 [connection signal="body_exited" from="FlipNode/WindZoneComponent/NoDashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_no_dash_detection_area_body_exited"]
-[connection signal="body_entered" from="FlipNode/WindZoneComponent/ResetZoneArea" to="FlipNode/WindZoneComponent" method="_on_reset_zone_area_body_entered"]
 [connection signal="area_entered" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_entered"]
 [connection signal="area_exited" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_exited"]
 [connection signal="area_entered" from="FlipNode/GrabComponent/GrabRange" to="FlipNode/GrabComponent" method="_on_grab_range_area_entered"]

@@ -27,6 +27,9 @@ var current_room_path: String = ""
 ## The spawn/respawn/checkpoint location for the player.
 var player_spawn_location: Vector2
 
+func _get_player_pos() -> Vector2:
+	return current_room.player.get_eye_position()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Set up the camera manager.
@@ -52,8 +55,6 @@ func _physics_process(_delta: float) -> void:
 func _tear_down_room() -> void:
 	# Disconnect camera from player
 	CameraManager.clear_target()
-	# Janky call to make sure cutscene stuff functions correctly
-	CutsceneManager._end_cutscene()
 
 ## Set up a room after a swap.
 func _init_room(init_player_location: Vector2) -> void:
@@ -76,7 +77,7 @@ func _init_room(init_player_location: Vector2) -> void:
 func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
 	current_room.player.freeze()
 	# Begin a screen transition.
-	await SceneManager.add_screen_transition("circle")
+	await SceneManager.add_screen_transition("circle", _get_player_pos())
 	_tear_down_room()
 	SceneManager.swap_scenes(target_room_path, room_holder, current_room)
 	# Update the current room
@@ -84,21 +85,23 @@ func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
 	_init_room(current_room.get_door_position(target_door_name))
 	current_room_path = target_room_path
 	player_spawn_location = current_room.get_door_position(target_door_name)
-	# Finish the screen transition.
-	await SceneManager.remove_screen_transition()
+	# Wait a frame and then finish the screen transition.
+	await get_tree().process_frame
+	await SceneManager.remove_screen_transition(_get_player_pos())
 	current_room.player.unfreeze()
 
 ## When the player is knocked out, reset the room and put the player at their last spawn location.
 func _on_player_knocked_out() -> void:
 	# Begin a screen transition.
-	await SceneManager.add_screen_transition("circle")
+	await SceneManager.add_screen_transition("circle", _get_player_pos())
 	_tear_down_room()
 	SceneManager.swap_scenes(current_room_path, room_holder, current_room)
 	# Update the current room
 	current_room = room_holder.get_child(-1) as Room
 	_init_room(player_spawn_location)
-	# Finish the screen transition.
-	await SceneManager.remove_screen_transition()
+	# Wait a frame and then finish the screen transition.
+	await get_tree().process_frame
+	await SceneManager.remove_screen_transition(_get_player_pos())
 	current_room.player.unfreeze()
 
 ## UI FUNCTIONALITY

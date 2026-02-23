@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4k216trrf235"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_he0wu"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d6h7y"]
+load_path = "res://.godot/imported/AllLeaves-ParticleAsset-001.png-bb3473d04001237a9f2c3ba0ffa4891f.ctex"
+
+[sub_resource type="Curve" id="Curve_ww04d"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.37201905, 1), 0.0, 0.0, 0, 0, Vector2(0.63593, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_2kl72"]
+curve = SubResource("Curve_ww04d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u4wk4"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 670.42
+emission_ring_inner_radius = 305.79
+emission_ring_cone_angle = 90.0
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, -1, 0)
+spread = 50.0
+orbit_velocity_min = -0.3609999
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -803.92
+radial_velocity_max = -372.6
+gravity = Vector3(0, 0, 0)
+scale_min = 0.19999999
+scale_max = 0.59999996
+alpha_curve = SubResource("CurveTexture_2kl72")
+anim_offset_max = 1.0
+
+[node name="LeafRespawnParticle" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_he0wu")
+emitting = false
+amount = 450
+texture = SubResource("CompressedTexture2D_d6h7y")
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.9
+randomness = 1.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_u4wk4")

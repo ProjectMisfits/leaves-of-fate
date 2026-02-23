@@ -48,4 +48,4 @@ func get_door_position(new_door_name: String) -> Vector2:
 			return door.global_position
 	# If the target door didn't exist anywhere in the room, report the issue
 	push_error("Room: Door '%s' does not exist in this room" % new_door_name)
-	return Vector2(0, 0)
+	return Vector2.INF
