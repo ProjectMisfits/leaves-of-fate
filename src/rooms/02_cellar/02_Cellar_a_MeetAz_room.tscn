@@ -6,14 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://bgncdkpxeluh4" path="res://src/entities/triggers/interact_trigger/dialogue_trigger/dialogue_trigger.tscn" id="3_sxaqv"]
 [ext_resource type="Resource" uid="uid://bg8npse24cjcw" path="res://assets/dialogue/dialogue_scripts/1-Az-Meet-GreatHall.dialogue" id="4_8w6tr"]
 [ext_resource type="PackedScene" uid="uid://n257i6n8nqs1" path="res://src/entities/decor/pillars/pillar_trunk_03.tscn" id="6_letnj"]
-[ext_resource type="Material" uid="uid://cvcmispvvy0jb" path="res://src/shaders/rimlit_shader_material.tres" id="7_edr21"]
+[ext_resource type="Material" uid="uid://cvcmispvvy0jb" path="res://src/vfx/shaders/rimlit_shader_material.tres" id="7_edr21"]
 [ext_resource type="PackedScene" uid="uid://0jijms4al2i5" path="res://src/entities/decor/pillars/pillar_cap_01.tscn" id="7_vwib0"]
 [ext_resource type="PackedScene" uid="uid://umcnqsgim2kt" path="res://src/entities/decor/pillars/pillar_base_02.tscn" id="8_vwib0"]
-[ext_resource type="Shader" uid="uid://di2uq7k8615pm" path="res://src/shaders/dustgloom.gdshader" id="9_cmbjs"]
+[ext_resource type="Shader" uid="uid://di2uq7k8615pm" path="res://src/vfx/shaders/dustgloom.gdshader" id="9_cmbjs"]
 [ext_resource type="PackedScene" uid="uid://bi76j25xbej58" path="res://src/entities/decor/plants/floor_pot_02.tscn" id="9_p2a16"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="10_j1jmh"]
 [ext_resource type="PackedScene" uid="uid://do5hbmjewvamt" path="res://src/entities/triggers/player_enter_trigger/music_trigger/music_trigger.tscn" id="12_cmbjs"]
-[ext_resource type="AudioStream" uid="uid://djjfdt63im57i" path="res://assets/music/GreatHall-120bpm-4_4-P1b-loop.mp3" id="13_s4iaq"]
+[ext_resource type="AudioStream" path="res://assets/music/GreatHall-120bpm-4_4-P1b-loop.mp3" id="13_s4iaq"]
 
 [sub_resource type="Gradient" id="Gradient_nnyse"]
 offsets = PackedFloat32Array(0, 0.7156105, 1)
