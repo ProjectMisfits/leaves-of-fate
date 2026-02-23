@@ -450,21 +450,18 @@ func update_leaf_meter(delta: float) -> void:
 	
 	# Compute change in leaf meter
 	var leaf_meter_change: float = 0.0
-	if (dashing_state.is_active() and not infinite_dash):
-		leaf_meter_change = -1.0 * meter_dash_drain_rate
-	#elif (piling_state.is_active()):
-		#leaf_meter_change = -1.0 * meter_pile_drain_rate
-	elif (post_dash_mode): # Do not change Leaf Meter post-dash until Player hits the ground
+	if (infinite_dash):	#If the player is in an infinite dash zone ignore everything else and give them meter
+		leaf_meter_change = meter_buildup_rate * delta
+	elif (no_dash):		# If the Player cannot dash, Leaf Meter does not change
 		leaf_meter_change = 0.0
-	elif (signf(get_x_input()) != signf(velocity.x)): # If turning
+	elif (dashing_state.is_active()):
+		leaf_meter_change = meter_dash_drain_rate * delta * -1.0
+	elif (is_on_floor()):
+		leaf_meter_change = 100.0	# Set to 100% of meter, delta is negated after
+	else:	# If Player is in the air
 		leaf_meter_change = 0.0
-	elif (velocity != Vector2.ZERO and not no_dash):
-		leaf_meter_change = meter_buildup_rate
-	#If the player is in an infinite dash zone ignore everything else and give them meter
-	if (infinite_dash):
-		leaf_meter_change = meter_buildup_rate
 		
-	new_leaf_meter += (leaf_meter_change * delta)
+	new_leaf_meter += leaf_meter_change
 	
 	set_leaf_meter(new_leaf_meter)
 
