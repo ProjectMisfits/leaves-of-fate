@@ -13,36 +13,43 @@ var input_position: Vector2 = Vector2.INF;
 func _circle_wipe_set_position() -> void:
 	var mat: ShaderMaterial = $CanvasLayer/ColorRect.material
 	if input_position == Vector2.INF:
-		print('Centering!')
+		# If the irising position is not set, default to using the center of the screen for the transition.
 		mat.set_shader_parameter("useCenterPosition", false)
 	else:
+		# Otherwise iris on the set position.
 		mat.set_shader_parameter("useCenterPosition", true)
 		mat.set_shader_parameter("centerPosition", get_canvas_transform() * input_position)
 
-func _update_pos(pos: Vector2) -> void:
-	assert(pos is Vector2, "ScreenTransition: start_transition provided with invalid pos value! Expected Vector2")
-	input_position = pos
-	# TODO(jadon): This is a bit of a hack.
-	# If we decide we want a bunch of different kinds of wipes, it might be better
-	# to make the AnimationPlayer call it from within the track instead of just always running it.
-	if screen_transition_type == "circle":
-		_circle_wipe_set_position()
-
 ## Start a screen transition.
 func start_transition(transition_type: String, pos: Vector2 = Vector2.INF) -> void:
-	$CanvasLayer.show();
 	if not transition_animation_player.has_animation(transition_type):
-		push_warning("ScreenTransition: Transition type '%s' not found." % transition_type)
+		push_error("ScreenTransition: Transition type '%s' not found." % transition_type)
+		return
+	
+	# Set the screen transition type for use in the transition out animation.
 	screen_transition_type = transition_type
-	_update_pos(pos)
+	# Update the position for use by the animation.
+	input_position = pos
+	# Play the animation and wait for it to finish.
 	transition_animation_player.play(screen_transition_type)
 	await transition_animation_player.animation_finished
 
 ## Finish the current screen transition.
-func finish_transition(pos = null) -> void:
+func finish_transition(pos: Vector2 = Vector2.INF) -> void:
 	if not screen_transition_type:
-		push_warning("ScreenTransition: No screen transition type set or screen transition in progress.")
-	_update_pos(pos)
+		push_error("ScreenTransition: No screen transition type set or screen transition in progress.")
+		return
+	
+	# Update the position for use by the animation.
+	input_position = pos
+	# Play the animation and wait for it to finish.
 	transition_animation_player.play_backwards(screen_transition_type)
 	await transition_animation_player.animation_finished;
-	$CanvasLayer.hide();
+
+## Handle the circle transition animation.
+func _circle_transition() -> void:
+	pass
+
+## Handle the fade transition animation.
+func _fade_transition() -> void:
+	pass
