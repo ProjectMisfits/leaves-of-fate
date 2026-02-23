@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://24pvhwwalebl" path="res://assets/ui/main_menu/Envelope-UI-001.png" id="1_osdni"]
 [ext_resource type="Texture2D" uid="uid://cqbbpsglfvq3u" path="res://assets/ui/main_menu/ReturnLabel-UI-001.png" id="2_3oi2e"]
 [ext_resource type="Texture2D" uid="uid://com3a5uqsd6n6" path="res://assets/ui/main_menu/Stamp-UI-001.png" id="2_vivct"]
-[ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="3_vivct"]
+[ext_resource type="Texture2D" uid="uid://bmwiniy2gmnxm" path="res://assets/ui/Title-UI-002.png" id="5_2rik1"]
 [ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="5_6ut4k"]
 [ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="5_vivct"]
 [ext_resource type="AudioStream" uid="uid://cw08xxvkhrlel" path="res://assets/ui/audio/PH-UI-select.ogg" id="8_2rik1"]
@@ -182,7 +182,7 @@ theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
 theme_override_font_sizes/font_size = 30
 text = "Bay Leaf Palace"
 
-[node name="Title" type="Label" parent="EnvelopeBase"]
+[node name="TextureRect" type="TextureRect" parent="EnvelopeBase"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -190,15 +190,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -603.5
-offset_top = -188.5
+offset_top = -241.0
 offset_right = 603.5
-offset_bottom = -37.5
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.30980393, 0.56078434, 0.05490196, 1)
-theme_override_fonts/font = ExtResource("3_vivct")
-theme_override_font_sizes/font_size = 150
-text = "PROJECT MISFITS"
+texture = ExtResource("5_2rik1")
 
 [node name="MainSelectionsContainer" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
