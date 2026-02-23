@@ -1,13 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlhawhqunmbss"]
+[gd_scene load_steps=6 format=3 uid="uid://dlhawhqunmbss"]
 
 [ext_resource type="Script" uid="uid://ssmn6bb0mgvm" path="res://src/ui/screen_transition/screen_transition.gd" id="1_xxkf4"]
-[ext_resource type="Shader" uid="uid://by87psgjfi1ta" path="res://src/vfx/shaders/screen_wipe.gdshader" id="2_gwekv"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i3fqj"]
-shader = ExtResource("2_gwekv")
-shader_parameter/useCenterPosition = false
-shader_parameter/centerPosition = Vector2(0, 0)
-shader_parameter/progress = 0.0
 
 [sub_resource type="Animation" id="Animation_2fw44"]
 length = 0.001
@@ -23,8 +16,33 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_cpage"]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_gwekv"]
 resource_name = "circle"
@@ -52,10 +70,10 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
-"method": &"_circle_wipe_set_position"
+"method": &"_circle_transition"
 }, {
 "args": [],
-"method": &"_circle_wipe_set_position"
+"method": &"_circle_transition"
 }]
 }
 
@@ -81,13 +99,13 @@ script = ExtResource("1_xxkf4")
 layer = 10
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_i3fqj")
+modulate = Color(0, 0, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 unique_name_in_owner = true
