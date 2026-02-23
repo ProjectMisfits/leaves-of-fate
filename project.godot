@@ -61,6 +61,25 @@ script/templates_search_path="res://src/script_templates"
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "yellow",
+"res://assets/audio/": "blue",
+"res://assets/dialogue/": "blue",
+"res://assets/entities/": "orange",
+"res://assets/rooms/": "orange",
+"res://assets/ui/": "pink",
+"res://assets/vfx/": "pink",
+"res://src/": "teal",
+"res://src/audio/": "blue",
+"res://src/entities/": "orange",
+"res://src/rooms/": "orange",
+"res://src/ui/": "pink",
+"res://src/vfx/": "pink"
+}
+
 [gui]
 
 theme/custom="uid://cr6ry63vvyjhi"
