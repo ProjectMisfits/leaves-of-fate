@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwdudd21nmgcs"
-path="res://.godot/imported/twilight-leafOnly.png-671cd1c2fc5a5ff6bf7e01c84c546b29.ctex"
+path="res://.godot/imported/LeafOnlyTiles.png-8bce216a036de5daa49707e33303dafd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/tileset/twilight-leafOnly.png"
-dest_files=["res://.godot/imported/twilight-leafOnly.png-671cd1c2fc5a5ff6bf7e01c84c546b29.ctex"]
+source_file="res://assets/rooms/tileset/LeafOnlyTiles.png"
+dest_files=["res://.godot/imported/LeafOnlyTiles.png-8bce216a036de5daa49707e33303dafd.ctex"]
 
 [params]
 
