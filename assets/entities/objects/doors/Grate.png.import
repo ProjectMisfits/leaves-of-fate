@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhj8uu601tqd1"
-path="res://.godot/imported/Door.png-146cd5211e28cfdce072c5479d53069b.ctex"
+uid="uid://def8ugcj5s6am"
+path="res://.godot/imported/Grate.png-31ead325bd3857cd179ed8851b841794.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/decor/furniture/Door.png"
-dest_files=["res://.godot/imported/Door.png-146cd5211e28cfdce072c5479d53069b.ctex"]
+source_file="res://assets/entities/objects/doors/Grate.png"
+dest_files=["res://.godot/imported/Grate.png-31ead325bd3857cd179ed8851b841794.ctex"]
 
 [params]
 

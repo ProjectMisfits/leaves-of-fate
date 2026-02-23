@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7s6y2h5mi7xx"]
 
-[ext_resource type="Script" uid="uid://bsof8xxvb00ep" path="res://src/entities/objects/door/door.gd" id="1_deedn"]
-[ext_resource type="Texture2D" uid="uid://dprhdtd43c5ol" path="res://assets/entities/objects/door/PH-door-open.svg" id="2_ji2s8"]
+[ext_resource type="Script" uid="uid://bsof8xxvb00ep" path="res://src/entities/objects/doors/door.gd" id="1_deedn"]
+[ext_resource type="Texture2D" uid="uid://bhj8uu601tqd1" path="res://assets/entities/objects/doors/Door.png" id="3_6jn47"]
 [ext_resource type="PackedScene" uid="uid://dsy2abl6kiatx" path="res://src/entities/triggers/interact_trigger/door_trigger/door_trigger.tscn" id="3_yqyn5"]
 
 [node name="Door" type="Node2D"]
 script = ExtResource("1_deedn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -607)
+[node name="Door" type="Sprite2D" parent="."]
+position = Vector2(0, -653)
 scale = Vector2(1.75, 1.75)
-texture = ExtResource("2_ji2s8")
+texture = ExtResource("3_6jn47")
 
 [node name="DoorTrigger" parent="." instance=ExtResource("3_yqyn5")]
-position = Vector2(0, -384)
+position = Vector2(0, -512)
 
 [connection signal="door_trigger_activated" from="DoorTrigger" to="." method="_on_door_trigger_activated"]
