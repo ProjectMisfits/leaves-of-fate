@@ -1,6 +1,17 @@
 extends Node2D
 ## A manager for the camera, its current target, position, and zoom. Primarily allows for easier cutscene scripting from dialogue resource files.
 
+##The max offset for the x
+@export var max_offset_x : float = 1000
+##The max offset for the y
+@export var max_offset_y : float = -1000
+##Minimum offset for the y
+@export var min_offset_y : float = -1000
+##Speed at which the offset is reached 
+@export var offset_speed : float = .05
+##Rounding for the offset speed (I.E .01 = round 3.156 to 3.16)
+@export var rounding_speed: float = .01
+
 ## A reference to the phantom camera used to target objects.
 var phantom_camera: PhantomCamera2D
 ## A reference to the 2D camera.
@@ -116,3 +127,15 @@ func set_limit(node_path : NodePath) -> void:
 ##Sets the offset in of the camera 
 func set_offset(new_offset : Vector2) -> void:
 	phantom_camera.set_follow_offset(new_offset)
+
+
+func _physics_process(_delta: float) -> void:
+	##Make sure the phantom camera is not null [TODO] and that your not in a cutscene
+	if(phantom_camera):
+		#Base the camera offset from the input on the left joystick
+		#phantom_camera.follow_offset.x = Input.get_axis(&"move_left", &"move_right") * max_offset_x
+		phantom_camera.follow_offset.x = snappedf(lerpf(phantom_camera.follow_offset.x,Input.get_axis(&"move_left", &"move_right") * max_offset_x,offset_speed),rounding_speed)
+		phantom_camera.follow_offset.y = snappedf( lerpf(phantom_camera.follow_offset.y, min_offset_y + (Input.get_axis(&"look_down",&"look_up") * max_offset_y),offset_speed) , rounding_speed)
+		 
+		#print(phantom_camera.follow_offset.x)
+		#print(snappedf(lerpf(phantom_camera.follow_offset.x,Input.get_axis(&"move_left", &"move_right") * max_offset_x,offset_speed),rounding_speed))
