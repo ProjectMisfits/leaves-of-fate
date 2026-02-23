@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dlhawhqunmbss"]
 
 [ext_resource type="Script" uid="uid://ssmn6bb0mgvm" path="res://src/ui/screen_transition/screen_transition.gd" id="1_xxkf4"]
-[ext_resource type="Shader" uid="uid://by87psgjfi1ta" path="res://src/shaders/screen_wipe.gdshader" id="2_gwekv"]
+[ext_resource type="Shader" uid="uid://by87psgjfi1ta" path="res://src/vfx/shaders/screen_wipe.gdshader" id="2_gwekv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i3fqj"]
 shader = ExtResource("2_gwekv")
