@@ -100,11 +100,11 @@ func _on_cutscene_ended() -> void:
 
 ## Fade the screen to black for use in cutscenes.
 func fade_to_black() -> void:
-	SceneManager.add_screen_transition("fade")
+	await SceneManager.add_screen_transition("fade")
 
 ## Fade the screen from black for use in cutscenes.
 func fade_from_black() -> void:
-	SceneManager.remove_screen_transition()
+	await SceneManager.remove_screen_transition()
 
 ## Change the music to the given file during a cutscene.
 ## The given argument must be the full path ("res://assets/...") to the desired music file.
