@@ -1,52 +1,53 @@
 ~ start
-% [if not EventFlags.get_flag("X-Ws-Cellar-1")] => convo_1
-% [if not EventFlags.get_flag("X-Ws-Cellar-2")] => convo_2
-% [if not EventFlags.get_flag("X-Ws-Cellar-3")] => convo_3
-% [if not EventFlags.get_flag("X-Ws-Cellar-4")] => convo_4
-% [if not EventFlags.get_flag("X-Ws-Cellar-5")] => convo_5
-% [if not EventFlags.get_flag("X-Ws-Cellar-6")] => convo_6
-% [if not EventFlags.get_flag("X-Ws-Cellar-7")] => convo_7
-% [if not EventFlags.get_flag("X-Ws-Cellar-8")] => convo_8
-% [if not EventFlags.get_flag("X-Ws-Cellar-9")] => convo_9
-% [if not EventFlags.get_flag("X-Ws-Cellar-10")] => convo_10
-% [if not EventFlags.get_flag("X-Ws-Cellar-11")] => convo_11
-% [if EventFlags.num_cellar_conversations == 11] => ending_convo
+=> convo_1
+#% [if not EventFlags.get_flag("X-Ws-Cellar-1")] => convo_1
+#% [if not EventFlags.get_flag("X-Ws-Cellar-2")] => convo_2
+#% [if not EventFlags.get_flag("X-Ws-Cellar-3")] => convo_3
+#% [if not EventFlags.get_flag("X-Ws-Cellar-4")] => convo_4
+#% [if not EventFlags.get_flag("X-Ws-Cellar-5")] => convo_5
+#% [if not EventFlags.get_flag("X-Ws-Cellar-6")] => convo_6
+#% [if not EventFlags.get_flag("X-Ws-Cellar-7")] => convo_7
+#% [if not EventFlags.get_flag("X-Ws-Cellar-8")] => convo_8
+#% [if not EventFlags.get_flag("X-Ws-Cellar-9")] => convo_9
+#% [if not EventFlags.get_flag("X-Ws-Cellar-10")] => convo_10
+#% [if not EventFlags.get_flag("X-Ws-Cellar-11")] => convo_11
+#% [if EventFlags.num_cellar_conversations == 11] => ending_convo
 => END
 
 
 ~ convo_1
 Fenn: Hey Wizard man, do you like ice cream?
-Winston: Woooow. Asking thy 'ice guy' if he liketh ice cream. Very original.
+Wizard: Woooow. Asking thy 'ice guy' if he liketh ice cream. Very original.
 Fenn: Well... you call me 'pint-size.' So... do you?
-Winston: Wha- NO!!
-Winston: Tis a mockery of nature. An insult to everything which is cold.
+Wizard: Wha- NO!!
+Wizard: Tis a mockery of nature. An insult to everything which is cold.
 Fenn: Are you lactose intolerant?
-Winston: And there thou goes! Assuming I'm lactose intolerant just because I liketh not ice cream!
+Wizard: And there thou goes! Assuming I'm lactose intolerant just because I liketh not ice cream!
 Fenn: Well, are you?
-Winston: Tis besides the point!
+Wizard: Tis besides the point!
 Fenn: Huh... no wonder all those ice creams are so mad.
 do EventFlags.set_flag("X-Ws-Cellar-1", true)
 do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_2
-Winston: Go away, pint-size.
+Wizard: Go away, pint-size.
 Fenn: Why?
-Winston: Um... Shut up! I doth be busy! Go away.
+Wizard: Um... Shut up! I doth be busy! Go away.
 Fenn: Aw okay.
 do EventFlags.set_flag("X-Ws-Cellar-2", true)
 do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_3
-Winston: Hey, pint-size, you seem close with Az.
+Wizard: Hey, pint-size, you seem close with Az.
 Fenn: Oh yeah! She's great.
-Winston: D-Does she, like... I dunno... 
+Wizard: D-Does she, like... I dunno... 
 Fenn: What?
-Winston: What doth she, like, think? Liketh regarding me?
-Winston: Doth she thinketh I'm cool?
+Wizard: What doth she, like, think? Liketh regarding me?
+Wizard: Doth she thinketh I'm cool?
 Fenn: Yeah of course! Everyone thinks you're cool!
-Winston: Really?!
+Wizard: Really?!
 Az: NO! Fenn, stop making stuff up.
 Fenn: But I wasn't...
 Winston whispering: I forgoteth she was there...
@@ -56,33 +57,33 @@ do EventFlags.num_cellar_conversations += 1
 
 ~ convo_4
 Fenn: Where'd you get your coat?
-Winston: Oh. Well, my Mother madeth it.
+Wizard: Oh. Well, my Mother madeth it.
 Fenn: That's really nice! You must have a really cool Mom.
-Winston: Yeah... wouldst be. If she even cared.
+Wizard: Yeah... wouldst be. If she even cared.
 Fenn: What do you mean?
-Winston: Nothing. Worry not 'bout it.
+Wizard: Nothing. Worry not 'bout it.
 do EventFlags.set_flag("X-Ws-Cellar-4", true)
 do EventFlags.num_cellar_conversations += 1
 => END
 
 #Potentially delete if this conversation is moved to when the player meets winston
 ~ convo_5
-Winston: Just thee wait, pint-size! I shall destroyeth thee!
+Wizard: Just thee wait, pint-size! I shall destroyeth thee!
 Fenn: That's the spirit!
 Az: Are you rooting for him?
 Fenn: Of course! The hero is nothing without his villain!
 Az: Eh. Fair enough, I guess.
 Az: I also get the feeling he needs it.
-Winston: Do not pity me!!
+Wizard: Do not pity me!!
 do EventFlags.set_flag("X-Ws-Cellar-5", true)
 do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_6
 Fenn: Mr. Wizard?
-Winston: Go away! I am planning thy demise.
+Wizard: Go away! I am planning thy demise.
 Fenn: What's demise mean?
-Winston: Um... VERY PAINFUL DEATH!!
+Wizard: Um... VERY PAINFUL DEATH!!
 Fenn: Oh... cool!
 do EventFlags.set_flag("X-Ws-Cellar-6", true)
 do EventFlags.num_cellar_conversations += 1
@@ -90,39 +91,39 @@ do EventFlags.num_cellar_conversations += 1
 
 ~ convo_7
 Fenn: Hey Wizard Guy, what do you do for fun?
-Winston: Hmph. Why do thee careth?
+Wizard: Hmph. Why do thee careth?
 Fenn: I dunno.
-Winston: Well, I readeth, I suppose.
+Wizard: Well, I readeth, I suppose.
 Fenn: Read what?
-Winston: Uh... liketh, mysteries and detective stories.
+Wizard: Uh... liketh, mysteries and detective stories.
 Fenn: That's super cool! I like comic books. Do you read comics? I love Garbage Man, he's my favorite. Have you heard of Garbage Man? He defeats the bad guys with his overwhelming-
-Winston: Uhhhhh...
+Wizard: Uhhhhh...
 Az: Fenn! Stop bothering the squatter. He's busy being a freak, or whatever.
-Winston: HEY!
+Wizard: HEY!
 do EventFlags.set_flag("X-Ws-Cellar-7", true)
 do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_8
-Winston: Grrr, I feel rather peckish...
+Wizard: Grrr, I feel rather peckish...
 Fenn: Aw... do you have any food?
-Winston: No. Maybe the workshop hath snacks.
+Wizard: No. Maybe the workshop hath snacks.
 pause
-Winston: Well, I foundeth some walnuts. Ho, pint-size. Couldst thee ask Az if I may have some?
+Wizard: Well, I foundeth some walnuts. Ho, pint-size. Couldst thee ask Az if I may have some?
 Fenn: Hey Az! Can Wizard man hath some of the walnuts in your workshop?
 Az: What??? I guess?? But you mess up my workshop, I'll crush you.
-Winston: Score! Walnuts be mine!
+Wizard: Score! Walnuts be mine!
 do EventFlags.set_flag("X-Ws-Cellar-8", true)
 do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_9
 Fenn: Hey Mr. Wizard. Who's your favorite Knight?
-Winston: None of them! They're terrible! They don't do anything for the Kingdom!!!
+Wizard: None of them! They're terrible! They don't do anything for the Kingdom!!!
 Fenn: Okay... but if you have to pick?
-Winston: Well... probably like... the Knight of Fury. She seemeth cool.
+Wizard: Well... probably like... the Knight of Fury. She seemeth cool.
 Fenn: Rose? I wouldn't have guessed that... I thought maybe Henric or something.
-Winston: Well it doth not matter anyway! They're all stupid and lame!
+Wizard: Well it doth not matter anyway! They're all stupid and lame!
 Fenn: Okay then!
 do EventFlags.set_flag("X-Ws-Cellar-9", true)
 do EventFlags.num_cellar_conversations += 1
@@ -145,11 +146,11 @@ do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_11
-Winston: Hey, pint-size. Is Az there?
+Wizard: Hey, pint-size. Is Az there?
 Fenn: Yeah? Well, her bangle is.
-Winston: Wh-what doth she be doing?
+Wizard: Wh-what doth she be doing?
 Fenn: I dunno. Standing, maybe?
-Winston: Hmph. Tis cool. Cool. That's cool. Whatevereth.
+Wizard: Hmph. Tis cool. Cool. That's cool. Whatevereth.
 do EventFlags.set_flag("X-Ws-Cellar-11", true)
 do EventFlags.num_cellar_conversations += 1
 => END
