@@ -23,8 +23,8 @@ metadata/__load_path__ = "res://assets/music/GreatHall-120bpm-4_4-P1b-loop.mp3"
 [node name="02_Cellar_a_MeetAz" instance=ExtResource("1_fy8v3")]
 
 [node name="BackgroundGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
-position = Vector2(-128, -1146)
-scale = Vector2(7424, 17.58594)
+position = Vector2(-128, -1152)
+scale = Vector2(7424, 18)
 
 [node name="Decor" parent="BackgroundLayer" index="1"]
 material = ExtResource("7_edr21")
@@ -83,9 +83,8 @@ use_parent_material = true
 position = Vector2(6784, 1024)
 
 [node name="DustLayer" parent="BackgroundLayer" index="2"]
-position = Vector2(0, -1024)
-scale = Vector2(7.1679997, 2.048)
-metadata/_edit_lock_ = true
+position = Vector2(-128, -1152)
+scale = Vector2(7.4240003, 2.304)
 
 [node name="Midground" parent="MidgroundLayer" index="0"]
 light_mask = 0

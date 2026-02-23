@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=4 uid="uid://c8aipu8vkbprc"]
+[gd_scene load_steps=13 format=4 uid="uid://c8aipu8vkbprc"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_78sth"]
+[ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_hjb0y"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_hjb0y"]
 [ext_resource type="PackedScene" uid="uid://hljjnysbuwyd" path="res://assets/graphics/dust_layer.tscn" id="3_r7us7"]
 [ext_resource type="PackedScene" uid="uid://bg2o7v2o7bjjk" path="res://src/entities/objects/breakaway_platform/breakaway_platform.tscn" id="5_kak0g"]
@@ -13,6 +14,22 @@
 [ext_resource type="PackedScene" uid="uid://0jijms4al2i5" path="res://src/entities/decor/pillars/pillar_cap_01.tscn" id="11_r7us7"]
 
 [node name="02_Cellar_c_Ambush" instance=ExtResource("1_78sth")]
+
+[node name="BackgroundGradient-3" type="Sprite2D" parent="BackgroundLayer/BackgroundTexture" index="0"]
+position = Vector2(14208, 15296.001)
+scale = Vector2(9471.999, 57.5)
+texture = ExtResource("2_hjb0y")
+centered = false
+
+[node name="BackgroundGradient-2" type="Sprite2D" parent="BackgroundLayer/BackgroundTexture" index="1"]
+position = Vector2(17600, -7104)
+scale = Vector2(3135.9995, 195.5)
+texture = ExtResource("2_hjb0y")
+centered = false
+
+[node name="BackgroundGradient" parent="BackgroundLayer/BackgroundTexture" index="2"]
+position = Vector2(-128, -640)
+scale = Vector2(22784, 17.999998)
 
 [node name="HangingLantern" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("3_hjb0y")]
 position = Vector2(15872, 19456)
