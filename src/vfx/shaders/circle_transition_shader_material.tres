@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c3ht1ivrugwnw"]
 
-[ext_resource type="Shader" uid="uid://by87psgjfi1ta" path="res://src/shaders/screen_wipe.gdshader" id="1_wmhcm"]
+[ext_resource type="Shader" uid="uid://by87psgjfi1ta" path="res://src/vfx/shaders/screen_wipe.gdshader" id="1_wmhcm"]
 
 [resource]
 shader = ExtResource("1_wmhcm")

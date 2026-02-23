@@ -47,7 +47,7 @@ func _circle_transition() -> void:
 	
 	# Set the ColorRect's shader material.
 	var transition_shape: ColorRect = $CanvasLayer/ColorRect
-	var transition_shader_material: ShaderMaterial = preload("res://src/ui/screen_transition/circle_transition_shader_material.tres")
+	var transition_shader_material: ShaderMaterial = preload("res://src/vfx/shaders/circle_transition_shader_material.tres")
 	transition_shape.material = transition_shader_material
 	if input_position == Vector2.INF:
 		# If the irising position is not set, default to using the center of the screen for the transition.
