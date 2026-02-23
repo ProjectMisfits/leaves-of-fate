@@ -30,11 +30,10 @@ var jump_buffer_time: float					## How long (in seconds) before landing on the g
 var jump_corner_rounding_distance: float	## UNUSED: How close (in game units) the Player must be to a ledge before they slide onto it at the peak of their jump.
 
 # ---------- Leaf Dash ---------- #
-var meter_buildup_rate: float		## The amount of wind per second that the Player generates while moving.
-var meter_drain_rate: float			## The amount of wind per second that the Player loses while NOT moving.
-var meter_dash_drain_rate: float	## The amount of wind per second that the Player loses while Leaf Dashing.
-var meter_dash_end_drain: float		## The amount of wind drained after ending a Leaf Dash.
-var meter_pile_drain_rate: float	## The amount of wind per second that the Player loses while in Leaf Pile mode.
+var meter_dash_zone_buildup_rate: float	## The amount of wind per second that the Player gains while in a Dash Zone.
+var meter_dash_drain_rate: float		## The amount of wind per second that the Player loses while Leaf Dashing.
+var meter_dash_end_drain: float			## The amount of wind drained after ending a Leaf Dash.
+var meter_pile_drain_rate: float		## UNUSED: The amount of wind per second that the Player loses while in Leaf Pile mode.
 
 var dash_max_speed: float						## The Player's speed while Leaf Dashing.
 var dash_angular_turn_speed: float				## The Player's turn speed (in degrees) while Leaf Dashing. Not scaled by delta time.
@@ -451,7 +450,7 @@ func update_leaf_meter(delta: float) -> void:
 	# Compute change in leaf meter
 	var leaf_meter_change: float = 0.0
 	if (infinite_dash):	#If the player is in an infinite dash zone ignore everything else and give them meter
-		leaf_meter_change = meter_buildup_rate * delta
+		leaf_meter_change = meter_dash_zone_buildup_rate * delta
 	elif (no_dash):		# If the Player cannot dash, Leaf Meter does not change
 		leaf_meter_change = 0.0
 	elif (dashing_state.is_active()):
@@ -544,8 +543,7 @@ func initialize_data(data: Dictionary) -> void:
 		jump_corner_rounding_distance = data["jump_corner_rounding_distance"]
 		
 		# Leaf Dash #
-		meter_buildup_rate = data["meter_buildup_rate"]
-		meter_drain_rate = data["meter_drain_rate"]
+		meter_dash_zone_buildup_rate = data["meter_dash_zone_buildup_rate"]
 		meter_dash_drain_rate = data["meter_dash_drain_rate"]
 		meter_pile_drain_rate = data["meter_pile_drain_rate"]
 		meter_dash_end_drain = data["meter_dash_end_drain"]
