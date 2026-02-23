@@ -59,7 +59,7 @@ offset_bottom = -2486.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 150
 text = "Leaf Dash uses Wind
-Charge Wind by moving "
+Wind recharges when touching the ground"
 horizontal_alignment = 1
 
 [node name="UpArrowLabel" type="Label" parent="MidgroundLayer/Decor" index="2"]

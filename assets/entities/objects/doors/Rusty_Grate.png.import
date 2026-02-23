@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvq7dcp4ksriw"
-path="res://.godot/imported/Rusty_Grate.png-6bf3954e73a9103a88bfe0bf6cd4b71f.ctex"
+path="res://.godot/imported/Rusty_Grate.png-53e4569a0b5859bdaafbf82db78cb237.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/decor/furniture/Rusty_Grate.png"
-dest_files=["res://.godot/imported/Rusty_Grate.png-6bf3954e73a9103a88bfe0bf6cd4b71f.ctex"]
+source_file="res://assets/entities/objects/doors/Rusty_Grate.png"
+dest_files=["res://.godot/imported/Rusty_Grate.png-53e4569a0b5859bdaafbf82db78cb237.ctex"]
 
 [params]
 
