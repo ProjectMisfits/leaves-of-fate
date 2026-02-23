@@ -26,6 +26,8 @@ func _set_leaf_meter(new_value: float) -> void:
 	
 	if leaf_meter.value < 75:
 		leaf_meter.tint_progress = Color(1, (leaf_meter.value / 75), (leaf_meter.value / 75), 1)
+	else:
+		leaf_meter.tint_progress = Color.WHITE
 
 ## Updates health in the HUD based on the players current health
 func _on_player_knocked_out() -> void:
