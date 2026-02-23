@@ -10,10 +10,18 @@ var can_grab: bool = true
 ## The currently grabbed entity. Kept so that it can be ungrabbed.
 var current_grab: GrabTrigger = null
 
+func _ready() -> void:
+	# Connect dialogue to grab
+	DialogueManager.dialogue_started.connect(_disable_grab.unbind(1))
+	DialogueManager.dialogue_ended.connect(_enable_grab.unbind(1))
+	
+	# Connect cutscenes to grab
+	CutsceneManager.cutscene_started.connect(_disable_grab)
+	CutsceneManager.cutscene_ended.connect(_enable_grab)
+
 func _input(event: InputEvent) -> void:
 	# When the grab input is pressed:
-	if Input.is_action_just_pressed("grab"):
-		
+	if event.is_action_pressed("grab"):
 		# If nothing is grabbed and something can be grabbed, grab it.
 		if current_grab == null and current_grabbables:
 			can_grab = false
@@ -52,3 +60,16 @@ func _on_grab_range_area_exited(area: Area2D) -> void:
 	if area is GrabTrigger:
 		area.grab_highlight.hide()
 	current_grabbables.erase(area)
+
+## Disable grabbing on dialogue start.
+func _disable_grab() -> void:
+	# If something is grabbed, release it.
+	if current_grab != null:
+		current_grab.trigger()
+		current_grab = null
+	
+	can_grab = false
+
+## Enable grabbing on dialogue end.
+func _enable_grab() -> void:
+	can_grab = true

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://wk7tx1t1vq5f" path="res://assets/rooms/backgrounds/grad.png" id="2_60041"]
 [ext_resource type="PackedScene" uid="uid://cnkr1x18dvnec" path="res://src/entities/triggers/player_enter_trigger/camera_trigger/camera_trigger.tscn" id="3_m0wk7"]
 [ext_resource type="PackedScene" uid="uid://do5hbmjewvamt" path="res://src/entities/triggers/player_enter_trigger/music_trigger/music_trigger.tscn" id="4_m0wk7"]
-[ext_resource type="AudioStream" uid="uid://g8rhgyvprd1c" path="res://assets/music/Cellar-120bpm-4_4-P64b-loop.ogg" id="5_m0wk7"]
+[ext_resource type="AudioStream" uid="uid://g8rhgyvprd1c" path="res://assets/audio/music/Cellar-120bpm-4_4-P64b-loop.ogg" id="5_m0wk7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mksag"]
 resource_local_to_scene = true

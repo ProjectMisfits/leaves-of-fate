@@ -222,7 +222,6 @@ position = Vector2(5977, 680)
 [node name="DialogueTrigger" parent="MidgroundLayer/Entities/NPCs/NpcAz" index="3" instance=ExtResource("14_gpuhd")]
 dialogue_sequence = ExtResource("15_1ppdk")
 repeatable = true
-required_event_flags = Array[String](["3-Az-Stuck-Pantry"])
 
 [node name="LeafPlatform" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("12_p8jqt")]
 position = Vector2(11264, 1088)
@@ -236,6 +235,7 @@ scale = Vector2(8, 1)
 position = Vector2(4550, -594)
 scale = Vector2(20, 60)
 dialogue_sequence = ExtResource("16_q7bjq")
+required_false_event_flags = Array[String](["3-Az-Stuck-Pantry"])
 
 [node name="PillarTrunk03" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("2_64sc0")]
 position = Vector2(3328, 128)
