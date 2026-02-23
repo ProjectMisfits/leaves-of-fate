@@ -35,12 +35,15 @@ var meter_dash_drain_rate: float		## The amount of wind per second that the Play
 var meter_dash_end_drain: float			## The amount of wind drained after ending a Leaf Dash.
 var meter_pile_drain_rate: float		## UNUSED: The amount of wind per second that the Player loses while in Leaf Pile mode.
 
-var dash_max_speed: float						## The Player's speed while Leaf Dashing.
+var dash_min_speed: float						## The Player's minimum speed while Leaf Dashing.
+var dash_max_speed: float						## The Player's maximum speed while Leaf Dashing.
+var dash_acceleration: float					## The Player's velocity gain per second while Leaf Dashing.
 var dash_angular_turn_speed: float				## The Player's turn speed (in degrees) while Leaf Dashing. Not scaled by delta time.
 var dash_deceleration: float					## UNUSED: The Player's speed loss per second while Leaf Dashing with very little wind left.
 var dash_angular_turn_speed_deceleration: float	## UNUSED: The Player's turn speed loss per second while Leaf Dashing with very little wind left.
 var meter_dash_deceleration_start: float		## UNUSED: If the Player is Leaf Dashing with this amount of wind or less in their Leaf Meter, they begin slowing down.
 var dash_end_velocity_multiplier: float			## When ending a Leaf Dash, multiply velocity by this value to "fling" the Player.
+var dash_end_max_velocity: float				## When ending a Leaf Dash, this is the max "fling" velocity the Player can have.
 
 var post_dash_gravity: float						## Gravity applied to Player during the post-dash mode.
 var post_dash_fast_fall_gravity_multiplier: float	## Multiplier for Player gravity while pressing the move_down action during the post-dash mode.
@@ -548,12 +551,15 @@ func initialize_data(data: Dictionary) -> void:
 		meter_pile_drain_rate = data["meter_pile_drain_rate"]
 		meter_dash_end_drain = data["meter_dash_end_drain"]
 		
+		dash_min_speed = data["dash_min_speed"]
 		dash_max_speed = data["dash_max_speed"]
+		dash_acceleration = data["dash_acceleration"]
 		dash_angular_turn_speed = data["dash_angular_turn_speed"]
 		dash_deceleration = data["dash_deceleration"]
 		dash_angular_turn_speed_deceleration = data["dash_angular_turn_speed_deceleration"]
 		meter_dash_deceleration_start = data["meter_dash_deceleration_start"]
 		dash_end_velocity_multiplier = data["dash_end_velocity_multiplier"]
+		dash_end_max_velocity = data["dash_end_max_velocity"]
 		
 		post_dash_gravity = data["post_dash_gravity"]
 		post_dash_fast_fall_gravity_multiplier = data["post_dash_fast_fall_gravity_multiplier"]
