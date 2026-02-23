@@ -7,7 +7,6 @@
 [ext_resource type="TileSet" uid="uid://bnysb55hwhjyd" path="res://assets/rooms/tileset/TS_Hazards.tres" id="3_0bf0a"]
 [ext_resource type="PackedScene" uid="uid://cjkpybae7njrh" path="res://src/entities/actors/player/player.tscn" id="4_8eo6q"]
 [ext_resource type="TileSet" uid="uid://ca07scdfwk0u2" path="res://assets/rooms/tileset/TS_Windzone.tres" id="4_n3e44"]
-[ext_resource type="PackedScene" uid="uid://hljjnysbuwyd" path="res://assets/graphics/dust_layer.tscn" id="4_n6lpe"]
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_t665v")
