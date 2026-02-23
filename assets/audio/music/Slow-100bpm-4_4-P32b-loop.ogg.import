@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://bw7lnx1vd26b4"
-path="res://.godot/imported/Slow-100bpm-4_4-P32b-loop.ogg-594a915f7db235188e574af135ae339f.oggvorbisstr"
+path="res://.godot/imported/Slow-100bpm-4_4-P32b-loop.ogg-e948b7f071c49e314c6aa3214a8961ef.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/music/Slow-100bpm-4_4-P32b-loop.ogg"
-dest_files=["res://.godot/imported/Slow-100bpm-4_4-P32b-loop.ogg-594a915f7db235188e574af135ae339f.oggvorbisstr"]
+source_file="res://assets/audio/music/Slow-100bpm-4_4-P32b-loop.ogg"
+dest_files=["res://.godot/imported/Slow-100bpm-4_4-P32b-loop.ogg-e948b7f071c49e314c6aa3214a8961ef.oggvorbisstr"]
 
 [params]
 
