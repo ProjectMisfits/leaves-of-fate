@@ -37,7 +37,7 @@ func finish_transition(pos: Vector2 = Vector2.INF) -> void:
 	input_position = pos
 	# Play the animation and wait for it to finish.
 	transition_animation_player.play_backwards(screen_transition_type)
-	await transition_animation_player.animation_finished;
+	await transition_animation_player.animation_finished
 
 ## Handle the circle transition animation's iris position.
 func _circle_transition() -> void:
