@@ -3,6 +3,12 @@ class_name ScreenTransition extends Control
 ## The animation player for the screen transition.
 @onready var transition_animation_player: AnimationPlayer = %AnimationPlayer
 
+## The transition animations supported by the ScreenTransition class.
+enum transition_types {
+	CIRCLE,
+	FADE
+}
+
 ## The current screen transition.
 var screen_transition_type: String
 
