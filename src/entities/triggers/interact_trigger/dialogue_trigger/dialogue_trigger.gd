@@ -7,6 +7,12 @@ class_name DialogueTrigger extends InteractTrigger
 ## The line to start at in the dialogue sequence.
 @export var dialogue_start: String = "start"
 
+## The name of the event flag to update when this trigger is activated. Updating the event flag is optional.
+@export var flag_name: String
+
+## The value to change the event flag to.
+@export var new_flag_value: bool
+
 ## Plays the interact sound when a trigger is interacted with.
 @onready var interact_audio: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
@@ -26,3 +32,7 @@ func _start_dialogue() -> void:
 	
 	interact_audio.play()
 	DialogueManager.show_dialogue_balloon(dialogue_sequence, dialogue_start)
+	
+	# If an event flag has been set for this trigger, update it.
+	if flag_name != null:
+		EventFlags.set_flag(flag_name, new_flag_value)
