@@ -30,7 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://cctsnqs8u4udu" path="res://src/entities/decor/furniture/wine_shelf.tscn" id="32_gw7y0"]
 [ext_resource type="PackedScene" uid="uid://dueb2snetgjyf" path="res://src/entities/decor/ice/icicle_06.tscn" id="32_wklt0"]
 [ext_resource type="PackedScene" uid="uid://s5tabrd66okd" path="res://src/entities/decor/ice/icicle_02.tscn" id="33_h8co5"]
-[ext_resource type="Texture2D" uid="uid://bbw1y6slm5i2p" path="res://assets/entities/decor/architecture/bricks.png" id="33_y68st"]
+[ext_resource type="Texture2D" uid="uid://bbw1y6slm5i2p" path="res://assets/rooms/tileset/DecorativeBricks.png" id="33_y68st"]
 [ext_resource type="PackedScene" uid="uid://b0wlcwvvy8ru2" path="res://src/entities/decor/furniture/chairs.tscn" id="34_2ajd0"]
 [ext_resource type="PackedScene" uid="uid://63pslrk6h8nl" path="res://src/entities/decor/ice/icicle_04.tscn" id="34_h8co5"]
 
