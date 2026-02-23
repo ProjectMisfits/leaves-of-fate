@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://h13x4nmh8pso"]
 
 [ext_resource type="Texture2D" uid="uid://cetapo5oxl1e8" path="res://assets/entities/hazards/ice_spike_ball/Ice-Spike-Ball.png" id="2_4vxkl"]
-[ext_resource type="Material" uid="uid://cyagf2w8coumw" path="res://assets/graphics/ice_material_ball_01.tres" id="2_col5u"]
-[ext_resource type="Texture2D" uid="uid://c2s7oorsjlvwf" path="res://assets/graphics/ice_normal_small.tres" id="4_col5u"]
+[ext_resource type="Material" uid="uid://cyagf2w8coumw" path="res://assets/vfx/shaders/ice_material_ball_01.tres" id="2_col5u"]
+[ext_resource type="Texture2D" uid="uid://c2s7oorsjlvwf" path="res://assets/vfx/shaders/ice_normal_small.tres" id="4_col5u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4vxkl"]
 size = Vector2(300, 300)

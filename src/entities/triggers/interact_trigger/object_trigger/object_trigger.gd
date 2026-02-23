@@ -1,5 +1,5 @@
 class_name ObjectTrigger extends InteractTrigger
-## A trigger for objects in the world. Activates on player interact input.
+## A trigger that updates an event flag. Activates on player interact input.
 
 ## The name of the flag to update.
 @export var flag_name: String

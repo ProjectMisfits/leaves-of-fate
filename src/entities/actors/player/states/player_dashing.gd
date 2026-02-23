@@ -36,12 +36,10 @@ func _enter() -> void:
 ## check if they may transition into another state.
 func _update(_delta: float) -> void:
 	# Check for state changes
-	var is_leaf_dash_mode_dash_only: bool = agent._current_leaf_dash_mode == Player.leaf_dash_mode.DASH_ONLY
-	var is_leaf_dash_mode_no_dash: bool = agent._current_leaf_dash_mode == Player.leaf_dash_mode.NO_DASH
 	var is_leaf_meter_empty: bool = agent.leaf_meter <= 0.0
 	var is_dash_action_not_pressed: bool = not Input.is_action_pressed("dash")
 	
-	if not agent.input_processing or is_leaf_dash_mode_no_dash or ((not is_leaf_dash_mode_dash_only) and (is_dash_action_not_pressed or is_leaf_meter_empty)):
+	if not agent.input_processing or agent.no_dash or ((not agent.infinite_dash) and (is_dash_action_not_pressed or is_leaf_meter_empty) or is_dash_action_not_pressed):
 		agent.check_airborne_state()
 		agent.check_running_state()
 		agent.check_idle_state()
@@ -85,6 +83,7 @@ func _exit() -> void:
 	agent.look_direction = new_look_direction if (new_look_direction != 0.0) else agent.look_direction
 	
 	# Drain Leaf Meter by an amount after ending Leaf Dash.
+	
 	agent.set_leaf_meter(max(agent.leaf_meter - agent.meter_dash_end_drain, 0.0))
 	
 	# If airborne, add a burst of velocity

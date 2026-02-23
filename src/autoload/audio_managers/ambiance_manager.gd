@@ -1,41 +1,47 @@
 extends AudioStreamPlayer
 ## A manager for playing ambiance during runtime.
 
+## The currently playing ambiance.
 var current_ambiance: Ambiance
 
 #Plays ambiance and one off sounds in the game's background
-func _load_ambiance(ambiance: Ambiance) -> void:
-	#If ambiance is already loaded, return
-	if ambiance == current_ambiance:
-		if not playing:
-			_play()
+func _play_ambiance(new_ambiance: Ambiance, new_volume: float = 0.0) -> void:
+	# If the provided ambiance is already playing, do nothing.
+	if current_ambiance == new_ambiance:
 		return
 	
-	#Loads the new ambiance
-	current_ambiance = ambiance
+	# If something is already playing, fade it out. If nothing is playing, the new ambiance will just start directly.
+	if playing:
+		await _fade_out()
+		stop()
 	
-	#Plays ambiance's background
-	stream = ambiance.background
+	# Start the new ambiance.
+	current_ambiance = new_ambiance
+	stream = new_ambiance.background
+	volume_db = new_volume
 	play()
 	_play_one_off()
 
-#Plays one off sounds randomly when ambiance is playing
-func _play_one_off()->void:
-	#Randomly play sound effects when aumbiance is playing
-	while (playing):
-		#Wait a random amount of time in between one off sounds
+## Play one off ambiance sounds randomly while ambiance is playing.
+func _play_one_off() -> void:
+	# TODO: Find a way to make playing one off ambiance sound effects not
+	# dependent on a while loop. The await means that the ambiance could change
+	# during the await, call this method, and then fail because "if not playing"
+	# never gets caught. I want to make sure that this method updates correctly.
+	while playing:
+		# Wait a random amount of time between one off sounds
 		await get_tree().create_timer(randf_range(5,25)).timeout
-		if(!playing):
+		# If the ambiance background is no longer playing, stop playing one offs
+		if not playing:
 			return
-		#Create a new Audio Player and set it to play a random one off sound
+		# Create a temporary AudioStreamPlayer to play a random one off sound
 		var player : AudioStreamPlayer = AudioStreamPlayer.new()
 		player.name = "OneOffSoundPlayer"
 		player.stream = current_ambiance.one_offs.pick_random()
-		#Add the player to the scene and play its sound
+		# Add the player to the scene and play its sound
 		add_child(player)
-
 		player.play()
-		#After the sound is played, remove its player
+		# Once the sound is done, remove the temporary AudioStreamPlayer
 		await player.finished
 		player.queue_free()
 
@@ -43,4 +49,9 @@ func _play_one_off()->void:
 func _play(from_position: float = 0.0) -> void:
 	_play_one_off()
 	play(from_position)
-	
+
+## Fade out the currently playing ambiance.
+func _fade_out() -> void:
+	var fade_out_tween: Tween = create_tween()
+	fade_out_tween.tween_property(self, "volume_db", -60.0, 0.5)
+	await fade_out_tween.finished
