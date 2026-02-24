@@ -13,13 +13,16 @@ var panel_noclip: Noclip
 ## Whether the running build is a debug build.
 var panel_enabled: bool = OS.has_feature("editor")
 
+## An override to enable the debug menu in exported builds if desired.
+@export var panel_enabled_override: bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Disable input processing and skip creating the debug menu if this is an exported build.
-	if not panel_enabled:
+	if not panel_enabled or not panel_enabled_override:
 		set_process_input(false)
 		return
-	
+
 	# Set up the debug menu.
 	debug_menu = CanvasLayer.new()
 	debug_menu.visible = false
@@ -47,5 +50,5 @@ func _input(event: InputEvent) -> void:
 
 ## Add a debug property to the debug menu.
 func add_debug_property(id: StringName, value: Variant, time_in_frames: int) -> void:
-	if panel_enabled:
+	if panel_enabled or panel_enabled_override:
 		panel_debug_properties.add_debug_property(id, value, time_in_frames)
