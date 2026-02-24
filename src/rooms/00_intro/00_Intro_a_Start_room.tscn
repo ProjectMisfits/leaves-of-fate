@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://7c7nfo2gy8fu" path="res://src/entities/decor/pillars/pillar_cap_03.tscn" id="6_m28v6"]
 [ext_resource type="PackedScene" uid="uid://bwadcghg6jxxu" path="res://src/entities/decor/pillars/pillar_base_03.tscn" id="7_xryoj"]
 
-[node name="02_Cellar_a_Entrance" instance=ExtResource("1_la711")]
+[node name="00_Intro_a_Start_room" instance=ExtResource("1_la711")]
 
 [node name="BackgroundGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
 position = Vector2(-1792, -2816.0002)

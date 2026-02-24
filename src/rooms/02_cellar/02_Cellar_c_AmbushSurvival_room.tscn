@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c0e5ya2ej5avs" path="res://src/entities/decor/furniture/bookshelf.tscn" id="6_cnyto"]
 [ext_resource type="PackedScene" uid="uid://bt8rip14nbobd" path="res://src/entities/decor/plants/hanging_pot_01.tscn" id="7_etqjl"]
 
-[node name="02_Cellar_d_FiresideChat01" instance=ExtResource("1_svcyf")]
+[node name="02_Cellar_c_AmbushSurvival_room" instance=ExtResource("1_svcyf")]
 
 [node name="BackgroundGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
 position = Vector2(-255.99998, -2048)
