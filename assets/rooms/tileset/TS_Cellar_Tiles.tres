@@ -1,0 +1,15 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://o5pvsk1vob3h"]
+
+[ext_resource type="Texture2D" uid="uid://drn7iwqksqxf0" path="res://assets/rooms/tileset/DecorativeBrickTiles.png" id="1_k31o8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o4wos"]
+texture = ExtResource("1_k31o8")
+texture_region_size = Vector2i(384, 128)
+3:0/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[resource]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_o4wos")

@@ -7,19 +7,23 @@
 [ext_resource type="TileSet" uid="uid://bnysb55hwhjyd" path="res://assets/rooms/tileset/TS_Hazards.tres" id="3_0bf0a"]
 [ext_resource type="PackedScene" uid="uid://cjkpybae7njrh" path="res://src/entities/actors/player/player.tscn" id="4_8eo6q"]
 [ext_resource type="TileSet" uid="uid://ca07scdfwk0u2" path="res://assets/rooms/tileset/TS_Windzone.tres" id="4_n3e44"]
+[ext_resource type="PackedScene" path="res://assets/vfx/shaders/dust_layer.tscn" id="4_n6lpe"]
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_t665v")
 
 [node name="BackgroundLayer" type="Parallax2D" parent="."]
 z_index = -20
+metadata/_edit_lock_ = true
 
 [node name="BackgroundTexture" type="Node2D" parent="BackgroundLayer"]
+metadata/_edit_lock_ = true
 
 [node name="BackgroundGradient" type="Sprite2D" parent="BackgroundLayer/BackgroundTexture"]
 scale = Vector2(1920, 9)
 texture = ExtResource("2_d7se1")
 centered = false
+metadata/_edit_lock_ = true
 
 [node name="Decor" type="Node2D" parent="BackgroundLayer"]
 metadata/_edit_lock_ = true
@@ -27,8 +31,10 @@ metadata/_edit_lock_ = true
 [node name="DustLayer" parent="BackgroundLayer" instance=ExtResource("4_n6lpe")]
 position = Vector2(-63.999992, -72)
 scale = Vector2(2.04, 1.2800001)
+metadata/_edit_lock_ = true
 
 [node name="MidgroundLayer" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Midground" type="TileMapLayer" parent="MidgroundLayer" groups=["midground"]]
 unique_name_in_owner = true
@@ -40,9 +46,13 @@ metadata/_edit_lock_ = true
 tile_set = ExtResource("3_0bf0a")
 metadata/_edit_lock_ = true
 
+[node name="DecorTiles" type="TileMapLayer" parent="MidgroundLayer"]
+metadata/_edit_lock_ = true
+
 [node name="Windzones" type="TileMapLayer" parent="MidgroundLayer"]
 modulate = Color(1, 1, 1, 0.40784314)
 tile_set = ExtResource("4_n3e44")
+metadata/_edit_lock_ = true
 
 [node name="DoorHolder" type="Node2D" parent="MidgroundLayer"]
 unique_name_in_owner = true
@@ -91,6 +101,7 @@ metadata/_edit_lock_ = true
 
 [node name="ForegroundLayer" type="Parallax2D" parent="."]
 z_index = 20
+metadata/_edit_lock_ = true
 
 [node name="Decor" type="Node2D" parent="ForegroundLayer"]
 metadata/_edit_lock_ = true
