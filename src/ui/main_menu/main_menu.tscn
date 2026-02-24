@@ -321,7 +321,7 @@ texture = ExtResource("5_vivct")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="MenuHolder" type="CanvasLayer" parent="."]
+[node name="SubmenuHolder" type="Node" parent="."]
 unique_name_in_owner = true
 
 [node name="Audio" type="Control" parent="."]

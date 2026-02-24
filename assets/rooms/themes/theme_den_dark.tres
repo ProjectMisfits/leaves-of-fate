@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="RoomThemeConfig" load_steps=2 format=3 uid="uid://cd0cflkuqo8bc"]
+
+[ext_resource type="Script" uid="uid://nrwk3t4fulja" path="res://src/rooms/room_theme_config.gd" id="1_vnimp"]
+
+[resource]
+script = ExtResource("1_vnimp")
+color = Color(0.13725491, 0.15686275, 0.2, 1)
+metadata/_custom_type_script = "uid://nrwk3t4fulja"
