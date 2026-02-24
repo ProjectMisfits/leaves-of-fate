@@ -27,11 +27,15 @@ func set_player(current_player: Player) -> void:
 	player = current_player
 	player.leaf_meter_changed.connect(_set_leaf_meter)
 	player.dash_cooldown_timer_updated.connect(_set_cooldown_leaf)
+	
+	# When dash starts, make cooldown leaf disappear.
+	player.dash_started.connect(_set_cooldown_leaf.bind(1.0, 1.0))
 
-## Sets the cooldown leaf visual's visibility.
+## Sets the cooldown leaf visual's color & opacity.
 ## Intended to be utilized by the Player's dash cooldown timer.
 func _set_cooldown_leaf(max_value: float, new_value: float) -> void:
-	cooldown_leaf.modulate.a = 1 - (new_value / max_value)
+	var new_percent: float = (1 - (new_value / max_value))
+	cooldown_leaf.modulate = Color(1, new_percent, new_percent, new_percent)
 
 ## Sets the leaf meter visual to the given value if it is within 0.0 - 100.0
 func _set_leaf_meter(new_value: float) -> void:
