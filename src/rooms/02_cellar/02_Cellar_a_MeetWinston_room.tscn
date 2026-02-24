@@ -18,8 +18,8 @@
 [node name="02_Cellar_a_MeetWinston" instance=ExtResource("1_mvvqy")]
 
 [node name="BackgroundGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
-position = Vector2(-127.99999, -2304)
-scale = Vector2(9471.998, 27)
+position = Vector2(-134.73685, -2304)
+scale = Vector2(9478.734, 27)
 
 [node name="HangingLantern" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("2_ha3ky")]
 position = Vector2(1024, -1536)

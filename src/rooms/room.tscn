@@ -26,7 +26,6 @@ metadata/_edit_lock_ = true
 scale = Vector2(1920, 9)
 texture = ExtResource("2_d7se1")
 centered = false
-metadata/_edit_lock_ = true
 
 [node name="Decor" type="Node2D" parent="BackgroundLayer"]
 
