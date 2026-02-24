@@ -30,11 +30,15 @@ func _enter() -> void:
 		ps.emitting = true
 	
 	move_direction = get_input_direction()
+	
+	# Velocity should be at least the dash min speed, if not more.
+	agent.velocity = move_direction * max(agent.velocity.length(), agent.dash_min_speed)
+	
 	rad_angular_turn_speed = deg_to_rad(agent.dash_angular_turn_speed)
 
 ## Move & turn the Player. If the dash button is not held or the Player runs out of wind,
 ## check if they may transition into another state.
-func _update(_delta: float) -> void:
+func _update(delta: float) -> void:
 	# Check for state changes
 	var is_leaf_meter_empty: bool = agent.leaf_meter <= 0.0
 	var is_dash_action_not_pressed: bool = not Input.is_action_pressed("dash")
@@ -61,7 +65,10 @@ func _update(_delta: float) -> void:
 	else:
 		turning = false
 	
-	agent.velocity = move_direction * agent.dash_max_speed
+	var new_velocity_length: float = agent.velocity.length() + (agent.dash_acceleration * delta)
+	new_velocity_length = clampf(new_velocity_length, agent.dash_min_speed, agent.dash_max_speed)
+	
+	agent.velocity = new_velocity_length * move_direction
 	agent.flip_node.rotation = Vector2.RIGHT.angle_to(move_direction)
 
 ## Revert the Player's animation, particles, and rotation back to their normal mode.
@@ -90,6 +97,9 @@ func _exit() -> void:
 	if (not agent.is_on_floor()):
 		agent.post_dash_mode = true
 		agent.velocity *= agent.dash_end_velocity_multiplier
+		
+		if (agent.velocity.length() > agent.dash_end_max_velocity):
+			agent.velocity = agent.velocity.normalized() * agent.dash_end_max_velocity
 
 ## Returns the move direction Vector turned toward the input direction Vector by the angular turn speed.
 func get_turned_move_direction() -> Vector2:
