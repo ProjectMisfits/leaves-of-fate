@@ -59,75 +59,44 @@ scale = Vector2(8576, 64.99999)
 texture = ExtResource("2_6l8wa")
 centered = false
 
-[node name="CanvasGroup" type="CanvasGroup" parent="BackgroundLayer/Decor" index="0"]
-modulate = Color(0.76, 0.76, 0.76, 0.6039216)
-
-[node name="PillarTrunk01-5" parent="BackgroundLayer/Decor/CanvasGroup" index="0" instance=ExtResource("3_6l8wa")]
-modulate = Color(0.4, 0.4, 0.4, 1)
-use_parent_material = true
-position = Vector2(10467.778, -2676.6667)
-rotation = -1.5707964
-scale = Vector2(1, 6.0444446)
-
-[node name="PillarTrunk01-6" parent="BackgroundLayer/Decor/CanvasGroup" index="1" instance=ExtResource("3_6l8wa")]
-modulate = Color(0.4, 0.4, 0.4, 1)
-use_parent_material = true
-position = Vector2(1363.333, -2676.6667)
-rotation = -1.5707964
-scale = Vector2(1, 6.0444446)
-
-[node name="PillarTrunk01-7" parent="BackgroundLayer/Decor/CanvasGroup" index="2" instance=ExtResource("3_6l8wa")]
-modulate = Color(0.4, 0.4, 0.4, 1)
-use_parent_material = true
-position = Vector2(10467.778, 878.8889)
-rotation = -1.5707964
-scale = Vector2(1, 6.0444446)
-
-[node name="PillarTrunk01-8" parent="BackgroundLayer/Decor/CanvasGroup" index="3" instance=ExtResource("3_6l8wa")]
-modulate = Color(0.4, 0.4, 0.4, 1)
-use_parent_material = true
-position = Vector2(1363.333, 878.8889)
-rotation = -1.5707964
-scale = Vector2(1, 6.0444446)
-
-[node name="HangingLantern" parent="BackgroundLayer/Decor" index="1" instance=ExtResource("4_jpcdc")]
+[node name="HangingLantern" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("4_jpcdc")]
 position = Vector2(615.55554, -2535.5554)
 
-[node name="HangingLantern-7" parent="BackgroundLayer/Decor" index="2" instance=ExtResource("4_jpcdc")]
+[node name="HangingLantern-7" parent="BackgroundLayer/Decor" index="1" instance=ExtResource("4_jpcdc")]
 position = Vector2(-1254.4445, -2517.7778)
 
-[node name="HangingLantern-2" parent="BackgroundLayer/Decor" index="3" instance=ExtResource("4_jpcdc")]
+[node name="HangingLantern-2" parent="BackgroundLayer/Decor" index="2" instance=ExtResource("4_jpcdc")]
 position = Vector2(2717.7778, -2542.2222)
 
-[node name="HangingLantern-3" parent="BackgroundLayer/Decor" index="4" instance=ExtResource("4_jpcdc")]
-position = Vector2(12365.556, -2541.111)
+[node name="HangingLantern-3" parent="BackgroundLayer/Decor" index="3" instance=ExtResource("4_jpcdc")]
+position = Vector2(12032, -2560)
 
-[node name="HangingLantern-4" parent="BackgroundLayer/Decor" index="5" instance=ExtResource("4_jpcdc")]
+[node name="HangingLantern-4" parent="BackgroundLayer/Decor" index="4" instance=ExtResource("4_jpcdc")]
 position = Vector2(10022.222, -2540)
 
-[node name="HangingLantern-5" parent="BackgroundLayer/Decor" index="6" instance=ExtResource("4_jpcdc")]
+[node name="HangingLantern-5" parent="BackgroundLayer/Decor" index="5" instance=ExtResource("4_jpcdc")]
 position = Vector2(6362.2227, -2604.4446)
 
-[node name="HangingLantern-6" parent="BackgroundLayer/Decor" index="7" instance=ExtResource("4_jpcdc")]
+[node name="HangingLantern-6" parent="BackgroundLayer/Decor" index="6" instance=ExtResource("4_jpcdc")]
 position = Vector2(12189.999, -4543.334)
 rotation = 0.017589075
 
-[node name="Window01" parent="BackgroundLayer/Decor" index="8" instance=ExtResource("5_y5unq")]
+[node name="Window01" parent="BackgroundLayer/Decor" index="7" instance=ExtResource("5_y5unq")]
 position = Vector2(768, 0)
 
-[node name="Window01-2" parent="BackgroundLayer/Decor" index="9" instance=ExtResource("5_y5unq")]
+[node name="Window01-2" parent="BackgroundLayer/Decor" index="8" instance=ExtResource("5_y5unq")]
 position = Vector2(12032, -64)
 
-[node name="Window02" parent="BackgroundLayer/Decor" index="10" instance=ExtResource("6_x263s")]
+[node name="Window02" parent="BackgroundLayer/Decor" index="9" instance=ExtResource("6_x263s")]
 position = Vector2(9958, -861)
 
-[node name="Window02-2" parent="BackgroundLayer/Decor" index="11" instance=ExtResource("6_x263s")]
+[node name="Window02-2" parent="BackgroundLayer/Decor" index="10" instance=ExtResource("6_x263s")]
 position = Vector2(2816, -768)
 
-[node name="Window03" parent="BackgroundLayer/Decor" index="12" instance=ExtResource("7_04rh1")]
+[node name="Window03" parent="BackgroundLayer/Decor" index="11" instance=ExtResource("7_04rh1")]
 position = Vector2(4864, -1024)
 
-[node name="Window03-2" parent="BackgroundLayer/Decor" index="13" instance=ExtResource("7_04rh1")]
+[node name="Window03-2" parent="BackgroundLayer/Decor" index="12" instance=ExtResource("7_04rh1")]
 position = Vector2(7936, -1024)
 
 [node name="DustLayer" parent="BackgroundLayer" index="2"]
@@ -183,117 +152,118 @@ enabled = false
 z_index = 5
 copy_mode = 2
 
-[node name="IceSpikeBall" parent="MidgroundLayer/BackBufferCopy-2" index="0" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall" parent="MidgroundLayer/BackBufferCopy" index="0" instance=ExtResource("10_yjioi")]
 position = Vector2(64, -3648)
 
-[node name="IceSpikeBall-2" parent="MidgroundLayer/BackBufferCopy-2" index="1" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall-2" parent="MidgroundLayer/BackBufferCopy" index="1" instance=ExtResource("10_yjioi")]
 position = Vector2(192, -3968)
 
-[node name="IceSpikeBall-3" parent="MidgroundLayer/BackBufferCopy-2" index="2" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall-3" parent="MidgroundLayer/BackBufferCopy" index="2" instance=ExtResource("10_yjioi")]
 position = Vector2(448, -3712)
 
-[node name="IceSpikeBall-4" parent="MidgroundLayer/BackBufferCopy-2" index="3" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall-4" parent="MidgroundLayer/BackBufferCopy" index="3" instance=ExtResource("10_yjioi")]
 position = Vector2(64, -4352)
 
-[node name="IceSpikeBall-5" parent="MidgroundLayer/BackBufferCopy-2" index="4" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall-5" parent="MidgroundLayer/BackBufferCopy" index="4" instance=ExtResource("10_yjioi")]
 position = Vector2(12750.001, -4207)
 scale = Vector2(0.7667537, 0.7667537)
 
-[node name="IceSpikeBall-6" parent="MidgroundLayer/BackBufferCopy-2" index="5" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall-6" parent="MidgroundLayer/BackBufferCopy" index="5" instance=ExtResource("10_yjioi")]
 position = Vector2(12642, -3685.0002)
 rotation = -0.8152467
 scale = Vector2(1.3137554, 1.2801384)
 
-[node name="IceSpikeBall-20" parent="MidgroundLayer/BackBufferCopy-2" index="6" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall-20" parent="MidgroundLayer/BackBufferCopy" index="6" instance=ExtResource("10_yjioi")]
 position = Vector2(13847.001, 937.99976)
 rotation = -0.8152467
 scale = Vector2(3.298986, 3.21457)
 
-[node name="IceSpikeBall-19" parent="MidgroundLayer/BackBufferCopy-2" index="7" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall-19" parent="MidgroundLayer/BackBufferCopy" index="7" instance=ExtResource("10_yjioi")]
 position = Vector2(13652, -2724.9998)
 rotation = -0.8152467
 scale = Vector2(4.10092, 3.995984)
 
-[node name="IceSpikeBall-7" parent="MidgroundLayer/BackBufferCopy-2" index="8" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall-7" parent="MidgroundLayer/BackBufferCopy" index="8" instance=ExtResource("10_yjioi")]
 position = Vector2(12313, -3591)
 scale = Vector2(0.7297833, 0.7297833)
 
-[node name="IceSpikeBall-9" parent="MidgroundLayer/BackBufferCopy-2" index="9" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall-9" parent="MidgroundLayer/BackBufferCopy" index="9" instance=ExtResource("10_yjioi")]
 position = Vector2(7680, -5760)
 
-[node name="IceSpikeBall-10" parent="MidgroundLayer/BackBufferCopy-2" index="10" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall-10" parent="MidgroundLayer/BackBufferCopy" index="10" instance=ExtResource("10_yjioi")]
 position = Vector2(7424, -6080)
 
-[node name="IceSpikeBall-11" parent="MidgroundLayer/BackBufferCopy-2" index="11" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall-11" parent="MidgroundLayer/BackBufferCopy" index="11" instance=ExtResource("10_yjioi")]
 position = Vector2(7104, -6272)
 
-[node name="IceSpikeBall-12" parent="MidgroundLayer/BackBufferCopy-2" index="12" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall-12" parent="MidgroundLayer/BackBufferCopy" index="12" instance=ExtResource("10_yjioi")]
 position = Vector2(6720, -6400)
 
-[node name="IceSpikeBall-13" parent="MidgroundLayer/BackBufferCopy-2" index="13" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall-13" parent="MidgroundLayer/BackBufferCopy" index="13" instance=ExtResource("10_yjioi")]
 position = Vector2(6400, -6400)
 
-[node name="IceSpikeBall-14" parent="MidgroundLayer/BackBufferCopy-2" index="14" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall-14" parent="MidgroundLayer/BackBufferCopy" index="14" instance=ExtResource("10_yjioi")]
 position = Vector2(6080, -6400)
 
-[node name="IceSpikeBall-15" parent="MidgroundLayer/BackBufferCopy-2" index="15" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall-15" parent="MidgroundLayer/BackBufferCopy" index="15" instance=ExtResource("10_yjioi")]
 position = Vector2(5760, -6272)
 
-[node name="IceSpikeBall-16" parent="MidgroundLayer/BackBufferCopy-2" index="16" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall-16" parent="MidgroundLayer/BackBufferCopy" index="16" instance=ExtResource("10_yjioi")]
 position = Vector2(2882, -4896)
 
-[node name="IceSpikeBall-17" parent="MidgroundLayer/BackBufferCopy-2" index="17" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall-17" parent="MidgroundLayer/BackBufferCopy" index="17" instance=ExtResource("10_yjioi")]
 position = Vector2(5120, -5760)
 
-[node name="IceSpikeBall-8" parent="MidgroundLayer/BackBufferCopy-2" index="18" instance=ExtResource("10_yjioi")]
+[node name="IceSpikeBall-8" parent="MidgroundLayer/BackBufferCopy" index="18" instance=ExtResource("10_yjioi")]
 position = Vector2(12724.999, -3945)
 rotation = 0.61772656
 scale = Vector2(0.9578319, 0.9578319)
 
-[node name="MidSec" type="Node2D" parent="MidgroundLayer/BackBufferCopy-2" index="19"]
+[node name="MidSec" type="Node2D" parent="MidgroundLayer/BackBufferCopy" index="19"]
 
-[node name="Icicle05" parent="MidgroundLayer/BackBufferCopy-2/MidSec" index="0" instance=ExtResource("31_q6fh7")]
+[node name="Icicle05" parent="MidgroundLayer/BackBufferCopy/MidSec" index="0" instance=ExtResource("31_q6fh7")]
 position = Vector2(13400.001, 1000)
 rotation = -0.21363388
 scale = Vector2(3, 3)
 
-[node name="Icicle06" parent="MidgroundLayer/BackBufferCopy-2/MidSec" index="1" instance=ExtResource("32_wklt0")]
+[node name="Icicle06" parent="MidgroundLayer/BackBufferCopy/MidSec" index="1" instance=ExtResource("32_wklt0")]
 position = Vector2(13600, 1200)
 scale = Vector2(4, 4)
 
-[node name="Icicle02" parent="MidgroundLayer/BackBufferCopy-2/MidSec" index="2" instance=ExtResource("33_h8co5")]
+[node name="Icicle02" parent="MidgroundLayer/BackBufferCopy/MidSec" index="2" instance=ExtResource("33_h8co5")]
 position = Vector2(13034.002, 1029.0001)
 rotation = -0.12901968
 scale = Vector2(2.9999998, 2.9999998)
 
-[node name="Icicle06-2" parent="MidgroundLayer/BackBufferCopy-2/MidSec" index="3" instance=ExtResource("32_wklt0")]
+[node name="Icicle06-2" parent="MidgroundLayer/BackBufferCopy/MidSec" index="3" instance=ExtResource("32_wklt0")]
 position = Vector2(13566, -3116.0005)
 rotation = -2.8782394
 scale = Vector2(3, 3)
 
-[node name="Icicle04" parent="MidgroundLayer/BackBufferCopy-2/MidSec" index="4" instance=ExtResource("34_h8co5")]
+[node name="Icicle04" parent="MidgroundLayer/BackBufferCopy/MidSec" index="4" instance=ExtResource("34_h8co5")]
 position = Vector2(13481, -2340.0005)
 rotation = -2.9495597
 scale = Vector2(3, 3)
 
-[node name="Icicle06-3" parent="MidgroundLayer/BackBufferCopy-2/MidSec" index="5" instance=ExtResource("32_wklt0")]
+[node name="Icicle06-3" parent="MidgroundLayer/BackBufferCopy/MidSec" index="5" instance=ExtResource("32_wklt0")]
 position = Vector2(13958.001, -3173)
 rotation = -2.9978132
 scale = Vector2(4, 4)
 
-[node name="Icicle06-4" parent="MidgroundLayer/BackBufferCopy-2/MidSec" index="6" instance=ExtResource("32_wklt0")]
+[node name="Icicle06-4" parent="MidgroundLayer/BackBufferCopy/MidSec" index="6" instance=ExtResource("32_wklt0")]
 position = Vector2(14006, 1003)
 rotation = 0.033423726
 scale = Vector2(4, 4)
 
-[node name="Icicle02-2" parent="MidgroundLayer/BackBufferCopy-2/MidSec" index="7" instance=ExtResource("33_h8co5")]
+[node name="Icicle02-2" parent="MidgroundLayer/BackBufferCopy/MidSec" index="7" instance=ExtResource("33_h8co5")]
 position = Vector2(13260, -2450)
 rotation = -2.71513
 scale = Vector2(3, 3)
 
-[node name="Fades" type="Node2D" parent="MidgroundLayer/BackBufferCopy-2" index="20"]
+[node name="Fades" type="Node2D" parent="MidgroundLayer/BackBufferCopy" index="20"]
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy-2/Fades" index="0"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="0"]
+visible = false
 light_mask = 0
 position = Vector2(13824.001, -2624.0002)
 rotation = 3.1415925
@@ -301,7 +271,7 @@ scale = Vector2(18, 65)
 mesh = SubResource("QuadMesh_5us1k")
 texture = SubResource("GradientTexture2D_hnl24")
 
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy-2/Fades" index="1"]
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="1"]
 light_mask = 0
 position = Vector2(11008.001, -3266.8223)
 rotation = 1.5707964
@@ -309,7 +279,7 @@ scale = Vector2(5, 3)
 mesh = SubResource("QuadMesh_5us1k")
 texture = SubResource("GradientTexture2D_hnl24")
 
-[node name="MeshInstance2D3" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy-2/Fades" index="2"]
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="2"]
 light_mask = 0
 position = Vector2(1792, -3264)
 rotation = 1.5707964
@@ -317,7 +287,7 @@ scale = Vector2(5, 3)
 mesh = SubResource("QuadMesh_5us1k")
 texture = SubResource("GradientTexture2D_hnl24")
 
-[node name="MeshInstance2D4" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy-2/Fades" index="3"]
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="3"]
 light_mask = 0
 position = Vector2(-256, -3264.0002)
 rotation = 1.5707964
@@ -555,73 +525,6 @@ position = Vector2(6396.9995, 962.00006)
 scale = Vector2(1.2385602, 0.43381923)
 texture = ExtResource("33_y68st")
 
-[node name="PillarTrunk01-4" parent="MidgroundLayer/Decor" index="49" instance=ExtResource("3_6l8wa")]
-modulate = Color(0.36659998, 0.37985998, 0.39, 1)
-use_parent_material = true
-position = Vector2(12138, 1363)
-rotation = 1.5707964
-scale = Vector2(1, 2)
-
-[node name="PillarTrunk01-5" parent="MidgroundLayer/Decor" index="50" instance=ExtResource("3_6l8wa")]
-modulate = Color(0.36659998, 0.37985998, 0.39, 1)
-use_parent_material = true
-position = Vector2(9150, 1366)
-rotation = -1.5707964
-scale = Vector2(1, 2)
-
-[node name="PillarTrunk01-6" parent="MidgroundLayer/Decor" index="51" instance=ExtResource("3_6l8wa")]
-modulate = Color(0.36659998, 0.37985998, 0.39, 1)
-use_parent_material = true
-position = Vector2(6115, 1363)
-rotation = 1.5707964
-scale = Vector2(1, 2)
-
-[node name="PillarTrunk01-7" parent="MidgroundLayer/Decor" index="52" instance=ExtResource("3_6l8wa")]
-modulate = Color(0.36659998, 0.37985998, 0.39, 1)
-use_parent_material = true
-position = Vector2(3089, 1365)
-rotation = 4.712389
-scale = Vector2(1, 2)
-
-[node name="PillarTrunk01-8" parent="MidgroundLayer/Decor" index="53" instance=ExtResource("3_6l8wa")]
-modulate = Color(0.36659998, 0.37985998, 0.39, 1)
-use_parent_material = true
-position = Vector2(71, 1363)
-rotation = 1.5707964
-scale = Vector2(1, 2)
-
-[node name="PillarTrunk01-9" parent="MidgroundLayer/Decor" index="54" instance=ExtResource("3_6l8wa")]
-modulate = Color(0.36659998, 0.37985998, 0.39, 1)
-use_parent_material = true
-position = Vector2(-2946, 1366)
-rotation = -1.5707964
-scale = Vector2(1, 2)
-
-[node name="Bricks" type="Sprite2D" parent="MidgroundLayer/Decor" index="55"]
-position = Vector2(11858, 1148.0001)
-scale = Vector2(0.6779877, 0.6779877)
-texture = ExtResource("33_y68st")
-
-[node name="Bricks2" type="Sprite2D" parent="MidgroundLayer/Decor" index="56"]
-position = Vector2(8784, 1148.0001)
-scale = Vector2(0.6779877, 0.6779877)
-texture = ExtResource("33_y68st")
-
-[node name="Bricks3" type="Sprite2D" parent="MidgroundLayer/Decor" index="57"]
-position = Vector2(5711.0005, 1148.0001)
-scale = Vector2(0.6779877, 0.6779877)
-texture = ExtResource("33_y68st")
-
-[node name="Bricks4" type="Sprite2D" parent="MidgroundLayer/Decor" index="58"]
-position = Vector2(2639.0002, 1148)
-scale = Vector2(0.6779877, 0.6779877)
-texture = ExtResource("33_y68st")
-
-[node name="Bricks5" type="Sprite2D" parent="MidgroundLayer/Decor" index="59"]
-position = Vector2(-526, 1148)
-scale = Vector2(0.7179886, 0.6779877)
-texture = ExtResource("33_y68st")
-
-[node name="Chairs" parent="MidgroundLayer/Decor" index="60" instance=ExtResource("34_2ajd0")]
+[node name="Chairs" parent="MidgroundLayer/Decor" index="49" instance=ExtResource("34_2ajd0")]
 use_parent_material = true
 position = Vector2(6208, 128)

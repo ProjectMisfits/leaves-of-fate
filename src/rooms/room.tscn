@@ -28,7 +28,6 @@ centered = false
 metadata/_edit_lock_ = true
 
 [node name="Decor" type="Node2D" parent="BackgroundLayer"]
-metadata/_edit_lock_ = true
 
 [node name="DustLayer" parent="BackgroundLayer" instance=ExtResource("4_n6lpe")]
 position = Vector2(-63.999992, -72)
@@ -100,6 +99,7 @@ z_index = 5
 metadata/_edit_lock_ = true
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="MidgroundLayer"]
+copy_mode = 2
 metadata/_edit_lock_ = true
 
 [node name="Decor" type="Node2D" parent="MidgroundLayer"]
