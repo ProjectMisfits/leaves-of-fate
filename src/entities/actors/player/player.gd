@@ -411,10 +411,6 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 ## Calls move_horizontal with ground parameters.
 func move_horizontal_ground(delta: float) -> void:
 	move_horizontal(ground_acceleration, ground_deceleration, ground_turn_speed, delta)
-	if can_play_footstep:
-		can_play_footstep = false
-		foot_step_audio_player.play()
-		foot_step_timer.start(foot_step_audio_player.stream.get_length())
 
 	
 
