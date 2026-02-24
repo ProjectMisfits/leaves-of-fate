@@ -1,4 +1,4 @@
-class_name Gameplay extends Node2D
+class_name Gameplay extends Node
 ## Wrapper for gameplay scenes during runtime.
 ## Manages scenes like the current Room, HUD, Camera, menus.
 
@@ -10,9 +10,9 @@ class_name Gameplay extends Node2D
 var current_room_path: String = ""
 
 ## A reference to the HUD.
-@onready var hud: Hud = %Hud
+@onready var hud: Hud = $UILayer/Hud
 ## A reference to the MenuHolder CanvasLayer.
-@onready var menu_holder: CanvasLayer = $MenuHolder
+@onready var menu_holder: Control = $UILayer/MenuHolder
 ## A reference to the pause menu scene.
 @onready var pause_menu: PauseMenu = preload("res://src/ui/pause_menu/pause_menu.tscn").instantiate()
 ## A reference to the settings menu scene.
@@ -33,7 +33,7 @@ func _get_player_pos() -> Vector2:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Set up the camera manager.
-	CameraManager.initialize_camera($%PhantomCamera2D, $%Camera2D)
+	CameraManager.initialize_camera(%PhantomCamera2D, %Camera2D)
 	
 	# Connect the player knocked out signal.
 	EventBus.player_knocked_out.connect(_on_player_knocked_out)
