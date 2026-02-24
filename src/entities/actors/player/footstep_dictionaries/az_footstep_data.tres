@@ -1,0 +1,12 @@
+[gd_resource type="JSON" load_steps=3 format=3 uid="uid://dehsjji5wiril"]
+
+[ext_resource type="AudioStream" uid="uid://cwp7al027m2ut" path="res://assets/entities/actors/footsteps/stone/FS-Az-Stone.tres" id="1_41kaf"]
+[ext_resource type="AudioStream" uid="uid://wbwwq2nc0a8k" path="res://assets/entities/actors/footsteps/wood/FS-Az-Wood.tres" id="2_wwnly"]
+
+[resource]
+data = {
+"metal": ExtResource("1_41kaf"),
+"snow": ExtResource("2_wwnly"),
+"stone": ExtResource("1_41kaf"),
+"wood": ExtResource("2_wwnly")
+}
