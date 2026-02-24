@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnc5ghx3ns12"]
+[gd_scene load_steps=10 format=3 uid="uid://cnc5ghx3ns12"]
 
 [ext_resource type="PackedScene" uid="uid://daw5s2hjs0tq1" path="res://src/entities/actors/npcs/npc_base/npc_base.tscn" id="1_3e8bs"]
 [ext_resource type="Texture2D" uid="uid://ckbv0pikghyok" path="res://assets/entities/actors/npcs/npc_az/Az-SpriteSheet-Idle-05.png" id="2_0vfkb"]
 [ext_resource type="Shape2D" uid="uid://dckafgmp1s840" path="res://src/entities/actors/npcs/npc_az/npc_az_collision_shape.tres" id="3_1o21l"]
 [ext_resource type="Texture2D" uid="uid://ca4hv11ak1ro0" path="res://assets/entities/actors/npcs/npc_az/Az-SpriteSheet-Walk-01.png" id="4_xtrrx"]
+[ext_resource type="AudioStream" uid="uid://cwp7al027m2ut" path="res://assets/entities/actors/footsteps/stone/FS-Az-Stone.tres" id="5_gdc4j"]
 
 [sub_resource type="Animation" id="Animation_1o21l"]
 length = 0.001
@@ -126,6 +127,23 @@ tracks/2/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/Footsteps")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1o21l"]
 _data = {
@@ -151,3 +169,10 @@ shape = ExtResource("3_1o21l")
 libraries = {
 &"": SubResource("AnimationLibrary_1o21l")
 }
+
+[node name="Audio" type="Node2D" parent="." index="3"]
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="Audio" index="0"]
+stream = ExtResource("5_gdc4j")
+volume_db = 3.0
+bus = &"SFX"
