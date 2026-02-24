@@ -7,7 +7,7 @@
 % [if not EventFlags.get_flag("X-Ws-Cellar-6")] => convo_6
 % [if not EventFlags.get_flag("X-Ws-Cellar-7")] => convo_7
 % [if not EventFlags.get_flag("X-Ws-Cellar-8")] => convo_8
-% [if not EventFlags.get_flag("X-Ws-Cellar-9")] => convo_9
+% [if not EventFlags.get_flag("X-Ws-Cellar-9") and EventFlags.get_flag("X-Ws-Cellar-10")] => convo_9
 % [if not EventFlags.get_flag("X-Ws-Cellar-10")] => convo_10
 % [if not EventFlags.get_flag("X-Ws-Cellar-11")] => convo_11
 % [if EventFlags.num_cellar_conversations == 11] => ending_convo
