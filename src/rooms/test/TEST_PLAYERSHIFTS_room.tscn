@@ -69,18 +69,14 @@ tile_map_data = PackedByteArray("AAAAAAgABgAFAAAAAAABAAgABgAFAAAAAAACAAgABgAFAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(608.0005, 943.9999)
-path_to_target_room = "uid://f2l3hfy6ehdh"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(36272, 1008)
 rotation = 0.008716512
-path_to_target_room = "uid://c8aipu8vkbprc"
 
-[node name="CameraTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" node_paths=PackedStringArray("limit_target") instance=ExtResource("5_cn54q")]
+[node name="CameraTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("5_cn54q")]
 position = Vector2(-944, 0)
-limit_target = NodePath("../../../Midground")
 follow_player = true
-change_offset = Vector2(200, -200)
 
 [node name="CollisionShape2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger" index="0"]
 position = Vector2(1926, -923.75)
