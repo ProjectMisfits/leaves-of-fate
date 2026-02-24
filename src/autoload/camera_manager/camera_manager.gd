@@ -82,14 +82,16 @@ func _remove_all_cameras() -> void:
 	if get_child_count() == 0:
 		return
 	
-	for camera_to_remove: PhantomCamera2D in self.get_children():
+	# First set the priorities of all of the cameras so that phantom camera tweens back to the player camera.
+	for camera_to_remove: PhantomCamera2D in get_children():
 		camera_to_remove.set_priority(-1)
 	
+	# Wait for the tween back to the player to complete.
 	await phantom_camera.tween_completed
 	
-	for camera_to_remove: PhantomCamera2D in self.get_children():
+	# Now actually delete the cameras.
+	for camera_to_remove: PhantomCamera2D in get_children():
 		camera_to_remove.queue_free()
-
 
 ## Get the phantom camera tween transition type for the given string.
 func _string_to_tween_transition_type(type: String) -> PhantomCameraTween.TransitionType:
