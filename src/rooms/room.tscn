@@ -12,8 +12,10 @@
 [node name="Room" type="Node2D"]
 script = ExtResource("1_t665v")
 
-[node name="BackgroundLayer" type="Parallax2D" parent="."]
-z_index = -20
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enabled = true
+follow_viewport_scale = 0.95
 metadata/_edit_lock_ = true
 
 [node name="BackgroundTexture" type="Node2D" parent="BackgroundLayer"]
@@ -99,8 +101,9 @@ metadata/_edit_lock_ = true
 [node name="Decor" type="Node2D" parent="MidgroundLayer"]
 metadata/_edit_lock_ = true
 
-[node name="ForegroundLayer" type="Parallax2D" parent="."]
-z_index = 20
+[node name="ForegroundLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+follow_viewport_scale = 1.05
 metadata/_edit_lock_ = true
 
 [node name="Decor" type="Node2D" parent="ForegroundLayer"]

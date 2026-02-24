@@ -73,32 +73,58 @@ position = Vector2(-16128, 1536)
 [node name="HangingLantern2-2" parent="BackgroundLayer/Decor" index="14" instance=ExtResource("3_n43ap")]
 position = Vector2(-13056, 1536)
 
-[node name="HangingLantern2-3" parent="BackgroundLayer/Decor" index="15" instance=ExtResource("3_n43ap")]
+[node name="HangingLantern2-4" parent="BackgroundLayer/Decor" index="15" instance=ExtResource("3_n43ap")]
+position = Vector2(11264, -4096)
+
+[node name="HangingLantern2-5" parent="BackgroundLayer/Decor" index="16" instance=ExtResource("3_n43ap")]
+position = Vector2(8960, -4160)
+
+[node name="HangingLantern2-3" parent="BackgroundLayer/Decor" index="17" instance=ExtResource("3_n43ap")]
 position = Vector2(-11200, 1088)
 
-[node name="HangingLantern3" parent="BackgroundLayer/Decor" index="16" instance=ExtResource("3_n43ap")]
+[node name="HangingLantern3" parent="BackgroundLayer/Decor" index="18" instance=ExtResource("3_n43ap")]
 position = Vector2(18176, -2048)
 
-[node name="HangingLantern4" parent="BackgroundLayer/Decor" index="17" instance=ExtResource("3_n43ap")]
+[node name="HangingLantern4" parent="BackgroundLayer/Decor" index="19" instance=ExtResource("3_n43ap")]
 position = Vector2(22656, -2048)
 
-[node name="HangingLantern4-2" parent="BackgroundLayer/Decor" index="18" instance=ExtResource("3_n43ap")]
+[node name="HangingLantern4-2" parent="BackgroundLayer/Decor" index="20" instance=ExtResource("3_n43ap")]
 position = Vector2(36352, 1536)
 
-[node name="HangingLantern4-3" parent="BackgroundLayer/Decor" index="19" instance=ExtResource("3_n43ap")]
+[node name="HangingLantern4-3" parent="BackgroundLayer/Decor" index="21" instance=ExtResource("3_n43ap")]
 position = Vector2(25984, -832)
 
-[node name="HangingLantern4-4" parent="BackgroundLayer/Decor" index="20" instance=ExtResource("3_n43ap")]
+[node name="HangingLantern4-4" parent="BackgroundLayer/Decor" index="22" instance=ExtResource("3_n43ap")]
 position = Vector2(31424, 1024)
 
-[node name="HangingLantern4-5" parent="BackgroundLayer/Decor" index="21" instance=ExtResource("3_n43ap")]
+[node name="HangingLantern4-5" parent="BackgroundLayer/Decor" index="23" instance=ExtResource("3_n43ap")]
 position = Vector2(33280, 1536)
 
-[node name="PillarTrunk05" parent="BackgroundLayer/Decor" index="22" instance=ExtResource("2_0mqie")]
+[node name="PillarTrunk05" parent="BackgroundLayer/Decor" index="24" instance=ExtResource("2_0mqie")]
 position = Vector2(7872, -4416)
 scale = Vector2(2, 6)
 
-[node name="PillarTrunk05-2" parent="BackgroundLayer/Decor" index="23" instance=ExtResource("2_0mqie")]
+[node name="PillarTrunk05-7" parent="BackgroundLayer/Decor" index="25" instance=ExtResource("2_0mqie")]
+position = Vector2(10112, -4416)
+scale = Vector2(2, 6)
+
+[node name="PillarTrunk05-3" parent="BackgroundLayer/Decor" index="26" instance=ExtResource("2_0mqie")]
+position = Vector2(6336, -3520)
+scale = Vector2(2, 6)
+
+[node name="PillarTrunk05-5" parent="BackgroundLayer/Decor" index="27" instance=ExtResource("2_0mqie")]
+position = Vector2(5184, -3456)
+scale = Vector2(2, 6)
+
+[node name="PillarTrunk05-6" parent="BackgroundLayer/Decor" index="28" instance=ExtResource("2_0mqie")]
+position = Vector2(15040, -3456)
+scale = Vector2(2, 6)
+
+[node name="PillarTrunk05-4" parent="BackgroundLayer/Decor" index="29" instance=ExtResource("2_0mqie")]
+position = Vector2(13888, -3520)
+scale = Vector2(2, 6)
+
+[node name="PillarTrunk05-2" parent="BackgroundLayer/Decor" index="30" instance=ExtResource("2_0mqie")]
 position = Vector2(12352, -4416)
 scale = Vector2(2, 6)
 
@@ -174,208 +200,228 @@ position = Vector2(4288, 64)
 [node name="PillarTrunk03" parent="MidgroundLayer/Decor" index="1" instance=ExtResource("2_0mqie")]
 position = Vector2(-191.99902, 64)
 
-[node name="PillarBase01" parent="MidgroundLayer/Decor" index="2" instance=ExtResource("3_o3xfc")]
+[node name="PillarTrunk03-2" parent="MidgroundLayer/Decor" index="2" instance=ExtResource("2_0mqie")]
+position = Vector2(-191.99902, -1728)
+
+[node name="PillarBase01" parent="MidgroundLayer/Decor" index="3" instance=ExtResource("3_o3xfc")]
 position = Vector2(4288, 1024)
 
-[node name="PillarBase03" parent="MidgroundLayer/Decor" index="3" instance=ExtResource("3_o3xfc")]
+[node name="PillarBase03" parent="MidgroundLayer/Decor" index="4" instance=ExtResource("3_o3xfc")]
 position = Vector2(-192, 1024)
 
-[node name="PillarCap01" parent="MidgroundLayer/Decor" index="4" instance=ExtResource("4_gwx7h")]
+[node name="PillarCap01" parent="MidgroundLayer/Decor" index="5" instance=ExtResource("4_gwx7h")]
 position = Vector2(4288, -1024)
 
-[node name="PillarCap03" parent="MidgroundLayer/Decor" index="5" instance=ExtResource("4_gwx7h")]
+[node name="PillarCap03" parent="MidgroundLayer/Decor" index="6" instance=ExtResource("4_gwx7h")]
 position = Vector2(-192, -1024)
 
-[node name="PillarTrunk02" parent="MidgroundLayer/Decor" index="6" instance=ExtResource("2_0mqie")]
+[node name="PillarTrunk02" parent="MidgroundLayer/Decor" index="7" instance=ExtResource("2_0mqie")]
 position = Vector2(15936.001, 127.99999)
 
-[node name="PillarTrunk04" parent="MidgroundLayer/Decor" index="7" instance=ExtResource("2_0mqie")]
+[node name="PillarTrunk04" parent="MidgroundLayer/Decor" index="8" instance=ExtResource("2_0mqie")]
 position = Vector2(20416.002, 127.99999)
 
-[node name="PillarTrunk13" parent="MidgroundLayer/Decor" index="8" instance=ExtResource("2_0mqie")]
+[node name="PillarTrunk13" parent="MidgroundLayer/Decor" index="9" instance=ExtResource("2_0mqie")]
 position = Vector2(24960, 127.99999)
 
-[node name="PillarTrunk14" parent="MidgroundLayer/Decor" index="9" instance=ExtResource("2_0mqie")]
+[node name="PillarTrunk14" parent="MidgroundLayer/Decor" index="10" instance=ExtResource("2_0mqie")]
 position = Vector2(26944, 512)
 
-[node name="PillarTrunk15" parent="MidgroundLayer/Decor" index="10" instance=ExtResource("2_0mqie")]
+[node name="PillarTrunk15" parent="MidgroundLayer/Decor" index="11" instance=ExtResource("2_0mqie")]
 position = Vector2(30528, 2688)
 
-[node name="PillarTrunk16" parent="MidgroundLayer/Decor" index="11" instance=ExtResource("2_0mqie")]
+[node name="PillarTrunk16" parent="MidgroundLayer/Decor" index="12" instance=ExtResource("2_0mqie")]
 position = Vector2(32448.002, 2688)
 
-[node name="PillarTrunk17" parent="MidgroundLayer/Decor" index="12" instance=ExtResource("2_0mqie")]
+[node name="PillarTrunk17" parent="MidgroundLayer/Decor" index="13" instance=ExtResource("2_0mqie")]
 position = Vector2(34112, 2688)
 
-[node name="PillarTrunk18" parent="MidgroundLayer/Decor" index="13" instance=ExtResource("2_0mqie")]
+[node name="PillarTrunk18" parent="MidgroundLayer/Decor" index="14" instance=ExtResource("2_0mqie")]
 position = Vector2(38592.004, 2688)
 
-[node name="PillarBase02" parent="MidgroundLayer/Decor" index="14" instance=ExtResource("3_o3xfc")]
+[node name="PillarBase02" parent="MidgroundLayer/Decor" index="15" instance=ExtResource("3_o3xfc")]
 position = Vector2(15936, 1024)
 
-[node name="PillarBase04" parent="MidgroundLayer/Decor" index="15" instance=ExtResource("3_o3xfc")]
+[node name="PillarBase04" parent="MidgroundLayer/Decor" index="16" instance=ExtResource("3_o3xfc")]
 position = Vector2(20416, 1024)
 
-[node name="PillarBase11" parent="MidgroundLayer/Decor" index="16" instance=ExtResource("3_o3xfc")]
+[node name="PillarBase11" parent="MidgroundLayer/Decor" index="17" instance=ExtResource("3_o3xfc")]
 position = Vector2(24960, 1024)
 
-[node name="PillarBase12" parent="MidgroundLayer/Decor" index="17" instance=ExtResource("3_o3xfc")]
+[node name="PillarBase12" parent="MidgroundLayer/Decor" index="18" instance=ExtResource("3_o3xfc")]
 position = Vector2(26944, 1408)
 
-[node name="PillarBase13" parent="MidgroundLayer/Decor" index="18" instance=ExtResource("3_o3xfc")]
+[node name="PillarBase13" parent="MidgroundLayer/Decor" index="19" instance=ExtResource("3_o3xfc")]
 position = Vector2(30528, 3584)
 
-[node name="PillarBase14" parent="MidgroundLayer/Decor" index="19" instance=ExtResource("3_o3xfc")]
+[node name="PillarBase14" parent="MidgroundLayer/Decor" index="20" instance=ExtResource("3_o3xfc")]
 position = Vector2(32448, 3584)
 
-[node name="PillarBase15" parent="MidgroundLayer/Decor" index="20" instance=ExtResource("3_o3xfc")]
+[node name="PillarBase15" parent="MidgroundLayer/Decor" index="21" instance=ExtResource("3_o3xfc")]
 position = Vector2(34112, 3584)
 
-[node name="PillarBase16" parent="MidgroundLayer/Decor" index="21" instance=ExtResource("3_o3xfc")]
+[node name="PillarBase16" parent="MidgroundLayer/Decor" index="22" instance=ExtResource("3_o3xfc")]
 position = Vector2(38592, 3584)
 
-[node name="PillarCap02" parent="MidgroundLayer/Decor" index="22" instance=ExtResource("4_gwx7h")]
+[node name="PillarCap02" parent="MidgroundLayer/Decor" index="23" instance=ExtResource("4_gwx7h")]
 position = Vector2(15936, -1024)
 
-[node name="PillarCap04" parent="MidgroundLayer/Decor" index="23" instance=ExtResource("4_gwx7h")]
+[node name="PillarCap04" parent="MidgroundLayer/Decor" index="24" instance=ExtResource("4_gwx7h")]
 position = Vector2(20416, -1024)
 
-[node name="PillarCap13" parent="MidgroundLayer/Decor" index="24" instance=ExtResource("4_gwx7h")]
+[node name="PillarCap13" parent="MidgroundLayer/Decor" index="25" instance=ExtResource("4_gwx7h")]
 position = Vector2(24960, -1024)
 
-[node name="PillarCap14" parent="MidgroundLayer/Decor" index="25" instance=ExtResource("4_gwx7h")]
+[node name="PillarCap14" parent="MidgroundLayer/Decor" index="26" instance=ExtResource("4_gwx7h")]
 position = Vector2(26944, -640)
 
-[node name="PillarCap15" parent="MidgroundLayer/Decor" index="26" instance=ExtResource("4_gwx7h")]
+[node name="PillarCap15" parent="MidgroundLayer/Decor" index="27" instance=ExtResource("4_gwx7h")]
 position = Vector2(30528, 1536)
 
-[node name="PillarCap16" parent="MidgroundLayer/Decor" index="27" instance=ExtResource("4_gwx7h")]
+[node name="PillarCap16" parent="MidgroundLayer/Decor" index="28" instance=ExtResource("4_gwx7h")]
 position = Vector2(32448, 1536)
 
-[node name="PillarCap17" parent="MidgroundLayer/Decor" index="28" instance=ExtResource("4_gwx7h")]
+[node name="PillarCap17" parent="MidgroundLayer/Decor" index="29" instance=ExtResource("4_gwx7h")]
 position = Vector2(34112, 1536)
 
-[node name="PillarCap18" parent="MidgroundLayer/Decor" index="29" instance=ExtResource("4_gwx7h")]
+[node name="PillarCap18" parent="MidgroundLayer/Decor" index="30" instance=ExtResource("4_gwx7h")]
 position = Vector2(38592, 1536)
 
-[node name="PillarTrunk07" parent="MidgroundLayer/Decor" index="30" instance=ExtResource("8_prryp")]
+[node name="PillarTrunk07" parent="MidgroundLayer/Decor" index="31" instance=ExtResource("8_prryp")]
 position = Vector2(-4672, 128)
 
-[node name="PillarTrunk08" parent="MidgroundLayer/Decor" index="31" instance=ExtResource("8_prryp")]
+[node name="PillarTrunk07-2" parent="MidgroundLayer/Decor" index="32" instance=ExtResource("8_prryp")]
+position = Vector2(-4672, -1728)
+
+[node name="PillarTrunk08" parent="MidgroundLayer/Decor" index="33" instance=ExtResource("8_prryp")]
 position = Vector2(-6720, 511.99997)
 
-[node name="PillarTrunk09" parent="MidgroundLayer/Decor" index="32" instance=ExtResource("8_prryp")]
+[node name="PillarTrunk08-2" parent="MidgroundLayer/Decor" index="34" instance=ExtResource("8_prryp")]
+position = Vector2(-6720, -1344)
+
+[node name="PillarTrunk09" parent="MidgroundLayer/Decor" index="35" instance=ExtResource("8_prryp")]
 position = Vector2(-10304, 2688)
 
-[node name="PillarTrunk10" parent="MidgroundLayer/Decor" index="33" instance=ExtResource("8_prryp")]
+[node name="PillarTrunk10" parent="MidgroundLayer/Decor" index="36" instance=ExtResource("8_prryp")]
 position = Vector2(-12224, 2688)
 
-[node name="PillarTrunk11" parent="MidgroundLayer/Decor" index="34" instance=ExtResource("8_prryp")]
+[node name="PillarTrunk11" parent="MidgroundLayer/Decor" index="37" instance=ExtResource("8_prryp")]
 position = Vector2(-13888, 2688)
 
-[node name="PillarTrunk12" parent="MidgroundLayer/Decor" index="35" instance=ExtResource("8_prryp")]
+[node name="PillarTrunk12" parent="MidgroundLayer/Decor" index="38" instance=ExtResource("8_prryp")]
 position = Vector2(-18368, 2624)
 
-[node name="PillarBase05" parent="MidgroundLayer/Decor" index="36" instance=ExtResource("3_o3xfc")]
+[node name="PillarBase05" parent="MidgroundLayer/Decor" index="39" instance=ExtResource("3_o3xfc")]
 position = Vector2(-4672, 1024)
 
-[node name="PillarBase06" parent="MidgroundLayer/Decor" index="37" instance=ExtResource("3_o3xfc")]
+[node name="PillarBase06" parent="MidgroundLayer/Decor" index="40" instance=ExtResource("3_o3xfc")]
 position = Vector2(-6720, 1408)
 
-[node name="PillarBase07" parent="MidgroundLayer/Decor" index="38" instance=ExtResource("3_o3xfc")]
+[node name="PillarBase07" parent="MidgroundLayer/Decor" index="41" instance=ExtResource("3_o3xfc")]
 position = Vector2(-10304, 3584)
 
-[node name="PillarBase08" parent="MidgroundLayer/Decor" index="39" instance=ExtResource("3_o3xfc")]
+[node name="PillarBase08" parent="MidgroundLayer/Decor" index="42" instance=ExtResource("3_o3xfc")]
 position = Vector2(-12224, 3584)
 
-[node name="PillarBase09" parent="MidgroundLayer/Decor" index="40" instance=ExtResource("3_o3xfc")]
+[node name="PillarBase09" parent="MidgroundLayer/Decor" index="43" instance=ExtResource("3_o3xfc")]
 position = Vector2(-13888, 3584)
 
-[node name="PillarBase10" parent="MidgroundLayer/Decor" index="41" instance=ExtResource("3_o3xfc")]
+[node name="PillarBase10" parent="MidgroundLayer/Decor" index="44" instance=ExtResource("3_o3xfc")]
 position = Vector2(-18368, 3584)
 
-[node name="PillarCap07" parent="MidgroundLayer/Decor" index="42" instance=ExtResource("4_gwx7h")]
+[node name="PillarCap07" parent="MidgroundLayer/Decor" index="45" instance=ExtResource("4_gwx7h")]
 position = Vector2(-4672, -1024)
 
-[node name="PillarCap08" parent="MidgroundLayer/Decor" index="43" instance=ExtResource("4_gwx7h")]
+[node name="PillarCap08" parent="MidgroundLayer/Decor" index="46" instance=ExtResource("4_gwx7h")]
 position = Vector2(-6720, -640)
 
-[node name="PillarCap09" parent="MidgroundLayer/Decor" index="44" instance=ExtResource("4_gwx7h")]
+[node name="PillarCap09" parent="MidgroundLayer/Decor" index="47" instance=ExtResource("4_gwx7h")]
 position = Vector2(-10304, 1536)
 
-[node name="PillarCap10" parent="MidgroundLayer/Decor" index="45" instance=ExtResource("4_gwx7h")]
+[node name="PillarCap10" parent="MidgroundLayer/Decor" index="48" instance=ExtResource("4_gwx7h")]
 position = Vector2(-12224, 1536)
 
-[node name="PillarCap11" parent="MidgroundLayer/Decor" index="46" instance=ExtResource("4_gwx7h")]
+[node name="PillarCap11" parent="MidgroundLayer/Decor" index="49" instance=ExtResource("4_gwx7h")]
 position = Vector2(-13888, 1536)
 
-[node name="PillarCap12" parent="MidgroundLayer/Decor" index="47" instance=ExtResource("4_gwx7h")]
+[node name="PillarCap12" parent="MidgroundLayer/Decor" index="50" instance=ExtResource("4_gwx7h")]
 position = Vector2(-18368, 1536)
 
-[node name="ArchPointSmooth" parent="MidgroundLayer/Decor" index="48" instance=ExtResource("13_8hban")]
+[node name="ArchPointSmooth" parent="MidgroundLayer/Decor" index="51" instance=ExtResource("13_8hban")]
 position = Vector2(2048, -1024.0001)
 scale = Vector2(2.5, 2.5)
 
-[node name="ArchPointSmooth-3" parent="MidgroundLayer/Decor" index="49" instance=ExtResource("13_8hban")]
+[node name="ArchPointSmooth-3" parent="MidgroundLayer/Decor" index="52" instance=ExtResource("13_8hban")]
 position = Vector2(18176.002, -1024)
 scale = Vector2(2.5, 2.5)
 
-[node name="ArchPointSmooth-4" parent="MidgroundLayer/Decor" index="50" instance=ExtResource("13_8hban")]
+[node name="ArchPointSmooth-4" parent="MidgroundLayer/Decor" index="53" instance=ExtResource("13_8hban")]
 position = Vector2(22656, -1024)
 scale = Vector2(2.5, 2.5)
 
-[node name="ArchPointSmooth-5" parent="MidgroundLayer/Decor" index="51" instance=ExtResource("13_8hban")]
+[node name="ArchPointSmooth-5" parent="MidgroundLayer/Decor" index="54" instance=ExtResource("13_8hban")]
 position = Vector2(36352.004, 1536)
 scale = Vector2(2.5, 2.5)
 
-[node name="ArchPointSmooth-2" parent="MidgroundLayer/Decor" index="52" instance=ExtResource("13_8hban")]
+[node name="ArchPointSmooth-2" parent="MidgroundLayer/Decor" index="55" instance=ExtResource("13_8hban")]
 position = Vector2(-2431.9995, -1024.0001)
 scale = Vector2(2.5, 2.5)
 
-[node name="ArchPointCracked" parent="MidgroundLayer/Decor" index="53" instance=ExtResource("14_pw5f3")]
+[node name="ArchPointCracked" parent="MidgroundLayer/Decor" index="56" instance=ExtResource("14_pw5f3")]
 position = Vector2(-16128.002, 1536)
 scale = Vector2(2.5, 2.5)
 
-[node name="ArchRoundCracked" parent="MidgroundLayer/Decor" index="54" instance=ExtResource("12_ouria")]
+[node name="ArchRoundCracked" parent="MidgroundLayer/Decor" index="57" instance=ExtResource("12_ouria")]
 position = Vector2(-13056, 1536)
 
-[node name="ArchRoundCracked-3" parent="MidgroundLayer/Decor" index="55" instance=ExtResource("12_ouria")]
+[node name="ArchRoundCracked-3" parent="MidgroundLayer/Decor" index="58" instance=ExtResource("12_ouria")]
 position = Vector2(-11200, 1536)
 scale = Vector2(1.25, 1.25)
 
-[node name="ArchRoundCracked-2" parent="MidgroundLayer/Decor" index="56" instance=ExtResource("12_ouria")]
+[node name="ArchRoundCracked-2" parent="MidgroundLayer/Decor" index="59" instance=ExtResource("12_ouria")]
 position = Vector2(33280, 1536)
 
-[node name="ArchRoundCracked-4" parent="MidgroundLayer/Decor" index="57" instance=ExtResource("12_ouria")]
+[node name="ArchRoundCracked-4" parent="MidgroundLayer/Decor" index="60" instance=ExtResource("12_ouria")]
 position = Vector2(31423.998, 1536.0001)
 scale = Vector2(1.25, 1.25)
 
-[node name="BookshelfFancy" parent="MidgroundLayer/Decor" index="58" instance=ExtResource("16_8hban")]
+[node name="BookshelfFancy" parent="MidgroundLayer/Decor" index="61" instance=ExtResource("16_8hban")]
 position = Vector2(2048, 1024)
 
-[node name="BookshelfFancy-2" parent="MidgroundLayer/Decor" index="59" instance=ExtResource("16_8hban")]
+[node name="BookshelfFancy-2" parent="MidgroundLayer/Decor" index="62" instance=ExtResource("16_8hban")]
 position = Vector2(1344, 1024)
 
-[node name="BookshelfFancy-3" parent="MidgroundLayer/Decor" index="60" instance=ExtResource("16_8hban")]
+[node name="BookshelfFancy-3" parent="MidgroundLayer/Decor" index="63" instance=ExtResource("16_8hban")]
 position = Vector2(2752, 1024)
 
-[node name="BookshelfFancy-4" parent="MidgroundLayer/Decor" index="61" instance=ExtResource("16_8hban")]
+[node name="BookshelfFancy-4" parent="MidgroundLayer/Decor" index="64" instance=ExtResource("16_8hban")]
 position = Vector2(640, 1024)
 
-[node name="BookshelfFancy-5" parent="MidgroundLayer/Decor" index="62" instance=ExtResource("16_8hban")]
+[node name="BookshelfFancy-5" parent="MidgroundLayer/Decor" index="65" instance=ExtResource("16_8hban")]
 position = Vector2(3456, 1024)
 
-[node name="WineShelf" parent="MidgroundLayer/Decor" index="63" instance=ExtResource("18_eyi1d")]
+[node name="WineShelf" parent="MidgroundLayer/Decor" index="66" instance=ExtResource("18_eyi1d")]
 position = Vector2(17472, 1024)
 
-[node name="WineShelf-4" parent="MidgroundLayer/Decor" index="64" instance=ExtResource("18_eyi1d")]
+[node name="WineShelf-4" parent="MidgroundLayer/Decor" index="67" instance=ExtResource("18_eyi1d")]
 position = Vector2(18880, 256)
 
-[node name="WineShelf-5" parent="MidgroundLayer/Decor" index="65" instance=ExtResource("18_eyi1d")]
+[node name="WineShelf-5" parent="MidgroundLayer/Decor" index="68" instance=ExtResource("18_eyi1d")]
 position = Vector2(19584, 1024)
 
-[node name="WineShelf-2" parent="MidgroundLayer/Decor" index="66" instance=ExtResource("18_eyi1d")]
+[node name="WineShelf-2" parent="MidgroundLayer/Decor" index="69" instance=ExtResource("18_eyi1d")]
 position = Vector2(18176, 1024)
 
-[node name="WineShelf-3" parent="MidgroundLayer/Decor" index="67" instance=ExtResource("18_eyi1d")]
+[node name="WineShelf-3" parent="MidgroundLayer/Decor" index="70" instance=ExtResource("18_eyi1d")]
 position = Vector2(18880, 1024)
+
+[node name="Decor" parent="ForegroundLayer" index="0"]
+modulate = Color(0.13381556, 0.14705378, 0.17088702, 1)
+
+[node name="PillarTrunk02" parent="ForegroundLayer/Decor" index="0" instance=ExtResource("8_prryp")]
+position = Vector2(7104, -2432)
+scale = Vector2(3, 9)
+
+[node name="PillarTrunk02-2" parent="ForegroundLayer/Decor" index="1" instance=ExtResource("8_prryp")]
+position = Vector2(13120, -2432)
+scale = Vector2(3, 9)
