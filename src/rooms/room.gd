@@ -1,3 +1,4 @@
+@icon("res://assets/editor/door-open-blue.svg")
 class_name Room extends Node2D
 ## A generic script for rooms that the player travels through.
 ## All rooms must extend from this class.
@@ -11,9 +12,26 @@ signal swap_room(target_room_path: String, target_door_name: String)
 @onready var door_holder: Node2D = %DoorHolder
 ## A tilemaplayer defining collision surfaces for this room.
 @onready var midground: TileMapLayer = %Midground
+## The color configuration for this room.
+@export var room_theme: RoomThemeConfig = preload("res://assets/rooms/themes/theme_den.tres"):
+	set(value):
+		room_theme = value;
+		_update_room_theme();
 
 ## An array containing all Doors in this Room that lead to other Rooms.
 var doors: Array[Node]
+
+func _enter_tree() -> void:
+	_update_room_theme();
+
+func _update_room_theme() -> void:
+	if not room_theme:
+		return;
+	if room_theme.color:
+		RenderingServer.set_default_clear_color(room_theme.color);
+	#if room_theme.texture:
+	#	for child in find_children("*", "RoomBackgroundSprite2D"):
+	#		child.texture = room_theme.texture;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

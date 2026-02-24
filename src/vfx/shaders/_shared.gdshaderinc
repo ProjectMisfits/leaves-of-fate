@@ -1,4 +1,15 @@
+// Enable high-quality shader settings if targeting the desktop.
+#if (CURRENT_RENDERER == RENDERER_FORWARD_PLUS)
 #define HIGH_QUALITY
+#endif
+
+// TEXTURE_PIXEL_SIZE doesn't seem to get set when using compatibility renderer.
+// Work around by giving it an arbitrary value that looks sorta right.
+#if (CURRENT_RENDERER == RENDERER_COMPATIBILITY)
+#define TEXTURE_PIXEL_SIZE vec2(1.0 / 2048.0, 1.0 / 2048.0)
+#endif
+
+
 // my favorite copy-paste random float function!!!
 // Sourced from: https://thebookofshaders.com/10/
 float rand(in vec2 uv) {
