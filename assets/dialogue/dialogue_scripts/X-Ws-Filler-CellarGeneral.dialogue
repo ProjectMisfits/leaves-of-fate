@@ -1,156 +1,160 @@
 ~ start
-=> convo_1
-#% [if not EventFlags.get_flag("X-Ws-Cellar-1")] => convo_1
-#% [if not EventFlags.get_flag("X-Ws-Cellar-2")] => convo_2
-#% [if not EventFlags.get_flag("X-Ws-Cellar-3")] => convo_3
-#% [if not EventFlags.get_flag("X-Ws-Cellar-4")] => convo_4
-#% [if not EventFlags.get_flag("X-Ws-Cellar-5")] => convo_5
-#% [if not EventFlags.get_flag("X-Ws-Cellar-6")] => convo_6
-#% [if not EventFlags.get_flag("X-Ws-Cellar-7")] => convo_7
-#% [if not EventFlags.get_flag("X-Ws-Cellar-8")] => convo_8
-#% [if not EventFlags.get_flag("X-Ws-Cellar-9")] => convo_9
-#% [if not EventFlags.get_flag("X-Ws-Cellar-10")] => convo_10
-#% [if not EventFlags.get_flag("X-Ws-Cellar-11")] => convo_11
-#% [if EventFlags.num_cellar_conversations == 11] => ending_convo
+% [if not EventFlags.get_flag("X-Ws-Cellar-1")] => convo_1
+% [if not EventFlags.get_flag("X-Ws-Cellar-2")] => convo_2
+% [if not EventFlags.get_flag("X-Ws-Cellar-3")] => convo_3
+% [if not EventFlags.get_flag("X-Ws-Cellar-4")] => convo_4
+% [if not EventFlags.get_flag("X-Ws-Cellar-5")] => convo_5
+% [if not EventFlags.get_flag("X-Ws-Cellar-6")] => convo_6
+% [if not EventFlags.get_flag("X-Ws-Cellar-7")] => convo_7
+% [if not EventFlags.get_flag("X-Ws-Cellar-8")] => convo_8
+% [if not EventFlags.get_flag("X-Ws-Cellar-9")] => convo_9
+% [if not EventFlags.get_flag("X-Ws-Cellar-10")] => convo_10
+% [if not EventFlags.get_flag("X-Ws-Cellar-11")] => convo_11
+% [if EventFlags.num_cellar_conversations == 11] => ending_convo
 => END
 
 
 ~ convo_1
-Fenn: Hey Wizard man, do you like ice cream?
-Wizard: Woooow. Asking thy 'ice guy' if he liketh ice cream. Very original.
-Fenn: Well... you call me 'pint-size.' So... do you?
-Wizard: Wha- NO!!
-Wizard: Tis a mockery of nature. An insult to everything which is cold.
-Fenn: Are you lactose intolerant?
-Wizard: And there thou goes! Assuming I'm lactose intolerant just because I liketh not ice cream!
-Fenn: Well, are you?
-Wizard: Tis besides the point!
+Fenn: Hey [color="8A0194"]Wizard man[/color], do you like ice cream?
+Wizard grit: [wave freq=7 amp=30 connected=0]Woooow.[/wave] Asking the [i]"ice guy"[/i] if he liketh ice cream.[i] [shake level=7 rate=30]Very original.[/shake][/i]
+Fenn: Well [wait=0.3]you call me "pint-size," so... do you?
+Wizard: [font_size=60]Wha-[/font_size][wait=0.3] [font_size=80][shake level=10 rate=50]NO!![/shake][/font_size]
+Wizard grit: Tis a [shake level=7 rate=30 connected=0][i]mockery[/i][/shake] of nature! An [shake level=7 rate=30 connected=0][i]insult[/i][/shake] to all that is cold.
+Fenn starry: Are you lactose intolerant?
+Wizard grit: [wave freq=10 amp=30]And there thou goes![/wave]
+Wizard: Assuming I'm lactose intolerant [wave freq=10 amp=30 connected=0]just because[/wave] I liketh not [i]ice cream![/i]
+Fenn starry: Well, are you?
+Wizard: [font_size=80][shake level=10 rate=50]Tis besides the point![/shake][/font_size]
 Fenn: Huh... no wonder all those ice creams are so mad.
 do EventFlags.set_flag("X-Ws-Cellar-1", true)
 do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_2
-Wizard: Go away, pint-size.
+Wizard: Go away, [shake level=7 rate=30][i]pint-size.[/i][/shake]
 Fenn: Why?
-Wizard: Um... Shut up! I doth be busy! Go away.
+Wizard awkward: [font_size=40]Um...[/font_size] [shake level=7 rate=30]Shut up![/shake]
+Wizard grit: [font_size=70]I doth be busy! [shake level=10 rate=40]Go away.[/shake][/font_size]
 Fenn: Aw okay.
 do EventFlags.set_flag("X-Ws-Cellar-2", true)
 do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_3
-Wizard: Hey, pint-size, you seem close with Az.
-Fenn: Oh yeah! She's great.
-Wizard: D-Does she, like... I dunno... 
+Wizard awkward: Hey, [i]pint-size[/i],[wait=0.3] you seem close with Az.
+Fenn starry: Oh yeah![wait=0.3] She's great.
+Wizard: D-Doth she, [font_size=40]like, [wait=0.3]um...[/font_size]
 Fenn: What?
-Wizard: What doth she, like, think? Liketh regarding me?
-Wizard: Doth she thinketh I'm cool?
-Fenn: Yeah of course! Everyone thinks you're cool!
-Wizard: Really?!
-Az: NO! Fenn, stop making stuff up.
-Fenn: But I wasn't...
-Winston whispering: I forgoteth she was there...
+Wizard: What doth she, [wait=0.3][font_size=40]like,[wait=0.3] think of me?[/font_size]
+Wizard awkward: Doth she thinketh I'm cool?
+Fenn: [font_size=60]Yeah of course! [wait=0.3][wave freq=7 amp=30 connected=0]Everyone thinks you're cool![/wave][/font_size]
+Wizard: [font_size=70][shake level=10 rate=40] REALLY?![/shake]
+Az annoy: [font_size=60][shake level=10 rate=40]NO![/shake][/font_size][wait=0.3] Fenn, stop making stuff up.
+Fenn: [font_size=40]But I wasn't...[/font_size]
+Wizard awkward: [font_size=30]I forgoteth she was there...[/font_size]
 do EventFlags.set_flag("X-Ws-Cellar-3", true)
 do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_4
 Fenn: Where'd you get your coat?
-Wizard: Oh. Well, my Mother madeth it.
-Fenn: That's really nice! You must have a really cool Mom.
-Wizard: Yeah... wouldst be. If she even cared.
-Fenn: What do you mean?
-Wizard: Nothing. Worry not 'bout it.
+Wizard awkward: Oh. Well, my [i]Mother[/i] madeth it.
+Fenn starry: That's really nice![wait=0.3] You must have a really cool Mom.
+Wizard grit: Yeah... wouldst be. [font_size=40][shake level=7 rate=20]If she even cared.[/shake][/font_size]
+Fenn worry: What do you mean?
+Wizard grit: [i]Nothing.[/i] Worry not 'bout it.
 do EventFlags.set_flag("X-Ws-Cellar-4", true)
 do EventFlags.num_cellar_conversations += 1
 => END
 
-#Potentially delete if this conversation is moved to when the player meets winston
 ~ convo_5
-Wizard: Just thee wait, pint-size! I shall destroyeth thee!
-Fenn: That's the spirit!
-Az: Are you rooting for him?
-Fenn: Of course! The hero is nothing without his villain!
+Wizard grit: Just thee wait, [i]pint-size![/i] I shall [i][shake level=7 rate=30]destroyeth[/shake][/i] thee!
+Fenn starry: [wave freq=7 amp=30]That's the spirit![/wave]
+Az: Are you [i]rooting[/i] for him?
+Fenn starry: [font_size=60][wave freq=7 amp=30]Of course![/wave] The hero is [wave freq=7 amp=30]nothing[/wave] without his villain![/font_size]
 Az: Eh. Fair enough, I guess.
-Az: I also get the feeling he needs it.
-Wizard: Do not pity me!!
+Az laugh: I also get the feeling he needs it.
+Wizard grit: [font_size=80][shake level=10 rate=50]Do not pity me!![/shake][/font_size]
 do EventFlags.set_flag("X-Ws-Cellar-5", true)
 do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_6
-Fenn: Mr. Wizard?
-Wizard: Go away! I am planning thy demise.
-Fenn: What's demise mean?
-Wizard: Um... VERY PAINFUL DEATH!!
-Fenn: Oh... cool!
+Fenn: [color="8A0194"]Mr. Wizard[/color]?
+Wizard grit: [font_size=60][shake level=7 rate=30]Go away![/shake][/font_size] I am planning thy demise.
+Fenn starry: What's demise mean?
+Wizard awkward: Um... [font_size=70][shake level=10 rate=50]VERY PAINFUL DEATH!![/shake][/font_size][/shake]
+Fenn: Oh... [wave freq=7 amp=30 connected=0]cool![/wave]
 do EventFlags.set_flag("X-Ws-Cellar-6", true)
 do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_7
-Fenn: Hey Wizard Guy, what do you do for fun?
-Wizard: Hmph. Why do thee careth?
-Fenn: I dunno.
-Wizard: Well, I readeth, I suppose.
+Fenn: Hey [color="8A0194"]Wizard Guy[/color], what do you do for fun?
+Wizard awkward: Hmph. Why do [i]you[/i] careth?
+Fenn starry: [wave freq=7 amp=30]I dunno.[/wave]
+Wizard awkward: Well, [wait=0.3]I suppose I readeth.
 Fenn: Read what?
-Wizard: Uh... liketh, mysteries and detective stories.
-Fenn: That's super cool! I like comic books. Do you read comics? I love Garbage Man, he's my favorite. Have you heard of Garbage Man? He defeats the bad guys with his overwhelming-
-Wizard: Uhhhhh...
-Az: Fenn! Stop bothering the squatter. He's busy being a freak, or whatever.
-Wizard: HEY!
+Wizard awkward: Uh... [font_size=40]liketh, mysteries and detective stories.[/font_size]
+do EventBus.interrupt_dialogue.emit("0.1")
+Fenn starry: That's super cool! [speed=1.5][font_size=40]I like comic books, do you read comics? [speed=2]I love Garbage Man, he's my favorite, [/font_size][font_size=30][speed=2.5]have you heard of Garbage Man? He defeats the bad guys with his overwhelming bags of garbage which he got by eating radioactive plastic! It's soooo cool, you should really start on volume 3 of-[/font_size]
+Az: [font_size=60][shake level=7 rate=30][i]FENN![/i][/shake][/font_size] 
+Az annoy: Stop bothering the squatter. He's busy being a [i]freak[/i], or whatever.
+Wizard grit: [font_size=100][shake level=10 rate=50]HEY![/shake][/font_size]
 do EventFlags.set_flag("X-Ws-Cellar-7", true)
 do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_8
-Wizard: Grrr, I feel rather peckish...
-Fenn: Aw... do you have any food?
-Wizard: No. Maybe the workshop hath snacks.
+Wizard grit: [shake level=7 rate=30]Grrr[/shake], [wait=0.3]I feel rather [i]peckish[/i].
+Fenn: What's that?
+Wizard awkward: I'm, um, [wait=0.3][font_size=40]hungry.[/font_size]
+Fenn worry: Aw... do you have any food?
+Wizard: No. Maybe the [color="0B4F4A"]Workshop[/color] hath snacks.
 pause
-Wizard: Well, I foundeth some walnuts. Ho, pint-size. Couldst thee ask Az if I may have some?
-Fenn: Hey Az! Can Wizard man hath some of the walnuts in your workshop?
-Az: What??? I guess?? But you mess up my workshop, I'll crush you.
-Wizard: Score! Walnuts be mine!
+Wizard awkward: Well, [wait=0.3]I foundeth some walnuts. 
+Wizard: [wave freq=7 amp=30]Ho, pint-size.[/wave] Couldst thee ask [color="B80006"]Az[/color] if I may have some?
+Fenn: Hey [color="B80006"]Az[/color]! [wait=0.3]Can [color="8A0194"]Wizard man[/color] hath some of your walnuts?
+Az: [font_size=60]What? [wait=0.3]I guess??[/font_size] 
+Az annoy: But you touch [i][shake level=7 rate=30]anything else[/shake][/i] in there, and you'll regret it.
+Wizard: [font_size=80][shake level=10 rate=40]SCORE![/shake] Walnuts be mine![/font_size]
 do EventFlags.set_flag("X-Ws-Cellar-8", true)
 do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_9
-Fenn: Hey Mr. Wizard. Who's your favorite Knight?
-Wizard: None of them! They're terrible! They don't do anything for the Kingdom!!!
-Fenn: Okay... but if you have to pick?
-Wizard: Well... probably like... the Knight of Fury. She seemeth cool.
-Fenn: Rose? I wouldn't have guessed that... I thought maybe Henric or something.
-Wizard: Well it doth not matter anyway! They're all stupid and lame!
-Fenn: Okay then!
+Fenn starry: Hey [color="8A0194"]Mr. Wizard[/color]. Who's your favorite Knight?
+Wizard grit: [font_size=60][i]NONE OF THEM!![/i] [wait=0.3]They are all [i]terrible!![/i][/font_size]
+Fenn: Okay, [wait=0.3]but if you have to pick?
+Wizard awkward: [font_size=40]Um, [wait=0.3]well, [wait=0.3]maybe liketh,[wait=0.3] the Knight of Fury? [wait=0.3][/font_size][font_size=30]She [wait=0.3]seemeth cool.[/font_size]
+Fenn starry: [color="B80006"]Rose[/color]? I wouldn't have guessed that... I thought maybe [color="B80006"]Henric[/color] or something.
+Wizard: [i][font_size=60]Well it doth not matter! [shake level=8 rate=30]They're all stupid and lame![/shake][/font_size][/i]
+Fenn: Okay!
 do EventFlags.set_flag("X-Ws-Cellar-9", true)
 do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_10
-Fenn: Why'd you trap all the Knights and stuff??
-Wizard: Because they deserve it! 
-Fenn: What?! No they didn't! They help so many people!
-Wizard: Who?! What do they even do-eth? Sitteth 'round and bicker over meaningless laws?
-Wizard: Forget it. I has't to runneth. Evil plans to maketh, traps to setteth, enemies to sendeth, you know.
+Fenn: [color="8A0194"]Wizard Man[/color], [wait=0.3]why'd you trap all the Knights and stuff?
+Wizard grit: [font_size=60]Because they deserved it![/font_size]
+Fenn worry: WHAT?! No they didn't! [shake level=7 rate=30]They help so many people![/shake]
+Wizard grit: WHO?! What do they even [i]do-eth?[/i] [shake level=7 rate=30]Sitteth 'round and bicker over meaningless laws?[/shake]
+Wizard grit: Forget it. I has't to runneth.
+Wizard awkward: [font_size=60]Evil plans to maketh,[/font_size][wait=0.3] [font_size=50]traps to setteth, [/font_size][wait=0.3][font_size=40]enemies to sendeth, [/font_size][wait=0.3][font_size=30]you know.[/font_size]
 Fenn: Yeah, I get it.
-Wizard: Um. Goodbye, pint-size.
+Wizard awkward: Um. Goodbye, pint-size.
 Fenn: Bye bye!
 Winston leaves
-Fenn: What a formidable foe...
-Az: Seriously?
 do EventFlags.set_flag("X-Ws-Cellar-10", true)
 do EventFlags.num_cellar_conversations += 1
 => END
 
 ~ convo_11
-Wizard: Hey, pint-size. Is Az there?
-Fenn: Yeah? Well, her bangle is.
-Wizard: Wh-what doth she be doing?
+Wizard: Hey, pint-size. Is [color="B80006"]Az[/color] there?
+Fenn: Yeah? [wait=0.3]Well, I've got her bangle.
+Wizard awkward: Wh- [wait=0.3]what doth she be doing?
 Fenn: I dunno. Standing, maybe?
-Wizard: Hmph. Tis cool. Cool. That's cool. Whatevereth.
+Wizard awkward: [font_size=60]Hmph. Tis cool. [/font_size][font_size=50]Cool. [/font_size][font_size=40]That's cool. [/font_size][font_size=30]Whatevereth.[/font_size]
 do EventFlags.set_flag("X-Ws-Cellar-11", true)
 do EventFlags.num_cellar_conversations += 1
 => END
