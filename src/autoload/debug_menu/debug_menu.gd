@@ -30,23 +30,10 @@ func _ready() -> void:
 ## Initialize the debug menu.
 func _init_debug_menu() -> void:
 	# Set up the debug menu.
-	debug_menu = CanvasLayer.new()
-	debug_menu.visible = false
-	debug_menu.layer = 100
+	debug_menu = load("res://src/autoload/debug_menu/debug_menu_scene.tscn").instantiate()
+	panel_debug_properties = debug_menu.get_node("%DebugProperties")
+	panel_noclip = debug_menu.get_node("%Noclip")
 	add_child(debug_menu)
-	
-	var debug_vbox: VBoxContainer = VBoxContainer.new()
-	debug_vbox.name = "DebugVBoxContainer"
-	debug_vbox.size = Vector2(144.0, 86.0)
-	debug_vbox.position = Vector2(50.0, 50.0)
-	debug_vbox.theme = load("res://src/ui/debug_theme.tres")
-	debug_menu.add_child(debug_vbox)
-	
-	panel_debug_properties = load("res://src/autoload/debug_menu/debug_properties.tscn").instantiate()
-	debug_vbox.add_child(panel_debug_properties)
-	
-	panel_noclip = load("res://src/autoload/debug_menu/noclip.tscn").instantiate()
-	debug_vbox.add_child(panel_noclip)
 
 ## Toggle the debug menu when the debug input is pressed.
 func _input(event: InputEvent) -> void:
