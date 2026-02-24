@@ -66,6 +66,7 @@ position = Vector2(4544, 589)
 position = Vector2(1480.9999, 6.000061)
 scale = Vector2(10, 20)
 dialogue_sequence = ExtResource("7_vvfdw")
+required_false_event_flags = Array[String](["13-AzWs-FinalConfrontation-Workshop"])
 
 [node name="ArchRoundSmooth" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("2_ps04q")]
 position = Vector2(3072, -1024)

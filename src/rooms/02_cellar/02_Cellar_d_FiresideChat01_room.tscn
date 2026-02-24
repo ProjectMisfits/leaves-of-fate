@@ -72,6 +72,7 @@ position = Vector2(5632, 1024)
 position = Vector2(3217, 192)
 scale = Vector2(10, 15)
 dialogue_sequence = ExtResource("6_ednxw")
+required_false_event_flags = Array[String](["9-Az-FiresideChat-1-HeaterArea"])
 
 [node name="ArchPointCracked" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("5_jvr1l")]
 position = Vector2(512, -384)
