@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cadsmfa8k8oaw"]
+[gd_scene load_steps=15 format=4 uid="uid://cadsmfa8k8oaw"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_mvvqy"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="2_ha3ky"]
@@ -9,6 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="8_51bm5"]
 [ext_resource type="PackedScene" uid="uid://1lva6fbgnwyn" path="res://src/entities/decor/pillars/arch_point_smooth.tscn" id="8_onvyk"]
 [ext_resource type="Resource" uid="uid://btikirxfgpxb5" path="res://assets/dialogue/dialogue_scripts/2-Ws-Meet-CellarGeneral.dialogue" id="9_cb0av"]
+[ext_resource type="PackedScene" uid="uid://cbyoyss1vo43o" path="res://src/entities/decor/ice/ice_spike_ball.tscn" id="10_g7jrq"]
+[ext_resource type="PackedScene" uid="uid://dueb2snetgjyf" path="res://src/entities/decor/ice/icicle_06.tscn" id="11_51bm5"]
+[ext_resource type="PackedScene" uid="uid://db6ckeae2eb0e" path="res://src/entities/decor/ice/icicle_05.tscn" id="12_cb0av"]
+[ext_resource type="PackedScene" uid="uid://63pslrk6h8nl" path="res://src/entities/decor/ice/icicle_04.tscn" id="13_o18oo"]
+[ext_resource type="PackedScene" uid="uid://b6p26modf3ljr" path="res://src/entities/decor/furniture/window_01.tscn" id="14_kebhb"]
 
 [node name="02_Cellar_a_MeetWinston" instance=ExtResource("1_mvvqy")]
 
@@ -21,6 +26,15 @@ position = Vector2(1024, -1536)
 
 [node name="HangingLantern-2" parent="BackgroundLayer/Decor" index="1" instance=ExtResource("2_ha3ky")]
 position = Vector2(8192, -1536)
+
+[node name="Window01" parent="BackgroundLayer/Decor" index="2" instance=ExtResource("14_kebhb")]
+position = Vector2(3648, 0)
+
+[node name="Window01-2" parent="BackgroundLayer/Decor" index="3" instance=ExtResource("14_kebhb")]
+position = Vector2(5568, 0)
+
+[node name="HangingLantern-3" parent="BackgroundLayer/Decor" index="4" instance=ExtResource("2_ha3ky")]
+position = Vector2(4608, -832)
 
 [node name="DustLayer" parent="BackgroundLayer" index="2"]
 position = Vector2(-128, -2304.0002)
@@ -48,38 +62,183 @@ position = Vector2(3971, -748)
 scale = Vector2(20, 60)
 dialogue_sequence = ExtResource("9_cb0av")
 
-[node name="PillarTrunk03" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("2_yrprt")]
+[node name="IceSpikeBall" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("10_g7jrq")]
+position = Vector2(1408, -1728)
+
+[node name="IceSpikeBall-2" parent="MidgroundLayer/Decor" index="1" instance=ExtResource("10_g7jrq")]
+position = Vector2(640, -1728)
+
+[node name="IceSpikeBall-3" parent="MidgroundLayer/Decor" index="2" instance=ExtResource("10_g7jrq")]
+position = Vector2(1024, -1920)
+
+[node name="IceSpikeBall-4" parent="MidgroundLayer/Decor" index="3" instance=ExtResource("10_g7jrq")]
+position = Vector2(448, -1344)
+
+[node name="IceSpikeBall-5" parent="MidgroundLayer/Decor" index="4" instance=ExtResource("10_g7jrq")]
+position = Vector2(1600, -1344)
+
+[node name="IceSpikeBall-6" parent="MidgroundLayer/Decor" index="5" instance=ExtResource("10_g7jrq")]
+position = Vector2(7616, -1344)
+
+[node name="IceSpikeBall-7" parent="MidgroundLayer/Decor" index="6" instance=ExtResource("10_g7jrq")]
+position = Vector2(8768, -1344)
+
+[node name="IceSpikeBall-8" parent="MidgroundLayer/Decor" index="7" instance=ExtResource("10_g7jrq")]
+position = Vector2(8192, -1920)
+
+[node name="IceSpikeBall-9" parent="MidgroundLayer/Decor" index="8" instance=ExtResource("10_g7jrq")]
+position = Vector2(7808, -1728)
+
+[node name="IceSpikeBall-10" parent="MidgroundLayer/Decor" index="9" instance=ExtResource("10_g7jrq")]
+position = Vector2(8576, -1728)
+
+[node name="PillarTrunk03" parent="MidgroundLayer/Decor" index="10" instance=ExtResource("2_yrprt")]
 position = Vector2(2048, 63.999992)
 
-[node name="PillarTrunk03-2" parent="MidgroundLayer/Decor" index="1" instance=ExtResource("2_yrprt")]
+[node name="PillarTrunk03-2" parent="MidgroundLayer/Decor" index="11" instance=ExtResource("2_yrprt")]
 position = Vector2(2048, -1408)
 
-[node name="PillarTrunk03-3" parent="MidgroundLayer/Decor" index="2" instance=ExtResource("2_yrprt")]
+[node name="PillarTrunk03-3" parent="MidgroundLayer/Decor" index="12" instance=ExtResource("2_yrprt")]
 position = Vector2(7168, -1408)
 
-[node name="PillarTrunk04" parent="MidgroundLayer/Decor" index="3" instance=ExtResource("2_yrprt")]
+[node name="PillarTrunk04" parent="MidgroundLayer/Decor" index="13" instance=ExtResource("2_yrprt")]
 position = Vector2(7167.9995, 63.999992)
 
-[node name="PillarCap02" parent="MidgroundLayer/Decor" index="4" instance=ExtResource("2_rnund")]
+[node name="PillarCap02" parent="MidgroundLayer/Decor" index="14" instance=ExtResource("2_rnund")]
 position = Vector2(2048, -1024)
 
-[node name="PillarCap03" parent="MidgroundLayer/Decor" index="5" instance=ExtResource("2_rnund")]
+[node name="PillarCap03" parent="MidgroundLayer/Decor" index="15" instance=ExtResource("2_rnund")]
 position = Vector2(7168, -1024)
 
-[node name="PillarBase03" parent="MidgroundLayer/Decor" index="6" instance=ExtResource("3_yrprt")]
+[node name="PillarBase03" parent="MidgroundLayer/Decor" index="16" instance=ExtResource("3_yrprt")]
 position = Vector2(2048, 1024)
 
-[node name="PillarBase04" parent="MidgroundLayer/Decor" index="7" instance=ExtResource("3_yrprt")]
+[node name="PillarBase04" parent="MidgroundLayer/Decor" index="17" instance=ExtResource("3_yrprt")]
 position = Vector2(7168, 1024)
 
-[node name="ArchPointSmooth" parent="MidgroundLayer/Decor" index="8" instance=ExtResource("8_onvyk")]
+[node name="ArchPointSmooth" parent="MidgroundLayer/Decor" index="18" instance=ExtResource("8_onvyk")]
 position = Vector2(1024, -1024)
 scale = Vector2(1.1, 1.1)
 
-[node name="ArchPointSmooth-3" parent="MidgroundLayer/Decor" index="9" instance=ExtResource("8_onvyk")]
+[node name="ArchPointSmooth-3" parent="MidgroundLayer/Decor" index="19" instance=ExtResource("8_onvyk")]
 position = Vector2(1024, -1024)
 scale = Vector2(1.1, 1.1)
 
-[node name="ArchPointSmooth-2" parent="MidgroundLayer/Decor" index="10" instance=ExtResource("8_onvyk")]
+[node name="ArchPointSmooth-2" parent="MidgroundLayer/Decor" index="20" instance=ExtResource("8_onvyk")]
 position = Vector2(8192, -1024)
 scale = Vector2(1.1, 1.1)
+
+[node name="Icicle06" parent="MidgroundLayer/Decor" index="21" instance=ExtResource("11_51bm5")]
+position = Vector2(2368.0002, -1792)
+rotation = -3.138687
+scale = Vector2(2, 2)
+
+[node name="Icicle06-5" parent="MidgroundLayer/Decor" index="22" instance=ExtResource("11_51bm5")]
+position = Vector2(6144, -2496.0002)
+rotation = -3.0991
+scale = Vector2(2, 2)
+
+[node name="Icicle06-6" parent="MidgroundLayer/Decor" index="23" instance=ExtResource("11_51bm5")]
+position = Vector2(6464, -2303.9998)
+rotation = -3.022361
+scale = Vector2(2, 2)
+
+[node name="Icicle06-2" parent="MidgroundLayer/Decor" index="24" instance=ExtResource("11_51bm5")]
+position = Vector2(6848, -1920.0001)
+rotation = -3.0510838
+scale = Vector2(2, 2)
+
+[node name="Icicle05" parent="MidgroundLayer/Decor" index="25" instance=ExtResource("12_cb0av")]
+position = Vector2(2495.9998, -2048)
+rotation = 2.9183679
+scale = Vector2(1.9999999, 1.9999999)
+
+[node name="Icicle05-2" parent="MidgroundLayer/Decor" index="26" instance=ExtResource("12_cb0av")]
+position = Vector2(2688, -2239.9998)
+rotation = 2.968731
+scale = Vector2(1.9999999, 1.9999999)
+
+[node name="Icicle05-3" parent="MidgroundLayer/Decor" index="27" instance=ExtResource("12_cb0av")]
+position = Vector2(2880.0002, -2496.0002)
+rotation = 2.9731772
+scale = Vector2(1.9999999, 1.9999999)
+
+[node name="Icicle06-3" parent="MidgroundLayer/Decor" index="28" instance=ExtResource("11_51bm5")]
+position = Vector2(3200, -2432.0002)
+rotation = 3.136565
+scale = Vector2(2, 2)
+
+[node name="Icicle06-4" parent="MidgroundLayer/Decor" index="29" instance=ExtResource("11_51bm5")]
+position = Vector2(5888, -2432)
+rotation = -3.133085
+scale = Vector2(2, 2)
+
+[node name="Icicle04-13" parent="MidgroundLayer/Decor" index="30" instance=ExtResource("13_o18oo")]
+position = Vector2(3328, -2432)
+rotation = 3.1415925
+scale = Vector2(2, 2)
+
+[node name="Icicle04" parent="MidgroundLayer/Decor" index="31" instance=ExtResource("13_o18oo")]
+position = Vector2(3520, -2432)
+rotation = 3.1415925
+scale = Vector2(2, 2)
+
+[node name="Icicle04-2" parent="MidgroundLayer/Decor" index="32" instance=ExtResource("13_o18oo")]
+position = Vector2(3712, -2432)
+rotation = 3.1415925
+scale = Vector2(2, 2)
+
+[node name="Icicle04-3" parent="MidgroundLayer/Decor" index="33" instance=ExtResource("13_o18oo")]
+position = Vector2(3904, -2432)
+rotation = 3.1415925
+scale = Vector2(2, 2)
+
+[node name="Icicle04-4" parent="MidgroundLayer/Decor" index="34" instance=ExtResource("13_o18oo")]
+position = Vector2(4096, -2432)
+rotation = 3.1415925
+scale = Vector2(2, 2)
+
+[node name="Icicle04-5" parent="MidgroundLayer/Decor" index="35" instance=ExtResource("13_o18oo")]
+position = Vector2(4288, -2432)
+rotation = 3.1415925
+scale = Vector2(2, 2)
+
+[node name="Icicle04-6" parent="MidgroundLayer/Decor" index="36" instance=ExtResource("13_o18oo")]
+position = Vector2(4480, -2432)
+rotation = 3.1415925
+scale = Vector2(2, 2)
+
+[node name="Icicle04-12" parent="MidgroundLayer/Decor" index="37" instance=ExtResource("13_o18oo")]
+position = Vector2(6655.999, -1984)
+rotation = -3.027636
+scale = Vector2(1.9999999, 1.9999999)
+
+[node name="Icicle04-7" parent="MidgroundLayer/Decor" index="38" instance=ExtResource("13_o18oo")]
+position = Vector2(4672, -2432)
+rotation = 3.1415925
+scale = Vector2(2, 2)
+
+[node name="Icicle04-8" parent="MidgroundLayer/Decor" index="39" instance=ExtResource("13_o18oo")]
+position = Vector2(4864, -2432)
+rotation = 3.1415925
+scale = Vector2(2, 2)
+
+[node name="Icicle04-9" parent="MidgroundLayer/Decor" index="40" instance=ExtResource("13_o18oo")]
+position = Vector2(5056, -2432)
+rotation = 3.1415925
+scale = Vector2(2, 2)
+
+[node name="Icicle04-10" parent="MidgroundLayer/Decor" index="41" instance=ExtResource("13_o18oo")]
+position = Vector2(5248, -2432)
+rotation = 3.1415925
+scale = Vector2(2, 2)
+
+[node name="Icicle04-11" parent="MidgroundLayer/Decor" index="42" instance=ExtResource("13_o18oo")]
+position = Vector2(5440, -2432)
+rotation = 3.1415925
+scale = Vector2(2, 2)
+
+[node name="Icicle04-14" parent="MidgroundLayer/Decor" index="43" instance=ExtResource("13_o18oo")]
+position = Vector2(5632, -2432)
+rotation = 3.1415925
+scale = Vector2(2, 2)
