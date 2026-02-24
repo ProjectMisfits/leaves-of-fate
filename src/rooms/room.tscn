@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bhndpauy1j7sw"]
+[gd_scene load_steps=10 format=4 uid="uid://bhndpauy1j7sw"]
 
 [ext_resource type="Script" uid="uid://clfv0vvbc4hdy" path="res://src/rooms/room.gd" id="1_t665v"]
 [ext_resource type="TileSet" uid="uid://i6wi7xcus3i" path="res://assets/rooms/tileset/TS_Cellar.tres" id="2_7i7i2"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cjkpybae7njrh" path="res://src/entities/actors/player/player.tscn" id="4_8eo6q"]
 [ext_resource type="TileSet" uid="uid://ca07scdfwk0u2" path="res://assets/rooms/tileset/TS_Windzone.tres" id="4_n3e44"]
 [ext_resource type="PackedScene" path="res://assets/vfx/shaders/dust_layer.tscn" id="4_n6lpe"]
+[ext_resource type="TileSet" uid="uid://o5pvsk1vob3h" path="res://assets/rooms/tileset/TS_Cellar_Tiles.tres" id="6_n6lpe"]
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_t665v")
@@ -49,6 +50,7 @@ tile_set = ExtResource("3_0bf0a")
 metadata/_edit_lock_ = true
 
 [node name="DecorTiles" type="TileMapLayer" parent="MidgroundLayer"]
+tile_set = ExtResource("6_n6lpe")
 metadata/_edit_lock_ = true
 
 [node name="Windzones" type="TileMapLayer" parent="MidgroundLayer"]
