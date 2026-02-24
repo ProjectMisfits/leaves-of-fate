@@ -78,9 +78,17 @@ func create_camera_with_limits(cam_global_position: Vector2, cam_relative_zoom: 
 
 ## Remove all cameras currently managed by this manager.
 func _remove_all_cameras() -> void:
+	if self.get_child(0) == null:
+		return
+	
 	for camera_to_remove: PhantomCamera2D in self.get_children():
-		remove_child(camera_to_remove)
+		camera_to_remove.set_priority(-1)
+	
+	await phantom_camera.tween_completed
+	
+	for camera_to_remove: PhantomCamera2D in self.get_children():
 		camera_to_remove.queue_free()
+
 
 ## Get the phantom camera tween transition type for the given string.
 func _string_to_tween_transition_type(type: String) -> PhantomCameraTween.TransitionType:
