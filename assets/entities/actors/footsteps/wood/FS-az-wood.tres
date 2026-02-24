@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://wbwwq2nc0a8k"]
+
+[ext_resource type="AudioStream" uid="uid://bwhikhki5qg0b" path="res://assets/entities/actors/footsteps/wood/FS-az-wood-01.ogg" id="1_7alvq"]
+[ext_resource type="AudioStream" uid="uid://bbyxqv6widhdj" path="res://assets/entities/actors/footsteps/wood/FS-az-wood-02.ogg" id="2_dtiru"]
+[ext_resource type="AudioStream" uid="uid://clj5tlst7fg5i" path="res://assets/entities/actors/footsteps/wood/FS-az-wood-03.ogg" id="3_26au0"]
+[ext_resource type="AudioStream" uid="uid://ove4tijtac1r" path="res://assets/entities/actors/footsteps/wood/FS-az-wood-04.ogg" id="4_1ddht"]
+
+[resource]
+random_pitch = 1.2
+random_volume_offset_db = 0.5
+streams_count = 4
+stream_0/stream = ExtResource("1_7alvq")
+stream_1/stream = ExtResource("2_dtiru")
+stream_2/stream = ExtResource("3_26au0")
+stream_3/stream = ExtResource("4_1ddht")

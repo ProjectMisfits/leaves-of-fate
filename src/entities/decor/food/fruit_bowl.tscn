@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://bw7awksqx37sb" path="res://assets/entities/decor/food/FruitBowl-Prop.png" id="1_qppkl"]
 [ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_8syd0"]
 
-[node name="FruitBowl" type="Sprite2D"]
-texture = ExtResource("1_qppkl")
+[node name="FruitBowl" type="Node2D"]
 script = ExtResource("2_8syd0")
+
+[node name="FruitBowl" type="Sprite2D" parent="."]
+position = Vector2(-29, -123)
+texture = ExtResource("1_qppkl")

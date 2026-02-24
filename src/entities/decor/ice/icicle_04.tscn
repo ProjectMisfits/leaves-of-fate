@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://63pslrk6h8nl"]
+
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="1_f5scj"]
+[ext_resource type="Texture2D" uid="uid://bx28liau4vpss" path="res://assets/entities/hazards/canvas_icicle/C-Icicle-04.tres" id="2_jkb50"]
+[ext_resource type="Material" uid="uid://dde8s4xg3ueai" path="res://assets/vfx/shaders/ice_material_spike_06.tres" id="2_twusd"]
+
+[node name="Icicle04" type="Node2D"]
+script = ExtResource("1_f5scj")
+in_front_of_door = true
+in_front_of_player = true
+
+[node name="Icicle04" type="Sprite2D" parent="."]
+material = ExtResource("2_twusd")
+position = Vector2(0, -250)
+texture = ExtResource("2_jkb50")

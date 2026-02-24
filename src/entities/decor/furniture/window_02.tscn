@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://dggdoj1nhnb1j"]
+
+[ext_resource type="Texture2D" uid="uid://dssp5wrrsot3p" path="res://assets/entities/decor/furniture/Window-02.png" id="1_7fl0u"]
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_w7kkm"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7fl0u"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_af8b3"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w7kkm"]
+gradient = SubResource("Gradient_af8b3")
+width = 16
+height = 16
+
+[sub_resource type="Gradient" id="Gradient_e3ma6"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.25, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.54895926, 0.54895926, 0.54895926, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s0wd8"]
+gradient = SubResource("Gradient_e3ma6")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Window02" type="Node2D"]
+script = ExtResource("2_w7kkm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(2.2539597, 2.2539597, 2.2539597, 1)
+material = SubResource("CanvasItemMaterial_7fl0u")
+position = Vector2(0, 77)
+scale = Vector2(36.808292, 44.914223)
+texture = SubResource("GradientTexture2D_w7kkm")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(2.2539597, 2.2539597, 2.2539597, 1)
+material = SubResource("CanvasItemMaterial_7fl0u")
+position = Vector2(0, -341)
+scale = Vector2(12.045127, 13.586752)
+texture = SubResource("GradientTexture2D_w7kkm")
+
+[node name="Window02" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_7fl0u")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(2, 2)
+color = Color(0.91, 0.91, 0.91, 1)
+energy = 0.4
+texture = SubResource("GradientTexture2D_s0wd8")
+texture_scale = 48.0

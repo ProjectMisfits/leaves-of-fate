@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqq1u02usswhf"]
+
+[ext_resource type="Texture2D" uid="uid://dojib1fm3sxp1" path="res://assets/entities/decor/furniture/wine-shelf-inside.png" id="1_3a0qh"]
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_nngsj"]
+
+[node name="WineShelfInside" type="Node2D"]
+script = ExtResource("2_nngsj")
+
+[node name="WineShelfInside" type="Sprite2D" parent="."]
+position = Vector2(0, -383)
+texture = ExtResource("1_3a0qh")

@@ -1,0 +1,14 @@
+[gd_resource type="NoiseTexture2D" load_steps=2 format=3 uid="uid://c2s7oorsjlvwf"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_col5u"]
+noise_type = 2
+frequency = 0.02
+fractal_type = 0
+fractal_octaves = 1
+cellular_return_type = 2
+
+[resource]
+noise = SubResource("FastNoiseLite_col5u")
+seamless = true
+as_normal_map = true
+seamless_blend_skirt = 0.202

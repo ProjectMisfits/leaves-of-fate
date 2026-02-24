@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://b1apwmsgr3wsn"]
+
+[ext_resource type="Texture2D" uid="uid://cetapo5oxl1e8" path="res://assets/entities/hazards/ice_spike_ball/Ice-Spike-Ball.png" id="1_8eyqx"]
+[ext_resource type="Texture2D" uid="uid://c2s7oorsjlvwf" path="res://assets/vfx/shaders/ice_normal_small.tres" id="2_55ms7"]
+
+[resource]
+diffuse_texture = ExtResource("1_8eyqx")
+normal_texture = ExtResource("2_55ms7")

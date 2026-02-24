@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://dlhawhqunmbss"]
+
+[ext_resource type="Script" uid="uid://ssmn6bb0mgvm" path="res://src/ui/screen_transition/screen_transition.gd" id="1_xxkf4"]
+[ext_resource type="Shader" uid="uid://by87psgjfi1ta" path="res://src/vfx/shaders/screen_wipe.gdshader" id="2_gwekv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i3fqj"]
+shader = ExtResource("2_gwekv")
+shader_parameter/useCenterPosition = false
+shader_parameter/centerPosition = Vector2(0, 0)
+shader_parameter/progress = 0.0
+
+[sub_resource type="Animation" id="Animation_2fw44"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_gwekv"]
+resource_name = "circle"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.4061265, 0.40612623),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_cpage"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2fw44"]
+_data = {
+&"RESET": SubResource("Animation_2fw44"),
+&"circle": SubResource("Animation_gwekv"),
+&"fade": SubResource("Animation_cpage")
+}
+
+[node name="ScreenTransition" type="Control"]
+top_level = true
+z_index = 500
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xxkf4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_i3fqj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_2fw44")
+}

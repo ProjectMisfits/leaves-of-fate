@@ -1,40 +1,67 @@
+
 ~ ambushed
-Wizard: Well well well. What doth we has't here? A lone pint-size, is't?
+do CutsceneManager.npc_face("Winston", "right")
+do CameraManager.create_camera(Vector2(19800,22000),1, 0.5, "LINEAR", "EASE_IN_OUT")
+Wizard: [font_size=80]Well well well. [/font_size]
+do! EventBus.interrupt_dialogue.emit("0.5")
+Wizard: What doth we have here? Is it a lone...
+do CutsceneManager.npc_face("Winston", "left")
+Wizard: [font_size=80][shake level=7 rate=30][i]PINT-SIZE?[/i][/shake][/font_size]
 Fenn: Why do you call me that? I'm Fenn.
-Wizard: Well, Fenn. If't even is thine real nameth. Um... I do not knoweth...
-Wizard: Um... well... I hath lost mine own traineth of bethought.
+Wizard: Well, [shake level=7 rate=30]Fenn.[/shake] [wait=0.2]If that [wave freq=7 amp=30]even is thine real nameth.[/wave] [wait=0.2]
+do CutsceneManager.npc_face("Winston", "left")
+Wizard awkward: Um...[wait=0.2] 
+do CutsceneManager.npc_face("Winston", "right")
+Wizard: I don't knoweth...
+Wizard awkward: ...
+do CutsceneManager.npc_face("Winston", "left")
+Wizard awkward: I hath lost my traineth of thought.
+do EventBus.interrupt_dialogue.emit("0.2")
 Fenn: Uh...
-Wizard: Ah, of course! Ambushing thee!
-Wizard: Treadeth carefully, pint-size. T'wouldst such a shame if thee were crushed by mine own creations.
-Az: cough Fenn, you good over there?
-Wizard: WHAT? WHO IS'T THERE? A GHOSTLY SPIRIT OF MINE OWN IMAGINATION?!
+Wizard: [font_size=80]AHA![/font_size] Of course! 
+Wizard: [font_size=100][shake level=7 rate=30]Ambushing thee![/shake][/font_size]
+Wizard grit: Treadeth carefully, [shake level=7 rate=30][i]pint-size.[/i][/shake] 
+Wizard grit: T'wouldst be such a shame if thee were crushed by my creations.
+Az: [i]cough[/i] Fenn, you good over there?
+Wizard grit: [font_size=70][shake level=7 rate=30]WHAT?[wait=0.3] WHO'S THERE?[wait=0.3] BEGONE GHOSTLY SPIRITS!![/shake][/font_size]
 Fenn: I'm good, Az. Wizard man is just ambushing me.
-Wizard: AZ? Liketh apprentice Az? Like, like Az Featherstone, Az?
-Fenn: Yeah. We're like-eth best friends.
-Az: Uh. Sure.
-Wizard: Wherefore is the lady? How doth she be talking?
+Wizard awkward: [color="B80006"]AZ[/color]? [font_size=40]Liketh...[/font_size] [font_size=30]the- [wait=0.3]the [i]blacksmith apprentice[/i]?[/font_size]
+Fenn: Yeah. [wait=0.2]We're like-eth best friends.
+Az: Uh. [wait=0.2]Sure.
+Wizard: Wherefore is she? [wait=0.2][shake level=7 rate=40]How doth she be talking?[/shake]
+do EventBus.interrupt_dialogue.emit("0.2")
 Fenn: Oh! Az made these cool frienship bracelets-
-Az: Bangles
+Az: [i]Bangles[/i]
 Fenn: Bangles. And we can talk through them!
-Wizard: No matter! Speaketh not anym're of this curs'd device. This changes't nothing!
-Wizard: TAKETH THIS!
-do EventFlags.set_flag("Ws-Ambush-CellarGeneral", true)
+Wizard grit: No matter! [wait=0.2]Speaketh not anymore of this curs'd device. [wait=0.2]This changes [font_size=60][shake level=7 rate=30]nothing![/shake][/font_size]
+Wizard: [font_size=100][shake level=10 rate=50]TAKETH THIS![/shake][/font_size]
+do CutsceneManager.npc_move("Winston", 22272, 500, false, false)
+do CutsceneManager.remove_npc("Winston")
+Fenn: Did... did he just leave?
+Wizard grit: Look. The budget tis thin.
+Wizard awkward: Just- [wait=0.3][font_size=40]could- [/font_size][wait=0.3]couldst thou walketh through that door?
+do EventFlags.set_flag("5a-Ws-Ambush-CellarGeneral", true)
+# !!! Come back to this when the new challenge gets implemented
 => END
+
+
 
 
 ~ escaped
-Az: Haha! Nice work, kid!
-Wizard: INCONCEIVABLE! ARRRGH!
-Wizard: HOW DIDST THOU EVADE MINE OWN ATTACKS?!
-Fenn: Oh, well Az can also grab things from far away using these bracelets-
-Az: Ban- nevermind.
-Wizard: Arrgh. I need to do-eth better! More machines, more snoweth, more creatures.
-Az: Yeah. cough. I'm not gonna lie, that was pretty pathetic.
-Wizard: Grrr. Well, I doubteth thee has't any more stupid tricks up thy sleeve.
-Fenn: Wasn't it so cool?
-Wizard: I hath never said it was cool!
-Wizard: ARRGH!!!!!
-Wizard runs off
-do EventFlags.set_flag("Ws-PostAmbush-CellarGeneral", true)
+Wizard: You [font_size=70][shake level=7 rate=30][i]ESCAPED?[/i][/shake][/font_size]
+Az laugh: Haha! Nice work, Fenn.
+Wizard: [font_size=70][shake level=7 rate=30]ARGH![/shake] HOW DIDST THOU EVADE MY MINION?[/font_size]
+Fenn: Oh, well [color="B80006"]Az[/color] was grabbing stuff using the bracelets!
+do EventBus.interrupt_dialogue.emit("0.5")
+Az: Ban-[wait=0.3] nevermind.
+do CutsceneManager.npc_face("Winston", "right")
+Wizard: [font_size=60]Hmm. I must do [shake level=7 rate=30]better[/shake].[/font_size][font_size=50] More machines.[/font_size] [font_size=40]More snoweth.[/font_size] [font_size=30]More creatures.[/font_size]
+Az laugh: Yeah. [i]cough[/i] [wait=0.3]I'm not gonna lie, that was [speed=0.25][i]pretty[/i][wait=0.2][/speed] pathetic.
+do CutsceneManager.npc_face("Winston", "left")
+Wizard: [i]Well[/i],[wait=0.3] I doubt thee has't any other [font_size=60][shake level=7 rate=30]stupid[/shake][/font_size] tricks up thy sleeves
+Fenn: [wave freq=7 amp=30] Wasn't it so cool?[/wave]
+Wizard: [font_size=70][shake level=7 rate=30]I hath never said it was cool![/shake][/font_size]
+Wizard: [font_size=100][shake level=7 rate=30]ARRGH![/shake][/font_size]
+#Wizard runs off
+do EventFlags.set_flag("5b-Ws-PostAmbush-CellarGeneral", true)
 => END
-#Should be used for both the pre-ambush conversation and post-ambush conversation

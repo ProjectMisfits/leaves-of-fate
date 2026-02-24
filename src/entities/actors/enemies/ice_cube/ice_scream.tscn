@@ -1,33 +1,226 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnhvjqd23j3hu"]
+[gd_scene load_steps=17 format=3 uid="uid://cnhvjqd23j3hu"]
 
 [ext_resource type="PackedScene" uid="uid://7y024tsh7ciq" path="res://src/entities/actors/enemies/base_enemy.tscn" id="1_21xy4"]
 [ext_resource type="Script" uid="uid://drkteg328pwgv" path="res://src/entities/actors/enemies/ice_cube/ice_scream.gd" id="2_0jlda"]
-[ext_resource type="Script" uid="uid://4efl3svn12vy" path="res://src/entities/actors/enemies/ice_cube/ice_cube_grab_area.gd" id="3_n2c0r"]
 [ext_resource type="Script" uid="uid://jvar131cx0xv" path="res://src/entities/actors/enemies/ice_cube/states/ice_scream_idle.gd" id="3_nfa6x"]
 [ext_resource type="JSON" uid="uid://disdrdqnqvu7p" path="res://src/entities/actors/enemies/ice_cube/ice_scream_db.tres" id="3_ogl8l"]
 [ext_resource type="Script" uid="uid://dca4lwytnv8qy" path="res://src/entities/actors/enemies/ice_cube/states/ice_scream_chase_normal.gd" id="4_q3qi2"]
-[ext_resource type="Script" uid="uid://5t11fihqj56q" path="res://src/entities/actors/enemies/ice_cube/states/ice_scream_chase_angry.gd" id="5_q3qi2"]
-[ext_resource type="Script" uid="uid://o4tkls23gkfy" path="res://src/entities/actors/enemies/ice_cube/states/ice_scream_grabbed.gd" id="6_377jy"]
+[ext_resource type="Texture2D" uid="uid://j8fl3nwc0uak" path="res://assets/entities/actors/enemies/ice_scream/IceScream-Idle.png" id="5_6lktt"]
 [ext_resource type="Script" uid="uid://pix67ly1y4m7" path="res://src/entities/actors/enemies/ice_cube/states/ice_scream_death.gd" id="8_eoff7"]
+[ext_resource type="Texture2D" uid="uid://cpa8djv8lxc06" path="res://assets/entities/actors/enemies/ice_scream/IceScream-Charge.png" id="11_vddlt"]
+[ext_resource type="Texture2D" uid="uid://dljudi1qrrhm0" path="res://assets/entities/actors/enemies/ice_scream/IceScream-Push.png" id="12_ncxt7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_377jy"]
-size = Vector2(265, 223)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8x22k"]
+size = Vector2(72.5, 49.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncxt7"]
+size = Vector2(131, 264.6)
+
+[sub_resource type="Animation" id="Animation_vddlt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipNode/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_6lktt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlipNode/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FlipNode/Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_ncxt7"]
+resource_name = "ice_scream_charge"
+length = 0.2083375
+loop_mode = 1
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipNode/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_vddlt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlipNode/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FlipNode/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_6lktt"]
+resource_name = "ice_scream_idle"
+length = 0.7500042
+loop_mode = 1
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipNode/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_6lktt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlipNode/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.375),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FlipNode/Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_121d5"]
+resource_name = "ice_scream_push"
+length = 0.16667084
+loop_mode = 1
+step = 0.041666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlipNode/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_ncxt7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FlipNode/Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FlipNode/Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.041666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ncxt7"]
+_data = {
+&"RESET": SubResource("Animation_vddlt"),
+&"ice_scream_charge": SubResource("Animation_ncxt7"),
+&"ice_scream_idle": SubResource("Animation_6lktt"),
+&"ice_scream_push": SubResource("Animation_121d5")
+}
 
 [node name="IceScream" instance=ExtResource("1_21xy4")]
-collision_mask = 6
+scale = Vector2(2, 2)
+collision_layer = 72
+collision_mask = 14
 script = ExtResource("2_0jlda")
 database = ExtResource("3_ogl8l")
 
-[node name="GrabbableArea" type="Area2D" parent="." index="2"]
-collision_layer = 32
-script = ExtResource("3_n2c0r")
+[node name="HurtArea" parent="." index="0"]
+collision_mask = 73
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabbableArea" index="0"]
-scale = Vector2(2.0800002, 2.0800002)
-shape = SubResource("RectangleShape2D_377jy")
+[node name="CollisionShape2D" parent="HurtArea" index="0"]
+position = Vector2(1.2500029, 8.749999)
+
+[node name="CollisionShape2D-2" type="CollisionShape2D" parent="HurtArea" index="1"]
+position = Vector2(22.75, -87.75)
+shape = SubResource("RectangleShape2D_8x22k")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(2.4999998, -54.699986)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_ncxt7")
+
+[node name="Sprite2D" parent="FlipNode" index="0"]
+position = Vector2(63.806026, -67.68353)
+scale = Vector2(0.39467132, 0.39467132)
+texture = ExtResource("5_6lktt")
+hframes = 2
+region_enabled = true
+region_rect = Rect2(0, 0, 1618, 752)
 
 [node name="CollisionShape2D" parent="FlipNode/Sight" index="0"]
-position = Vector2(184, -2)
+position = Vector2(72.40001, -0.60000014)
 
 [node name="Idle" type="LimboState" parent="LimboHSM" index="0"]
 script = ExtResource("3_nfa6x")
@@ -35,13 +228,13 @@ script = ExtResource("3_nfa6x")
 [node name="ChaseNormal" type="LimboState" parent="LimboHSM" index="1"]
 script = ExtResource("4_q3qi2")
 
-[node name="ChaseAngry" type="LimboState" parent="LimboHSM" index="2"]
-script = ExtResource("5_q3qi2")
-
-[node name="Grabbed" type="LimboState" parent="LimboHSM" index="3"]
-script = ExtResource("6_377jy")
-
-[node name="Death" type="LimboState" parent="LimboHSM" index="4"]
+[node name="Death" type="LimboState" parent="LimboHSM" index="2"]
 script = ExtResource("8_eoff7")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+&"": SubResource("AnimationLibrary_ncxt7")
+}
+
 [connection signal="body_entered" from="HurtArea" to="." method="_on_hurt_area_body_entered"]
+[connection signal="body_entered" from="FlipNode/Sight" to="." method="_on_sight_body_entered"]

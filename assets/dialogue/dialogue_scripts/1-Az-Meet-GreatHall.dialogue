@@ -1,23 +1,25 @@
 ~ start
-do! CameraManager.create_camera(Vector2(750.0, -100.0), Vector2(0.5, 0.5), 3.0, "CUBIC", "EASE_IN_OUT")
-Fenn: Whoa! Are you Az? Az Featherstone?
-#							Relative Position,		Zoom x and y, trans duration, transition type, ease type
-#do! CameraManager.create_camera(Vector2(200.0, 200.0), Vector2(1.0, 1.0), 2.0, "LINEAR", "EASE_IN")
-Az: Yeah- Wait, what?
-Fenn: The great blacksmith apprentice and daughter of the incredible Knight of Smithing, Abdullah Featherstone?
-Fenn: Oh by Post! This is really happening. What is he like? Abdul? Is he cool? I bet he's really cool. What's the coolest thing he's made? Is it-
-Az: [i]cough[/i] Slow down, kid. What's your name?
-Fenn: Fenn!
-Az: Okay, Fenn. Love the enthusiasm, but I'm kinda busy right now. 
-Az: My Baba is trapped in the Council Chamber, and I saw one of the Wizards who did it escape into the Cellar.
-Fenn: Really?! Adventure awaits!! Let's go!
-Az: Absolutely not, kid. It's not safe. Stay here.
-Fenn: [speed=1.2]Wait, wait, wait. Are you gonna breathe fire? [speed=1.5]I know Adbul can breathe fire. That's so cool. I wish I could breathe fire. Are-[/speed][/speed]
-Az: Okay, okay. Listen, I need to go grab something. I'll be back soon. Will you stay here?
-Fenn: Hm... no promises.
-Az: [i]cough[/i] Seriously?
-Fenn: Yup!
-Az: Ugh. Whatever.
-#Az runs off.
-do EventFlags.set_flag("Az-Meet-GreatHall", true)
+#								relative pos		zoom 	time	trans	ease type
+#do! CameraManager.create_camera(Vector2(750.0, -100.0), 0.5, 3, "CUBIC", "EASE_IN_OUT")
+
+#							name 	x destination, speed, animate, moonwalk
+#do! CutsceneManager.npc_move("Az", 500.0, 		200.0,	 100.0, false, false)
+do CameraManager.create_camera(Vector2(35000.0,3200), 0.75, 1.5, "CUBIC", "EASE_IN_OUT")
+do CutsceneManager.npc_face("Az","left")
+Fenn starry: Whoa! You're [color="B80006"]Az[/color]!! [wave freq=7 amp=30][color="B80006"]Sir Abdullah's[/color] daughter?[/wave]
+Az: Dude, I'm a little busy right now.
+Fenn: [speed=2]Do you know where the Knights are? [/speed]
+Fenn starry: [speed=2]I'm Fenn!! [wave freq=7 amp=30]The King invited me to come meet them!![/wave][/speed]
+Az: Hmph. Well, [wait=0.3]they're trapped. [i]cough[/i][wait=0.3] Some rookie [color="8A0194"]Wizards[/color] locked them in the Council Chamber.
+do EventBus.interrupt_dialogue.emit("0.6")
+Fenn worry: What? Wait, does that mean your Dad-
+Az annoy: [font_size=60][i]Yes[/i][/font_size], I know. My [color="B80006"]Baba[/color] is trapped too.
+Az: [i]cough[/i] The [color="8A0194"]Wizards[/color] scattered all over the castle. I saw one of them go down into the [color="0B4F4A"]Cellar[/color].
+Fenn starry: [font_size=60]We have to help them!![wait=0.2] [shake level=10 rate=50 connected=0]ADVENTURE AWAITS!![/shake][/font_size]
+Az: No way. I need to  grab something from my [color="0B4F4A"]Workshop[/color]. Stay here til I get back.
+Fenn: Hmm... No promises!
+Az annoy: Seriously? [wait=0.3][shake level=7 rate=20 connected=0]Ugh[/shake]. Whatever.
+do CutsceneManager.npc_move("Az", 36352.0, 400, true, false)
+do CutsceneManager.remove_npc("Az")
+do EventFlags.set_flag("1-Az-Meet-GreatHall", true)
 => END

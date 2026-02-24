@@ -1,0 +1,8 @@
+[gd_resource type="CanvasTexture" load_steps=3 format=3 uid="uid://62kcfhpns4a"]
+
+[ext_resource type="Texture2D" uid="uid://bacfs5fh7tttn" path="res://assets/entities/hazards/icicle/Icicle-01.png" id="1_jydps"]
+[ext_resource type="Texture2D" uid="uid://cjafeiqscs8p3" path="res://assets/vfx/shaders/ice_normal_big.tres" id="2_ylwxc"]
+
+[resource]
+diffuse_texture = ExtResource("1_jydps")
+normal_texture = ExtResource("2_ylwxc")

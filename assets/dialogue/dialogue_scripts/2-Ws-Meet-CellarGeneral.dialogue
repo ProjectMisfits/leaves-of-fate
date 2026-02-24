@@ -1,36 +1,35 @@
 ~ start
-???: Why, why yes! That shouldst do rather nicely.
-???: I just needeth... certainly not... 
-Fenn walks in
-???: What?! Who art thou? Didst we not trapeth everyone?
-Fenn: No, there's a buncha people in the Great Hall. There's this super cool lady-
-???: Nay matter! I shalt crush thee myself!
-Fenn: You talk weird.
-Wizard?: Um- stayeth right there! Not anoth'r step!
-Fenn takes a step
-Wizard?: Um. Well.
+do! CameraManager.create_camera(Vector2(4600.0, 600.0), 0.6, 2, "CUBIC", "EASE_IN_OUT")
+??? ws: [font_size=30]Ah, tis perfect. That shouldst do rather well.[/font_size]
+do EventBus.interrupt_dialogue.emit("0.5")
+??? ws: [font_size=30]I just needeth...[/font_size]
+Fenn: Hello??
+do CutsceneManager.npc_face("Winston", "left")
+??? ws: [font_size=100][shake level=15 rate=50]WHAT?! WHO ART THOU?[/shake][/font_size]
+do CutsceneManager.npc_face("Winston", "right")
+??? ws: [font_size=30]Didst we not trapeth everyone?[/font_size]
+Fenn starry: Nope!
+do CutsceneManager.npc_face("Winston", "left")
+??? ws grit: [font_size=70][i]No matter.[/i][/font_size] [wait=0.2]I shalt crush thee [shake level=10 rate=30]myself![/shake]
+??? ws: Not another step, [shake level=10 rate=30][i]pint-size[/i][/shake].
+Fenn: Or... what?
+??? ws awkward: Um. Well.
 Fenn: Are you a wizard?
-Wizard?: Why, of course! I am the Great Wizard of-
-Fenn: Prepare yourself, Wizard! I will defeat you and free this palace!
-Wizard: Oh my. Well, you see, I doth not much timeth for this.
-Wizard: Like, I would love to destroyeth thee, but I must findeth this w'rkshop.
-Fenn: Oh. Workshop? What workshop?
-Wizard: Listen hereth, pint-size. Stayeth out of mine own way, or I shall maketh thee regret it.
-Winston leaves
-Fenn: Wait! I have another question.
-Winston returns
-Wizard: Fie! Thou art not my Mother!
-Fenn: I never said I was.
-Wizard: Nay matter!! What is thy question?
-Fenn: Why'd you trap all the Knights and stuff??
-Wizard: Because they deserv'd it! 
-Fenn: What?! No they didn't! They help so many people!
-Wizard: Who?! What doth they even do-eth? Sitteth 'round and bicker ov'r meaningless laws?
-Wizard: Forget it. I has't to runneth. Evil plans to maketh, traps to setteth, enemies to sendeth at thee, you know.
-Fenn: Yeah, I get it.
-Wizard: Um. Goodbye, pint-size.
-Fenn: Bye bye!
-Winston leaves
-Fenn: Oh my. What a formidable foe...
-do EventFlags.set_flag("Ws-Meet-CellarGeneral", true)
+do EventBus.interrupt_dialogue.emit("0.2")
+Wizard?: Why,[wait=0.2] of course![wait=0.2] I am the Great Wizard of-
+Fenn: [font_size=100]PREPARE YOURSELF, [shake level=15 rate=50]WIZARD! [/shake][/font_size]
+Fenn: [font_size=60][wave freq=8 amp=30]I will defeat you and free this palace![/wave][/font_size]
+do CutsceneManager.npc_face("Winston", "right")
+Wizard grit: [font_size=40][shake level=7 rate=20]ARGH[/shake]. [i]I do not have timeth for this.[/i] [/font_size]
+Wizard grit: [font_size=40]I must findeth that [color="0B4F4A"]Workshop[/color]![/font_size]
+do CutsceneManager.npc_face("Winston", "left")
+Wizard awkward: [font_size=80]Ahem.[/font_size]
+Wizard: [wave freq=7 amp=30]In due timeth, [i]pint-size[/i].[/wave]
+do CutsceneManager.npc_move("Winston", 6200.0, 1000.0, false, false)
+Wizard grit: I look forward to our battle. [shake level=7 rate=30]Thy defeat shalt be one for the ages.[/shake]
+do CutsceneManager.npc_move("Winston", 7200.0, 2000.0, false, false)
+do CutsceneManager.remove_npc("Winston")
+Fenn: Uh...
+Fenn: Indeed, it shalt... eth?
+do EventFlags.set_flag("2-Ws-Meet-CellarGeneral", true)
 => END

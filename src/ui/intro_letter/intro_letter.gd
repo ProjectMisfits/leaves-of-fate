@@ -1,18 +1,27 @@
 extends Control
 
+## Whether the continue prompt is visible.
+var continue_prompt_visible: bool = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	$TextureRect/Control.modulate.a = 0
+## Handle input
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(&"ui_accept"):
+		get_viewport().set_input_as_handled()
+		if not continue_prompt_visible:
+			_show_continue_prompt()
+		else:
+			_progress_to_gameplay()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	_progress_to_gameplay()
+## Show the continue prompt
+func _show_continue_prompt() -> void:
+	var prompt_tween: Tween = create_tween()
+	prompt_tween.tween_property($TextureRect/Control, "modulate:a", 1.0, 0.25)
+	prompt_tween.tween_callback(_mark_continue_prompt_as_visible)
 
-
-func _on_timer_timeout() -> void:
-	create_tween().tween_property($TextureRect/Control, "modulate:a", 1.0, 0.5)
-
+## Mark the continue prompt as visible
+func _mark_continue_prompt_as_visible() -> void:
+	continue_prompt_visible = true
+	
+## Progress to gameplay
 func _progress_to_gameplay() -> void:
-	if $TextureRect/Control.modulate.a == 1.0 && Input.is_action_just_pressed(&"ui_accept"):
-		SceneManager.swap_scenes("res://src/gameplay/gameplay.tscn", null, self)
+	SceneManager.swap_scenes_with_transition("res://src/gameplay/gameplay.tscn", null, self)

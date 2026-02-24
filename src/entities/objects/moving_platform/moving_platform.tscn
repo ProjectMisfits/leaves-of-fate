@@ -51,10 +51,11 @@ _data = {
 &"move_base_animation": SubResource("Animation_7gtbv")
 }
 
-[node name="MovingPlatform" type="Path2D"]
+[node name="MovingPlatform" type="Path2D" node_paths=PackedStringArray("paths")]
 curve = SubResource("Curve2D_bs6ok")
 script = ExtResource("1_wq0hb")
 closed_loop = false
+paths = [NodePath("PathFollow2D")]
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(512, 0)
@@ -75,6 +76,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_xm0pf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
 libraries = {
 &"": SubResource("AnimationLibrary_bmss7")
 }

@@ -1,12 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://18bv6betadgh"]
+[gd_scene load_steps=18 format=3 uid="uid://18bv6betadgh"]
 
 [ext_resource type="Script" uid="uid://ccp1k3erscyig" path="res://src/ui/main_menu/main_menu.gd" id="1_hhctb"]
 [ext_resource type="Texture2D" uid="uid://24pvhwwalebl" path="res://assets/ui/main_menu/Envelope-UI-001.png" id="1_osdni"]
 [ext_resource type="Texture2D" uid="uid://cqbbpsglfvq3u" path="res://assets/ui/main_menu/ReturnLabel-UI-001.png" id="2_3oi2e"]
 [ext_resource type="Texture2D" uid="uid://com3a5uqsd6n6" path="res://assets/ui/main_menu/Stamp-UI-001.png" id="2_vivct"]
-[ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="3_vivct"]
+[ext_resource type="Texture2D" uid="uid://bmwiniy2gmnxm" path="res://assets/ui/Title-UI-002.png" id="5_2rik1"]
 [ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="5_6ut4k"]
 [ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="5_vivct"]
+[ext_resource type="AudioStream" uid="uid://cw08xxvkhrlel" path="res://assets/ui/audio/PH-UI-select.ogg" id="8_2rik1"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6ut4k"]
 texture = ExtResource("1_osdni")
@@ -79,7 +80,9 @@ offset_top = 83.0
 offset_right = -122.0
 offset_bottom = 289.0
 grow_horizontal = 0
-focus_neighbor_left = NodePath("../ReturnLabelButton")
+focus_neighbor_left = NodePath("../../MainSelectionsContainer/PlayButton")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../../MainSelectionsContainer/PlayButton")
 focus_next = NodePath("../../MainSelectionsContainer/PlayButton")
 focus_previous = NodePath("../ReturnLabelButton")
@@ -129,7 +132,9 @@ offset_left = 120.0
 offset_top = 80.0
 offset_right = 651.0
 offset_bottom = 274.0
-focus_neighbor_right = NodePath("../StampButton")
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../../MainSelectionsContainer/PlayButton")
 focus_neighbor_bottom = NodePath("../../MainSelectionsContainer/PlayButton")
 focus_next = NodePath("../StampButton")
 focus_previous = NodePath("../../MainSelectionsContainer/ExitButton")
@@ -177,7 +182,7 @@ theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
 theme_override_font_sizes/font_size = 30
 text = "Bay Leaf Palace"
 
-[node name="Title" type="Label" parent="EnvelopeBase"]
+[node name="TextureRect" type="TextureRect" parent="EnvelopeBase"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -185,15 +190,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -603.5
-offset_top = -188.5
+offset_top = -241.0
 offset_right = 603.5
-offset_bottom = -37.5
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.30980393, 0.56078434, 0.05490196, 1)
-theme_override_fonts/font = ExtResource("3_vivct")
-theme_override_font_sizes/font_size = 150
-text = "PROJECT MISFITS"
+texture = ExtResource("5_2rik1")
 
 [node name="MainSelectionsContainer" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
@@ -217,6 +219,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 focus_neighbor_left = NodePath("../../EnvelopeBase/ReturnLabelButton")
+focus_neighbor_top = NodePath("../../EnvelopeBase/ReturnLabelButton")
 focus_neighbor_right = NodePath("../../EnvelopeBase/StampButton")
 focus_neighbor_bottom = NodePath("../SettingsButton")
 focus_next = NodePath("../SettingsButton")
@@ -250,9 +253,9 @@ custom_minimum_size = Vector2(400, 101)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-focus_neighbor_left = NodePath("../../EnvelopeBase/ReturnLabelButton")
+focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../PlayButton")
-focus_neighbor_right = NodePath("../../EnvelopeBase/StampButton")
+focus_neighbor_right = NodePath(".")
 focus_neighbor_bottom = NodePath("../ExitButton")
 focus_next = NodePath("../ExitButton")
 focus_previous = NodePath("../PlayButton")
@@ -287,9 +290,10 @@ custom_minimum_size = Vector2(226, 101)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-focus_neighbor_left = NodePath("../../EnvelopeBase/ReturnLabelButton")
+focus_neighbor_left = NodePath(".")
 focus_neighbor_top = NodePath("../SettingsButton")
-focus_neighbor_right = NodePath("../../EnvelopeBase/StampButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
 focus_next = NodePath("../../EnvelopeBase/ReturnLabelButton")
 focus_previous = NodePath("../SettingsButton")
 theme_override_colors/font_color = Color(0.20784314, 0.14901961, 0.1254902, 1)
@@ -317,9 +321,17 @@ texture = ExtResource("5_vivct")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="MenuHolder" type="CanvasLayer" parent="."]
+[node name="SubmenuHolder" type="Node" parent="."]
 unique_name_in_owner = true
 
+[node name="Audio" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="SelectAudio" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("8_2rik1")
+bus = &"SFX"
+
+[connection signal="button_up" from="EnvelopeBase/StampButton" to="." method="_open_credits_menu"]
 [connection signal="button_up" from="EnvelopeBase/ReturnLabelButton" to="." method="_open_controls_menu"]
 [connection signal="button_up" from="MainSelectionsContainer/PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="MainSelectionsContainer/SettingsButton" to="." method="_open_settings_menu"]

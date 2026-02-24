@@ -1,0 +1,10 @@
+[gd_resource type="JSON" format=3 uid="uid://dks7o33vcno74"]
+
+[resource]
+data = {
+"burst": false,
+"burst_num": 3,
+"burst_time": 2.0,
+"immediate_spawn": false,
+"time_between_objects": 2.0
+}

@@ -1,0 +1,15 @@
+~ start
+Fenn: Got it!
+Steam hisses
+Iceton... roars?
+Az: Yes! YEAH!!
+Az: DIE, IDIOT! 
+Winston: NO!! ICETON!!  No... no please!
+Winston: Y- you... my work... the ice... the snow...
+Winston: All of it...
+Az: Ah... geez.
+Fenn: Oh...
+Az: Fenn, can you come back here and help me deal with the nerd?
+Fenn: Alright.
+do EventFlags.set_flag("14-AzWs-TurnOnHeater-Boss-Workshop", true)
+=> END

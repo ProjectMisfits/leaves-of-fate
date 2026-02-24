@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://ca5i8864h7llp"]
+
+[ext_resource type="AudioStream" uid="uid://dmbgvhint5j7m" path="res://assets/entities/actors/footsteps/stone/FS-fenn-stone-01.ogg" id="1_bx4k4"]
+[ext_resource type="AudioStream" uid="uid://cnx7rc2q51n3h" path="res://assets/entities/actors/footsteps/stone/FS-fenn-stone-02.ogg" id="2_jpa0c"]
+[ext_resource type="AudioStream" uid="uid://b3do3b71nql5h" path="res://assets/entities/actors/footsteps/stone/FS-fenn-stone-03.ogg" id="3_kwqsp"]
+[ext_resource type="AudioStream" uid="uid://dmllvq0xmep2d" path="res://assets/entities/actors/footsteps/stone/FS-fenn-stone-04.ogg" id="4_oiyqq"]
+
+[resource]
+random_pitch = 1.2
+random_volume_offset_db = 0.5
+streams_count = 4
+stream_0/stream = ExtResource("1_bx4k4")
+stream_1/stream = ExtResource("2_jpa0c")
+stream_2/stream = ExtResource("3_kwqsp")
+stream_3/stream = ExtResource("4_oiyqq")

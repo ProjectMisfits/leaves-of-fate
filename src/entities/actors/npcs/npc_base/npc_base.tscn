@@ -1,17 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://daw5s2hjs0tq1"]
+[gd_scene load_steps=4 format=3 uid="uid://daw5s2hjs0tq1"]
 
+[ext_resource type="Script" uid="uid://dl722dglb83i" path="res://src/entities/actors/npcs/npc_base/npc_base.gd" id="1_hqiaf"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="3_r615y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r615y"]
+resource_local_to_scene = true
 size = Vector2(128, 128)
 
 [node name="NpcBase" type="CharacterBody2D"]
-collision_layer = 16
-collision_mask = 0
+collision_layer = 256
+collision_mask = 134
+script = ExtResource("1_hqiaf")
 
-[node name="FlipAbles" type="Node2D" parent="."]
+[node name="FlipNode" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="FlipAbles"]
+[node name="Sprite2D" type="Sprite2D" parent="FlipNode"]
 texture = ExtResource("3_r615y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

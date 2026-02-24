@@ -1,32 +1,35 @@
 ~ start
-Az: Ugh. Cough. Come on.
-Fenn walks in
-Az: Fenn? What're you doing here? I told you to stay behind!
-Fenn: Adventure! I need to save the Knights!
-Az: Ugh, whatever. I guess you're already here.
-Az: We've got bad news, though. We're stuck. Big wall of ice in the way.
-Fenn: Ooh! Is it fire breath time?!
-Camera pans to the large wall of ice
-Az: Yeah I don't think so. We need a way around. I need to get to my workshop.
-Fenn: Workshop?
-Az: Yeah. I cough need something from there. It's deeper in the cellar. Last thing I want is someone messing with my stuff
-Fenn: Hm... the wizard also said something about a workshop.
-Az: You ran into the wizard? Are you okay?
-Fenn: Yeah. He was scary. But also pretty cool.
-Az: By the Sender. Stay away from him, okay? 
-Fenn: What if I go down through there?
-Az: That grate?
-Fenn: We have to get out of here somehow.
-Az: And if that Wizard gets his hands on my workshop...
-Az: Ugh, I hate this. Fine. You go down there, I'll find another way out of here.
-Az: cough And take one of these.
-Az hands Fenn the bangle
+do! CameraManager.create_camera(Vector2(5000,600), 0.75, 2.0, "CUBIC", "EASE_IN_OUT")
+Fenn starry: [wave freq=7 amp=30]Hello again![/wave]
+do CutsceneManager.npc_face("Az","left")
+Az: What're you doing here?
+Az annoy: [shake level=7 rate=30]I told you to stay behind![/shake]
+Fenn starry: Adventure![wait=0.3] [wave freq=8 amp=30]I must save the Knights![/wave]
+Az: [shake level=7 rate=30]Ugh[/shake]. Not like it matters. 
+do CutsceneManager.npc_face("Az","right")
+Az: [i]cough[/i] That ice is blocking everything.
+Fenn starry: Ooooh![wait=0.3] You can breath fire, right?! [wait=0.3] Like your [color="B80006"]Dad[/color]?
+do CameraManager.create_camera(Vector2(12000,100), 1.33, 3.0, "CUBIC", "EASE_IN_OUT")
+Az: Yeah I don't think so.
+Fenn starry: [wave freq=7 amp=30][color="B80006"]Sir Abdul[/color] could melt that, easy! [/wave]
+do CameraManager.create_camera(Vector2(5000,600), 0.75, 2.0, "CUBIC", "EASE_IN_OUT")
+do CutsceneManager.npc_face("Az","left")
+Az: Yeah.[wait=0.3] And I'm not my [color="B80006"]Baba[/color].
+Az: [i]cough[/i] We need a way around to get to my [color="0B4F4A"]Workshop[/color].
+Fenn: Huh... the [color="8A0194"]Wizard[/color] was also looking for a [color="0B4F4A"]Workshop[/color].
+Az: [font_size=60][shake level=7 rate=30]What?![/shake][/font_size] Why does he want my [color="0B4F4A"]Workshop[/color]?
+Fenn: I dunno. But if we need a way out, I could go through that grate!
+Az annoy: [font_size=30]Ugh, I hate this.[/font_size]
+Az: [font_size=60]FINE.[/font_size] You go down there. [i]cough[/i] I'll find another way around.
+Az: And take one of these, [wait=0.3]I guess.
+Az hands Fenn something
 Fenn: A bracelet?
-Az: A bangle. I should be able to use it to help you from afar
-Fenn: Should?
-Az: Okay, I've never, uh, tried before. But it'll be fine.
-Az: And Fenn, be careful, okay? You see anything dangerous, you get out. Got it?
-Fenn: No promises!
-Az: Ugh. Nevermind.
-do EventFlags.set_flag("Az-Stuck-Pantry", true)
+Az: A bangle.
+Fenn: What's it do?
+Az: Uh. Well, [wait=0.3]I should be able to help you, even if I'm not there.
+Fenn starry: Whoa... really?? [wait=0.3]That's so cool!
+Az: Be careful, Fenn.
+Fenn starry: [wave freq=7 amp=30]No promises![/wave]
+Az annoy: Nevermind.
+do EventFlags.set_flag("3-Az-Stuck-Pantry", true)
 => END
