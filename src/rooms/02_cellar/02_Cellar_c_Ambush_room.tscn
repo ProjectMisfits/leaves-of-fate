@@ -4,8 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_hjb0y"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_hjb0y"]
 [ext_resource type="PackedScene" path="res://assets/vfx/shaders/dust_layer.tscn" id="3_r7us7"]
-[ext_resource type="PackedScene" uid="uid://bg2o7v2o7bjjk" path="res://src/entities/objects/breakaway_platform/breakaway_platform.tscn" id="5_kak0g"]
-[ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="5_u513b"]
 [ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/npc_winston/npc_winston.tscn" id="6_af7wc"]
 [ext_resource type="PackedScene" uid="uid://bf4p2eid3ykd4" path="res://src/entities/decor/ice/icicle_group_01.tscn" id="8_hjb0y"]
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="9_hjb0y"]
@@ -96,8 +94,8 @@ target_room_path = "uid://bqwa13d7qt5yf"
 position = Vector2(21504, 21568)
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("9_hjb0y")]
-position = Vector2(19103, 17780)
-scale = Vector2(30, 10)
+position = Vector2(19136.002, 21376)
+scale = Vector2(40, 10)
 dialogue_sequence = ExtResource("10_h5367")
 dialogue_start = "ambushed"
 required_false_event_flags = Array[String](["5a-Ws-Ambush-CellarGeneral"])
