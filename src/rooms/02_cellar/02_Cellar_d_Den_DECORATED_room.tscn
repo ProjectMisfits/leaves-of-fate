@@ -148,7 +148,7 @@ scale = Vector2(20, 60)
 dialogue_sequence = ExtResource("19_6l8wa")
 enabled = false
 
-[node name="BackBufferCopy-2" type="BackBufferCopy" parent="MidgroundLayer" index="7"]
+[node name="BackBufferCopy" type="BackBufferCopy" parent="MidgroundLayer" index="7"]
 z_index = 5
 copy_mode = 2
 
@@ -263,7 +263,6 @@ scale = Vector2(3, 3)
 [node name="Fades" type="Node2D" parent="MidgroundLayer/BackBufferCopy" index="20"]
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="0"]
-visible = false
 light_mask = 0
 position = Vector2(13824.001, -2624.0002)
 rotation = 3.1415925
@@ -295,7 +294,7 @@ scale = Vector2(5, 2.455)
 mesh = SubResource("QuadMesh_5us1k")
 texture = SubResource("GradientTexture2D_hnl24")
 
-[node name="Decor" parent="MidgroundLayer" index="9"]
+[node name="Decor" parent="MidgroundLayer" index="8"]
 modulate = Color(0.59, 0.59, 0.59, 1)
 material = ExtResource("18_jcvwt")
 
