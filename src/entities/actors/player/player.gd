@@ -34,6 +34,7 @@ var meter_dash_zone_buildup_rate: float	## The amount of wind per second that th
 var meter_dash_drain_rate: float		## The amount of wind per second that the Player loses while Leaf Dashing.
 var meter_dash_end_drain: float			## The amount of wind drained after ending a Leaf Dash.
 var meter_pile_drain_rate: float		## UNUSED: The amount of wind per second that the Player loses while in Leaf Pile mode.
+var meter_cooldown_time: float			## Time in seconds after landing on the ground before the Player may Leaf Dash again.
 
 var dash_min_speed: float						## The Player's minimum speed while Leaf Dashing.
 var dash_max_speed: float						## The Player's maximum speed while Leaf Dashing.
@@ -97,6 +98,10 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 ##Footstep delay
 @onready var foot_step_timer :Timer = $FootStepTimer
 
+## Reference to the Player's Meter Cooldown Timer.
+## While active, the Player cannot Leaf Dash.
+@onready var meter_cooldown_timer: Timer = $MeterCooldownTimer
+
 ##Footstep Audio
 @onready var foot_step_audio_player : AudioStreamPlayer2D = $Audio/Footsteps
 
@@ -135,12 +140,15 @@ var infinite_dash: bool = false
 ##Can the player dash
 var no_dash: bool = false
 
+## If True, the Leaf Dash will be put on cooldown the next time the Player touches the floor.
+var dash_cooldown_queued: bool = false
+
 @onready var leaf_enter_audio: AudioStreamPlayer2D = $Audio/LeafEnter
 @onready var leaf_exit_audio: AudioStreamPlayer2D = $Audio/LeafExit
 
 var look_direction: float = 1.0	## The direction the Player is looking. < 0 is left, >= 0 is right.
 var jump_queued: bool = false	## If True, the user queued a jump which will trigger immediately when the Player lands on the ground.
-var leaf_meter: float = 0.0		## How much wind the Player currently has.
+var leaf_meter: float = 100.0		## How much wind the Player currently has.
 
 ## How much Y-velocity to add to the Player when a jump is initiated.
 ## Determined at runtime using the Jump database variables.
@@ -156,6 +164,7 @@ var can_play_footstep : bool = true
 
 # -------------------- SIGNALS -------------------- #
 signal leaf_meter_changed(new_value: float)	## Emitted when the Player's stored wind changes.
+signal dash_cooldown_timer_updated(initial_time: float, time_left: float)	## Emitted every physics frame while the Player's dash cooldown timer is active.
 
 ## Fetch database resource. If valid, initialize all variables.
 func _enter_tree() -> void:
@@ -191,7 +200,14 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	if (post_dash_mode and is_on_floor()):	# If landed on floor during post-dash mode, disable post-dash mode.
-		post_dash_mode = false
+		post_dash_mode = false							# End post-dash mode
+	
+	if (dash_cooldown_queued and is_on_floor()):
+		dash_cooldown_queued = false
+		meter_cooldown_timer.start(meter_cooldown_time)	# Start cooldown timer
+	
+	if (meter_cooldown_timer.time_left > 0.0):
+		dash_cooldown_timer_updated.emit(meter_cooldown_time, meter_cooldown_timer.time_left)
 	
 	# If player input is disabled, do not update the jump queue or leaf meter.
 	if input_processing:
@@ -453,17 +469,15 @@ func update_leaf_meter(delta: float) -> void:
 	# Compute change in leaf meter
 	var leaf_meter_change: float = 0.0
 	if (infinite_dash):	#If the player is in an infinite dash zone ignore everything else and give them meter
-		leaf_meter_change = meter_dash_zone_buildup_rate * delta
+		leaf_meter_change = meter_dash_zone_buildup_rate
 	elif (no_dash):		# If the Player cannot dash, Leaf Meter does not change
 		leaf_meter_change = 0.0
 	elif (dashing_state.is_active()):
-		leaf_meter_change = meter_dash_drain_rate * delta * -1.0
-	elif (is_on_floor()):
-		leaf_meter_change = 100.0	# Set to 100% of meter, delta is negated after
+		leaf_meter_change = meter_dash_drain_rate * -1.0
 	else:	# If Player is in the air
 		leaf_meter_change = 0.0
 		
-	new_leaf_meter += leaf_meter_change
+	new_leaf_meter += (leaf_meter_change * delta)
 	
 	set_leaf_meter(new_leaf_meter)
 
@@ -512,12 +526,6 @@ func _end_invincibility() -> void:
 
 ## Sets the Player's current Leaf Meter & updates the Leaf Meter UI.
 func set_leaf_meter(new_leaf_meter: float) -> void:
-	# If input is disabled, ignore changes to Player leaf meter.
-	# There are no situations where the leaf meter should be updated when input is disabled, so push a warning if that happens.
-	if not input_processing:
-		push_warning("set_leaf_meter(): Player input disabled, Leaf Meter not set.")
-		return
-	
 	leaf_meter = clampf(new_leaf_meter, 0.0, 100.0)
 	leaf_meter_changed.emit(leaf_meter)
 
@@ -550,6 +558,7 @@ func initialize_data(data: Dictionary) -> void:
 		meter_dash_drain_rate = data["meter_dash_drain_rate"]
 		meter_pile_drain_rate = data["meter_pile_drain_rate"]
 		meter_dash_end_drain = data["meter_dash_end_drain"]
+		meter_cooldown_time = data["meter_cooldown_time"]
 		
 		dash_min_speed = data["dash_min_speed"]
 		dash_max_speed = data["dash_max_speed"]
@@ -609,3 +618,7 @@ func get_eye_position() -> Vector2:
 
 func _on_foot_step_timer_timeout() -> void:
 	can_play_footstep = true
+
+## Re-enable Leaf Dash, max out Leaf Meter, and dequeue the dash cooldown.
+func _on_meter_cooldown_timer_timeout() -> void:
+	set_leaf_meter(100.0)	# Fully recharge Leaf Meter
