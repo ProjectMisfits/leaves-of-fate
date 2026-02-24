@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bohwfv2ojdvd6"]
+[gd_scene load_steps=16 format=4 uid="uid://bohwfv2ojdvd6"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_ka582"]
 [ext_resource type="PackedScene" uid="uid://bbpm02j1io7y6" path="res://src/entities/objects/bronze_pipe/bronze_pipe.tscn" id="2_cmdfb"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_q0jjo"]
 [ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="4_6gt6j"]
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="4_6qxje"]
+[ext_resource type="PackedScene" uid="uid://d2w50ptxgmhj4" path="res://src/entities/objects/doors/door_grate.tscn" id="4_uvpvb"]
 [ext_resource type="PackedScene" uid="uid://bwadcghg6jxxu" path="res://src/entities/decor/pillars/pillar_base_03.tscn" id="5_cmdfb"]
 [ext_resource type="PackedScene" uid="uid://7c7nfo2gy8fu" path="res://src/entities/decor/pillars/pillar_cap_03.tscn" id="5_umxy6"]
 [ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/npc_winston/npc_winston.tscn" id="5_vvfdw"]
@@ -53,6 +54,13 @@ scale = Vector2(0.65, 0.65)
 
 [node name="Path2D" parent="MidgroundLayer/Entities/Objects/BronzePipe-2" index="1"]
 curve = SubResource("Curve2D_otj6j")
+[node name="DoorGrate" parent="MidgroundLayer/DoorHolder" index="2" instance=ExtResource("4_uvpvb")]
+position = Vector2(4608, -256)
+door_name = "vent"
+
+[node name="DoorGrate-2" parent="MidgroundLayer/DoorHolder" index="3" instance=ExtResource("4_uvpvb")]
+position = Vector2(1536, -256)
+
 [node name="NpcAz" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("4_6gt6j")]
 position = Vector2(171, 702)
 
