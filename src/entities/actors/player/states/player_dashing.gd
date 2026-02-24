@@ -35,6 +35,9 @@ func _enter() -> void:
 	agent.velocity = move_direction * max(agent.velocity.length(), agent.dash_min_speed)
 	
 	rad_angular_turn_speed = deg_to_rad(agent.dash_angular_turn_speed)
+	
+	if (agent.meter_cooldown_timer.time_left > 0.0):	# If Leaf Meter cooldown timer was active
+		agent.meter_cooldown_timer.stop()	# Stop timer; it will restart when exiting Dash state
 
 ## Move & turn the Player. If the dash button is not held or the Player runs out of wind,
 ## check if they may transition into another state.
@@ -92,6 +95,9 @@ func _exit() -> void:
 	# Drain Leaf Meter by an amount after ending Leaf Dash.
 	
 	agent.set_leaf_meter(max(agent.leaf_meter - agent.meter_dash_end_drain, 0.0))
+	
+	# Queue Leaf Dash cooldown
+	agent.dash_cooldown_queued = true
 	
 	# If airborne, add a burst of velocity
 	if (not agent.is_on_floor()):
