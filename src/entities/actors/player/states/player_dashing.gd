@@ -38,6 +38,8 @@ func _enter() -> void:
 	
 	if (agent.meter_cooldown_timer.time_left > 0.0):	# If Leaf Meter cooldown timer was active
 		agent.meter_cooldown_timer.stop()	# Stop timer; it will restart when exiting Dash state
+	
+	agent.dash_started.emit()
 
 ## Move & turn the Player. If the dash button is not held or the Player runs out of wind,
 ## check if they may transition into another state.

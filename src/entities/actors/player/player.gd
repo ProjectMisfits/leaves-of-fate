@@ -163,6 +163,9 @@ var time_since_jump_queued: float = 0.0	## How long (in seconds) since the Playe
 var can_play_footstep : bool = true
 
 # -------------------- SIGNALS -------------------- #
+@warning_ignore("unused_signal")
+signal dash_started()	## Emitted when the Player begins Leaf Dashing. Used in player_dashing script.
+
 signal leaf_meter_changed(new_value: float)	## Emitted when the Player's stored wind changes.
 signal dash_cooldown_timer_updated(initial_time: float, time_left: float)	## Emitted every physics frame while the Player's dash cooldown timer is active.
 
