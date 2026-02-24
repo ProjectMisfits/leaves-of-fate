@@ -1,53 +1,53 @@
-[gd_scene load_steps=8 format=4 uid="uid://cgen2n4p4n0nn"]
+[gd_scene load_steps=8 format=4 uid="uid://crhpmxw3ucdqx"]
 
-[ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_j82yt"]
-[ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="2_svn25"]
-[ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_ednxw"]
-[ext_resource type="PackedScene" uid="uid://b7t7pc0jj7gxa" path="res://src/entities/decor/plants/hanging_pot_02.tscn" id="4_eubhb"]
-[ext_resource type="PackedScene" uid="uid://bdjego1dul8qg" path="res://src/entities/decor/pillars/arch_point_cracked.tscn" id="5_jvr1l"]
-[ext_resource type="PackedScene" uid="uid://c0e5ya2ej5avs" path="res://src/entities/decor/furniture/bookshelf.tscn" id="6_v6alh"]
-[ext_resource type="PackedScene" uid="uid://bt8rip14nbobd" path="res://src/entities/decor/plants/hanging_pot_01.tscn" id="7_8q5n6"]
+[ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_svcyf"]
+[ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="2_gdmw7"]
+[ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_1is71"]
+[ext_resource type="PackedScene" uid="uid://b7t7pc0jj7gxa" path="res://src/entities/decor/plants/hanging_pot_02.tscn" id="4_o2ign"]
+[ext_resource type="PackedScene" uid="uid://bdjego1dul8qg" path="res://src/entities/decor/pillars/arch_point_cracked.tscn" id="5_ym70a"]
+[ext_resource type="PackedScene" uid="uid://c0e5ya2ej5avs" path="res://src/entities/decor/furniture/bookshelf.tscn" id="6_cnyto"]
+[ext_resource type="PackedScene" uid="uid://bt8rip14nbobd" path="res://src/entities/decor/plants/hanging_pot_01.tscn" id="7_etqjl"]
 
-[node name="02_Cellar_d_FiresideChat01" instance=ExtResource("1_j82yt")]
+[node name="02_Cellar_c_AmbushSurvival_room" instance=ExtResource("1_svcyf")]
 
 [node name="BackgroundGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
 position = Vector2(-255.99998, -2048)
 scale = Vector2(6656.0005, 28.000002)
 
-[node name="PillarTrunk01" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("2_svn25")]
+[node name="PillarTrunk01" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("2_gdmw7")]
 position = Vector2(960, 320)
 scale = Vector2(0.5, 1)
 
-[node name="PillarTrunk01-6" parent="BackgroundLayer/Decor" index="1" instance=ExtResource("2_svn25")]
+[node name="PillarTrunk01-6" parent="BackgroundLayer/Decor" index="1" instance=ExtResource("2_gdmw7")]
 position = Vector2(64, 320)
 scale = Vector2(0.5, 1)
 
-[node name="PillarTrunk01-2" parent="BackgroundLayer/Decor" index="2" instance=ExtResource("2_svn25")]
+[node name="PillarTrunk01-2" parent="BackgroundLayer/Decor" index="2" instance=ExtResource("2_gdmw7")]
 position = Vector2(2304, 320)
 scale = Vector2(0.6, 1)
 
-[node name="PillarTrunk01-3" parent="BackgroundLayer/Decor" index="3" instance=ExtResource("2_svn25")]
+[node name="PillarTrunk01-3" parent="BackgroundLayer/Decor" index="3" instance=ExtResource("2_gdmw7")]
 position = Vector2(3840, 320)
 scale = Vector2(0.6, 1)
 
-[node name="PillarTrunk01-4" parent="BackgroundLayer/Decor" index="4" instance=ExtResource("2_svn25")]
+[node name="PillarTrunk01-4" parent="BackgroundLayer/Decor" index="4" instance=ExtResource("2_gdmw7")]
 position = Vector2(5184, 320)
 scale = Vector2(0.5, 1)
 
-[node name="PillarTrunk01-5" parent="BackgroundLayer/Decor" index="5" instance=ExtResource("2_svn25")]
+[node name="PillarTrunk01-5" parent="BackgroundLayer/Decor" index="5" instance=ExtResource("2_gdmw7")]
 position = Vector2(6080, 320)
 scale = Vector2(0.5, 1)
 
-[node name="HangingLantern" parent="BackgroundLayer/Decor" index="6" instance=ExtResource("3_ednxw")]
+[node name="HangingLantern" parent="BackgroundLayer/Decor" index="6" instance=ExtResource("3_1is71")]
 position = Vector2(512, -832)
 
-[node name="HangingLantern-2" parent="BackgroundLayer/Decor" index="7" instance=ExtResource("3_ednxw")]
+[node name="HangingLantern-2" parent="BackgroundLayer/Decor" index="7" instance=ExtResource("3_1is71")]
 position = Vector2(5632, -832)
 
-[node name="HangingLantern-3" parent="BackgroundLayer/Decor" index="8" instance=ExtResource("3_ednxw")]
+[node name="HangingLantern-3" parent="BackgroundLayer/Decor" index="8" instance=ExtResource("3_1is71")]
 position = Vector2(3072, -1280)
 
-[node name="HangingPot02" parent="BackgroundLayer/Decor" index="9" instance=ExtResource("4_eubhb")]
+[node name="HangingPot02" parent="BackgroundLayer/Decor" index="9" instance=ExtResource("4_o2ign")]
 position = Vector2(1152, -384)
 
 [node name="DustLayer" parent="BackgroundLayer" index="2"]
@@ -63,22 +63,22 @@ position = Vector2(512, 1024)
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(5632, 1024)
 
-[node name="ArchPointCracked" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("5_jvr1l")]
+[node name="ArchPointCracked" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("5_ym70a")]
 position = Vector2(512, -384)
 scale = Vector2(0.6, 0.6)
 
-[node name="ArchPointCracked-3" parent="MidgroundLayer/Decor" index="1" instance=ExtResource("5_jvr1l")]
+[node name="ArchPointCracked-3" parent="MidgroundLayer/Decor" index="1" instance=ExtResource("5_ym70a")]
 position = Vector2(3072, -384)
 
-[node name="ArchPointCracked-2" parent="MidgroundLayer/Decor" index="2" instance=ExtResource("5_jvr1l")]
+[node name="ArchPointCracked-2" parent="MidgroundLayer/Decor" index="2" instance=ExtResource("5_ym70a")]
 position = Vector2(5632, -384)
 scale = Vector2(0.6, 0.6)
 
-[node name="Bookshelf" parent="MidgroundLayer/Decor" index="3" instance=ExtResource("6_v6alh")]
+[node name="Bookshelf" parent="MidgroundLayer/Decor" index="3" instance=ExtResource("6_cnyto")]
 position = Vector2(4736, 1024)
 
-[node name="HangingPot02-2" parent="MidgroundLayer/Decor" index="4" instance=ExtResource("4_eubhb")]
+[node name="HangingPot02-2" parent="MidgroundLayer/Decor" index="4" instance=ExtResource("4_o2ign")]
 position = Vector2(4224, -384)
 
-[node name="HangingPot01" parent="MidgroundLayer/Decor" index="5" instance=ExtResource("7_8q5n6")]
+[node name="HangingPot01" parent="MidgroundLayer/Decor" index="5" instance=ExtResource("7_etqjl")]
 position = Vector2(4032, -576)

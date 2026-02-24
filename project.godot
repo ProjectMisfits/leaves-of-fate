@@ -85,10 +85,6 @@ folder_colors={
 theme/custom="uid://cr6ry63vvyjhi"
 theme/custom_font="uid://casj2vjnnvd5r"
 
-[inkgd]
-
-register_templates=true
-
 [input]
 
 ui_accept={
