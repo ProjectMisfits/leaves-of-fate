@@ -78,7 +78,8 @@ func create_camera_with_limits(cam_global_position: Vector2, cam_relative_zoom: 
 
 ## Remove all cameras currently managed by this manager.
 func _remove_all_cameras() -> void:
-	if self.get_child(0) == null:
+	# Don't do anything if there are no cameras.
+	if get_child_count() == 0:
 		return
 	
 	for camera_to_remove: PhantomCamera2D in self.get_children():
