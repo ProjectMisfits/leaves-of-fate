@@ -3,13 +3,13 @@
 do CameraManager.create_camera(Vector2(35000.0,3200), 0.75, 1.5, "CUBIC", "EASE_IN_OUT")
 Fenn: Hello? Winston?
 Az: I know the light's here, gimme a sec.
-#do CameraManager.create_camera(Vector2(700.0.0, 700.0), 0.6, 3, "CUBIC", "EASE_IN_OUT")
+do CameraManager.create_camera(Vector2(700.0, 700.0), 0.6, 3, "CUBIC", "EASE_IN_OUT")
 Lights flash on.
 Az: Hmph. Everything [i]looks[/i] okay.
 Az: Wait, the pict-[wait=0.3] oh. Huh.
 Winston grit: [font_size=100]WELCOME, [shake level=15 rate=50]FOOLS[/shake][/font_size]
 Camera pans out to reveal machine
-#do CameraManager.create_camera(Vector2(3072.0.0, 0.0), 1, 3, "CUBIC", "EASE_IN_OUT")
+do CameraManager.create_camera(Vector2(3072.0, 0.0), 1, 3, "CUBIC", "EASE_IN_OUT")
 Az: [i]Whoa.[/i] Nevermind.
 Az: Wait- [font_size=60][i]THAT'S[/i][/font_size] what you look like?
 Winston grit: [font_size=80][shake level=7 rate=30][i]WHAT?![/i][/shake][wait=0.3] WHAT DO THEE MEANETH??[/font_size] 
