@@ -78,8 +78,19 @@ func create_camera_with_limits(cam_global_position: Vector2, cam_relative_zoom: 
 
 ## Remove all cameras currently managed by this manager.
 func _remove_all_cameras() -> void:
-	for camera_to_remove: PhantomCamera2D in self.get_children():
-		remove_child(camera_to_remove)
+	# Don't do anything if there are no cameras.
+	if get_child_count() == 0:
+		return
+	
+	# First set the priorities of all of the cameras so that phantom camera tweens back to the player camera.
+	for camera_to_remove: PhantomCamera2D in get_children():
+		camera_to_remove.set_priority(-1)
+	
+	# Wait for the tween back to the player to complete.
+	await phantom_camera.tween_completed
+	
+	# Now actually delete the cameras.
+	for camera_to_remove: PhantomCamera2D in get_children():
 		camera_to_remove.queue_free()
 
 ## Get the phantom camera tween transition type for the given string.
