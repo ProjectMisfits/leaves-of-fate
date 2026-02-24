@@ -61,6 +61,7 @@ position = Vector2(5568, 576)
 position = Vector2(3971, -748)
 scale = Vector2(20, 60)
 dialogue_sequence = ExtResource("9_cb0av")
+required_false_event_flags = Array[String](["2-Ws-Meet-CellarGeneral"])
 
 [node name="IceSpikeBall" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("10_g7jrq")]
 position = Vector2(1408, -1728)

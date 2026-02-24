@@ -94,10 +94,11 @@ target_room_path = "uid://bqwa13d7qt5yf"
 position = Vector2(21504, 21568)
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("9_hjb0y")]
-position = Vector2(19136.002, 21376)
-scale = Vector2(40, 10)
+position = Vector2(19103, 17780)
+scale = Vector2(30, 10)
 dialogue_sequence = ExtResource("10_h5367")
 dialogue_start = "ambushed"
+required_false_event_flags = Array[String](["5a-Ws-Ambush-CellarGeneral"])
 
 [node name="BackBufferCopy" parent="MidgroundLayer" index="7"]
 z_index = 3
