@@ -18,11 +18,17 @@ var panel_enabled: bool = OS.has_feature("editor")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Disable input processing and skip creating the debug menu if this is an exported build.
-	if not panel_enabled or not panel_enabled_override:
+	# Initialize the debug menu if it should be enabled.
+	if panel_enabled or panel_enabled_override:
+		_init_debug_menu()
+	else:
+		# Otherwise disable input processing since this is an exported build.
+		# Will make this script's methods into dummies that don't do anything
+		# when called by other game code.
 		set_process_input(false)
-		return
 
+## Initialize the debug menu.
+func _init_debug_menu() -> void:
 	# Set up the debug menu.
 	debug_menu = CanvasLayer.new()
 	debug_menu.visible = false
