@@ -33,8 +33,8 @@ position = Vector2(756, -343)
 shape = SubResource("RectangleShape2D_c3y6k")
 
 [node name="PhantomCamera2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger" index="1"]
-position = Vector2(3840, 7440)
-zoom = Vector2(0.25, 0.25)
+position = Vector2(4800, 6900)
+zoom = Vector2(0.2, 0.2)
 follow_offset = Vector2(1500, -500)
 limit_target = NodePath("../../../../Midground")
 
@@ -48,7 +48,7 @@ shape = SubResource("RectangleShape2D_c3y6k")
 
 [node name="PhantomCamera2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger-2" index="1"]
 position = Vector2(30681, 2800)
-zoom = Vector2(0.25, 0.25)
+zoom = Vector2(0.2, 0.2)
 follow_offset = Vector2(-1000, -1000)
 limit_target = NodePath("../../../../Midground")
 
