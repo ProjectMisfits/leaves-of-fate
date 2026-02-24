@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=4 uid="uid://cgen2n4p4n0nn"]
+[gd_scene load_steps=10 format=4 uid="uid://cgen2n4p4n0nn"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_j82yt"]
 [ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="2_svn25"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_ednxw"]
 [ext_resource type="PackedScene" uid="uid://b7t7pc0jj7gxa" path="res://src/entities/decor/plants/hanging_pot_02.tscn" id="4_eubhb"]
 [ext_resource type="PackedScene" uid="uid://bdjego1dul8qg" path="res://src/entities/decor/pillars/arch_point_cracked.tscn" id="5_jvr1l"]
+[ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="5_svn25"]
+[ext_resource type="Resource" uid="uid://s85sqpk0o187" path="res://assets/dialogue/dialogue_scripts/9-Az-FiresideChat-1-HeaterArea.dialogue" id="6_ednxw"]
 [ext_resource type="PackedScene" uid="uid://c0e5ya2ej5avs" path="res://src/entities/decor/furniture/bookshelf.tscn" id="6_v6alh"]
 [ext_resource type="PackedScene" uid="uid://bt8rip14nbobd" path="res://src/entities/decor/plants/hanging_pot_01.tscn" id="7_8q5n6"]
 
@@ -62,6 +64,12 @@ position = Vector2(512, 1024)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(5632, 1024)
+
+[node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("5_svn25")]
+position = Vector2(3217, 192)
+scale = Vector2(10, 15)
+dialogue_sequence = ExtResource("6_ednxw")
+required_false_event_flags = Array[String](["9-Az-FiresideChat-1-HeaterArea"])
 
 [node name="ArchPointCracked" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("5_jvr1l")]
 position = Vector2(512, -384)

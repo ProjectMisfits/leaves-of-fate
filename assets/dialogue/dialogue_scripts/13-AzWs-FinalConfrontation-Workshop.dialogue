@@ -1,56 +1,68 @@
 ~ start
+#do CameraManager.create_camera(Vector2(700.0, 700.0), 0.4, 1, "CUBIC", "EASE_IN_OUT")
+do CameraManager.create_camera(Vector2(35000.0,3200), 0.75, 1.5, "CUBIC", "EASE_IN_OUT")
 Fenn: Hello? Winston?
 Az: I know the light's here, gimme a sec.
+do CameraManager.create_camera(Vector2(700.0, 700.0), 0.6, 3, "CUBIC", "EASE_IN_OUT")
 Lights flash on.
-Az: Hmph. Everything looks okay.
-Az: And the pict- oh. Huh.
-Winston: WELCOME, FOOLS
-Camera pans out to reveal the big machine
-Az: Whoa. Nevermind.
-Az: Wait- that's what you look like?
-Winston: WHAT? Do I hath something on my faceth?
-Az: Nah. You're just, like, a skinny nerd.
-Winston: Ahem. IGNORING THAT!
-Winston: BEHOLDETH!
-Fenn: BY THE SENDER! IT'S- I- What- what is it?
-WInston: MY LATEST CREATION. THE ICI-CLONE!!
-Winston: Thou see, my power is limited. I may maketh things. Devices, weapons, creatures... but I cannot controleth them.
-Winston: SO! I thought to myself... what can I controleth?
-Fenn: Your attitude?
-Az: Your incompetence?
-Winston: I CAN CONTROLETH MYSELF!
-Fenn: Uh oh...
-Az: Huh.
-Winston: If I maketh a copyeth of myself...
-Winston: Wouldst it not want the same things I wanteth? Wouldst it not do the same things I wouldst?
-Fenn: Bring it on! I shalt free the Knights from thy grasp!!!
-Az: Wait wait, hold on, Fenn. I kinda wanna see what happens.
-Winston: THUS! WITNESS THE CREATION OF THE ONE. THE ONLY.
-Winston: ICETON!!
-Machine whirs, and opens
-Smoke bellows and then clears to reveal an ice version of winston
-Winston: Holy sh- it worked? IT WORKED!!
-Fenn: Are we in danger?
+Az: Hmph. Everything [i]looks[/i] okay.
+Az: Wait, the pict-[wait=0.3] oh. Huh.
+Winston grit: [font_size=100]WELCOME, [shake level=15 rate=50]FOOLS[/shake][/font_size]
+Camera pans out to reveal machine
+do CameraManager.create_camera(Vector2(3072.0, 0.0), 1, 3, "CUBIC", "EASE_IN_OUT")
+Az: [i]Whoa.[/i] Nevermind.
+Az: Wait- [font_size=60][i]THAT'S[/i][/font_size] what you look like?
+Winston grit: [font_size=80][shake level=7 rate=30][i]WHAT?![/i][/shake][wait=0.3] WHAT DO THEE MEANETH??[/font_size] 
+Az laugh: You're just, like,[wait=0.3] a skinny nerd.
+Winston awkward: [font_size=30]Ahem.[/font_size] 
+Winston: [font_size=100][shake level=7 rate=30][i]BEHOLDETH![/i][/shake][/font_size]
+Fenn starry: [font_size=100][wave freq=10 amp=30]BY THE SENDER![wait=0.3] IT'S-[/wave][/font_size]
+Fenn worry: [font_size=70] It-[/font_size][wait=0.3][font_size=50] What-[/font_size][wait=0.3][font_size=40] what is it?[/font_size]
+Winston grit: [font_size=70]MY LATEST CREATION.[/font_size]
+Winston grit: [font_size=100][wave freq=10 amp=30]THE [color="521FA6"]ICI-CLONE[/color]!![/wave][/font_size]
+Winston: Thou see, my power is limited. I may [i]maketh[/i] things. 
+Winston: Tools. Devices. [wave freq=7 amp=20]Creatures[/wave].
+Winston grit: But I cannot [i]controleth[/i] them.
+Winston: [font_size=70]SO![/font_size][wait=0.3] I thought to myself... [i]what CAN I controleth?[/i]
+Az: [font_size=35]Your incompetence?[/font_size]
+Fenn starry: [font_size=60][wave freq=7 amp=30]Your attitude??[/wave][/font_size]
+Winston grit: [font_size=100][shake level=7 rate=30]I CAN CONTROLETH MYSELF![/shake][/font_size]
+Az: [font_size=40]Huh.[/font_size]
+Fenn worry: Uh oh.
+Winston grit: Why,[wait=0.3] if I maketh a copyeth of [wave freq=7 amp=20]myself[/wave]...
+Winston: Wouldst it not want the same things I want? 
+Winston grit: [wave freq=7 amp=20][i]Wouldst it not do the same things I wouldst?[/i][/wave]
+Fenn: [font_size=60][i]Bring it on!! [/i][wave freq=7 amp=30][wait=0.3]I shalt free the Knights from thy grasp!!![/wave][/font_size]
+Az: Wait, Fenn, hold on. 
+Winston: [font_size=80]THUS! WITNESS THE CREATION!![/font_size]
+Winston grit: [font_size=80] OF THE ONE. THE ONLY.[/font_size]
+Winston: [font_size=100][shake level=10 rate=30][i][color="521FA6"]ICETON!![/color][/i][/shake][/font_size]
+Fade to black, sound effects... machine whirs and opens
+Fade from black to reveal iceton
+Winston: [font_size=40]Holy sh- [wait=0.3]it [i]worked[/i]? [/font_size]
+Winston grit: [font_size=60]IT WORKED!![/font_size]
+Fenn worry: Are we in danger?
 Az: Hmph. Maybe.
-Winston: ICETON, GO! ATTACKETH THEM! DESTROYETH THEM!
+Winston grit: [font_size=80]ICETON, GO! [wait=0.3] [shake level=7 rate=30]DESTROYETH THEM![/shake][/font_size]
 Iceton takes a few steps towards Az and Fenn. Az and Fenn retreat in sync.
-Fenn: Uh oh.
+Fenn worry: Uh oh.
 Iceton turns around, rushes towards Winston, and starts beating him up.
 Az: Huh?
-Fenn: Winston?
-Winston: NO! No no... STOP THIS!
-Winston: Y- you're my creation! You're ME! Listen to me!!
-Winston: Please, stop! Wh- why are you attacking me? Please!
-Az: Dang. I really thought we were in danger there for a sec.
-Fenn: Az, we have to help him.
-Az: Ugh...
+Fenn worry: Winston?
+Winston grit: NO! [font_size=40]No no... [/font_size][font_size=60][i][shake level=7 rate=30]STOP THIS![/shake][/i][/font_size]
+Winston grit: Y- you're my creation! [wait=0.3][font_size=60]You're ME![wait=0.3] [shake level=7 rate=30][i]Listen to me!![/i][/shake][/font_size]
+Winston awkward: Wh- why are you attacking me?[wait=0.3][font_size=40] P- please, [i]stop![/i][/font_size]
+Az: Dang. Really thought... ah, nevermind.
+Fenn worry: [i]Az![/i] We have to help him!
+Az: [i]Ugh...[/i]
+do EventBus.interrupt_dialogue.emit("0.4")
 Fenn: He's in danger! He needs h-
-Az: I know! I'll grab him.
+Az annoy: [font_size=60][i]I know![/i][/font_size] I'll get him.
 Fenn: What can I do?
-Az: You know that other heater I mentioned? Behind my workshop?
-Fenn: Yeah? Oh. Oh!
-Az: I'll protect Winston in the meantime. It might just be enough to melt Iceton.
-Az: The door at the back should lead you to it, but be careful.
+Az: Remember that other heater I mentioned?[wait=0.3] Past my [color="0B4F4A"]Workshop[/color]?
+Fenn: Yeah?
+Az: I can protect Winston in the meantime. It might just be enough to melt [color="521FA6"]Iceton[/color].
+Az: The door at the back should lead you to it.
 Fenn: On it!
 do EventFlags.set_flag("13-AzWs-FinalConfrontation-Workshop", true)
 => END

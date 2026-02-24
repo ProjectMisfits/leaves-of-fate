@@ -1,17 +1,16 @@
 ~ start
-Az: Heads up, kid. cough I just reached the Den. It's freezing in here.
-Az: I'll cough I'll see you when you get back. cough cough
-Fenn: Yay! Big lady made it!
-Az: cough Don't call me that. cough cough
-Fenn: Are you okay?
-Az: Yeah, I'm- cough cough
-Fenn: Az?
-Az: I'm fi- cough
+Az: Heads up, kid. [i]cough[/i] I just reached the [color="0B4F4A"]Den[/color]. It's [i]freezing[/i] in here.
+Az: I'll- [wait=0.3][i]cough[/i] I'll see you when you get back. [i]cough cough[/i]
+Fenn: Yay! [wave freq=7 amp=20][color="B80006"]Big lady[/color] made it![/wave]
+Az: [i]cough[/i] Don't call me that. [i]cough[/i] [i]cough[/i]
+Fenn worry: Are you okay?
+Az: Yeah, I'm- [wait=0.3][i]cough cough[/i]
+Fenn worry: Az?
+Az annoy: I'm fi- [wait=0.3][i]cough[/i]
 sound of Az falling to the ground
-Fenn: Az, are you okay?
-Az: cough. cough. I'm fine! cough I'm FINE!
-Az: cough. Go on ahead. cough. I'll be fine.
-Fenn: Okay...
-do EventFlags.set_flag("8-Az-CoughingFit-HeaterArea", true)
-
+Fenn worry: Az, what's happening?
+Az annoy: [i]cough cough[/i]. I'm fine![wait=0.3] [i]cough[/i] [font_size=60]I'm FINE![/font_size]
+Az annoy: [i]cough[/i]. Go on ahead. [i]cough[/i]. I'll be fine.
+Fenn worry: Okay...
+do EventFlags.set_flag("8-Az-coughingFit-HeaterArea", true)
 => END

@@ -152,6 +152,7 @@ dialogue_sequence = ExtResource("13_lln1l")
 dialogue_start = null
 enabled = null
 repeatable = null
+required_false_event_flags = Array[String](["1-Az-Meet-GreatHall"])
 
 [node name="PillarTrunk01" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("2_0mqie")]
 position = Vector2(4288, 64)
