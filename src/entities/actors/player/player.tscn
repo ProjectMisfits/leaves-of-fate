@@ -780,6 +780,9 @@ one_shot = true
 [node name="FootStepTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="MeterCooldownTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="FlipNode/WindZoneComponent/DashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_dash_detection_area_body_entered"]
 [connection signal="body_exited" from="FlipNode/WindZoneComponent/DashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_dash_detection_area_body_exited"]
 [connection signal="body_entered" from="FlipNode/WindZoneComponent/NoDashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_no_dash_detection_area_body_entered"]
@@ -792,3 +795,4 @@ one_shot = true
 [connection signal="body_entered" from="FlipNode/HurtComponent/HurtArea" to="FlipNode/HurtComponent" method="_on_hurt_area_body_entered"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_end_invincibility"]
 [connection signal="timeout" from="FootStepTimer" to="." method="_on_foot_step_timer_timeout"]
+[connection signal="timeout" from="MeterCooldownTimer" to="." method="_on_meter_cooldown_timer_timeout"]

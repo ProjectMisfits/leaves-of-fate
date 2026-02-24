@@ -58,6 +58,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
 step = 0.01
+value = 50.0
 texture_under = SubResource("GradientTexture2D_ariom")
 texture_progress = ExtResource("2_udh2q")
 tint_under = Color(0.5882353, 0.4862745, 0.49019608, 1)
