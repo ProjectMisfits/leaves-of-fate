@@ -125,8 +125,8 @@ func play_sound(sound: String, volume: float = 0.0, pitch_scale : float = 1.0) -
 	# Create a temporary AudioStreamPlayer to play the sound effect
 	var sound_player: AudioStreamPlayer = AudioStreamPlayer.new()
 	sound_player.name = "CutsceneSoundEffectPlayer"
-	#sound_player.volume_db = volume
-	#sound_player.pitch_scale = pitch_scale
+	sound_player.volume_db = volume
+	sound_player.pitch_scale = pitch_scale
 	sound_player.stream = load(sound_file_path)
 	# Add the player to the scene and play its sound
 	add_child(sound_player)
