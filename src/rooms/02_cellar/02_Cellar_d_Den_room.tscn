@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://bdbuuoljlim4f"]
+[gd_scene load_steps=37 format=4 uid="uid://bdbuuoljlim4f"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_q0uwv"]
 [ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_yrfw5"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://dueb2snetgjyf" path="res://src/entities/decor/ice/icicle_06.tscn" id="13_ill31"]
 [ext_resource type="PackedScene" uid="uid://s5tabrd66okd" path="res://src/entities/decor/ice/icicle_02.tscn" id="14_qoph1"]
 [ext_resource type="PackedScene" uid="uid://63pslrk6h8nl" path="res://src/entities/decor/ice/icicle_04.tscn" id="15_em3mf"]
-[ext_resource type="Material" uid="uid://dbrwefsv6hrsv" path="res://src/vfx/shaders/RimLit.tres" id="16_8xmmk"]
 [ext_resource type="PackedScene" uid="uid://wxvub3svduoi" path="res://src/entities/decor/pillars/arch_round_cracked.tscn" id="17_rpxnd"]
 [ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="18_8ior1"]
 [ext_resource type="PackedScene" uid="uid://4jh213w6fsb7" path="res://src/entities/decor/pillars/pillar_base_01.tscn" id="19_rvfsb"]
@@ -161,7 +160,6 @@ enabled = false
 
 [node name="Decor" parent="MidgroundLayer" index="7"]
 modulate = Color(0.59, 0.59, 0.59, 1)
-material = ExtResource("16_8xmmk")
 
 [node name="Arch" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("17_rpxnd")]
 position = Vector2(12032, -2112)
@@ -201,7 +199,6 @@ position = Vector2(1792, -1216)
 scale = Vector2(1, 2.8799996)
 
 [node name="PillarBase01" parent="MidgroundLayer/Decor" index="9" instance=ExtResource("19_rvfsb")]
-use_parent_material = true
 position = Vector2(1792, 1024)
 
 [node name="PillarTrunk01-3" parent="MidgroundLayer/Decor" index="10" instance=ExtResource("18_8ior1")]
@@ -210,7 +207,6 @@ position = Vector2(-256, -1216)
 scale = Vector2(1, 2.8799996)
 
 [node name="PillarBase01-3" parent="MidgroundLayer/Decor" index="11" instance=ExtResource("19_rvfsb")]
-use_parent_material = true
 position = Vector2(-256, 1024)
 
 [node name="PillarCap03" parent="MidgroundLayer/Decor" index="12" instance=ExtResource("20_e7lgs")]
@@ -242,11 +238,9 @@ position = Vector2(3904, -1216)
 scale = Vector2(1, 2.8799992)
 
 [node name="PillarBase01-2" parent="MidgroundLayer/Decor" index="18" instance=ExtResource("19_rvfsb")]
-use_parent_material = true
 position = Vector2(11008, 1024)
 
 [node name="PillarBase01-4" parent="MidgroundLayer/Decor" index="19" instance=ExtResource("19_rvfsb")]
-use_parent_material = true
 position = Vector2(13056, 1024)
 
 [node name="PillarCap03-2" parent="MidgroundLayer/Decor" index="20" instance=ExtResource("20_e7lgs")]
