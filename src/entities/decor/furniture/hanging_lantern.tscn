@@ -29,3 +29,4 @@ color = Color(0.91, 0.65065, 0.045500014, 1)
 energy = 0.8
 texture = SubResource("GradientTexture2D_hgq0r")
 texture_scale = 50.0
+metadata/_edit_lock_ = true

@@ -28,17 +28,10 @@ point_count = 13
 position = Vector2(-127.99999, -2816)
 scale = Vector2(6400.0005, 32)
 
-[node name="BronzePipe-2" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("2_cmdfb")]
-position = Vector2(6656, -512)
-scale = Vector2(0.65, 0.65)
-
-[node name="Path2D" parent="BackgroundLayer/Decor/BronzePipe-2" index="1"]
-curve = SubResource("Curve2D_otj6j")
-
-[node name="HangingLantern" parent="BackgroundLayer/Decor" index="1" instance=ExtResource("3_q0jjo")]
+[node name="HangingLantern" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("3_q0jjo")]
 position = Vector2(1344, 0)
 
-[node name="HangingLantern-2" parent="BackgroundLayer/Decor" index="2" instance=ExtResource("3_q0jjo")]
+[node name="HangingLantern-2" parent="BackgroundLayer/Decor" index="1" instance=ExtResource("3_q0jjo")]
 position = Vector2(4800, 0)
 
 [node name="DustLayer" parent="BackgroundLayer" index="2"]
@@ -66,6 +59,14 @@ position = Vector2(171, 702)
 
 [node name="NpcWinston" parent="MidgroundLayer/Entities/NPCs" index="1" instance=ExtResource("5_vvfdw")]
 position = Vector2(4544, 589)
+
+[node name="BronzePipe-2" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("2_cmdfb")]
+z_index = -1
+position = Vector2(6656, -512)
+scale = Vector2(0.65, 0.65)
+
+[node name="Path2D" parent="MidgroundLayer/Entities/Objects/BronzePipe-2" index="1"]
+curve = SubResource("Curve2D_otj6j")
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("4_6qxje")]
 position = Vector2(1480.9999, 6.000061)
@@ -101,4 +102,4 @@ rotation = 1.5707964
 position = Vector2(3749, 743)
 rotation = -1.5707964
 
-[editable path="BackgroundLayer/Decor/BronzePipe-2"]
+[editable path="MidgroundLayer/Entities/Objects/BronzePipe-2"]

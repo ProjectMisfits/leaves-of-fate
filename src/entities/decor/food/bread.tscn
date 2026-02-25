@@ -4,9 +4,11 @@
 [ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_54e8y"]
 
 [node name="Bread" type="Node2D"]
+use_parent_material = true
 script = ExtResource("2_54e8y")
 
 [node name="Bread" type="Sprite2D" parent="."]
+use_parent_material = true
 position = Vector2(0, -64.99999)
 rotation = -0.022768069
 scale = Vector2(1.25, 1.25)

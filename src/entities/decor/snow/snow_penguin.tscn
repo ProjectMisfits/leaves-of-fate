@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds3g58rcnxdcn"]
+
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="1_tql2b"]
+[ext_resource type="Texture2D" uid="uid://c0mcvi403mnmt" path="res://assets/entities/decor/furniture/Snow_Penguin.png" id="2_1cfi8"]
+
+[node name="SnowPenguin" type="Node2D"]
+use_parent_material = true
+script = ExtResource("1_tql2b")
+
+[node name="SnowPenguin" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(-11.000002, -291)
+rotation = -0.019745534
+texture = ExtResource("2_1cfi8")

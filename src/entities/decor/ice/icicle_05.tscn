@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="1_bewor"]
 [ext_resource type="Texture2D" uid="uid://dd8k6ekkusmt2" path="res://assets/entities/hazards/canvas_icicle/C-Icicle-05.tres" id="2_b4ie7"]
-[ext_resource type="Material" uid="uid://dde8s4xg3ueai" path="res://assets/vfx/shaders/ice_material_spike_06.tres" id="2_tfi66"]
+[ext_resource type="Material" uid="uid://dde8s4xg3ueai" path="res://assets/vfx/shaders/ice_material_shader.tres" id="2_tfi66"]
 
 [node name="Icicle05" type="Node2D"]
 script = ExtResource("1_bewor")

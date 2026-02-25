@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4g11emjnj7h"]
+
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="1_wo1bg"]
+[ext_resource type="Texture2D" uid="uid://cb0wnp8j0gwis" path="res://assets/entities/decor/furniture/Snow_Pile.png" id="2_wo1bg"]
+
+[node name="SnowPile" type="Node2D"]
+use_parent_material = true
+script = ExtResource("1_wo1bg")
+
+[node name="SnowPile" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(-11.000002, -170)
+texture = ExtResource("2_wo1bg")

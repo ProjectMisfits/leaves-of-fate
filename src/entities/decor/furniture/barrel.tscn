@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://fc5w0iyuaouf"]
+
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="1_84ij0"]
+[ext_resource type="Texture2D" uid="uid://dlnltjp61alhv" path="res://assets/entities/decor/furniture/2D_Barrel.png" id="2_84ij0"]
+
+[node name="Barrel" type="Node2D"]
+use_parent_material = true
+script = ExtResource("1_84ij0")
+
+[node name="Barrel" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(0, -320)
+texture = ExtResource("2_84ij0")

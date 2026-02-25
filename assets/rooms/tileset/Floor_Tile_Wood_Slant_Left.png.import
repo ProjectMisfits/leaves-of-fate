@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5eeoy4ggvs2g"
-path="res://.godot/imported/twilight-bog-128x.png-f6ddb0c4ecf758d139b192979aa5e9dc.ctex"
+uid="uid://bpdv1h2wcjrrl"
+path="res://.godot/imported/Floor_Tile_Wood_Slant_Left.png-bcb5d7e755b1d1fa3b1b61fe296d3401.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/tileset/twilight-bog-128x.png"
-dest_files=["res://.godot/imported/twilight-bog-128x.png-f6ddb0c4ecf758d139b192979aa5e9dc.ctex"]
+source_file="res://assets/rooms/tileset/Floor_Tile_Wood_Slant_Left.png"
+dest_files=["res://.godot/imported/Floor_Tile_Wood_Slant_Left.png-bcb5d7e755b1d1fa3b1b61fe296d3401.ctex"]
 
 [params]
 
@@ -23,8 +23,8 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
-mipmaps/limit=3
+mipmaps/generate=true
+mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
 process/channel_remap/red=0
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

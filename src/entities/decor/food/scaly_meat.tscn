@@ -4,9 +4,11 @@
 [ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_p720o"]
 
 [node name="ScalyMeat" type="Node2D"]
+use_parent_material = true
 script = ExtResource("2_p720o")
 
 [node name="ScalyMeat" type="Sprite2D" parent="."]
+use_parent_material = true
 position = Vector2(0, -91)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_w8fx1")

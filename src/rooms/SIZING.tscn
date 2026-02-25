@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://78p4lxwgdq5n"]
+[gd_scene load_steps=60 format=4 uid="uid://78p4lxwgdq5n"]
 
 [ext_resource type="TileSet" uid="uid://i6wi7xcus3i" path="res://assets/rooms/tileset/TS_Cellar.tres" id="1_4keto"]
 [ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="2_1o4i6"]
@@ -49,10 +49,15 @@
 [ext_resource type="PackedScene" uid="uid://1raxqvkiv2mf" path="res://src/entities/objects/doors/door_grate_rusty.tscn" id="52_kscox"]
 [ext_resource type="PackedScene" uid="uid://n0xe74ww2rnc" path="res://src/entities/decor/furniture/window_03.tscn" id="53_eo2fb"]
 [ext_resource type="PackedScene" uid="uid://d2w50ptxgmhj4" path="res://src/entities/objects/doors/door_grate.tscn" id="53_wlcxr"]
+[ext_resource type="PackedScene" uid="uid://fc5w0iyuaouf" path="res://src/entities/decor/furniture/barrel.tscn" id="54_1iwmb"]
 [ext_resource type="PackedScene" uid="uid://f1wqnfugk7vl" path="res://src/entities/decor/furniture/wine_shelf_frame.tscn" id="54_kscox"]
+[ext_resource type="PackedScene" uid="uid://dxwi3wvq0chx2" path="res://src/entities/decor/furniture/rope.tscn" id="55_r5oc4"]
 [ext_resource type="PackedScene" uid="uid://dejfbk3ejdidx" path="res://src/entities/decor/food/wine_bottle.tscn" id="55_wlcxr"]
+[ext_resource type="PackedScene" uid="uid://ds3g58rcnxdcn" path="res://src/entities/decor/snow/snow_penguin.tscn" id="56_60fr4"]
 [ext_resource type="PackedScene" uid="uid://dqq1u02usswhf" path="res://src/entities/decor/furniture/wine_shelf_inside.tscn" id="56_s8i45"]
 [ext_resource type="PackedScene" uid="uid://cctsnqs8u4udu" path="res://src/entities/decor/furniture/wine_shelf.tscn" id="57_77ohs"]
+[ext_resource type="PackedScene" uid="uid://b4g11emjnj7h" path="res://src/entities/decor/snow/snow_pile.tscn" id="57_shf66"]
+[ext_resource type="PackedScene" uid="uid://diwms7rfs40dk" path="res://src/entities/decor/snow/snow_rodent.tscn" id="58_8ja73"]
 
 [sub_resource type="Curve2D" id="Curve2D_503cj"]
 resource_local_to_scene = true
@@ -230,3 +235,18 @@ position = Vector2(320, 896)
 
 [node name="DoorGrate" parent="." instance=ExtResource("53_wlcxr")]
 position = Vector2(1024, 896)
+
+[node name="Barrel" parent="." instance=ExtResource("54_1iwmb")]
+position = Vector2(6720, -448)
+
+[node name="Rope" parent="." instance=ExtResource("55_r5oc4")]
+position = Vector2(7296, -448)
+
+[node name="SnowPenguin" parent="." instance=ExtResource("56_60fr4")]
+position = Vector2(-2240, 576)
+
+[node name="SnowPile" parent="." instance=ExtResource("57_shf66")]
+position = Vector2(-1408, 576)
+
+[node name="SnowRodent" parent="." instance=ExtResource("58_8ja73")]
+position = Vector2(-512, 576)
