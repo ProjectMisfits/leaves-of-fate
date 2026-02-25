@@ -13,7 +13,7 @@ class_name Hud
 
 func _ready() -> void:
 	EventBus.player_knocked_out.connect(_on_player_knocked_out)
-
+	EventBus.grabbed.connect(play_grabbed)
 func _physics_process(_delta: float) -> void:
 	# If Player cannot Leaf Dash, modify the Leaf Meter tint.
 	if (player.no_dash):
@@ -55,6 +55,12 @@ func _set_leaf_meter(new_value: float) -> void:
 ## Updates health in the HUD based on the players current health
 func _on_player_knocked_out() -> void:
 	create_tween().tween_property(%LifeLeaf1, "modulate:a", 0.0, 0.5)
+	
+func play_grabbed() -> void:
+	%HudAnimator.play("bangle_animation")
+
+func play_ungrabbed() -> void:
+	%HudAnimator.play_backwards("bangle_animation")
 
 ## Reset HUD state.
 func reset_hud() -> void:
