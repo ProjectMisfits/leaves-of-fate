@@ -105,6 +105,7 @@ material = ExtResource("10_msfkg")
 metadata/_edit_lock_ = true
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="MidgroundLayer"]
+z_index = 2
 copy_mode = 2
 metadata/_edit_lock_ = true
 
