@@ -281,7 +281,7 @@ func apply_dialogue_line() -> void:
 			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Default-DialogueBeep-RandomContainer.tres")
 		"??? door":
 			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/wizard_of_doors_dialogue_no_profile.stylebox"))
-			character_label.add_theme_color_override("default_color", "#352620")
+			character_label.add_theme_color_override("default_color", "#6B2D76")
 			character_portrait.texture = null
 			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Default-DialogueBeep-RandomContainer.tres")
 			character_label.text = "???"
