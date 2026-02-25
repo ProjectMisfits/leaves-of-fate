@@ -18,14 +18,14 @@
 [ext_resource type="PackedScene" uid="uid://cfj172hxekuqg" path="res://src/vfx/particle_effects/leaf_particles_02.tscn" id="9_nqxrs"]
 [ext_resource type="Script" uid="uid://osptlmoqos3i" path="res://src/entities/actors/player/states/player_piling.gd" id="9_q6jdu"]
 [ext_resource type="PackedScene" uid="uid://dhcepuko5y18x" path="res://src/vfx/particle_effects/leaf_ball_particles.tscn" id="9_tda88"]
-[ext_resource type="Script" path="res://src/entities/actors/player/components/hurt_component.gd" id="11_s3rhx"]
+[ext_resource type="Script" uid="uid://bhytbo7u825lb" path="res://src/entities/actors/player/components/hurt_component.gd" id="11_s3rhx"]
 [ext_resource type="JSON" uid="uid://ctjfhxb7akvyx" path="res://src/entities/actors/player/footstep_dictionaries/player_footstep_data.tres" id="12_e5ptp"]
-[ext_resource type="Script" path="res://src/entities/actors/player/footstep_component.gd" id="13_s1o6p"]
+[ext_resource type="Script" uid="uid://cq2g2o708n5hl" path="res://src/entities/actors/player/footstep_component.gd" id="13_s1o6p"]
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/vfx/particle_effects/wind_particles.tscn" id="14_7j1dl"]
 [ext_resource type="AudioStream" uid="uid://dimhdiv10a08t" path="res://assets/entities/actors/player/player_audio/PH-leaf-enter.ogg" id="17_iloh8"]
 [ext_resource type="AudioStream" uid="uid://dxmm31nsgmehb" path="res://assets/entities/actors/player/player_audio/PH-leaf-exit.ogg" id="18_283t5"]
 [ext_resource type="Texture2D" uid="uid://jvsobi5gw7di" path="res://assets/entities/actors/player/TEMP-fenn-jump-spritesheet.png" id="18_s3rhx"]
-[ext_resource type="AudioStream" uid="uid://ca5i8864h7llp" path="res://assets/entities/actors/footsteps/stone/FS-Fenn-Stone.tres" id="26_hn11x"]
+[ext_resource type="AudioStream" uid="uid://ca5i8864h7llp" path="res://assets/entities/actors/footsteps/stone_sounds/FS-fenn-stone.tres" id="26_hn11x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hn11x"]
 radius = 67.0

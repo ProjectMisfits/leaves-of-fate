@@ -1,7 +1,7 @@
 [gd_resource type="JSON" load_steps=3 format=3 uid="uid://ctjfhxb7akvyx"]
 
-[ext_resource type="AudioStream" uid="uid://ca5i8864h7llp" path="res://assets/entities/actors/footsteps/stone/FS-Fenn-Stone.tres" id="1_3cx43"]
-[ext_resource type="AudioStream" uid="uid://cx57acqmjfvf6" path="res://assets/entities/actors/footsteps/wood/FS-Fenn-Wood.tres" id="2_vpwak"]
+[ext_resource type="AudioStream" uid="uid://ca5i8864h7llp" path="res://assets/entities/actors/footsteps/stone_sounds/FS-fenn-stone.tres" id="1_3cx43"]
+[ext_resource type="AudioStream" uid="uid://cx57acqmjfvf6" path="res://assets/entities/actors/footsteps/wood_sounds/FS-fenn-wood.tres" id="2_vpwak"]
 
 [resource]
 data = {

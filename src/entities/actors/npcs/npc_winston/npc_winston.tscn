@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://daw5s2hjs0tq1" path="res://src/entities/actors/npcs/npc_base/npc_base.tscn" id="1_tg4e0"]
 [ext_resource type="Texture2D" uid="uid://bobecrpwgxhv4" path="res://assets/entities/actors/npcs/npc_winston/winston_placeHolder_01.png" id="2_8nges"]
 [ext_resource type="Shape2D" uid="uid://d0n0pamshu4kv" path="res://src/entities/actors/npcs/npc_winston/npc_winston_collision_shape.tres" id="2_k2brm"]
-[ext_resource type="AudioStream" uid="uid://fb8ste3ccl4q" path="res://assets/entities/actors/footsteps/stone/FS-Winston-Stone.tres" id="4_6btiq"]
+[ext_resource type="AudioStream" uid="uid://fb8ste3ccl4q" path="res://assets/entities/actors/footsteps/stone_sounds/FS-Winston-Stone.tres" id="4_6btiq"]
 
 [node name="NpcWinston" instance=ExtResource("1_tg4e0")]
 npc_name = "Winston"
