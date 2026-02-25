@@ -234,6 +234,7 @@ Charles Engler
 Dennis Field
 Brody Graham
 E Hanford
+Freddie Hatch
 Nick Kurtz
 Noah Memel
 Michael Monda
@@ -242,6 +243,8 @@ Adam Nagar
 Sofia Napiereta
 Connor Nardiello
 Allison Nguyen
+Matt Nickerson
+Olivia Olsen
 Zephyr Paxton
 Keenan Porter
 Pan Raskin
@@ -251,7 +254,7 @@ Sri Satya Satwik Sirigineedi
 Muntasir Shahabuddin
 Andre Staebler
 Anel Van Der Merwe
-"
+Daniel Willins"
 fit_content = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/CreditsContainer/ScrollContainer/CreditsHolder"]
@@ -373,6 +376,22 @@ License: Creative Commons 0
 --
 Wood Knock by Mrguff 
 https://freesound.org/s/369710/ 
+License: Creative Commons 0
+--
+Footsteps on Metal Floor by nate_asdfg
+https://freesound.org/s/463811/
+License: Creative Commons 0
+--
+air tone cold constant light wind +distant winter village sounds Quaqtaq, Nunavik1.flac by kyles
+https://freesound.org/s/450141/
+License: Creative Commons 0
+--
+Ice - Cristal cave by Vrymaa
+https://freesound.org/s/735353/
+License: Creative Commons 0
+--
+Poof of Smoke by Planman
+https://freesound.org/s/208111/
 License: Creative Commons 0
 
 [u]Fonts[/u]
