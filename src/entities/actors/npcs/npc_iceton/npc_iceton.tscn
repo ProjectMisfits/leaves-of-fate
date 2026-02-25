@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkpyhot2ibhec"]
+
+[ext_resource type="PackedScene" uid="uid://daw5s2hjs0tq1" path="res://src/entities/actors/npcs/npc_base/npc_base.tscn" id="1_xytge"]
+[ext_resource type="Texture2D" uid="uid://bobecrpwgxhv4" path="res://assets/entities/actors/npcs/npc_winston/winston_placeHolder_01.png" id="2_32855"]
+[ext_resource type="Shader" uid="uid://c1h5ly2o30cd7" path="res://src/vfx/shaders/ice.gdshader" id="2_o15yc"]
+[ext_resource type="Shape2D" uid="uid://d0n0pamshu4kv" path="res://src/entities/actors/npcs/npc_winston/npc_winston_collision_shape.tres" id="3_c3d8o"]
+[ext_resource type="AudioStream" uid="uid://fb8ste3ccl4q" path="res://assets/entities/actors/footsteps/stone/FS-Winston-Stone.tres" id="4_dto8b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8rnu0"]
+shader = ExtResource("2_o15yc")
+shader_parameter/reflectMode = 0
+shader_parameter/normalScale = 1.3530000642675
+shader_parameter/reflectScale = 4.00000018348023
+shader_parameter/textureAmount = 0.50000002375
+shader_parameter/reflectionAmount = 0.650000030875
+shader_parameter/positionCenter = Vector2(-1.55, 0)
+shader_parameter/warpWidth = 0.71600003075012
+shader_parameter/warpWidthDistance = 248.5590118065525
+
+[node name="NpcIceton" instance=ExtResource("1_xytge")]
+npc_name = "Winston"
+walk_animation = "winston_walk"
+idle_animation = "winston_idle"
+
+[node name="Sprite2D-2" type="Sprite2D" parent="FlipNode" index="0"]
+modulate = Color(0.42352942, 0.8352941, 1, 1)
+position = Vector2(-100.00001, -16)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_32855")
+
+[node name="Sprite2D" parent="FlipNode" index="1"]
+modulate = Color(0.42352942, 0.8352941, 1, 1)
+material = SubResource("ShaderMaterial_8rnu0")
+position = Vector2(-100.00001, -16)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_32855")
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+position = Vector2(0, 24)
+shape = ExtResource("3_c3d8o")
+
+[node name="Audio" type="Node2D" parent="." index="3"]
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="Audio" index="0"]
+stream = ExtResource("4_dto8b")
+volume_db = 6.0
+bus = &"SFX"
