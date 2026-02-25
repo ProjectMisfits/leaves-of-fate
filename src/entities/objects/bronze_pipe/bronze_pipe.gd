@@ -87,7 +87,8 @@ func _exit_pipe() -> void:
 	_pipe_path_visual.hide()
 	# TODO: Show animation or particle visual of exiting pipe
 	# Reset player velocity so it launches out of the pipe instead of wonkily at the ground due to gravity
-	var new_player_velocity: Vector2 = Vector2.RIGHT.rotated(_pipe_path_curve.get_point_position(_pipe_path_curve.point_count - 2).angle_to_point(_pipe_path_curve.get_point_position(_pipe_path_curve.point_count - 1))) * _player.dash_end_velocity_multiplier * _pipe_path_curve.get_baked_length()
+	var new_player_velocity: Vector2 = Vector2.RIGHT.rotated(_pipe_path_curve.get_point_position(_pipe_path_curve.point_count - 2).angle_to_point(_pipe_path_curve.get_point_position(_pipe_path_curve.point_count - 1))) * _player.dash_end_velocity_multiplier * _player.dash_max_speed
+
 	_player.velocity = new_player_velocity
 	# Enable player
 	_player.unfreeze()
