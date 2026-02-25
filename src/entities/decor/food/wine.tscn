@@ -4,9 +4,11 @@
 [ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_f0jf4"]
 
 [node name="Wine" type="Node2D"]
+use_parent_material = true
 script = ExtResource("2_f0jf4")
 
 [node name="Wine" type="Sprite2D" parent="."]
+use_parent_material = true
 position = Vector2(0, -187.99998)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_gtad8")

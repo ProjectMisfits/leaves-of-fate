@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbw1y6slm5i2p"
-path="res://.godot/imported/bricks.png-029f24225e38afcedbd7e380fe7d87c5.ctex"
+uid="uid://bpdv1h2wcjrrl"
+path="res://.godot/imported/Floor_Tile_Wood_Slant_Left.png-bcb5d7e755b1d1fa3b1b61fe296d3401.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/decor/architecture/bricks.png"
-dest_files=["res://.godot/imported/bricks.png-029f24225e38afcedbd7e380fe7d87c5.ctex"]
+source_file="res://assets/rooms/tileset/Floor_Tile_Wood_Slant_Left.png"
+dest_files=["res://.godot/imported/Floor_Tile_Wood_Slant_Left.png-bcb5d7e755b1d1fa3b1b61fe296d3401.ctex"]
 
 [params]
 

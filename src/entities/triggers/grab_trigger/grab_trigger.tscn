@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cqp8kvvayynkf" path="res://src/entities/triggers/grab_trigger/grab_trigger.gd" id="1_n6ad0"]
 [ext_resource type="Shape2D" uid="uid://bnrtt12ohd1ix" path="res://src/entities/triggers/trigger_collision_shape.tres" id="2_tirpy"]
-[ext_resource type="PackedScene" uid="uid://41eqg6x4f1xj" path="res://src/ui/interact_prompt/interact_prompt.tscn" id="3_yya4r"]
+[ext_resource type="PackedScene" uid="uid://c6xurae2cj6yy" path="res://src/ui/grabbable_prompt/grab_prompt.tscn" id="3_yya4r"]
 
 [node name="GrabTrigger" type="Area2D"]
 collision_layer = 32
@@ -15,4 +15,3 @@ repeatable = true
 shape = ExtResource("2_tirpy")
 
 [node name="GrabHighlight" parent="." instance=ExtResource("3_yya4r")]
-visible = false
