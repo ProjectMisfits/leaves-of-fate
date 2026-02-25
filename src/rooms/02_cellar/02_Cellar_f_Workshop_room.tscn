@@ -79,6 +79,7 @@ required_false_event_flags = Array[String](["13-AzWs-FinalConfrontation-Workshop
 position = Vector2(4631, 155.00002)
 scale = Vector2(10, 20)
 dialogue_sequence = ExtResource("9_6kule")
+required_true_event_flags = Array[String](["14-AzWs-TurnOnHeater-Boss-HeaterArea"])
 required_false_event_flags = Array[String](["15-AzWs-ReachSafety-GreatHall"])
 
 [node name="ArchRoundSmooth" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("2_ps04q")]
