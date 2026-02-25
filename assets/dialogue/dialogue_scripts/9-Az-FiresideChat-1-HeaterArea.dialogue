@@ -1,29 +1,35 @@
 ~ start
-Fenn: Az... are you there?
-Az: Yeah. sigh. Still stuck... 'sup?
-Fenn: Why do you need your workshop so bady?
-Az: All my stuff's there. Tools, devices. You know.
-Az: I don't want anyone going through it, let alone that pathetic excuse of a Wizard.
-Fenn: Hey! That's mean.
-Az: He trapped all the Knights, Fenn.
-Fenn: Well... you said you needed something from your Workshop?
-Az: sigh. Yeah, alright. Fine. I need an inhaler. Baba always has a few on him, and I keep the rest in my workshop.
-Fenn: Like... for asthma?
-Az: YES for asthma. Why do you think I can't melt all the ice around here?
-Fenn: The smoke... you'll have an attack?
-Az: Yeah. It's not pretty.
+do CameraManager.create_camera(Vector2(3072.0, 300.0), 0.75, 2, "CUBIC", "EASE_IN_OUT")
+Fenn: Hey Az! Are you there?
+Az: Yeah. [i]sigh[/i][wait=0.3] Still stuck... 
+Az: 'Sup?
+Fenn: Why do you, like,[wait=0.3] need your workshop so badly?
+Az: All my [i]stuff's[/i] there. Tools,[wait=0.3] devices. You know.
+Az: I don't want anyone going through it.
+Az annoy: Let alone that [i][shake level=7 rate=30]pathetic excuse of a [color="8A0194"]Wizard[/color].[/shake][/i]
+Fenn: HEY! [wait=0.3][font_size=35]That's mean.[/font_size]
+Az annoy: He trapped [i]all the Knights[/i], Fenn.
+Fenn: Well... you said you needed something from your [color="0B4F4A"]Workshop[/color]?
+Az: [i]sigh[/i]. Yeah, alright. Fine. 
+Az: I need an inhaler. [color="B80006"]Baba[/color] always has a few on him,[wait=0.3] and I keep the rest in my [color="0B4F4A"]Workshop[/color].
+do EventBus.interrupt_dialogue.emit("0.5")
+Fenn worry: Like... for asthma?
+Az annoy: [font_size=60][shake level=7 rate=20]YES[/shake][/font_size] for asthma. 
+Az: [font_size=35][speed=0.7]Why do you think I can't melt any of the ice around here?[/font_size]
+Fenn worry: [speed=0.7]The smoke... it'll cause an attack?
+Az: Yeah. It's [shake level=7 rate=30][i]not[/i][/shake] pretty.
 Fenn: That's why we need the heater?
-Az: Yeah. My Baba is insane about my asthma. He installed the heater so I can control the temp down here.
-Az: He taught me everything I know about blacksmithing, but it's so rare I can even do it.
-Az: You know, where I'm from, dirt and grime are signs of hard work. A badge of honor.
-Az: And I've got the cleanest clothes of any blacksmith in Codoma.
-Az: You know how embarrassing that is?
+Az: Yeah. [color="B80006"]Baba's[/color] always been [i]insane[/i] about my asthma. He installed the heater so I can control the temp down here.
+Az annoy: He taught me everything I know about blacksmithing, but it's so rare I can even do it.
+Az: Where I'm from, [wait=0.3]dirt and grime are signs of [i]hard work[/i]. A badge of [i]honor[/i].
+Az: [font_size=30][speed=0.6]And... [shake level=6 rate=15]I've got the cleanest clothes of [font_size=40][i]any[/i][/font_size] blacksmith in [color="0B4F4A"]Codoma[/color].[/shake][/font_size]
+Az annoy: [font_size=60][speed=1.2]You know how [/font_size][font_size=70][shake level=7 rate=30][i]embarrassing[/i][/shake][/font_size][font_size=60] that is?[/font_size]
 Fenn: ...
-Fenn: Uh... kinda, I guess...
+Fenn worry: Uh... kinda, I guess...
 Fenn: I'm sorry, Az.
-Az: It's fine. Not your problem, anyway. 
-Az: Go grab that heater. We've still got a Wizard to deal with.
-Fenn: Okay... On it.
+Az: It's fine. Not your problem,[wait=0.3] anyway. 
+Az: Go grab that heater. We've still got a [color="8A0194"]Wizard[/color] to deal with.
+Fenn: Okay, [wait=0.3]on it.
 do EventFlags.set_flag("9-Az-FiresideChat-1-HeaterArea", true)
 
 => END

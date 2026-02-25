@@ -174,10 +174,11 @@ position = Vector2(17424, 896)
 scale = Vector2(4, 1)
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("9_hjb0y")]
-position = Vector2(18944, 21760)
-scale = Vector2(20, 10)
+position = Vector2(19103, 17780)
+scale = Vector2(30, 10)
 dialogue_sequence = ExtResource("10_h5367")
 dialogue_start = "ambushed"
+required_false_event_flags = Array[String](["5a-Ws-Ambush-CellarGeneral"])
 
 [node name="PillarTrunk04" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("10_7c5gk")]
 position = Vector2(16896, 19968)

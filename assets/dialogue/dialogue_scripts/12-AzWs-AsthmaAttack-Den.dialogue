@@ -1,52 +1,61 @@
 ~ start
-Winston: Come on, Az. It can not be that hard to melteth a little ice.
-Az: Shut up.
-Winston: Aw, what's wrong? Art thee afraid? Terrified of the despicable wizard who hath stolen thy workshop?
-Az: UGH. Dude, shut UP.
-Winston: Hm. What's this? It looks quite nice.
-Az: What are you doing?
-Wizard: Hmph. Tis a picture of you and your father.
-Az: HEY. Don't you DARE touch that. I swear to Post.
-Winston: The WONDROUS Abdullah. Glorious Knight of Smithing. Heart of the Bay Leaf Palace. Pride of Kuva. Loving Husband and Father.
-Winston: I wonder what that's like.
+Winston hood: [speed=0.7][wave freq=7 amp=30]Come on, [i]Az[/i].[/wave] It can not be [i]that[/i] hard to melteth a little ice.
+Az annoy: [i]Shut up.[/i]
+Winston hood: [speed=0.7]Aw, what's wrong? [wave freq=7 amp=30]Art thee afraid?[/wave] 
+Winston hood grit: [wave freq=7 amp=30]TERRIFIED[/wave] of the [i]despicable[/i] [color="8A0194"]Wizard[/color] who hath [i]stolen[/i] thy workshop?
+Az annoy: [shake level=7 rate=30][i]UGH.[/i][/shake][wait=0.3] Dude, shut [i]UP.[/i]
+Winston hood: [font_size=60]Hm?[wait=0.3] [wave freq=7 amp=30]What's this?[/wave][wait=0.3][/font_size] It looks quite nice.
+Az: [i]What are you doing?[/i]
+Winston hood: Hmph. [speed=0.7]Tis a picture of you and [wave freq=7 amp=30][i]your father.[/i][/wave]
+Az annoy: [font_size=70][shake level=7 rate=30]HEY[/shake].[/font_size][font_size=60] Don't you [shake level=7 rate=30][i]DARE[/i][/shake] touch that. I swear to [shake level=7 rate=30][i]Post[/i][/shake].[/font_size]
+Winston hood grit: [speed=0.7][font_size=60]The WONDROUS [color="B80006"]Abdullah[/color].[/font_size] [font_size=50][wave freq=7 amp=30 connected=0]Glorious[/wave] Knight of Smithing.[/font_size] [font_size=40][wave freq=7 amp=30 connected=0]Heart[/wave] of the Bay Leaf Palace. [i]Pride of Kuva.[/i][/font_size]
+Winston hood: [speed=0.7][font_size=30][shake freq=7 amp=30]Loving Husband and Father.[/shake][/font_size]
+Winston hood grit: [speed=0.5][font_size=40][wave freq=7 amp=30]I wonder what that must be like.[/wave][/font_size]
 SMASH
-Az: That's it. I don't care anymore. I'm coming for you, Wizard.
+Az annoy: [shake level=7 rate=30]That's it. I don't care anymore.[/shake]
 Az approaches the door, takes a deep breath
 Fenn walks in as she's doing this
-Fenn: Az? What are you-
+do EventBus.interrupt_dialogue.emit("0.3")
+Fenn worry: [i][color="B80006"]Az[/color]?[/i] What are you-
 Az breathes fire over the ice, and completely melts it
 She coughs and then collapses
-Winston: Wait... wh-
-Fenn: Az! What did you do?
-Az: cough cough. Got 'em.
-Fenn: Why'd you do that?! Are you okay?
-Az: cough N- cough. No other way.
-Fenn: We could've... we could've found another way around! 
-Az: cough. N- nah. cough. Easier.
-Az: cough. G-go. cough. Get h-him.
-Fenn: What? No! I'm not leaving.
-Az: Go. cough. Get W-Winston.
-Fenn: I'm not leaving you.
-Az: cough. Go.
-Fenn: NO! You're not okay, so I'm not leaving, so just, like, shut up about it, okay!
-Az: cough
-Az: O-okay. cough.
+do EventBus.interrupt_dialogue.emit("0.3")
+Winston hood awkward: [font_size=40]Wait... wh-[/font_size]
+Fenn worry: [font_size=80][i][color="B80006"]AZ[/color]![/i] [shake level=10 rate=50]What did you do?[/shake][/font_size]
+Az: [speed=0.5][font_size=30][i]cough[/i] [i]cough[/i]. Got 'em.[/font_size]
+Fenn worry: [shake level=7 rate=30]Why'd you do that?![/shake] Are you okay?
+Az: [speed=0.5][font_size=30][i]cough[/i] N- [i]cough[/i]. No other way.[/font_size]
+Fenn worry: W-[wait=0.3] we could've found another way around! 
+Az: [speed=0.5][font_size=30][i]cough[/i]. N- [wait=0.3]nah. [i]cough[/i]. Easier.[/font_size]
+Az: [speed=0.5][font_size=30][i]cough[/i]. G- [wait=0.3]go. [i]cough[/i]. Get him.[/font_size]
+Fenn: What? [shake level=7 rate=30 connected=0]No![/shake][wait=0.3] I'm not leaving!
+Az: [speed=0.5][font_size=30]Go. [i]cough[/i]. Get W- [wait=0.3]Winston.[/font_size]
+Fenn worry: [speed=0.7]I'm [i]not[/i] leaving you.
+Az: [speed=0.5][font_size=30][i]cough[/i]. Go.[/font_size]
+Fenn worry: [font_size=100][shake level=10 rate=50]NO![/shake][/font_size] 
+Fenn: [speed=1.2][font_size=60]You're not okay, so I'm [i]not[/i] leaving, so just [shake level=7 rate=30][i]shut up[/i] about it![/shake][/font_size]
+Az: [speed=0.5][font_size=30][i]cough[/i][/font_size]
+Az: [speed=0.5][font_size=30]O- [wait=0.3]okay. [i]cough[/i].[/font_size]
 silence
-Az: I- I cough. d-don't know. cough.
-Fenn: Will you be okay?
-Az: cough. No promises.
+Fenn worry: [font_size=40]Wh- [wait=0.3]what can I do?[/font_size]
+Az: [speed=0.5][font_size=30]I- [wait=0.3]I [i]cough[/i]. don't know. [i]cough[/i].[/font_size]
+Fenn worry: [speed=0.7]Will you be okay?
+Az: [font_size=30][speed=0.5][i]cough[/i]. Heh. [i]cough[/i]. No promises.[/font_size]
 silence
 cough
 inhaler slides through door
-Fenn: Is that...
-Az: cough in- inhaler.
+do EventBus.interrupt_dialogue.emit("0.5")
+Fenn: Wait, that's-
+Az: [speed=0.5][i]cough[/i] in- [wait=0.3]inhaler.
 Fenn grabs the inhaler and brings it to Az
 With Fenn's help, Az takes a breath
 Silence for a few moments, another breath
-Fenn: Are- are you okay?
-Az: inhale. cough. in a bit, yeah.
+Fenn worry: Are- [wait=0.3]are you okay?
+Az: [speed=0.75][font_size=40][i]inhale.[/i] [i]cough[/i]. In a bit, yeah.[/font_size]
 silence, fade to black, deep inhale sound effect, fade out from black
-Fenn: Are you sure you're okay?
-Az: I'm good, Fenn! Stop worrying. Let's go get him.
+Fenn worry: Are you [i]sure[/i] you're okay, now?
+Az laugh: I'm good, Fenn! I've got my inhaler,[wait=0.3] so you can stop worrying so much.
+Fenn worry: Alright. 
+Az annoy: Now, [wait=0.3]let's go get him. 
 do EventFlags.set_flag("12-AzWs-AsthmaAttack-Den", true)
 => END

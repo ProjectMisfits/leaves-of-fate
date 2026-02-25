@@ -1,12 +1,17 @@
-[gd_scene load_steps=11 format=4 uid="uid://bohwfv2ojdvd6"]
+[gd_scene load_steps=16 format=4 uid="uid://bohwfv2ojdvd6"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_ka582"]
 [ext_resource type="PackedScene" uid="uid://bbpm02j1io7y6" path="res://src/entities/objects/bronze_pipe/bronze_pipe.tscn" id="2_cmdfb"]
 [ext_resource type="PackedScene" uid="uid://e64uv5b5qveg" path="res://src/entities/decor/pillars/arch_round_smooth.tscn" id="2_ps04q"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_q0jjo"]
+[ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="4_6gt6j"]
+[ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="4_6qxje"]
+[ext_resource type="PackedScene" uid="uid://d2w50ptxgmhj4" path="res://src/entities/objects/doors/door_grate.tscn" id="4_uvpvb"]
 [ext_resource type="PackedScene" uid="uid://bwadcghg6jxxu" path="res://src/entities/decor/pillars/pillar_base_03.tscn" id="5_cmdfb"]
 [ext_resource type="PackedScene" uid="uid://7c7nfo2gy8fu" path="res://src/entities/decor/pillars/pillar_cap_03.tscn" id="5_umxy6"]
+[ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/npc_winston/npc_winston.tscn" id="5_vvfdw"]
 [ext_resource type="PackedScene" uid="uid://b7j64qhjhyt7o" path="res://src/entities/decor/furniture/table.tscn" id="6_cmdfb"]
+[ext_resource type="Resource" uid="uid://bbwxxjmh5jp4p" path="res://assets/dialogue/dialogue_scripts/13-AzWs-FinalConfrontation-Workshop.dialogue" id="7_vvfdw"]
 [ext_resource type="PackedScene" uid="uid://bsjsr3aaotqep" path="res://src/entities/decor/furniture/book_01.tscn" id="8_e0vym"]
 [ext_resource type="PackedScene" uid="uid://dpbbh0swy0fhv" path="res://src/entities/decor/furniture/book_02.tscn" id="9_cv1b4"]
 
@@ -48,6 +53,25 @@ position = Vector2(512, 1024)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(5632, 1024)
+
+[node name="DoorGrate" parent="MidgroundLayer/DoorHolder" index="2" instance=ExtResource("4_uvpvb")]
+position = Vector2(4608, -256)
+door_name = "vent"
+
+[node name="DoorGrate-2" parent="MidgroundLayer/DoorHolder" index="3" instance=ExtResource("4_uvpvb")]
+position = Vector2(1536, -256)
+
+[node name="NpcAz" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("4_6gt6j")]
+position = Vector2(171, 702)
+
+[node name="NpcWinston" parent="MidgroundLayer/Entities/NPCs" index="1" instance=ExtResource("5_vvfdw")]
+position = Vector2(4544, 589)
+
+[node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("4_6qxje")]
+position = Vector2(1480.9999, 6.000061)
+scale = Vector2(10, 20)
+dialogue_sequence = ExtResource("7_vvfdw")
+required_false_event_flags = Array[String](["13-AzWs-FinalConfrontation-Workshop"])
 
 [node name="ArchRoundSmooth" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("2_ps04q")]
 position = Vector2(3072, -1024)
