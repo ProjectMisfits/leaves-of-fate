@@ -148,10 +148,6 @@ scale = Vector2(20, 60)
 dialogue_sequence = ExtResource("10_badnc")
 enabled = false
 
-[node name="BackBufferCopy" type="BackBufferCopy" parent="MidgroundLayer" index="7"]
-z_index = 5
-copy_mode = 2
-
 [node name="IceSpikeBall" parent="MidgroundLayer/BackBufferCopy" index="0" instance=ExtResource("11_dm4da")]
 position = Vector2(64, -3648)
 
