@@ -47,13 +47,6 @@ position = Vector2(512, 1024)
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(5632, 1024)
 
-[node name="BronzePipe-2" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("2_cmdfb")]
-z_index = -1
-position = Vector2(6656, -512)
-scale = Vector2(0.65, 0.65)
-
-[node name="Path2D" parent="MidgroundLayer/Entities/Objects/BronzePipe-2" index="1"]
-curve = SubResource("Curve2D_otj6j")
 [node name="DoorGrate" parent="MidgroundLayer/DoorHolder" index="2" instance=ExtResource("4_uvpvb")]
 position = Vector2(4608, -256)
 door_name = "vent"
