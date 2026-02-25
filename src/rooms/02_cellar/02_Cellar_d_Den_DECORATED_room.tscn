@@ -191,6 +191,8 @@ required_false_event_flags = Array[String](["6-AzWs-Arrive-Den"])
 position = Vector2(2715, -477.00006)
 scale = Vector2(10, 50)
 dialogue_sequence = ExtResource("12_h8co5")
+required_true_event_flags = Array[String](["heater_main_activated"])
+required_false_event_flags = Array[String](["12-AzWs-AsthmaAttack-Den"])
 
 [node name="Decor" parent="MidgroundLayer" index="6"]
 modulate = Color(0.59, 0.59, 0.59, 1)

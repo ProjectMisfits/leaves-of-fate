@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bohwfv2ojdvd6"]
+[gd_scene load_steps=17 format=4 uid="uid://bohwfv2ojdvd6"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_ka582"]
 [ext_resource type="PackedScene" uid="uid://bbpm02j1io7y6" path="res://src/entities/objects/bronze_pipe/bronze_pipe.tscn" id="2_cmdfb"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b7j64qhjhyt7o" path="res://src/entities/decor/furniture/table.tscn" id="6_cmdfb"]
 [ext_resource type="Resource" uid="uid://bbwxxjmh5jp4p" path="res://assets/dialogue/dialogue_scripts/13-AzWs-FinalConfrontation-Workshop.dialogue" id="7_vvfdw"]
 [ext_resource type="PackedScene" uid="uid://bsjsr3aaotqep" path="res://src/entities/decor/furniture/book_01.tscn" id="8_e0vym"]
+[ext_resource type="Resource" uid="uid://duspdpplyqoju" path="res://assets/dialogue/dialogue_scripts/15-AzWs-ReachSafety-GreatHall.dialogue" id="9_6kule"]
 [ext_resource type="PackedScene" uid="uid://dpbbh0swy0fhv" path="res://src/entities/decor/furniture/book_02.tscn" id="9_cv1b4"]
 
 [sub_resource type="Curve2D" id="Curve2D_otj6j"]
@@ -71,7 +72,14 @@ position = Vector2(4544, 589)
 position = Vector2(1480.9999, 6.000061)
 scale = Vector2(10, 20)
 dialogue_sequence = ExtResource("7_vvfdw")
+enabled = false
 required_false_event_flags = Array[String](["13-AzWs-FinalConfrontation-Workshop"])
+
+[node name="CutsceneTrigger-2" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("4_6qxje")]
+position = Vector2(4631, 155.00002)
+scale = Vector2(10, 20)
+dialogue_sequence = ExtResource("9_6kule")
+required_false_event_flags = Array[String](["15-AzWs-ReachSafety-GreatHall"])
 
 [node name="ArchRoundSmooth" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("2_ps04q")]
 position = Vector2(3072, -1024)

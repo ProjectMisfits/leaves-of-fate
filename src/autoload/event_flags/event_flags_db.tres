@@ -49,5 +49,6 @@ data = {
 "X-Ws-Cellar-8": false,
 "X-Ws-Cellar-9": false,
 "heater_boss_activated": false,
-"heater_main_activated": true
+"heater_main_activated": false,
+"winston_seal_broken": false
 }

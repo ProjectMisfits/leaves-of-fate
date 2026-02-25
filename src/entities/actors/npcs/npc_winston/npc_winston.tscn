@@ -10,16 +10,20 @@ npc_name = "Winston"
 walk_animation = "winston_walk"
 idle_animation = "winston_idle"
 
+[node name="FlipNode" parent="." index="0"]
+position = Vector2(0, -435)
+
 [node name="Sprite2D" parent="FlipNode" index="0"]
 position = Vector2(-100.00001, -16)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_8nges")
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, 24)
+position = Vector2(0, -411)
 shape = ExtResource("2_k2brm")
 
 [node name="Audio" type="Node2D" parent="." index="3"]
+position = Vector2(0, -435)
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="Audio" index="0"]
 stream = ExtResource("4_6btiq")
