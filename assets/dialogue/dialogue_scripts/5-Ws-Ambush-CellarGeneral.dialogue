@@ -1,7 +1,7 @@
 
 ~ ambushed
 do CutsceneManager.npc_face("Winston", "right")
-do CameraManager.create_camera(Vector2(19800,22000),1, 0.5, "LINEAR", "EASE_IN_OUT")
+do CameraManager.create_camera(Vector2(19800,22000),1, 0.5, "CUBIC", "EASE_IN_OUT")
 Wizard: [font_size=80]Well well well. [/font_size]
 do! EventBus.interrupt_dialogue.emit("0.5")
 Wizard: What doth we have here? Is it a lone...
@@ -48,20 +48,35 @@ do EventFlags.set_flag("5a-Ws-Ambush-CellarGeneral", true)
 
 
 ~ escaped
-Wizard: You [font_size=70][shake level=7 rate=30][i]ESCAPED?[/i][/shake][/font_size]
+do CameraManager.create_camera(Vector2(3072,500),1, 0.5, "CUBIC", "EASE_IN_OUT")
+do CutsceneManager.npc_face("Winston", "right")
+do CutsceneManager.wait(0.5)
+do CutsceneManager.npc_face("Winston", "left")
+do CutsceneManager.wait(1.0)
+do CutsceneManager.npc_face("Winston", "right")
+do CutsceneManager.wait(0.5)
+do CutsceneManager.npc_face("Winston", "left")
+Wizard: [font_size=80][shake level=10 rate=50][i]WHAT?![/i][/shake][/font_size]
+Wizard grit: You [font_size=70][shake level=7 rate=30][i]ESCAPED?[/i][/shake][/font_size]
 Az laugh: Haha! Nice work, Fenn.
-Wizard: [font_size=70][shake level=7 rate=30]ARGH![/shake] HOW DIDST THOU EVADE MY MINION?[/font_size]
-Fenn: Oh, well [color="B80006"]Az[/color] was grabbing stuff using the bracelets!
+Wizard grit: [font_size=70][shake level=7 rate=30]ARGH![/shake] [wait=0.3]HOW DIDST THOU EVADE MY MINION?[/font_size]
+Fenn starry: Oh, [wait=0.3]well [color="B80006"]Az[/color] was grabbing stuff using the bracelets!
 do EventBus.interrupt_dialogue.emit("0.5")
 Az: Ban-[wait=0.3] nevermind.
 do CutsceneManager.npc_face("Winston", "right")
-Wizard: [font_size=60]Hmm. I must do [shake level=7 rate=30]better[/shake].[/font_size][font_size=50] More machines.[/font_size] [font_size=40]More snoweth.[/font_size] [font_size=30]More creatures.[/font_size]
-Az laugh: Yeah. [i]cough[/i] [wait=0.3]I'm not gonna lie, that was [speed=0.25][i]pretty[/i][wait=0.2][/speed] pathetic.
+Wizard grit: [font_size=60]Hmm. I must do [shake level=7 rate=30]better[/shake].[/font_size][font_size=50] More machines.[/font_size] [font_size=40]More snoweth.[/font_size] [font_size=30]More creatures.[/font_size]
+Az laugh: Yeah. [i]cough[/i] [wait=0.3]I'm not gonna lie, that was [speed=0.2][i]pretty[/i][wait=0.2][/speed] pathetic.
 do CutsceneManager.npc_face("Winston", "left")
-Wizard: [i]Well[/i],[wait=0.3] I doubt thee has't any other [font_size=60][shake level=7 rate=30]stupid[/shake][/font_size] tricks up thy sleeves
-Fenn: [wave freq=7 amp=30] Wasn't it so cool?[/wave]
-Wizard: [font_size=70][shake level=7 rate=30]I hath never said it was cool![/shake][/font_size]
-Wizard: [font_size=100][shake level=7 rate=30]ARRGH![/shake][/font_size]
-#Wizard runs off
+Wizard grit: [i]Well[/i],[wait=0.3] I doubt thee has't any other [font_size=60][shake level=7 rate=30]stupid[/shake][/font_size] tricks up thy sleeves
+Fenn starry: [wave freq=7 amp=25] Wasn't it so cool?[/wave]
+Wizard grit: [font_size=70][shake level=7 rate=30]I hath never said it was cool![/shake][/font_size]
+Wizard grit: [font_size=100][shake level=7 rate=30]ARRGH![/shake][/font_size]
+do CutsceneManager.npc_move("Winston", 4600.0, 400, false, true)
+do CutsceneManager.wait(0.5)
+Wizard awkward: [font_size=70][shake level=10]STOPPETH LOOKING AT ME!![/shake][/font_size]
+do CutsceneManager.npc_move("Winston", 5632.0, 800, false, false)
+do CutsceneManager.fade_to_black()
+do CutsceneManager.remove_npc("Winston")
+do CutsceneManager.fade_from_black()
 do EventFlags.set_flag("5b-Ws-PostAmbush-CellarGeneral", true)
 => END
