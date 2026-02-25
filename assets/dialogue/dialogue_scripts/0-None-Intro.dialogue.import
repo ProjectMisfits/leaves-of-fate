@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://2bcgnyg4mgyq"
+path="res://.godot/imported/0-None-Intro.dialogue-837f8361ae500d455e9b64dfe582579c.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/0-None-Intro.dialogue"
+dest_files=["res://.godot/imported/0-None-Intro.dialogue-837f8361ae500d455e9b64dfe582579c.tres"]
+
+[params]
+
+defaults=true

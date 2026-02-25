@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://djl4k6dpqayhm"]
+[gd_scene load_steps=13 format=4 uid="uid://djl4k6dpqayhm"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_q085u"]
 [ext_resource type="PackedScene" uid="uid://1raxqvkiv2mf" path="res://src/entities/objects/doors/door_grate_rusty.tscn" id="2_guwbj"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/doors/door.tscn" id="3_qolr5"]
 [ext_resource type="PackedScene" uid="uid://bbpm02j1io7y6" path="res://src/entities/objects/bronze_pipe/bronze_pipe.tscn" id="4_8gpmw"]
 [ext_resource type="PackedScene" uid="uid://cnkr1x18dvnec" path="res://src/entities/triggers/player_enter_trigger/camera_trigger/camera_trigger.tscn" id="5_o6r21"]
+[ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="8_qolr5"]
+[ext_resource type="Resource" uid="uid://xabsh72rvu4q" path="res://assets/dialogue/dialogue_scripts/14-AzWs-TurnOnHeater-Boss-Workshop.dialogue" id="9_d40tq"]
 
 [sub_resource type="Curve2D" id="Curve2D_smk7m"]
 resource_local_to_scene = true
@@ -103,6 +105,12 @@ shape = SubResource("RectangleShape2D_0j5a1")
 follow_target = NodePath("../../../../Player")
 zoom = Vector2(0.25, 0.25)
 follow_damping = true
+
+[node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="2" instance=ExtResource("8_qolr5")]
+position = Vector2(11052, -3946)
+scale = Vector2(10, 40)
+dialogue_sequence = ExtResource("9_d40tq")
+required_false_event_flags = Array[String](["14-AzWs-TurnOnHeater-Boss-HeaterArea"])
 
 [editable path="MidgroundLayer/Entities/Objects/BronzePipe-2"]
 [editable path="MidgroundLayer/Entities/Triggers/CameraTrigger"]

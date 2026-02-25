@@ -2,6 +2,8 @@
 
 [resource]
 data = {
+"0-None-Beginning": false,
+"0-None-PreHall": false,
 "1-Az-Meet-GreatHall": false,
 "10-AzWs-TurnOnHeater-Main-HeaterArea": false,
 "11-Az-FiresideChat-2-HeaterArea": false,
@@ -14,7 +16,7 @@ data = {
 "4-Az-BangleTalk-CellarGeneral": false,
 "5a-Ws-Ambush-CellarGeneral": false,
 "5b-Ws-PostAmbush-CellarGeneral": false,
-"6-AzWs-Arrive-Den": false,
+"6-AzWs-Arrive-Den": true,
 "7-Ws-Lost-HeaterArea": false,
 "8-Az-CoughingFit-HeaterArea": false,
 "9-Az-FiresideChat-1-HeaterArea": false,
@@ -47,5 +49,6 @@ data = {
 "X-Ws-Cellar-8": false,
 "X-Ws-Cellar-9": false,
 "heater_boss_activated": false,
-"heater_main_activated": false
+"heater_main_activated": false,
+"winston_seal_broken": false
 }

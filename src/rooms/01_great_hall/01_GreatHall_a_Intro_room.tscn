@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://b8kn5xfprwk4p"]
+[gd_scene load_steps=14 format=4 uid="uid://b8kn5xfprwk4p"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_la711"]
+[ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="2_awr3m"]
 [ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="3_s0hpu"]
+[ext_resource type="Resource" uid="uid://2bcgnyg4mgyq" path="res://assets/dialogue/dialogue_scripts/0-None-Intro.dialogue" id="3_suefa"]
 [ext_resource type="PackedScene" uid="uid://1lva6fbgnwyn" path="res://src/entities/decor/pillars/arch_point_smooth.tscn" id="5_awr3m"]
 [ext_resource type="PackedScene" uid="uid://7c7nfo2gy8fu" path="res://src/entities/decor/pillars/pillar_cap_03.tscn" id="6_m28v6"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="6_suefa"]
@@ -64,6 +66,13 @@ position = Vector2(2048, 1024)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(12288, 1036)
+
+[node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("2_awr3m")]
+position = Vector2(10988, 12.000015)
+scale = Vector2(10, 20)
+dialogue_sequence = ExtResource("3_suefa")
+dialogue_start = "prehall"
+required_false_event_flags = Array[String](["0-None-PreHall"])
 
 [node name="Pillar" type="Node2D" parent="MidgroundLayer/Decor" index="0"]
 
