@@ -1,17 +1,17 @@
 [gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://cx57acqmjfvf6"]
 
-[ext_resource type="AudioStream" uid="uid://ddlnburdngoje" path="res://assets/entities/actors/footsteps/wood/FS-Fenn-Wood-01.ogg" id="1_8017i"]
-[ext_resource type="AudioStream" uid="uid://bf4heq17xumwr" path="res://assets/entities/actors/footsteps/wood/FS-Fenn-Wood-02.ogg" id="2_ko7ty"]
-[ext_resource type="AudioStream" uid="uid://cnqotfh4c4ern" path="res://assets/entities/actors/footsteps/wood/FS-Fenn-Wood-03.ogg" id="3_scxqe"]
-[ext_resource type="AudioStream" uid="uid://b3bx35fihhudd" path="res://assets/entities/actors/footsteps/wood/FS-Fenn-Wood-04.ogg" id="4_f0p5x"]
+[ext_resource type="AudioStream" uid="uid://ddlnburdngoje" path="res://assets/entities/actors/footsteps/wood/FS-Fenn-Wood-01.ogg" id="1_xgp3e"]
+[ext_resource type="AudioStream" uid="uid://bf4heq17xumwr" path="res://assets/entities/actors/footsteps/wood/FS-Fenn-Wood-02.ogg" id="2_7cjio"]
+[ext_resource type="AudioStream" uid="uid://cnqotfh4c4ern" path="res://assets/entities/actors/footsteps/wood/FS-Fenn-Wood-03.ogg" id="3_32dw2"]
+[ext_resource type="AudioStream" uid="uid://b3bx35fihhudd" path="res://assets/entities/actors/footsteps/wood/FS-Fenn-Wood-04.ogg" id="4_ufbx7"]
 [ext_resource type="AudioStream" uid="uid://onm2tuf2dbrc" path="res://assets/entities/actors/footsteps/wood/FS-Fenn-Wood-05.ogg" id="5_wul34"]
 
 [resource]
 random_pitch = 1.2
 random_volume_offset_db = 0.5
 streams_count = 5
-stream_0/stream = ExtResource("1_8017i")
-stream_1/stream = ExtResource("2_ko7ty")
-stream_2/stream = ExtResource("3_scxqe")
-stream_3/stream = ExtResource("4_f0p5x")
+stream_0/stream = ExtResource("1_xgp3e")
+stream_1/stream = ExtResource("2_7cjio")
+stream_2/stream = ExtResource("3_32dw2")
+stream_3/stream = ExtResource("4_ufbx7")
 stream_4/stream = ExtResource("5_wul34")
