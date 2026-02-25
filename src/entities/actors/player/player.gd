@@ -112,6 +112,7 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 @onready var jumping_state: LimboState = $LimboHSM/Jumping		## Reference to the Player's Jumping State.
 @onready var airborne_state: LimboState = $LimboHSM/Airborne	## Reference to the Player's Airborne State.
 @onready var dashing_state: LimboState = $LimboHSM/Dashing		## Reference to the Player's Leaf Dash State.
+@onready var cutscene_state: LimboState = $LimboHSM/Cutscene	## Reference to the Player's Cutscene State.
 #@onready var piling_state: LimboState = $LimboHSM/Piling		## Reference to the Player's Leaf Pile state.
 
 # -------------------- DYNAMIC VARIABLES -------------------- #
@@ -602,16 +603,24 @@ func add_debug_parameters() -> void:
 	DebugMenu.add_debug_property("Inifinte Dash",infinite_dash,0)
 	DebugMenu.add_debug_property("No_dash",no_dash,0)
 
-## Handle player state when a cutscene starts.
+## Put player in cutscene state when a cutscene starts.
 func _on_cutscene_started() -> void:
-	disable_player_input()
-	state_machine.change_active_state(idle_state)
-	velocity = Vector2(0.0, 0.0)
+	state_machine.change_active_state(cutscene_state)
 
-## Handle player state when a cutscene ends.
+## Transition out of cutscene state when a cutscene ends.
 func _on_cutscene_ended() -> void:
-	enable_player_input()
+	state_machine.change_active_state(idle_state)
 
+## Move Fenn based on the given parameters.
+## move_direction: one of "left" or "right"
+func move(destination_global_x: float, move_speed: float, animate_walk: bool = true, moonwalk: bool = false) -> void:
+	state_machine.get_active_state().move(destination_global_x, move_speed, animate_walk, moonwalk)
+
+## Set Fenn to look in the given direction.
+func set_look(face_axis: float) -> void:
+	state_machine.get_active_state().set_look(face_axis)
+
+## Get the player's eye position.
 func get_eye_position() -> Vector2:
 	return %EyeMarker.global_position;
 
