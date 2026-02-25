@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://djl4k6dpqayhm"]
+[gd_scene load_steps=11 format=4 uid="uid://djl4k6dpqayhm"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_q085u"]
+[ext_resource type="PackedScene" uid="uid://1raxqvkiv2mf" path="res://src/entities/objects/doors/door_grate_rusty.tscn" id="2_guwbj"]
 [ext_resource type="PackedScene" uid="uid://mn6k4g5kkt5q" path="res://src/entities/objects/heater/heater.tscn" id="2_vnj5f"]
 [ext_resource type="PackedScene" uid="uid://c567nmtkfbfn4" path="res://src/entities/objects/heater_lever/heater_lever.tscn" id="3_3rp62"]
+[ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/doors/door.tscn" id="3_qolr5"]
 [ext_resource type="PackedScene" uid="uid://bbpm02j1io7y6" path="res://src/entities/objects/bronze_pipe/bronze_pipe.tscn" id="4_8gpmw"]
 [ext_resource type="PackedScene" uid="uid://cnkr1x18dvnec" path="res://src/entities/triggers/player_enter_trigger/camera_trigger/camera_trigger.tscn" id="5_o6r21"]
 
@@ -38,7 +40,28 @@ tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAA
 position = Vector2(2684, -1152)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
-position = Vector2(3200, 45696)
+visible = false
+position = Vector2(-1714, 47270)
+door_name = ""
+target_door_name = ""
+
+[node name="DoorGrate" parent="MidgroundLayer/DoorHolder" index="2" instance=ExtResource("2_guwbj")]
+position = Vector2(3072, 45580)
+target_room_path = "uid://bohwfv2ojdvd6"
+door_name = "exit"
+target_door_name = "vent"
+
+[node name="Door" parent="MidgroundLayer/DoorHolder" index="3" instance=ExtResource("3_qolr5")]
+position = Vector2(5760, 23296)
+
+[node name="DoorGrate-2" parent="MidgroundLayer/DoorHolder" index="4" instance=ExtResource("2_guwbj")]
+position = Vector2(1664, 7040)
+
+[node name="Door-2" parent="MidgroundLayer/DoorHolder" index="5" instance=ExtResource("3_qolr5")]
+position = Vector2(8064, 35456)
+
+[node name="Door-3" parent="MidgroundLayer/DoorHolder" index="6" instance=ExtResource("3_qolr5")]
+position = Vector2(12032, 35456)
 
 [node name="Heater" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("2_vnj5f")]
 position = Vector2(12160, -2688)

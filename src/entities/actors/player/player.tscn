@@ -18,14 +18,14 @@
 [ext_resource type="PackedScene" uid="uid://cfj172hxekuqg" path="res://src/vfx/particle_effects/leaf_particles_02.tscn" id="9_nqxrs"]
 [ext_resource type="Script" uid="uid://osptlmoqos3i" path="res://src/entities/actors/player/states/player_piling.gd" id="9_q6jdu"]
 [ext_resource type="PackedScene" uid="uid://dhcepuko5y18x" path="res://src/vfx/particle_effects/leaf_ball_particles.tscn" id="9_tda88"]
-[ext_resource type="Script" uid="uid://bhytbo7u825lb" path="res://src/entities/actors/player/components/hurt_component.gd" id="11_s3rhx"]
+[ext_resource type="Script" path="res://src/entities/actors/player/components/hurt_component.gd" id="11_s3rhx"]
 [ext_resource type="JSON" uid="uid://ctjfhxb7akvyx" path="res://src/entities/actors/player/footstep_dictionaries/player_footstep_data.tres" id="12_e5ptp"]
-[ext_resource type="Script" uid="uid://cq2g2o708n5hl" path="res://src/entities/actors/player/footstep_component.gd" id="13_s1o6p"]
+[ext_resource type="Script" path="res://src/entities/actors/player/footstep_component.gd" id="13_s1o6p"]
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/vfx/particle_effects/wind_particles.tscn" id="14_7j1dl"]
 [ext_resource type="AudioStream" uid="uid://dimhdiv10a08t" path="res://assets/entities/actors/player/player_audio/PH-leaf-enter.ogg" id="17_iloh8"]
 [ext_resource type="AudioStream" uid="uid://dxmm31nsgmehb" path="res://assets/entities/actors/player/player_audio/PH-leaf-exit.ogg" id="18_283t5"]
 [ext_resource type="Texture2D" uid="uid://jvsobi5gw7di" path="res://assets/entities/actors/player/TEMP-fenn-jump-spritesheet.png" id="18_s3rhx"]
-[ext_resource type="AudioStream" uid="uid://ca5i8864h7llp" path="res://assets/entities/actors/footsteps/stone/FS-fenn-stone.tres" id="26_hn11x"]
+[ext_resource type="AudioStream" uid="uid://ca5i8864h7llp" path="res://assets/entities/actors/footsteps/stone/FS-Fenn-Stone.tres" id="26_hn11x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hn11x"]
 radius = 67.0
@@ -378,6 +378,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [8]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/Footsteps")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_c5a8v"]
 resource_name = "player_leaf"
@@ -509,7 +523,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_efl0v"]
 resource_name = "player_walk_cycle"
-length = 0.6355
+length = 0.5497
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -518,7 +532,7 @@ tracks/0/path = NodePath("FlipNode/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.083, 0.166, 0.249, 0.332, 0.415, 0.498, 0.581),
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.4667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
@@ -558,6 +572,23 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.798, 0.798)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Audio/Footsteps")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 0.4667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ihyl"]
@@ -739,13 +770,17 @@ bus = &"SFX"
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("26_hn11x")
-volume_db = 2.0
+volume_db = 6.0
+pitch_scale = 1.5
 bus = &"SFX"
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="FootStepTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="MeterCooldownTimer" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="body_entered" from="FlipNode/WindZoneComponent/DashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_dash_detection_area_body_entered"]
@@ -760,3 +795,4 @@ one_shot = true
 [connection signal="body_entered" from="FlipNode/HurtComponent/HurtArea" to="FlipNode/HurtComponent" method="_on_hurt_area_body_entered"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_end_invincibility"]
 [connection signal="timeout" from="FootStepTimer" to="." method="_on_foot_step_timer_timeout"]
+[connection signal="timeout" from="MeterCooldownTimer" to="." method="_on_meter_cooldown_timer_timeout"]
