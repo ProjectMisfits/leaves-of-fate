@@ -1,5 +1,6 @@
 ~ start
-do! CameraManager.create_camera(Vector2(4600.0, 600.0), 0.6, 2, "CUBIC", "EASE_IN_OUT")
+do! MusicManager._fade_out()
+do CameraManager.create_camera(Vector2(4600.0, 600.0), 0.6, 2, "CUBIC", "EASE_IN_OUT")
 ??? ws: [font_size=30]Ah, tis perfect. That shouldst do rather well.[/font_size]
 do EventBus.interrupt_dialogue.emit("0.5")
 ??? ws: [font_size=30]I just needeth...[/font_size]
@@ -27,9 +28,12 @@ Wizard awkward: [font_size=80]Ahem.[/font_size]
 Wizard: [wave freq=7 amp=30]In due timeth, [i]pint-size[/i].[/wave]
 do CutsceneManager.npc_move("Winston", 6200.0, 1000.0, false, false)
 Wizard grit: I look forward to our battle. [shake level=7 rate=30]Thy defeat shalt be one for the ages.[/shake]
-do CutsceneManager.npc_move("Winston", 7200.0, 2000.0, false, false)
+do CutsceneManager.npc_move("Winston", 8192.0, 2000.0, false, false)
+do CutsceneManager.fade_to_black()
 do CutsceneManager.remove_npc("Winston")
+do CutsceneManager.fade_from_black()
 Fenn: Uh...
 Fenn: Indeed, it shalt... eth?
+do! MusicManager._fade_in()
 do EventFlags.set_flag("2-Ws-Meet-CellarGeneral", true)
 => END

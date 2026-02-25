@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_78sth"]
 [ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_hjb0y"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_hjb0y"]
-[ext_resource type="PackedScene" uid="uid://hljjnysbuwyd" path="res://assets/graphics/dust_layer.tscn" id="3_r7us7"]
+[ext_resource type="PackedScene" uid="uid://hljjnysbuwyd" path="res://assets/vfx/shaders/dust_layer.tscn" id="3_r7us7"]
 [ext_resource type="PackedScene" uid="uid://bg2o7v2o7bjjk" path="res://src/entities/objects/breakaway_platform/breakaway_platform.tscn" id="5_kak0g"]
 [ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="5_u513b"]
 [ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/npc_winston/npc_winston.tscn" id="6_af7wc"]

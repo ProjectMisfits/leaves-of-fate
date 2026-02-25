@@ -22,5 +22,19 @@ func _play_song(new_music: AudioStream, new_volume: float = 0.0) -> void:
 ## Fade out the currently playing music.
 func _fade_out() -> void:
 	var fade_out_tween: Tween = create_tween()
-	fade_out_tween.tween_property(self, "volume_db", -60.0, 0.5)
+	fade_out_tween.tween_property(self, "volume_db", -40.0, 2)
 	await fade_out_tween.finished
+	_pause()
+
+func _fade_in(new_volume: float = 0.0) -> void:
+	_unpause()
+	var fade_in_tween: Tween = create_tween()
+	fade_in_tween.tween_property(self, "volume_db", new_volume, 2)
+	await fade_in_tween.finished
+
+
+func _pause() -> void:
+	stream_paused = true
+
+func _unpause() -> void:
+	stream_paused = false
