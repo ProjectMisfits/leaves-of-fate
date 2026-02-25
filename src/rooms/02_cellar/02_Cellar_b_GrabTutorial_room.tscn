@@ -1,9 +1,11 @@
-[gd_scene load_steps=22 format=4 uid="uid://bnyhrenr0gehb"]
+[gd_scene load_steps=24 format=4 uid="uid://bnyhrenr0gehb"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_h7an2"]
 [ext_resource type="PackedScene" uid="uid://disa83btdjjsk" path="res://src/entities/objects/moving_platform/moving_platform.tscn" id="2_f0jtv"]
 [ext_resource type="PackedScene" uid="uid://cm33qh6em0dth" path="res://src/entities/triggers/grab_trigger/grab_trigger.tscn" id="3_iw6vn"]
 [ext_resource type="PackedScene" uid="uid://cnkr1x18dvnec" path="res://src/entities/triggers/player_enter_trigger/camera_trigger/camera_trigger.tscn" id="4_br0ws"]
+[ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="5_mw37h"]
+[ext_resource type="Resource" uid="uid://cu166em1kgubw" path="res://assets/dialogue/dialogue_scripts/4-Az-BangleTalk-CellarGeneral.dialogue" id="6_vic68"]
 
 [sub_resource type="Curve2D" id="Curve2D_br0ws"]
 resource_local_to_scene = true
@@ -242,6 +244,12 @@ shape = SubResource("RectangleShape2D_shg5o")
 position = Vector2(11136, -1536)
 zoom = Vector2(0.2, 0.2)
 limit_target = NodePath("../../../../Midground")
+
+[node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="5" instance=ExtResource("5_mw37h")]
+position = Vector2(7359, 310)
+scale = Vector2(10, 15)
+dialogue_sequence = ExtResource("6_vic68")
+required_false_event_flags = Array[String](["4-Az-BangleTalk-CellarGeneral"])
 
 [editable path="MidgroundLayer/Entities/Objects/MovingPlatform"]
 [editable path="MidgroundLayer/Entities/Objects/MovingPlatform/GrabTrigger"]

@@ -1,4 +1,5 @@
 ~ start
+do! MusicManager._fade_out()
 Wizard grit: [font_size=100][shake level=10 rate=50]NO WAITETH![/shake][/font_size]
 Az annoy: [font_size=60]Oh [i]COME[/i] on.[/font_size]
 Fenn worry: What happened?
@@ -8,5 +9,6 @@ Az: There's another heater in the [color="0B4F4A"]Cellar[/color], [wait=0.3]but 
 Az annoy: So, [wait=0.3]the ice didn't melt all the way.
 Wizard: [font_size=70]HAHA![/font_size][wait=0.3] [wave freq=7 amp=20]That was the planneth all along![/wave] [wait=0.3]  Go ahead, [shake level=7 amp=30][i]waste thy time.[/i][/shake]
 Az annoy: Ignore him. Come back and we'll figure something out.
+do! MusicManager._fade_in()
 do EventFlags.set_flag("10-AzWs-TurnOnHeater-Main-HeaterArea", true)
 => END

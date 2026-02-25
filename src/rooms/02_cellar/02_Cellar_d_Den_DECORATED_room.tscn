@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b6p26modf3ljr" path="res://src/entities/decor/furniture/window_01.tscn" id="5_y5unq"]
 [ext_resource type="PackedScene" uid="uid://dggdoj1nhnb1j" path="res://src/entities/decor/furniture/window_02.tscn" id="6_x263s"]
 [ext_resource type="PackedScene" uid="uid://n0xe74ww2rnc" path="res://src/entities/decor/furniture/window_03.tscn" id="7_04rh1"]
-[ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/door/door.tscn" id="9_6e3gf"]
+[ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/doors/door.tscn" id="9_6e3gf"]
 [ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="10_yjioi"]
 [ext_resource type="PackedScene" uid="uid://ds25qjj7x3y7o" path="res://src/entities/objects/leaf_platform/leaf_platform.tscn" id="17_g0ys4"]
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="18_fdcq0"]
@@ -181,10 +181,10 @@ position = Vector2(9984, -3328)
 scale = Vector2(4, 4)
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("18_fdcq0")]
-position = Vector2(11353, -854)
-scale = Vector2(20, 60)
+position = Vector2(11885, -860.00006)
+scale = Vector2(10, 60)
 dialogue_sequence = ExtResource("19_6l8wa")
-enabled = false
+required_false_event_flags = Array[String](["6-AzWs-Arrive-Den"])
 
 [node name="Decor" parent="MidgroundLayer" index="6"]
 modulate = Color(0.59, 0.59, 0.59, 1)
