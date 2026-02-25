@@ -1,4 +1,5 @@
 ~ start
+do! MusicManager._fade_out()
 Fenn: [color="8A0194"]Wizard[/color]?
 Wizard: [font_size=100][shake level=10 rate=50]BY POSTLY HEAVEN![/shake][/font_size]
 Fenn: It's me! Fenn?
@@ -22,5 +23,6 @@ Az: Did- [wait=0.3]did you just let him get away?
 Fenn: [font_size=70]OH WAIT!! COME BACK![/font_size]
 Wizard: [font_size=70]UM. [wave freq=10 amp=20]LALALA I CAN'T HEARETH YOU![/wave][/font_size]
 Az: [font_size=40][i]Oh by Post.[/i] They're both idiots.[/font_size]
+do! MusicManager._fade_in()
 do EventFlags.set_flag("7-Ws-Lost-HeaterArea", true)
 => END

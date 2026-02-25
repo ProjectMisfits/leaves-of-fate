@@ -1,4 +1,5 @@
 ~ start
+do! MusicManager._fade_out()
 Fenn: Got it!
 Steam hisses
 Iceton... roars?
@@ -11,5 +12,6 @@ Az: Ah, geez.
 Fenn worry: Aw...
 Az: Fenn, can you come back here and help me deal with the nerd?
 Fenn worry: Alright.
+do! MusicManager._fade_in()
 do EventFlags.set_flag("14-AzWs-TurnOnHeater-Boss-Workshop", true)
 => END

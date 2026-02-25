@@ -1,4 +1,5 @@
 ~ start
+do! MusicManager._fade_out()
 Az laugh: [font_size=70]Fenn!! [wave freq=7 amp=30]You did it![/wave][/font_size]
 Fenn: Are you guys okay?
 Az: We're good. Few scratches, nothing bad.
@@ -48,5 +49,6 @@ Winston: I believe I saw [color="B80006"]Randy[/color] headeth towards the [colo
 Fenn starry: Well, [wait=0.3]to the [color="0B4F4A"]Kitchen[/color]!
 Fenn: End of Demo! 
 Fenn starry: Thanks for playing Leaves of Fate!
+do! MusicManager._fade_in()
 do EventFlags.set_flag("15-AzWs-ReachSafety-GreatHall", true)
 => END

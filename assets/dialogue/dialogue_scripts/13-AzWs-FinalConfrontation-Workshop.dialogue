@@ -1,6 +1,6 @@
 ~ start
-#do CameraManager.create_camera(Vector2(700.0, 700.0), 0.4, 1, "CUBIC", "EASE_IN_OUT")
-do CameraManager.create_camera(Vector2(35000.0,3200), 0.75, 1.5, "CUBIC", "EASE_IN_OUT")
+do! MusicManager._fade_out()
+do CameraManager.create_camera(Vector2(700.0, 700.0), 0.4, 1, "CUBIC", "EASE_IN_OUT")
 Fenn: Hello? Winston?
 Az: I know the light's here, gimme a sec.
 do CameraManager.create_camera(Vector2(700.0, 700.0), 0.6, 3, "CUBIC", "EASE_IN_OUT")
@@ -64,5 +64,6 @@ Fenn: Yeah?
 Az: I can protect Winston in the meantime. It might just be enough to melt [color="521FA6"]Iceton[/color].
 Az: The door at the back should lead you to it.
 Fenn: On it!
+do! MusicManager._fade_in()
 do EventFlags.set_flag("13-AzWs-FinalConfrontation-Workshop", true)
 => END

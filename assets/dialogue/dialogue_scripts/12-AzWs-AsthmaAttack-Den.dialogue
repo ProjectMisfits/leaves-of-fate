@@ -1,4 +1,5 @@
 ~ start
+do! MusicManager._fade_out()
 Winston hood: [speed=0.7][wave freq=7 amp=30]Come on, [i]Az[/i].[/wave] It can not be [i]that[/i] hard to melteth a little ice.
 Az annoy: [i]Shut up.[/i]
 Winston hood: [speed=0.7]Aw, what's wrong? [wave freq=7 amp=30]Art thee afraid?[/wave] 
@@ -57,5 +58,6 @@ Fenn worry: Are you [i]sure[/i] you're okay, now?
 Az laugh: I'm good, Fenn! I've got my inhaler,[wait=0.3] so you can stop worrying so much.
 Fenn worry: Alright. 
 Az annoy: Now, [wait=0.3]let's go get him. 
+do! MusicManager._fade_in()
 do EventFlags.set_flag("12-AzWs-AsthmaAttack-Den", true)
 => END

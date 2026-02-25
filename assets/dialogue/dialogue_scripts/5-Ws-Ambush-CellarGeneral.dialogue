@@ -1,5 +1,6 @@
 
 ~ ambushed
+do! MusicManager._fade_out()
 do CutsceneManager.npc_face("Winston", "right")
 do CameraManager.create_camera(Vector2(19800,22000),1, 0.5, "CUBIC", "EASE_IN_OUT")
 Wizard: [font_size=80]Well well well. [/font_size]
@@ -40,6 +41,7 @@ do CutsceneManager.remove_npc("Winston")
 Fenn: Did... did he just leave?
 Wizard grit: Look. The budget tis thin.
 Wizard awkward: Just- [wait=0.3][font_size=40]could- [/font_size][wait=0.3]couldst thou walketh through that door?
+do! MusicManager._fade_in()
 do EventFlags.set_flag("5a-Ws-Ambush-CellarGeneral", true)
 # !!! Come back to this when the new challenge gets implemented
 => END
@@ -48,6 +50,7 @@ do EventFlags.set_flag("5a-Ws-Ambush-CellarGeneral", true)
 
 
 ~ escaped
+do! MusicManager._fade_out()
 do CameraManager.create_camera(Vector2(3072,500),1, 0.5, "CUBIC", "EASE_IN_OUT")
 do CutsceneManager.npc_face("Winston", "right")
 do CutsceneManager.wait(0.5)
@@ -78,5 +81,6 @@ do CutsceneManager.npc_move("Winston", 5632.0, 800, false, false)
 do CutsceneManager.fade_to_black()
 do CutsceneManager.remove_npc("Winston")
 do CutsceneManager.fade_from_black()
+do! MusicManager._fade_in()
 do EventFlags.set_flag("5b-Ws-PostAmbush-CellarGeneral", true)
 => END
