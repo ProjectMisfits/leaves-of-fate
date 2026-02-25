@@ -117,7 +117,8 @@ func play_sound(sound: String, volume: float = 0.0, pitch_scale : float = 1.0) -
 	var sound_file_path : String
 	match sound:
 		"Cough":
-			sound_file_path ="res://assets/entities/actors/npcs/npc_az/az-cough.tres"
+			return
+			#sound_file_path ="res://assets/entities/actors/npcs/npc_az/az-cough.tres"
 		"_":
 			sound_file_path = sound
 	
