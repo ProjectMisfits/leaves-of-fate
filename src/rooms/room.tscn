@@ -99,11 +99,17 @@ metadata/_edit_lock_ = true
 z_index = 5
 metadata/_edit_lock_ = true
 
+[node name="Decor" type="Node2D" parent="MidgroundLayer"]
+metadata/_edit_lock_ = true
+
 [node name="BackBufferCopy" type="BackBufferCopy" parent="MidgroundLayer"]
 copy_mode = 2
 metadata/_edit_lock_ = true
 
-[node name="Decor" type="Node2D" parent="MidgroundLayer"]
+[node name="Fades" type="Node2D" parent="MidgroundLayer/BackBufferCopy"]
+metadata/_edit_lock_ = true
+
+[node name="Ice" type="Node2D" parent="MidgroundLayer/BackBufferCopy"]
 metadata/_edit_lock_ = true
 
 [node name="ForegroundLayer" type="CanvasLayer" parent="."]
