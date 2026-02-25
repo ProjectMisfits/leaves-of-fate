@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b8kn5xfprwk4p"]
+[gd_scene load_steps=14 format=4 uid="uid://b8kn5xfprwk4p"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_la711"]
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="2_awr3m"]
@@ -72,6 +72,7 @@ position = Vector2(10988, 12.000015)
 scale = Vector2(10, 20)
 dialogue_sequence = ExtResource("3_suefa")
 dialogue_start = "prehall"
+required_false_event_flags = Array[String](["0-None-PreHall"])
 
 [node name="Pillar" type="Node2D" parent="MidgroundLayer/Decor" index="0"]
 
