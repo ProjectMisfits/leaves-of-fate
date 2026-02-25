@@ -64,6 +64,5 @@ func move(destination_global_x: float, move_speed: float, animate_walk: bool = t
 		animation_player.play(walk_animation)
 
 ## Set the NPC to look in the given direction.
-## look_direction: "left" or "right"
 func set_look(face_axis: float) -> void:
 	flip_node.scale.x = face_axis

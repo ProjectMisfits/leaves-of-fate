@@ -93,6 +93,25 @@ func npc_face(npc_name: String, direction: String) -> void:
 	else:
 		push_error("CutsceneManager: Invalid NPC look direction given.")
 
+## Move the player during a cutscene.
+func player_move(destination_global_x: float = 1.0, move_speed: float = 1.0, animate_walk: bool = true, moonwalk: bool = false) -> void:
+	# Get the player.
+	var player: Player = SceneManager.current_scene.current_room.player
+	player.move(destination_global_x, move_speed, animate_walk, moonwalk)
+	await npc_finished_moving
+
+## Turn the player during a cutscene.
+func player_face(direction: String) -> void:
+	# Get the player.
+	var player: Player = SceneManager.current_scene.current_room.player
+	# Script the player to look a direction.
+	if direction == "left":
+		player.set_look(-1.0)
+	elif direction == "right":
+		player.set_look(1.0)
+	else:
+		push_error("CutsceneManager: Invalid player look direction given.")
+
 ## End cutscene management.
 func _on_cutscene_ended() -> void:
 	# Clear all registered npcs.
