@@ -13,6 +13,7 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o4wos"]
 texture = ExtResource("1_k31o8")
 texture_region_size = Vector2i(384, 128)
+use_texture_padding = false
 3:0/0 = 0
 0:0/0 = 0
 1:0/0 = 0
@@ -20,44 +21,51 @@ texture_region_size = Vector2i(384, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_32pea"]
 texture = ExtResource("2_o4wos")
-texture_region_size = Vector2i(128, 128)
+texture_region_size = Vector2i(256, 256)
+use_texture_padding = false
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h8mq8"]
 texture = ExtResource("3_32pea")
-texture_region_size = Vector2i(128, 128)
+texture_region_size = Vector2i(256, 256)
+use_texture_padding = false
 0:0/0 = 0
 1:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f8x4m"]
 texture = ExtResource("4_h8mq8")
-texture_region_size = Vector2i(128, 128)
+texture_region_size = Vector2i(256, 256)
+use_texture_padding = false
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jfpap"]
 texture = ExtResource("5_f8x4m")
-texture_region_size = Vector2i(128, 128)
+texture_region_size = Vector2i(256, 256)
+use_texture_padding = false
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_juvcb"]
 texture = ExtResource("6_qm5rk")
-texture_region_size = Vector2i(128, 128)
+texture_region_size = Vector2i(256, 256)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cysdq"]
 texture = ExtResource("7_cudcm")
-texture_region_size = Vector2i(128, 128)
+texture_region_size = Vector2i(256, 256)
+use_texture_padding = false
 0:0/0 = 0
 1:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h78e6"]
 texture = ExtResource("8_juvcb")
-texture_region_size = Vector2i(128, 128)
+texture_region_size = Vector2i(256, 256)
+use_texture_padding = false
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bkkr7"]
 texture = ExtResource("9_cysdq")
-texture_region_size = Vector2i(128, 128)
+texture_region_size = Vector2i(256, 256)
+use_texture_padding = false
 0:0/0 = 0
 
 [resource]
