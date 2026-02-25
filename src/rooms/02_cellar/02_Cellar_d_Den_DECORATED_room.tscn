@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://bdbuuoljlim4f"]
+[gd_scene load_steps=39 format=4 uid="uid://bdbuuoljlim4f"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_h8co5"]
 [ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_6l8wa"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://n0xe74ww2rnc" path="res://src/entities/decor/furniture/window_03.tscn" id="7_04rh1"]
 [ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/doors/door.tscn" id="9_6e3gf"]
 [ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="10_yjioi"]
+[ext_resource type="Resource" uid="uid://c8tyiwgf560g" path="res://assets/dialogue/dialogue_scripts/12-AzWs-AsthmaAttack-Den.dialogue" id="12_h8co5"]
 [ext_resource type="PackedScene" uid="uid://ds25qjj7x3y7o" path="res://src/entities/objects/leaf_platform/leaf_platform.tscn" id="17_g0ys4"]
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="18_fdcq0"]
 [ext_resource type="Material" uid="uid://dbrwefsv6hrsv" path="res://src/vfx/shaders/RimLit.tres" id="18_jcvwt"]
@@ -185,6 +186,11 @@ position = Vector2(11885, -860.00006)
 scale = Vector2(10, 60)
 dialogue_sequence = ExtResource("19_6l8wa")
 required_false_event_flags = Array[String](["6-AzWs-Arrive-Den"])
+
+[node name="CutsceneTrigger-2" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("18_fdcq0")]
+position = Vector2(2715, -477.00006)
+scale = Vector2(10, 50)
+dialogue_sequence = ExtResource("12_h8co5")
 
 [node name="Decor" parent="MidgroundLayer" index="6"]
 modulate = Color(0.59, 0.59, 0.59, 1)

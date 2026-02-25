@@ -1,5 +1,7 @@
 ~ start
 do! MusicManager._fade_out()
+do CutsceneManager.create_npc("Az", Vector2(11000.0,1024.0))
+do CameraManager.create_camera(Vector2(12500.0,100), 0.75, 1.5, "CUBIC", "EASE_IN_OUT")
 Winston hood: [speed=0.7][wave freq=7 amp=30]Come on, [i]Az[/i].[/wave] It can not be [i]that[/i] hard to melteth a little ice.
 Az annoy: [i]Shut up.[/i]
 Winston hood: [speed=0.7]Aw, what's wrong? [wave freq=7 amp=30]Art thee afraid?[/wave] 
@@ -14,12 +16,20 @@ Winston hood: [speed=0.7][font_size=30][shake freq=7 amp=30]Loving Husband and F
 Winston hood grit: [speed=0.5][font_size=40][wave freq=7 amp=30]I wonder what that must be like.[/wave][/font_size]
 SMASH
 Az annoy: [shake level=7 rate=30]That's it. I don't care anymore.[/shake]
-Az approaches the door, takes a deep breath
-Fenn walks in as she's doing this
+do CutsceneManager.npc_move("Az", 12500, 500, true, false)
+#do! CutsceneManager.npc_move("Fenn", 11000, 500, true, false)
+Az takes a deep breath
 do EventBus.interrupt_dialogue.emit("0.3")
 Fenn worry: [i][color="B80006"]Az[/color]?[/i] What are you-
-Az breathes fire over the ice, and completely melts it
-She coughs and then collapses
+do CutsceneManager.fade_to_black()
+Fire breathing sound
+#do CutsceneManager.play_sound("FireBreath")
+#do CutsceneManager.something
+do CutsceneManager.play_sound("Cough")
+do CutsceneManager.fade_from_black()
+do CutsceneManager.play_sound("Cough")
+She collapses
+#do CutsceneManager.play_sound("AzCollapse")
 do EventBus.interrupt_dialogue.emit("0.3")
 Winston hood awkward: [font_size=40]Wait... wh-[/font_size]
 Fenn worry: [font_size=80][i][color="B80006"]AZ[/color]![/i] [shake level=10 rate=50]What did you do?[/shake][/font_size]
@@ -37,23 +47,41 @@ Fenn worry: [font_size=100][shake level=10 rate=50]NO![/shake][/font_size]
 Fenn: [speed=1.2][font_size=60]You're not okay, so I'm [i]not[/i] leaving, so just [shake level=7 rate=30][i]shut up[/i] about it![/shake][/font_size]
 Az: [speed=0.5][font_size=30][do! CutsceneManager.play_sound("Cough")][i]cough[/i][/font_size]
 Az: [speed=0.5][font_size=30]O- [wait=0.3]okay. [do! CutsceneManager.play_sound("Cough")][i]cough[/i].[/font_size]
-silence
+do CutsceneManager.wait(3)
 Fenn worry: [font_size=40]Wh- [wait=0.3]what can I do?[/font_size]
 Az: [speed=0.5][font_size=30]I- [wait=0.3]I [do! CutsceneManager.play_sound("Cough")][i]cough[/i]. don't know. [do! CutsceneManager.play_sound("Cough")][i]cough[/i].[/font_size]
 Fenn worry: [speed=0.7]Will you be okay?
 Az: [font_size=30][speed=0.5][do! CutsceneManager.play_sound("Cough")][i]cough[/i]. Heh. [do! CutsceneManager.play_sound("Cough")][i]cough[/i]. No promises.[/font_size]
-silence
+do CutsceneManager.wait(3)
 do CutsceneManager.play_sound("Cough")
-inhaler slides through door
+do CutsceneManager.fade_to_black()
+Object sliding through door sound effect
+#do CutsceneManager.play_sound("InhalerSlide")
+do CutsceneManager.fade_from_black()
 do EventBus.interrupt_dialogue.emit("0.5")
 Fenn: Wait, that's-
 Az: [speed=0.5][do! CutsceneManager.play_sound("Cough")][i]cough[/i] in- [wait=0.3]inhaler.
-Fenn grabs the inhaler and brings it to Az
-With Fenn's help, Az takes a breath
-Silence for a few moments, another breath
+Fenn walks to door
+#do! CutsceneManager.npc_move("Fenn", 13000, 500, true, false)
+Object deleted w/ pickup sound
+#do CutsceneManager.play_sound("InhalerPickup")
+#do CutsceneManager.something -- delete inhaler
+Fenn walks to Az
+#do! CutsceneManager.npc_move("Fenn", 12000, 500, true, false)
+do CutsceneManager.wait(2)
+#do CutsceneManager.play_sound("AzBreathe")
+Breathing Sound
+do CutsceneManager.wait(2)
+#do CutsceneManager.play_sound("AzBreathe")
+Another breath
 Fenn worry: Are- [wait=0.3]are you okay?
 Az: [speed=0.75][font_size=40][i]inhale.[/i] [do! CutsceneManager.play_sound("Cough")][i]cough[/i]. In a bit, yeah.[/font_size]
-silence, fade to black, deep inhale sound effect, fade out from black
+do CutsceneManager.fade_to_black()
+do CutsceneManager.wait(1)
+#do CutsceneManager.play_sound("AzBreathe")
+Deep, steady inhale sound
+do CutsceneManager.wait(1)
+do CutsceneManager.fade_from_black()
 Fenn worry: Are you [i]sure[/i] you're okay, now?
 Az laugh: I'm good, Fenn! I've got my inhaler,[wait=0.3] so you can stop worrying so much.
 Fenn worry: Alright. 

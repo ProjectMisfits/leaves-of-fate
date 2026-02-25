@@ -55,6 +55,7 @@ func create_npc(npc_name: String, position: Vector2) -> void:
 	# Add the NPC to the list of NPCs in the cutscene and set its position
 	npcs.append(npc_instance)
 	npc_instance.global_position = position
+	SceneManager.current_scene.current_room.get_node("MidgroundLayer/Entities/NPCs").add_child(npc_instance)
 
 ## Remove the specified npc from the cutscene.
 func remove_npc(npc_name: String) -> void:
