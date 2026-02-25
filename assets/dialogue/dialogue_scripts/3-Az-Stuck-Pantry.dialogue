@@ -11,6 +11,7 @@ do CutsceneManager.npc_face("Az","right")
 Az: [i]cough[/i] That ice is blocking everything.
 Fenn starry: Ooooh![wait=0.3] You can breath fire, right?! [wait=0.3] Like your [color="B80006"]Dad[/color]?
 do CameraManager.create_camera(Vector2(12000,100), 1.33, 3.0, "CUBIC", "EASE_IN_OUT")
+do CutsceneManager.wait(1)
 Az: Yeah I don't think so.
 Fenn starry: [wave freq=7 amp=30][color="B80006"]Sir Abdul[/color] could melt that, easy! [/wave]
 do CameraManager.create_camera(Vector2(5000,600), 0.75, 2.0, "CUBIC", "EASE_IN_OUT")

@@ -16,7 +16,7 @@ Fenn worry: What? Wait, does that mean your Dad-
 Az annoy: [font_size=60][i]Yes[/i][/font_size], I know. My [color="B80006"]Baba[/color] is trapped too.
 Az: [i]cough[/i] The [color="8A0194"]Wizards[/color] scattered all over the castle. I saw one of them go down into the [color="0B4F4A"]Cellar[/color].
 Fenn starry: [font_size=60]We have to help them!![wait=0.2] [shake level=10 rate=50 connected=0]ADVENTURE AWAITS!![/shake][/font_size]
-Az: No way. I need to  grab something from my [color="0B4F4A"]Workshop[/color]. Stay here til I get back.
+Az: No way. I need to grab something from my [color="0B4F4A"]Workshop[/color]. Stay here til I get back.
 Fenn: Hmm... No promises!
 Az annoy: Seriously? [wait=0.3][shake level=7 rate=20 connected=0]Ugh[/shake]. Whatever.
 do CutsceneManager.npc_move("Az", 36352.0, 400, true, false)

@@ -275,13 +275,26 @@ func apply_dialogue_line() -> void:
 			character_label.text = "???"
 
 		"test":
-			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/az_dialogue_no_profile.stylebox"))
-			character_label.add_theme_color_override("default_color", "#A86A19")
+			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/plain_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#352620")
 			character_portrait.texture = null
 			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Default-DialogueBeep-RandomContainer.tres")
+		"??? door":
+			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/wizard_of_doors_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#352620")
+			character_portrait.texture = null
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Default-DialogueBeep-RandomContainer.tres")
+			character_label.text = "???"
+		
+		"???":
+			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/plain_dialogue_no_profile.stylebox"))
+			character_label.add_theme_color_override("default_color", "#352620")
+			character_portrait.texture = null
+			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Default-DialogueBeep-RandomContainer.tres")
+			
 		_:
 			dialogue_panel.add_theme_stylebox_override("panel",ResourceLoader.load("res://src/ui/dialogue_boxes/plain_dialogue_no_profile.stylebox"))
-			character_label.add_theme_color_override("default_color", "#576f35")
+			character_label.add_theme_color_override("default_color", "#352620")
 			character_portrait.texture = null
 			beep_speech_player.stream = load("res://assets/dialogue/beep_speech/Default-DialogueBeep-RandomContainer.tres")
 	

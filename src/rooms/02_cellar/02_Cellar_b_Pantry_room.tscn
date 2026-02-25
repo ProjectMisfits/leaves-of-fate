@@ -184,7 +184,7 @@ position = Vector2(12864, -448)
 shape = SubResource("RectangleShape2D_a8h18")
 
 [node name="NpcAz" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("13_6woac")]
-position = Vector2(5977, 680)
+position = Vector2(5380, 685)
 
 [node name="DialogueTrigger" parent="MidgroundLayer/Entities/NPCs/NpcAz" index="3" instance=ExtResource("14_gpuhd")]
 dialogue_sequence = ExtResource("15_1ppdk")
@@ -201,7 +201,7 @@ scale = Vector2(8, 1)
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("15_q7bjq")]
 position = Vector2(4550, -594)
-scale = Vector2(20, 60)
+scale = Vector2(10, 60)
 dialogue_sequence = ExtResource("16_q7bjq")
 required_false_event_flags = Array[String](["3-Az-Stuck-Pantry"])
 

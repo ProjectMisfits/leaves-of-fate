@@ -2,6 +2,8 @@
 
 [resource]
 data = {
+"0-None-Beginning": false,
+"0-None-PreHall": false,
 "1-Az-Meet-GreatHall": false,
 "10-AzWs-TurnOnHeater-Main-HeaterArea": false,
 "11-Az-FiresideChat-2-HeaterArea": false,
