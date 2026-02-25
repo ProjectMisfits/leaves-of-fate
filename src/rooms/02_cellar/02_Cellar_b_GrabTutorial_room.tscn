@@ -95,6 +95,7 @@ position = Vector2(768, 1024)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(36864, -5632)
+target_room_path = "uid://c8aipu8vkbprc"
 
 [node name="MovingPlatform" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("2_f0jtv")]
 position = Vector2(8704, -256)

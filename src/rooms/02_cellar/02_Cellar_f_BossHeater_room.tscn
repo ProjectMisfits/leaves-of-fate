@@ -47,7 +47,6 @@ target_door_name = ""
 
 [node name="DoorGrate" parent="MidgroundLayer/DoorHolder" index="2" instance=ExtResource("2_guwbj")]
 position = Vector2(3072, 45580)
-target_room_path = "uid://bohwfv2ojdvd6"
 door_name = "exit"
 target_door_name = "vent"
 

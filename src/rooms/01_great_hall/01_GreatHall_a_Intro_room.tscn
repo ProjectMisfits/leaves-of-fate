@@ -23,6 +23,7 @@ position = Vector2(2048, 1024)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(12288, 1036)
+target_room_path = "uid://bl0pji1ab2qhu"
 
 [node name="Pillar" type="Node2D" parent="MidgroundLayer/Decor" index="0"]
 position = Vector2(768, 0)

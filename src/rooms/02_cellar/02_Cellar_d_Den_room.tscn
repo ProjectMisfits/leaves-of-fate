@@ -113,14 +113,18 @@ target_room_path = "uid://bnp74qqvf06bm"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(6399.9995, -4607.9995)
-door_name = "heater01"
+door_name = ""
+target_door_name = ""
 
 [node name="DoorExit-2" parent="MidgroundLayer/DoorHolder" index="2" instance=ExtResource("7_indo2")]
-position = Vector2(1280.0005, -3584)
+position = Vector2(-1405, -3653)
 
 [node name="DoorExit-3" parent="MidgroundLayer/DoorHolder" index="3" instance=ExtResource("7_indo2")]
 modulate = Color(0.85463405, 0.8546339, 0.8546339, 1)
 position = Vector2(11520, -3584)
+target_room_path = "uid://dv66q42nkm8hd"
+door_name = "exit"
+target_door_name = "enter"
 
 [node name="PlayerKiller" type="StaticBody2D" parent="MidgroundLayer/Entities/Hazards" index="0"]
 position = Vector2(-128, 0)
@@ -146,7 +150,6 @@ scale = Vector2(4, 4)
 position = Vector2(11353, -854)
 scale = Vector2(20, 60)
 dialogue_sequence = ExtResource("10_badnc")
-enabled = false
 
 [node name="IceSpikeBall" parent="MidgroundLayer/BackBufferCopy" index="0" instance=ExtResource("11_dm4da")]
 position = Vector2(64, -3648)

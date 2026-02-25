@@ -143,7 +143,7 @@ scale = Vector2(2, 2)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(36352, 3592)
-target_room_path = "uid://bl0pji1ab2qhu"
+target_room_path = "uid://ebpnfipahfjq"
 
 [node name="IceSpikeBall" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("5_ouria")]
 position = Vector2(35575, -225)

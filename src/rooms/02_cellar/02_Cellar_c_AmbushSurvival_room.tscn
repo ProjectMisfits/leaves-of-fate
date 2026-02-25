@@ -65,6 +65,7 @@ position = Vector2(512, 1024)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(5632, 1024)
+target_room_path = "uid://7yrsxlkres1e"
 
 [node name="NpcWinston" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("5_o2ign")]
 position = Vector2(4174, 581)
