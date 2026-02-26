@@ -44,9 +44,6 @@ target_room_path = "uid://nhuquqglirtf"
 position = Vector2(22016, 1024)
 target_room_path = "uid://dfkg7g02hyrqj"
 
-[node name="Triggers" parent="MidgroundLayer/Entities" index="4"]
-visible = false
-
 [node name="CameraTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("2_qnngj")]
 position = Vector2(192, 1024)
 follow_player = true
