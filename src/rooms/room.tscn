@@ -126,7 +126,7 @@ metadata/_edit_lock_ = true
 visible = false
 light_mask = 0
 rotation = 1.5707964
-scale = Vector2(5, 5)
+scale = Vector2(8, 5)
 mesh = SubResource("QuadMesh_msfkg")
 texture = SubResource("GradientTexture2D_tglb0")
 
