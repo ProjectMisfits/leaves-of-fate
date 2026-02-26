@@ -16,6 +16,21 @@ height = 56
 fill_from = Vector2(1, 1)
 fill_to = Vector2(0, 0)
 
+[sub_resource type="Animation" id="Animation_ariom"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hud Container/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_076te"]
 resource_name = "bangle_animation"
 length = 0.45833752
@@ -31,21 +46,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 3, 4, 5, 6, 7]
-}
-
-[sub_resource type="Animation" id="Animation_ariom"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Hud Container/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cio14"]
@@ -103,8 +103,8 @@ texture_progress = ExtResource("2_udh2q")
 tint_under = Color(0.5882353, 0.4862745, 0.49019608, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Hud Container"]
-position = Vector2(812, 94)
-scale = Vector2(-1, 1)
+position = Vector2(228.00006, 169)
+scale = Vector2(-0.4, 0.4)
 texture = ExtResource("4_076te")
 hframes = 8
 

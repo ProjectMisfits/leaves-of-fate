@@ -14,6 +14,7 @@ class_name Hud
 func _ready() -> void:
 	EventBus.player_knocked_out.connect(_on_player_knocked_out)
 	EventBus.grabbed.connect(play_grabbed)
+	EventBus.ungrabbed.connect(play_ungrabbed)
 func _physics_process(_delta: float) -> void:
 	# If Player cannot Leaf Dash, modify the Leaf Meter tint.
 	if (player.no_dash):
