@@ -72,7 +72,7 @@ size = Vector2(9584, 5360)
 [node name="Room" instance=ExtResource("1_5424t")]
 
 [node name="BackgroundGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
-position = Vector2(0, -20749.473)
+position = Vector2(-4463.158, -13490.527)
 scale = Vector2(44614.73, 171.10526)
 
 [node name="Midground" parent="MidgroundLayer" index="0"]
@@ -183,7 +183,7 @@ position = Vector2(-464, 64)
 shape = SubResource("RectangleShape2D_hwvw2")
 
 [node name="PhantomCamera2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger-2" index="1"]
-position = Vector2(27968, 3868)
+position = Vector2(27952, 3828)
 zoom = Vector2(0.2, 0.2)
 tween_resource = SubResource("Resource_kj4mg")
 limit_target = NodePath("../Limit")
