@@ -45,85 +45,52 @@ zoom = Vector2(0.25, 0.25)
 follow_offset = Vector2(1000, -750)
 limit_target = NodePath("../../../../Midground")
 
-[node name="TutorialLabel" type="Label" parent="MidgroundLayer/Decor" index="0"]
-offset_left = 5369.0
-offset_right = 7053.0
-offset_bottom = 405.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 150
-text = "Hold LT + Any Direction:
-Leaf Dash"
-horizontal_alignment = 1
-
-[node name="TutorialLabel-2" type="Label" parent="MidgroundLayer/Decor" index="1"]
-offset_left = 14010.0
-offset_top = -2891.0
-offset_right = 15694.0
-offset_bottom = -2486.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 150
-text = "Leaf Dash uses Wind
-Wind recharges when touching the ground"
-horizontal_alignment = 1
-
-[node name="UpArrowLabel" type="Label" parent="MidgroundLayer/Decor" index="2"]
-offset_left = 16495.0
-offset_top = -2964.0
-offset_right = 16562.0
-offset_bottom = -2505.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 150
-text = "^
-|
-|"
-horizontal_alignment = 1
-
-[node name="ArchRoundSmooth" parent="." index="3" instance=ExtResource("3_64uw1")]
+[node name="ArchRoundSmooth" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("3_64uw1")]
 position = Vector2(1536, -1536)
 scale = Vector2(1.75, 1.75)
 
-[node name="ArchRoundSmooth-2" parent="." index="4" instance=ExtResource("3_64uw1")]
+[node name="ArchRoundSmooth-2" parent="MidgroundLayer/Decor" index="1" instance=ExtResource("3_64uw1")]
 position = Vector2(26112.002, -9216)
 scale = Vector2(1.75, 1.75)
 
-[node name="PillarTrunk01" parent="." index="5" instance=ExtResource("4_4c00w")]
+[node name="PillarTrunk01" parent="MidgroundLayer/Decor" index="2" instance=ExtResource("4_4c00w")]
 position = Vector2(24832, -7936)
 scale = Vector2(1, 1.5)
 
-[node name="PillarTrunk01-2" parent="." index="6" instance=ExtResource("4_4c00w")]
+[node name="PillarTrunk01-2" parent="MidgroundLayer/Decor" index="3" instance=ExtResource("4_4c00w")]
 position = Vector2(27392, -7936)
 scale = Vector2(1, 1.5)
 
-[node name="PillarTrunk01-3" parent="." index="7" instance=ExtResource("4_4c00w")]
+[node name="PillarTrunk01-3" parent="MidgroundLayer/Decor" index="4" instance=ExtResource("4_4c00w")]
 position = Vector2(2816, -256)
 scale = Vector2(1, 1.5)
 
-[node name="PillarTrunk01-4" parent="." index="8" instance=ExtResource("4_4c00w")]
+[node name="PillarTrunk01-4" parent="MidgroundLayer/Decor" index="5" instance=ExtResource("4_4c00w")]
 position = Vector2(256, -256)
 scale = Vector2(1, 1.5)
 
-[node name="PillarBase02" parent="." index="9" instance=ExtResource("4_06tqx")]
+[node name="PillarBase02" parent="MidgroundLayer/Decor" index="6" instance=ExtResource("4_06tqx")]
 position = Vector2(256, 1024)
 
-[node name="PillarBase02-2" parent="." index="10" instance=ExtResource("4_06tqx")]
+[node name="PillarBase02-2" parent="MidgroundLayer/Decor" index="7" instance=ExtResource("4_06tqx")]
 position = Vector2(2816, 1024)
 
-[node name="PillarBase02-3" parent="." index="11" instance=ExtResource("4_06tqx")]
+[node name="PillarBase02-3" parent="MidgroundLayer/Decor" index="8" instance=ExtResource("4_06tqx")]
 position = Vector2(27392, -6656)
 
-[node name="PillarBase02-4" parent="." index="12" instance=ExtResource("4_06tqx")]
+[node name="PillarBase02-4" parent="MidgroundLayer/Decor" index="9" instance=ExtResource("4_06tqx")]
 position = Vector2(24832, -6656)
 
-[node name="PillarCap03" parent="." index="13" instance=ExtResource("6_53vlc")]
+[node name="PillarCap03" parent="MidgroundLayer/Decor" index="10" instance=ExtResource("6_53vlc")]
 position = Vector2(256, -1536)
 
-[node name="PillarCap03-2" parent="." index="14" instance=ExtResource("6_53vlc")]
+[node name="PillarCap03-2" parent="MidgroundLayer/Decor" index="11" instance=ExtResource("6_53vlc")]
 position = Vector2(2816, -1536)
 
-[node name="PillarCap03-3" parent="." index="15" instance=ExtResource("6_53vlc")]
+[node name="PillarCap03-3" parent="MidgroundLayer/Decor" index="12" instance=ExtResource("6_53vlc")]
 position = Vector2(24832, -9216)
 
-[node name="PillarCap03-4" parent="." index="16" instance=ExtResource("6_53vlc")]
+[node name="PillarCap03-4" parent="MidgroundLayer/Decor" index="13" instance=ExtResource("6_53vlc")]
 position = Vector2(27392, -9216)
 
 [editable path="MidgroundLayer/Entities/Triggers/CameraTrigger"]
