@@ -100,6 +100,7 @@ scale = Vector2(4.53, 4.53)
 
 [node name="BronzePipe" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("3_3kfhg")]
 position = Vector2(9424, 528)
+player_input_delay = 0.75
 
 [node name="Path2D" parent="MidgroundLayer/Entities/Objects/BronzePipe" index="1"]
 curve = SubResource("Curve2D_havg2")
@@ -194,7 +195,7 @@ position = Vector2(-464, 64)
 shape = SubResource("RectangleShape2D_hwvw2")
 
 [node name="PhantomCamera2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger-2" index="1"]
-position = Vector2(27968, 3868)
+position = Vector2(27952, 3828)
 zoom = Vector2(0.2, 0.2)
 tween_resource = SubResource("Resource_kj4mg")
 limit_target = NodePath("../Limit")
