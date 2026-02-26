@@ -55,6 +55,7 @@ func create_npc(npc_name: String, position: Vector2) -> void:
 	# Add the NPC to the list of NPCs in the cutscene and set its position
 	npcs.append(npc_instance)
 	npc_instance.global_position = position
+	SceneManager.current_scene.current_room.get_node("MidgroundLayer/Entities/NPCs").add_child(npc_instance)
 
 ## Remove the specified npc from the cutscene.
 func remove_npc(npc_name: String) -> void:
@@ -131,10 +132,21 @@ func change_music(music_file_path: String) -> void:
 	MusicManager._play_song(load(music_file_path))
 
 ## Play the given sound effect during a cutscene.
-func play_sound(sound_file_path: String) -> void:
+func play_sound(sound: String, volume: float = 0.0, pitch_scale : float = 1.0) -> void:
+	
+	var sound_file_path : String
+	match sound:
+		"Cough":
+			return
+			#sound_file_path ="res://assets/entities/actors/npcs/npc_az/az-cough.tres"
+		"_":
+			sound_file_path = sound
+	
 	# Create a temporary AudioStreamPlayer to play the sound effect
 	var sound_player: AudioStreamPlayer = AudioStreamPlayer.new()
 	sound_player.name = "CutsceneSoundEffectPlayer"
+	sound_player.volume_db = volume
+	sound_player.pitch_scale = pitch_scale
 	sound_player.stream = load(sound_file_path)
 	# Add the player to the scene and play its sound
 	add_child(sound_player)

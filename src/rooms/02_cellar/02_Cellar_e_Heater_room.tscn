@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://5jpe62x2iq5m"]
+[gd_scene load_steps=16 format=4 uid="uid://5jpe62x2iq5m"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_qkmm6"]
 [ext_resource type="PackedScene" uid="uid://mn6k4g5kkt5q" path="res://src/entities/objects/heater/heater.tscn" id="2_57jf6"]
@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://wxvub3svduoi" path="res://src/entities/decor/pillars/arch_round_cracked.tscn" id="3_en7vy"]
 [ext_resource type="PackedScene" uid="uid://bbpm02j1io7y6" path="res://src/entities/objects/bronze_pipe/bronze_pipe.tscn" id="4_f2owy"]
 [ext_resource type="PackedScene" uid="uid://lyc1bsnodr4q" path="res://src/entities/decor/pillars/pillar_trunk_04.tscn" id="5_3ersv"]
+[ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="5_kof3r"]
 [ext_resource type="PackedScene" uid="uid://bdovxpf4gaxv6" path="res://src/entities/decor/pillars/pillar_cap_02.tscn" id="5_uv0yq"]
 [ext_resource type="PackedScene" uid="uid://7c7nfo2gy8fu" path="res://src/entities/decor/pillars/pillar_cap_03.tscn" id="6_1ul8l"]
+[ext_resource type="Resource" uid="uid://ctgdxodsiakm6" path="res://assets/dialogue/dialogue_scripts/10-AzWs-TurnOn-HeaterArea.dialogue" id="6_05yw1"]
 [ext_resource type="PackedScene" uid="uid://bwadcghg6jxxu" path="res://src/entities/decor/pillars/pillar_base_03.tscn" id="7_uv0yq"]
 [ext_resource type="PackedScene" uid="uid://0jijms4al2i5" path="res://src/entities/decor/pillars/pillar_cap_01.tscn" id="8_d1egp"]
 
@@ -64,6 +66,12 @@ position = Vector2(20160, -1280)
 
 [node name="Path2D" parent="MidgroundLayer/Entities/Objects/BronzePipe-2" index="1"]
 curve = SubResource("Curve2D_kof3r")
+
+[node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("5_kof3r")]
+position = Vector2(6507, -4589)
+scale = Vector2(10, 60)
+dialogue_sequence = ExtResource("6_05yw1")
+required_false_event_flags = Array[String](["10-AzWs-TurnOnHeater-Main-HeaterArea"])
 
 [node name="ArchRoundCracked" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("3_en7vy")]
 position = Vector2(4928, -5120)

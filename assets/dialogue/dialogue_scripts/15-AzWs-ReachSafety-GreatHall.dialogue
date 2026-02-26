@@ -1,5 +1,6 @@
 ~ start
 do! MusicManager._fade_out()
+do CameraManager.create_camera(Vector2(3072.0, 100.0), 1.0, 2, "CUBIC", "EASE_IN_OUT")
 Az laugh: [font_size=70]Fenn!! [wave freq=7 amp=30]You did it![/wave][/font_size]
 Fenn: Are you guys okay?
 Az: We're good. Few scratches, nothing bad.
@@ -40,8 +41,28 @@ Winston awkward: [font_size=40]Hah... I do not knoweth. I suppose.[/font_size]
 Winston awkward: Art we-[wait=0.3] [font_size=40]art we good?[/font_size]
 Az: Yeah. Help me free my [color="B80006"]Baba[/color],[wait=0.3] and we're good.
 Winston awkward: Ah, [wait=0.3]of course.
-Fade to black, fade back in with characters in front of the door seal
-Winston raises his hand, magical particles appear, and then the glowing ice symbol stops glowing on the door.
+Az: Fenn, meet us back in the [color="0B4F4A"]Great Hall[/color], 'kay?
+do CutsceneManager.fade_to_black()
+do CutsceneManager.remove_npc("Az")
+do CutsceneManager.remove_npc("Winston")
+do CutsceneManager.fade_from_black()
+do! MusicManager._fade_in()
+do EventFlags.set_flag("15-AzWs-ReachSafety-GreatHall", true)
+=> END
+
+
+~ breakseal
+do! MusicManager._fade_out()
+do CameraManager.create_camera(Vector2(10112.0, -2000), 1.0, 2, "CUBIC", "EASE_IN_OUT")
+do CutsceneManager.create_npc("Az", Vector2(9300.0,-1152.0))
+do CutsceneManager.create_npc("Winston", Vector2(9800.0,-1152.0))
+do CutsceneManager.npc_face("Az","right")
+do CutsceneManager.npc_face("Winston","right")
+Fenn: [wave freq=7 amp=30]I'm here![/wave]
+Az: Alright, get to it, nerd.
+do CutsceneManager.fade_to_black()
+#do CutsceneManager.play_sound("Icy magic")
+do CutsceneManager.fade_to_black()
 Winston: All done!
 Winston awkward: Though... tis not much help without the other [color="8A0194"]Wizards[/color].
 Fenn: Where could I find them?
@@ -50,5 +71,5 @@ Fenn starry: Well, [wait=0.3]to the [color="0B4F4A"]Kitchen[/color]!
 Fenn: End of Demo! 
 Fenn starry: Thanks for playing Leaves of Fate!
 do! MusicManager._fade_in()
-do EventFlags.set_flag("15-AzWs-ReachSafety-GreatHall", true)
+do EventFlags.set_flag("winston_seal_broken", true)
 => END

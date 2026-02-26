@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=4 uid="uid://bl0pji1ab2qhu"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_7mi4j"]
+[ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="3_7mi4j"]
 [ext_resource type="PackedScene" uid="uid://cnkr1x18dvnec" path="res://src/entities/triggers/player_enter_trigger/camera_trigger/camera_trigger.tscn" id="3_m0wk7"]
-[ext_resource type="PackedScene" uid="uid://do5hbmjewvamt" path="res://src/entities/triggers/player_enter_trigger/music_trigger/music_trigger.tscn" id="4_m0wk7"]
-[ext_resource type="AudioStream" uid="uid://g8rhgyvprd1c" path="res://assets/audio/music/Cellar-120bpm-4_4-P64b-loop.ogg" id="5_m0wk7"]
+[ext_resource type="Resource" uid="uid://2bcgnyg4mgyq" path="res://assets/dialogue/dialogue_scripts/0-None-Intro.dialogue" id="4_60041"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mksag"]
 resource_local_to_scene = true
@@ -36,8 +36,12 @@ zoom = Vector2(0.25, 0.25)
 follow_offset = Vector2(1000, -750)
 limit_target = NodePath("../../../../Midground")
 
-[node name="MusicTrigger" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("4_m0wk7")]
-music_track = ExtResource("5_m0wk7")
+[node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("3_7mi4j")]
+position = Vector2(3928, -167.00002)
+scale = Vector2(10, 30)
+dialogue_sequence = ExtResource("4_60041")
+dialogue_start = "beginning"
+required_false_event_flags = Array[String](["0-None-Beginning"])
 
 [node name="UpArrowLabel" type="Label" parent="MidgroundLayer/Decor" index="0"]
 offset_left = 2176.0
