@@ -42,12 +42,12 @@
 [sub_resource type="QuadMesh" id="QuadMesh_5us1k"]
 size = Vector2(128, 128)
 
-[sub_resource type="Gradient" id="Gradient_0clmk"]
+[sub_resource type="Gradient" id="Gradient_31kjp"]
 offsets = PackedFloat32Array(0, 0.33333334, 0.42083332, 0.5083333, 0.59791666, 0.73333335, 0.87291664, 0.96458334, 1)
 colors = PackedColorArray(0.14509805, 0.15686275, 0.1882353, 1, 0.14535548, 0.15714104, 0.18856926, 1.0017742, 0.14536308, 0.15714759, 0.18858078, 0.9937076, 0.14539097, 0.15717158, 0.18862303, 0.96413016, 0.14547656, 0.15724519, 0.1887527, 0.8733416, 0.14567189, 0.15741317, 0.18904857, 0.6661768, 0.14591178, 0.15761948, 0.18941197, 0.4117342, 0.14616655, 0.15783857, 0.18979786, 0.14153367, 0.14629999, 0.15795332, 0.19, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hnl24"]
-gradient = SubResource("Gradient_0clmk")
+gradient = SubResource("Gradient_31kjp")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0uwv"]
 size = Vector2(1000, 4000)
@@ -409,7 +409,7 @@ texture = ExtResource("32_ml8ic")
 [node name="Chairs" parent="MidgroundLayer/Decor" index="62" instance=ExtResource("33_7gggd")]
 position = Vector2(6208, 128)
 
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="0"]
+[node name="MeshInstance2D2-2" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="0"]
 light_mask = 0
 position = Vector2(11008.001, -3266.8223)
 rotation = 1.5707964

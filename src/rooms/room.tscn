@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bhndpauy1j7sw"]
+[gd_scene load_steps=14 format=4 uid="uid://bhndpauy1j7sw"]
 
 [ext_resource type="Script" uid="uid://clfv0vvbc4hdy" path="res://src/rooms/room.gd" id="1_t665v"]
 [ext_resource type="TileSet" uid="uid://i6wi7xcus3i" path="res://assets/rooms/tileset/TS_Cellar.tres" id="2_7i7i2"]
@@ -10,6 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://hljjnysbuwyd" path="res://assets/vfx/shaders/dust_layer.tscn" id="4_n6lpe"]
 [ext_resource type="TileSet" uid="uid://o5pvsk1vob3h" path="res://assets/rooms/tileset/TS_Cellar_Tiles.tres" id="6_n6lpe"]
 [ext_resource type="Material" uid="uid://dbrwefsv6hrsv" path="res://src/vfx/shaders/RimLit.tres" id="10_msfkg"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_msfkg"]
+size = Vector2(128, 128)
+
+[sub_resource type="Gradient" id="Gradient_lcmor"]
+offsets = PackedFloat32Array(0, 0.33333334, 0.42083332, 0.5083333, 0.59791666, 0.73333335, 0.87291664, 0.96458334, 1)
+colors = PackedColorArray(0.14509805, 0.15686275, 0.1882353, 1, 0.14535548, 0.15714104, 0.18856926, 1.0017742, 0.14536308, 0.15714759, 0.18858078, 0.9937076, 0.14539097, 0.15717158, 0.18862303, 0.96413016, 0.14547656, 0.15724519, 0.1887527, 0.8733416, 0.14567189, 0.15741317, 0.18904857, 0.6661768, 0.14591178, 0.15761948, 0.18941197, 0.4117342, 0.14616655, 0.15783857, 0.18979786, 0.14153367, 0.14629999, 0.15795332, 0.19, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tglb0"]
+gradient = SubResource("Gradient_lcmor")
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_t665v")
@@ -38,6 +48,11 @@ metadata/_edit_lock_ = true
 [node name="MidgroundLayer" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
+[node name="Windzones" type="TileMapLayer" parent="MidgroundLayer"]
+modulate = Color(1, 1, 1, 0.40784314)
+tile_set = ExtResource("4_n3e44")
+metadata/_edit_lock_ = true
+
 [node name="Midground" type="TileMapLayer" parent="MidgroundLayer" groups=["midground"]]
 unique_name_in_owner = true
 modulate = Color(0.7058824, 0.7058824, 0.7058824, 1)
@@ -51,11 +66,6 @@ metadata/_edit_lock_ = true
 
 [node name="DecorTiles" type="TileMapLayer" parent="MidgroundLayer"]
 tile_set = ExtResource("6_n6lpe")
-metadata/_edit_lock_ = true
-
-[node name="Windzones" type="TileMapLayer" parent="MidgroundLayer"]
-modulate = Color(1, 1, 1, 0.40784314)
-tile_set = ExtResource("4_n3e44")
 metadata/_edit_lock_ = true
 
 [node name="DoorHolder" type="Node2D" parent="MidgroundLayer"]
@@ -111,6 +121,14 @@ metadata/_edit_lock_ = true
 
 [node name="Fades" type="Node2D" parent="MidgroundLayer/BackBufferCopy"]
 metadata/_edit_lock_ = true
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades"]
+visible = false
+light_mask = 0
+rotation = 1.5707964
+scale = Vector2(5, 5)
+mesh = SubResource("QuadMesh_msfkg")
+texture = SubResource("GradientTexture2D_tglb0")
 
 [node name="Ice" type="Node2D" parent="MidgroundLayer/BackBufferCopy"]
 metadata/_edit_lock_ = true
