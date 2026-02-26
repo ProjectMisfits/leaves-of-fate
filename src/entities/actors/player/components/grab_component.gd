@@ -25,24 +25,23 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	# When the grab input is pressed:
 	if event.is_action_pressed("grab"):
-		# If nothing is grabbed and something can be grabbed, grab it.
-		if current_grab == null and highlighted_grabbable != null:
-			can_grab = false
+		# If something is grabbed, release it.
+		if current_grab:
+			current_grab.trigger()
+			current_grab = null
+	
+		# If something can be grabbed, grab it.
+		if highlighted_grabbable and can_grab:
 			current_grab = highlighted_grabbable
 			current_grab.grab_highlight.hide()
 			current_grab.trigger()
-		# If something is grabbed, release it.
-		elif current_grab != null:
-			current_grab.trigger()
-			current_grab = null
-			can_grab = true
 
 func _process(_delta: float) -> void:
 	if current_grabbables and can_grab:
 		current_grabbables.sort_custom(_sort_by_nearest)
 		# Get the closest enabled grabbable.
 		for grabbable: GrabTrigger in current_grabbables:
-			if grabbable.enabled:
+			if grabbable.enabled and grabbable != current_grab:
 				highlighted_grabbable = grabbable
 				break
 		
@@ -52,10 +51,11 @@ func _process(_delta: float) -> void:
 				grabbable.grab_highlight.hide()
 		
 		# Show the highlight of the closest enabled grabbable.
-		highlighted_grabbable.grab_highlight.show()
+		if highlighted_grabbable:
+			highlighted_grabbable.grab_highlight.show()
 	else:
-		# Otherwise hide all grab highlights.
-		if highlighted_grabbable != null:
+		# Otherwise hide any grab highlights.
+		if highlighted_grabbable:
 			highlighted_grabbable.grab_highlight.hide()
 			highlighted_grabbable = null
 
@@ -79,10 +79,6 @@ func _on_grab_range_area_exited(area: Area2D) -> void:
 ## Disable grabbing on dialogue start.
 func _disable_grab() -> void:
 	can_grab = false
-	# If something is grabbed, release it.
-	if current_grab != null:
-		current_grab.trigger()
-		current_grab = null
 
 ## Enable grabbing on dialogue end.
 func _enable_grab() -> void:

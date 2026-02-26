@@ -43,10 +43,11 @@ func _process(_delta: float) -> void:
 				interactable.interact_prompt.hide()
 		
 		# Show the prompt of the closest enabled interactable.
-		highlighted_interactable.interact_prompt.show()
+		if highlighted_interactable:
+			highlighted_interactable.interact_prompt.show()
 	else:
-		# Otherwise hide all interact prompts.
-		if highlighted_interactable != null:
+		# Otherwise hide any interact prompts.
+		if highlighted_interactable:
 			highlighted_interactable.interact_prompt.hide()
 			highlighted_interactable = null
 
