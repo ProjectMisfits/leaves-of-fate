@@ -56,4 +56,10 @@ position = Vector2(0, 100)
 update_rotation = false
 update_scale = false
 
+[node name="PlayerUnfreeze" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.1
+one_shot = true
+
 [connection signal="pipe_entered" from="BronzePipeTrigger" to="." method="_enter_pipe"]
+[connection signal="timeout" from="PlayerUnfreeze" to="." method="_on_player_unfreeze_timeout"]
