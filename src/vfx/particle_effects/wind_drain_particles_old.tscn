@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://slen2s1bkf2o"]
+
+[ext_resource type="Texture2D" uid="uid://i71oyk5o8o68" path="res://assets/particle_effects/WhiteCircle-ParticleAsset-001.png" id="1_mpubp"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_frrx2"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 200.0
+emission_ring_inner_radius = 185.0
+emission_ring_cone_angle = 90.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 0.2510001
+radial_velocity_min = -70.59002
+radial_velocity_max = -15.690022
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -52.16
+radial_accel_max = -2.2351742e-06
+scale_min = 0.25
+scale_max = 0.25
+color = Color(0, 0.74938595, 0.75104, 1)
+
+[node name="WindDrainParticles" type="GPUParticles2D"]
+amount = 10
+texture = ExtResource("1_mpubp")
+lifetime = 4.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_frrx2")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5iavwafreiy1"]
+[gd_scene load_steps=9 format=3 uid="uid://bo1p5hbsrabu1"]
 
-[ext_resource type="Texture2D" uid="uid://cxdkqcucl8gg7" path="res://assets/vfx/particle_effects/wind/wind-particleAsset-001.png" id="1_o02cw"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_inq8c"]
+load_path = "res://.godot/imported/wind-particleAsset-001.png-eab6877995ef831bca01d1c4507d8ff9.ctex"
 
 [sub_resource type="Gradient" id="Gradient_y2cxc"]
 offsets = PackedFloat32Array(0.002754821, 1)
@@ -24,12 +25,11 @@ point_count = 7
 [sub_resource type="CurveTexture" id="CurveTexture_mo1bo"]
 curve = SubResource("Curve_4pblu")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o02cw"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2yfa2"]
 particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 0.01
 angle_min = 1.0728835e-05
 angle_max = 1.0728835e-05
+direction = Vector3(-1, 0, 0)
 spread = 0.0
 flatness = 1.0
 initial_velocity_min = 285.0
@@ -41,21 +41,22 @@ tangential_accel_curve = SubResource("CurveTexture_mo1bo")
 damping_max = 100.00001
 scale_min = 0.099999994
 scale_max = 0.29999998
+color = Color(0.42515996, 0.30240002, 0.54, 1)
 color_ramp = SubResource("GradientTexture1D_ptvio")
 color_initial_ramp = SubResource("GradientTexture1D_uq4sn")
 turbulence_noise_strength = 20.0
 turbulence_noise_scale = 0.74
 
-[node name="WindParticles" type="GPUParticles2D"]
-amount = 20
-texture = ExtResource("1_o02cw")
-lifetime = 7.0
+[node name="WindDrainHorizontalBorderParticles" type="GPUParticles2D"]
+amount = 2
+texture = SubResource("CompressedTexture2D_inq8c")
+lifetime = 3.0
 preprocess = 1.8
-speed_scale = 5.0
-randomness = 1.0
+speed_scale = 7.0
+randomness = 0.5
 local_coords = true
 trail_enabled = true
-trail_lifetime = 3.0
+trail_lifetime = 1.5
 trail_sections = 16
 trail_section_subdivisions = 8
-process_material = SubResource("ParticleProcessMaterial_o02cw")
+process_material = SubResource("ParticleProcessMaterial_2yfa2")
