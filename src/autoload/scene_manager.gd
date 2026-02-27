@@ -75,6 +75,7 @@ func _load_scene(scene_to_load: String, load_as_child_of: Node) -> Node:
 			load_as_child_of.add_child(loaded_scene)
 			if load_as_child_of == get_tree().root:
 				current_scene = loaded_scene
+			SaveManager._save_room(scene_to_load)
 			return loaded_scene
 
 ## Swaps to the specified scene and unloads the specified scene.
@@ -105,6 +106,7 @@ func swap_scenes(scene_to_load: String, load_as_child_of: Node, scene_to_unload:
 	swap_in_progress = false
 	# Emit the scene swap ended signal
 	scene_swap_ended.emit()
+	SaveManager._save_room(scene_to_load)
 	return loaded_scene
 
 ## Swap scenes, but during a screen transition.
@@ -113,6 +115,7 @@ func swap_scenes_with_transition(scene_to_load: String, load_as_child_of: Node, 
 	add_screen_transition(transition_type)
 	var loaded_scene: Node = swap_scenes(scene_to_load, load_as_child_of, scene_to_unload)
 	remove_screen_transition()
+	SaveManager._save_room(scene_to_load)
 	return loaded_scene
 
 ## Create a screen transition, add it to the scene tree, and initiate the animation.

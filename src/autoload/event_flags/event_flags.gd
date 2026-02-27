@@ -42,6 +42,7 @@ func set_flag(flag_name: String, value: bool) -> bool:
 	print("Event Flag Set: ", flag_name, " = ", value)
 	
 	flag_updated.emit(flag_name, value)
+	SaveManager._save_flags()
 	return true
 
 ## Reset all flags to their default values.
