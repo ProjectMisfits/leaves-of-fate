@@ -35,7 +35,10 @@ func _on_continue_button_button_up() -> void:
 	select_audio.play()
 	await select_audio.finished
 	SaveManager._load_flags()
-	SceneManager.swap_scenes_with_transition(SaveManager._load_room(), null, self)
+	SceneManager.swap_scenes_with_transition("res://src/ui/intro_letter/intro_letter.tscn", null, self)
+
+	#SceneManager.swap_scenes_with_transition("res://src/gameplay/gameplay.tscn", null, self)
+	#SceneManager.swap_scenes_with_transition(SaveManager._load_room(), null, self)
 
 func _hide_main_menu() -> void:
 	get_node("%EnvelopeBase").hide()
