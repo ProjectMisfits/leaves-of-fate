@@ -62,7 +62,7 @@ Fenn: [wave freq=7 amp=30]I'm here![/wave]
 Az: Alright, get to it, nerd.
 do CutsceneManager.fade_to_black()
 #do CutsceneManager.play_sound("Icy magic")
-do CutsceneManager.fade_to_black()
+do CutsceneManager.fade_from_black()
 Winston: All done!
 Winston awkward: Though... tis not much help without the other [color="8A0194"]Wizards[/color].
 Fenn: Where could I find them?
