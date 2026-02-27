@@ -9,6 +9,9 @@ class_name Gameplay extends Node
 ## The path to the current room's file. Used for resetting rooms.
 var current_room_path: String = ""
 
+## The starting room of the game.
+@export_file("*_room.tscn") var first_room_path: String
+
 ## A reference to the HUD.
 @onready var hud: Hud = $UILayer/Hud
 ## A reference to the MenuHolder CanvasLayer.
