@@ -1,13 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://hv6e001vo5hc"]
 
+[ext_resource type="Texture2D" uid="uid://c4yovapc33jth" path="res://assets/vfx/particle_effects/leaves/AllLeaves-ParticleAsset-001.png" id="1_ct48j"]
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_od6s8"]
 particles_animation = true
 particles_anim_h_frames = 3
 particles_anim_v_frames = 1
 particles_anim_loop = false
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ct48j"]
-load_path = "res://.godot/imported/AllLeaves-ParticleAsset-001.png-bb3473d04001237a9f2c3ba0ffa4891f.ctex"
 
 [sub_resource type="Curve" id="Curve_4pblu"]
 _limits = [-200.0, 200.0, 0.0, 1.0]
@@ -47,7 +46,7 @@ turbulence_noise_scale = 0.74
 [node name="WindGainLeafParticles" type="GPUParticles2D"]
 top_level = true
 material = SubResource("CanvasItemMaterial_od6s8")
-texture = SubResource("CompressedTexture2D_ct48j")
+texture = ExtResource("1_ct48j")
 lifetime = 7.0
 preprocess = 1.8
 speed_scale = 3.0

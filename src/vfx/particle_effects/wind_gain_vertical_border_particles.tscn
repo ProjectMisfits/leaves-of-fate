@@ -1,7 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://begbgwqemqwj1"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8o2p3"]
-load_path = "res://.godot/imported/wind-particleAsset-001.png-eab6877995ef831bca01d1c4507d8ff9.ctex"
+[ext_resource type="Texture2D" uid="uid://cxdkqcucl8gg7" path="res://assets/vfx/particle_effects/wind/wind-particleAsset-001.png" id="1_3ou5x"]
 
 [sub_resource type="Gradient" id="Gradient_y2cxc"]
 offsets = PackedFloat32Array(0.002754821, 1)
@@ -48,7 +47,7 @@ turbulence_noise_scale = 0.74
 
 [node name="WindGainVerticalBorderParticles" type="GPUParticles2D"]
 amount = 2
-texture = SubResource("CompressedTexture2D_8o2p3")
+texture = ExtResource("1_3ou5x")
 lifetime = 3.0
 preprocess = 1.8
 speed_scale = 8.0
