@@ -1,7 +1,13 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://ca07scdfwk0u2"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://ca07scdfwk0u2"]
 
 [ext_resource type="Texture2D" uid="uid://c5eeoy4ggvs2g" path="res://assets/rooms/tileset/Tiles.png" id="1_cx8v8"]
-[ext_resource type="PackedScene" path="res://src/vfx/particle_effects/wind_drain_particles.tscn" id="1_v611a"]
+[ext_resource type="PackedScene" uid="uid://cispfmoouurpa" path="res://src/vfx/particle_effects/wind_drain_vertical_border_particles.tscn" id="1_qf811"]
+[ext_resource type="PackedScene" uid="uid://dx7mex3pqq5ik" path="res://src/vfx/particle_effects/wind_drain_area_particles.tscn" id="1_v611a"]
+[ext_resource type="PackedScene" uid="uid://begbgwqemqwj1" path="res://src/vfx/particle_effects/wind_gain_vertical_border_particles.tscn" id="2_qxv7r"]
+[ext_resource type="PackedScene" uid="uid://bo1p5hbsrabu1" path="res://src/vfx/particle_effects/wind_drain_horizontal_border_particles.tscn" id="3_pttxk"]
+[ext_resource type="PackedScene" uid="uid://bxs0n3t6ibpek" path="res://src/vfx/particle_effects/wind_gain_area_particles.tscn" id="5_22um8"]
+[ext_resource type="PackedScene" uid="uid://tp8my4f06dcx" path="res://src/vfx/particle_effects/wind_gain_horizontal_border_particles.tscn" id="6_1lkw5"]
+[ext_resource type="PackedScene" uid="uid://hv6e001vo5hc" path="res://src/vfx/particle_effects/wind_gain_leaf_particles.tscn" id="7_22um8"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_v611a"]
 tile_data = PackedInt32Array(0, 2, 131072, 196608, 2, 131072, 393216, 2, 131072, 589824, 2, 131072, 3, 2, 131072, 196611, 2, 131072, 393219, 2, 131072, 589827, 2, 131072, 6, 2, 131072, 196614, 2, 131072, 393222, 2, 131072, 589830, 2, 131072, 9, 2, 131072, 196617, 2, 131072, 393225, 2, 131072, 589833, 2, 131072)
@@ -9,9 +15,27 @@ tile_data = PackedInt32Array(0, 2, 131072, 196608, 2, 131072, 393216, 2, 131072,
 [sub_resource type="TileMapPattern" id="TileMapPattern_qatvt"]
 tile_data = PackedInt32Array(0, 2, 131072, 196608, 2, 131072, 393216, 2, 131072, 589824, 2, 131072, 786432, 2, 131072, 983040, 2, 131072, 1179648, 2, 131072, 1376256, 2, 131072, 1572864, 2, 131072, 1769472, 2, 131072, 1966080, 2, 131072, 2162688, 2, 131072, 2359296, 2, 131072, 2555904, 2, 131072, 2752512, 2, 131072, 2949120, 2, 131072, 3, 2, 131072, 196611, 2, 131072, 393219, 2, 131072, 589827, 2, 131072, 786435, 2, 131072, 983043, 2, 131072, 1179651, 2, 131072, 1376259, 2, 131072, 1572867, 2, 131072, 1769475, 2, 131072, 1966083, 2, 131072, 2162691, 2, 131072, 2359299, 2, 131072, 2555907, 2, 131072, 2752515, 2, 131072, 2949123, 2, 131072, 6, 2, 131072, 196614, 2, 131072, 393222, 2, 131072, 589830, 2, 131072, 786438, 2, 131072, 983046, 2, 131072, 1179654, 2, 131072, 1376262, 2, 131072, 1572870, 2, 131072, 1769478, 2, 131072, 1966086, 2, 131072, 2162694, 2, 131072, 2359302, 2, 131072, 2555910, 2, 131072, 2752518, 2, 131072, 2949126, 2, 131072, 9, 2, 131072, 196617, 2, 131072, 393225, 2, 131072, 589833, 2, 131072, 786441, 2, 131072, 983049, 2, 131072, 1179657, 2, 131072, 1376265, 2, 131072, 1572873, 2, 131072, 1769481, 2, 131072, 1966089, 2, 131072, 2162697, 2, 131072, 2359305, 2, 131072, 2555913, 2, 131072, 2752521, 2, 131072, 2949129, 2, 131072, 12, 2, 131072, 196620, 2, 131072, 393228, 2, 131072, 589836, 2, 131072, 786444, 2, 131072, 983052, 2, 131072, 1179660, 2, 131072, 1376268, 2, 131072, 1572876, 2, 131072, 1769484, 2, 131072, 1966092, 2, 131072, 2162700, 2, 131072, 2359308, 2, 131072, 2555916, 2, 131072, 2752524, 2, 131072, 2949132, 2, 131072, 15, 2, 131072, 196623, 2, 131072, 393231, 2, 131072, 589839, 2, 131072, 786447, 2, 131072, 983055, 2, 131072, 1179663, 2, 131072, 1376271, 2, 131072, 1572879, 2, 131072, 1769487, 2, 131072, 1966095, 2, 131072, 2162703, 2, 131072, 2359311, 2, 131072, 2555919, 2, 131072, 2752527, 2, 131072, 2949135, 2, 131072, 18, 2, 131072, 196626, 2, 131072, 393234, 2, 131072, 589842, 2, 131072, 786450, 2, 131072, 983058, 2, 131072, 1179666, 2, 131072, 1376274, 2, 131072, 1572882, 2, 131072, 1769490, 2, 131072, 1966098, 2, 131072, 2162706, 2, 131072, 2359314, 2, 131072, 2555922, 2, 131072, 2752530, 2, 131072, 2949138, 2, 131072, 21, 2, 131072, 196629, 2, 131072, 393237, 2, 131072, 589845, 2, 131072, 786453, 2, 131072, 983061, 2, 131072, 1179669, 2, 131072, 1376277, 2, 131072, 1572885, 2, 131072, 1769493, 2, 131072, 1966101, 2, 131072, 2162709, 2, 131072, 2359317, 2, 131072, 2555925, 2, 131072, 2752533, 2, 131072, 2949141, 2, 131072)
 
+[sub_resource type="TileMapPattern" id="TileMapPattern_qf811"]
+tile_data = PackedInt32Array(0, 2, 0, 196608, 2, 0, 393216, 2, 0, 589824, 2, 0, 786432, 2, 0, 983040, 2, 0, 1179648, 2, 0, 1376256, 2, 0, 1572864, 2, 0, 1769472, 2, 0, 1966080, 2, 0, 2162688, 2, 0, 2359296, 2, 0, 2555904, 2, 0, 2752512, 2, 0, 2949120, 2, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_pttxk"]
+tile_data = PackedInt32Array(0, 2, 196608, 3, 2, 196608, 6, 2, 196608, 9, 2, 196608, 12, 2, 196608, 15, 2, 196608, 18, 2, 196608, 21, 2, 196608, 24, 2, 196608, 27, 2, 196608, 30, 2, 196608, 33, 2, 196608, 36, 2, 196608, 39, 2, 196608, 42, 2, 196608, 45, 2, 196608, 48, 2, 196608, 51, 2, 196608, 54, 2, 196608, 57, 2, 196608, 60, 2, 196608, 63, 2, 196608, 66, 2, 196608, 69, 2, 196608, 72, 2, 196608, 75, 2, 196608, 78, 2, 196608, 81, 2, 196608, 84, 2, 196608, 87, 2, 196608, 90, 2, 196608, 93, 2, 196608, 96, 2, 196608, 99, 2, 196608)
+
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_qatvt"]
+scenes/0/scene = ExtResource("1_qf811")
+scenes/0/display_placeholder = ExtResource("1_qf811")
+scenes/1/scene = ExtResource("2_qxv7r")
+scenes/1/display_placeholder = ExtResource("2_qxv7r")
 scenes/2/scene = ExtResource("1_v611a")
 scenes/2/display_placeholder = ExtResource("1_v611a")
+scenes/3/scene = ExtResource("3_pttxk")
+scenes/3/display_placeholder = ExtResource("3_pttxk")
+scenes/4/scene = ExtResource("5_22um8")
+scenes/4/display_placeholder = ExtResource("5_22um8")
+scenes/5/scene = ExtResource("6_1lkw5")
+scenes/5/display_placeholder = ExtResource("6_1lkw5")
+scenes/6/scene = ExtResource("7_22um8")
+scenes/6/display_placeholder = ExtResource("7_22um8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v611a"]
 texture = ExtResource("1_cx8v8")
@@ -45,3 +69,5 @@ sources/3 = SubResource("TileSetAtlasSource_v611a")
 sources/2 = SubResource("TileSetScenesCollectionSource_qatvt")
 pattern_0 = SubResource("TileMapPattern_v611a")
 pattern_1 = SubResource("TileMapPattern_qatvt")
+pattern_2 = SubResource("TileMapPattern_qf811")
+pattern_3 = SubResource("TileMapPattern_pttxk")
