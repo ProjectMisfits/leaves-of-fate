@@ -5,6 +5,7 @@ class_name CheckpointTrigger extends PlayerEnterTrigger
 @export var location: Marker2D
 
 func _ready() -> void:
+	init_trigger()
 	_on_trigger = _update_checkpoint
 
 ## Update the player's checkpoint location.
