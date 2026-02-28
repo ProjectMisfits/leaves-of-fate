@@ -1,6 +1,5 @@
 ~ start
-# Make Fenn face correct direction - "left" or "right"
-# do CutsceneManager.player_face("")
+do CutsceneManager.player_face("right")
 do CameraManager.create_camera(Vector2(7359.0,500), 0.75, 1.5, "CUBIC", "EASE_IN_OUT")
 Fenn worry: [font_size=40]Huh,[wait=0.3] stuck...[/font_size]
 Az: Hello? Can you hear me?

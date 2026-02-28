@@ -5,8 +5,7 @@
 #							name 	x destination, speed, animate, moonwalk
 #do! CutsceneManager.npc_move("Az", 500.0, 		200.0,	 100.0, false, false)
 
-# Make Fenn face correct direction - "left" or "right"
-# do CutsceneManager.player_face("")
+do CutsceneManager.player_face("right")
 do CameraManager.create_camera(Vector2(35000.0,3200), 0.75, 1.5, "CUBIC", "EASE_IN_OUT")
 do CutsceneManager.npc_face("Az","left")
 Fenn starry: WHOA! You're [color="B80006"]Az[/color]!! [wave freq=7 amp=30][color="B80006"]Sir Abdullah's[/color] daughter?[/wave]
