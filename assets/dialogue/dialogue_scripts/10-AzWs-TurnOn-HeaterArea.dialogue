@@ -1,7 +1,7 @@
 ~ start
 do! MusicManager._fade_out()
 do CutsceneManager.player_face("right")
-do! CameraManager.create_camera(Vector2(10112.0,-2560.0), 0.75, 1.5, "LINEAR", "EASE_IN_OUT")
+do CameraManager.create_camera(Vector2(2700,500),0.75, 1, "CUBIC", "EASE_IN_OUT")
 do CutsceneManager.player_move(9300.0, 1000, true, false)
 do CutsceneManager.fade_to_black()
 #do CutsceneManager.play_sound(Lever)

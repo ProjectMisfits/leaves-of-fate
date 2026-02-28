@@ -38,7 +38,7 @@ position = Vector2(-1024, 1024)
 position = Vector2(6912, 1024)
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("5_svn25")]
-position = Vector2(3520, 64)
+position = Vector2(2496, 128)
 scale = Vector2(10, 15)
 dialogue_sequence = ExtResource("6_ednxw")
 required_false_event_flags = Array[String](["9-Az-FiresideChat-1-HeaterArea"])
