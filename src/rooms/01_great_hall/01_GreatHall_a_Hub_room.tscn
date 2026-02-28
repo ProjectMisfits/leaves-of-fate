@@ -193,6 +193,7 @@ position = Vector2(10141, -3790.9998)
 scale = Vector2(10, 80)
 dialogue_sequence = ExtResource("12_7vaf5")
 dialogue_start = "breakseal"
+required_true_event_flags = Array[String](["heater_boss_activated"])
 required_false_event_flags = Array[String](["15-AzWs-ReachSafety-GreatHall", "winston_seal_broken"])
 
 [node name="PillarTrunk01" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("2_0mqie")]
