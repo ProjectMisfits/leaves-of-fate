@@ -5,7 +5,7 @@
 @export var force_enable: bool = false
 
 ## Whether the trigger is enabled.
-var enabled: bool
+var enabled: bool = false
 
 ## An array containing the event flags that must be true for this trigger to be active.
 @export var required_true_event_flags: Array[String]
