@@ -5,12 +5,14 @@ class_name Gameplay extends Node
 ## A holder node for the room the player is currently in.
 @onready var room_holder: Node2D = %RoomHolder
 ## The room the player is currently in.
-@onready var current_room: Room = %RoomHolder.get_child(0)
+@onready var current_room: Room
 ## The path to the current room's file. Used for resetting rooms.
 var current_room_path: String = ""
 
 ## The starting room of the game.
-@export_file("*_room.tscn") var first_room_path: String
+@export_file("*_room.tscn") var first_room_path: String = "res://src/rooms/01_great_hall/01_GreatHall_a_Intro_room.tscn"
+## Used to make sure the first room setup happens only once.
+var first_setup: bool = true
 
 ## A reference to the HUD.
 @onready var hud: Hud = $UILayer/Hud
@@ -41,13 +43,26 @@ func _ready() -> void:
 	# Connect the player knocked out signal.
 	EventBus.player_knocked_out.connect(_on_player_knocked_out)
 	
-	# Put the player in the first room.
-	_init_room(current_room.get_door_position('enter'))
-	player_spawn_location = current_room.get_door_position('enter')
-	current_room.player.unfreeze()
+	# Connect the scene swap finished signal to the first room setup method.
+	SceneManager.scene_swap_ended.connect(_first_room_setup)
 	
 	# Connect UI menu signals
 	_connect_menu_signals()
+
+## Set up the first room of the game.
+func _first_room_setup() -> void:
+	if first_setup:
+		first_setup = false
+		# Put the player in the first room.
+		SceneManager.swap_scenes(first_room_path, room_holder, null)
+		current_room = room_holder.get_child(0)
+		_init_room(current_room.get_door_position('enter'))
+		player_spawn_location = current_room.get_door_position('enter')
+		current_room.player.unfreeze()
+
+## Set the first room to load when gameplay starts.
+func set_first_room(new_first_room_path: String) -> void:
+	first_room_path = new_first_room_path
 
 # Called once every physics tick.
 func _physics_process(_delta: float) -> void:
