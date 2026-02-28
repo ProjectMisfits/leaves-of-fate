@@ -1,5 +1,7 @@
 ~ start
 do! MusicManager._fade_out()
+# Make Fenn face correct direction - "left" or "right"
+# do CutsceneManager.player_face("")
 Fenn: [color="8A0194"]Wizard[/color]?
 Wizard: [font_size=100][shake level=10 rate=50]BY POSTLY HEAVEN![/shake][/font_size]
 Fenn: It's me! Fenn?

@@ -1,6 +1,7 @@
-
 ~ ambushed
 do! MusicManager._fade_out()
+# Make Fenn face correct direction - "left" or "right"
+# do CutsceneManager.player_face("")
 do CutsceneManager.npc_face("Winston", "right")
 do CutsceneManager.wait(0.5)
 do CameraManager.create_camera(Vector2(19800,22000),0.75, 1, "CUBIC", "EASE_IN_OUT")

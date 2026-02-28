@@ -1,5 +1,7 @@
 ~ start
 do! MusicManager._fade_out()
+# Make Fenn face correct direction - "left" or "right"
+# do CutsceneManager.player_face("")
 #do CutsceneManager.npc_move("Fenn", 10112.0, 500, true, false)
 do CameraManager.create_camera(Vector2(10112.0,-2560.0), 0.75, 5, "LINEAR", "EASE_IN_OUT")
 do CutsceneManager.fade_to_black()
