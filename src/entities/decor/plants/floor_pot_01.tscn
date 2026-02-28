@@ -4,9 +4,11 @@
 [ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_j32bw"]
 
 [node name="FloorPot01" type="Node2D"]
+use_parent_material = true
 script = ExtResource("2_j32bw")
 
 [node name="FloorPot01" type="Sprite2D" parent="."]
+use_parent_material = true
 position = Vector2(10, -420)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_20g4j")

@@ -1,11 +1,11 @@
-[gd_scene load_steps=41 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=44 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/entities/actors/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
 [ext_resource type="Script" uid="uid://bar0unkhcpu3a" path="res://src/entities/actors/player/states/player_idle.gd" id="3_a1k00"]
 [ext_resource type="Shape2D" uid="uid://7p0hecb5yu7t" path="res://src/entities/actors/player/player_collision_shape.tres" id="3_e5ptp"]
 [ext_resource type="Script" uid="uid://dr4cwnspn2mf2" path="res://src/entities/actors/player/states/player_running.gd" id="4_7gsup"]
-[ext_resource type="Material" uid="uid://bv8rolwolipyw" path="res://src/shaders/RimLitPlayer.tres" id="5_e5ptp"]
+[ext_resource type="Material" uid="uid://bv8rolwolipyw" path="res://src/vfx/shaders/RimLitPlayer.tres" id="5_e5ptp"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="5_lynpt"]
 [ext_resource type="Script" uid="uid://3uombhhv6fd6" path="res://src/entities/actors/player/components/interact_component.gd" id="6_283t5"]
 [ext_resource type="Script" uid="uid://duy7f43rn783x" path="res://src/entities/actors/player/states/player_jumping.gd" id="6_c6y0n"]
@@ -14,18 +14,27 @@
 [ext_resource type="Script" uid="uid://cksn2wvaxpq54" path="res://src/entities/actors/player/states/player_airborne.gd" id="7_q4vut"]
 [ext_resource type="Script" uid="uid://b3akxlm17c274" path="res://src/entities/actors/player/components/grab_component.gd" id="7_s3rhx"]
 [ext_resource type="Script" uid="uid://bjtwcn16kj5bl" path="res://src/entities/actors/player/states/player_dashing.gd" id="8_wcwgi"]
-[ext_resource type="PackedScene" uid="uid://b4sm5hjwev778" path="res://src/particle_effects/leaf_explosion_particle.tscn" id="9_2heww"]
-[ext_resource type="PackedScene" uid="uid://cfj172hxekuqg" path="res://src/particle_effects/leaf_particles_02.tscn" id="9_nqxrs"]
+[ext_resource type="PackedScene" uid="uid://b4sm5hjwev778" path="res://src/vfx/particle_effects/leaf_explosion_particle.tscn" id="9_2heww"]
+[ext_resource type="PackedScene" uid="uid://cfj172hxekuqg" path="res://src/vfx/particle_effects/leaf_particles_02.tscn" id="9_nqxrs"]
 [ext_resource type="Script" uid="uid://osptlmoqos3i" path="res://src/entities/actors/player/states/player_piling.gd" id="9_q6jdu"]
-[ext_resource type="PackedScene" uid="uid://dhcepuko5y18x" path="res://src/particle_effects/leaf_ball_particles.tscn" id="9_tda88"]
+[ext_resource type="PackedScene" uid="uid://dhcepuko5y18x" path="res://src/vfx/particle_effects/leaf_ball_particles.tscn" id="9_tda88"]
 [ext_resource type="Script" uid="uid://bhytbo7u825lb" path="res://src/entities/actors/player/components/hurt_component.gd" id="11_s3rhx"]
 [ext_resource type="JSON" uid="uid://ctjfhxb7akvyx" path="res://src/entities/actors/player/footstep_dictionaries/player_footstep_data.tres" id="12_e5ptp"]
 [ext_resource type="Script" uid="uid://cq2g2o708n5hl" path="res://src/entities/actors/player/footstep_component.gd" id="13_s1o6p"]
-[ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/particle_effects/wind_particles.tscn" id="14_7j1dl"]
+[ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/vfx/particle_effects/wind_particles.tscn" id="14_7j1dl"]
 [ext_resource type="AudioStream" uid="uid://dimhdiv10a08t" path="res://assets/entities/actors/player/player_audio/PH-leaf-enter.ogg" id="17_iloh8"]
 [ext_resource type="AudioStream" uid="uid://dxmm31nsgmehb" path="res://assets/entities/actors/player/player_audio/PH-leaf-exit.ogg" id="18_283t5"]
 [ext_resource type="Texture2D" uid="uid://jvsobi5gw7di" path="res://assets/entities/actors/player/TEMP-fenn-jump-spritesheet.png" id="18_s3rhx"]
-[ext_resource type="AudioStream" uid="uid://ca5i8864h7llp" path="res://assets/entities/actors/footsteps/stone/fenn/FS-fenn-stone.tres" id="26_hn11x"]
+[ext_resource type="Script" uid="uid://cgb4mcjcccxsk" path="res://src/entities/actors/player/states/player_cutscene.gd" id="22_xm3ve"]
+[ext_resource type="AudioStream" uid="uid://ca5i8864h7llp" path="res://assets/entities/actors/footsteps/stone/FS-fenn-stone.tres" id="26_hn11x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hn11x"]
+radius = 67.0
+height = 198.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xm3ve"]
+radius = 51.0
+height = 102.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4vut"]
 size = Vector2(750, 540)
@@ -370,6 +379,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [8]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Audio/Footsteps")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_c5a8v"]
 resource_name = "player_leaf"
@@ -501,7 +524,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_efl0v"]
 resource_name = "player_walk_cycle"
-length = 0.6355
+length = 0.5497
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -510,7 +533,7 @@ tracks/0/path = NodePath("FlipNode/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.083, 0.166, 0.249, 0.332, 0.415, 0.498, 0.581),
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4, 0.4667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
@@ -550,6 +573,23 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.798, 0.798)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Audio/Footsteps")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 0.4667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ihyl"]
@@ -591,6 +631,7 @@ script = ExtResource("1_npkjl")
 database = ExtResource("2_7gsup")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -243)
 shape = ExtResource("3_e5ptp")
 
@@ -618,21 +659,14 @@ collision_layer = 0
 collision_mask = 1024
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/WindZoneComponent/DashDetectionArea"]
-shape = ExtResource("3_e5ptp")
+shape = SubResource("CapsuleShape2D_hn11x")
 
 [node name="NoDashDetectionArea" type="Area2D" parent="FlipNode/WindZoneComponent"]
 collision_layer = 0
 collision_mask = 2048
 
 [node name="CollisionShape2D-2" type="CollisionShape2D" parent="FlipNode/WindZoneComponent/NoDashDetectionArea"]
-shape = ExtResource("3_e5ptp")
-
-[node name="ResetZoneArea" type="Area2D" parent="FlipNode/WindZoneComponent"]
-collision_layer = 0
-collision_mask = 4096
-
-[node name="CollisionShape2D-3" type="CollisionShape2D" parent="FlipNode/WindZoneComponent/ResetZoneArea"]
-shape = ExtResource("3_e5ptp")
+shape = SubResource("CapsuleShape2D_xm3ve")
 
 [node name="InteractComponent" type="Node2D" parent="FlipNode"]
 script = ExtResource("6_283t5")
@@ -715,6 +749,9 @@ script = ExtResource("8_wcwgi")
 [node name="Piling" type="LimboState" parent="LimboHSM"]
 script = ExtResource("9_q6jdu")
 
+[node name="Cutscene" type="LimboState" parent="LimboHSM"]
+script = ExtResource("22_xm3ve")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_8ihyl")
@@ -737,7 +774,8 @@ bus = &"SFX"
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("26_hn11x")
-volume_db = 2.0
+volume_db = 6.0
+pitch_scale = 1.5
 bus = &"SFX"
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
@@ -746,11 +784,13 @@ one_shot = true
 [node name="FootStepTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="MeterCooldownTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="FlipNode/WindZoneComponent/DashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_dash_detection_area_body_entered"]
 [connection signal="body_exited" from="FlipNode/WindZoneComponent/DashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_dash_detection_area_body_exited"]
 [connection signal="body_entered" from="FlipNode/WindZoneComponent/NoDashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_no_dash_detection_area_body_entered"]
 [connection signal="body_exited" from="FlipNode/WindZoneComponent/NoDashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_no_dash_detection_area_body_exited"]
-[connection signal="body_entered" from="FlipNode/WindZoneComponent/ResetZoneArea" to="FlipNode/WindZoneComponent" method="_on_reset_zone_area_body_entered"]
 [connection signal="area_entered" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_entered"]
 [connection signal="area_exited" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_exited"]
 [connection signal="area_entered" from="FlipNode/GrabComponent/GrabRange" to="FlipNode/GrabComponent" method="_on_grab_range_area_entered"]
@@ -759,3 +799,4 @@ one_shot = true
 [connection signal="body_entered" from="FlipNode/HurtComponent/HurtArea" to="FlipNode/HurtComponent" method="_on_hurt_area_body_entered"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_end_invincibility"]
 [connection signal="timeout" from="FootStepTimer" to="." method="_on_foot_step_timer_timeout"]
+[connection signal="timeout" from="MeterCooldownTimer" to="." method="_on_meter_cooldown_timer_timeout"]

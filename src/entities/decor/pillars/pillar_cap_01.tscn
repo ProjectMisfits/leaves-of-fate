@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_02orp"]
 
 [node name="PillarCap01" type="Node2D"]
+use_parent_material = true
 script = ExtResource("2_02orp")
 
 [node name="PillarCap01" type="Sprite2D" parent="."]

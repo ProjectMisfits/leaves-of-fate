@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dbuvv4yxpgnlb"]
+[gd_scene load_steps=9 format=4 uid="uid://dbuvv4yxpgnlb"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_xjtdt"]
 [ext_resource type="PackedScene" uid="uid://disa83btdjjsk" path="res://src/entities/objects/moving_platform/moving_platform.tscn" id="2_eorsq"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://yoe4ij0ap8di" path="res://src/entities/objects/TEST_grabbable_box/grabbable_box.tscn" id="2_rd1c2"]
 [ext_resource type="Resource" uid="uid://bg8npse24cjcw" path="res://assets/dialogue/dialogue_scripts/1-Az-Meet-GreatHall.dialogue" id="3_eorsq"]
 [ext_resource type="PackedScene" uid="uid://cm33qh6em0dth" path="res://src/entities/triggers/grab_trigger/grab_trigger.tscn" id="3_f5xei"]
-[ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="4_q7npj"]
 
 [sub_resource type="Curve2D" id="Curve2D_f5xei"]
 resource_local_to_scene = true
@@ -27,39 +26,53 @@ point_count = 2
 [node name="Midground" parent="MidgroundLayer" index="0"]
 tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAAAAAADAAgABgABAAAAAAAEAAgABgABAAAAAAAFAAgABgABAAAAAAAGAAgABgABAAAAAAAHAAgABgABAAAAAAAIAAgABgABAAAAAAAJAAgABgABAAAAAAAKAAgABgABAAAAAAALAAgABgABAAAAAAAMAAgABgABAAAAAAANAAgABgABAAAAAAAOAAgABgABAAAAAAAPAAgABgABAAAAAAAQAAgABgABAAAAAAARAAgABgABAAAAAAASAAgABgABAAAAAAATAAgABgABAAAAAAAUAAgABgABAAAAAAAVAAgABgABAAAAAAAWAAgABgABAAAAAAAXAAgABgABAAAAAAAYAAgABgABAAAAAAAZAAgABgABAAAAAAAaAAgABgABAAAAAAAbAAgABgABAAAAAAAcAAgABgABAAAAAAAdAAgABgABAAAAAAAeAAgABgABAAAAAAAfAAgABgABAAAAAAAgAAgABgABAAAAAAAhAAgABgABAAAAAAAiAAgABgABAAAAAAAjAAgABgABAAAAAAAkAAgABgABAAAAAAAlAAgABgABAAAAAAAmAAgABgABAAAAAAAnAAgABgABAAAAAAA=")
 
-[node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
-path_to_target_room = "uid://d2naxykryeqv7"
-
 [node name="GrabbableBox" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("2_rd1c2")]
-position = Vector2(576, 192)
+position = Vector2(3296, -392)
 
 [node name="MovingPlatform" parent="MidgroundLayer/Entities/Objects" index="1" instance=ExtResource("2_eorsq")]
-position = Vector2(1920, 384)
+position = Vector2(3752, 16)
 curve = SubResource("Curve2D_f5xei")
 
 [node name="GrabTrigger" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="3" instance=ExtResource("3_f5xei")]
+enabled = false
 
 [node name="MovingPlatform2" parent="MidgroundLayer/Entities/Objects" index="2" instance=ExtResource("2_eorsq")]
-position = Vector2(1024, 768)
+position = Vector2(2480, 128)
 curve = SubResource("Curve2D_rd1c2")
 
 [node name="GrabTrigger" parent="MidgroundLayer/Entities/Objects/MovingPlatform2" index="3" instance=ExtResource("3_f5xei")]
 
 [node name="DialogueTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("2_q7npj")]
-position = Vector2(2816, 704)
+position = Vector2(3432, 704)
 dialogue_sequence = ExtResource("3_eorsq")
+enabled = false
 
 [node name="DialogueTrigger2" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("2_q7npj")]
-position = Vector2(2944, 704)
+position = Vector2(3560, 704)
 dialogue_sequence = ExtResource("3_eorsq")
 
 [node name="DialogueTrigger3" parent="MidgroundLayer/Entities/Triggers" index="2" instance=ExtResource("2_q7npj")]
-position = Vector2(3072, 704)
+position = Vector2(3688, 704)
 dialogue_sequence = ExtResource("3_eorsq")
+enabled = false
 
 [node name="DialogueTrigger4" parent="MidgroundLayer/Entities/Triggers" index="3" instance=ExtResource("2_q7npj")]
-position = Vector2(3200, 704)
+position = Vector2(3816, 704)
 dialogue_sequence = ExtResource("3_eorsq")
 
-[node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="4" instance=ExtResource("4_q7npj")]
-position = Vector2(3968, 704)
+[node name="DialogueTrigger-2" parent="MidgroundLayer/Entities/Triggers" index="4" instance=ExtResource("2_q7npj")]
+position = Vector2(2920, 704)
+dialogue_sequence = ExtResource("3_eorsq")
+
+[node name="DialogueTrigger2-2" parent="MidgroundLayer/Entities/Triggers" index="5" instance=ExtResource("2_q7npj")]
+position = Vector2(3048, 704)
+dialogue_sequence = ExtResource("3_eorsq")
+enabled = false
+
+[node name="DialogueTrigger3-2" parent="MidgroundLayer/Entities/Triggers" index="6" instance=ExtResource("2_q7npj")]
+position = Vector2(3176, 704)
+dialogue_sequence = ExtResource("3_eorsq")
+
+[node name="DialogueTrigger4-2" parent="MidgroundLayer/Entities/Triggers" index="7" instance=ExtResource("2_q7npj")]
+position = Vector2(3304, 704)
+dialogue_sequence = ExtResource("3_eorsq")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://mn6k4g5kkt5q"]
+[gd_scene load_steps=8 format=3 uid="uid://mn6k4g5kkt5q"]
 
 [ext_resource type="Script" uid="uid://c0xk34jxlmyyy" path="res://src/entities/objects/heater/heater.gd" id="1_mnh2j"]
+[ext_resource type="Material" uid="uid://dbrwefsv6hrsv" path="res://src/vfx/shaders/RimLit.tres" id="2_lwf6y"]
 [ext_resource type="Texture2D" uid="uid://cgwar63t1qw1o" path="res://assets/entities/objects/heater/Heater_Disabled_01.png" id="2_ynm22"]
 [ext_resource type="Texture2D" uid="uid://da7td38u0y66x" path="res://assets/entities/objects/heater/Heater_Enabled_01.png" id="3_8vcga"]
 
@@ -45,12 +46,14 @@ z_as_relative = false
 script = ExtResource("1_mnh2j")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_lwf6y")
 position = Vector2(0, -1274)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_ynm22")
 
 [node name="Sprite2D-2" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
+material = ExtResource("2_lwf6y")
 position = Vector2(0, -1274)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_8vcga")

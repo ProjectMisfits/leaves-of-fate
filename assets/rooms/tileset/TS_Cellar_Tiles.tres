@@ -1,0 +1,81 @@
+[gd_resource type="TileSet" load_steps=19 format=3 uid="uid://o5pvsk1vob3h"]
+
+[ext_resource type="Texture2D" uid="uid://drn7iwqksqxf0" path="res://assets/rooms/tileset/DecorativeBrickTiles.png" id="1_k31o8"]
+[ext_resource type="Texture2D" uid="uid://bo5y4g5wk3bv4" path="res://assets/rooms/tileset/Floor_Pattern_Stone.png" id="2_o4wos"]
+[ext_resource type="Texture2D" uid="uid://bj8qxsr2im82q" path="res://assets/rooms/tileset/Floor_Tile_Stone.png" id="3_32pea"]
+[ext_resource type="Texture2D" uid="uid://bam836lkubxkl" path="res://assets/rooms/tileset/Floor_Tile_Stone_Slant_Left.png" id="4_h8mq8"]
+[ext_resource type="Texture2D" uid="uid://be8fr05fu728v" path="res://assets/rooms/tileset/Floor_Tile_Stone_Slant_Right.png" id="5_f8x4m"]
+[ext_resource type="Texture2D" uid="uid://dvtdromg5cbc" path="res://assets/rooms/tileset/Floor_Pattern_Wood.png" id="6_qm5rk"]
+[ext_resource type="Texture2D" uid="uid://eoybcqio1hli" path="res://assets/rooms/tileset/Floor_Tile_Wood.png" id="7_cudcm"]
+[ext_resource type="Texture2D" uid="uid://bpdv1h2wcjrrl" path="res://assets/rooms/tileset/Floor_Tile_Wood_Slant_Left.png" id="8_juvcb"]
+[ext_resource type="Texture2D" uid="uid://bi4pnifp5eji0" path="res://assets/rooms/tileset/Floor_Tile_Wood_Slant_Right.png" id="9_cysdq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o4wos"]
+texture = ExtResource("1_k31o8")
+texture_region_size = Vector2i(384, 128)
+use_texture_padding = false
+3:0/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_32pea"]
+texture = ExtResource("2_o4wos")
+texture_region_size = Vector2i(256, 256)
+use_texture_padding = false
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h8mq8"]
+texture = ExtResource("3_32pea")
+texture_region_size = Vector2i(256, 256)
+use_texture_padding = false
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f8x4m"]
+texture = ExtResource("4_h8mq8")
+texture_region_size = Vector2i(256, 256)
+use_texture_padding = false
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jfpap"]
+texture = ExtResource("5_f8x4m")
+texture_region_size = Vector2i(256, 256)
+use_texture_padding = false
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_juvcb"]
+texture = ExtResource("6_qm5rk")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cysdq"]
+texture = ExtResource("7_cudcm")
+texture_region_size = Vector2i(256, 256)
+use_texture_padding = false
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h78e6"]
+texture = ExtResource("8_juvcb")
+texture_region_size = Vector2i(256, 256)
+use_texture_padding = false
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bkkr7"]
+texture = ExtResource("9_cysdq")
+texture_region_size = Vector2i(256, 256)
+use_texture_padding = false
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_o4wos")
+sources/1 = SubResource("TileSetAtlasSource_32pea")
+sources/2 = SubResource("TileSetAtlasSource_h8mq8")
+sources/3 = SubResource("TileSetAtlasSource_f8x4m")
+sources/4 = SubResource("TileSetAtlasSource_jfpap")
+sources/5 = SubResource("TileSetAtlasSource_juvcb")
+sources/6 = SubResource("TileSetAtlasSource_cysdq")
+sources/7 = SubResource("TileSetAtlasSource_h78e6")
+sources/8 = SubResource("TileSetAtlasSource_bkkr7")

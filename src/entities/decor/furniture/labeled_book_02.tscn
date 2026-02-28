@@ -4,9 +4,11 @@
 [ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_7xfyc"]
 
 [node name="LabeledBook02" type="Node2D"]
+use_parent_material = true
 script = ExtResource("2_7xfyc")
 
 [node name="LabeledBook02" type="Sprite2D" parent="."]
+use_parent_material = true
 position = Vector2(0, -94.99999)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_b8x5x")

@@ -1,19 +1,12 @@
-[gd_scene load_steps=34 format=4 uid="uid://deayq1yjs1iww"]
+[gd_scene load_steps=27 format=4 uid="uid://deayq1yjs1iww"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_yyth4"]
-[ext_resource type="Texture2D" uid="uid://wk7tx1t1vq5f" path="res://assets/rooms/backgrounds/grad.png" id="2_sybce"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_dtsem"]
 [ext_resource type="PackedScene" uid="uid://b6p26modf3ljr" path="res://src/entities/decor/furniture/window_01.tscn" id="4_cr1i4"]
 [ext_resource type="PackedScene" uid="uid://dggdoj1nhnb1j" path="res://src/entities/decor/furniture/window_02.tscn" id="5_hcewp"]
 [ext_resource type="PackedScene" uid="uid://n0xe74ww2rnc" path="res://src/entities/decor/furniture/window_03.tscn" id="6_4177x"]
-[ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/door/door.tscn" id="7_txk31"]
+[ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/doors/door.tscn" id="7_txk31"]
 [ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="8_4sa2e"]
-[ext_resource type="PackedScene" uid="uid://beub4bx6t3wvh" path="res://src/entities/hazards/icicle/icicle_01.tscn" id="9_2fs63"]
-[ext_resource type="PackedScene" uid="uid://domed3ucovqnj" path="res://src/entities/hazards/icicle/icicle_02.tscn" id="10_twk3r"]
-[ext_resource type="PackedScene" uid="uid://dy2vli8qi5bb8" path="res://src/entities/hazards/icicle/icicle_03.tscn" id="11_0x4fr"]
-[ext_resource type="PackedScene" uid="uid://bj7fv2e6r3bp5" path="res://src/entities/hazards/icicle/icicle_05.tscn" id="12_8h6d6"]
-[ext_resource type="PackedScene" uid="uid://b5pl5cenkmlqy" path="res://src/entities/hazards/icicle/icicle_04.tscn" id="13_yko54"]
-[ext_resource type="PackedScene" uid="uid://dv6448b476yos" path="res://src/entities/hazards/icicle/icicle_06.tscn" id="14_p2282"]
 [ext_resource type="PackedScene" uid="uid://ds25qjj7x3y7o" path="res://src/entities/objects/leaf_platform/leaf_platform.tscn" id="15_1ckku"]
 [ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="16_hj430"]
 [ext_resource type="PackedScene" uid="uid://4jh213w6fsb7" path="res://src/entities/decor/pillars/pillar_base_01.tscn" id="17_gn5te"]
@@ -31,15 +24,10 @@
 [ext_resource type="PackedScene" uid="uid://cctsnqs8u4udu" path="res://src/entities/decor/furniture/wine_shelf.tscn" id="29_cxmmg"]
 [ext_resource type="PackedScene" uid="uid://b0wlcwvvy8ru2" path="res://src/entities/decor/furniture/chairs.tscn" id="30_5gkdq"]
 [ext_resource type="Texture2D" uid="uid://dtsbbdau8qdks" path="res://assets/entities/decor/furniture/wine-shelf-frame.png" id="31_y7eiw"]
-[ext_resource type="Material" uid="uid://baqjielyaf0cf" path="res://src/shaders/clawoutline_shader_material.tres" id="32_804ix"]
-[ext_resource type="PackedScene" uid="uid://bi3f7ga8k8wgw" path="res://src/particle_effects/sand_claw_particles.tscn" id="33_804ix"]
+[ext_resource type="Material" uid="uid://baqjielyaf0cf" path="res://src/vfx/shaders/clawoutline_shader_material.tres" id="32_804ix"]
+[ext_resource type="PackedScene" uid="uid://bi3f7ga8k8wgw" path="res://src/vfx/particle_effects/sand_claw_particles.tscn" id="33_804ix"]
 
 [node name="02_Cellar_d_Den" instance=ExtResource("1_yyth4")]
-
-[node name="Background" parent="BackgroundLayer" index="1"]
-position = Vector2(6400.001, -2816.0002)
-scale = Vector2(23.671232, 22.4)
-texture = ExtResource("2_sybce")
 
 [node name="HangingLantern" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("3_dtsem")]
 position = Vector2(768, -2048)
@@ -146,58 +134,6 @@ position = Vector2(5120, -5760)
 
 [node name="IceSpikeBall-8" parent="MidgroundLayer/Entities/Hazards" index="16" instance=ExtResource("8_4sa2e")]
 position = Vector2(12480, -4032)
-
-[node name="Icicle_01-2" parent="MidgroundLayer/Entities/Hazards" index="17" instance=ExtResource("9_2fs63")]
-position = Vector2(5440, -4608)
-
-[node name="Icicle_01-3" parent="MidgroundLayer/Entities/Hazards" index="18" instance=ExtResource("9_2fs63")]
-position = Vector2(5568, -4608)
-
-[node name="Icicle_01-4" parent="MidgroundLayer/Entities/Hazards" index="19" instance=ExtResource("9_2fs63")]
-position = Vector2(7168, -4608)
-
-[node name="Icicle_02" parent="MidgroundLayer/Entities/Hazards" index="20" instance=ExtResource("10_twk3r")]
-position = Vector2(5184, -4736)
-
-[node name="Icicle_03" parent="MidgroundLayer/Entities/Hazards" index="21" instance=ExtResource("11_0x4fr")]
-position = Vector2(5312, -4608)
-
-[node name="Icicle_02-2" parent="MidgroundLayer/Entities/Hazards" index="22" instance=ExtResource("10_twk3r")]
-position = Vector2(5696, -4608)
-
-[node name="Icicle_05" parent="MidgroundLayer/Entities/Hazards" index="23" instance=ExtResource("12_8h6d6")]
-position = Vector2(7360, -4608)
-
-[node name="Icicle_04" parent="MidgroundLayer/Entities/Hazards" index="24" instance=ExtResource("13_yko54")]
-position = Vector2(7616, -4736)
-
-[node name="Icicle_06" parent="MidgroundLayer/Entities/Hazards" index="25" instance=ExtResource("14_p2282")]
-position = Vector2(7488, -4608)
-
-[node name="Icicle_02-3" parent="MidgroundLayer/Entities/Hazards" index="26" instance=ExtResource("10_twk3r")]
-position = Vector2(7232, -4608)
-
-[node name="Icicle_06-2" parent="MidgroundLayer/Entities/Hazards" index="27" instance=ExtResource("14_p2282")]
-position = Vector2(13056, -2560)
-rotation = -3.1415927
-scale = Vector2(3, 3)
-
-[node name="Icicle_06-3" parent="MidgroundLayer/Entities/Hazards" index="28" instance=ExtResource("14_p2282")]
-position = Vector2(13440, 1024)
-scale = Vector2(3, 3)
-
-[node name="Icicle_05-2" parent="MidgroundLayer/Entities/Hazards" index="29" instance=ExtResource("12_8h6d6")]
-position = Vector2(13824, -2816)
-rotation = 3.1415927
-scale = Vector2(3, 3)
-
-[node name="Icicle_06-4" parent="MidgroundLayer/Entities/Hazards" index="30" instance=ExtResource("14_p2282")]
-position = Vector2(12864, 1024)
-scale = Vector2(3, 3)
-
-[node name="Icicle_04-2" parent="MidgroundLayer/Entities/Hazards" index="31" instance=ExtResource("13_yko54")]
-position = Vector2(13952, 1024)
-scale = Vector2(3, 3)
 
 [node name="LeafPlatform" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("15_1ckku")]
 position = Vector2(2816, -3328)

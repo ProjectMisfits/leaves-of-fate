@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://diwms7rfs40dk"]
+
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="1_lfyur"]
+[ext_resource type="Texture2D" uid="uid://d2masmlgulvuc" path="res://assets/entities/decor/furniture/Snow_Rodent_Decor.png" id="2_lfyur"]
+
+[node name="SnowRodent" type="Node2D"]
+use_parent_material = true
+script = ExtResource("1_lfyur")
+
+[node name="SnowRodent" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(46.000008, -291)
+rotation = -0.025832487
+texture = ExtResource("2_lfyur")

@@ -1,38 +1,46 @@
-[gd_scene load_steps=7 format=4 uid="uid://bhndpauy1j7sw"]
+[gd_scene load_steps=11 format=4 uid="uid://bhndpauy1j7sw"]
 
 [ext_resource type="Script" uid="uid://clfv0vvbc4hdy" path="res://src/rooms/room.gd" id="1_t665v"]
 [ext_resource type="TileSet" uid="uid://i6wi7xcus3i" path="res://assets/rooms/tileset/TS_Cellar.tres" id="2_7i7i2"]
-[ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/door/door.tscn" id="2_pdypr"]
+[ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_d7se1"]
+[ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/doors/door.tscn" id="2_pdypr"]
 [ext_resource type="TileSet" uid="uid://bnysb55hwhjyd" path="res://assets/rooms/tileset/TS_Hazards.tres" id="3_0bf0a"]
 [ext_resource type="PackedScene" uid="uid://cjkpybae7njrh" path="res://src/entities/actors/player/player.tscn" id="4_8eo6q"]
-[ext_resource type="TileSet" uid="uid://cjoeqxdlr5mcm" path="res://assets/rooms/tileset/TS_Windzone.tres" id="4_n3e44"]
+[ext_resource type="TileSet" uid="uid://ca07scdfwk0u2" path="res://assets/rooms/tileset/TS_Windzone.tres" id="4_n3e44"]
+[ext_resource type="PackedScene" uid="uid://hljjnysbuwyd" path="res://assets/vfx/shaders/dust_layer.tscn" id="4_n6lpe"]
+[ext_resource type="TileSet" uid="uid://o5pvsk1vob3h" path="res://assets/rooms/tileset/TS_Cellar_Tiles.tres" id="6_n6lpe"]
+[ext_resource type="Material" uid="uid://dbrwefsv6hrsv" path="res://src/vfx/shaders/RimLit.tres" id="10_msfkg"]
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_t665v")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -1
 follow_viewport_enabled = true
-
-[node name="ColorRect" type="ColorRect" parent="BackgroundLayer"]
-z_index = -1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.138, 0.15866669, 0.2, 1)
-
-[node name="Background" type="Sprite2D" parent="BackgroundLayer"]
-
-[node name="Decor" type="Node2D" parent="BackgroundLayer"]
+follow_viewport_scale = 0.95
 metadata/_edit_lock_ = true
 
-[node name="MidgroundLayer" type="CanvasLayer" parent="."]
-layer = 2
-follow_viewport_enabled = true
+[node name="BackgroundTexture" type="Node2D" parent="BackgroundLayer"]
+metadata/_edit_lock_ = true
+
+[node name="BackgroundGradient" type="Sprite2D" parent="BackgroundLayer/BackgroundTexture"]
+scale = Vector2(1920, 9)
+texture = ExtResource("2_d7se1")
+centered = false
+
+[node name="Decor" type="Node2D" parent="BackgroundLayer"]
+
+[node name="DustLayer" parent="BackgroundLayer" instance=ExtResource("4_n6lpe")]
+position = Vector2(-63.999992, -72)
+scale = Vector2(2.04, 1.2800001)
+metadata/_edit_lock_ = true
+
+[node name="MidgroundLayer" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Midground" type="TileMapLayer" parent="MidgroundLayer" groups=["midground"]]
 unique_name_in_owner = true
+modulate = Color(0.7058824, 0.7058824, 0.7058824, 1)
 tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAAAAAADAAgABgABAAAAAAAEAAgABgABAAAAAAAFAAgABgABAAAAAAAGAAgABgABAAAAAAAHAAgABgABAAAAAAAIAAgABgABAAAAAAAJAAgABgABAAAAAAAKAAgABgABAAAAAAALAAgABgABAAAAAAAMAAgABgABAAAAAAANAAgABgABAAAAAAAOAAgABgABAAAAAAA=")
 tile_set = ExtResource("2_7i7i2")
 metadata/_edit_lock_ = true
@@ -41,9 +49,14 @@ metadata/_edit_lock_ = true
 tile_set = ExtResource("3_0bf0a")
 metadata/_edit_lock_ = true
 
+[node name="DecorTiles" type="TileMapLayer" parent="MidgroundLayer"]
+tile_set = ExtResource("6_n6lpe")
+metadata/_edit_lock_ = true
+
 [node name="Windzones" type="TileMapLayer" parent="MidgroundLayer"]
 modulate = Color(1, 1, 1, 0.40784314)
 tile_set = ExtResource("4_n3e44")
+metadata/_edit_lock_ = true
 
 [node name="DoorHolder" type="Node2D" parent="MidgroundLayer"]
 unique_name_in_owner = true
@@ -88,11 +101,24 @@ z_index = 5
 metadata/_edit_lock_ = true
 
 [node name="Decor" type="Node2D" parent="MidgroundLayer"]
+material = ExtResource("10_msfkg")
+metadata/_edit_lock_ = true
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="MidgroundLayer"]
+z_index = 2
+copy_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Fades" type="Node2D" parent="MidgroundLayer/BackBufferCopy"]
+metadata/_edit_lock_ = true
+
+[node name="Ice" type="Node2D" parent="MidgroundLayer/BackBufferCopy"]
 metadata/_edit_lock_ = true
 
 [node name="ForegroundLayer" type="CanvasLayer" parent="."]
-layer = 3
 follow_viewport_enabled = true
+follow_viewport_scale = 1.05
+metadata/_edit_lock_ = true
 
 [node name="Decor" type="Node2D" parent="ForegroundLayer"]
 metadata/_edit_lock_ = true
