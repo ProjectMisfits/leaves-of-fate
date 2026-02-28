@@ -186,8 +186,6 @@ music_track = ExtResource("10_7vaf5")
 position = Vector2(34894, 2077.0002)
 scale = Vector2(10, 40)
 dialogue_sequence = ExtResource("13_lln1l")
-enabled = false
-repeatable = null
 required_false_event_flags = Array[String](["1-Az-Meet-GreatHall"])
 
 [node name="CutsceneTrigger-2" parent="MidgroundLayer/Entities/Triggers" index="2" instance=ExtResource("12_1h37y")]
@@ -195,9 +193,7 @@ position = Vector2(10141, -3790.9998)
 scale = Vector2(10, 80)
 dialogue_sequence = ExtResource("12_7vaf5")
 dialogue_start = "breakseal"
-enabled = false
-required_true_event_flags = Array[String](["15-AzWs-ReachSafety-GreatHall"])
-required_false_event_flags = Array[String](["winston_seal_broken"])
+required_false_event_flags = Array[String](["15-AzWs-ReachSafety-GreatHall", "winston_seal_broken"])
 
 [node name="PillarTrunk01" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("2_0mqie")]
 position = Vector2(4288, 64)
