@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bt5e67el1bs3a" path="res://src/autoload/audio_managers/ambiance_manager.gd" id="1_a5y3h"]
 
 [node name="AmbianceManager" type="AudioStreamPlayer"]
+process_mode = 3
 autoplay = true
 bus = &"SFX"
 script = ExtResource("1_a5y3h")
