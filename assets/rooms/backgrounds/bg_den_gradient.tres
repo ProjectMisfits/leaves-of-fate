@@ -1,13 +1,9 @@
 [gd_resource type="GradientTexture2D" load_steps=2 format=3 uid="uid://be0i86wbdl12e"]
 
-[sub_resource type="Gradient" id="Gradient_xxegj"]
-interpolation_mode = 2
-interpolation_color_space = 2
-offsets = PackedFloat32Array(0.0051347883, 0.108333334, 0.48541668, 0.75208336, 1)
-colors = PackedColorArray(0.25, 0.25, 0.225, 1, 0.22949143, 0.239209, 0.22244184, 1, 0.41, 0.33920667, 0.29520002, 1, 0.13901818, 0.19081031, 0.2077922, 1, 0.095, 0.16149998, 0.19, 1)
+[ext_resource type="Gradient" uid="uid://dd638rngbcucr" path="res://assets/rooms/backgrounds/bg_greathall_gradient.tres" id="1_wl54h"]
 
 [resource]
-gradient = SubResource("Gradient_xxegj")
+gradient = ExtResource("1_wl54h")
 width = 1
 height = 128
 fill_from = Vector2(1, 1)
