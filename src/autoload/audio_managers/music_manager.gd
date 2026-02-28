@@ -1,9 +1,6 @@
 extends AudioStreamPlayer
 ## A manager for playing music during runtime.
 
-func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_ALWAYS
-
 ## Play the given music stream at the specified volume.
 ## If the given music is already playing, do nothing.
 ## If the given music is not already playing, crossfade to the given music.

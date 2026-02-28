@@ -4,9 +4,6 @@ extends AudioStreamPlayer
 ## The currently playing ambiance.
 var current_ambiance: Ambiance
 
-func _ready() -> void:
-	process_mode = Node.PROCESS_MODE_ALWAYS
-
 #Plays ambiance and one off sounds in the game's background
 func _play_ambiance(new_ambiance: Ambiance, new_volume: float = 0.0) -> void:
 	# If the provided ambiance is already playing, do nothing.
