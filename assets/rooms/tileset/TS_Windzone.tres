@@ -23,19 +23,12 @@ tile_data = PackedInt32Array(0, 2, 196608, 3, 2, 196608, 6, 2, 196608, 9, 2, 196
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_qatvt"]
 scenes/0/scene = ExtResource("1_qf811")
-scenes/0/display_placeholder = ExtResource("1_qf811")
 scenes/1/scene = ExtResource("2_qxv7r")
-scenes/1/display_placeholder = ExtResource("2_qxv7r")
 scenes/2/scene = ExtResource("1_v611a")
-scenes/2/display_placeholder = ExtResource("1_v611a")
 scenes/3/scene = ExtResource("3_pttxk")
-scenes/3/display_placeholder = ExtResource("3_pttxk")
 scenes/4/scene = ExtResource("5_22um8")
-scenes/4/display_placeholder = ExtResource("5_22um8")
 scenes/5/scene = ExtResource("6_1lkw5")
-scenes/5/display_placeholder = ExtResource("6_1lkw5")
 scenes/6/scene = ExtResource("7_22um8")
-scenes/6/display_placeholder = ExtResource("7_22um8")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v611a"]
 texture = ExtResource("1_cx8v8")

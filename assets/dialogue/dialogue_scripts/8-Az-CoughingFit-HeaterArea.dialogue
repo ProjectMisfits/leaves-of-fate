@@ -1,18 +1,18 @@
 ~ start
-# Make Fenn face correct direction - "left" or "right"
-# do CutsceneManager.player_face("")
+do CutsceneManager.player_face("right")
+do CameraManager.create_camera(Vector2(4032.0,600), 0.5, 1.5, "CUBIC", "EASE_IN_OUT")
 Az: Heads up, kid. [do! CutsceneManager.play_sound("Cough")][i]cough[/i] I just reached the [color="0B4F4A"]Den[/color]. It's [i]freezing[/i] in here.
-Az: I'll- [wait=0.3][do! CutsceneManager.play_sound("Cough")][i]cough[/i] I'll see you when you get back. [do! CutsceneManager.play_sound("Cough")][i]cough [do! CutsceneManager.play_sound("Cough")]cough[/i]
+Az: I'll- [wait=0.3][do! CutsceneManager.play_sound("Cough")][i]cough[/i] I'll see you when you get back. [do! CutsceneManager.play_sound("Cough")][i]cough.[/i]
 Fenn: Yay! [wave freq=7 amp=20][color="B80006"]Big lady[/color] made it![/wave]
-Az: [do! CutsceneManager.play_sound("Cough")][i]cough[/i] Don't call me that. [do! CutsceneManager.play_sound("Cough")][i]cough [do! CutsceneManager.play_sound("Cough")]cough[/i]
+Az: [do! CutsceneManager.play_sound("Cough")][i]cough[/i] Don't call me that. [do! CutsceneManager.play_sound("Cough")][i]cough.[/i]
 do! MusicManager._fade_out()
 Fenn worry: Are you okay?
-Az: Yeah, I'm- [wait=0.3][do! CutsceneManager.play_sound("Cough")][i]cough [do! CutsceneManager.play_sound("Cough")]cough[/i]
+Az: Yeah, I'm- [wait=0.3][do! CutsceneManager.play_sound("Cough")][i]cough[wait=0.3] [do! CutsceneManager.play_sound("Cough")]cough[/i]
 Fenn worry: Az?
 Az annoy: I'm fi- [wait=0.3][do! CutsceneManager.play_sound("Cough")][i]cough[/i]
 sound of Az falling to the ground
 Fenn worry: Az, what's happening?
-Az annoy: [do! CutsceneManager.play_sound("Cough")][i]cough [do! CutsceneManager.play_sound("Cough")]cough[/i]. I'm fine![wait=0.3] [do! CutsceneManager.play_sound("Cough")][i]cough[/i] [font_size=60]I'm FINE![/font_size]
+Az annoy: [do! CutsceneManager.play_sound("Cough")][i]cough.[/i] I'm fine![wait=0.3] [do! CutsceneManager.play_sound("Cough")][i]cough[/i] [font_size=60]I'm FINE![/font_size]
 Az annoy: [do! CutsceneManager.play_sound("Cough")][i]cough[/i]. Go on ahead. [do! CutsceneManager.play_sound("Cough")][i]cough[/i]. I'll be fine.
 Fenn worry: Okay...
 do! MusicManager._fade_in()
