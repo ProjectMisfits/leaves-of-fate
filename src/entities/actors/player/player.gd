@@ -88,15 +88,9 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 ## different animations depending on the Player's state.
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-## AnimationPlayer with an "invincibility" modulation animation.
-## Plays on repeat until stopped manually.
-@onready var invincibility_animation_player: AnimationPlayer = $InvincibilityAnimationPlayer
 
 ## While active, the Player is invincible & cannot be damaged normally.
 @onready var invincibility_timer: Timer = $InvincibilityTimer
-
-##Footstep delay
-@onready var foot_step_timer :Timer = $FootStepTimer
 
 ## Reference to the Player's Meter Cooldown Timer.
 ## While active, the Player cannot Leaf Dash.
@@ -147,6 +141,12 @@ var dash_cooldown_queued: bool = false
 @onready var leaf_enter_audio: AudioStreamPlayer2D = $Audio/LeafEnter
 @onready var leaf_exit_audio: AudioStreamPlayer2D = $Audio/LeafExit
 
+##Player death particles
+@onready var death_particles: GPUParticles2D = $SpawnAndDeathParticles/LeafDeathParticle
+
+##Player spawn particles
+@onready var spawn_particles: GPUParticles2D = $SpawnAndDeathParticles/LeafRespawnParticle
+
 var look_direction: float = 1.0	## The direction the Player is looking. < 0 is left, >= 0 is right.
 var jump_queued: bool = false	## If True, the user queued a jump which will trigger immediately when the Player lands on the ground.
 var leaf_meter: float = 100.0		## How much wind the Player currently has.
@@ -195,6 +195,7 @@ func _ready() -> void:
 	# Connect cutscenes to Player.
 	CutsceneManager.cutscene_started.connect(_on_cutscene_started)
 	CutsceneManager.cutscene_ended.connect(_on_cutscene_ended)
+
 
 ## Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
@@ -486,8 +487,10 @@ func knock_out() -> void:
 	# Prevent repeat knockouts
 	if not invincible:
 		freeze()
-		invincibility_animation_player.play("hit_invincibility")
-		await invincibility_animation_player.animation_finished
+		flip_node.visible = false
+		death_particles.emitting = true
+		await death_particles.finished
+
 		EventBus.player_knocked_out.emit()
 
 ## Disable player input, disable player physics movement, and enable invincibility.
@@ -512,7 +515,7 @@ func start_invincibility(time: float) -> void:
 	
 	invincible = true
 	invincibility_timer.start(time)
-	invincibility_animation_player.play(&"hit_invincibility")
+
 
 ## Run once the Invincibility Timer ends.
 ## Ends the Player's invincibility.
@@ -522,7 +525,7 @@ func _end_invincibility() -> void:
 		return
 	
 	invincible = false
-	invincibility_animation_player.stop()
+
 
 ## Sets the Player's current Leaf Meter & updates the Leaf Meter UI.
 func set_leaf_meter(new_leaf_meter: float) -> void:
@@ -624,9 +627,9 @@ func set_look(face_axis: float) -> void:
 func get_eye_position() -> Vector2:
 	return %EyeMarker.global_position;
 
-func _on_foot_step_timer_timeout() -> void:
-	can_play_footstep = true
-
 ## Re-enable Leaf Dash, max out Leaf Meter, and dequeue the dash cooldown.
 func _on_meter_cooldown_timer_timeout() -> void:
 	set_leaf_meter(100.0)	# Fully recharge Leaf Meter
+	
+func play_spawn_particles()-> void:
+	spawn_particles.emitting = true
