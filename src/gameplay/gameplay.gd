@@ -58,6 +58,7 @@ func _tear_down_room() -> void:
 
 ## Set up a room after a swap.
 func _init_room(init_player_location: Vector2) -> void:
+	
 	# Connect room signals for rooms that don't have them connected yet
 	if not current_room.swap_room.is_connected(_on_swap_room):
 		current_room.swap_room.connect(_on_swap_room)
@@ -88,6 +89,7 @@ func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
 	# Wait a frame and then finish the screen transition.
 	await get_tree().process_frame
 	await SceneManager.remove_screen_transition(_get_player_pos())
+	
 	current_room.player.unfreeze()
 
 ## When the player is knocked out, reset the room and put the player at their last spawn location.
@@ -99,6 +101,7 @@ func _on_player_knocked_out() -> void:
 	# Update the current room
 	current_room = room_holder.get_child(-1) as Room
 	_init_room(player_spawn_location)
+	current_room.player.play_spawn_particles()
 	# Wait a frame and then finish the screen transition.
 	await get_tree().process_frame
 	await SceneManager.remove_screen_transition(_get_player_pos())
