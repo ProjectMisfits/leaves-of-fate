@@ -33,31 +33,27 @@ func _input(event: InputEvent) -> void:
 		# If something can be grabbed, grab it.
 		if highlighted_grabbable and can_grab:
 			current_grab = highlighted_grabbable
-			current_grab.grab_highlight.hide()
 			current_grab.trigger()
+			highlighted_grabbable.grab_highlight.hide()
+			highlighted_grabbable = null
 
 func _process(_delta: float) -> void:
 	if current_grabbables and can_grab:
 		current_grabbables.sort_custom(_sort_by_nearest)
 		# Get the closest enabled grabbable.
 		for grabbable: GrabTrigger in current_grabbables:
-			if grabbable.enabled and grabbable != current_grab:
+			if not grabbable.is_grabbed:
 				highlighted_grabbable = grabbable
 				break
 		
 		# Hide the highlight of any other grabbables.
 		for grabbable: GrabTrigger in current_grabbables:
-			if grabbable != highlighted_grabbable:
+			if grabbable != highlighted_grabbable or grabbable.is_grabbed:
 				grabbable.grab_highlight.hide()
 		
 		# Show the highlight of the closest enabled grabbable.
 		if highlighted_grabbable:
 			highlighted_grabbable.grab_highlight.show()
-	else:
-		# Otherwise hide any grab highlights.
-		if highlighted_grabbable:
-			highlighted_grabbable.grab_highlight.hide()
-			highlighted_grabbable = null
 
 ## Return a boolean representing whether an area is closer to this area than another area.
 func _sort_by_nearest(area1: Area2D, area2: Area2D) -> bool:
