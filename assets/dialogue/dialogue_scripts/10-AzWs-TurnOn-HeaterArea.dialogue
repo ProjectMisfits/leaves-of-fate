@@ -1,12 +1,14 @@
 ~ start
 do! MusicManager._fade_out()
-#do CutsceneManager.npc_move("Fenn", 10112.0, 500, true, false)
-do CameraManager.create_camera(Vector2(10112.0,-2560.0), 0.75, 5, "LINEAR", "EASE_IN_OUT")
+do CutsceneManager.player_face("right")
+do CameraManager.create_camera(Vector2(2700,500),0.75, 1, "CUBIC", "EASE_IN_OUT")
+do CutsceneManager.player_move(9300.0, 1000, true, false)
 do CutsceneManager.fade_to_black()
 #do CutsceneManager.play_sound(Lever)
 #do CutsceneManager.play_sound(FireWhoosh)
-#do CutsceneManager.something -- activate heater
+do EventFlags.set_flag("heater_main_activated", true)
 do CutsceneManager.fade_from_black()
+do CutsceneManager.wait(2)
 Wizard grit: [font_size=100][shake level=10 rate=50]NO WAITETH![/shake][/font_size]
 Az annoy: [font_size=60]Oh [i]COME[/i] on.[/font_size]
 Fenn worry: What happened?

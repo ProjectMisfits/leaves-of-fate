@@ -27,6 +27,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("grab"):
 		# If something is grabbed, release it.
 		if current_grab:
+			EventBus.ungrabbed.emit()
 			current_grab.trigger()
 			current_grab = null
 	
@@ -34,6 +35,7 @@ func _input(event: InputEvent) -> void:
 		if highlighted_grabbable and can_grab:
 			current_grab = highlighted_grabbable
 			current_grab.trigger()
+			EventBus.grabbed.emit()
 			highlighted_grabbable.grab_highlight.hide()
 			highlighted_grabbable = null
 

@@ -1,5 +1,6 @@
 ~ start
 do! MusicManager._fade_out()
+do CutsceneManager.player_face("right")
 do CameraManager.create_camera(Vector2(12500.0,100), 0.7, 1.5, "CUBIC", "EASE_IN_OUT")
 Fenn: Uh... Az?[wait=0.3] There's a big wall of ice in front of the door again.
 Az: Okay, where are you?[wait=0.3] [do! CutsceneManager.play_sound("Cough")][i]cough[/i]. What does the room look like?
