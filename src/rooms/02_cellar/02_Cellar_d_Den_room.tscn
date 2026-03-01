@@ -142,6 +142,9 @@ position = Vector2(15104, 1024)
 door_name = "boss"
 target_door_name = "enter"
 
+[node name="DoorTrigger" parent="MidgroundLayer/DoorHolder/DoorBoss" index="1"]
+required_true_event_flags = Array[String](["heater_boss_activated"])
+
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("9_61b8v")]
 position = Vector2(11885, -860.00006)
 scale = Vector2(10, 60)
@@ -506,6 +509,7 @@ scale = Vector2(0.69399816, 0.69399816)
 
 [node name="InvisibleWall" parent="MidgroundLayer/BackBufferCopy/Ice" index="17" instance=ExtResource("33_yrfw5")]
 position = Vector2(13568, -768)
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="1"]
 shape = SubResource("RectangleShape2D_q0uwv")
@@ -565,3 +569,6 @@ rotation = 3.1415925
 scale = Vector2(42, 64)
 mesh = SubResource("QuadMesh_5us1k")
 texture = SubResource("GradientTexture2D_hnl24")
+
+[editable path="MidgroundLayer/DoorHolder/DoorBoss"]
+[editable path="MidgroundLayer/DoorHolder/DoorBoss/DoorTrigger"]

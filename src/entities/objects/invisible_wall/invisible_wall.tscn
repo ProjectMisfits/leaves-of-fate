@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://blr5ksl5vscmw" path="res://src/components/processing_component.gd" id="2_v6h82"]
 
 [node name="InvisibleWall" type="StaticBody2D"]
+collision_layer = 2
 script = ExtResource("1_fvl6e")
 
 [node name="ProcessingComponent" type="Node" parent="."]
