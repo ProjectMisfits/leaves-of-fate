@@ -1,0 +1,115 @@
+[gd_scene load_steps=18 format=3 uid="uid://bi82gtj7sh5tp"]
+
+[ext_resource type="Texture2D" uid="uid://i71oyk5o8o68" path="res://assets/vfx/particle_effects/WhiteCircle-ParticleAsset-001.png" id="2_r7c2e"]
+
+[sub_resource type="Gradient" id="Gradient_ht6w3"]
+offsets = PackedFloat32Array(0.002754821, 0.09090909, 0.19559228, 1)
+colors = PackedColorArray(1, 1, 1, 0.5372549, 1, 1, 1, 0.9520767, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_r7c2e"]
+gradient = SubResource("Gradient_ht6w3")
+
+[sub_resource type="Curve" id="Curve_oakb0"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0.0015898235, -200), 0.0, 0.0, 0, 0, Vector2(0.10492846, 200), 24.29493, 24.29493, 0, 0, Vector2(0.25119236, -191.65704), 0.0, 0.0, 0, 0, Vector2(0.48330685, 200), 25.60843, 25.60843, 0, 0, Vector2(0.6836248, -200), 0.0, 0.0, 0, 0, Vector2(0.8648649, 200), 0.0, 0.0, 0, 0, Vector2(1, -200), 0.0, 0.0, 0, 0]
+point_count = 7
+
+[sub_resource type="CurveTexture" id="CurveTexture_s50dg"]
+curve = SubResource("Curve_oakb0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2ssen"]
+particle_flag_disable_z = true
+spread = 0.0
+initial_velocity_min = 23.529999
+initial_velocity_max = 84.31
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -17.250002
+tangential_accel_max = 11.769998
+tangential_accel_curve = SubResource("CurveTexture_s50dg")
+scale_min = 4.92
+scale_max = 6.92
+color = Color(1, 0.6, 0, 1)
+color_ramp = SubResource("GradientTexture1D_r7c2e")
+
+[sub_resource type="Curve" id="Curve_0oauk"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5989847, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_8yxdr"]
+curve = SubResource("Curve_0oauk")
+
+[sub_resource type="Gradient" id="Gradient_hcvwn"]
+offsets = PackedFloat32Array(0.002754821, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6amr2"]
+gradient = SubResource("Gradient_hcvwn")
+
+[sub_resource type="Gradient" id="Gradient_4suy2"]
+offsets = PackedFloat32Array(0.002754821, 0.09090909, 0.19559228, 1)
+colors = PackedColorArray(1, 1, 1, 0.5372549, 1, 1, 1, 0.9520767, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7aw6y"]
+gradient = SubResource("Gradient_4suy2")
+
+[sub_resource type="Curve" id="Curve_yek6s"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.28426397, 0.5471698), 0.0, 0.0, 0, 0, Vector2(0.5888325, 0.554717), 0.0, 0.0, 0, 0, Vector2(1, 0.16981137), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_fkl1f"]
+curve = SubResource("Curve_yek6s")
+
+[sub_resource type="Curve" id="Curve_a7pem"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0.0015898235, -200), 0.0, 0.0, 0, 0, Vector2(0.10492846, 200), 24.29493, 24.29493, 0, 0, Vector2(0.25119236, -191.65704), 0.0, 0.0, 0, 0, Vector2(0.48330685, 200), 25.60843, 25.60843, 0, 0, Vector2(0.6836248, -200), 0.0, 0.0, 0, 0, Vector2(0.8648649, 200), 0.0, 0.0, 0, 0, Vector2(1, -200), 0.0, 0.0, 0, 0]
+point_count = 7
+
+[sub_resource type="CurveTexture" id="CurveTexture_ke04u"]
+curve = SubResource("Curve_a7pem")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_b02n7"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(9.85, 1, 1)
+angle_min = -49.99999
+angle_max = 50.00001
+spread = 7.975
+flatness = 1.0
+initial_velocity_min = 815.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -5.000002
+tangential_accel_max = 4.9999976
+tangential_accel_curve = SubResource("CurveTexture_ke04u")
+damping_max = 100.00001
+scale_min = 0.45
+scale_max = 1.75
+scale_curve = SubResource("CurveTexture_fkl1f")
+scale_over_velocity_max = 47.059998
+color = Color(1, 0.53333336, 0, 1)
+color_ramp = SubResource("GradientTexture1D_7aw6y")
+color_initial_ramp = SubResource("GradientTexture1D_6amr2")
+alpha_curve = SubResource("CurveTexture_8yxdr")
+hue_variation_min = -0.010000022
+hue_variation_max = 0.09999997
+turbulence_noise_strength = 20.0
+turbulence_noise_scale = 0.74
+
+[node name="FireBreathParticles" type="Node2D"]
+
+[node name="Embers" type="GPUParticles2D" parent="."]
+position = Vector2(64, 0)
+amount = 5
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_2ssen")
+
+[node name="Flames" type="GPUParticles2D" parent="."]
+amount = 16
+texture = ExtResource("2_r7c2e")
+randomness = 1.0
+local_coords = true
+trail_enabled = true
+trail_lifetime = 1.5
+trail_sections = 5
+trail_section_subdivisions = 8
+process_material = SubResource("ParticleProcessMaterial_b02n7")
