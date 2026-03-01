@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://78p4lxwgdq5n"]
+[gd_scene load_steps=61 format=4 uid="uid://78p4lxwgdq5n"]
 
 [ext_resource type="TileSet" uid="uid://i6wi7xcus3i" path="res://assets/rooms/tileset/TS_Cellar.tres" id="1_4keto"]
 [ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="2_1o4i6"]
@@ -58,6 +58,7 @@
 [ext_resource type="PackedScene" uid="uid://cctsnqs8u4udu" path="res://src/entities/decor/furniture/wine_shelf.tscn" id="57_77ohs"]
 [ext_resource type="PackedScene" uid="uid://b4g11emjnj7h" path="res://src/entities/decor/snow/snow_pile.tscn" id="57_shf66"]
 [ext_resource type="PackedScene" uid="uid://diwms7rfs40dk" path="res://src/entities/decor/snow/snow_rodent.tscn" id="58_8ja73"]
+[ext_resource type="PackedScene" uid="uid://c567nmtkfbfn4" path="res://src/entities/objects/heater_lever/heater_lever.tscn" id="59_shf66"]
 
 [sub_resource type="Curve2D" id="Curve2D_503cj"]
 resource_local_to_scene = true
@@ -250,3 +251,6 @@ position = Vector2(-1408, 576)
 
 [node name="SnowRodent" parent="." instance=ExtResource("58_8ja73")]
 position = Vector2(-512, 576)
+
+[node name="HeaterLever" parent="." instance=ExtResource("59_shf66")]
+position = Vector2(3008, -128)
