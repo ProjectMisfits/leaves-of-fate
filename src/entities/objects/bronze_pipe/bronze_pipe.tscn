@@ -15,6 +15,7 @@ point_count = 2
 z_index = 1
 z_as_relative = false
 script = ExtResource("1_u0ny2")
+player_input_delay = 0.2
 
 [node name="BronzePipeTrigger" parent="." instance=ExtResource("2_8gm2e")]
 
@@ -56,4 +57,10 @@ position = Vector2(0, 100)
 update_rotation = false
 update_scale = false
 
+[node name="PlayerUnfreeze" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.1
+one_shot = true
+
 [connection signal="pipe_entered" from="BronzePipeTrigger" to="." method="_enter_pipe"]
+[connection signal="timeout" from="PlayerUnfreeze" to="." method="_on_player_unfreeze_timeout"]

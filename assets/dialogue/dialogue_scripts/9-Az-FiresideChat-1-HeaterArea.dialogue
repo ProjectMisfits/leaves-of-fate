@@ -1,6 +1,7 @@
 ~ start
 do! MusicManager._fade_out()
-do CameraManager.create_camera(Vector2(3072.0, 300.0), 0.75, 2, "CUBIC", "EASE_IN_OUT")
+do CutsceneManager.player_face("right")
+do CameraManager.create_camera(Vector2(2700,500),0.75, 1, "CUBIC", "EASE_IN_OUT")
 Fenn: Hey Az! Are you there?
 Az: Yeah. [i]sigh[/i][wait=0.3] Still stuck... 
 Az: 'Sup?

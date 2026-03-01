@@ -6,6 +6,7 @@ signal pipe_entered(pipe_enterer: Player)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	init_trigger()
 	_on_trigger = _enter_pipe
 
 ## Begin sending the player through the bronze pipe.

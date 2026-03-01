@@ -4,6 +4,7 @@
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
 [ext_resource type="Script" uid="uid://bar0unkhcpu3a" path="res://src/entities/actors/player/states/player_idle.gd" id="3_a1k00"]
 [ext_resource type="Shape2D" uid="uid://7p0hecb5yu7t" path="res://src/entities/actors/player/player_collision_shape.tres" id="3_e5ptp"]
+[ext_resource type="PackedScene" uid="uid://d4k216trrf235" path="res://src/vfx/particle_effects/leaf_respawn_particle.tscn" id="3_kbb1d"]
 [ext_resource type="Script" uid="uid://dr4cwnspn2mf2" path="res://src/entities/actors/player/states/player_running.gd" id="4_7gsup"]
 [ext_resource type="Material" uid="uid://bv8rolwolipyw" path="res://src/vfx/shaders/RimLitPlayer.tres" id="5_e5ptp"]
 [ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="5_lynpt"]
@@ -22,6 +23,7 @@
 [ext_resource type="JSON" uid="uid://ctjfhxb7akvyx" path="res://src/entities/actors/player/footstep_dictionaries/player_footstep_data.tres" id="12_e5ptp"]
 [ext_resource type="Script" uid="uid://cq2g2o708n5hl" path="res://src/entities/actors/player/footstep_component.gd" id="13_s1o6p"]
 [ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/vfx/particle_effects/wind_particles.tscn" id="14_7j1dl"]
+[ext_resource type="PackedScene" uid="uid://cpp5w8yc6jxm8" path="res://src/vfx/particle_effects/leaf_death_particle.tscn" id="16_6i2kk"]
 [ext_resource type="AudioStream" uid="uid://dimhdiv10a08t" path="res://assets/entities/actors/player/player_audio/PH-leaf-enter.ogg" id="17_iloh8"]
 [ext_resource type="AudioStream" uid="uid://dxmm31nsgmehb" path="res://assets/entities/actors/player/player_audio/PH-leaf-exit.ogg" id="18_283t5"]
 [ext_resource type="Texture2D" uid="uid://jvsobi5gw7di" path="res://assets/entities/actors/player/TEMP-fenn-jump-spritesheet.png" id="18_s3rhx"]
@@ -605,26 +607,6 @@ _data = {
 &"player_walk_cycle": SubResource("Animation_efl0v")
 }
 
-[sub_resource type="Animation" id="Animation_e5ptp"]
-resource_name = "hit_invincibility"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.1254902), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_s1o6p"]
-_data = {
-&"hit_invincibility": SubResource("Animation_e5ptp")
-}
-
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 134
 script = ExtResource("1_npkjl")
@@ -729,6 +711,14 @@ sound_dictionary = ExtResource("12_e5ptp")
 [node name="Marker2D" type="Marker2D" parent="FlipNode/FootstepComponent"]
 position = Vector2(0, 259)
 
+[node name="SpawnAndDeathParticles" type="Node2D" parent="."]
+
+[node name="LeafRespawnParticle" parent="SpawnAndDeathParticles" instance=ExtResource("3_kbb1d")]
+position = Vector2(0, -240)
+
+[node name="LeafDeathParticle" parent="SpawnAndDeathParticles" instance=ExtResource("16_6i2kk")]
+position = Vector2(0, -243)
+
 [node name="LimboHSM" type="LimboHSM" parent="."]
 
 [node name="Idle" type="LimboState" parent="LimboHSM"]
@@ -757,11 +747,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_8ihyl")
 }
 
-[node name="InvincibilityAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_s1o6p")
-}
-
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="LeafEnter" type="AudioStreamPlayer2D" parent="Audio"]
@@ -781,9 +766,6 @@ bus = &"SFX"
 [node name="InvincibilityTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="FootStepTimer" type="Timer" parent="."]
-one_shot = true
-
 [node name="MeterCooldownTimer" type="Timer" parent="."]
 one_shot = true
 
@@ -798,5 +780,4 @@ one_shot = true
 [connection signal="hurt" from="FlipNode/HurtComponent" to="." method="knock_out"]
 [connection signal="body_entered" from="FlipNode/HurtComponent/HurtArea" to="FlipNode/HurtComponent" method="_on_hurt_area_body_entered"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_end_invincibility"]
-[connection signal="timeout" from="FootStepTimer" to="." method="_on_foot_step_timer_timeout"]
 [connection signal="timeout" from="MeterCooldownTimer" to="." method="_on_meter_cooldown_timer_timeout"]

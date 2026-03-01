@@ -18,6 +18,7 @@ class_name CameraTrigger extends PlayerEnterTrigger
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	init_trigger()
 	EventBus.camera_change.connect(reset_camera_priority)
 	_on_trigger = _change_camera
 

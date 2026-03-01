@@ -1,5 +1,6 @@
 ~ start
 do! MusicManager._fade_out()
+do CutsceneManager.player_face("right")
 do CameraManager.create_camera(Vector2(3072.0, 100.0), 1.0, 2, "CUBIC", "EASE_IN_OUT")
 Az laugh: [font_size=70]Fenn!! [wave freq=7 amp=30]You did it![/wave][/font_size]
 Fenn: Are you guys okay?
@@ -52,6 +53,7 @@ do EventFlags.set_flag("15-AzWs-ReachSafety-GreatHall", true)
 
 
 ~ breakseal
+do CutsceneManager.player_face("left")
 do! MusicManager._fade_out()
 do CameraManager.create_camera(Vector2(10112.0, -2000), 1.0, 2, "CUBIC", "EASE_IN_OUT")
 do CutsceneManager.create_npc("Az", Vector2(9300.0,-1152.0))
@@ -62,7 +64,7 @@ Fenn: [wave freq=7 amp=30]I'm here![/wave]
 Az: Alright, get to it, nerd.
 do CutsceneManager.fade_to_black()
 #do CutsceneManager.play_sound("Icy magic")
-do CutsceneManager.fade_to_black()
+do CutsceneManager.fade_from_black()
 Winston: All done!
 Winston awkward: Though... tis not much help without the other [color="8A0194"]Wizards[/color].
 Fenn: Where could I find them?
