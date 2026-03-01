@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://f2l3hfy6ehdh"]
+[gd_scene load_steps=32 format=4 uid="uid://f2l3hfy6ehdh"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_upsp8"]
 [ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_6fjcw"]
@@ -11,10 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://c0e5ya2ej5avs" path="res://src/entities/decor/furniture/bookshelf.tscn" id="8_4wlxj"]
 [ext_resource type="PackedScene" uid="uid://d2w50ptxgmhj4" path="res://src/entities/objects/doors/door_grate.tscn" id="8_6fjcw"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="10_q30p6"]
-[ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="11_masfk"]
+[ext_resource type="Script" uid="uid://blr5ksl5vscmw" path="res://src/components/processing_component.gd" id="12_1ppdk"]
 [ext_resource type="PackedScene" uid="uid://cctsnqs8u4udu" path="res://src/entities/decor/furniture/wine_shelf.tscn" id="12_3mpay"]
 [ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="13_6woac"]
 [ext_resource type="PackedScene" uid="uid://dejfbk3ejdidx" path="res://src/entities/decor/food/wine_bottle.tscn" id="13_20bw3"]
+[ext_resource type="PackedScene" uid="uid://c3tlgyxe8lbtu" path="res://src/entities/objects/invisible_wall/invisible_wall.tscn" id="14_6fjcw"]
 [ext_resource type="PackedScene" uid="uid://deu2abme5ohr7" path="res://src/entities/decor/food/boar_head.tscn" id="14_017wk"]
 [ext_resource type="PackedScene" uid="uid://bgncdkpxeluh4" path="res://src/entities/triggers/interact_trigger/dialogue_trigger/dialogue_trigger.tscn" id="14_gpuhd"]
 [ext_resource type="Resource" uid="uid://ykutm1ovfjr3" path="res://assets/dialogue/dialogue_scripts/X-Az-Filler-Pantry.dialogue" id="15_1ppdk"]
@@ -30,8 +31,8 @@
 [ext_resource type="PackedScene" uid="uid://do1txexpwjmqq" path="res://src/entities/decor/ice/icicle_03.tscn" id="30_1ppdk"]
 [ext_resource type="PackedScene" uid="uid://cvkclb0u7opsh" path="res://src/entities/decor/ice/icicle_01.tscn" id="31_6fjcw"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8h18"]
-size = Vector2(800, 3200)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fjcw"]
+size = Vector2(896, 2560)
 
 [node name="02_Cellar_b_Pantry" instance=ExtResource("1_upsp8")]
 
@@ -133,6 +134,8 @@ target_room_path = "uid://dgnt3sjnoumv3"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(14848, 1024)
+door_name = "fake"
+target_door_name = "fake"
 
 [node name="DoorGrate" parent="MidgroundLayer/DoorHolder" index="2" instance=ExtResource("8_6fjcw")]
 position = Vector2(19456, 3072)
@@ -140,33 +143,17 @@ target_room_path = "uid://7yrsxlkres1e"
 door_name = "exit"
 target_door_name = "enter"
 
-[node name="IceSpikeBall" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("11_masfk")]
-position = Vector2(12544, -1152)
-scale = Vector2(2, 2)
-
-[node name="IceSpikeBall-2" parent="MidgroundLayer/Entities/Hazards" index="1" instance=ExtResource("11_masfk")]
-position = Vector2(12608, -1920)
-scale = Vector2(2, 2)
-
-[node name="IceSpikeBall-3" parent="MidgroundLayer/Entities/Hazards" index="2" instance=ExtResource("11_masfk")]
-position = Vector2(13120, -1472)
-scale = Vector2(2, 2)
-
-[node name="PlayerStopper" type="StaticBody2D" parent="MidgroundLayer/Entities/Hazards" index="3"]
-position = Vector2(-113, 0)
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MidgroundLayer/Entities/Hazards/PlayerStopper" index="0"]
-position = Vector2(12864, -448)
-shape = SubResource("RectangleShape2D_a8h18")
-
 [node name="NpcAz" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("13_6woac")]
 position = Vector2(5380, 685)
 
 [node name="DialogueTrigger" parent="MidgroundLayer/Entities/NPCs/NpcAz" index="3" instance=ExtResource("14_gpuhd")]
 dialogue_sequence = ExtResource("15_1ppdk")
-repeatable = true
 required_true_event_flags = Array[String](["3-Az-Stuck-Pantry"])
+
+[node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcAz" index="5"]
+script = ExtResource("12_1ppdk")
+required_false_event_flags = Array[String](["4-Az-BangleTalk-CellarGeneral"])
+metadata/_custom_type_script = "uid://blr5ksl5vscmw"
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("15_q7bjq")]
 position = Vector2(4550, -594)
@@ -449,57 +436,78 @@ position = Vector2(16068, -3174)
 [node name="ScalyMeat-12" parent="MidgroundLayer/Decor" index="89" instance=ExtResource("18_0060p")]
 position = Vector2(16160, -3430)
 
-[node name="Icicle06-3" parent="MidgroundLayer/Decor" index="90" instance=ExtResource("27_6woac")]
-position = Vector2(13107.001, -1515.0001)
+[node name="InvisibleWall" parent="MidgroundLayer/BackBufferCopy/Ice" index="0" instance=ExtResource("14_6fjcw")]
+position = Vector2(12864, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="1"]
+shape = SubResource("RectangleShape2D_6fjcw")
+
+[node name="Icicle06-3" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="2" instance=ExtResource("27_6woac")]
+position = Vector2(243.00098, -1515.0001)
 rotation = -2.9505222
 scale = Vector2(3.0000002, 3.0000002)
 
-[node name="Icicle05" parent="MidgroundLayer/Decor" index="91" instance=ExtResource("27_q7bjq")]
-position = Vector2(12902, 998.0001)
+[node name="Icicle05" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="3" instance=ExtResource("27_q7bjq")]
+position = Vector2(38, 998.0001)
 rotation = -0.12816004
 scale = Vector2(3, 3)
 
-[node name="Icicle06" parent="MidgroundLayer/Decor" index="92" instance=ExtResource("27_6woac")]
-position = Vector2(12608, 1024)
+[node name="Icicle06" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="4" instance=ExtResource("27_6woac")]
+position = Vector2(-256, 1024)
 rotation = -0.05747667
 scale = Vector2(2, 2)
 
-[node name="Icicle06-2" parent="MidgroundLayer/Decor" index="93" instance=ExtResource("27_6woac")]
-position = Vector2(13055.001, 1018)
-rotation = 0.13082145
+[node name="Icicle06-2" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="5" instance=ExtResource("27_6woac")]
+position = Vector2(191.00098, 1018)
+rotation = 0.13082147
 scale = Vector2(2.5, 2.5)
 
-[node name="Icicle03" parent="MidgroundLayer/Decor" index="94" instance=ExtResource("30_1ppdk")]
-position = Vector2(13286, 572.9999)
+[node name="Icicle03" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="6" instance=ExtResource("30_1ppdk")]
+position = Vector2(422, 572.9999)
 rotation = 0.38853264
 scale = Vector2(2, 2)
 
-[node name="IceSpikeBall" parent="MidgroundLayer/Decor" index="95" instance=ExtResource("29_gpuhd")]
-position = Vector2(13162, 658)
-rotation = -0.26569894
-scale = Vector2(2, 2)
+[node name="Icicle05-2" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="7" instance=ExtResource("27_q7bjq")]
+position = Vector2(-191.99902, -1600)
+rotation = -3.0807257
+scale = Vector2(1.9999999, 1.9999999)
 
-[node name="IceSpikeBall-2" parent="MidgroundLayer/Decor" index="96" instance=ExtResource("29_gpuhd")]
-position = Vector2(12864, 1216.0002)
-rotation = -0.26569894
-scale = Vector2(2, 2)
-
-[node name="Icicle05-2" parent="MidgroundLayer/Decor" index="97" instance=ExtResource("27_q7bjq")]
-position = Vector2(12636.999, -1461.0002)
-rotation = 3.3783832
-scale = Vector2(2, 2)
-
-[node name="Icicle03-2" parent="MidgroundLayer/Decor" index="98" instance=ExtResource("30_1ppdk")]
-position = Vector2(13139.999, -1429.0002)
+[node name="Icicle03-2" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="8" instance=ExtResource("30_1ppdk")]
+position = Vector2(275.99902, -1429.0002)
 rotation = 2.9935427
-scale = Vector2(3, 3)
+scale = Vector2(2.9999998, 2.9999998)
 
-[node name="Icicle01" parent="MidgroundLayer/Decor" index="99" instance=ExtResource("31_6fjcw")]
-position = Vector2(12406.999, 1023)
+[node name="Icicle01" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="9" instance=ExtResource("31_6fjcw")]
+position = Vector2(-457.00098, 1023)
 rotation = -0.16316333
 scale = Vector2(2, 2)
 
-[node name="Icicle01-2" parent="MidgroundLayer/Decor" index="100" instance=ExtResource("31_6fjcw")]
-position = Vector2(12384.001, -862.0005)
-rotation = -2.573743
+[node name="Icicle01-2" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="10" instance=ExtResource("31_6fjcw")]
+position = Vector2(-384, -1023.9993)
+rotation = -2.775874
 scale = Vector2(2, 2)
+
+[node name="IceSpikeBall-8" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="11" instance=ExtResource("29_gpuhd")]
+position = Vector2(-192, -1664.0001)
+rotation = -0.26569897
+scale = Vector2(1.6667445, 1.6667445)
+
+[node name="IceSpikeBall-6" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="12" instance=ExtResource("29_gpuhd")]
+position = Vector2(320, -1472)
+rotation = -0.26569897
+scale = Vector2(2, 2)
+
+[node name="IceSpikeBall-4" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="13" instance=ExtResource("29_gpuhd")]
+position = Vector2(320, 704.00024)
+rotation = -0.26569894
+scale = Vector2(2, 2)
+
+[node name="IceSpikeBall-5" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="14" instance=ExtResource("29_gpuhd")]
+position = Vector2(-128, 1024.0004)
+rotation = -0.26569894
+scale = Vector2(1.5907707, 1.5907707)
+
+[node name="IceSpikeBall-7" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="15" instance=ExtResource("29_gpuhd")]
+position = Vector2(-192.00098, -1087.9998)
+rotation = -0.26569897
+scale = Vector2(1.3080915, 1.3080915)

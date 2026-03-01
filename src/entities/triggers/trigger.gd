@@ -18,7 +18,7 @@ func init_trigger() -> void:
 	# Check event flags to set this trigger's enabled variable
 	_update_enabled()
 	# Update this trigger's enabled state whenever an event flag changes
-	EventFlags.flag_updated.connect(_update_enabled.unbind(1))
+	EventFlags.flag_updated.connect(_update_enabled.unbind(2))
 
 ## Update this trigger's enabled state.
 func _update_enabled() -> void:

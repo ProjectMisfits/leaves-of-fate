@@ -1,19 +1,76 @@
-[gd_scene load_steps=5 format=3 uid="uid://c567nmtkfbfn4"]
+[gd_scene load_steps=9 format=3 uid="uid://c567nmtkfbfn4"]
 
 [ext_resource type="Script" uid="uid://c662ihbmtaqfh" path="res://src/entities/objects/heater_lever/heater_lever.gd" id="1_57hib"]
 [ext_resource type="PackedScene" uid="uid://xrrmak07aeag" path="res://src/entities/triggers/interact_trigger/object_trigger/object_trigger.tscn" id="1_llhun"]
-[ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="2_erdux"]
-[ext_resource type="Material" uid="uid://dbrwefsv6hrsv" path="res://src/vfx/shaders/RimLit.tres" id="2_f41fd"]
+[ext_resource type="Texture2D" uid="uid://bih5jkhvlnbg1" path="res://assets/entities/objects/heater_lever/heater_lever_circle_01.png" id="4_80wpe"]
+[ext_resource type="Texture2D" uid="uid://rdr0b53w7hfo" path="res://assets/entities/objects/heater_lever/heater_lever_base_01.png" id="5_80wpe"]
+[ext_resource type="Texture2D" uid="uid://dc8i7lyfp0prb" path="res://assets/entities/objects/heater_lever/heater_lever_handle_01.png" id="5_r68sj"]
+
+[sub_resource type="Animation" id="Animation_80wpe"]
+resource_name = "turn_lever"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HandlePivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668, 0.4, 0.6, 0.8, 0.93333334, 1.4),
+"transitions": PackedFloat32Array(1.5, 1.5, 0.5, 5, 1, 2.5, 2.5),
+"update": 0,
+"values": [0.0, -0.3490658503988659, -0.3490658503988659, -0.2617993877991494, -0.3490658503988659, -0.3490658503988659, 1.5707963267948966]
+}
+
+[sub_resource type="Animation" id="Animation_r68sj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HandlePivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r68sj"]
+_data = {
+&"RESET": SubResource("Animation_r68sj"),
+&"turn_lever": SubResource("Animation_80wpe")
+}
 
 [node name="HeaterLever" type="Node2D"]
 z_as_relative = false
 script = ExtResource("1_57hib")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = ExtResource("2_f41fd")
-position = Vector2(0, -64)
-texture = ExtResource("2_erdux")
-
 [node name="ObjectTrigger" parent="." instance=ExtResource("1_llhun")]
 position = Vector2(0, -64)
 new_flag_value = true
+
+[node name="HandlePivot" type="Node2D" parent="."]
+position = Vector2(0, -93)
+
+[node name="HeaterLeverHandle01" type="Sprite2D" parent="HandlePivot"]
+position = Vector2(-40, -280)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_r68sj")
+
+[node name="HeaterLeverCircle01" type="Sprite2D" parent="."]
+position = Vector2(0, -300)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_80wpe")
+
+[node name="HeaterLeverBase01" type="Sprite2D" parent="."]
+position = Vector2(0, -300)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_80wpe")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_r68sj")
+}
