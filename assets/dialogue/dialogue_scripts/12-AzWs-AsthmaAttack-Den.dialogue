@@ -1,5 +1,6 @@
 ~ start
 do! MusicManager._fade_out()
+do CutsceneManager.player_face("right")
 do CutsceneManager.create_npc("Az", Vector2(11000.0,1024.0))
 do CameraManager.create_camera(Vector2(12500.0,100), 0.75, 1.5, "CUBIC", "EASE_IN_OUT")
 Winston hood: [speed=0.7][wave freq=7 amp=30]Come on, [i]Az[/i].[/wave] It can not be [i]that[/i] hard to melteth a little ice.

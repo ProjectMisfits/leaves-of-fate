@@ -1,5 +1,6 @@
 ~ start
 do! MusicManager._fade_out()
+do CutsceneManager.player_face("right")
 do CameraManager.create_camera(Vector2(5000,600), 0.75, 2.0, "CUBIC", "EASE_IN_OUT")
 Fenn starry: [wave freq=7 amp=30]Hello again![/wave]
 do CutsceneManager.npc_face("Az","left")
