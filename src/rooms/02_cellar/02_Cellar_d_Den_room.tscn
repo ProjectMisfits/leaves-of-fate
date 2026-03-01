@@ -1,7 +1,7 @@
 [gd_scene load_steps=40 format=4 uid="uid://bdbuuoljlim4f"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_q0uwv"]
-[ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_yrfw5"]
+[ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_normal.tres" id="2_yrfw5"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_vf2dd"]
 [ext_resource type="PackedScene" uid="uid://b6p26modf3ljr" path="res://src/entities/decor/furniture/window_01.tscn" id="4_1i7cl"]
 [ext_resource type="PackedScene" uid="uid://dggdoj1nhnb1j" path="res://src/entities/decor/furniture/window_02.tscn" id="5_rl2ph"]
@@ -34,7 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://cbyoyss1vo43o" path="res://src/entities/decor/ice/ice_spike_ball.tscn" id="33_q0uwv"]
 [ext_resource type="PackedScene" uid="uid://c3tlgyxe8lbtu" path="res://src/entities/objects/invisible_wall/invisible_wall.tscn" id="33_yrfw5"]
 [ext_resource type="PackedScene" uid="uid://cu30a4y6b243q" path="res://src/entities/objects/doors/door_boss.tscn" id="34_yrfw5"]
-[ext_resource type="Texture2D" uid="uid://48x0nrpho68" path="res://assets/rooms/backgrounds/bg_den_gradient2.tres" id="35_vf2dd"]
+[ext_resource type="Texture2D" uid="uid://48x0nrpho68" path="res://assets/rooms/backgrounds/bg_den_dark.tres" id="35_vf2dd"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5us1k"]
 size = Vector2(128, 128)
