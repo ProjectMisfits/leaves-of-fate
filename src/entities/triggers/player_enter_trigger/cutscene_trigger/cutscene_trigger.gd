@@ -11,6 +11,7 @@ class_name CutsceneTrigger extends PlayerEnterTrigger
 var cutscene_active: bool = false
 
 func _ready() -> void:
+	init_trigger()
 	_on_trigger = _start_cutscene
 	DialogueManager.dialogue_ended.connect(_end_cutscene.unbind(1))
 

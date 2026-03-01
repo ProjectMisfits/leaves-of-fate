@@ -5,6 +5,7 @@ class_name DoorTrigger extends InteractTrigger
 signal door_trigger_activated
 
 func _ready() -> void:
+	init_trigger()
 	interact_prompt = $InteractPrompt
 	_on_trigger = _enter_door
 

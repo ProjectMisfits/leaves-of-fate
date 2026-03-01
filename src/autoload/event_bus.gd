@@ -13,6 +13,12 @@ signal frequency_change(new_freqeuncy : int)
 ## Signal triggered when the player is knocked out.
 signal player_knocked_out
 
+##Signal for when anything is grabbed
+signal grabbed
+
+##Signal for when anything is ungrabbed
+signal ungrabbed
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 

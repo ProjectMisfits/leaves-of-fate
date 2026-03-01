@@ -8,6 +8,7 @@ class_name EventTrigger extends PlayerEnterTrigger
 @export var new_value: bool = false
 
 func _ready() -> void:
+	init_trigger()
 	_on_trigger = _update_flag
 
 ## Update the event flag with the new value.

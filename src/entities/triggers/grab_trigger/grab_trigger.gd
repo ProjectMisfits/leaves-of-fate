@@ -8,6 +8,7 @@ var is_grabbed: bool = false
 @onready var grab_highlight: Control
 
 func _ready() -> void:
+	init_trigger()
 	grab_highlight = $GrabHighlight
 	_on_trigger = _on_grab
 
