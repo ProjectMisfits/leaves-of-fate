@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://f2l3hfy6ehdh"]
+[gd_scene load_steps=35 format=4 uid="uid://f2l3hfy6ehdh"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_upsp8"]
 [ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_6fjcw"]
@@ -33,6 +33,16 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6fjcw"]
 size = Vector2(896, 2560)
+
+[sub_resource type="QuadMesh" id="QuadMesh_1ppdk"]
+size = Vector2(128, 128)
+
+[sub_resource type="Gradient" id="Gradient_0clmk"]
+offsets = PackedFloat32Array(0, 0.33333334, 0.42083332, 0.5083333, 0.59791666, 0.73333335, 0.87291664, 0.96458334, 1)
+colors = PackedColorArray(0.14509805, 0.15686275, 0.1882353, 1, 0.14535548, 0.15714104, 0.18856926, 1.0017742, 0.14536308, 0.15714759, 0.18858078, 0.9937076, 0.14539097, 0.15717158, 0.18862303, 0.96413016, 0.14547656, 0.15724519, 0.1887527, 0.8733416, 0.14567189, 0.15741317, 0.18904857, 0.6661768, 0.14591178, 0.15761948, 0.18941197, 0.4117342, 0.14616655, 0.15783857, 0.18979786, 0.14153367, 0.14629999, 0.15795332, 0.19, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6fjcw"]
+gradient = SubResource("Gradient_0clmk")
 
 [node name="02_Cellar_b_Pantry" instance=ExtResource("1_upsp8")]
 
@@ -116,7 +126,7 @@ position = Vector2(9216, -512)
 position = Vector2(7168, -3584)
 
 [node name="Window04" parent="BackgroundLayer/Decor" index="19" instance=ExtResource("6_3hm1j")]
-position = Vector2(11264, -3072)
+position = Vector2(11292.632, -2973.6843)
 
 [node name="DustLayer" parent="BackgroundLayer" index="2"]
 position = Vector2(-128, -8448)
@@ -561,3 +571,12 @@ scale = Vector2(1.3080915, 1.3080915)
 position = Vector2(-332.00003, -2254)
 rotation = -0.26569897
 scale = Vector2(1.3080915, 1.3080915)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="25"]
+light_mask = 0
+z_index = 5
+position = Vector2(1705.3805, -1792)
+rotation = 3.1415927
+scale = Vector2(52.212353, 51.976692)
+mesh = SubResource("QuadMesh_1ppdk")
+texture = SubResource("GradientTexture2D_6fjcw")
