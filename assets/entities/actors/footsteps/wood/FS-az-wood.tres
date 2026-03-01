@@ -1,10 +1,10 @@
-[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://wbwwq2nc0a8k"]
+[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://cbd7c36arx6tx"]
 
-[ext_resource type="AudioStream" uid="uid://c5xl41wjsekp5" path="res://assets/entities/actors/footsteps/wood/FS-Az-Wood-01.ogg" id="1_gmyf8"]
-[ext_resource type="AudioStream" uid="uid://c0ax5m1ncxgq1" path="res://assets/entities/actors/footsteps/wood/FS-Az-Wood-02.ogg" id="2_2b2sm"]
-[ext_resource type="AudioStream" uid="uid://dclmdhot6cgc7" path="res://assets/entities/actors/footsteps/wood/FS-Az-Wood-03.ogg" id="3_jip4a"]
-[ext_resource type="AudioStream" uid="uid://dqsuelpobejt0" path="res://assets/entities/actors/footsteps/wood/FS-Az-Wood-04.ogg" id="4_p1dlf"]
-[ext_resource type="AudioStream" uid="uid://cmut8285bdhug" path="res://assets/entities/actors/footsteps/wood/FS-Az-Wood-05.ogg" id="5_ui6fv"]
+[ext_resource type="AudioStream" uid="uid://jkj52jkng711" path="res://assets/entities/actors/footsteps/wood/FS-Az-Wood-01.ogg" id="1_gmyf8"]
+[ext_resource type="AudioStream" uid="uid://c68ymm38em5lr" path="res://assets/entities/actors/footsteps/wood/FS-Az-Wood-02.ogg" id="2_2b2sm"]
+[ext_resource type="AudioStream" uid="uid://c5vn203fyvtxj" path="res://assets/entities/actors/footsteps/wood/FS-Az-Wood-03.ogg" id="3_jip4a"]
+[ext_resource type="AudioStream" uid="uid://b76ce37f5i7r1" path="res://assets/entities/actors/footsteps/wood/FS-Az-Wood-04.ogg" id="4_p1dlf"]
+[ext_resource type="AudioStream" uid="uid://b2ohfs5lclfuf" path="res://assets/entities/actors/footsteps/wood/FS-Az-Wood-05.ogg" id="5_ui6fv"]
 
 [resource]
 random_pitch = 1.2

@@ -1,10 +1,10 @@
 [gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://fb8ste3ccl4q"]
 
-[ext_resource type="AudioStream" uid="uid://dbcuc8nmmcgo7" path="res://assets/entities/actors/footsteps/stone/FS-Winston-Stone-01.ogg" id="1_nsxx8"]
-[ext_resource type="AudioStream" uid="uid://buytisi0l0t4q" path="res://assets/entities/actors/footsteps/stone/FS-Winston-Stone-02.ogg" id="2_qswsa"]
-[ext_resource type="AudioStream" uid="uid://bg151jjfp403h" path="res://assets/entities/actors/footsteps/stone/FS-Winston-Stone-03.ogg" id="3_wa1pt"]
-[ext_resource type="AudioStream" uid="uid://6knplg411p0c" path="res://assets/entities/actors/footsteps/stone/FS-Winston-Stone-04.ogg" id="4_etq7q"]
-[ext_resource type="AudioStream" uid="uid://cbj2h37dg6spj" path="res://assets/entities/actors/footsteps/stone/FS-Winston-Stone-05.ogg" id="5_kecyw"]
+[ext_resource type="AudioStream" uid="uid://0trgwrfkw1g6" path="res://assets/entities/actors/footsteps/stone/FS-Winston-Stone-01.ogg" id="1_nsxx8"]
+[ext_resource type="AudioStream" uid="uid://ce3jmd8pi6fbg" path="res://assets/entities/actors/footsteps/stone/FS-Winston-Stone-02.ogg" id="2_qswsa"]
+[ext_resource type="AudioStream" uid="uid://dj8bt13u2cebt" path="res://assets/entities/actors/footsteps/stone/FS-Winston-Stone-03.ogg" id="3_wa1pt"]
+[ext_resource type="AudioStream" uid="uid://cdi6qg0gutsdb" path="res://assets/entities/actors/footsteps/stone/FS-Winston-Stone-04.ogg" id="4_etq7q"]
+[ext_resource type="AudioStream" uid="uid://by8xkoaspxomu" path="res://assets/entities/actors/footsteps/stone/FS-Winston-Stone-05.ogg" id="5_kecyw"]
 
 [resource]
 random_pitch = 1.2

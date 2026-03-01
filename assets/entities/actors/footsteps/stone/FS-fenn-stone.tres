@@ -1,10 +1,10 @@
-[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://ca5i8864h7llp"]
+[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://dbpwya0ie831a"]
 
-[ext_resource type="AudioStream" uid="uid://cot8ohsirf4vj" path="res://assets/entities/actors/footsteps/stone/FS-Fenn-Stone-01.ogg" id="1_q2uqs"]
-[ext_resource type="AudioStream" uid="uid://cuk285j7sd74n" path="res://assets/entities/actors/footsteps/stone/FS-Fenn-Stone-02.ogg" id="2_5t05g"]
-[ext_resource type="AudioStream" uid="uid://db8csd6luvwke" path="res://assets/entities/actors/footsteps/stone/FS-Fenn-Stone-03.ogg" id="3_woc1e"]
-[ext_resource type="AudioStream" uid="uid://3i6vpol5gh3f" path="res://assets/entities/actors/footsteps/stone/FS-Fenn-Stone-04.ogg" id="4_iinmx"]
-[ext_resource type="AudioStream" uid="uid://daa8hjnr25353" path="res://assets/entities/actors/footsteps/stone/FS-Fenn-Stone-05.ogg" id="5_wphd7"]
+[ext_resource type="AudioStream" uid="uid://lhbs81f5gn7t" path="res://assets/entities/actors/footsteps/stone/FS-Fenn-Stone-01.ogg" id="1_q2uqs"]
+[ext_resource type="AudioStream" uid="uid://cg1oyljn4ssmx" path="res://assets/entities/actors/footsteps/stone/FS-Fenn-Stone-02.ogg" id="2_5t05g"]
+[ext_resource type="AudioStream" uid="uid://cfbwvor5u4blx" path="res://assets/entities/actors/footsteps/stone/FS-Fenn-Stone-03.ogg" id="3_woc1e"]
+[ext_resource type="AudioStream" uid="uid://cfb8sbsodrfau" path="res://assets/entities/actors/footsteps/stone/FS-Fenn-Stone-04.ogg" id="4_iinmx"]
+[ext_resource type="AudioStream" uid="uid://vqm3j0233ln4" path="res://assets/entities/actors/footsteps/stone/FS-Fenn-Stone-05.ogg" id="5_wphd7"]
 
 [resource]
 random_pitch = 1.2

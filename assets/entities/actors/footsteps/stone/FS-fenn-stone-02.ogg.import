@@ -2,13 +2,13 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://cuk285j7sd74n"
-path="res://.godot/imported/FS-fenn-stone-02.ogg-e952a00168ab15e2dbb060efaaaf3744.oggvorbisstr"
+uid="uid://cg1oyljn4ssmx"
+path="res://.godot/imported/FS-Fenn-Stone-02.ogg-0896d22bd08b50c6529221045c49ff52.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/entities/actors/footsteps/stone/FS-fenn-stone-02.ogg"
-dest_files=["res://.godot/imported/FS-fenn-stone-02.ogg-e952a00168ab15e2dbb060efaaaf3744.oggvorbisstr"]
+source_file="res://assets/entities/actors/footsteps/stone/FS-Fenn-Stone-02.ogg"
+dest_files=["res://.godot/imported/FS-Fenn-Stone-02.ogg-0896d22bd08b50c6529221045c49ff52.oggvorbisstr"]
 
 [params]
 

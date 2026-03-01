@@ -1,10 +1,10 @@
 [gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://bq8anbnm348k0"]
 
-[ext_resource type="AudioStream" uid="uid://c2qa55iepnm3q" path="res://assets/entities/actors/footsteps/wood/FS-Winston-Wood-01.ogg" id="1_x6yxu"]
-[ext_resource type="AudioStream" uid="uid://dbdoc63rivq27" path="res://assets/entities/actors/footsteps/wood/FS-Winston-Wood-02.ogg" id="2_b7yex"]
-[ext_resource type="AudioStream" uid="uid://br1la5wsnrdcl" path="res://assets/entities/actors/footsteps/wood/FS-Winston-Wood-03.ogg" id="3_byr5b"]
-[ext_resource type="AudioStream" uid="uid://dghbhq7q1cg3b" path="res://assets/entities/actors/footsteps/wood/FS-Winston-Wood-04.ogg" id="4_cgqxr"]
-[ext_resource type="AudioStream" uid="uid://onm2tuf2dbrc" path="res://assets/entities/actors/footsteps/wood/FS-Fenn-Wood-05.ogg" id="5_2016i"]
+[ext_resource type="AudioStream" uid="uid://cxb4gl5n763gy" path="res://assets/entities/actors/footsteps/wood/FS-Winston-Wood-01.ogg" id="1_x6yxu"]
+[ext_resource type="AudioStream" uid="uid://dkiufa0upoysn" path="res://assets/entities/actors/footsteps/wood/FS-Winston-Wood-02.ogg" id="2_b7yex"]
+[ext_resource type="AudioStream" uid="uid://c1wnfsuutd0j4" path="res://assets/entities/actors/footsteps/wood/FS-Winston-Wood-03.ogg" id="3_byr5b"]
+[ext_resource type="AudioStream" uid="uid://do71iakduectc" path="res://assets/entities/actors/footsteps/wood/FS-Winston-Wood-04.ogg" id="4_cgqxr"]
+[ext_resource type="AudioStream" uid="uid://78uxwjqme6hi" path="res://assets/entities/actors/footsteps/wood/FS-Winston-Wood-05.ogg" id="5_2016i"]
 
 [resource]
 random_pitch = 1.2

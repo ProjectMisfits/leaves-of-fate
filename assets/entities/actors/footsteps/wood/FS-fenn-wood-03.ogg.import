@@ -2,13 +2,13 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://cnqotfh4c4ern"
-path="res://.godot/imported/FS-fenn-wood-03.ogg-320c7cdc487ef6f0c0a5007a352518d4.oggvorbisstr"
+uid="uid://cqt4ps74pv5t4"
+path="res://.godot/imported/FS-Fenn-Wood-03.ogg-6c8e7661cc8a1427989a0e9e200382a3.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/entities/actors/footsteps/wood/FS-fenn-wood-03.ogg"
-dest_files=["res://.godot/imported/FS-fenn-wood-03.ogg-320c7cdc487ef6f0c0a5007a352518d4.oggvorbisstr"]
+source_file="res://assets/entities/actors/footsteps/wood/FS-Fenn-Wood-03.ogg"
+dest_files=["res://.godot/imported/FS-Fenn-Wood-03.ogg-6c8e7661cc8a1427989a0e9e200382a3.oggvorbisstr"]
 
 [params]
 
