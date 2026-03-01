@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://bdbuuoljlim4f"]
+[gd_scene load_steps=40 format=4 uid="uid://bdbuuoljlim4f"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_q0uwv"]
 [ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_yrfw5"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://cbyoyss1vo43o" path="res://src/entities/decor/ice/ice_spike_ball.tscn" id="33_q0uwv"]
 [ext_resource type="PackedScene" uid="uid://c3tlgyxe8lbtu" path="res://src/entities/objects/invisible_wall/invisible_wall.tscn" id="33_yrfw5"]
 [ext_resource type="PackedScene" uid="uid://cu30a4y6b243q" path="res://src/entities/objects/doors/door_boss.tscn" id="34_yrfw5"]
+[ext_resource type="Texture2D" uid="uid://48x0nrpho68" path="res://assets/rooms/backgrounds/bg_den_gradient2.tres" id="35_vf2dd"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5us1k"]
 size = Vector2(128, 128)
@@ -507,7 +508,31 @@ position = Vector2(12736, -4416)
 position = Vector2(12480.001, -3584.0002)
 scale = Vector2(0.69399816, 0.69399816)
 
-[node name="InvisibleWall" parent="MidgroundLayer/BackBufferCopy/Ice" index="17" instance=ExtResource("33_yrfw5")]
+[node name="Icicle06-2" parent="MidgroundLayer/BackBufferCopy/Ice" index="17" instance=ExtResource("13_ill31")]
+position = Vector2(13566, -3116.0005)
+rotation = -2.8782394
+scale = Vector2(2.9999998, 2.9999998)
+
+[node name="Icicle04" parent="MidgroundLayer/BackBufferCopy/Ice" index="18" instance=ExtResource("15_em3mf")]
+position = Vector2(13481, -2340.0005)
+rotation = -2.9495597
+scale = Vector2(3, 3)
+
+[node name="Icicle06-3" parent="MidgroundLayer/BackBufferCopy/Ice" index="19" instance=ExtResource("13_ill31")]
+position = Vector2(13958.001, -3173)
+rotation = -2.9978132
+scale = Vector2(4, 4)
+
+[node name="Icicle02-2" parent="MidgroundLayer/BackBufferCopy/Ice" index="20" instance=ExtResource("14_qoph1")]
+position = Vector2(13260, -2450)
+rotation = -2.71513
+scale = Vector2(3, 3)
+
+[node name="IceSpikeBall-37" parent="MidgroundLayer/BackBufferCopy/Ice" index="21" instance=ExtResource("33_q0uwv")]
+position = Vector2(13696, -2752)
+scale = Vector2(4.25, 4.25)
+
+[node name="InvisibleWall" parent="MidgroundLayer/BackBufferCopy/Ice" index="22" instance=ExtResource("33_yrfw5")]
 position = Vector2(13568, -768)
 collision_layer = 3
 
@@ -528,45 +553,28 @@ position = Vector2(-533.99805, 1797.0001)
 rotation = -0.12901968
 scale = Vector2(2.9999998, 2.9999998)
 
-[node name="Icicle06-2" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="5" instance=ExtResource("13_ill31")]
-position = Vector2(-2, -2348.0005)
-rotation = -2.8782394
-scale = Vector2(2.9999998, 2.9999998)
-
-[node name="Icicle04" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="6" instance=ExtResource("15_em3mf")]
-position = Vector2(-87, -1572.0005)
-rotation = -2.9495597
-scale = Vector2(3, 3)
-
-[node name="Icicle06-3" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="7" instance=ExtResource("13_ill31")]
-position = Vector2(390.00098, -2405)
-rotation = -2.9978132
-scale = Vector2(4, 4)
-
-[node name="Icicle06-4" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="8" instance=ExtResource("13_ill31")]
+[node name="Icicle06-4" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="5" instance=ExtResource("13_ill31")]
 position = Vector2(438, 1771)
 rotation = 0.033423726
 scale = Vector2(4, 4)
 
-[node name="Icicle02-2" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="9" instance=ExtResource("14_qoph1")]
-position = Vector2(-308, -1682)
-rotation = -2.71513
-scale = Vector2(3, 3)
-
-[node name="IceSpikeBall-37" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="10" instance=ExtResource("33_q0uwv")]
-position = Vector2(128, -1984)
-scale = Vector2(4.25, 4.25)
-
-[node name="IceSpikeBall-38" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="11" instance=ExtResource("33_q0uwv")]
+[node name="IceSpikeBall-38" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="6" instance=ExtResource("33_q0uwv")]
 position = Vector2(320, 1792)
 scale = Vector2(4.25, 4.25)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="12"]
+[node name="BackgroundGradient-3" type="Sprite2D" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="7"]
+modulate = Color(1, 1, 1, 0.5411765)
+position = Vector2(377.26367, -2330.9475)
+scale = Vector2(4917.896, 36.21052)
+texture = ExtResource("35_vf2dd")
+centered = false
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="8"]
 light_mask = 0
 z_index = 5
-position = Vector2(832, -1280)
+position = Vector2(1984, -1280.0001)
 rotation = 3.1415925
-scale = Vector2(42, 64)
+scale = Vector2(32, 62.772)
 mesh = SubResource("QuadMesh_5us1k")
 texture = SubResource("GradientTexture2D_hnl24")
 

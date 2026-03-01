@@ -442,72 +442,122 @@ position = Vector2(12864, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="1"]
 shape = SubResource("RectangleShape2D_6fjcw")
 
+[node name="Icicle03" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall/CollisionShape2D" index="0" instance=ExtResource("30_1ppdk")]
+position = Vector2(335, 578)
+rotation = 0.38853264
+scale = Vector2(2, 2)
+
 [node name="Icicle06-3" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="2" instance=ExtResource("27_6woac")]
 position = Vector2(243.00098, -1515.0001)
 rotation = -2.9505222
 scale = Vector2(3.0000002, 3.0000002)
 
-[node name="Icicle05" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="3" instance=ExtResource("27_q7bjq")]
+[node name="Icicle05-5" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="3" instance=ExtResource("27_q7bjq")]
+position = Vector2(143, -4198.0005)
+rotation = -3.0791616
+scale = Vector2(3, 3)
+
+[node name="Icicle05" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="4" instance=ExtResource("27_q7bjq")]
 position = Vector2(38, 998.0001)
 rotation = -0.12816004
 scale = Vector2(3, 3)
 
-[node name="Icicle06" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="4" instance=ExtResource("27_6woac")]
+[node name="Icicle05-3" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="5" instance=ExtResource("27_q7bjq")]
+position = Vector2(38, 998.0001)
+rotation = -0.12816004
+scale = Vector2(3, 3)
+
+[node name="Icicle05-6" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="6" instance=ExtResource("27_q7bjq")]
+position = Vector2(-163.9999, -2026.0002)
+rotation = -3.349116
+scale = Vector2(-3, -3)
+
+[node name="Icicle05-4" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="7" instance=ExtResource("27_q7bjq")]
+position = Vector2(325.99997, -1787)
+rotation = -0.065913975
+scale = Vector2(3, 3)
+
+[node name="Icicle06" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="8" instance=ExtResource("27_6woac")]
 position = Vector2(-256, 1024)
 rotation = -0.05747667
 scale = Vector2(2, 2)
 
-[node name="Icicle06-2" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="5" instance=ExtResource("27_6woac")]
+[node name="Icicle06-4" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="9" instance=ExtResource("27_6woac")]
+position = Vector2(-153, -4308)
+rotation = -3.0775728
+scale = Vector2(2, 2)
+
+[node name="Icicle06-2" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="10" instance=ExtResource("27_6woac")]
 position = Vector2(191.00098, 1018)
 rotation = 0.13082147
 scale = Vector2(2.5, 2.5)
 
-[node name="Icicle03" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="6" instance=ExtResource("30_1ppdk")]
-position = Vector2(422, 572.9999)
-rotation = 0.38853264
-scale = Vector2(2, 2)
-
-[node name="Icicle05-2" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="7" instance=ExtResource("27_q7bjq")]
+[node name="Icicle05-2" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="11" instance=ExtResource("27_q7bjq")]
 position = Vector2(-191.99902, -1600)
 rotation = -3.0807257
 scale = Vector2(1.9999999, 1.9999999)
 
-[node name="Icicle03-2" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="8" instance=ExtResource("30_1ppdk")]
+[node name="Icicle03-2" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="12" instance=ExtResource("30_1ppdk")]
 position = Vector2(275.99902, -1429.0002)
 rotation = 2.9935427
 scale = Vector2(2.9999998, 2.9999998)
 
-[node name="Icicle01" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="9" instance=ExtResource("31_6fjcw")]
+[node name="Icicle01" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="13" instance=ExtResource("31_6fjcw")]
 position = Vector2(-457.00098, 1023)
 rotation = -0.16316333
 scale = Vector2(2, 2)
 
-[node name="Icicle01-2" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="10" instance=ExtResource("31_6fjcw")]
+[node name="Icicle01-2" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="14" instance=ExtResource("31_6fjcw")]
 position = Vector2(-384, -1023.9993)
 rotation = -2.775874
 scale = Vector2(2, 2)
 
-[node name="IceSpikeBall-8" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="11" instance=ExtResource("29_gpuhd")]
+[node name="Icicle01-3" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="15" instance=ExtResource("31_6fjcw")]
+position = Vector2(254, -4075)
+rotation = -2.775874
+scale = Vector2(2, 2)
+
+[node name="IceSpikeBall-8" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="16" instance=ExtResource("29_gpuhd")]
 position = Vector2(-192, -1664.0001)
 rotation = -0.26569897
 scale = Vector2(1.6667445, 1.6667445)
 
-[node name="IceSpikeBall-6" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="12" instance=ExtResource("29_gpuhd")]
+[node name="IceSpikeBall-9" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="17" instance=ExtResource("29_gpuhd")]
+position = Vector2(470, -4207)
+rotation = -0.26569897
+scale = Vector2(1.6667445, 1.6667445)
+
+[node name="IceSpikeBall-6" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="18" instance=ExtResource("29_gpuhd")]
 position = Vector2(320, -1472)
 rotation = -0.26569897
 scale = Vector2(2, 2)
 
-[node name="IceSpikeBall-4" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="13" instance=ExtResource("29_gpuhd")]
-position = Vector2(320, 704.00024)
+[node name="IceSpikeBall-4" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="19" instance=ExtResource("29_gpuhd")]
+position = Vector2(523, -2117)
 rotation = -0.26569894
 scale = Vector2(2, 2)
 
-[node name="IceSpikeBall-5" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="14" instance=ExtResource("29_gpuhd")]
+[node name="IceSpikeBall-5" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="20" instance=ExtResource("29_gpuhd")]
 position = Vector2(-128, 1024.0004)
 rotation = -0.26569894
 scale = Vector2(1.5907707, 1.5907707)
 
-[node name="IceSpikeBall-7" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="15" instance=ExtResource("29_gpuhd")]
+[node name="IceSpikeBall-7" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="21" instance=ExtResource("29_gpuhd")]
 position = Vector2(-192.00098, -1087.9998)
+rotation = -0.26569897
+scale = Vector2(1.3080915, 1.3080915)
+
+[node name="IceSpikeBall-10" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="22" instance=ExtResource("29_gpuhd")]
+position = Vector2(-560.0001, -3785.0005)
+rotation = -0.26569897
+scale = Vector2(1.3080915, 1.3080915)
+
+[node name="IceSpikeBall-12" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="23" instance=ExtResource("29_gpuhd")]
+position = Vector2(-249.00012, -4216.0005)
+rotation = -0.26569897
+scale = Vector2(1.3080915, 1.3080915)
+
+[node name="IceSpikeBall-11" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="24" instance=ExtResource("29_gpuhd")]
+position = Vector2(-332.00003, -2254)
 rotation = -0.26569897
 scale = Vector2(1.3080915, 1.3080915)
