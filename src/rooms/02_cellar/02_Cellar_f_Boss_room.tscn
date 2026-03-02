@@ -27,7 +27,7 @@ _data = {
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nekp"]
-size = Vector2(2752.3735, 2575.9414)
+size = Vector2(2752.3735, 752.0342)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qidly"]
 resource_local_to_scene = true
@@ -101,23 +101,24 @@ closed_loop = true
 closed_loop_speed = 0.0
 open_loop_speed_scale = 0.0
 
-[node name="PathFollow2D" parent="MidgroundLayer/Entities/Hazards/MovingPlatform" index="0"]
+[node name="PathFollow2D" parent="MidgroundLayer/Entities/Hazards/MovingPlatform" index="1"]
 position = Vector2(-678.88007, 357.13834)
 rotation = 1.5681368
 progress = 3429.148
 rotates = false
 
-[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Hazards/MovingPlatform" index="1"]
+[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Hazards/MovingPlatform" index="2"]
 position = Vector2(-678.88086, 357.1383)
 rotation = 1.5681368
 
 [node name="CollisionShape2D" parent="MidgroundLayer/Entities/Hazards/MovingPlatform/AnimatableBody2D" index="0"]
-position = Vector2(-1248.187, 407.9414)
+position = Vector2(-1248.188, 413.93164)
 shape = SubResource("RectangleShape2D_8nekp")
 
 [node name="Sprite2D" parent="MidgroundLayer/Entities/Hazards/MovingPlatform/AnimatableBody2D" index="1"]
 position = Vector2(-1240.3108, 390.85583)
-scale = Vector2(21.379856, 20.45649)
+rotation = -3.1415927
+scale = Vector2(3.9040654, 3.8104384)
 
 [node name="GrabTrigger" parent="MidgroundLayer/Entities/Hazards/MovingPlatform" index="3" instance=ExtResource("5_xjfbr")]
 position = Vector2(-2016, -16)

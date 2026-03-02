@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://disa83btdjjsk"]
+[gd_scene load_steps=9 format=3 uid="uid://disa83btdjjsk"]
 
 [ext_resource type="Script" uid="uid://d4ibdtjec2w6g" path="res://src/entities/objects/moving_platform/moving_platform.gd" id="1_wq0hb"]
-[ext_resource type="Texture2D" uid="uid://b8ob51qcjiitv" path="res://icon.svg" id="1_xm0pf"]
+[ext_resource type="Texture2D" uid="uid://cyxkjhxea73su" path="res://assets/entities/objects/moving_platform/moving_platform.png" id="2_it4r1"]
+[ext_resource type="Texture2D" uid="uid://dhi8biynmbdex" path="res://assets/entities/objects/moving_platform/moving_platform_rails_2.png" id="2_kfyx7"]
 
 [sub_resource type="Curve2D" id="Curve2D_bs6ok"]
 resource_local_to_scene = true
@@ -11,7 +12,7 @@ _data = {
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wq0hb"]
-size = Vector2(256, 256)
+size = Vector2(721, 256)
 
 [sub_resource type="Animation" id="Animation_hs6xi"]
 length = 0.001
@@ -57,6 +58,12 @@ script = ExtResource("1_wq0hb")
 closed_loop = false
 paths = [NodePath("PathFollow2D")]
 
+[node name="Line2D" type="Line2D" parent="."]
+texture_repeat = 2
+width = 1600.0
+texture = ExtResource("2_kfyx7")
+texture_mode = 1
+
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 position = Vector2(512, 0)
 progress = 512.0
@@ -69,11 +76,12 @@ position = Vector2(512, 0)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(-5.5, 0)
 shape = SubResource("RectangleShape2D_wq0hb")
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
-scale = Vector2(2, 2)
-texture = ExtResource("1_xm0pf")
+scale = Vector2(1.0048629, 0.9807644)
+texture = ExtResource("2_it4r1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false

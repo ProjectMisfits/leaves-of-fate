@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://cktcwp3gpi773"]
+[gd_scene load_steps=17 format=4 uid="uid://cktcwp3gpi773"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_dwyld"]
 [ext_resource type="PackedScene" uid="uid://cnhvjqd23j3hu" path="res://src/entities/actors/enemies/ice_cube/ice_scream.tscn" id="2_8gb6u"]
@@ -23,30 +23,16 @@ data = {
 [sub_resource type="Curve2D" id="Curve2D_5gyff"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 608, -5312, 0, 0, 0, 0, 560, 2960)
+"points": PackedVector2Array(0, 0, 0, 0, 576, -9008, 0, 0, 0, 0, 560, 2960)
 }
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7o7f2"]
-size = Vector2(256, 256)
+size = Vector2(480.47437, 86.09619)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_avi01"]
 resource_local_to_scene = true
 size = Vector2(320, 5120)
-
-[sub_resource type="Curve2D" id="Curve2D_7o7f2"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 608, -5312, 0, 0, 0, 0, 560, 2960)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_avi01"]
-resource_local_to_scene = true
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 608, -5312, 0, 0, 0, 0, 560, 2960)
-}
-point_count = 2
 
 [sub_resource type="Curve2D" id="Curve2D_a8ai1"]
 resource_local_to_scene = true
@@ -65,7 +51,7 @@ size = Vector2(110064, 5978)
 [node name="Room" instance=ExtResource("1_dwyld")]
 
 [node name="BackgroundGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
-position = Vector2(-875.7894, -4311.579)
+position = Vector2(-1212.6316, -4244.2104)
 scale = Vector2(71545.26, 168.42105)
 
 [node name="Midground" parent="MidgroundLayer" index="0"]
@@ -96,20 +82,26 @@ curve = SubResource("Curve2D_5gyff")
 closed_loop = true
 closed_loop_speed = 0.0
 
-[node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="0"]
-position = Vector2(576.152, 176.47871)
+[node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="1"]
+position = Vector2(566.03046, -1550.7253)
 rotation = 1.5780426
 scale = Vector2(20, 20)
-progress = 5488.5713
+progress = 7457.2915
 rotates = false
 
-[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="1"]
-position = Vector2(576.15234, 176.47852)
+[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="2"]
+position = Vector2(566.0303, -1550.7256)
 rotation = 1.5780426
 scale = Vector2(20, 20)
 
 [node name="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform/AnimatableBody2D" index="0"]
+position = Vector2(-4.904907, 8.146606)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_7o7f2")
+
+[node name="Sprite2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform/AnimatableBody2D" index="1"]
+rotation = -3.1415927
+scale = Vector2(0.6609864, 0.45034966)
 
 [node name="GrabTrigger" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="3" instance=ExtResource("4_5gyff")]
 position = Vector2(-2096, 0)
@@ -118,59 +110,71 @@ position = Vector2(-2096, 0)
 position = Vector2(-48, 320)
 shape = SubResource("RectangleShape2D_avi01")
 
-[node name="MovingPlatform-2" parent="MidgroundLayer/Entities/Objects" index="1" instance=ExtResource("3_8gb6u")]
-position = Vector2(27328, 5808)
-curve = SubResource("Curve2D_7o7f2")
+[node name="MovingPlatform-3" parent="MidgroundLayer/Entities/Objects" index="1" instance=ExtResource("3_8gb6u")]
+position = Vector2(41920, 5808)
+curve = SubResource("Curve2D_5gyff")
 closed_loop = true
 closed_loop_speed = 0.0
 
-[node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-2" index="0"]
-position = Vector2(576.8479, 56.53405)
+[node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-3" index="1"]
+position = Vector2(566.03046, -1550.7253)
 rotation = 1.5780426
 scale = Vector2(20, 20)
-progress = 5368.625
+progress = 7457.2915
 rotates = false
 
-[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-2" index="1"]
-position = Vector2(576.84766, 56.53418)
-rotation = 1.5780426
-scale = Vector2(20, 20)
-
-[node name="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-2/AnimatableBody2D" index="0"]
-shape = SubResource("RectangleShape2D_7o7f2")
-
-[node name="GrabTrigger" parent="MidgroundLayer/Entities/Objects/MovingPlatform-2" index="3" instance=ExtResource("4_5gyff")]
-position = Vector2(-2096, 0)
-
-[node name="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-2/GrabTrigger" index="0"]
-position = Vector2(-48, 320)
-shape = SubResource("RectangleShape2D_avi01")
-
-[node name="MovingPlatform-3" parent="MidgroundLayer/Entities/Objects" index="2" instance=ExtResource("3_8gb6u")]
-position = Vector2(41664, 5808)
-curve = SubResource("Curve2D_avi01")
-closed_loop = true
-closed_loop_speed = 0.0
-
-[node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-3" index="0"]
-position = Vector2(576.8479, 56.53405)
-rotation = 1.5780426
-scale = Vector2(20, 20)
-progress = 5368.625
-rotates = false
-
-[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-3" index="1"]
-position = Vector2(576.84766, 56.53418)
+[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-3" index="2"]
+position = Vector2(566.03125, -1550.7256)
 rotation = 1.5780426
 scale = Vector2(20, 20)
 
 [node name="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-3/AnimatableBody2D" index="0"]
+position = Vector2(-4.904907, 8.146606)
+scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_7o7f2")
+
+[node name="Sprite2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-3/AnimatableBody2D" index="1"]
+rotation = -3.1415927
+scale = Vector2(0.6609864, 0.45034966)
 
 [node name="GrabTrigger" parent="MidgroundLayer/Entities/Objects/MovingPlatform-3" index="3" instance=ExtResource("4_5gyff")]
 position = Vector2(-2096, 0)
 
 [node name="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-3/GrabTrigger" index="0"]
+position = Vector2(-48, 320)
+shape = SubResource("RectangleShape2D_avi01")
+
+[node name="MovingPlatform-2" parent="MidgroundLayer/Entities/Objects" index="2" instance=ExtResource("3_8gb6u")]
+position = Vector2(26752, 5808)
+curve = SubResource("Curve2D_5gyff")
+closed_loop = true
+closed_loop_speed = 0.0
+
+[node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-2" index="1"]
+position = Vector2(566.03046, -1550.7253)
+rotation = 1.5780426
+scale = Vector2(20, 20)
+progress = 7457.2915
+rotates = false
+
+[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-2" index="2"]
+position = Vector2(566.03125, -1550.7256)
+rotation = 1.5780426
+scale = Vector2(20, 20)
+
+[node name="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-2/AnimatableBody2D" index="0"]
+position = Vector2(-4.904907, 8.146606)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_7o7f2")
+
+[node name="Sprite2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-2/AnimatableBody2D" index="1"]
+rotation = -3.1415927
+scale = Vector2(0.6609864, 0.45034966)
+
+[node name="GrabTrigger" parent="MidgroundLayer/Entities/Objects/MovingPlatform-2" index="3" instance=ExtResource("4_5gyff")]
+position = Vector2(-2096, 0)
+
+[node name="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-2/GrabTrigger" index="0"]
 position = Vector2(-48, 320)
 shape = SubResource("RectangleShape2D_avi01")
 
@@ -194,6 +198,7 @@ zoom = Vector2(0.2, 0.2)
 limit_target = NodePath("../Limit")
 
 [node name="Limit" type="CollisionShape2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger" index="2"]
+visible = false
 position = Vector2(48440, 2979)
 shape = SubResource("RectangleShape2D_rljgy")
 
@@ -209,9 +214,9 @@ scale = Vector2(-27.054794, 32.906094)
 
 [editable path="MidgroundLayer/Entities/Objects/MovingPlatform"]
 [editable path="MidgroundLayer/Entities/Objects/MovingPlatform/GrabTrigger"]
-[editable path="MidgroundLayer/Entities/Objects/MovingPlatform-2"]
-[editable path="MidgroundLayer/Entities/Objects/MovingPlatform-2/GrabTrigger"]
 [editable path="MidgroundLayer/Entities/Objects/MovingPlatform-3"]
 [editable path="MidgroundLayer/Entities/Objects/MovingPlatform-3/GrabTrigger"]
+[editable path="MidgroundLayer/Entities/Objects/MovingPlatform-2"]
+[editable path="MidgroundLayer/Entities/Objects/MovingPlatform-2/GrabTrigger"]
 [editable path="MidgroundLayer/Entities/Objects/BronzePipe"]
 [editable path="MidgroundLayer/Entities/Triggers/CameraTrigger"]
