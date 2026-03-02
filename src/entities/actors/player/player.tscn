@@ -28,7 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://dxmm31nsgmehb" path="res://assets/entities/actors/player/player_audio/PH-leaf-exit.ogg" id="18_283t5"]
 [ext_resource type="Texture2D" uid="uid://jvsobi5gw7di" path="res://assets/entities/actors/player/TEMP-fenn-jump-spritesheet.png" id="18_s3rhx"]
 [ext_resource type="Script" uid="uid://cgb4mcjcccxsk" path="res://src/entities/actors/player/states/player_cutscene.gd" id="22_xm3ve"]
-[ext_resource type="AudioStream" uid="uid://ca5i8864h7llp" path="res://assets/entities/actors/footsteps/stone/FS-fenn-stone.tres" id="26_hn11x"]
+[ext_resource type="AudioStream" uid="uid://dbpwya0ie831a" path="res://assets/entities/actors/footsteps/stone/fenn/FS-fenn-stone.tres" id="29_kbb1d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hn11x"]
 radius = 67.0
@@ -758,7 +758,7 @@ stream = ExtResource("18_283t5")
 bus = &"SFX"
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("26_hn11x")
+stream = ExtResource("29_kbb1d")
 volume_db = 6.0
 pitch_scale = 1.5
 bus = &"SFX"

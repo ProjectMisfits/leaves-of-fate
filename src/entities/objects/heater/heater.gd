@@ -14,5 +14,6 @@ func _ready() -> void:
 ## Triggered when an event flag is updated. If the flag indicates that a heater should change state, change the state of this heater to match.
 func _on_event_flag_updated(flag_name: String, flag_value: bool) -> void:
 	if flag_name == heater_name + '_activated' and flag_value and heater_off:
+		await get_tree().create_timer(2).timeout
 		$AnimationPlayer.play(&"heater_on")
 		heater_off = false

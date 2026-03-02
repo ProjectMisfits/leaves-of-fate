@@ -1,15 +1,17 @@
-[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://dcl87q5dnleio"]
+[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://bq8anbnm348k0"]
 
-[ext_resource type="AudioStream" uid="uid://jbk1cd68kcko" path="res://assets/entities/actors/footsteps/wood/winston/FS-winston-wood-01.ogg" id="1_1bk22"]
-[ext_resource type="AudioStream" uid="uid://dhr48fupvq7bf" path="res://assets/entities/actors/footsteps/wood/winston/FS-winston-wood-02.ogg" id="2_vuxjt"]
-[ext_resource type="AudioStream" uid="uid://br7g5nmbp6wcm" path="res://assets/entities/actors/footsteps/wood/winston/FS-winston-wood-03.ogg" id="3_2wl7d"]
-[ext_resource type="AudioStream" uid="uid://clsnu0sd861ka" path="res://assets/entities/actors/footsteps/wood/winston/FS-winston-wood-04.ogg" id="4_d8ldc"]
+[ext_resource type="AudioStream" uid="uid://cxb4gl5n763gy" path="res://assets/entities/actors/footsteps/wood/FS-Winston-Wood-01.ogg" id="1_x6yxu"]
+[ext_resource type="AudioStream" uid="uid://dkiufa0upoysn" path="res://assets/entities/actors/footsteps/wood/FS-Winston-Wood-02.ogg" id="2_b7yex"]
+[ext_resource type="AudioStream" uid="uid://c1wnfsuutd0j4" path="res://assets/entities/actors/footsteps/wood/FS-Winston-Wood-03.ogg" id="3_byr5b"]
+[ext_resource type="AudioStream" uid="uid://do71iakduectc" path="res://assets/entities/actors/footsteps/wood/FS-Winston-Wood-04.ogg" id="4_cgqxr"]
+[ext_resource type="AudioStream" uid="uid://78uxwjqme6hi" path="res://assets/entities/actors/footsteps/wood/FS-Winston-Wood-05.ogg" id="5_2016i"]
 
 [resource]
-random_pitch = 1.5
-random_volume_offset_db = 1.0
-streams_count = 4
-stream_0/stream = ExtResource("1_1bk22")
-stream_1/stream = ExtResource("2_vuxjt")
-stream_2/stream = ExtResource("3_2wl7d")
-stream_3/stream = ExtResource("4_d8ldc")
+random_pitch = 1.2
+random_volume_offset_db = 0.5
+streams_count = 5
+stream_0/stream = ExtResource("1_x6yxu")
+stream_1/stream = ExtResource("2_b7yex")
+stream_2/stream = ExtResource("3_byr5b")
+stream_3/stream = ExtResource("4_cgqxr")
+stream_4/stream = ExtResource("5_2016i")

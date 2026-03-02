@@ -1,18 +1,29 @@
 ~ start
-% [if not EventFlags.get_flag("X-Ws-Cellar-1")] => convo_1
-% [if not EventFlags.get_flag("X-Ws-Cellar-2")] => convo_2
-% [if not EventFlags.get_flag("X-Ws-Cellar-3")] => convo_3
-% [if not EventFlags.get_flag("X-Ws-Cellar-4")] => convo_4
-% [if not EventFlags.get_flag("X-Ws-Cellar-5")] => convo_5
-% [if not EventFlags.get_flag("X-Ws-Cellar-6")] => convo_6
-% [if not EventFlags.get_flag("X-Ws-Cellar-7")] => convo_7
-% [if not EventFlags.get_flag("X-Ws-Cellar-8")] => convo_8
-% [if not EventFlags.get_flag("X-Ws-Cellar-9") and EventFlags.get_flag("X-Ws-Cellar-10")] => convo_9
-% [if not EventFlags.get_flag("X-Ws-Cellar-10")] => convo_10
-% [if not EventFlags.get_flag("X-Ws-Cellar-11")] => convo_11
-% [if EventFlags.num_cellar_conversations == 11] => ending_convo
+if EventFlags.num_cellar_conversations == 0:
+	=> convo_0
+else:
+	% [if not EventFlags.get_flag("X-Ws-Cellar-1")] => convo_1
+	% [if not EventFlags.get_flag("X-Ws-Cellar-2")] => convo_2
+	% [if not EventFlags.get_flag("X-Ws-Cellar-3")] => convo_3
+	% [if not EventFlags.get_flag("X-Ws-Cellar-4")] => convo_4
+	% [if not EventFlags.get_flag("X-Ws-Cellar-5")] => convo_5
+	% [if not EventFlags.get_flag("X-Ws-Cellar-6")] => convo_6
+	% [if not EventFlags.get_flag("X-Ws-Cellar-7")] => convo_7
+	% [if not EventFlags.get_flag("X-Ws-Cellar-8")] => convo_8
+	% [if not EventFlags.get_flag("X-Ws-Cellar-9") and EventFlags.get_flag("X-Ws-Cellar-10")] => convo_9
+	% [if not EventFlags.get_flag("X-Ws-Cellar-10")] => convo_10
+	% [if not EventFlags.get_flag("X-Ws-Cellar-11")] => convo_11
+	% [if EventFlags.num_cellar_conversations == 12] => ending_convo
 => END
 
+~ convo_0
+Fenn: Uhh, [wait=0.3][color="8A0194"]Wizard[/color]?
+Wizard: Oh, [wait=0.3][wave freq=7 amp=25]hello.[/wave] I didst not see thee there.
+Fenn starry: Whatcha doin?
+Wizard grit: [i]Do not mindeth me.[/i] 
+Wizard: I am simply observing your [i]futile[/i] efforts.
+Fenn: Huh. Okay!
+do EventFlags.num_cellar_conversations += 1
 
 ~ convo_1
 Fenn: Hey [color="8A0194"]Wizard man[/color], do you like ice cream?

@@ -11,6 +11,7 @@ data = {
 "13-AzWs-FinalConfrontation-Workshop": false,
 "14-AzWs-TurnOnHeater-Boss-HeaterArea": false,
 "15-AzWs-ReachSafety-GreatHall": false,
+"16-AzWs-BreakSeal-GreatHall": false,
 "2-Ws-Meet-CellarGeneral": false,
 "3-Az-Stuck-Pantry": false,
 "4-Az-BangleTalk-CellarGeneral": false,
@@ -50,5 +51,9 @@ data = {
 "X-Ws-Cellar-9": false,
 "heater_boss_activated": false,
 "heater_main_activated": false,
-"winston_seal_broken": false
+"iceton_released": false,
+"inhaler_available": false,
+"inhaler_retrieved": false,
+"winston_seal_broken": false,
+"workshop_door_melted": false
 }
