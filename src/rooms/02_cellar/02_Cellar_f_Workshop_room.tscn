@@ -93,13 +93,25 @@ position = Vector2(3072, -3264)
 
 [node name="NpcAz" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("4_6gt6j")]
 position = Vector2(-6400, 1024)
+cutscene_puppeted_in = "13-AzWs-FinalConfrontation-Workshop"
 
 [node name="NpcWinston" parent="MidgroundLayer/Entities/NPCs" index="1" instance=ExtResource("5_vvfdw")]
 position = Vector2(4544, 1024)
+cutscene_puppeted_in = "13-AzWs-FinalConfrontation-Workshop"
 
-[node name="NpcIceton" parent="MidgroundLayer/Entities/NPCs" index="2" instance=ExtResource("8_cajgg")]
+[node name="NpcAz-2" parent="MidgroundLayer/Entities/NPCs" index="2" instance=ExtResource("4_6gt6j")]
+position = Vector2(5824, 1024)
+scale = Vector2(-1, 1)
+cutscene_puppeted_in = "15-AzWs-ReachSafety-GreatHall"
+
+[node name="NpcWinston-2" parent="MidgroundLayer/Entities/NPCs" index="3" instance=ExtResource("5_vvfdw")]
+position = Vector2(5376, 1024)
+cutscene_puppeted_in = "15-AzWs-ReachSafety-GreatHall"
+
+[node name="NpcIceton" parent="MidgroundLayer/Entities/NPCs" index="4" instance=ExtResource("8_cajgg")]
 visible = false
-position = Vector2(4224, 1024)
+position = Vector2(3072, 1024)
+cutscene_puppeted_in = "13-AzWs-FinalConfrontation-Workshop"
 
 [node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcIceton" index="4"]
 script = ExtResource("9_3sq04")
@@ -127,12 +139,14 @@ position = Vector2(0, -2363.0771)
 position = Vector2(-3199.9995, 3.8146973e-06)
 scale = Vector2(10, 20)
 dialogue_sequence = ExtResource("7_vvfdw")
+cutscene_flag_name = "13-AzWs-FinalConfrontation-Workshop"
 required_false_event_flags = Array[String](["13-AzWs-FinalConfrontation-Workshop"])
 
 [node name="CutsceneTrigger-2" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("4_6qxje")]
-position = Vector2(4631, 155.00002)
+position = Vector2(4416.0005, 155.00002)
 scale = Vector2(10, 20)
 dialogue_sequence = ExtResource("9_6kule")
+cutscene_flag_name = "15-AzWs-ReachSafety-GreatHall"
 required_false_event_flags = Array[String](["15-AzWs-ReachSafety-GreatHall", "14-AzWs-TurnOnHeater-Boss-HeaterArea"])
 
 [node name="Icicle02" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("11_xvd77")]

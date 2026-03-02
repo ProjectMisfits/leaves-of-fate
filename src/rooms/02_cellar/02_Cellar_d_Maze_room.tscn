@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://eldisqp88aov"]
+[gd_scene load_steps=27 format=4 uid="uid://eldisqp88aov"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_rtqhs"]
 [ext_resource type="PackedScene" uid="uid://cnhvjqd23j3hu" path="res://src/entities/actors/enemies/ice_cube/ice_scream.tscn" id="2_juxpp"]
@@ -107,6 +107,7 @@ scale = Vector2(4.53, 4.53)
 
 [node name="NpcWinston" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("3_hnxfm")]
 position = Vector2(14528, -128)
+cutscene_puppeted_in = "7-Ws-Lost-HeaterArea"
 
 [node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcWinston" index="4"]
 script = ExtResource("4_iibnd")
@@ -212,7 +213,7 @@ position = Vector2(-464, 64)
 shape = SubResource("RectangleShape2D_hwvw2")
 
 [node name="PhantomCamera2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger-2" index="1"]
-position = Vector2(27968, 3868)
+position = Vector2(27952, 3828)
 zoom = Vector2(0.2, 0.2)
 tween_resource = SubResource("Resource_kj4mg")
 limit_target = NodePath("../Limit")
@@ -235,6 +236,7 @@ scale = Vector2(21.962158, 4.1474495)
 position = Vector2(13696, -1344)
 scale = Vector2(10, 25)
 dialogue_sequence = ExtResource("11_7voht")
+cutscene_flag_name = "7-Ws-Lost-HeaterArea"
 required_false_event_flags = Array[String](["7-Ws-Lost-HeaterArea"])
 
 [editable path="MidgroundLayer/Entities/Objects/BronzePipe"]

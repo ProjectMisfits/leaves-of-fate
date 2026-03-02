@@ -42,7 +42,7 @@ Winston: [font_size=80]THUS! WITNESS THE CREATION!![/font_size]
 Winston grit: [font_size=80] OF THE ONE. THE ONLY.[/font_size]
 Winston: [font_size=100][shake level=10 rate=30][i][color="521FA6"]ICETON[/color]!![/i][/shake][/font_size]
 do CutsceneManager.fade_to_black()
-do CutsceneManager.create_npc("Iceton", Vector2(3072,1024))
+#do CutsceneManager.create_npc("Iceton", Vector2(3072,1024))
 do CutsceneManager.npc_face("Iceton", "left")
 do EventFlags.set_flag("iceton_released", true)
 do CutsceneManager.wait(2)

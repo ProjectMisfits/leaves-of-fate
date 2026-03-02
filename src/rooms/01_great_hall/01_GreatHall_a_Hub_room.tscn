@@ -213,11 +213,13 @@ position = Vector2(6336, -768)
 
 [node name="NpcAz-2" parent="MidgroundLayer/Entities/NPCs/SealScene" index="0" instance=ExtResource("9_223xl")]
 position = Vector2(1856, 1664)
+cutscene_puppeted_in = "16-AzWs-BreakSeal-GreatHall"
 
 [node name="NpcWinstonWindow" parent="MidgroundLayer/Entities/NPCs/SealScene" index="1" instance=ExtResource("10_1h37y")]
 position = Vector2(2624, 1664)
 rotation = 3.1415927
 scale = Vector2(-1, -1)
+cutscene_puppeted_in = "16-AzWs-BreakSeal-GreatHall"
 
 [node name="MusicTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("4_tshu8")]
 position = Vector2(-16127.999, 3008)
@@ -236,6 +238,7 @@ position = Vector2(10112, -1599.9999)
 scale = Vector2(15, 50)
 dialogue_sequence = ExtResource("12_7vaf5")
 dialogue_start = "breakseal"
+cutscene_flag_name = "16-AzWs-BreakSeal-GreatHall"
 force_disable = true
 required_true_event_flags = Array[String](["heater_boss_activated", "15-AzWs-ReachSafety-GreatHall"])
 required_false_event_flags = Array[String](["16-AzWs-BreakSeal-GreatHall"])

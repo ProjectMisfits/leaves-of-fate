@@ -57,6 +57,7 @@ target_room_path = "uid://vijrgoilf3vw"
 
 [node name="NpcWinston" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("3_2kose")]
 position = Vector2(5568, 1024)
+cutscene_puppeted_in = "2-Ws-Meet-CellarGeneral"
 
 [node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcWinston" index="4"]
 script = ExtResource("5_e8f4w")
@@ -67,6 +68,7 @@ metadata/_custom_type_script = "uid://blr5ksl5vscmw"
 position = Vector2(3971, -748)
 scale = Vector2(20, 60)
 dialogue_sequence = ExtResource("9_cb0av")
+cutscene_flag_name = "2-Ws-Meet-CellarGeneral"
 required_false_event_flags = Array[String](["2-Ws-Meet-CellarGeneral"])
 
 [node name="IceSpikeBall" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("10_g7jrq")]
