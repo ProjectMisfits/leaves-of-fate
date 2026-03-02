@@ -31,6 +31,11 @@ func _enter() -> void:
 	
 	move_direction = get_input_direction()
 	
+	if (move_direction == Vector2.ZERO):
+		move_direction = Vector2.RIGHT * signf(agent.look_direction) # Dash will go in the Player's look direction.
+	
+	input_direction = move_direction
+	
 	# Velocity should be at least the dash min speed, if not more.
 	agent.velocity = move_direction * max(agent.velocity.length(), agent.dash_min_speed)
 	
