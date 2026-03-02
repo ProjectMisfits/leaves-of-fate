@@ -16,8 +16,7 @@ Fenn starry: Nope!
 do CutsceneManager.npc_face("Winston", "left")
 ??? ws grit: [font_size=70][i]No matter.[/i][/font_size] [wait=0.2]I shalt crush thee [shake level=10 rate=30]myself![/shake]
 ??? ws: Not another step, [shake level=10 rate=30][i]pint-size[/i][/shake].
-do CutsceneManager.player_move(3000, 800.0, true, false)
-do CutsceneManager.wait(2)
+Fenn: Or... what?
 ??? ws awkward: Um. Well.
 Fenn: Are you a wizard?
 do EventBus.interrupt_dialogue.emit("0.2")

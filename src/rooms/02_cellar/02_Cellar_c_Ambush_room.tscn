@@ -105,7 +105,7 @@ position = Vector2(19103, 17780)
 scale = Vector2(40, 10)
 dialogue_sequence = ExtResource("10_h5367")
 dialogue_start = "ambushed"
-cutscene_flag_name = "5a-Ws-Ambush-CellarGeneralO"
+cutscene_flag_name = "5a-Ws-Ambush-CellarGeneral"
 required_false_event_flags = Array[String](["5a-Ws-Ambush-CellarGeneral"])
 
 [node name="PillarTrunk04" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("10_7c5gk")]

@@ -153,17 +153,19 @@ _data = {
 }
 
 [node name="NpcAz" instance=ExtResource("1_3e8bs")]
-position = Vector2(0, -352)
 npc_name = "Az"
 walk_animation = "az_walk"
 idle_animation = "az_idle"
+
+[node name="FlipNode" parent="." index="0"]
+position = Vector2(0, -352)
 
 [node name="Sprite2D" parent="FlipNode" index="0"]
 texture = ExtResource("2_0vfkb")
 hframes = 5
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, 13)
+position = Vector2(0, -339)
 shape = ExtResource("3_1o21l")
 
 [node name="AnimationPlayer" parent="." index="2"]
@@ -172,6 +174,7 @@ libraries = {
 }
 
 [node name="Audio" type="Node2D" parent="." index="3"]
+position = Vector2(0, -352)
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="Audio" index="0"]
 stream = ExtResource("5_gdc4j")

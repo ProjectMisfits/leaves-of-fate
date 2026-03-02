@@ -1,9 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://c1jyk251gk2fn"]
+[gd_scene load_steps=9 format=4 uid="uid://c1jyk251gk2fn"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_lnmjv"]
 [ext_resource type="PackedScene" uid="uid://cnkr1x18dvnec" path="res://src/entities/triggers/player_enter_trigger/camera_trigger/camera_trigger.tscn" id="2_qnngj"]
-[ext_resource type="PackedScene" uid="uid://do5hbmjewvamt" path="res://src/entities/triggers/player_enter_trigger/music_trigger/music_trigger.tscn" id="3_0cs7r"]
-[ext_resource type="AudioStream" uid="uid://g8rhgyvprd1c" path="res://assets/audio/music/Cellar-120bpm-4_4-P64b-loop.ogg" id="4_o8vdx"]
 [ext_resource type="PackedScene" uid="uid://b6p26modf3ljr" path="res://src/entities/decor/furniture/window_01.tscn" id="5_qnngj"]
 [ext_resource type="PackedScene" uid="uid://umcnqsgim2kt" path="res://src/entities/decor/pillars/pillar_base_02.tscn" id="6_0cs7r"]
 [ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="7_o8vdx"]
@@ -57,9 +55,6 @@ position = Vector2(3840, 272)
 zoom = Vector2(0.25, 0.25)
 follow_offset = Vector2(1000, -750)
 limit_target = NodePath("../../../../Midground")
-
-[node name="MusicTrigger" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("3_0cs7r")]
-music_track = ExtResource("4_o8vdx")
 
 [node name="PillarTrunk01" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("7_o8vdx")]
 position = Vector2(5632, -320)
