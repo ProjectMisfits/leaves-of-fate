@@ -52,7 +52,7 @@ target_door_name = ""
 position = Vector2(3072, 45580)
 target_room_path = "uid://bohwfv2ojdvd6"
 door_name = "exit"
-target_door_name = "vent"
+target_door_name = "vent2"
 
 [node name="Door" parent="MidgroundLayer/DoorHolder" index="3" instance=ExtResource("3_qolr5")]
 position = Vector2(5760, 23296)
