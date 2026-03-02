@@ -145,6 +145,7 @@ target_door_name = "enter"
 
 [node name="NpcAz" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("9_1i7cl")]
 position = Vector2(11200, 1024)
+cutscene_puppeted_in = "12-AzWs-AsthmaAttack-Den"
 
 [node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcAz" index="4"]
 script = ExtResource("10_rl2ph")
@@ -159,12 +160,14 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(11885, -860.00006)
 scale = Vector2(10, 60)
 dialogue_sequence = ExtResource("10_badnc")
+cutscene_flag_name = "6-AzWs-Arrive-Den"
 required_false_event_flags = Array[String](["6-AzWs-Arrive-Den"])
 
 [node name="CutsceneTrigger-2" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("9_61b8v")]
 position = Vector2(7424, -704)
 scale = Vector2(10, 50)
 dialogue_sequence = ExtResource("11_q0uwv")
+cutscene_flag_name = "12-AzWs-AsthmaAttack-Den"
 required_true_event_flags = Array[String](["heater_main_activated"])
 required_false_event_flags = Array[String](["12-AzWs-AsthmaAttack-Den"])
 
@@ -491,7 +494,6 @@ position = Vector2(13696, -2752)
 scale = Vector2(4.25, 4.25)
 
 [node name="InvisibleWall" parent="MidgroundLayer/BackBufferCopy/Ice" index="5" instance=ExtResource("33_yrfw5")]
-visible = false
 position = Vector2(13568, -768)
 collision_layer = 3
 required_false_event_flags = Array[String](["workshop_door_melted"])

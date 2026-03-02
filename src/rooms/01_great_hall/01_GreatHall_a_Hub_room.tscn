@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://nhuquqglirtf"]
+[gd_scene load_steps=27 format=4 uid="uid://nhuquqglirtf"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_gihvd"]
 [ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="2_0mqie"]
@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://wxvub3svduoi" path="res://src/entities/decor/pillars/arch_round_cracked.tscn" id="12_ouria"]
 [ext_resource type="Resource" uid="uid://vl0c2jy6byw1" path="res://assets/dialogue/dialogue_scripts/X-AzWs-Filler-GreatHall.dialogue" id="12_qfeux"]
 [ext_resource type="PackedScene" uid="uid://1lva6fbgnwyn" path="res://src/entities/decor/pillars/arch_point_smooth.tscn" id="13_8hban"]
-[ext_resource type="Script" uid="uid://blr5ksl5vscmw" path="res://src/components/processing_component.gd" id="13_dn8jt"]
 [ext_resource type="Resource" uid="uid://bg8npse24cjcw" path="res://assets/dialogue/dialogue_scripts/1-Az-Meet-GreatHall.dialogue" id="13_lln1l"]
 [ext_resource type="PackedScene" uid="uid://bdjego1dul8qg" path="res://src/entities/decor/pillars/arch_point_cracked.tscn" id="14_pw5f3"]
 [ext_resource type="PackedScene" uid="uid://byav0yxb067be" path="res://src/entities/decor/furniture/bookshelf_fancy.tscn" id="16_8hban"]
@@ -191,11 +190,7 @@ scale = Vector2(1.5, 1.5)
 
 [node name="NpcAz" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("9_223xl")]
 position = Vector2(35695, 3584)
-
-[node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcAz" index="4"]
-script = ExtResource("13_dn8jt")
-required_false_event_flags = Array[String](["1-Az-Meet-GreatHall"])
-metadata/_custom_type_script = "uid://blr5ksl5vscmw"
+cutscene_puppeted_in = "1-Az-Meet-GreatHall"
 
 [node name="GreatHallFiller" type="Node2D" parent="MidgroundLayer/Entities/NPCs" index="1"]
 
@@ -214,11 +209,6 @@ scale = Vector2(1, -1)
 dialogue_sequence = ExtResource("12_qfeux")
 required_true_event_flags = Array[String](["16-AzWs-BreakSeal-GreatHall"])
 
-[node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/GreatHallFiller" index="3"]
-script = ExtResource("13_dn8jt")
-required_true_event_flags = Array[String](["16-AzWs-BreakSeal-GreatHall"])
-metadata/_custom_type_script = "uid://blr5ksl5vscmw"
-
 [node name="SealScene" type="Node2D" parent="MidgroundLayer/Entities/NPCs" index="2"]
 position = Vector2(6336, -768)
 
@@ -230,12 +220,6 @@ position = Vector2(2624, 1664)
 rotation = 3.1415927
 scale = Vector2(-1, -1)
 
-[node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/SealScene" index="2"]
-script = ExtResource("13_dn8jt")
-required_true_event_flags = Array[String](["heater_boss_activated"])
-required_false_event_flags = Array[String](["16-AzWs-BreakSeal-GreatHall"])
-metadata/_custom_type_script = "uid://blr5ksl5vscmw"
-
 [node name="MusicTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("4_tshu8")]
 position = Vector2(-16127.999, 3008)
 scale = Vector2(10, 10)
@@ -245,6 +229,7 @@ music_track = ExtResource("10_7vaf5")
 position = Vector2(34894, 2077.0002)
 scale = Vector2(10, 40)
 dialogue_sequence = ExtResource("13_lln1l")
+cutscene_flag_name = "1-Az-Meet-GreatHall"
 required_false_event_flags = Array[String](["1-Az-Meet-GreatHall"])
 
 [node name="CutsceneTrigger-2" parent="MidgroundLayer/Entities/Triggers" index="2" instance=ExtResource("12_1h37y")]

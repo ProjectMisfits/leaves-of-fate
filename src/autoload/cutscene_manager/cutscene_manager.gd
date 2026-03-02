@@ -10,6 +10,9 @@ signal cutscene_ended
 ## A signal emitted when an NPC finishes moving.
 signal npc_finished_moving
 
+## The name of the current cutscene's flag.
+var current_cutscene: String = "none"
+
 ## An array containing all npcs in the current room that are available for movement scripting during a cutscene.
 var npcs: Array[NPC]
 
@@ -135,7 +138,6 @@ func change_music(music_file_path: String) -> void:
 
 ## Play the given sound effect during a cutscene.
 func play_sound(sound: String, volume: float = 0.0, pitch_scale : float = 1.0) -> void:
-	
 	var sound_file_path : String
 	match sound:
 		"Cough":
