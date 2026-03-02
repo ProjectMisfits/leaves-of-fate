@@ -72,10 +72,12 @@ func _update(delta: float) -> void:
 	
 	var new_velocity_length: float = agent.velocity.length()
 	
-	if (agent.velocity > agent.dash_max_speed):
+	if (new_velocity_length > agent.dash_max_speed):	# If current velocity is greater than max dash speed...
+		# Apply friction to slow down until the Player reaches the max dash speed.
 		new_velocity_length -= (agent.dash_speed_friction * delta)
 		new_velocity_length = max(new_velocity_length, agent.dash_max_speed)
 	else:
+		# Increase speed & clamp by min & max dash speed.`
 		new_velocity_length += (agent.dash_acceleration * delta)
 		new_velocity_length = clampf(new_velocity_length, agent.dash_min_speed, agent.dash_max_speed)
 	
