@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ckbv0pikghyok" path="res://assets/entities/actors/npcs/npc_az/Az-SpriteSheet-Idle-05.png" id="2_0vfkb"]
 [ext_resource type="Shape2D" uid="uid://dckafgmp1s840" path="res://src/entities/actors/npcs/npc_az/npc_az_collision_shape.tres" id="3_1o21l"]
 [ext_resource type="Texture2D" uid="uid://ca4hv11ak1ro0" path="res://assets/entities/actors/npcs/npc_az/Az-SpriteSheet-Walk-01.png" id="4_xtrrx"]
-[ext_resource type="AudioStream" uid="uid://cwp7al027m2ut" path="res://assets/entities/actors/footsteps/stone/FS-Az-Stone.tres" id="5_gdc4j"]
+[ext_resource type="AudioStream" uid="uid://dntevahm742ig" path="res://assets/entities/actors/footsteps/stone/az/Az_stone_footsteps.tres" id="5_gdc4j"]
 
 [sub_resource type="Animation" id="Animation_1o21l"]
 length = 0.001

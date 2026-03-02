@@ -31,7 +31,7 @@ tile_set = ExtResource("2_f2akb")
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(592, 1024)
-target_room_path = "uid://cadsmfa8k8oaw"
+target_room_path = "uid://dfy2u0fvxy3ph"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(46720, -2944)

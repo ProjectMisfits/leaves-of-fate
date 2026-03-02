@@ -124,10 +124,11 @@ tile_map_data = PackedByteArray("AADx/wgAAAAAAAAAAAD0/wgAAAAAAAAAAAD3/wgAAAAAAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(-1280, 1024)
-target_room_path = "uid://bnp74qqvf06bm"
+target_room_path = "uid://7yrsxlkres1e"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(6399.9995, -4607.9995)
+target_room_path = "uid://dv66q42nkm8hd"
 door_name = "heater01"
 
 [node name="DoorExit-2" parent="MidgroundLayer/DoorHolder" index="2" instance=ExtResource("7_indo2")]

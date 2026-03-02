@@ -63,9 +63,11 @@ tile_map_data = PackedByteArray("AAB0APP/AAAAAAAAAAB2APP/AAAAAAAAAABxAPP/AAAAAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(2048, 1024)
+target_room_path = "uid://dfkg7g02hyrqj"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(12288, 1036)
+target_room_path = "uid://nhuquqglirtf"
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("2_awr3m")]
 position = Vector2(10988, 12.000015)
