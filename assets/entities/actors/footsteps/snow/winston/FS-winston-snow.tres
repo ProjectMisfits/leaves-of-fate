@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://6kqjwgwtj18p"]
+
+[ext_resource type="AudioStream" uid="uid://nj6g0ovojuet" path="res://assets/entities/actors/footsteps/snow/winston/FS-winston-snow-01.ogg" id="1_k0lpq"]
+[ext_resource type="AudioStream" uid="uid://b30ehn7yi04gh" path="res://assets/entities/actors/footsteps/snow/winston/FS-winston-snow-02.ogg" id="2_m63m0"]
+[ext_resource type="AudioStream" uid="uid://qi0thjvxd0ri" path="res://assets/entities/actors/footsteps/snow/winston/FS-winston-snow-03.ogg" id="3_hm5il"]
+[ext_resource type="AudioStream" uid="uid://bjf3sm5mohwln" path="res://assets/entities/actors/footsteps/snow/winston/FS-winston-snow-04.ogg" id="4_ta7qy"]
+
+[resource]
+random_pitch = 1.5
+random_volume_offset_db = 1.0
+streams_count = 4
+stream_0/stream = ExtResource("1_k0lpq")
+stream_1/stream = ExtResource("2_m63m0")
+stream_2/stream = ExtResource("3_hm5il")
+stream_3/stream = ExtResource("4_ta7qy")

@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://56q06njmvu0g"]
+
+[ext_resource type="AudioStream" uid="uid://ckn2b7nnxi5qb" path="res://assets/entities/actors/footsteps/snow/az/FS-az-snow-01.ogg" id="1_7ncw7"]
+[ext_resource type="AudioStream" uid="uid://blnfll50cen1u" path="res://assets/entities/actors/footsteps/snow/az/FS-az-snow-02.ogg" id="2_r517v"]
+[ext_resource type="AudioStream" uid="uid://20cyrsglebvm" path="res://assets/entities/actors/footsteps/snow/az/FS-az-snow-03.ogg" id="3_f72p1"]
+[ext_resource type="AudioStream" uid="uid://bgnohj71rob62" path="res://assets/entities/actors/footsteps/snow/az/FS-az-snow-04.ogg" id="4_u5wfa"]
+
+[resource]
+random_pitch = 1.5
+random_volume_offset_db = 1.0
+streams_count = 4
+stream_0/stream = ExtResource("1_7ncw7")
+stream_1/stream = ExtResource("2_r517v")
+stream_2/stream = ExtResource("3_f72p1")
+stream_3/stream = ExtResource("4_u5wfa")

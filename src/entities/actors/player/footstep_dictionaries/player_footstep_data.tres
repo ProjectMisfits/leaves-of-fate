@@ -1,12 +1,14 @@
-[gd_resource type="JSON" load_steps=3 format=3 uid="uid://ctjfhxb7akvyx"]
+[gd_resource type="JSON" load_steps=5 format=3 uid="uid://ctjfhxb7akvyx"]
 
-[ext_resource type="AudioStream" uid="uid://ca5i8864h7llp" path="res://assets/entities/actors/footsteps/stone/FS-Fenn-Stone.tres" id="1_3cx43"]
-[ext_resource type="AudioStream" uid="uid://cx57acqmjfvf6" path="res://assets/entities/actors/footsteps/wood/FS-Fenn-Wood.tres" id="2_vpwak"]
+[ext_resource type="AudioStream" uid="uid://ca5i8864h7llp" path="res://assets/entities/actors/footsteps/stone/fenn/FS-fenn-stone.tres" id="1_3cx43"]
+[ext_resource type="AudioStream" uid="uid://cx57acqmjfvf6" path="res://assets/entities/actors/footsteps/wood/fenn/FS-fenn-wood.tres" id="2_vpwak"]
+[ext_resource type="AudioStream" uid="uid://clfvlfdw8clgo" path="res://assets/entities/actors/footsteps/snow/fenn/FS-fenn-snow.tres" id="3_qjwnp"]
+[ext_resource type="AudioStream" uid="uid://dxaude3kevxt4" path="res://assets/entities/actors/footsteps/metal/fenn/FS-fenn-metal.tres" id="4_vpwak"]
 
 [resource]
 data = {
-"metal": ExtResource("1_3cx43"),
-"snow": ExtResource("2_vpwak"),
+"metal": ExtResource("4_vpwak"),
+"snow": ExtResource("3_qjwnp"),
 "stone": ExtResource("1_3cx43"),
 "wood": ExtResource("2_vpwak")
 }
