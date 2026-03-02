@@ -9,6 +9,11 @@ class_name ProcessingComponent extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	self.process_mode = Node.PROCESS_MODE_PAUSABLE
+	EventFlags.flag_updated.connect(_on_event_flag_updated.unbind(2))
+
+## Update the component's parent.
+func _on_event_flag_updated() -> void:
 	if _check_event_flags():
 		_enable_entity()
 	else:
