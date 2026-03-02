@@ -49,7 +49,10 @@ _data = {
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gc1fx"]
-size = Vector2(3290.1028, 2575.9414)
+size = Vector2(3290.1028, 832.001)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hnxfm"]
+load_path = "res://.godot/imported/moving_platform.png-65c0b2a937a9af75f0589c9b25cb5b9c.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kj4mg"]
 resource_local_to_scene = true
@@ -154,23 +157,25 @@ closed_loop = true
 closed_loop_speed = 0.0
 open_loop_speed_scale = 0.0
 
-[node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="0"]
+[node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="1"]
 position = Vector2(-681.1311, -489.31555)
 rotation = 1.5681368
 progress = 2582.69
 rotates = false
 
-[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="1"]
+[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="2"]
 position = Vector2(-681.13086, -489.31543)
 rotation = 1.5681368
 
 [node name="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform/AnimatableBody2D" index="0"]
-position = Vector2(-979.32227, 407.94336)
+position = Vector2(-979.32227, 404.46484)
 shape = SubResource("RectangleShape2D_gc1fx")
 
 [node name="Sprite2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform/AnimatableBody2D" index="1"]
 position = Vector2(-962.72876, 390.85583)
-scale = Vector2(25.717075, 20.45649)
+rotation = -3.1415927
+scale = Vector2(4.934989, 4.553378)
+texture = SubResource("CompressedTexture2D_hnxfm")
 
 [node name="GrabTrigger" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="3" instance=ExtResource("5_iibnd")]
 position = Vector2(-2016, -16)
