@@ -31,11 +31,11 @@ tile_set = ExtResource("2_f2akb")
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(592, 1024)
-target_room_path = "uid://cadsmfa8k8oaw"
+target_room_path = "uid://dfy2u0fvxy3ph"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(46720, -2944)
-target_room_path = "uid://br682cbyxg5wr"
+target_room_path = "uid://uyraespn5u1u"
 
 [node name="CameraTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("3_8yqep")]
 position = Vector2(192, 1024)

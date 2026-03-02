@@ -80,6 +80,7 @@ position = Vector2(336, 1008)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(72416, -2560)
+target_room_path = "uid://djl4k6dpqayhm"
 
 [node name="IceScream" parent="MidgroundLayer/Entities/Enemies" index="0" instance=ExtResource("3_jup3c")]
 position = Vector2(45088, -5248)

@@ -133,7 +133,6 @@ tile_map_data = PackedByteArray("AADx/wgAAAAAAAAAAAD0/wgAAAAAAAAAAAD3/wgAAAAAAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(-1280, 1024)
-target_room_path = "uid://bnp74qqvf06bm"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(-8256, 4096)
@@ -141,14 +140,15 @@ door_name = "heater01"
 
 [node name="DoorBoss" parent="MidgroundLayer/DoorHolder" index="2" instance=ExtResource("34_yrfw5")]
 position = Vector2(15104, 1024)
+target_room_path = "uid://bohwfv2ojdvd6"
 door_name = "boss"
 target_door_name = "enter"
 
-[node name="DoorTrigger" parent="MidgroundLayer/DoorHolder/DoorBoss" index="1"]
-required_true_event_flags = Array[String](["heater_boss_activated"])
-
 [node name="DoorGrate" parent="MidgroundLayer/DoorHolder" index="3" instance=ExtResource("8_rl2ph")]
 position = Vector2(8768, -4672)
+target_room_path = "uid://dv66q42nkm8hd"
+door_name = "vent"
+target_door_name = "enter"
 
 [node name="NpcAz" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("9_1i7cl")]
 position = Vector2(11200, 1024)
@@ -182,7 +182,7 @@ position = Vector2(7424, -704)
 scale = Vector2(10, 50)
 dialogue_sequence = ExtResource("11_q0uwv")
 cutscene_flag_name = "12-AzWs-AsthmaAttack-Den"
-force_disable = true
+force_enable = true
 required_true_event_flags = Array[String](["heater_main_activated"])
 required_false_event_flags = Array[String](["12-AzWs-AsthmaAttack-Den"])
 

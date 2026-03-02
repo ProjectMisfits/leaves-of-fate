@@ -149,7 +149,7 @@ target_door_name = "fake"
 
 [node name="DoorGrate" parent="MidgroundLayer/DoorHolder" index="2" instance=ExtResource("8_6fjcw")]
 position = Vector2(19456, 3072)
-target_room_path = "uid://7yrsxlkres1e"
+target_room_path = "uid://pkjr1la7pnrm"
 door_name = "exit"
 target_door_name = "enter"
 
