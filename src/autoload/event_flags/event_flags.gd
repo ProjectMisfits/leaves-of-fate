@@ -6,6 +6,7 @@ signal flag_updated(flag_name: String, value: bool)
 var _database: JSON = null
 var database_path: String = "res://src/autoload/event_flags/event_flags_db.tres"
 var _event_flags: Dictionary[String, bool]
+var first_room_path: String = "res://src/rooms/01_great_hall/01_GreatHall_a_Intro_room.tscn"
 
 var num_den_conversations : int = 0
 var num_great_hall_conversations : int = 0
@@ -53,3 +54,7 @@ func reset_all_flags() -> void:
 	_database = load(database_path)
 	if _database != null:
 		_event_flags.assign(_database.data)
+
+## Set the first room to load when gameplay starts.
+func set_first_room(new_first_room_path: String) -> void:
+	first_room_path = new_first_room_path

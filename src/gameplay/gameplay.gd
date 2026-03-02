@@ -8,9 +8,6 @@ class_name Gameplay extends Node
 @onready var current_room: Room
 ## The path to the current room's file. Used for resetting rooms.
 var current_room_path: String = ""
-
-## The starting room of the game.
-@export_file("*_room.tscn") var first_room_path: String = "res://src/rooms/01_great_hall/01_GreatHall_a_Intro_room.tscn"
 ## Used to make sure the first room setup happens only once.
 var first_setup: bool = true
 
@@ -54,15 +51,12 @@ func _first_room_setup() -> void:
 	if first_setup:
 		first_setup = false
 		# Put the player in the first room.
-		SceneManager.swap_scenes(first_room_path, room_holder, null)
+		SceneManager.swap_scenes(EventFlags.first_room_path, room_holder, null)
 		current_room = room_holder.get_child(0)
+		current_room_path = EventFlags.first_room_path
 		_init_room(current_room.get_door_position('enter'))
 		player_spawn_location = current_room.get_door_position('enter')
 		current_room.player.unfreeze()
-
-## Set the first room to load when gameplay starts.
-func set_first_room(new_first_room_path: String) -> void:
-	first_room_path = new_first_room_path
 
 # Called once every physics tick.
 func _physics_process(_delta: float) -> void:
@@ -107,7 +101,7 @@ func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
 	# Wait a frame and then finish the screen transition.
 	await get_tree().process_frame
 	await SceneManager.remove_screen_transition(_get_player_pos())
-	
+	SaveManager._save_room(target_room_path)
 	current_room.player.unfreeze()
 
 ## When the player is knocked out, reset the room and put the player at their last spawn location.

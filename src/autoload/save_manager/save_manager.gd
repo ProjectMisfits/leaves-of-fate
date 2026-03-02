@@ -26,15 +26,12 @@ func _load_flags() -> void:
 		if parse_result is Dictionary:
 			EventFlags._event_flags.assign(parse_result)
 
-func _load_room() -> String:
+func _load_room() -> void:
 	if FileAccess.file_exists(room_location):
 		var file:FileAccess = FileAccess.open(room_location,FileAccess.READ)
 		var room: String = file.get_as_text()
 		file.close()
-		return room
-	else:
-		return "res://src/ui/intro_letter/intro_letter.tscn"
-
+		EventFlags.set_first_room(room)
 
 func _check_save() -> bool:
 	if FileAccess.file_exists(event_flags_location):
