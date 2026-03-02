@@ -256,6 +256,8 @@ func initialize_state_machine() -> void:
 	#state_machine.add_transition(running_state,piling_state,&"to_piling")
 	
 	# Jumping State
+	state_machine.add_transition(jumping_state,idle_state,&"to_idle")
+	state_machine.add_transition(jumping_state,running_state,&"to_running")
 	state_machine.add_transition(jumping_state,airborne_state,&"to_airborne")
 	state_machine.add_transition(jumping_state,dashing_state,&"to_dashing")
 	#state_machine.add_transition(jumping_state,piling_state,&"to_piling")
