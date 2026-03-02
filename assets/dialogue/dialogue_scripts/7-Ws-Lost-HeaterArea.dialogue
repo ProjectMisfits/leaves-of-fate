@@ -1,24 +1,28 @@
 ~ start
-Fenn: Wizard?
-Wizard: BY POSTLY HEAVEN!
+do! MusicManager._fade_out()
+Fenn: [color="8A0194"]Wizard[/color]?
+Wizard: [font_size=100][shake level=10 rate=50]BY POSTLY HEAVEN![/shake][/font_size]
 Fenn: It's me! Fenn?
-Winston: Oh. Pint-size...
-Fenn: I'm ready for you, Wizard Man! Give me everything you got. I WILL defeat you, this time!
-Wizard: Oh... well... you see...
-Wizard: My tools art in thy workshop. I was out looking for something, and-
-Az: Wait- are you LOST?!
-Wizard: No! NO! I'm not lost! I knoweth my way out of here perfectly fine!
-Wizard: Or... I did.
-Az: HAHA! HAH. This is GREAT. Boy you really ARE pathetic. How in postly heaven did you even capture the Knights?
-Wizard: UGH! Shut up!!
-Wizard: Hey, pint-size... wh-whereth be thine exit?
-Fenn: Oh! It's just behind you. I see it there.
-Wizard: Oh... thanks.
-Fenn: No problem! Happy to help.
-Az: Did- did you just let him get away?
-Fenn: OH WAIT!! COME BACK!
-Wizard: UMM. LALALA I CAN'T HEARETH YOU!
-Az: Oh by Post. They're both idiots.
+Wizard awkward: Oh. Pint-size...
+Fenn: [font_size=60]I'm ready for you, [color="8A0194"]Wizard Man[/color]! [wave freq=7 amp=30][i]I WILL defeat you![/i][/wave][/font_size]
+Wizard awkward: Oh! Um,[wait=0.3] [font_size=40]well, [/font_size][wait=0.3][font_size=30]you see...[/font_size]
+do EventBus.interrupt_dialogue.emit("0.4")
+Wizard: [font_size=40]My tools art in thy workshop... I was, um,[wait=0.3] out looking for something, and, well-[/font_size]
+Az: [font_size=70]WAIT-[wait=0.3] are you [/font_size][font_size=80][shake level=8 rate=40][i]LOST?![/i][/shake][/font_size]
+Wizard grit: [font_size=70]No![wait=0.3] [i]NO![/i][wait=0.3] I'm not [i]lost![/i][/font_size][wait=0.3][wait=0.3] I knoweth my way out of here [i]perfectly fine![/i]
+Wizard awkward: [font_size=40]Or... I did.[/font_size]
+Az laugh: [font_size=100]HAHA![wait=0.3] This is GREAT![/font_size]
+Az laugh: [font_size=60]Boy you really [i]ARE[/i] pathetic. How in postly heaven did you even capture [i]the Knights?[/i]
+Wizard grit: [font_size=100]UGH! [wait=0.3][shake level=10 rate=50]SHUTTETH UP!![/shake][/font_size]
+Wizard awkward: [font_size=30]Hey, pint-size... wh- [wait=0.3]whereth be thine exit?[/font_size]
+Fenn: Oh! [wait=0.3]It's just behind you. I see it there.
+Wizard awkward: Oh... thanks.
+Fenn starry: [wave freq=7 amp=20]No problem! Happy to help.[/wave]
+Wizard leaves
+Az: Did- [wait=0.3]did you just let him get away?
+Fenn: [font_size=70]OH WAIT!! COME BACK![/font_size]
+Wizard: [font_size=70]UM. [wave freq=10 amp=20]LALALA I CAN'T HEARETH YOU![/wave][/font_size]
+Az: [font_size=40][i]Oh by Post.[/i] They're both idiots.[/font_size]
+do! MusicManager._fade_in()
 do EventFlags.set_flag("7-Ws-Lost-HeaterArea", true)
-
 => END

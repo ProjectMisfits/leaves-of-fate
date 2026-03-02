@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cimgb48hyjd5h"]
 
-[ext_resource type="Material" uid="uid://dde8s4xg3ueai" path="res://assets/graphics/ice_material_spike_06.tres" id="2_xa4hl"]
+[ext_resource type="Material" uid="uid://dde8s4xg3ueai" path="res://assets/vfx/shaders/ice_material_shader.tres" id="2_xa4hl"]
 [ext_resource type="Texture2D" uid="uid://b5s7cj64npymr" path="res://assets/entities/hazards/canvas_icicle/C-Icicle-02.tres" id="3_s180q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5sn6"]

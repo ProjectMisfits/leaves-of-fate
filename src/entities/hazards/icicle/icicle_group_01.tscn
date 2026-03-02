@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cqmupmvuf03we"]
 
-[ext_resource type="Material" uid="uid://dde8s4xg3ueai" path="res://assets/graphics/ice_material_spike_06.tres" id="2_b43gw"]
+[ext_resource type="Material" uid="uid://dde8s4xg3ueai" path="res://assets/vfx/shaders/ice_material_shader.tres" id="2_b43gw"]
 [ext_resource type="Texture2D" uid="uid://57m4hxr3gwjo" path="res://assets/entities/hazards/canvas_icicle/C-Icicle-03.tres" id="3_b43gw"]
 [ext_resource type="Texture2D" uid="uid://bx28liau4vpss" path="res://assets/entities/hazards/canvas_icicle/C-Icicle-04.tres" id="4_b43gw"]
 [ext_resource type="Texture2D" uid="uid://daadn0wg6wint" path="res://assets/entities/hazards/canvas_icicle/C-Icicle-06.tres" id="5_b43gw"]

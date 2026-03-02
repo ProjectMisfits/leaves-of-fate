@@ -1,32 +1,93 @@
-~ pantry_filler
-% => convo_1
-% => convo_2
-% => convo_3
+~ start
+% [if not EventFlags.get_flag("X-Az-Pantry-1")] => convo_1
+% [if not EventFlags.get_flag("X-Az-Pantry-2")] => convo_2
+% [if not EventFlags.get_flag("X-Az-Pantry-3")] => convo_3
+% [if not EventFlags.get_flag("X-Az-Pantry-4")] => convo_4
+% [if not EventFlags.get_flag("X-Az-Pantry-5")] => convo_5
+% [if not EventFlags.get_flag("X-Az-Pantry-6")] => convo_6
+% [if EventFlags.num_pantry_conversations == 6] => ending_convo
 => END
 
 ~ convo_1
-Az: Ugh, this sucks.
+Az annoy: [shake level=7 rate=20][i]Ugh[/i][/shake],[wait=0.3] this sucks.
 Fenn: Why?
-Az: I need to get to my workshop as soon as possible. I hate just being stuck.
-Fenn: It's okay! I'm here!
-Az: Yeah...
-do EventFlags.set_flag("F-1-Az-Pantry", true)
+Az: I need to get to my [color="0B4F4A"]Workshop[/color]. I [i]hate[/i] being stuck.
+Fenn starry: It's okay![wait=0.3] I'm here!
+Az annoy: That you are...
+do EventFlags.set_flag("X-Az-Pantry-1", true)
+do EventFlags.num_pantry_conversations += 1
 => END
 
 ~ convo_2
-Fenn: So you made these bangles?
+Fenn: So you [i]made[/i] these bangles?
 Az: Yeah, why?
-Fenn: That's... SO COOL. How did you get these tiny little indents in there?
-Az: The... the patterns?
-Fenn: Yeah! The patterns!
-Az: I... well I carved them. It's really not that hard.
-Fenn: AWESOME.
-do EventFlags.set_flag("F-2-Az-Pantry", true)
+Fenn starry: [wave freq=7 amp=30][font_size=60]SO COOL. [/font_size][/wave]
+Fenn: How did you get these tiny little indents in there?
+Az: Like,[wait=0.3] the patterns?
+Fenn: Yeah! Patterns!
+Az: I-[wait=0.3] well, I carved them. It's really not that hard.
+Fenn: [font_size=70][shake level=10 rate=50]AWESOME.[/shake][/font_size]
+do EventFlags.set_flag("X-Az-Pantry-2", true)
+do EventFlags.num_pantry_conversations += 1
 => END
 
 ~ convo_3
-Az: I need to get my Baba out of there. 
-Fenn: Well, once we defeat Mr. Wizard Man, he'll help us!
-Az: He doesn't seem to be in a helping mood, Fenn.
-do EventFlags.set_flag("F-3-Az-Pantry", true)
+Az annoy: I need to get my [color="B80006"]Baba[/color] out of there. 
+Fenn: Well, [wait=0.3]once we defeat [color="8A0194"]Mr. Wizard Man[/color], he'll help us!
+Az annoy: He doesn't seem to be in a [i]helping mood[/i], Fenn.
+do EventFlags.set_flag("X-Az-Pantry-3", true)
+do EventFlags.num_pantry_conversations += 1
+=> END
+
+~ convo_4
+Az: I don't mean to be rude, but,[wait=0.3] like,[wait=0.3] why are you here?
+Fenn: What do you mean?
+Az: In the [color="0B4F4A"]Palace[/color]? 
+Fenn: Oh! I was invited! Uh, [wait=0.3][color="B80006"]King Oakley[/color] sent a letter to me. 
+Fenn worry: [font_size=40]He,[wait=0.3] uh...[/font_size] 
+Fenn worry: [font_size=40]He's looking for, [wait=0.3]uh...[/font_size]
+Fenn: [font_size=70]New Knights!!!![/font_size]
+Az: Seriously??
+Fenn starry: Yeah!!
+Az: He reached out to [i]you[/i]? A kid?
+Fenn starry: Yup! He was so impressed with how much I knew about the Knights, [wave freq=7 amp=30]he just HAD to meet me![/wave]
+Az: Alright. Sure, kid. Whatever.
+do EventFlags.set_flag("X-Az-Pantry-4", true)
+do EventFlags.num_pantry_conversations += 1
+=> END
+
+~ convo_5
+Fenn: Who's your favorite Knight? [wait=0.3]Like, besides your Dad?
+Az: Hmm... I haven't really spent time with them.
+Az: [color="B80006"]Henric[/color] and [color="B80006"]Ophelia[/color] are, like, [i]kinda intense[/i].
+Az: I'd say [color="B80006"]Maysa[/color]. She's chill.
+Fenn starry: Oooh, good choice. I think I have a few [color="B80006"]Maysas[/color]. 
+Fenn: Mostly [color="B80006"]Adira[/color] and [color="B80006"]Henric[/color] full-arts.
+Az: Wait- [wait=0.3]are you talking about [i]trading cards[/i]?
+Fenn: Yeah I have a ton of them!
+Az: Huh,[wait=0.3] I didn't know they made trading cards of the Knights.
+Fenn starry: [font_size=70][wave freq=7 amp=30]They don't![/wave][/font_size]
+do EventFlags.set_flag("X-Az-Pantry-5", true)
+do EventFlags.num_pantry_conversations += 1
+=> END
+
+
+~ convo_6
+Fenn: Do you like living at the [color="0B4F4A"]Palace[/color]?
+Az: It's cool, I guess. I got my own workshop,[wait=0.3] plenty of stuff to tinker with.
+Az: Not the same as home, though.
+Fenn: [color="0B4F4A"]Kuva[/color], right?
+Az: Yeah, how'd you know?
+Fenn starry: [wave freq=7 amp=30]It's in your biography at the [color="0B4F4A"]Grasen History Museum[/color]![/wave]
+Az: Ah. right. 
+do EventBus.interrupt_dialogue.emit("0.2")
+Fenn starry: [speed=1.5]You grew up on Straw Ave, had two best friends, [speed=2]and won crafts shows before getting into smithing! Oh and also, that one ti-
+Az: Okay! Okay, that's enough out of you.
+do EventFlags.set_flag("X-Az-Pantry-6", true)
+do EventFlags.num_pantry_conversations += 1
+=> END
+
+~ ending_convo
+Az: You should probably go.
+Az: Don't worry about me, I'll find a way around.
 => END

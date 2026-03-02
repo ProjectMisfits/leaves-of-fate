@@ -1,96 +1,67 @@
-~ den_filler
-% => convo_1
-% => convo_2
-% => convo_3
-% => convo_4
-% => convo_5
-% => convo_6
-% => convo_7
+~ start
+% [if not EventFlags.get_flag("X-Az-Den-1")] => convo_1
+% [if not EventFlags.get_flag("X-Az-Den-2")] => convo_2
+% [if not EventFlags.get_flag("X-Az-Den-3")] => convo_3
+% [if not EventFlags.get_flag("X-Az-Den-4")] => convo_4
+% [if EventFlags.num_den_conversations == 4] => ending_convo
 => END
 
 
 ~ convo_1
-Az: I don't mean to be rude, but... why are you here?
-Fenn: What do you mean?
-Az: In the palace? 
-Fenn: I was invited!! King Oakley sent a letter to me personally. He said he was looking for candidates for new Knights! 
-Az: Seriously?
+Az: Where are you from?
+Fenn starry: [font_size=60][wave freq=7 amp=20 connected=0][color="0B4F4A"]Navetta[/color]![/wave][/font_size]
+Az: Hm. Never heard of it. Where is it?
+Fenn: It's north. Lots of trees and farms and stuff.
+Az: Ah, countryside?
 Fenn: Yeah! 
-Az: He reached out to you? A kid?
-Fenn: Yup. He was so impressed with how much I knew about the other Knights, he just had to invite me to the castle.
-Az: Hmph. Sure, kid.
-do EventFlags.set_flag("F-1-Az-Den", true)
+Fenn worry: [speed=0.8]Not a lot of people[wait=0.3] to talk to.
+do EventFlags.set_flag("X-Az-Den-1", true)
+do EventFlags.num_den_conversations += 1
 => END
 
 ~ convo_2
-Fenn: Do you like living at the palace?
-Az: Eh. It's cool, I guess. I got my own workshop in the cellar, plenty of stuff to tinker with, all the time in the world.
-Az: Not the same as home, though.
-Fenn: Kuva, right?
-Az: Yeah... how'd you know?
-Fenn: It's in your biography at the Grasen History Museum!
-Az: Ah... right. 
-Fenn: You grew up on Straw Ave, had two best friends, and won crafts shows before getting into smithing! Oh and also, that one ti-
-Az: Okay! Okay, that's enough out of you, kid.
-do EventFlags.set_flag("F-2-Az-Den", true)
+Fenn starry: Have you met [color="B80006"]Adira[/color]? Knight of Cloth? [wave freq=7 amp=30]She's my favorite![/wave]
+Az: [i]Her?[/i] Yikes...
+Fenn worry: Huh? Why? What's wrong with [color="B80006"]Adira[/color]?
+Az: I mean, [i]nothing[/i]... 
+do EventBus.interrupt_dialogue.emit("0.3")
+Az annoy: If you don't mind Knights who are shallow, conceited, pieces of-
+Fenn worry: [font_size=80][shake level=8 rate=30]WHAT?![/shake][/font_size]
+Az: Sorry to break it to you, kid. [color="B80006"]Adira[/color] is... kinda terrible.
+Fenn: Really?
+Az: Hey, don't worry about it! Most of 'em are fine. [color="B80006"]Adira[/color] [i]specifically[/i] is terrible.
+Fenn worry: Aw...
+do EventFlags.set_flag("X-Az-Den-2", true)
+do EventFlags.num_den_conversations += 1
 => END
 
 ~ convo_3
-Az: Where are you from?
-Fenn: Navetta!
-Az: Hm. Never heard of it. Where is it?
-Fenn: It's north. Lots of trees and farms and stuff.
-Az: Ah, the countryside?
-Fenn: Yeah... it's kinda boring.
-do EventFlags.set_flag("F-3-Az-Den", true)
+Az: How come you know a lot about the Knights and stuff?
+Fenn starry: Who [i]wouldn't[/i] want to know about the Knights?! [wave freq=7 amp=30]They're the coolest![/wave]
+Az: I dunno. I've never seen someone so enthusiastic about them.
+Fenn : But they do so many awesome things! 
+Fenn starry: They go on adventures! Slay [shake level=7 rate=20]monsters![/shake] [font_size=60][wave freq=7 amp=30]Save princesses![/wave][/font_size]
+Az: Fenn, I don't think there's been a princess that needed saving in,[wait=0.3] like,[wait=0.3] at least a century
+Fenn: But... but...
+Az laugh: Nah, don't worry. I get it.
+Az: I remember when [color="B80006"]Baba[/color] became a Knight. It was pretty cool.
+do EventFlags.set_flag("X-Az-Den-3", true)
+do EventFlags.num_den_conversations += 1
 => END
 
 ~ convo_4
 Fenn: Do you make a lot of bracelet things?
 Az: Bangles?
-Fenn: Yeah, bracelet things.
-Az: No, not often. These ones took me weeks to get the inscriptions right.
-Az: If I want something for my wrists, I usually make bracelets with yarn or beads
-Fenn: That's so cool! Could I have one?
-Az: Well, yeah sure. They're in my room, though.
-Fenn: Yay! I can't wait.
-do EventFlags.set_flag("F-4-Az-Den", true)
+Fenn: Yeah!! [wait=0.3]Bracelet things.
+Az: No, not often. These gold ones took me [i]weeks[/i] to get the inscriptions just right.
+Az: Though, if I want to make one fast, I use copper or aluminum.
+Fenn starry: [font_size=60][shake level=7 rate=30]REALLY?![/shake] Could I have one?[/font_size]
+Az: Uh, yeah,[wait=0.3] sure. Later, though.
+Fenn starry: [font_size=60]YAY! [wave freq=7 amp=20]I can't wait.[/wave] [/font_size]
+do EventFlags.set_flag("X-Az-Den-4", true)
+do EventFlags.num_den_conversations += 1
 => END
 
-~ convo_5
-Az: How come you seem to know a lot about the Knights and stuff?
-Fenn: Who wouldn't want to know about the knights? They're the coolest!
-Az: I dunno. I've never seen someone so enthusiastic about them.
-Fenn: But they do so many awesome things! They go on adventures! Slay monsters! Save princesses!
-Az: Kid, I don't think there's been a princess that needed saving in like at least a century
-Fenn: But... but...
-Az: Nah. Don't worry, kid. I get it.
-Az: I remember when Baba became a Knight. It was pretty cool.
-do EventFlags.set_flag("F-5-Az-Den", true)
-=> END
-
-~ convo_6
-Fenn: Have you met Adira? Knight of Cloth? She's my favorite Knight. She's so cool!!!!
-Az: Adira? Yikes...
-Fenn: Why? What? What's wrong with Adira?
-Az: I mean...nothing... if you don't mind Knights who are shallow, conceited, pieces of-
-Fenn: WHAT?!
-Az: Sorry to break it to you, kid. Adira is... kinda terrible.
-Fenn: Really?
-Az: Hey, don't worry about it. Most of 'em are fine. Adira specifically is terrible.
-Fenn: Aww...
-do EventFlags.set_flag("F-6-Az-Den", true)
-=> END
-
-~ convo_7
-Fenn: Who's your favorite Knight? Like, besides your Dad?
-Az: Hmm... besides Baba? I haven't really spent time with a lot of them.
-Az: Henric and Ophelia are a little intense. I'd say Maysa probably. She's chill.
-Fenn: Oooh, good choice. I think I have a few Maysas. Mostly Adira and Henric full-arts.
-Az: Are you talking about trading cards?
-Fenn: Yeah I have a ton of them!
-Az: Huh... I didn't know they made trading cards of the Knights.
-Fenn: They don't!
-Az: Ah...
-do EventFlags.set_flag("F-7-Az-Den", true)
+~ ending_convo
+Az: Alright, let's go. We've got a [color="8A0194"]Wizard[/color] to deal with.
 => END

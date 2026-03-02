@@ -1,0 +1,12 @@
+[gd_resource type="JSON" load_steps=3 format=3 uid="uid://d2ousp5esqpqy"]
+
+[ext_resource type="AudioStream" uid="uid://fb8ste3ccl4q" path="res://assets/entities/actors/footsteps/stone/FS-Winston-Stone.tres" id="1_uryko"]
+[ext_resource type="AudioStream" uid="uid://bq8anbnm348k0" path="res://assets/entities/actors/footsteps/wood/FS-Winston-Wood.tres" id="2_kb5b0"]
+
+[resource]
+data = {
+"metal": ExtResource("1_uryko"),
+"snow": ExtResource("2_kb5b0"),
+"stone": ExtResource("1_uryko"),
+"wood": ExtResource("2_kb5b0")
+}
