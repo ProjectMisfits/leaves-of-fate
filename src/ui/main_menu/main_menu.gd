@@ -28,16 +28,21 @@ func _process(_delta: float) -> void:
 func _on_play_button_button_up() -> void:
 	select_audio.play()
 	await select_audio.finished
+	#Creates new save files
 	EventFlags.reset_all_flags()
 	SaveManager._save_room("res://src/rooms/01_great_hall/01_GreatHall_a_Intro_room.tscn")
 	SaveManager._save_flags()
+	#Loads intro letter
 	SceneManager.swap_scenes_with_transition("res://src/ui/intro_letter/intro_letter.tscn", null, self)
-	
+
+# Signals that the game is started.
 func _on_continue_button_button_up() -> void:
 	select_audio.play()
 	await select_audio.finished
+	#Loads data from save files
 	SaveManager._load_flags()
 	SaveManager._load_room()
+	#Loads room saved in save file
 	SceneManager.swap_scenes_with_transition("res://src/gameplay/gameplay.tscn", null, self)
 
 func _hide_main_menu() -> void:
