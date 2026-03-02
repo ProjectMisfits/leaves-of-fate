@@ -37,7 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://cbyoyss1vo43o" path="res://src/entities/decor/ice/ice_spike_ball.tscn" id="33_q0uwv"]
 [ext_resource type="PackedScene" uid="uid://c3tlgyxe8lbtu" path="res://src/entities/objects/invisible_wall/invisible_wall.tscn" id="33_yrfw5"]
 [ext_resource type="PackedScene" uid="uid://cu30a4y6b243q" path="res://src/entities/objects/doors/door_boss.tscn" id="34_yrfw5"]
-[ext_resource type="Texture2D" path="res://assets/rooms/backgrounds/bg_den_dark.tres" id="35_vf2dd"]
+[ext_resource type="Texture2D" uid="uid://48x0nrpho68" path="res://assets/rooms/backgrounds/bg_den_dark.tres" id="35_vf2dd"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5us1k"]
 size = Vector2(128, 128)
@@ -135,6 +135,7 @@ door_name = "boss"
 target_door_name = "enter"
 
 [node name="DoorTrigger" parent="MidgroundLayer/DoorHolder/DoorBoss" index="1"]
+force_enable = true
 required_true_event_flags = Array[String](["heater_boss_activated"])
 
 [node name="DoorGrate" parent="MidgroundLayer/DoorHolder" index="3" instance=ExtResource("8_rl2ph")]

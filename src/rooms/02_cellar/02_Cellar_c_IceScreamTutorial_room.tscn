@@ -59,6 +59,7 @@ position = Vector2(2048, 1024)
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(53248, 3584)
+target_room_path = "uid://crhpmxw3ucdqx"
 
 [node name="IceScream" parent="MidgroundLayer/Entities/Enemies" index="0" instance=ExtResource("2_5oxue")]
 position = Vector2(8576, 2943)
@@ -104,10 +105,10 @@ shape = SubResource("RectangleShape2D_s1irq")
 scale = Vector2(20, 4)
 texture = SubResource("CompressedTexture2D_vekf5")
 
-[node name="GrabTrigger" parent="MidgroundLayer/Entities/Objects/MovingPlatform/AnimatableBody2D" index="2" instance=ExtResource("4_xr4sp")]
-rotation = -1.5707964
+[node name="GrabTrigger" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="4" instance=ExtResource("4_xr4sp")]
+position = Vector2(512, -256)
 
-[node name="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform/AnimatableBody2D/GrabTrigger" index="0"]
+[node name="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform/GrabTrigger" index="0"]
 position = Vector2(-768, 0)
 shape = SubResource("RectangleShape2D_vekf5")
 
@@ -245,5 +246,5 @@ position = Vector2(3584, 1024)
 position = Vector2(512, 1024)
 
 [editable path="MidgroundLayer/Entities/Objects/MovingPlatform"]
-[editable path="MidgroundLayer/Entities/Objects/MovingPlatform/AnimatableBody2D/GrabTrigger"]
+[editable path="MidgroundLayer/Entities/Objects/MovingPlatform/GrabTrigger"]
 [editable path="MidgroundLayer/Entities/Triggers/CameraTrigger"]
