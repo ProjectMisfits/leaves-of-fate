@@ -34,7 +34,7 @@ target_room_path = "uid://vijrgoilf3vw"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(41472, -1536)
-target_room_path = "uid://dgnt3sjnoumv3"
+target_room_path = "uid://c1bxqts1w36m5"
 
 [node name="CameraTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("2_tsion")]
 follow_player = true

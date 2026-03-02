@@ -60,7 +60,7 @@ size = Vector2(1296, 6256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugm7"]
 resource_local_to_scene = true
-size = Vector2(2464, 3088)
+size = Vector2(2464, 2400)
 
 [sub_resource type="Resource" id="Resource_rtqhs"]
 script = ExtResource("7_f4r0g")
@@ -97,9 +97,11 @@ tile_map_data = PackedByteArray("AAD2AjL/AgAAAAAAAAD3AjP/AgAAAAAAABD9Aif/BQARAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(4608, 1024)
+target_room_path = "uid://bnp74qqvf06bm"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(21312, 1040)
+target_room_path = "uid://cktcwp3gpi773"
 
 [node name="IceScream" parent="MidgroundLayer/Entities/Enemies" index="0" instance=ExtResource("2_juxpp")]
 position = Vector2(27376, -3504)
@@ -190,7 +192,7 @@ position = Vector2(12224, -5120)
 follow_player = true
 
 [node name="CollisionShape2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger" index="0"]
-position = Vector2(-1024, 1448)
+position = Vector2(-1024, 1104)
 shape = SubResource("RectangleShape2D_0ugm7")
 
 [node name="PhantomCamera2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger" index="1"]
