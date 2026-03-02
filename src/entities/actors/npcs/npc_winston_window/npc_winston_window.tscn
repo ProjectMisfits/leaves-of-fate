@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=4 uid="uid://dp4wbioau0nhy"]
+
+[ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/npc_winston/npc_winston.tscn" id="1_xdkfy"]
+[ext_resource type="Texture2D" uid="uid://c5eeoy4ggvs2g" path="res://assets/rooms/tileset/Tiles.png" id="2_ewfli"]
+[ext_resource type="Texture2D" uid="uid://drn7iwqksqxf0" path="res://assets/rooms/tileset/DecorativeBrickTiles.png" id="3_audpo"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_audpo"]
+texture = ExtResource("2_ewfli")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wxhd"]
+texture = ExtResource("3_audpo")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xdkfy"]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_audpo")
+sources/1 = SubResource("TileSetAtlasSource_0wxhd")
+
+[node name="NpcWinstonWindow" type="Node2D"]
+
+[node name="NpcWinstonWindow" parent="." instance=ExtResource("1_xdkfy")]
+collision_mask = 256
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(896, 128, 896, -384, 768, -384, 768, 0, -768, 0, -768, -384, -896, -384, -896, 128)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAGAP//AAACAAAAAAAGAP7/AAACAAAAAAAGAP3/AAACAAAAAAD5//7/AAACAAAAAAD5////AAACAAAAAAD6//7/AAACAAAAAAD6////AAACAAAAAAD7//7/AAACAAAAAAD7////AAACAAAAAAD8//7/AAACAAAAAAD8////AAACAAAAAAD9//7/AAACAAAAAAD9////AAACAAAAAAD+//7/AAACAAAAAAD+////AAACAAAAAAD///7/AAACAAAAAAD/////AAACAAAAAAAAAP7/AAACAAAAAAAAAP//AAACAAAAAAABAP7/AAACAAAAAAABAP//AAACAAAAAAACAP7/AAACAAAAAAACAP//AAACAAAAAAADAP7/AAACAAAAAAADAP//AAACAAAAAAAEAP7/AAACAAAAAAAEAP//AAACAAAAAAAFAP7/AAACAAAAAAAFAP//AAACAAAAAAD5//3/AAACAAAAAAD6//3/AQAAAAAAAAD7//3/AQABAAAAAAD8//3/AQACAAAAAAD9//3/AQAAAAAAAAD+//3/AQABAAAAAAD///3/AQACAAAAAAAAAP3/AQAAAAAAAAABAP3/AQABAAAAAAACAP3/AQACAAAAAAADAP3/AQAAAAAAAAAEAP3/AQABAAAAAAAFAP3/AQACAAAAAAD5//j/AAACAAAAAAD5//n/AAACAAAAAAD5//r/AAACAAAAAAD5//v/AAACAAAAAAD5//z/AAACAAAAAAD5//f/AAACAAAAAAD6//f/AQAAAAAAAAD7//f/AQABAAAAAAD8//f/AQACAAAAAAD9//f/AQAAAAAAAAD+//f/AQABAAAAAAD///f/AQACAAAAAAAAAPf/AQAAAAAAAAABAPf/AQABAAAAAAACAPf/AQACAAAAAAADAPf/AQAAAAAAAAAEAPf/AQABAAAAAAAFAPf/AQACAAAAAAAGAPf/AAACAAAAAAAGAPj/AAACAAAAAAAGAPn/AAACAAAAAAAGAPr/AAACAAAAAAAGAPv/AAACAAAAAAAGAPz/AAACAAAAAAD5/wAAAAACAAAAAAD6/wAAAAACAAAAAAD7/wAAAAACAAAAAAD8/wAAAAACAAAAAAD9/wAAAAACAAAAAAD+/wAAAAACAAAAAAD//wAAAAACAAAAAAAAAAAAAAACAAAAAAABAAAAAAACAAAAAAACAAAAAAACAAAAAAADAAAAAAACAAAAAAAEAAAAAAACAAAAAAAFAAAAAAACAAAAAAAGAAAAAAACAAAAAAD5//b/AAACAAAAAAD6//b/AAACAAAAAAD7//b/AAACAAAAAAD8//b/AAACAAAAAAD9//b/AAACAAAAAAD+//b/AAACAAAAAAD///b/AAACAAAAAAAAAPb/AAACAAAAAAABAPb/AAACAAAAAAACAPb/AAACAAAAAAADAPb/AAACAAAAAAAEAPb/AAACAAAAAAAFAPb/AAACAAAAAAAGAPb/AAACAAAAAAA=")
+tile_set = SubResource("TileSet_xdkfy")

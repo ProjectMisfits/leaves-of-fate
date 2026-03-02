@@ -2,7 +2,12 @@
 ## Abstract base class for triggers.
 
 ## Set to true to enable this trigger regardless of event flag status.
+## Force disable takes precedent over force enable.
 @export var force_enable: bool = false
+
+## Set to true to disable this trigger regardless of event flag status.
+## Force disable will override force enable.
+@export var force_disable: bool = false
 
 ## Whether the trigger is enabled.
 var enabled: bool = false
@@ -18,7 +23,7 @@ func init_trigger() -> void:
 	# Check event flags to set this trigger's enabled variable
 	_update_enabled()
 	# Update this trigger's enabled state whenever an event flag changes
-	EventFlags.flag_updated.connect(_update_enabled.unbind(1))
+	EventFlags.flag_updated.connect(_update_enabled.unbind(2))
 
 ## Update this trigger's enabled state.
 func _update_enabled() -> void:
@@ -46,7 +51,7 @@ func trigger() -> void:
 ## Returns whether the trigger can activate.
 func _can_trigger() -> bool:
 	# Return true if the trigger is enabled according to event flags or enabled override
-	return enabled or force_enable
+	return (enabled or force_enable) and not force_disable
 
 ## A Callable containing the logic to execute when the trigger is activated.
 ## Must be overridden in each trigger class to provide unique trigger functionality.

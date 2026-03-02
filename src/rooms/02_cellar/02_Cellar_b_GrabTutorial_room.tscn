@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bnyhrenr0gehb"]
+[gd_scene load_steps=21 format=4 uid="uid://bnyhrenr0gehb"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_h7an2"]
 [ext_resource type="PackedScene" uid="uid://disa83btdjjsk" path="res://src/entities/objects/moving_platform/moving_platform.tscn" id="2_f0jtv"]
@@ -17,9 +17,6 @@ point_count = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_br0ws"]
 size = Vector2(1536, 512)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_77o1q"]
-load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mw37h"]
 resource_local_to_scene = true
 size = Vector2(1536, 1536)
@@ -34,9 +31,6 @@ point_count = 2
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pppb5"]
 size = Vector2(1536, 512)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_shg5o"]
-load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0baxg"]
 resource_local_to_scene = true
 size = Vector2(2816, 4096)
@@ -50,9 +44,6 @@ point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvnod"]
 size = Vector2(2560, 512)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fjjla"]
-load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kcb3r"]
 resource_local_to_scene = true
@@ -96,27 +87,28 @@ position = Vector2(768, 1024)
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(36864, -5632)
 
-[node name="MovingPlatform" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("2_f0jtv")]
+[node name="MovingPlatform" parent="MidgroundLayer/Entities/Objects" index="0" node_paths=PackedStringArray("paths") instance=ExtResource("2_f0jtv")]
 position = Vector2(8704, -256)
 curve = SubResource("Curve2D_br0ws")
 closed_loop = true
 closed_loop_speed = 0.0
+paths = []
 
-[node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="0"]
+[node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="1"]
 position = Vector2(-384, 512)
-rotation = 1.5707964
+rotation = -1.5707964
 progress = 1536.0002
 
-[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="1"]
+[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="2"]
 position = Vector2(-384, 512)
-rotation = 1.5707964
+rotation = -1.5707964
 
 [node name="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform/AnimatableBody2D" index="0"]
 shape = SubResource("RectangleShape2D_br0ws")
 
 [node name="Sprite2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform/AnimatableBody2D" index="1"]
-scale = Vector2(12, 4)
-texture = SubResource("CompressedTexture2D_77o1q")
+position = Vector2(0, 20.749952)
+scale = Vector2(2.0665271, 2.6525586)
 
 [node name="GrabTrigger" parent="MidgroundLayer/Entities/Objects/MovingPlatform" index="3" instance=ExtResource("3_iw6vn")]
 position = Vector2(-512, 1152)
@@ -125,27 +117,28 @@ position = Vector2(-512, 1152)
 position = Vector2(-384, -640)
 shape = SubResource("RectangleShape2D_mw37h")
 
-[node name="MovingPlatform-2" parent="MidgroundLayer/Entities/Objects" index="1" instance=ExtResource("2_f0jtv")]
+[node name="MovingPlatform-2" parent="MidgroundLayer/Entities/Objects" index="1" node_paths=PackedStringArray("paths") instance=ExtResource("2_f0jtv")]
 position = Vector2(31104, -6912)
 curve = SubResource("Curve2D_mw37h")
 closed_loop = true
 closed_loop_speed = 0.0
+paths = []
 
-[node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-2" index="0"]
+[node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-2" index="1"]
 position = Vector2(-384, 512)
-rotation = 1.5707964
+rotation = -1.5707964
 progress = 1536.0002
 
-[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-2" index="1"]
+[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-2" index="2"]
 position = Vector2(-384, 512)
-rotation = 1.5707964
+rotation = -1.5707964
 
 [node name="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-2/AnimatableBody2D" index="0"]
 shape = SubResource("RectangleShape2D_pppb5")
 
 [node name="Sprite2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-2/AnimatableBody2D" index="1"]
-scale = Vector2(12, 4)
-texture = SubResource("CompressedTexture2D_shg5o")
+position = Vector2(0, 31.331102)
+scale = Vector2(2.167498, 2.6183524)
 
 [node name="GrabTrigger" parent="MidgroundLayer/Entities/Objects/MovingPlatform-2" index="3" instance=ExtResource("3_iw6vn")]
 position = Vector2(-512, 1152)
@@ -154,18 +147,19 @@ position = Vector2(-512, 1152)
 position = Vector2(-1024, -384)
 shape = SubResource("RectangleShape2D_0baxg")
 
-[node name="MovingPlatform-3" parent="MidgroundLayer/Entities/Objects" index="2" instance=ExtResource("2_f0jtv")]
+[node name="MovingPlatform-3" parent="MidgroundLayer/Entities/Objects" index="2" node_paths=PackedStringArray("paths") instance=ExtResource("2_f0jtv")]
 position = Vector2(12800, -4352)
 curve = SubResource("Curve2D_iw6vn")
 closed_loop = true
 closed_loop_speed = 0.0
+paths = []
 
-[node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-3" index="0"]
+[node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-3" index="1"]
 position = Vector2(-384, 384)
 rotation = 3.1415927
 progress = 2560.0017
 
-[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-3" index="1"]
+[node name="AnimatableBody2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-3" index="2"]
 position = Vector2(-384, 384)
 rotation = -3.1415925
 
@@ -173,8 +167,7 @@ rotation = -3.1415925
 shape = SubResource("RectangleShape2D_dvnod")
 
 [node name="Sprite2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-3/AnimatableBody2D" index="1"]
-scale = Vector2(20, 4)
-texture = SubResource("CompressedTexture2D_fjjla")
+scale = Vector2(3.5840914, 3.8208833)
 
 [node name="GrabTrigger" parent="MidgroundLayer/Entities/Objects/MovingPlatform-3" index="3" instance=ExtResource("3_iw6vn")]
 position = Vector2(-512, 1152)
