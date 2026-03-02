@@ -675,6 +675,9 @@ position = Vector2(947, -189)
 shape = SubResource("RectangleShape2D_u7uqy")
 debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
 
+[node name="GrabTimer" type="Timer" parent="FlipNode/GrabComponent"]
+one_shot = true
+
 [node name="HurtComponent" type="Node2D" parent="FlipNode"]
 script = ExtResource("11_s3rhx")
 
@@ -774,6 +777,7 @@ one_shot = true
 [connection signal="area_exited" from="FlipNode/InteractComponent/InteractRange" to="FlipNode/InteractComponent" method="_on_interact_range_area_exited"]
 [connection signal="area_entered" from="FlipNode/GrabComponent/GrabRange" to="FlipNode/GrabComponent" method="_on_grab_range_area_entered"]
 [connection signal="area_exited" from="FlipNode/GrabComponent/GrabRange" to="FlipNode/GrabComponent" method="_on_grab_range_area_exited"]
+[connection signal="timeout" from="FlipNode/GrabComponent/GrabTimer" to="FlipNode/GrabComponent" method="_release_grab"]
 [connection signal="hurt" from="FlipNode/HurtComponent" to="." method="knock_out"]
 [connection signal="body_entered" from="FlipNode/HurtComponent/HurtArea" to="FlipNode/HurtComponent" method="_on_hurt_area_body_entered"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_end_invincibility"]

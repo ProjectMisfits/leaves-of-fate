@@ -71,6 +71,7 @@ target_room_path = "uid://7yrsxlkres1e"
 
 [node name="NpcWinston" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("5_o2ign")]
 position = Vector2(4032, 1024)
+cutscene_puppeted_in = "5b-Ws-PostAmbush-CellarGeneral"
 
 [node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcWinston" index="4"]
 script = ExtResource("6_ym70a")
