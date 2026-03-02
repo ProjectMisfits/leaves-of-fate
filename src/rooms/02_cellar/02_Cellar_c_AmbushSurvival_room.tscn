@@ -83,6 +83,7 @@ position = Vector2(2688, -896)
 scale = Vector2(10, 30)
 dialogue_sequence = ExtResource("6_o2ign")
 dialogue_start = "escaped"
+cutscene_flag_name = "5b-Ws-PostAmbush-CellarGeneral"
 required_false_event_flags = Array[String](["5b-Ws-PostAmbush-CellarGeneral"])
 
 [node name="ArchPointCracked" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("5_ym70a")]

@@ -153,6 +153,7 @@ _data = {
 }
 
 [node name="NpcAz" instance=ExtResource("1_3e8bs")]
+position = Vector2(0, -352)
 npc_name = "Az"
 walk_animation = "az_walk"
 idle_animation = "az_idle"

@@ -49,5 +49,5 @@ data = {
 "post_dash_fast_fall_gravity_multiplier": 2.0,
 "post_dash_gravity": 8000.0,
 "run_max_speed": 4000.0,
-"terminal_velocity": 21000.0
+"terminal_velocity": 8000.0
 }

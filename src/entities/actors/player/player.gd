@@ -500,7 +500,7 @@ func knock_out() -> void:
 		freeze()
 		flip_node.visible = false
 		death_particles.emitting = true
-		await death_particles.finished
+		await get_tree().create_timer(0.5).timeout
 
 		EventBus.player_knocked_out.emit()
 
