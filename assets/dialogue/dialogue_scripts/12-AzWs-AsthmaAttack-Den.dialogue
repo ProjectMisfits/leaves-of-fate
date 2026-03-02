@@ -18,7 +18,7 @@ Winston hood grit: [speed=0.5][font_size=40][wave freq=7 amp=30]I wonder what th
 SMASH
 Az annoy: [shake level=7 rate=30]That's it. I don't care anymore.[/shake]
 do CutsceneManager.npc_move("Az", 12500, 500, true, false)
-#do! CutsceneManager.npc_move("Fenn", 11000, 500, true, false)
+do! CutsceneManager.player_move(11000, 500, true, false)
 Az takes a deep breath
 do EventBus.interrupt_dialogue.emit("0.3")
 Fenn worry: [i][color="B80006"]Az[/color]?[/i] What are you-
