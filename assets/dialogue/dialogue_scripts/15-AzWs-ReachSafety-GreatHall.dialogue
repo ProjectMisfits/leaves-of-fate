@@ -56,8 +56,6 @@ do EventFlags.set_flag("15-AzWs-ReachSafety-GreatHall", true)
 do CutsceneManager.player_face("left")
 do! MusicManager._fade_out()
 do CameraManager.create_camera(Vector2(10112.0, 0), 1.0, 2, "CUBIC", "EASE_IN_OUT")
-do CutsceneManager.create_npc("Az", Vector2(8200.0, 896.0))
-do CutsceneManager.create_npc("Winston", Vector2(9000.0, 896.0))
 do CutsceneManager.npc_face("Az","right")
 do CutsceneManager.npc_face("Winston","right")
 Fenn: [wave freq=7 amp=30]I'm here![/wave]
