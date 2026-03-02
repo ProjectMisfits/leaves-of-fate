@@ -55,16 +55,15 @@ do EventFlags.set_flag("15-AzWs-ReachSafety-GreatHall", true)
 ~ breakseal
 do CutsceneManager.player_face("left")
 do! MusicManager._fade_out()
-do CameraManager.create_camera(Vector2(10112.0, -2000), 1.0, 2, "CUBIC", "EASE_IN_OUT")
-do CutsceneManager.create_npc("Az", Vector2(9300.0,-1152.0))
-do CutsceneManager.create_npc("Winston", Vector2(9800.0,-1152.0))
+do CameraManager.create_camera(Vector2(10112.0, 0), 1.0, 2, "CUBIC", "EASE_IN_OUT")
+do CutsceneManager.create_npc("Az", Vector2(8200.0, 896.0))
+do CutsceneManager.create_npc("Winston", Vector2(9000.0, 896.0))
 do CutsceneManager.npc_face("Az","right")
 do CutsceneManager.npc_face("Winston","right")
 Fenn: [wave freq=7 amp=30]I'm here![/wave]
 Az: Alright, get to it, nerd.
-do CutsceneManager.fade_to_black()
-#do CutsceneManager.play_sound("Icy magic")
-do CutsceneManager.fade_from_black()
+do EventFlags.set_flag("winston_seal_broken", true)
+do CutsceneManager.wait(2)
 Winston: All done!
 Winston awkward: Though... tis not much help without the other [color="8A0194"]Wizards[/color].
 Fenn: Where could I find them?
@@ -72,6 +71,10 @@ Winston: I believe I saw [color="B80006"]Randy[/color] headeth towards the [colo
 Fenn starry: Well, [wait=0.3]to the [color="0B4F4A"]Kitchen[/color]!
 Fenn: End of Demo! 
 Fenn starry: Thanks for playing Leaves of Fate!
+do CutsceneManager.fade_to_black()
+do CutsceneManager.remove_npc("Az")
+do CutsceneManager.remove_npc("Winston")
+do CutsceneManager.fade_from_black()
 do! MusicManager._fade_in()
-do EventFlags.set_flag("winston_seal_broken", true)
+do EventFlags.set_flag("16-AzWs-BreakSeal-GreatHall", true)
 => END

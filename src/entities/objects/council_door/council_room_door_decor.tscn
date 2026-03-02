@@ -1,0 +1,127 @@
+[gd_scene load_steps=10 format=3 uid="uid://bgpqax4gyegry"]
+
+[ext_resource type="Script" uid="uid://bqmkinlgelba6" path="res://src/entities/objects/council_door/council_room_door_decor.gd" id="1_hh5ty"]
+[ext_resource type="Texture2D" uid="uid://fwygqawpx8by" path="res://assets/entities/decor/furniture/Council_Room_Door.png" id="2_dhqvd"]
+[ext_resource type="Texture2D" uid="uid://dvwtfu26kspmx" path="res://assets/entities/decor/furniture/Door_Seal.png" id="3_0jvmo"]
+
+[sub_resource type="Animation" id="Animation_f06bo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CouncilRoomDoor/DoorSeal:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CouncilRoomDoor/DoorSeal:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7t2oh"]
+resource_name = "seal_wobble"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CouncilRoomDoor/DoorSeal:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8),
+"transitions": PackedFloat32Array(1, 2, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 100), Vector2(0, 75), Vector2(0, 100), Vector2(0, 125), Vector2(0, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CouncilRoomDoor/DoorSeal:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wy6eo"]
+_data = {
+&"RESET": SubResource("Animation_f06bo"),
+&"seal_wobble": SubResource("Animation_7t2oh")
+}
+
+[sub_resource type="Animation" id="Animation_5jsr1"]
+resource_name = "seal-release"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CouncilRoomDoor/DoorSeal:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wy6eo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CouncilRoomDoor/DoorSeal:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rfyg7"]
+_data = {
+&"RESET": SubResource("Animation_wy6eo"),
+&"seal-release": SubResource("Animation_5jsr1")
+}
+
+[node name="CouncilRoomDoorDecor" type="Node2D"]
+script = ExtResource("1_hh5ty")
+
+[node name="CouncilRoomDoor" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("2_dhqvd")
+
+[node name="DoorSeal" type="Sprite2D" parent="CouncilRoomDoor"]
+position = Vector2(0, 128)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_0jvmo")
+
+[node name="SealWobble" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_wy6eo")
+}
+autoplay = "seal_wobble"
+
+[node name="SealColor" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rfyg7")
+}

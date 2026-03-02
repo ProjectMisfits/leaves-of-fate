@@ -154,9 +154,10 @@ door_name = "exit"
 target_door_name = "enter"
 
 [node name="NpcAz" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("13_6woac")]
-position = Vector2(5380, 685)
+position = Vector2(5504, 1024)
 
 [node name="DialogueTrigger" parent="MidgroundLayer/Entities/NPCs/NpcAz" index="3" instance=ExtResource("14_gpuhd")]
+position = Vector2(0, -704)
 dialogue_sequence = ExtResource("15_1ppdk")
 required_true_event_flags = Array[String](["3-Az-Stuck-Pantry"])
 

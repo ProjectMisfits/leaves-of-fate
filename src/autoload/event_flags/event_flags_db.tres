@@ -11,6 +11,7 @@ data = {
 "13-AzWs-FinalConfrontation-Workshop": false,
 "14-AzWs-TurnOnHeater-Boss-HeaterArea": false,
 "15-AzWs-ReachSafety-GreatHall": false,
+"16-AzWs-BreakSeal-GreatHall": false,
 "2-Ws-Meet-CellarGeneral": false,
 "3-Az-Stuck-Pantry": false,
 "4-Az-BangleTalk-CellarGeneral": false,
