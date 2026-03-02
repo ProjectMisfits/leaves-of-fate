@@ -1,0 +1,9 @@
+[gd_resource type="GradientTexture2D" load_steps=2 format=3 uid="uid://blgd6da0bqpbn"]
+
+[ext_resource type="Gradient" uid="uid://dd638rngbcucr" path="res://assets/rooms/backgrounds/greathall_gradient.tres" id="1_eohkp"]
+
+[resource]
+gradient = ExtResource("1_eohkp")
+width = 1
+height = 128
+fill_from = Vector2(1, 1)

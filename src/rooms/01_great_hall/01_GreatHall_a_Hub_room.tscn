@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=4 uid="uid://nhuquqglirtf"]
+[gd_scene load_steps=28 format=4 uid="uid://nhuquqglirtf"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_gihvd"]
 [ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="2_0mqie"]
+[ext_resource type="Texture2D" uid="uid://blgd6da0bqpbn" path="res://assets/rooms/backgrounds/bg_greathall_normal.tres" id="2_7vaf5"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_n43ap"]
 [ext_resource type="PackedScene" uid="uid://4jh213w6fsb7" path="res://src/entities/decor/pillars/pillar_base_01.tscn" id="3_o3xfc"]
 [ext_resource type="PackedScene" uid="uid://n0xe74ww2rnc" path="res://src/entities/decor/furniture/window_03.tscn" id="4_auvxv"]
@@ -12,21 +13,27 @@
 [ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="5_ouria"]
 [ext_resource type="PackedScene" uid="uid://dkyvqmdhj2oih" path="res://src/entities/decor/pillars/pillar_trunk_02.tscn" id="8_prryp"]
 [ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="9_223xl"]
+[ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/npc_winston/npc_winston.tscn" id="10_1h37y"]
 [ext_resource type="AudioStream" uid="uid://c3xr8y52qmi2y" path="res://assets/audio/music/GreatHall-120bpm-4_4-P1b-loop.ogg" id="10_7vaf5"]
+[ext_resource type="PackedScene" uid="uid://bgncdkpxeluh4" path="res://src/entities/triggers/interact_trigger/dialogue_trigger/dialogue_trigger.tscn" id="11_lln1l"]
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="12_1h37y"]
 [ext_resource type="Resource" uid="uid://duspdpplyqoju" path="res://assets/dialogue/dialogue_scripts/15-AzWs-ReachSafety-GreatHall.dialogue" id="12_7vaf5"]
 [ext_resource type="PackedScene" uid="uid://wxvub3svduoi" path="res://src/entities/decor/pillars/arch_round_cracked.tscn" id="12_ouria"]
+[ext_resource type="Resource" uid="uid://vl0c2jy6byw1" path="res://assets/dialogue/dialogue_scripts/X-AzWs-Filler-GreatHall.dialogue" id="12_qfeux"]
 [ext_resource type="PackedScene" uid="uid://1lva6fbgnwyn" path="res://src/entities/decor/pillars/arch_point_smooth.tscn" id="13_8hban"]
+[ext_resource type="Script" uid="uid://blr5ksl5vscmw" path="res://src/components/processing_component.gd" id="13_dn8jt"]
 [ext_resource type="Resource" uid="uid://bg8npse24cjcw" path="res://assets/dialogue/dialogue_scripts/1-Az-Meet-GreatHall.dialogue" id="13_lln1l"]
 [ext_resource type="PackedScene" uid="uid://bdjego1dul8qg" path="res://src/entities/decor/pillars/arch_point_cracked.tscn" id="14_pw5f3"]
 [ext_resource type="PackedScene" uid="uid://byav0yxb067be" path="res://src/entities/decor/furniture/bookshelf_fancy.tscn" id="16_8hban"]
 [ext_resource type="PackedScene" uid="uid://cctsnqs8u4udu" path="res://src/entities/decor/furniture/wine_shelf.tscn" id="18_eyi1d"]
+[ext_resource type="PackedScene" uid="uid://bgpqax4gyegry" path="res://src/entities/objects/council_door/council_room_door_decor.tscn" id="23_223xl"]
 
 [node name="01_GreatHall_a_Hub" instance=ExtResource("1_gihvd")]
 
 [node name="BackgroundGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
 position = Vector2(-20075.79, -9566.315)
 scale = Vector2(61440, 122.10527)
+texture = ExtResource("2_7vaf5")
 
 [node name="Window02-5" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("5_5o5ng")]
 position = Vector2(31424, 2624)
@@ -182,11 +189,55 @@ position = Vector2(37344, -192)
 scale = Vector2(1.5, 1.5)
 
 [node name="NpcAz" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("9_223xl")]
-position = Vector2(35693.996, 3231)
+position = Vector2(35695, 3584)
+
+[node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcAz" index="4"]
+script = ExtResource("13_dn8jt")
+required_false_event_flags = Array[String](["1-Az-Meet-GreatHall"])
+metadata/_custom_type_script = "uid://blr5ksl5vscmw"
+
+[node name="GreatHallFiller" type="Node2D" parent="MidgroundLayer/Entities/NPCs" index="1"]
+
+[node name="NpcAz-2" parent="MidgroundLayer/Entities/NPCs/GreatHallFiller" index="0" instance=ExtResource("9_223xl")]
+position = Vector2(1856, 1664)
+
+[node name="NpcWinstonWindow" parent="MidgroundLayer/Entities/NPCs/GreatHallFiller" index="1" instance=ExtResource("10_1h37y")]
+position = Vector2(2368, 1664)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+
+[node name="DialogueTrigger" parent="MidgroundLayer/Entities/NPCs/GreatHallFiller" index="2" instance=ExtResource("11_lln1l")]
+position = Vector2(2112, 1024)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+dialogue_sequence = ExtResource("12_qfeux")
+required_true_event_flags = Array[String](["16-AzWs-BreakSeal-GreatHall"])
+
+[node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/GreatHallFiller" index="3"]
+script = ExtResource("13_dn8jt")
+required_true_event_flags = Array[String](["16-AzWs-BreakSeal-GreatHall"])
+metadata/_custom_type_script = "uid://blr5ksl5vscmw"
+
+[node name="SealScene" type="Node2D" parent="MidgroundLayer/Entities/NPCs" index="2"]
+position = Vector2(6336, -768)
+
+[node name="NpcAz-2" parent="MidgroundLayer/Entities/NPCs/SealScene" index="0" instance=ExtResource("9_223xl")]
+position = Vector2(1856, 1664)
+
+[node name="NpcWinstonWindow" parent="MidgroundLayer/Entities/NPCs/SealScene" index="1" instance=ExtResource("10_1h37y")]
+position = Vector2(2624, 1664)
+rotation = 3.1415927
+scale = Vector2(-1, -1)
+
+[node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/SealScene" index="2"]
+script = ExtResource("13_dn8jt")
+required_true_event_flags = Array[String](["heater_boss_activated"])
+required_false_event_flags = Array[String](["16-AzWs-BreakSeal-GreatHall"])
+metadata/_custom_type_script = "uid://blr5ksl5vscmw"
 
 [node name="MusicTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("4_tshu8")]
-position = Vector2(10164, -1088)
-scale = Vector2(100, 100)
+position = Vector2(-16127.999, 3008)
+scale = Vector2(10, 10)
 music_track = ExtResource("10_7vaf5")
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("12_1h37y")]
@@ -196,12 +247,13 @@ dialogue_sequence = ExtResource("13_lln1l")
 required_false_event_flags = Array[String](["1-Az-Meet-GreatHall"])
 
 [node name="CutsceneTrigger-2" parent="MidgroundLayer/Entities/Triggers" index="2" instance=ExtResource("12_1h37y")]
-position = Vector2(10141, -3790.9998)
-scale = Vector2(10, 80)
+position = Vector2(10112, -1599.9999)
+scale = Vector2(15, 50)
 dialogue_sequence = ExtResource("12_7vaf5")
 dialogue_start = "breakseal"
-required_true_event_flags = Array[String](["heater_boss_activated"])
-required_false_event_flags = Array[String](["15-AzWs-ReachSafety-GreatHall", "winston_seal_broken"])
+force_disable = true
+required_true_event_flags = Array[String](["heater_boss_activated", "15-AzWs-ReachSafety-GreatHall"])
+required_false_event_flags = Array[String](["16-AzWs-BreakSeal-GreatHall"])
 
 [node name="PillarTrunk01" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("2_0mqie")]
 visible = false
@@ -474,6 +526,9 @@ position = Vector2(18176, 1024)
 
 [node name="WineShelf-3" parent="MidgroundLayer/Decor" index="70" instance=ExtResource("18_eyi1d")]
 position = Vector2(18880, 1024)
+
+[node name="CouncilRoomDoorDecor" parent="MidgroundLayer/Decor" index="71" instance=ExtResource("23_223xl")]
+position = Vector2(10112, -480)
 
 [node name="Decor" parent="ForegroundLayer" index="0"]
 modulate = Color(0.13381556, 0.14705378, 0.17088702, 1)

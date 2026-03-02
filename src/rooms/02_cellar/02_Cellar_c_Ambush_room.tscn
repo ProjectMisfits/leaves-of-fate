@@ -1,12 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://c8aipu8vkbprc"]
+[gd_scene load_steps=14 format=4 uid="uid://c8aipu8vkbprc"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_78sth"]
-[ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_gradient.tres" id="2_hjb0y"]
+[ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_normal.tres" id="2_hjb0y"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_hjb0y"]
 [ext_resource type="PackedScene" uid="uid://hljjnysbuwyd" path="res://assets/vfx/shaders/dust_layer.tscn" id="3_r7us7"]
-[ext_resource type="PackedScene" uid="uid://bg2o7v2o7bjjk" path="res://src/entities/objects/breakaway_platform/breakaway_platform.tscn" id="5_kak0g"]
-[ext_resource type="PackedScene" uid="uid://h13x4nmh8pso" path="res://src/entities/hazards/ice_spike_ball/ice_spike_ball.tscn" id="5_u513b"]
 [ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/npc_winston/npc_winston.tscn" id="6_af7wc"]
+[ext_resource type="Script" uid="uid://blr5ksl5vscmw" path="res://src/components/processing_component.gd" id="6_h5367"]
 [ext_resource type="PackedScene" uid="uid://bf4p2eid3ykd4" path="res://src/entities/decor/ice/icicle_group_01.tscn" id="8_hjb0y"]
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="9_hjb0y"]
 [ext_resource type="PackedScene" uid="uid://bwadcghg6jxxu" path="res://src/entities/decor/pillars/pillar_base_03.tscn" id="9_kftvp"]
@@ -93,7 +92,12 @@ position = Vector2(22784, 22016)
 target_room_path = "uid://bqwa13d7qt5yf"
 
 [node name="NpcWinston" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("6_af7wc")]
-position = Vector2(21504, 21568)
+position = Vector2(21504, 22016)
+
+[node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcWinston" index="4"]
+script = ExtResource("6_h5367")
+required_false_event_flags = Array[String](["5a-Ws-Ambush-CellarGeneral"])
+metadata/_custom_type_script = "uid://blr5ksl5vscmw"
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("9_hjb0y")]
 position = Vector2(19103, 17780)
@@ -102,7 +106,27 @@ dialogue_sequence = ExtResource("10_h5367")
 dialogue_start = "ambushed"
 required_false_event_flags = Array[String](["5a-Ws-Ambush-CellarGeneral"])
 
-[node name="BackBufferCopy" parent="MidgroundLayer" index="7"]
+[node name="PillarTrunk04" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("10_7c5gk")]
+position = Vector2(16896, 19968)
+scale = Vector2(1, 2.5)
+
+[node name="PillarTrunk04-2" parent="MidgroundLayer/Decor" index="1" instance=ExtResource("10_7c5gk")]
+position = Vector2(21376, 20032)
+scale = Vector2(1, 2.5)
+
+[node name="PillarBase03" parent="MidgroundLayer/Decor" index="2" instance=ExtResource("9_kftvp")]
+position = Vector2(16896, 22016)
+
+[node name="PillarBase03-2" parent="MidgroundLayer/Decor" index="3" instance=ExtResource("9_kftvp")]
+position = Vector2(21376, 22016)
+
+[node name="PillarCap01" parent="MidgroundLayer/Decor" index="4" instance=ExtResource("11_r7us7")]
+position = Vector2(16896, 17920)
+
+[node name="PillarCap01-2" parent="MidgroundLayer/Decor" index="5" instance=ExtResource("11_r7us7")]
+position = Vector2(21376, 17920)
+
+[node name="BackBufferCopy" parent="MidgroundLayer" index="8"]
 z_index = 3
 
 [node name="IceSpikeBall" parent="MidgroundLayer/BackBufferCopy" index="0" instance=ExtResource("12_h5367")]
@@ -127,26 +151,6 @@ scale = Vector2(5.1332383, 8.142656)
 [node name="IcicleGroup01-4" parent="MidgroundLayer/BackBufferCopy" index="4" instance=ExtResource("8_hjb0y")]
 position = Vector2(20608, 1280.0001)
 scale = Vector2(7.6335387, 7.374278)
-
-[node name="PillarTrunk04" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("10_7c5gk")]
-position = Vector2(16896, 19968)
-scale = Vector2(1, 2.5)
-
-[node name="PillarTrunk04-2" parent="MidgroundLayer/Decor" index="1" instance=ExtResource("10_7c5gk")]
-position = Vector2(21376, 20032)
-scale = Vector2(1, 2.5)
-
-[node name="PillarBase03" parent="MidgroundLayer/Decor" index="2" instance=ExtResource("9_kftvp")]
-position = Vector2(16896, 22016)
-
-[node name="PillarBase03-2" parent="MidgroundLayer/Decor" index="3" instance=ExtResource("9_kftvp")]
-position = Vector2(21376, 22016)
-
-[node name="PillarCap01" parent="MidgroundLayer/Decor" index="4" instance=ExtResource("11_r7us7")]
-position = Vector2(16896, 17920)
-
-[node name="PillarCap01-2" parent="MidgroundLayer/Decor" index="5" instance=ExtResource("11_r7us7")]
-position = Vector2(21376, 17920)
 
 [node name="IceSpikeBall" parent="." index="3" instance=ExtResource("12_h5367")]
 position = Vector2(14464, 19328)

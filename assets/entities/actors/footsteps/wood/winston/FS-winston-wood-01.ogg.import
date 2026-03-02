@@ -2,13 +2,13 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://jbk1cd68kcko"
-path="res://.godot/imported/FS-winston-wood-01.ogg-30358c235b40d881b77775b76caf480f.oggvorbisstr"
+uid="uid://cxb4gl5n763gy"
+path="res://.godot/imported/FS-Winston-Wood-01.ogg-5c65663a5186930718987970144dc6f6.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/entities/actors/footsteps/wood/winston/FS-winston-wood-01.ogg"
-dest_files=["res://.godot/imported/FS-winston-wood-01.ogg-30358c235b40d881b77775b76caf480f.oggvorbisstr"]
+source_file="res://assets/entities/actors/footsteps/wood/winston/FS-Winston-Wood-01.ogg"
+dest_files=["res://.godot/imported/FS-Winston-Wood-01.ogg-5c65663a5186930718987970144dc6f6.oggvorbisstr"]
 
 [params]
 

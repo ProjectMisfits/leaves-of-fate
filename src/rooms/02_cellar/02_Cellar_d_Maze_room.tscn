@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=4 uid="uid://eldisqp88aov"]
+[gd_scene load_steps=26 format=4 uid="uid://eldisqp88aov"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_rtqhs"]
 [ext_resource type="PackedScene" uid="uid://cnhvjqd23j3hu" path="res://src/entities/actors/enemies/ice_cube/ice_scream.tscn" id="2_juxpp"]
 [ext_resource type="PackedScene" uid="uid://bbpm02j1io7y6" path="res://src/entities/objects/bronze_pipe/bronze_pipe.tscn" id="3_3kfhg"]
 [ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/npc_winston/npc_winston.tscn" id="3_hnxfm"]
 [ext_resource type="PackedScene" uid="uid://disa83btdjjsk" path="res://src/entities/objects/moving_platform/moving_platform.tscn" id="4_hnxfm"]
+[ext_resource type="Script" uid="uid://blr5ksl5vscmw" path="res://src/components/processing_component.gd" id="4_iibnd"]
 [ext_resource type="PackedScene" uid="uid://cm33qh6em0dth" path="res://src/entities/triggers/grab_trigger/grab_trigger.tscn" id="5_iibnd"]
 [ext_resource type="PackedScene" uid="uid://cnkr1x18dvnec" path="res://src/entities/triggers/player_enter_trigger/camera_trigger/camera_trigger.tscn" id="6_7voht"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_f4r0g"]
@@ -104,6 +105,11 @@ scale = Vector2(4.53, 4.53)
 [node name="NpcWinston" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("3_hnxfm")]
 position = Vector2(14528, -128)
 
+[node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcWinston" index="4"]
+script = ExtResource("4_iibnd")
+required_false_event_flags = Array[String](["7-Ws-Lost-HeaterArea"])
+metadata/_custom_type_script = "uid://blr5ksl5vscmw"
+
 [node name="BronzePipe" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("3_3kfhg")]
 position = Vector2(9424, 528)
 player_input_delay = 0.75
@@ -201,7 +207,7 @@ position = Vector2(-464, 64)
 shape = SubResource("RectangleShape2D_hwvw2")
 
 [node name="PhantomCamera2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger-2" index="1"]
-position = Vector2(27952, 3828)
+position = Vector2(27968, 3868)
 zoom = Vector2(0.2, 0.2)
 tween_resource = SubResource("Resource_kj4mg")
 limit_target = NodePath("../Limit")
