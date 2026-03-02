@@ -70,8 +70,14 @@ func _update(delta: float) -> void:
 	else:
 		turning = false
 	
-	var new_velocity_length: float = agent.velocity.length() + (agent.dash_acceleration * delta)
-	new_velocity_length = clampf(new_velocity_length, agent.dash_min_speed, agent.dash_max_speed)
+	var new_velocity_length: float = agent.velocity.length()
+	
+	if (agent.velocity > agent.dash_max_speed):
+		new_velocity_length -= (agent.dash_speed_friction * delta)
+		new_velocity_length = max(new_velocity_length, agent.dash_max_speed)
+	else:
+		new_velocity_length += (agent.dash_acceleration * delta)
+		new_velocity_length = clampf(new_velocity_length, agent.dash_min_speed, agent.dash_max_speed)
 	
 	agent.velocity = new_velocity_length * move_direction
 	agent.flip_node.rotation = Vector2.RIGHT.angle_to(move_direction)
