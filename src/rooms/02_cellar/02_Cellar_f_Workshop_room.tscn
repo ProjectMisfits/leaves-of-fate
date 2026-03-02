@@ -80,16 +80,20 @@ tile_map_data = PackedByteArray("AAD//wgAAAABAAAAAAACAAgAAAACAAAAAAAIAAgAAAACAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(-5568, 1024)
+target_room_path = "uid://bdbuuoljlim4f"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(8128, 5248)
 
 [node name="DoorGrate" parent="MidgroundLayer/DoorHolder" index="2" instance=ExtResource("4_uvpvb")]
 position = Vector2(12224, 960)
+target_room_path = "uid://bgitq08nv445e"
 door_name = "vent"
+target_door_name = "enter"
 
 [node name="DoorGrate-2" parent="MidgroundLayer/DoorHolder" index="3" instance=ExtResource("4_uvpvb")]
 position = Vector2(3072, -3264)
+door_name = "vent2"
 
 [node name="NpcAz" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("4_6gt6j")]
 position = Vector2(-6400, 1024)

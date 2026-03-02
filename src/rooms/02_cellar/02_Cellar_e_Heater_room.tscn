@@ -50,9 +50,11 @@ tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(1984, 1024)
+target_room_path = "uid://cgen2n4p4n0nn"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(20160, 1024)
+target_room_path = "uid://cktcwp3gpi773"
 
 [node name="Heater" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("2_57jf6")]
 position = Vector2(11072, -1664)

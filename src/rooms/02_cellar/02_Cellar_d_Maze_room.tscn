@@ -94,9 +94,11 @@ tile_map_data = PackedByteArray("AACLAL7/AwAOAAAAAACLAL//AwAOAAAAAACLAMD/AwAOAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(4608, 1024)
+target_room_path = "uid://bnp74qqvf06bm"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(21312, 1040)
+target_room_path = "uid://bhur0jxismi3t"
 
 [node name="IceScream" parent="MidgroundLayer/Entities/Enemies" index="0" instance=ExtResource("2_juxpp")]
 position = Vector2(27376, -3504)
@@ -207,7 +209,7 @@ position = Vector2(-464, 64)
 shape = SubResource("RectangleShape2D_hwvw2")
 
 [node name="PhantomCamera2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger-2" index="1"]
-position = Vector2(27968, 3868)
+position = Vector2(27952, 3828)
 zoom = Vector2(0.2, 0.2)
 tween_resource = SubResource("Resource_kj4mg")
 limit_target = NodePath("../Limit")
