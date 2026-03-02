@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://br682cbyxg5wr"]
+[gd_scene load_steps=10 format=4 uid="uid://uyraespn5u1u"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_nct2w"]
 [ext_resource type="PackedScene" uid="uid://cnkr1x18dvnec" path="res://src/entities/triggers/player_enter_trigger/camera_trigger/camera_trigger.tscn" id="2_tsion"]
@@ -136,7 +136,7 @@ position = Vector2(36352, -4096)
 [node name="PillarBase03-6" parent="MidgroundLayer/Decor" index="23" instance=ExtResource("5_pe5q0")]
 position = Vector2(36352, 1024)
 
-[node name="MeshInstance2D2-2" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="1"]
+[node name="MeshInstance2D2-2" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="0"]
 light_mask = 0
 position = Vector2(3584, -3264)
 rotation = 1.5707964
@@ -144,7 +144,7 @@ scale = Vector2(8, 5)
 mesh = SubResource("QuadMesh_msfkg")
 texture = SubResource("GradientTexture2D_tglb0")
 
-[node name="MeshInstance2D2-3" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="2"]
+[node name="MeshInstance2D2-3" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="1"]
 light_mask = 0
 position = Vector2(15360, -7936)
 rotation = 1.5707964
@@ -152,7 +152,7 @@ scale = Vector2(8, 5)
 mesh = SubResource("QuadMesh_msfkg")
 texture = SubResource("GradientTexture2D_tglb0")
 
-[node name="MeshInstance2D2-4" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="3"]
+[node name="MeshInstance2D2-4" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="2"]
 light_mask = 0
 position = Vector2(20480, -7936)
 rotation = 1.5707964
@@ -160,7 +160,7 @@ scale = Vector2(8, 5)
 mesh = SubResource("QuadMesh_msfkg")
 texture = SubResource("GradientTexture2D_tglb0")
 
-[node name="MeshInstance2D2-5" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="4"]
+[node name="MeshInstance2D2-5" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="3"]
 light_mask = 0
 position = Vector2(25600, -7936)
 rotation = 1.5707964
@@ -168,7 +168,7 @@ scale = Vector2(8, 5)
 mesh = SubResource("QuadMesh_msfkg")
 texture = SubResource("GradientTexture2D_tglb0")
 
-[node name="MeshInstance2D2-6" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="5"]
+[node name="MeshInstance2D2-6" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="4"]
 light_mask = 0
 position = Vector2(30720, -7936)
 rotation = 1.5707964
@@ -176,7 +176,7 @@ scale = Vector2(8, 5)
 mesh = SubResource("QuadMesh_msfkg")
 texture = SubResource("GradientTexture2D_tglb0")
 
-[node name="MeshInstance2D2-7" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="6"]
+[node name="MeshInstance2D2-7" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="5"]
 light_mask = 0
 position = Vector2(36352, -7936)
 rotation = 1.5707964
