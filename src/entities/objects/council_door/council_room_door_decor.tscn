@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bqmkinlgelba6" path="res://src/entities/objects/council_door/council_room_door_decor.gd" id="1_hh5ty"]
 [ext_resource type="Texture2D" uid="uid://fwygqawpx8by" path="res://assets/entities/decor/furniture/Council_Room_Door.png" id="2_dhqvd"]
-[ext_resource type="Texture2D" uid="uid://dvwtfu26kspmx" path="res://assets/entities/decor/furniture/Door_Seal.png" id="3_0jvmo"]
+[ext_resource type="Texture2D" uid="uid://bakyjmf0xlj2n" path="res://assets/entities/decor/furniture/White_Door_Seal.png" id="3_hh5ty"]
 
 [sub_resource type="Animation" id="Animation_f06bo"]
 length = 0.001
@@ -66,6 +66,21 @@ _data = {
 &"seal_wobble": SubResource("Animation_7t2oh")
 }
 
+[sub_resource type="Animation" id="Animation_wy6eo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CouncilRoomDoor/DoorSeal:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_5jsr1"]
 resource_name = "seal-release"
 length = 2.0
@@ -79,22 +94,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_wy6eo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CouncilRoomDoor/DoorSeal:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(0, 1, 1, 1), Color(0.34117648, 0.17254902, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rfyg7"]
@@ -111,9 +111,10 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_dhqvd")
 
 [node name="DoorSeal" type="Sprite2D" parent="CouncilRoomDoor"]
+modulate = Color(0, 1, 1, 1)
 position = Vector2(0, 128)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_0jvmo")
+texture = ExtResource("3_hh5ty")
 
 [node name="SealWobble" type="AnimationPlayer" parent="."]
 libraries = {
