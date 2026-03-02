@@ -52,5 +52,8 @@ data = {
 "heater_boss_activated": false,
 "heater_main_activated": false,
 "iceton_released": false,
-"winston_seal_broken": false
+"inhaler_available": false,
+"inhaler_retrieved": false,
+"winston_seal_broken": false,
+"workshop_door_melted": false
 }

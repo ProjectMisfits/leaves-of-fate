@@ -17,7 +17,7 @@ shader_parameter/positionCenter = Vector2(-1.55, 0)
 shader_parameter/warpWidth = 0.71600003075012
 shader_parameter/warpWidthDistance = 248.5590118065525
 
-[node name="NpcIceston" instance=ExtResource("1_kyxhw")]
+[node name="NpcIceton" instance=ExtResource("1_kyxhw")]
 npc_name = "Iceton"
 walk_animation = "winston_walk"
 idle_animation = "winston_idle"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://bdbuuoljlim4f"]
+[gd_scene load_steps=43 format=4 uid="uid://bdbuuoljlim4f"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_q0uwv"]
 [ext_resource type="Texture2D" uid="uid://be0i86wbdl12e" path="res://assets/rooms/backgrounds/bg_den_normal.tres" id="2_yrfw5"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://be8dog2eea1tm" path="res://assets/dialogue/dialogue_scripts/6-AzWs-Arrive-Den.dialogue" id="10_badnc"]
 [ext_resource type="Script" uid="uid://blr5ksl5vscmw" path="res://src/components/processing_component.gd" id="10_rl2ph"]
 [ext_resource type="Resource" uid="uid://c8tyiwgf560g" path="res://assets/dialogue/dialogue_scripts/12-AzWs-AsthmaAttack-Den.dialogue" id="11_q0uwv"]
+[ext_resource type="PackedScene" uid="uid://b42l8xko2atyd" path="res://src/entities/objects/item_sparkle/item_sparkle.tscn" id="12_6pf26"]
 [ext_resource type="PackedScene" uid="uid://db6ckeae2eb0e" path="res://src/entities/decor/ice/icicle_05.tscn" id="12_tqyf2"]
 [ext_resource type="PackedScene" uid="uid://dueb2snetgjyf" path="res://src/entities/decor/ice/icicle_06.tscn" id="13_ill31"]
 [ext_resource type="PackedScene" uid="uid://s5tabrd66okd" path="res://src/entities/decor/ice/icicle_02.tscn" id="14_qoph1"]
@@ -143,22 +144,25 @@ position = Vector2(11200, 1024)
 
 [node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcAz" index="4"]
 script = ExtResource("10_rl2ph")
-required_true_event_flags = Array[String](["heater_main_activated"])
-required_false_event_flags = Array[String](["12-AzWs-AsthmaAttack-Den"])
+required_false_event_flags = Array[String](["12-AzWs-AsthmaAttack-Den", "heater_main_activated"])
 metadata/_custom_type_script = "uid://blr5ksl5vscmw"
+
+[node name="ItemSparkle" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("12_6pf26")]
+position = Vector2(15100, 1015)
+scale = Vector2(0.5, 0.5)
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("9_61b8v")]
 position = Vector2(11885, -860.00006)
 scale = Vector2(10, 60)
 dialogue_sequence = ExtResource("10_badnc")
+force_disable = true
 required_false_event_flags = Array[String](["6-AzWs-Arrive-Den"])
 
 [node name="CutsceneTrigger-2" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("9_61b8v")]
-position = Vector2(2715, -477.00006)
+position = Vector2(7424, -704)
 scale = Vector2(10, 50)
 dialogue_sequence = ExtResource("11_q0uwv")
-required_true_event_flags = Array[String](["heater_main_activated"])
-required_false_event_flags = Array[String](["12-AzWs-AsthmaAttack-Den"])
+required_false_event_flags = Array[String](["12-AzWs-AsthmaAttack-Den", "heater_main_activated"])
 
 [node name="Decor" parent="MidgroundLayer" index="7"]
 modulate = Color(0.59, 0.59, 0.59, 1)
@@ -483,8 +487,10 @@ position = Vector2(13696, -2752)
 scale = Vector2(4.25, 4.25)
 
 [node name="InvisibleWall" parent="MidgroundLayer/BackBufferCopy/Ice" index="5" instance=ExtResource("33_yrfw5")]
+visible = false
 position = Vector2(13568, -768)
 collision_layer = 3
+required_false_event_flags = Array[String](["workshop_door_melted"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MidgroundLayer/BackBufferCopy/Ice/InvisibleWall" index="1"]
 shape = SubResource("RectangleShape2D_q0uwv")

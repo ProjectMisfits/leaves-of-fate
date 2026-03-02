@@ -97,10 +97,10 @@ position = Vector2(-6400, 1024)
 [node name="NpcWinston" parent="MidgroundLayer/Entities/NPCs" index="1" instance=ExtResource("5_vvfdw")]
 position = Vector2(4544, 1024)
 
-[node name="NpcIceston" parent="MidgroundLayer/Entities/NPCs" index="2" instance=ExtResource("8_cajgg")]
-position = Vector2(4160, 1024)
+[node name="NpcIceton" parent="MidgroundLayer/Entities/NPCs" index="2" instance=ExtResource("8_cajgg")]
+position = Vector2(4224, 1024)
 
-[node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcIceston" index="4"]
+[node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcIceton" index="4"]
 script = ExtResource("9_3sq04")
 required_true_event_flags = Array[String](["iceton_released", "13-AzWs-FinalConfrontation-Workshop"])
 required_false_event_flags = Array[String](["heater_boss_activated"])

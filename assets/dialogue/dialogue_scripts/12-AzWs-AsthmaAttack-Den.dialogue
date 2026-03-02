@@ -1,7 +1,10 @@
 ~ start
 do! MusicManager._fade_out()
+do CutsceneManager.fade_to_black()
 do CutsceneManager.player_face("right")
-do CameraManager.create_camera(Vector2(12500.0,100), 0.75, 1.5, "CUBIC", "EASE_IN_OUT")
+do CameraManager.create_camera(Vector2(12500.0,300), 0.5, 0.01, "CUBIC", "EASE_IN_OUT")
+do CutsceneManager.player_move(9500,100000, false, false)
+do CutsceneManager.fade_from_black()
 Winston hood: [speed=0.7][wave freq=7 amp=30]Come on, [i]Az[/i].[/wave] It can not be [i]that[/i] hard to melteth a little ice.
 Az annoy: [i]Shut up.[/i]
 Winston hood: [speed=0.7]Aw, what's wrong? [wave freq=7 amp=30]Art thee afraid?[/wave] 
@@ -20,12 +23,15 @@ do CutsceneManager.npc_move("Az", 12500, 500, true, false)
 do! CutsceneManager.player_move(11000, 500, true, false)
 Az takes a deep breath
 do EventBus.interrupt_dialogue.emit("0.3")
+do CutsceneManager.player_move(10500,2000, true, false)
 Fenn worry: [i][color="B80006"]Az[/color]?[/i] What are you-
 do CutsceneManager.fade_to_black()
 #do CutsceneManager.play_sound("FireBreath")
-#do CutsceneManager.something
+do EventFlags.set_flag("workshop_door_melted", true)
+do CutsceneManager.wait(2)
 do CutsceneManager.fade_from_black()
 #do CutsceneManager.play_sound("AzCollapse")
+Az collapses
 do EventBus.interrupt_dialogue.emit("0.3")
 Winston hood awkward: [font_size=40]Wait... wh-[/font_size]
 Fenn worry: [font_size=80][i][color="B80006"]AZ[/color]![/i] [shake level=10 rate=50]What did you do?[/shake][/font_size]
@@ -52,6 +58,7 @@ do CutsceneManager.wait(3)
 do CutsceneManager.fade_to_black()
 Object sliding through door sound effect
 #do CutsceneManager.play_sound("InhalerSlide")
+do EventFlags.set_flag("inhaler_available", true)
 do CutsceneManager.fade_from_black()
 do EventBus.interrupt_dialogue.emit("0.5")
 Fenn: Wait, that's-
@@ -60,7 +67,7 @@ Fenn walks to door
 #do! CutsceneManager.npc_move("Fenn", 13000, 500, true, false)
 Object deleted w/ pickup sound
 #do CutsceneManager.play_sound("InhalerPickup")
-#do CutsceneManager.something -- delete inhaler
+do EventFlags.set_flag("inhaler_retrieved", true)
 Fenn walks to Az
 #do! CutsceneManager.npc_move("Fenn", 12000, 500, true, false)
 do CutsceneManager.wait(2)
