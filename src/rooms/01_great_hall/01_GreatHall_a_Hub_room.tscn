@@ -231,6 +231,7 @@ scale = Vector2(-1, -1)
 
 [node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/SealScene" index="2"]
 script = ExtResource("13_dn8jt")
+required_true_event_flags = Array[String](["heater_boss_activated"])
 required_false_event_flags = Array[String](["16-AzWs-BreakSeal-GreatHall"])
 metadata/_custom_type_script = "uid://blr5ksl5vscmw"
 
@@ -250,6 +251,7 @@ position = Vector2(10112, -1599.9999)
 scale = Vector2(15, 50)
 dialogue_sequence = ExtResource("12_7vaf5")
 dialogue_start = "breakseal"
+force_disable = true
 required_false_event_flags = Array[String](["15-AzWs-ReachSafety-GreatHall", "16-AzWs-BreakSeal-GreatHall", "heater_boss_activated"])
 
 [node name="PillarTrunk01" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("2_0mqie")]
