@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cadsmfa8k8oaw"]
+[gd_scene load_steps=19 format=4 uid="uid://cadsmfa8k8oaw"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_mvvqy"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="2_ha3ky"]
