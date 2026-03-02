@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=20 format=3 uid="uid://bnysb55hwhjyd"]
+[gd_resource type="TileSet" load_steps=21 format=3 uid="uid://bnysb55hwhjyd"]
 
 [ext_resource type="Texture2D" uid="uid://bacfs5fh7tttn" path="res://assets/entities/hazards/icicle/Icicle-01.png" id="1_qib5l"]
 [ext_resource type="Texture2D" uid="uid://nsc4gwcg2lhf" path="res://assets/entities/hazards/icicle/Icicle-02.png" id="2_1kqfm"]
@@ -14,7 +14,7 @@ tile_data = PackedInt32Array(0, 1, 0, 7, 1, 268435456)
 tile_data = PackedInt32Array(1179648, 3, 1610612736, 13, 3, 0, 2097165, 3, 805306368, 1179677, 3, 1342177280)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_63dno"]
-tile_data = PackedInt32Array(720896, 2, 0, 786433, 2, 268435456, 7, 1114117, 0, 1245197, 0, 0, 17, 1114117, 0, 720919, 2, 0)
+tile_data = PackedInt32Array(720896, 2, 0, 720919, 2, 0)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_vehyn"]
 tile_data = PackedInt32Array(0, 0, 0, 589824, 0, 805306368, 262150, 0, 1342177280)
@@ -26,6 +26,9 @@ tile_data = PackedInt32Array(0, 4, 0, 589831, 2, 0, 11, 4, 0, 589840, 2, 2684354
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_6sjh4"]
 tile_data = PackedInt32Array(262144, 0, 1610612736, 4, 0, 0, 589828, 0, 805306368, 262153, 0, 1342177280)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_dek3s"]
+tile_data = PackedInt32Array(524288, 2, 805306368, 1245190, 1114117, 805306368, 10, 0, 805306368, 1245200, 1114117, 805306368, 458774, 2, 536870912, 524311, 2, 805306368)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kqfm"]
 texture = ExtResource("1_qib5l")
@@ -81,3 +84,4 @@ pattern_3 = SubResource("TileMapPattern_vehyn")
 pattern_4 = SubResource("TileMapPattern_gpc7r")
 pattern_5 = SubResource("TileMapPattern_dbyyx")
 pattern_6 = SubResource("TileMapPattern_6sjh4")
+pattern_7 = SubResource("TileMapPattern_dek3s")
