@@ -155,14 +155,14 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(11885, -860.00006)
 scale = Vector2(10, 60)
 dialogue_sequence = ExtResource("10_badnc")
-force_disable = true
 required_false_event_flags = Array[String](["6-AzWs-Arrive-Den"])
 
 [node name="CutsceneTrigger-2" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("9_61b8v")]
 position = Vector2(7424, -704)
 scale = Vector2(10, 50)
 dialogue_sequence = ExtResource("11_q0uwv")
-required_false_event_flags = Array[String](["12-AzWs-AsthmaAttack-Den", "heater_main_activated"])
+required_true_event_flags = Array[String](["heater_main_activated"])
+required_false_event_flags = Array[String](["12-AzWs-AsthmaAttack-Den"])
 
 [node name="Decor" parent="MidgroundLayer" index="7"]
 modulate = Color(0.59, 0.59, 0.59, 1)

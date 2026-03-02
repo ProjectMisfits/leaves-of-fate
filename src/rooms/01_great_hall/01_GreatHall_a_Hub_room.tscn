@@ -252,7 +252,8 @@ scale = Vector2(15, 50)
 dialogue_sequence = ExtResource("12_7vaf5")
 dialogue_start = "breakseal"
 force_disable = true
-required_false_event_flags = Array[String](["15-AzWs-ReachSafety-GreatHall", "16-AzWs-BreakSeal-GreatHall", "heater_boss_activated"])
+required_true_event_flags = Array[String](["heater_boss_activated", "15-AzWs-ReachSafety-GreatHall"])
+required_false_event_flags = Array[String](["16-AzWs-BreakSeal-GreatHall"])
 
 [node name="PillarTrunk01" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("2_0mqie")]
 visible = false

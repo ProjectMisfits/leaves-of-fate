@@ -98,6 +98,7 @@ position = Vector2(-6400, 1024)
 position = Vector2(4544, 1024)
 
 [node name="NpcIceton" parent="MidgroundLayer/Entities/NPCs" index="2" instance=ExtResource("8_cajgg")]
+visible = false
 position = Vector2(4224, 1024)
 
 [node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcIceton" index="4"]
@@ -132,7 +133,6 @@ required_false_event_flags = Array[String](["13-AzWs-FinalConfrontation-Workshop
 position = Vector2(4631, 155.00002)
 scale = Vector2(10, 20)
 dialogue_sequence = ExtResource("9_6kule")
-force_disable = true
 required_false_event_flags = Array[String](["15-AzWs-ReachSafety-GreatHall", "14-AzWs-TurnOnHeater-Boss-HeaterArea"])
 
 [node name="Icicle02" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("11_xvd77")]
