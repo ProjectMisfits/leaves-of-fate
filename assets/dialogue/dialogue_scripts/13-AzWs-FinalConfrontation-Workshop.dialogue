@@ -42,7 +42,7 @@ Winston: [font_size=80]THUS! WITNESS THE CREATION!![/font_size]
 Winston grit: [font_size=80] OF THE ONE. THE ONLY.[/font_size]
 Winston: [font_size=100][shake level=10 rate=30][i][color="521FA6"]ICETON[/color]!![/i][/shake][/font_size]
 do CutsceneManager.fade_to_black()
-#do CutsceneManager.create_npc("Iceton", Vector2(3072,1024))
+# Summon iceton / make visible
 do CutsceneManager.npc_face("Iceton", "left")
 do EventFlags.set_flag("iceton_released", true)
 do CutsceneManager.wait(2)
@@ -54,6 +54,9 @@ Winston grit: [font_size=60]IT WORKED!![/font_size]
 Fenn worry: Are we in danger?
 Az: Hmph. Maybe.
 Winston grit: [font_size=80]ICETON, GO! [wait=0.3] [shake level=7 rate=30]DESTROYETH THEM![/shake][/font_size]
+
+
+## !!! Fix
 do! CutsceneManager.npc_move("Iceton", 2572.0, 250, true, false)
 do! CutsceneManager.npc_move("Az", -500.0, 250, true, true)
 do CutsceneManager.player_move(200.0, 250, true, true)
@@ -62,7 +65,7 @@ Fenn worry: Uh oh.
 do CutsceneManager.npc_face("Iceton","right")
 do CutsceneManager.wait(1.5)
 Az: Huh?
-#do CutsceneManager.npc_move("Iceton", 4224, 2000, true, false)
+do CutsceneManager.npc_move("Iceton", 4224, 4000, true, false)
 Iceton turns around, rushes towards Winston, and starts beating him up.
 Fenn worry: Winston?
 Winston grit: NO! [font_size=40]No no... [/font_size][font_size=60][i][shake level=7 rate=30]STOP THIS![/shake][/i][/font_size]

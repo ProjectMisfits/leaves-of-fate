@@ -73,6 +73,24 @@ func remove_npc(npc_name: String) -> void:
 	npcs.erase(npc_instance)
 	npc_instance.queue_free()
 
+func hide_npc(npc_name: String) -> void:
+	# Get a reference to the NPC
+	var npc_instance: NPC = _get_npc(npc_name)
+	# If the NPC was in the list of NPCs, remove it from the list and delete it.
+	if npc_instance == null:
+		push_error("CutsceneManager: No valid NPC for name %s." % npc_name)
+		return
+	npc_instance.visible = false
+
+func show_npc(npc_name: String) -> void:
+	# Get a reference to the NPC
+	var npc_instance: NPC = _get_npc(npc_name)
+	# If the NPC was in the list of NPCs, remove it from the list and delete it.
+	if npc_instance == null:
+		push_error("CutsceneManager: No valid NPC for name %s." % npc_name)
+		return
+	npc_instance.visible = true
+
 ## Move the specified npc in the given direction for the given duration or distance.
 func npc_move(npc_name: String, destination_global_x: float = 1.0, move_speed: float = 1.0, animate_walk: bool = true, moonwalk: bool = false) -> void:
 	# Get a reference to the NPC

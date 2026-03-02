@@ -99,23 +99,31 @@ cutscene_puppeted_in = "13-AzWs-FinalConfrontation-Workshop"
 position = Vector2(4544, 1024)
 cutscene_puppeted_in = "13-AzWs-FinalConfrontation-Workshop"
 
-[node name="NpcAz-2" parent="MidgroundLayer/Entities/NPCs" index="2" instance=ExtResource("4_6gt6j")]
+[node name="SafetyCutscene" type="Node2D" parent="MidgroundLayer/Entities/NPCs" index="2"]
+
+[node name="NpcAz-2" parent="MidgroundLayer/Entities/NPCs/SafetyCutscene" index="0" instance=ExtResource("4_6gt6j")]
 position = Vector2(5824, 1024)
-scale = Vector2(-1, 1)
+rotation = 3.1415927
+scale = Vector2(1, -1)
 cutscene_puppeted_in = "15-AzWs-ReachSafety-GreatHall"
 
-[node name="NpcWinston-2" parent="MidgroundLayer/Entities/NPCs" index="3" instance=ExtResource("5_vvfdw")]
+[node name="NpcWinston-2" parent="MidgroundLayer/Entities/NPCs/SafetyCutscene" index="1" instance=ExtResource("5_vvfdw")]
 position = Vector2(5376, 1024)
 cutscene_puppeted_in = "15-AzWs-ReachSafety-GreatHall"
 
-[node name="NpcIceton" parent="MidgroundLayer/Entities/NPCs" index="4" instance=ExtResource("8_cajgg")]
-visible = false
+[node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/SafetyCutscene" index="2"]
+script = ExtResource("9_3sq04")
+required_true_event_flags = Array[String](["heater_boss_activated"])
+required_false_event_flags = Array[String](["15-AzWs-ReachSafety-GreatHall"])
+metadata/_custom_type_script = "uid://blr5ksl5vscmw"
+
+[node name="NpcIceton" parent="MidgroundLayer/Entities/NPCs" index="3" instance=ExtResource("8_cajgg")]
 position = Vector2(3072, 1024)
 cutscene_puppeted_in = "13-AzWs-FinalConfrontation-Workshop"
 
 [node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcIceton" index="4"]
 script = ExtResource("9_3sq04")
-required_true_event_flags = Array[String](["iceton_released", "13-AzWs-FinalConfrontation-Workshop"])
+required_true_event_flags = Array[String](["iceton_released"])
 required_false_event_flags = Array[String](["heater_boss_activated"])
 metadata/_custom_type_script = "uid://blr5ksl5vscmw"
 
