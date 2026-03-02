@@ -40,6 +40,7 @@ Winston: [font_size=100][shake level=10 rate=30][i][color="521FA6"]ICETON[/color
 do CutsceneManager.fade_to_black()
 #do CutsceneManager.create_npc("Iceton")
 #do CutsceneManager.play_sound("MachineWhirring")
+do EventFlags.set_flag("iceton_released", true)
 #do CutsceneManager.play_sound("SmokeBellowing")
 #do CutsceneManager.something -- change the state of the machine from closed to open
 do CutsceneManager.fade_from_black()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://bohwfv2ojdvd6"]
+[gd_scene load_steps=28 format=4 uid="uid://bohwfv2ojdvd6"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_ka582"]
 [ext_resource type="PackedScene" uid="uid://bbpm02j1io7y6" path="res://src/entities/objects/bronze_pipe/bronze_pipe.tscn" id="2_cmdfb"]
@@ -10,11 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="4_6qxje"]
 [ext_resource type="PackedScene" uid="uid://d2w50ptxgmhj4" path="res://src/entities/objects/doors/door_grate.tscn" id="4_uvpvb"]
 [ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/npc_winston/npc_winston.tscn" id="5_vvfdw"]
-[ext_resource type="PackedScene" uid="uid://b7j64qhjhyt7o" path="res://src/entities/decor/furniture/table.tscn" id="6_cmdfb"]
 [ext_resource type="Resource" uid="uid://bbwxxjmh5jp4p" path="res://assets/dialogue/dialogue_scripts/13-AzWs-FinalConfrontation-Workshop.dialogue" id="7_vvfdw"]
-[ext_resource type="PackedScene" uid="uid://bsjsr3aaotqep" path="res://src/entities/decor/furniture/book_01.tscn" id="8_e0vym"]
 [ext_resource type="Resource" uid="uid://duspdpplyqoju" path="res://assets/dialogue/dialogue_scripts/15-AzWs-ReachSafety-GreatHall.dialogue" id="9_6kule"]
-[ext_resource type="PackedScene" uid="uid://dpbbh0swy0fhv" path="res://src/entities/decor/furniture/book_02.tscn" id="9_cv1b4"]
+[ext_resource type="PackedScene" uid="uid://bf3cpgh4opj6s" path="res://src/entities/objects/iceton_machine/iceton_machine.tscn" id="9_pnt6g"]
 [ext_resource type="PackedScene" uid="uid://s5tabrd66okd" path="res://src/entities/decor/ice/icicle_02.tscn" id="11_xvd77"]
 [ext_resource type="PackedScene" uid="uid://do1txexpwjmqq" path="res://src/entities/decor/ice/icicle_03.tscn" id="12_cajgg"]
 [ext_resource type="PackedScene" uid="uid://db6ckeae2eb0e" path="res://src/entities/decor/ice/icicle_05.tscn" id="13_3sq04"]
@@ -107,6 +105,10 @@ curve = SubResource("Curve2D_otj6j")
 
 [node name="PathFollow2D" parent="MidgroundLayer/Entities/Objects/BronzePipe-2/Path2D" index="1"]
 position = Vector2(0, -2363.0771)
+
+[node name="IcetonMachine" parent="MidgroundLayer/Entities/Objects" index="1" instance=ExtResource("9_pnt6g")]
+position = Vector2(3072, 1024)
+scale = Vector2(2, 2)
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("4_6qxje")]
 position = Vector2(1480.9999, 6.000061)
@@ -227,17 +229,6 @@ scale = Vector2(0.5, 0.5)
 [node name="ArchRoundSmooth" parent="MidgroundLayer/Decor" index="25" instance=ExtResource("2_ps04q")]
 position = Vector2(3072, -1024)
 scale = Vector2(1.5, 1.5)
-
-[node name="Table" parent="MidgroundLayer/Decor" index="26" instance=ExtResource("6_cmdfb")]
-position = Vector2(3072, 896)
-
-[node name="Book01" parent="MidgroundLayer/Decor" index="27" instance=ExtResource("8_e0vym")]
-position = Vector2(2562, 746)
-rotation = 1.5707964
-
-[node name="Book02" parent="MidgroundLayer/Decor" index="28" instance=ExtResource("9_cv1b4")]
-position = Vector2(3749, 743)
-rotation = -1.5707964
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="MidgroundLayer/BackBufferCopy/Fades" index="0"]
 light_mask = 0
