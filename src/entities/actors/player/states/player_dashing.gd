@@ -31,6 +31,11 @@ func _enter() -> void:
 	
 	move_direction = get_input_direction()
 	
+	if (move_direction == Vector2.ZERO):
+		move_direction = Vector2.RIGHT * signf(agent.look_direction) # Dash will go in the Player's look direction.
+	
+	input_direction = move_direction
+	
 	# Velocity should be at least the dash min speed, if not more.
 	agent.velocity = move_direction * max(agent.velocity.length(), agent.dash_min_speed)
 	
@@ -70,8 +75,16 @@ func _update(delta: float) -> void:
 	else:
 		turning = false
 	
-	var new_velocity_length: float = agent.velocity.length() + (agent.dash_acceleration * delta)
-	new_velocity_length = clampf(new_velocity_length, agent.dash_min_speed, agent.dash_max_speed)
+	var new_velocity_length: float = agent.velocity.length()
+	
+	if (new_velocity_length > agent.dash_max_speed):	# If current velocity is greater than max dash speed...
+		# Apply friction to slow down until the Player reaches the max dash speed.
+		new_velocity_length -= (agent.dash_speed_friction * delta)
+		new_velocity_length = max(new_velocity_length, agent.dash_max_speed)
+	else:
+		# Increase speed & clamp by min & max dash speed.`
+		new_velocity_length += (agent.dash_acceleration * delta)
+		new_velocity_length = clampf(new_velocity_length, agent.dash_min_speed, agent.dash_max_speed)
 	
 	agent.velocity = new_velocity_length * move_direction
 	agent.flip_node.rotation = Vector2.RIGHT.angle_to(move_direction)

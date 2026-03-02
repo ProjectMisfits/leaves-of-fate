@@ -38,6 +38,7 @@ var meter_cooldown_time: float			## Time in seconds after landing on the ground 
 
 var dash_min_speed: float						## The Player's minimum speed while Leaf Dashing.
 var dash_max_speed: float						## The Player's maximum speed while Leaf Dashing.
+var dash_speed_friction: float					## The Player's velocity loss per second while over the Leaf Dash's maximum speed.
 var dash_acceleration: float					## The Player's velocity gain per second while Leaf Dashing.
 var dash_angular_turn_speed: float				## The Player's turn speed (in degrees) while Leaf Dashing. Not scaled by delta time.
 var dash_deceleration: float					## UNUSED: The Player's speed loss per second while Leaf Dashing with very little wind left.
@@ -263,6 +264,8 @@ func initialize_state_machine() -> void:
 	#state_machine.add_transition(running_state,piling_state,&"to_piling")
 	
 	# Jumping State
+	state_machine.add_transition(jumping_state,idle_state,&"to_idle")
+	state_machine.add_transition(jumping_state,running_state,&"to_running")
 	state_machine.add_transition(jumping_state,airborne_state,&"to_airborne")
 	state_machine.add_transition(jumping_state,dashing_state,&"to_dashing")
 	#state_machine.add_transition(jumping_state,piling_state,&"to_piling")
@@ -573,6 +576,7 @@ func initialize_data(data: Dictionary) -> void:
 		
 		dash_min_speed = data["dash_min_speed"]
 		dash_max_speed = data["dash_max_speed"]
+		dash_speed_friction = data["dash_speed_friction"]
 		dash_acceleration = data["dash_acceleration"]
 		dash_angular_turn_speed = data["dash_angular_turn_speed"]
 		dash_deceleration = data["dash_deceleration"]

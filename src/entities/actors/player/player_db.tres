@@ -13,6 +13,7 @@ data = {
 "dash_end_velocity_multiplier": 1.5,
 "dash_max_speed": 6000.0,
 "dash_min_speed": 4500.0,
+"dash_speed_friction": 2000.0,
 "fall_gravity_multiplier": 2.0,
 "fun_value": 1282026.0,
 "ground_acceleration": 4000.0,
