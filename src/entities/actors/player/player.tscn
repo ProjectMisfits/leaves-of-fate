@@ -613,7 +613,6 @@ script = ExtResource("1_npkjl")
 database = ExtResource("2_7gsup")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -243)
 shape = ExtResource("3_e5ptp")
 
@@ -660,7 +659,6 @@ collision_mask = 16
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/InteractComponent/InteractRange"]
-visible = false
 position = Vector2(200, 0)
 shape = SubResource("RectangleShape2D_q4vut")
 
@@ -673,7 +671,6 @@ collision_mask = 32
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FlipNode/GrabComponent/GrabRange"]
-visible = false
 position = Vector2(947, -189)
 shape = SubResource("RectangleShape2D_u7uqy")
 debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)

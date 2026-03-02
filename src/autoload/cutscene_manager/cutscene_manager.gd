@@ -138,7 +138,6 @@ func change_music(music_file_path: String) -> void:
 
 ## Play the given sound effect during a cutscene.
 func play_sound(sound: String, volume: float = 0.0, pitch_scale : float = 1.0) -> void:
-	
 	var sound_file_path : String
 	match sound:
 		"Cough":
