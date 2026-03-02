@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://ow02nyi6x5o"]
+
+[ext_resource type="AudioStream" uid="uid://dkyienng84gso" path="res://assets/entities/actors/footsteps/metal/az/FS-az-metal-01.ogg" id="1_i5s8m"]
+[ext_resource type="AudioStream" uid="uid://bw18hfpa45j5" path="res://assets/entities/actors/footsteps/metal/az/FS-az-metal-02.ogg" id="2_vf72a"]
+[ext_resource type="AudioStream" uid="uid://bf6xactllejxm" path="res://assets/entities/actors/footsteps/metal/az/FS-az-metal-03.ogg" id="3_evwis"]
+[ext_resource type="AudioStream" uid="uid://dskfrosl1v5m5" path="res://assets/entities/actors/footsteps/metal/az/FS-az-metal-04.ogg" id="4_dp1h2"]
+
+[resource]
+random_pitch = 1.5
+random_volume_offset_db = 1.0
+streams_count = 4
+stream_0/stream = ExtResource("1_i5s8m")
+stream_1/stream = ExtResource("2_vf72a")
+stream_2/stream = ExtResource("3_evwis")
+stream_3/stream = ExtResource("4_dp1h2")
