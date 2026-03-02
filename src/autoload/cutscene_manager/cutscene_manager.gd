@@ -10,6 +10,9 @@ signal cutscene_ended
 ## A signal emitted when an NPC finishes moving.
 signal npc_finished_moving
 
+## The name of the current cutscene's flag.
+var current_cutscene: String = "none"
+
 ## An array containing all npcs in the current room that are available for movement scripting during a cutscene.
 var npcs: Array[NPC]
 
