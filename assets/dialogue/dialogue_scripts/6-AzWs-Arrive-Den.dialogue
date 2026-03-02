@@ -11,7 +11,7 @@ Az: You turned off the heater, [wait=0.3]didn't you?
 Wizard grit: [font_size=80][shake level=10 rate=30]WHAT? HOW DIDST THOU KNOWETH?[/shake][/font_size]
 Az annoy: I dunno, [wait=0.3]maybe it's 'cause you're in [font_size=60][shake level=7 rate=30]MY [color="blue"]WORKSHOP[/color].[/shake][/font_size]
 Wizard awkward: Ah... [font_size=40]thou art correct...[/font_size][font_size=30] my bad.[/font_size]
-Az: [i]sigh[/i]. Fenn, there's probably be a grate in the Den. You might be able to reach the heater that way. Think you could turn it on?
+Az: [i]sigh[/i]. Fenn, [color="521FA6"]look around the Den for a grate[/color]. You might be able to reach the heater that way. Think you could turn it on?
 Fenn starry: Oooh yay! [wave freq=7 amp=30]A new page in the hero's journey-eth![/wave]
 do EventBus.interrupt_dialogue.emit("0.5")
 Az annoy: I swear, [wait=0.3]if you start talking like that too-
