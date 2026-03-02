@@ -1,42 +1,54 @@
 ~ start
-Az: Fenn!! You did it!
+do! MusicManager._fade_out()
+Az laugh: [font_size=70]Fenn!! [wave freq=7 amp=30]You did it![/wave][/font_size]
 Fenn: Are you guys okay?
 Az: We're good. Few scratches, nothing bad.
-Winston: Oh Post... I can not believeth I- ugh...
-Fenn: What's wrong?
-Winston: I'm the worst! Tis what's wrong. I am a failure, Fenn. I hath failed.
-Fenn: What? What are you talking about?
-Winston: I can't do anything right. I hath tried ambushing thee. I threweth minions in thy way.
-Winston: I even hath cloned myself, something I knoweth very well, and nothing worked.
-Winston: Tis broken. Tis all broken.
-Winston: I do not hath anything left. Thou hast won. Congratulations, Fenn.
-Fenn: Wh- why are you being so mean?
-Winston: What?
-Fenn: You're being really mean to yourself. I had fun today... I think that's more important!
-Winston: Y- you... what?
-Fenn: I had fun! It was fun, right Az?
-Az: I mean, your creations were pretty cool.
+Winston awkward: [font_size=40]Oh [i]Post...[/i] I can not [shake level=7 rate=30]believeth[/shake] I-[wait=0.3] [i]ugh...[/i][/font_size]
+Fenn worry: What's wrong?
+Winston grit: [font_size=70]I'm the [shake level=10 rate=50][i]WORST![/i][/shake][/font_size] [wait=0.3][font_size=50]Tis what's wrong.[/font_size] 
+Winston awkward: [font_size=40]I hath [i]failed.[/i][/font_size]
+Fenn worry: [font_size=60][i]What?![/i][/font_size] What are you talking about?
+Winston grit: [speed=1.2]I can't do [i]anything[/i] right. I hath tried [i]ambushing thee[/i]. I threweth [i]minions[/i] thy way.
+Winston grit: [speed=1.2][font_size=60]I hath even [shake level=10 rate=40][i]cloned[/i] myself[/shake], [/font_size][font_size=70][wait=0.3]something I knoweth [i]VERY[/i] well, [/font_size][wait=0.3][font_size=40]and nothing worked.[/font_size]
+Winston: [speed=0.5][font_size=30]Tis broken. Tis all broken.[/font_size]
+Winston: [speed=0.7][font_size=40]I do not hath anything left. Thou hast won. Congratulations, Fenn.[/font_size]
+Fenn worry: Wh- [wait=0.3] why are you being so mean?
+Winston awkward: [font_size=40]What?[/font_size]
+Fenn worry: You're being really mean to yourself. 
+Fenn: [wave freq=7 amp=30]I had fun today![/wave] I think that's more important.
+Winston: Y- [wait=0.3]you did?
+Fenn starry: It was fun! [wait=0.3]Right, [color="B80006"]Az[/color]?
+Az: I mean,[wait=0.3] your creations were pretty cool.
 Winston: Wait... really?
-Az: Yeah. And my workshop looked even cleaner than before. You managed to make all that with the scraps I had lying around?
-Winston: Oh- yeah? I am sorry! I can return thy parts!
-Az: Nah man, it's all good. You kinda saved me with that inhaler.
-Winston: Oh... well... yeah. I saweth a few in thy workshop. I didn't- I mean- I didn't wanteth thee to- to die.
-Az: I mean. Az least you DID something today. I sat around and waited for Fenn.
-Fenn: That's not true! I had your bangle. I couldn't have gotten around without it!
-Winston: And t-thou also saved me from... uh.... from I- Iceton. So... thanks.
-Winston: And, those bangles art, liketh, super cool.
-Az: Eh... you should be thanking Fenn. He convinced me to get over myself and help you.
-Fenn: Yeah! If you died, who else would make cool icy things?
-Winston: Hah... I do not knoweth... I suppose
-Winston: Art we... art we good?
-Az: Yeah. Help me free my Baba, and we're good.
-Winston: Ah, of course.
+Az laugh: Yeah. And my [color="0B4F4A"]Workshop[/color] looked even [i]cleaner[/i] than usual.
+Winston awkward: [font_size=40]Well... twas kind of a low bar...[/font_size]
+Az laugh: [font_size=60]HAH, [wait=0.3]yeah, [wait=0.3]you right.[/font_size]
+Az: You managed to make [i]all that[/i] with the scraps I had lying around?
+Winston awkward: Oh-[wait=0.3] I am sorry! [wait=0.3]I can return thy parts!
+Az: Nah man, it's all good. It's only fair. You kinda saved me with the inhaler.
+Winston awkward: Oh, well, [wait=0.3]I saweth a few in thy [color="0B4F4A"]Workshop[/color]. 
+Winston awkward: I didn't- [wait=0.3][font_size=40]I mean- [wait=0.3]I didn't wanteth thee to- [/font_size][font_size=30][wait=0.3]to die.[/font_size]
+Az: Hey, at least you [font_size=60][i]DID[/i][/font_size] something today. 
+Az annoy: [shake level=7 rate=30]I just sat around and waited for Fenn![/shake]
+Fenn worry: [font_size=60][shake level=7 rate=30][i]That's not true![/i][/shake] I had your bangle.[/font_size]
+Fenn starry: I couldn't have gotten around [i]without[/i] it!
+Winston: [font_size=40]Those bangles art,[wait=0.3] liketh,[wait=0.3] super cool.[/font_size]
+Winston awkward: And t- [wait=0.3]thou also saved me from, uh,[font_size=40] from I- [wait=0.3]Iceton. [/font_size][font_size=30]So... thanks.[/font_size]
+Az: Eh, [wait=0.3]you should be thanking Fenn. He convinced me to get over myself and help.
+Fenn starry: [font_size=60]Yeah! If you died, [wave freq=10 amp=20]who else would make cool icy things?[/wave][/font_size]
+Winston awkward: [font_size=40]Hah... I do not knoweth. I suppose.[/font_size]
+Winston awkward: Art we-[wait=0.3] [font_size=40]art we good?[/font_size]
+Az: Yeah. Help me free my [color="B80006"]Baba[/color],[wait=0.3] and we're good.
+Winston awkward: Ah, [wait=0.3]of course.
 Fade to black, fade back in with characters in front of the door seal
 Winston raises his hand, magical particles appear, and then the glowing ice symbol stops glowing on the door.
-Winston: All done! Though... tis not much help without the other Wizards.
+Winston: All done!
+Winston awkward: Though... tis not much help without the other [color="8A0194"]Wizards[/color].
 Fenn: Where could I find them?
-Winston: I believe I heard Randy headeth towards the kitchen, but tis all I knoweth. I am sorry.
-Fenn: Well... to the kitchen!
-Fenn: End of Demo! Thanks for playing Project Misfits <3
+Winston: I believe I saw [color="B80006"]Randy[/color] headeth towards the [color="0B4F4A"]Kitchen[/color],[wait=0.3] but tis all I knoweth. I am sorry.
+Fenn starry: Well, [wait=0.3]to the [color="0B4F4A"]Kitchen[/color]!
+Fenn: End of Demo! 
+Fenn starry: Thanks for playing Leaves of Fate!
+do! MusicManager._fade_in()
 do EventFlags.set_flag("15-AzWs-ReachSafety-GreatHall", true)
 => END

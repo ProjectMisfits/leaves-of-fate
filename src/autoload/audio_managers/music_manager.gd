@@ -4,26 +4,39 @@ extends AudioStreamPlayer
 ## Play the given music stream at the specified volume.
 ## If the given music is already playing, do nothing.
 ## If the given music is not already playing, crossfade to the given music.
-func _play_song(music: AudioStream, volume: float = -6.0) -> void:
-	# If the provided music is already playing, do nothing
-	if stream == music:
+func _play_song(new_music: AudioStream, new_volume: float = 0.0) -> void:
+	# If the provided music is already playing, do nothing.
+	if stream == new_music:
 		return
 	
-	if not playing:
-		# If nothing is playing, start the music directly without a fade.
-		stream = music
-		play()
-	else:
-		# Otherwise crossfade to the new music.
-		# If something is already playing, fade it out.
+	# If something is already playing, fade it out. If nothing is playing, the new music will just start directly.
+	if playing:
 		await _fade_out()
 		stop()
-		stream = music
-		volume_db = volume
-		play()
+	
+	# Start the new music.
+	stream = new_music
+	volume_db = new_volume
+	play()
 
 ## Fade out the currently playing music.
 func _fade_out() -> void:
 	var fade_out_tween: Tween = create_tween()
-	fade_out_tween.tween_property(self, "volume_db", -60.0, 0.5)
+	fade_out_tween.tween_property(self, "volume_db", -40.0, 2)
 	await fade_out_tween.finished
+	_pause()
+
+## Fade in the currently playing music.
+func _fade_in(new_volume: float = 0.0) -> void:
+	_unpause()
+	var fade_in_tween: Tween = create_tween()
+	fade_in_tween.tween_property(self, "volume_db", new_volume, 2)
+	await fade_in_tween.finished
+
+## Pause the currently playing music.
+func _pause() -> void:
+	stream_paused = true
+
+## Unpause the currently playing music.
+func _unpause() -> void:
+	stream_paused = false

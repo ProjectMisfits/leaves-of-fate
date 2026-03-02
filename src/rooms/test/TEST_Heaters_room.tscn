@@ -11,11 +11,9 @@ tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAA
 
 [node name="HeaterLever" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("2_nm6do")]
 position = Vector2(5632, 832)
-heater_number = 1
 
 [node name="HeaterLever-2" parent="MidgroundLayer/Entities/Objects" index="1" instance=ExtResource("2_nm6do")]
 position = Vector2(5632, 832)
-heater_number = 1
 
 [node name="Heater" parent="MidgroundLayer/Entities/Objects" index="2" instance=ExtResource("3_uho8h")]
 position = Vector2(3584, 1024)

@@ -1,0 +1,131 @@
+[gd_scene load_steps=15 format=4 uid="uid://bciovlpk07wr5"]
+
+[ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_fy8v3"]
+[ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="2_2l7us"]
+[ext_resource type="PackedScene" uid="uid://bgncdkpxeluh4" path="res://src/entities/triggers/interact_trigger/dialogue_trigger/dialogue_trigger.tscn" id="3_sxaqv"]
+[ext_resource type="Resource" uid="uid://bg8npse24cjcw" path="res://assets/dialogue/dialogue_scripts/1-Az-Meet-GreatHall.dialogue" id="4_8w6tr"]
+[ext_resource type="PackedScene" uid="uid://n257i6n8nqs1" path="res://src/entities/decor/pillars/pillar_trunk_03.tscn" id="6_letnj"]
+[ext_resource type="Material" uid="uid://cvcmispvvy0jb" path="res://src/vfx/shaders/rimlit_shader_material.tres" id="7_edr21"]
+[ext_resource type="PackedScene" uid="uid://0jijms4al2i5" path="res://src/entities/decor/pillars/pillar_cap_01.tscn" id="7_vwib0"]
+[ext_resource type="PackedScene" uid="uid://umcnqsgim2kt" path="res://src/entities/decor/pillars/pillar_base_02.tscn" id="8_vwib0"]
+[ext_resource type="PackedScene" uid="uid://bi76j25xbej58" path="res://src/entities/decor/plants/floor_pot_02.tscn" id="9_p2a16"]
+[ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="10_j1jmh"]
+[ext_resource type="PackedScene" uid="uid://do5hbmjewvamt" path="res://src/entities/triggers/player_enter_trigger/music_trigger/music_trigger.tscn" id="12_cmbjs"]
+
+[sub_resource type="Resource" id="Resource_nnyse"]
+metadata/__load_path__ = "res://assets/music/GreatHall-120bpm-4_4-P1b-loop.mp3"
+
+[sub_resource type="Resource" id="Resource_jxhf2"]
+metadata/__load_path__ = "res://assets/music/GreatHall-120bpm-4_4-P1b-loop.mp3"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jxhf2"]
+
+[node name="02_Cellar_a_MeetAz" instance=ExtResource("1_fy8v3")]
+
+[node name="BackgroundGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
+position = Vector2(-128, -1152)
+scale = Vector2(7424, 18)
+
+[node name="Decor" parent="BackgroundLayer" index="1"]
+material = ExtResource("7_edr21")
+
+[node name="FloorPot02" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("9_p2a16")]
+use_parent_material = true
+position = Vector2(2112, 598)
+
+[node name="FloorPot03" parent="BackgroundLayer/Decor" index="1" instance=ExtResource("9_p2a16")]
+use_parent_material = true
+position = Vector2(4992, 598)
+
+[node name="HangingLantern" parent="BackgroundLayer/Decor" index="2" instance=ExtResource("10_j1jmh")]
+use_parent_material = true
+position = Vector2(1024, -832)
+
+[node name="HangingLantern2" parent="BackgroundLayer/Decor" index="3" instance=ExtResource("10_j1jmh")]
+use_parent_material = true
+position = Vector2(6143.9995, -832)
+
+[node name="Pillars" type="Node2D" parent="BackgroundLayer/Decor" index="4"]
+modulate = Color(0.75, 0.75, 0.75, 1)
+
+[node name="PillarTrunk03" parent="BackgroundLayer/Decor/Pillars" index="0" instance=ExtResource("6_letnj")]
+position = Vector2(384, 64)
+
+[node name="PillarTrunk04" parent="BackgroundLayer/Decor/Pillars" index="1" instance=ExtResource("6_letnj")]
+material = ExtResource("7_edr21")
+position = Vector2(1664, 64)
+
+[node name="PillarTrunk06" parent="BackgroundLayer/Decor/Pillars" index="2" instance=ExtResource("6_letnj")]
+position = Vector2(6784.0005, 128)
+
+[node name="PillarCap01" parent="BackgroundLayer/Decor/Pillars" index="3" instance=ExtResource("7_vwib0")]
+use_parent_material = true
+position = Vector2(384, -1024)
+
+[node name="PillarCap02" parent="BackgroundLayer/Decor/Pillars" index="4" instance=ExtResource("7_vwib0")]
+use_parent_material = true
+position = Vector2(1664, -1024)
+
+[node name="PillarCap04" parent="BackgroundLayer/Decor/Pillars" index="5" instance=ExtResource("7_vwib0")]
+use_parent_material = true
+position = Vector2(6784, -1024)
+
+[node name="PillarBase02" parent="BackgroundLayer/Decor/Pillars" index="6" instance=ExtResource("8_vwib0")]
+use_parent_material = true
+position = Vector2(384, 1024)
+
+[node name="PillarBase03" parent="BackgroundLayer/Decor/Pillars" index="7" instance=ExtResource("8_vwib0")]
+use_parent_material = true
+position = Vector2(1664, 1024)
+
+[node name="PillarBase05" parent="BackgroundLayer/Decor/Pillars" index="8" instance=ExtResource("8_vwib0")]
+use_parent_material = true
+position = Vector2(6784, 1024)
+
+[node name="DustLayer" parent="BackgroundLayer" index="2"]
+position = Vector2(-128, -1152)
+scale = Vector2(7.4240003, 2.304)
+
+[node name="Midground" parent="MidgroundLayer" index="0"]
+light_mask = 0
+tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAAAAAADAAgABgABAAAAAAAEAAgABgABAAAAAAAFAAgABgABAAAAAAAGAAgABgABAAAAAAAHAAgABgABAAAAAAAIAAgABgABAAAAAAAJAAgABgABAAAAAAAKAAgABgABAAAAAAALAAgABgABAAAAAAAMAAgABgABAAAAAAANAAgABgABAAAAAAAOAAgABgABAAAAAAAAAPf/BgABAAAAAAABAPf/BgABAAAAAAACAPf/BgABAAAAAAADAPf/BgABAAAAAAAEAPf/BgABAAAAAAAFAPf/BgABAAAAAAAGAPf/BgABAAAAAAAHAPf/BgABAAAAAAAIAPf/BgABAAAAAAAJAPf/BgABAAAAAAAKAPf/BgABAAAAAAALAPf/BgABAAAAAAAMAPf/BgABAAAAAAANAPf/BgABAAAAAAAPAPf/BgABAAAAAAAQAPf/BgABAAAAAAARAPf/BgABAAAAAAASAPf/BgABAAAAAAATAPf/BgABAAAAAAAUAPf/BgABAAAAAAAVAPf/BgABAAAAAAAWAPf/BgABAAAAAAAXAPf/BgABAAAAAAAYAPf/BgABAAAAAAAZAPf/BgABAAAAAAAaAPf/BgABAAAAAAAbAPf/BgABAAAAAAAcAPf/BgABAAAAAAAdAPf/BgABAAAAAAAeAPf/BgABAAAAAAAfAPf/BgABAAAAAAAgAPf/BgABAAAAAAAhAPf/BgABAAAAAAAiAPf/BgABAAAAAAAjAPf/BgABAAAAAAAkAPf/BgABAAAAAAAlAPf/BgABAAAAAAAmAPf/BgABAAAAAAD///f/BgABAAAAAAD///j/BgABAAAAAAD///n/BgABAAAAAAD///r/BgABAAAAAAD///v/BgABAAAAAAD///z/BgABAAAAAAD///3/BgABAAAAAAD///7/BgABAAAAAAD/////BgABAAAAAAD//wAABgABAAAAAAD//wEABgABAAAAAAD//wIABgABAAAAAAD//wMABgABAAAAAAD//wQABgABAAAAAAD//wUABgABAAAAAAD//wYABgABAAAAAAD//wcABgABAAAAAAD//wgABgABAAAAAAAPAAgABgABAAAAAAAQAAgABgABAAAAAAARAAgABgABAAAAAAASAAgABgABAAAAAAATAAgABgABAAAAAAAUAAgABgABAAAAAAAVAAgABgABAAAAAAAWAAgABgABAAAAAAAXAAgABgABAAAAAAAYAAgABgABAAAAAAAZAAgABgABAAAAAAAaAAgABgABAAAAAAAbAAgABgABAAAAAAAcAAgABgABAAAAAAAdAAgABgABAAAAAAAeAAgABgABAAAAAAAfAAgABgABAAAAAAAgAAgABgABAAAAAAAhAAgABgABAAAAAAAiAAgABgABAAAAAAAjAAgABgABAAAAAAAkAAgABgABAAAAAAAlAAgABgABAAAAAAAmAAgABgABAAAAAAAnAAgABgABAAAAAAAoAAgABgABAAAAAAApAAgABgABAAAAAAAqAAgABgABAAAAAAArAAgABgABAAAAAAAsAAgABgABAAAAAAAsAPf/BgABAAAAAAAnAPf/BgABAAAAAAAoAPf/BgABAAAAAAApAPf/BgABAAAAAAAqAPf/BgABAAAAAAArAPf/BgABAAAAAAAtAPf/BgABAAAAAAAuAPf/BgABAAAAAAAvAPf/BgABAAAAAAAwAPf/BgABAAAAAAAxAPf/BgABAAAAAAAyAPf/BgABAAAAAAAzAPf/BgABAAAAAAA0APf/BgABAAAAAAA1APf/BgABAAAAAAA2APf/BgABAAAAAAA3APf/BgABAAAAAAA4APf/BgABAAAAAAA4APj/BgABAAAAAAA4APn/BgABAAAAAAA4APr/BgABAAAAAAA4APv/BgABAAAAAAA4APz/BgABAAAAAAA4AP3/BgABAAAAAAA4AP7/BgABAAAAAAA4AP//BgABAAAAAAA4AAAABgABAAAAAAA4AAEABgABAAAAAAA4AAIABgABAAAAAAA4AAMABgABAAAAAAA4AAQABgABAAAAAAA4AAUABgABAAAAAAA4AAYABgABAAAAAAA4AAcABgABAAAAAAA4AAgABgABAAAAAAAtAAgABgABAAAAAAAuAAgABgABAAAAAAAvAAgABgABAAAAAAAwAAgABgABAAAAAAAxAAgABgABAAAAAAAyAAgABgABAAAAAAAzAAgABgABAAAAAAA0AAgABgABAAAAAAA1AAgABgABAAAAAAA2AAgABgABAAAAAAA3AAgABgABAAAAAAAOAPf/BgABAAAAAAA=")
+
+[node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
+position = Vector2(1023.99994, 1024)
+
+[node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
+position = Vector2(6144, 1024)
+
+[node name="NpcAz" parent="MidgroundLayer/Entities/NPCs" index="0" instance=ExtResource("2_2l7us")]
+position = Vector2(4096, 682)
+
+[node name="DialogueTrigger" parent="MidgroundLayer/Entities/NPCs/NpcAz" index="3" instance=ExtResource("3_sxaqv")]
+dialogue_sequence = ExtResource("4_8w6tr")
+
+[node name="MusicTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("12_cmbjs")]
+position = Vector2(1018.99994, 658.99994)
+scale = Vector2(10, 10)
+music_track = SubResource("Resource_nnyse")
+
+[node name="MusicTrigger2" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("12_cmbjs")]
+position = Vector2(1018.99994, 658.99994)
+scale = Vector2(10, 10)
+music_track = SubResource("Resource_jxhf2")
+
+[node name="Decor" parent="MidgroundLayer" index="6"]
+material = ExtResource("7_edr21")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" index="0"]
+material = SubResource("ShaderMaterial_jxhf2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -385.0
+offset_top = -1117.0
+offset_right = 2315.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2

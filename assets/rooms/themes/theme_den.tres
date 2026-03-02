@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="RoomThemeConfig" load_steps=2 format=3 uid="uid://cb8per67ossjr"]
+
+[ext_resource type="Script" path="res://src/rooms/room_theme_config.gd" id="1_nkasi"]
+
+[resource]
+script = ExtResource("1_nkasi")
+color = Color(0.20392157, 0.22352941, 0.2627451, 1)
+metadata/_custom_type_script = "uid://nrwk3t4fulja"

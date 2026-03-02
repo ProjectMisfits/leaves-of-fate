@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cufb0e3k7yuoj"]
+
+[ext_resource type="PackedScene" uid="uid://dxkqek8cqpaer" path="res://src/autoload/debug_menu/debug_properties.tscn" id="1_3a7wb"]
+[ext_resource type="Theme" uid="uid://cf1ehneaiyibq" path="res://src/ui/debug_theme.tres" id="1_o8vgb"]
+[ext_resource type="PackedScene" uid="uid://bwp2lf38h3xwg" path="res://src/autoload/debug_menu/noclip.tscn" id="2_o8vgb"]
+
+[node name="DebugMenuScene" type="CanvasLayer"]
+layer = 3
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 194.0
+offset_bottom = 136.0
+theme = ExtResource("1_o8vgb")
+
+[node name="DebugProperties" parent="VBoxContainer" instance=ExtResource("1_3a7wb")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Noclip" parent="VBoxContainer" instance=ExtResource("2_o8vgb")]
+unique_name_in_owner = true
+layout_mode = 2

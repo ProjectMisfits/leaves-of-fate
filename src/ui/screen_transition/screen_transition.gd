@@ -3,46 +3,60 @@ class_name ScreenTransition extends Control
 ## The animation player for the screen transition.
 @onready var transition_animation_player: AnimationPlayer = %AnimationPlayer
 
+## The transition animations supported by the ScreenTransition class.
+enum transition_types {
+	CIRCLE,
+	FADE
+}
+
 ## The current screen transition.
 var screen_transition_type: String
 
 ## Set by start_transition if a transition should start at some position.
-var input_position: Vector2 = Vector2.INF;
-
-## Sets up the the circle wipe positioning uniforms from the value of input_position.
-func _circle_wipe_set_position() -> void:
-	var mat: ShaderMaterial = $CanvasLayer/ColorRect.material
-	if input_position == Vector2.INF:
-		print('Centering!')
-		mat.set_shader_parameter("useCenterPosition", false)
-	else:
-		mat.set_shader_parameter("useCenterPosition", true)
-		mat.set_shader_parameter("centerPosition", get_canvas_transform() * input_position)
-
-func _update_pos(pos: Vector2) -> void:
-	assert(pos is Vector2, "ScreenTransition: start_transition provided with invalid pos value! Expected Vector2")
-	input_position = pos
-	# TODO(jadon): This is a bit of a hack.
-	# If we decide we want a bunch of different kinds of wipes, it might be better
-	# to make the AnimationPlayer call it from within the track instead of just always running it.
-	if screen_transition_type == "circle":
-		_circle_wipe_set_position()
+var input_position: Vector2 = Vector2.INF
 
 ## Start a screen transition.
 func start_transition(transition_type: String, pos: Vector2 = Vector2.INF) -> void:
-	$CanvasLayer.show();
 	if not transition_animation_player.has_animation(transition_type):
-		push_warning("ScreenTransition: Transition type '%s' not found." % transition_type)
+		push_error("ScreenTransition: Transition type '%s' not found." % transition_type)
+		return
+	# Set the screen transition type for use in the transition out animation.
 	screen_transition_type = transition_type
-	_update_pos(pos)
+	# Update the position for use by the animation.
+	input_position = pos
+	# Play the animation and wait for it to finish.
 	transition_animation_player.play(screen_transition_type)
 	await transition_animation_player.animation_finished
 
 ## Finish the current screen transition.
-func finish_transition(pos = null) -> void:
+func finish_transition(pos: Vector2 = Vector2.INF) -> void:
 	if not screen_transition_type:
-		push_warning("ScreenTransition: No screen transition type set or screen transition in progress.")
-	_update_pos(pos)
+		push_error("ScreenTransition: No screen transition type set or screen transition in progress.")
+		return
+	# Update the position for use by the animation.
+	input_position = pos
+	# Play the animation and wait for it to finish.
 	transition_animation_player.play_backwards(screen_transition_type)
-	await transition_animation_player.animation_finished;
-	$CanvasLayer.hide();
+	await transition_animation_player.animation_finished
+
+## Handle the circle transition animation's iris position.
+func _circle_transition() -> void:
+	# Only let this run at the correct times based on the animation.
+	if not $CanvasLayer/ColorRect.is_inside_tree():
+		return
+	
+	# Set the ColorRect's shader material.
+	var transition_shape: ColorRect = $CanvasLayer/ColorRect
+	var transition_shader_material: ShaderMaterial = preload("res://src/vfx/shaders/circle_transition_shader_material.tres")
+	transition_shape.material = transition_shader_material
+	if input_position == Vector2.INF:
+		# If the irising position is not set, default to using the center of the screen for the transition.
+		transition_shape.material.set_shader_parameter("useCenterPosition", false)
+	else:
+		# Otherwise iris on the set position.
+		transition_shape.material.set_shader_parameter("useCenterPosition", true)
+		transition_shape.material.set_shader_parameter("centerPosition", get_canvas_transform() * input_position)
+
+## Handle the fade transition animation.
+func _fade_transition() -> void:
+	pass

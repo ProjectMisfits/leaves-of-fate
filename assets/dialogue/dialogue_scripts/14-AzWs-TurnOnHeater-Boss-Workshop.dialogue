@@ -1,15 +1,17 @@
 ~ start
+do! MusicManager._fade_out()
 Fenn: Got it!
 Steam hisses
 Iceton... roars?
-Az: Yes! YEAH!!
-Az: DIE, IDIOT! 
-Winston: NO!! ICETON!!  No... no please!
-Winston: Y- you... my work... the ice... the snow...
-Winston: All of it...
-Az: Ah... geez.
-Fenn: Oh...
+Az: Yes! [wait=0.3][font_size=60]YEAH!![/font_size]
+Az laugh: [font_size=70][shake level=7 rate=30]DIE,[wait=0.3] IDIOT![/shake][/font_size]
+Winston grit: [font_size=70][shake level=7 rate=30]NO!! ICETON!![/shake][/font_size][wait=0.3] No... no please!
+Winston: [font_size=40]Y- you... [/font_size][font_size=30][wave freq=7 amp=20]my work...[/wave]
+Winston grit: [font_size=30]All of it...[/font_size]
+Az: Ah, geez.
+Fenn worry: Aw...
 Az: Fenn, can you come back here and help me deal with the nerd?
-Fenn: Alright.
+Fenn worry: Alright.
+do! MusicManager._fade_in()
 do EventFlags.set_flag("14-AzWs-TurnOnHeater-Boss-Workshop", true)
 => END

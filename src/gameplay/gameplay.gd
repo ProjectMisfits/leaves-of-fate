@@ -1,4 +1,4 @@
-class_name Gameplay extends Node2D
+class_name Gameplay extends Node
 ## Wrapper for gameplay scenes during runtime.
 ## Manages scenes like the current Room, HUD, Camera, menus.
 
@@ -10,9 +10,9 @@ class_name Gameplay extends Node2D
 var current_room_path: String = ""
 
 ## A reference to the HUD.
-@onready var hud: Hud = %Hud
+@onready var hud: Hud = $UILayer/Hud
 ## A reference to the MenuHolder CanvasLayer.
-@onready var menu_holder: CanvasLayer = $MenuHolder
+@onready var menu_holder: Control = $UILayer/MenuHolder
 ## A reference to the pause menu scene.
 @onready var pause_menu: PauseMenu = preload("res://src/ui/pause_menu/pause_menu.tscn").instantiate()
 ## A reference to the settings menu scene.
@@ -33,7 +33,7 @@ func _get_player_pos() -> Vector2:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Set up the camera manager.
-	CameraManager.initialize_camera($%PhantomCamera2D, $%Camera2D)
+	CameraManager.initialize_camera(%PhantomCamera2D, %Camera2D)
 	
 	# Connect the player knocked out signal.
 	EventBus.player_knocked_out.connect(_on_player_knocked_out)
@@ -55,8 +55,6 @@ func _physics_process(_delta: float) -> void:
 func _tear_down_room() -> void:
 	# Disconnect camera from player
 	CameraManager.clear_target()
-	# Janky call to make sure cutscene stuff functions correctly
-	CutsceneManager._end_cutscene()
 
 ## Set up a room after a swap.
 func _init_room(init_player_location: Vector2) -> void:
@@ -87,10 +85,10 @@ func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
 	_init_room(current_room.get_door_position(target_door_name))
 	current_room_path = target_room_path
 	player_spawn_location = current_room.get_door_position(target_door_name)
-	current_room.player.unfreeze()
 	# Wait a frame and then finish the screen transition.
 	await get_tree().process_frame
 	await SceneManager.remove_screen_transition(_get_player_pos())
+	current_room.player.unfreeze()
 
 ## When the player is knocked out, reset the room and put the player at their last spawn location.
 func _on_player_knocked_out() -> void:
@@ -101,10 +99,10 @@ func _on_player_knocked_out() -> void:
 	# Update the current room
 	current_room = room_holder.get_child(-1) as Room
 	_init_room(player_spawn_location)
-	current_room.player.unfreeze()
 	# Wait a frame and then finish the screen transition.
 	await get_tree().process_frame
 	await SceneManager.remove_screen_transition(_get_player_pos())
+	current_room.player.unfreeze()
 
 ## UI FUNCTIONALITY
 

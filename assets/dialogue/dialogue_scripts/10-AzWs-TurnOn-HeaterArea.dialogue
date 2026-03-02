@@ -1,11 +1,14 @@
 ~ start
-Winston: NO WAITETH!
-Az: Oh come on.
-Fenn: What happened?
-Az: UGH. I should've known.
-Winston: Waiteth- AHA! Of course!
-Az: Fenn, there's another heater in the Cellar, but it's behind my Workshop. So... the ice didn't melt all the way.
-Winston: HAHA! That was the planneth all along! Yes! Go ahead, waste thy time.
-Az: Ignore him. Come back and we'll figure something out.
+do! MusicManager._fade_out()
+Wizard grit: [font_size=100][shake level=10 rate=50]NO WAITETH![/shake][/font_size]
+Az annoy: [font_size=60]Oh [i]COME[/i] on.[/font_size]
+Fenn worry: What happened?
+Wizard: Waiteth- [wait=0.3][font_size=60][i]AHA![/i] Of course![/font_size]
+Az annoy: [shake level=7 rate=30][i]UGH.[/i][/shake] I should've known.
+Az: There's another heater in the [color="0B4F4A"]Cellar[/color], [wait=0.3]but it's [i]behind[/i] my [color="0B4F4A"]Workshop[/color]. 
+Az annoy: So, [wait=0.3]the ice didn't melt all the way.
+Wizard: [font_size=70]HAHA![/font_size][wait=0.3] [wave freq=7 amp=20]That was the planneth all along![/wave] [wait=0.3]  Go ahead, [shake level=7 amp=30][i]waste thy time.[/i][/shake]
+Az annoy: Ignore him. Come back and we'll figure something out.
+do! MusicManager._fade_in()
 do EventFlags.set_flag("10-AzWs-TurnOnHeater-Main-HeaterArea", true)
 => END

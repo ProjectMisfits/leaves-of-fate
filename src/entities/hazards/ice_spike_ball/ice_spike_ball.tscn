@@ -1,17 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://h13x4nmh8pso"]
+[gd_scene load_steps=8 format=3 uid="uid://h13x4nmh8pso"]
 
+[ext_resource type="Material" uid="uid://dde8s4xg3ueai" path="res://assets/vfx/shaders/ice_material_shader.tres" id="1_col5u"]
 [ext_resource type="Texture2D" uid="uid://cetapo5oxl1e8" path="res://assets/entities/hazards/ice_spike_ball/Ice-Spike-Ball.png" id="2_4vxkl"]
-[ext_resource type="Material" uid="uid://cyagf2w8coumw" path="res://assets/graphics/ice_material_ball_01.tres" id="2_col5u"]
-[ext_resource type="Texture2D" uid="uid://c2s7oorsjlvwf" path="res://assets/graphics/ice_normal_small.tres" id="4_col5u"]
+[ext_resource type="Shader" uid="uid://c1h5ly2o30cd7" path="res://src/vfx/shaders/ice.gdshader" id="2_oks28"]
+[ext_resource type="Texture2D" uid="uid://c2s7oorsjlvwf" path="res://assets/vfx/shaders/ice_normal_small.tres" id="4_col5u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4vxkl"]
 size = Vector2(300, 300)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_copbf"]
+shader = ExtResource("2_oks28")
+shader_parameter/reflectMode = 2
+shader_parameter/normalScale = 1.0000000475
+shader_parameter/reflectScale = 3.00000013598023
+shader_parameter/textureAmount = 0.6000000285
+shader_parameter/reflectionAmount = 0.90000004275
+shader_parameter/positionCenter = Vector2(-25, 9)
+shader_parameter/warpWidth = 1.61000007321512
+shader_parameter/warpWidthDistance = 358.282017018395
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_col5u"]
 diffuse_texture = ExtResource("2_4vxkl")
 normal_texture = ExtResource("4_col5u")
 
 [node name="IceSpikeBall" type="Area2D"]
+material = ExtResource("1_col5u")
 collision_layer = 8
 collision_mask = 65
 
@@ -19,7 +32,7 @@ collision_mask = 65
 shape = SubResource("RectangleShape2D_4vxkl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = ExtResource("2_col5u")
+material = SubResource("ShaderMaterial_copbf")
 position = Vector2(25, -9)
 scale = Vector2(0.75, 0.75)
 texture = SubResource("CanvasTexture_col5u")
