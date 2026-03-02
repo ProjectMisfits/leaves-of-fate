@@ -48,8 +48,11 @@ sources/1 = SubResource("TileSetAtlasSource_0wxhd")
 [node name="NpcWinstonWindow" type="Node2D"]
 
 [node name="NpcWinstonWindow" parent="." instance=ExtResource("1_xdkfy")]
+collision_mask = 256
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 256
+collision_mask = 256
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(896, 128, 896, -384, 768, -384, 768, 0, -768, 0, -768, -384, -896, -384, -896, 128)
