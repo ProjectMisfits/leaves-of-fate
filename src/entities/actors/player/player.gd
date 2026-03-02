@@ -65,6 +65,8 @@ var post_dash_fast_fall_gravity_multiplier: float	## Multiplier for Player gravi
 #var pile_air_turn_speed: float			## The Player's X-velocity gain per second while turning to move in the opposite direction in Leaf Pile mode & in the air.
 
 # ---------- Misc. ---------- #
+var max_grab_time: float				## How long the Player may sustain a grab before it automatically releases.
+
 var hit_recoil_velocity: float			## How far the Player is launched after being hit.
 var hit_recoil_direction: Vector2		## The direction the Player is launched after being hit.
 var hit_invincibility_time: float		## How long after being hit that the Player is invincible for.
@@ -98,6 +100,9 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 
 ##Footstep Audio
 @onready var foot_step_audio_player : AudioStreamPlayer2D = $Audio/Footsteps
+
+## Reference to the Player's Grab Component.
+@onready var grab_component: GrabComponent = $FlipNode/GrabComponent
 
 # ---------- State Machine & States ---------- #
 @onready var state_machine: LimboHSM = $LimboHSM				## Reference to the Player's State Machine.
@@ -195,6 +200,9 @@ func _ready() -> void:
 	# Connect cutscenes to Player.
 	CutsceneManager.cutscene_started.connect(_on_cutscene_started)
 	CutsceneManager.cutscene_ended.connect(_on_cutscene_ended)
+	
+	# Set Grab Component's maximum grab time.
+	grab_component.set_max_grab_time(max_grab_time)
 
 
 ## Compute gravity, move_and_slide, & flip Player sprite based on look direction.
@@ -589,6 +597,8 @@ func initialize_data(data: Dictionary) -> void:
 		#pile_air_acceleration = data["pile_air_acceleration"]
 		#pile_air_deceleration = data["pile_air_deceleration"]
 		#pile_air_turn_speed = data["pile_air_turn_speed"]
+		
+		max_grab_time = data["max_grab_time"]
 		
 		hit_recoil_velocity = data["hit_recoil_velocity"]
 		hit_recoil_direction = data["hit_recoil_direction"]

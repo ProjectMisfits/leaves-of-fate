@@ -27,6 +27,7 @@ data = {
 "jump_coyote_time": 0.15,
 "jump_height": 1000.0,
 "jump_time_to_peak": 0.5,
+"max_grab_time": 5.0,
 "meter_cooldown_time": 1.0,
 "meter_dash_deceleration_start": 20.0,
 "meter_dash_drain_rate": 50.0,
