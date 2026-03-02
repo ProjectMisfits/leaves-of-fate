@@ -1,15 +1,15 @@
-[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://dhtxlbqo4opua"]
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://drcy5pvxefdwp"]
 
-[ext_resource type="AudioStream" uid="uid://c54nw6q14t6er" path="res://assets/entities/actors/footsteps/metal/winston/FS-winston-metal-01.ogg" id="1_ms6gd"]
-[ext_resource type="AudioStream" uid="uid://c1lwjjes41ve1" path="res://assets/entities/actors/footsteps/metal/winston/FS-winston-metal-02.ogg" id="2_koryp"]
-[ext_resource type="AudioStream" uid="uid://buen18y0am7ug" path="res://assets/entities/actors/footsteps/metal/winston/FS-winston-metal-03.ogg" id="3_1y1bf"]
-[ext_resource type="AudioStream" uid="uid://dbby5wer5vrjw" path="res://assets/entities/actors/footsteps/metal/winston/FS-winston-metal-04.ogg" id="4_6vrul"]
+[ext_resource type="AudioStream" uid="uid://c1cyosawi6mrd" path="res://assets/entities/actors/footsteps/metal/FS-fenn-metal-01.ogg" id="1_m7tgf"]
+[ext_resource type="AudioStream" uid="uid://cufafmyehfedw" path="res://assets/entities/actors/footsteps/metal/FS-fenn-metal-02.ogg" id="2_56cc4"]
+[ext_resource type="AudioStream" uid="uid://3013jrf7ytsm" path="res://assets/entities/actors/footsteps/metal/FS-fenn-metal-03.ogg" id="3_meejp"]
+[ext_resource type="AudioStream" uid="uid://bs82ajhkaux23" path="res://assets/entities/actors/footsteps/metal/FS-fenn-metal-04.ogg" id="4_aj7vo"]
 
 [resource]
-random_pitch = 1.5
-random_volume_offset_db = 1.0
+random_pitch = 1.2
+random_volume_offset_db = 0.5
 streams_count = 4
-stream_0/stream = ExtResource("1_ms6gd")
-stream_1/stream = ExtResource("2_koryp")
-stream_2/stream = ExtResource("3_1y1bf")
-stream_3/stream = ExtResource("4_6vrul")
+stream_0/stream = ExtResource("1_m7tgf")
+stream_1/stream = ExtResource("2_56cc4")
+stream_2/stream = ExtResource("3_meejp")
+stream_3/stream = ExtResource("4_aj7vo")

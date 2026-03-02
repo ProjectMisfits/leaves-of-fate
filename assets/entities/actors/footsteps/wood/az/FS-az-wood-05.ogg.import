@@ -2,13 +2,13 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://b5qddp20p7uh2"
-path="res://.godot/imported/FS-az-wood-05.ogg-7c90874cae9fb2c66bc8c589941576d2.oggvorbisstr"
+uid="uid://b2ohfs5lclfuf"
+path="res://.godot/imported/FS-Az-Wood-05.ogg-17cb1e3bdbf5bcdc9cb158077d689e43.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/entities/actors/footsteps/wood/az/FS-az-wood-05.ogg"
-dest_files=["res://.godot/imported/FS-az-wood-05.ogg-7c90874cae9fb2c66bc8c589941576d2.oggvorbisstr"]
+source_file="res://assets/entities/actors/footsteps/wood/FS-Az-Wood-05.ogg"
+dest_files=["res://.godot/imported/FS-Az-Wood-05.ogg-17cb1e3bdbf5bcdc9cb158077d689e43.oggvorbisstr"]
 
 [params]
 

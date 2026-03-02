@@ -2,13 +2,13 @@
 
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
-uid="uid://bew5m32pm5op6"
-path="res://.godot/imported/FS-az-stone-02.ogg-9e0ee98997754619b666a9a78896a680.oggvorbisstr"
+uid="uid://dnfkq01dexrxg"
+path="res://.godot/imported/FS-az-stone-02.ogg-b12558179e29cb05d8d19b32cdc84c17.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/entities/actors/footsteps/stone/az/FS-az-stone-02.ogg"
-dest_files=["res://.godot/imported/FS-az-stone-02.ogg-9e0ee98997754619b666a9a78896a680.oggvorbisstr"]
+source_file="res://assets/entities/actors/footsteps/stone/FS-az-stone-02.ogg"
+dest_files=["res://.godot/imported/FS-az-stone-02.ogg-b12558179e29cb05d8d19b32cdc84c17.oggvorbisstr"]
 
 [params]
 

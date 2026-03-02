@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://b2f0i8sjmjax7"
-path="res://.godot/imported/crystals-01.ogg-44282d8fd75aa04de709485a97b1bafb.oggvorbisstr"
+path="res://.godot/imported/crystals-01.ogg-8a2408ac7ea461e80f9ca064523d3b07.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/ambiance/one_off/crystals-01.ogg"
-dest_files=["res://.godot/imported/crystals-01.ogg-44282d8fd75aa04de709485a97b1bafb.oggvorbisstr"]
+source_file="res://assets/audio/ambiance/one_off/crystals-01.ogg"
+dest_files=["res://.godot/imported/crystals-01.ogg-8a2408ac7ea461e80f9ca064523d3b07.oggvorbisstr"]
 
 [params]
 
