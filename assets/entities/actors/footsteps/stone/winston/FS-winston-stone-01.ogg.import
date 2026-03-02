@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://0trgwrfkw1g6"
-path="res://.godot/imported/FS-Winston-Stone-01.ogg-6fb732e52d09bdc5d3f6f397cf2b08fd.oggvorbisstr"
+path="res://.godot/imported/FS-winston-stone-01.ogg-42c686f6e48817a0891538e2347870b4.oggvorbisstr"
 
 [deps]
 
-source_file="res://assets/entities/actors/footsteps/stone/winston/FS-Winston-Stone-01.ogg"
-dest_files=["res://.godot/imported/FS-Winston-Stone-01.ogg-6fb732e52d09bdc5d3f6f397cf2b08fd.oggvorbisstr"]
+source_file="res://assets/entities/actors/footsteps/stone/winston/FS-winston-stone-01.ogg"
+dest_files=["res://.godot/imported/FS-winston-stone-01.ogg-42c686f6e48817a0891538e2347870b4.oggvorbisstr"]
 
 [params]
 
