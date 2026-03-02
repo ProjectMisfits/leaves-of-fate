@@ -17,7 +17,7 @@ data = {
 "4-Az-BangleTalk-CellarGeneral": false,
 "5a-Ws-Ambush-CellarGeneral": false,
 "5b-Ws-PostAmbush-CellarGeneral": false,
-"6-AzWs-Arrive-Den": true,
+"6-AzWs-Arrive-Den": false,
 "7-Ws-Lost-HeaterArea": false,
 "8-Az-CoughingFit-HeaterArea": false,
 "9-Az-FiresideChat-1-HeaterArea": false,
