@@ -129,7 +129,6 @@ cutscene_puppeted_in = "15-AzWs-ReachSafety-GreatHall"
 [node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/SafetyCutscene" index="2"]
 script = ExtResource("9_3sq04")
 required_true_event_flags = Array[String](["heater_boss_activated"])
-required_false_event_flags = Array[String](["15-AzWs-ReachSafety-GreatHall"])
 metadata/_custom_type_script = "uid://blr5ksl5vscmw"
 
 [node name="NpcIceton" parent="MidgroundLayer/Entities/NPCs" index="3" instance=ExtResource("8_cajgg")]
@@ -169,10 +168,11 @@ cutscene_flag_name = "13-AzWs-FinalConfrontation-Workshop"
 required_false_event_flags = Array[String](["13-AzWs-FinalConfrontation-Workshop"])
 
 [node name="CutsceneTrigger-2" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("4_6qxje")]
-position = Vector2(4416.0005, 155.00002)
-scale = Vector2(10, 20)
+position = Vector2(3072, 256)
+scale = Vector2(20, 20)
 dialogue_sequence = ExtResource("9_6kule")
 cutscene_flag_name = "15-AzWs-ReachSafety-GreatHall"
+required_true_event_flags = Array[String](["heater_boss_activated"])
 required_false_event_flags = Array[String](["15-AzWs-ReachSafety-GreatHall", "14-AzWs-TurnOnHeater-Boss-HeaterArea"])
 
 [node name="Icicle02" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("11_xvd77")]

@@ -215,7 +215,7 @@ position = Vector2(-464, 64)
 shape = SubResource("RectangleShape2D_hwvw2")
 
 [node name="PhantomCamera2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger-2" index="1"]
-position = Vector2(27952, 3828)
+position = Vector2(27968, 3868)
 zoom = Vector2(0.2, 0.2)
 tween_resource = SubResource("Resource_kj4mg")
 limit_target = NodePath("../Limit")
@@ -240,6 +240,10 @@ scale = Vector2(10, 25)
 dialogue_sequence = ExtResource("11_7voht")
 cutscene_flag_name = "7-Ws-Lost-HeaterArea"
 required_false_event_flags = Array[String](["7-Ws-Lost-HeaterArea"])
+
+[node name="CameraResetTrigger-3" parent="MidgroundLayer/Entities/Triggers" index="5" instance=ExtResource("8_1hpan")]
+position = Vector2(35776, -3520)
+scale = Vector2(21.962158, 4.1474495)
 
 [editable path="MidgroundLayer/Entities/Objects/BronzePipe"]
 [editable path="MidgroundLayer/Entities/Objects/BronzePipe-2"]
