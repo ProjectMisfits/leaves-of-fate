@@ -6,7 +6,7 @@ signal flag_updated(flag_name: String, value: bool)
 var _database: JSON = null
 var database_path: String = "res://src/autoload/event_flags/event_flags_db.tres"
 var _event_flags: Dictionary[String, bool]
-var first_room_path: String = "res://src/rooms/01_great_hall/01_GreatHall_a_Intro_room.tscn"
+var first_room_path: String = "res://src/rooms/01_great_hall/01_GreatHall_a_BasicMovement_room.tscn"
 
 var num_den_conversations : int = 0
 var num_great_hall_conversations : int = 0
