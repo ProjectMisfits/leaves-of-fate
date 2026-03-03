@@ -10,6 +10,10 @@ var rad_angular_turn_speed: float				## The Player's turn speed in radians. Set 
 ## let them pass through Leaf Mode platforms.
 ## Finally, set up move direction & radian turn speed.
 func _enter() -> void:
+	# Disable player interact and grab
+	agent.grab_component.can_grab = false
+	agent.interact_component.can_interact = false
+	
 	#print("Player State Transition: to_dashing")
 	agent.animation_player.play("player_leaf_dash")
 
@@ -121,6 +125,10 @@ func _exit() -> void:
 		
 		if (agent.velocity.length() > agent.dash_end_max_velocity):
 			agent.velocity = agent.velocity.normalized() * agent.dash_end_max_velocity
+
+	# Re-enable player interact and grab
+	agent.grab_component.can_grab = true
+	agent.interact_component.can_interact = true
 
 ## Returns the move direction Vector turned toward the input direction Vector by the angular turn speed.
 func get_turned_move_direction() -> Vector2:
