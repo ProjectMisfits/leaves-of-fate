@@ -193,10 +193,9 @@ func _ready() -> void:
 	
 	var dialogue_manager: Object = Engine.get_singleton(&"DialogueManager")
 	if (dialogue_manager != null):
-		# Connect dialogue to Player input processing.
-		# Player input gets disabled when dialogue starts and enabled when dialogue ends.
-		dialogue_manager.dialogue_started.connect(disable_player_input.unbind(1))
-		dialogue_manager.dialogue_ended.connect(enable_player_input.unbind(1))
+		# Connect dialogue to Player's cutscene mode
+		dialogue_manager.dialogue_started.connect(_on_cutscene_started.unbind(1))
+		dialogue_manager.dialogue_ended.connect(_on_cutscene_ended.unbind(1))
 
 	# Connect cutscenes to Player.
 	CutsceneManager.cutscene_started.connect(_on_cutscene_started)
@@ -626,6 +625,9 @@ func _on_cutscene_started() -> void:
 
 ## Transition out of cutscene state when a cutscene ends.
 func _on_cutscene_ended() -> void:
+	# Wait for a short time to prevent accidental user inputs (jump, specifically).
+	await get_tree().create_timer(0.05).timeout
+	
 	state_machine.change_active_state(idle_state)
 
 ## Move Fenn based on the given parameters.
