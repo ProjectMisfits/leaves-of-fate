@@ -100,9 +100,19 @@ door_name = "vent2"
 position = Vector2(-6400, 1024)
 cutscene_puppeted_in = "13-AzWs-FinalConfrontation-Workshop"
 
+[node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcAz" index="4"]
+script = ExtResource("9_3sq04")
+required_false_event_flags = Array[String](["heater_boss_activated"])
+metadata/_custom_type_script = "uid://blr5ksl5vscmw"
+
 [node name="NpcWinston" parent="MidgroundLayer/Entities/NPCs" index="1" instance=ExtResource("5_vvfdw")]
 position = Vector2(4544, 1024)
 cutscene_puppeted_in = "13-AzWs-FinalConfrontation-Workshop"
+
+[node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcWinston" index="4"]
+script = ExtResource("9_3sq04")
+required_false_event_flags = Array[String](["heater_boss_activated"])
+metadata/_custom_type_script = "uid://blr5ksl5vscmw"
 
 [node name="SafetyCutscene" type="Node2D" parent="MidgroundLayer/Entities/NPCs" index="2"]
 
