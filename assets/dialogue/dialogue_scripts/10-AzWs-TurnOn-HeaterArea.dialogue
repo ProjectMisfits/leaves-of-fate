@@ -1,7 +1,6 @@
 ~ start
 do! MusicManager._fade_out()
 do CutsceneManager.player_face("right")
-do CutsceneManager.npc_face("Winston","left")
 do CameraManager.create_camera(Vector2(10800,-2500),0.8, 1, "CUBIC", "EASE_IN_OUT")
 do CutsceneManager.player_move(8700.0, 1000, true, false)
 do EventFlags.set_flag("heater_main_activated", true)
