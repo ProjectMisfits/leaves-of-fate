@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_ka582"]
 [ext_resource type="PackedScene" uid="uid://bbpm02j1io7y6" path="res://src/entities/objects/bronze_pipe/bronze_pipe.tscn" id="2_cmdfb"]
 [ext_resource type="PackedScene" uid="uid://e64uv5b5qveg" path="res://src/entities/decor/pillars/arch_round_smooth.tscn" id="2_ps04q"]
-[ext_resource type="Texture2D" uid="uid://48x0nrpho68" path="res://assets/rooms/backgrounds/bg_den_dark.tres" id="2_uvpvb"]
-[ext_resource type="Texture2D" uid="uid://s7x8vrfxnq0c" path="res://assets/rooms/backgrounds/bg_black.tres" id="3_cajgg"]
+[ext_resource type="Texture2D" path="res://assets/rooms/backgrounds/bg_den_dark.tres" id="2_uvpvb"]
+[ext_resource type="Texture2D" path="res://assets/rooms/backgrounds/bg_black.tres" id="3_cajgg"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_q0jjo"]
 [ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="4_6gt6j"]
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="4_6qxje"]
@@ -141,6 +141,9 @@ scale = Vector2(2, 2)
 z_index = -1
 position = Vector2(6656, -512)
 scale = Vector2(0.65, 0.65)
+
+[node name="BronzePipeTrigger" parent="MidgroundLayer/Entities/Objects/BronzePipe-2" index="0"]
+position = Vector2(1673.8463, -3052.308)
 
 [node name="Path2D" parent="MidgroundLayer/Entities/Objects/BronzePipe-2" index="1"]
 curve = SubResource("Curve2D_otj6j")
