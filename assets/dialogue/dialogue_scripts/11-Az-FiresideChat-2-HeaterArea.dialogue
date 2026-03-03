@@ -30,5 +30,5 @@ Fenn: I care!!
 Fenn starry: It's good to meetheth you, Winston.
 Winston hood awkward: [font_size=35]G-[wait=0.3] Good to meeteth thee too.[/font_size]
 do! MusicManager._fade_in()
-do EventFlags.set_flag("11-Az-FiresideChat-1-HeaterArea", true)
+do EventFlags.set_flag("11-Az-FiresideChat-2-HeaterArea", true)
 => END
