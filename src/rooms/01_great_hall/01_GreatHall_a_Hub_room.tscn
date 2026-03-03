@@ -253,8 +253,7 @@ scale = Vector2(15, 50)
 dialogue_sequence = ExtResource("12_7vaf5")
 dialogue_start = "breakseal"
 cutscene_flag_name = "16-AzWs-BreakSeal-GreatHall"
-force_disable = true
-required_true_event_flags = Array[String](["heater_boss_activated", "15-AzWs-ReachSafety-GreatHall"])
+required_true_event_flags = Array[String](["heater_boss_activated"])
 required_false_event_flags = Array[String](["16-AzWs-BreakSeal-GreatHall"])
 
 [node name="PillarTrunk01" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("2_0mqie")]
@@ -500,34 +499,34 @@ position = Vector2(31423.998, 1536.0001)
 scale = Vector2(1.25, 1.25)
 
 [node name="BookshelfFancy" parent="MidgroundLayer/Decor" index="61" instance=ExtResource("16_8hban")]
-position = Vector2(2048, 1024)
+position = Vector2(2048, 1664)
 
 [node name="BookshelfFancy-2" parent="MidgroundLayer/Decor" index="62" instance=ExtResource("16_8hban")]
-position = Vector2(1344, 1024)
+position = Vector2(1344, 1664)
 
 [node name="BookshelfFancy-3" parent="MidgroundLayer/Decor" index="63" instance=ExtResource("16_8hban")]
-position = Vector2(2752, 1024)
+position = Vector2(2752, 1664)
 
 [node name="BookshelfFancy-4" parent="MidgroundLayer/Decor" index="64" instance=ExtResource("16_8hban")]
-position = Vector2(640, 1024)
+position = Vector2(640, 1664)
 
 [node name="BookshelfFancy-5" parent="MidgroundLayer/Decor" index="65" instance=ExtResource("16_8hban")]
-position = Vector2(3456, 1024)
+position = Vector2(3456, 1664)
 
 [node name="WineShelf" parent="MidgroundLayer/Decor" index="66" instance=ExtResource("18_eyi1d")]
-position = Vector2(17472, 1024)
+position = Vector2(17472, 1664)
 
 [node name="WineShelf-4" parent="MidgroundLayer/Decor" index="67" instance=ExtResource("18_eyi1d")]
-position = Vector2(18880, 256)
+position = Vector2(18880, 896)
 
 [node name="WineShelf-5" parent="MidgroundLayer/Decor" index="68" instance=ExtResource("18_eyi1d")]
-position = Vector2(19584, 1024)
+position = Vector2(19584, 1664)
 
 [node name="WineShelf-2" parent="MidgroundLayer/Decor" index="69" instance=ExtResource("18_eyi1d")]
-position = Vector2(18176, 1024)
+position = Vector2(18176, 1664)
 
 [node name="WineShelf-3" parent="MidgroundLayer/Decor" index="70" instance=ExtResource("18_eyi1d")]
-position = Vector2(18880, 1024)
+position = Vector2(18880, 1664)
 
 [node name="CouncilRoomDoorDecor" parent="MidgroundLayer/Decor" index="71" instance=ExtResource("23_223xl")]
 position = Vector2(10112, -480)
