@@ -2,7 +2,7 @@
 do CutsceneManager.player_face("right")
 do CameraManager.create_camera(Vector2(3528.0,500), 0.75, 1, "CUBIC", "EASE_IN_OUT")
 Fenn: The [color="0B4F4A"]Great Hall[/color] should be up ahead...
-Fenn starry: I can't  believe [i][color="B80006"]King Oakley[/color][/i] invited me himself!
+Fenn starry: I can't believe [i][color="B80006"]King Oakley[/color][/i] invited me himself!
 Fenn starry: [font_size=60][wave freq=8 amp=30]I can't wait to meet all the Knights![/wave][/font_size]
 do EventFlags.set_flag("0-None-Beginning", true)
 => END

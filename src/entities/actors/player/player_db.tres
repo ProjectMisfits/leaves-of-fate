@@ -29,7 +29,7 @@ data = {
 "jump_height": 1000.0,
 "jump_time_to_peak": 0.5,
 "max_grab_time": 5.0,
-"meter_cooldown_time": 1.0,
+"meter_cooldown_time": 0.1,
 "meter_dash_deceleration_start": 20.0,
 "meter_dash_drain_rate": 50.0,
 "meter_dash_end_drain": 30.0,
@@ -49,5 +49,5 @@ data = {
 "post_dash_fast_fall_gravity_multiplier": 2.0,
 "post_dash_gravity": 8000.0,
 "run_max_speed": 4000.0,
-"terminal_velocity": 21000.0
+"terminal_velocity": 8000.0
 }

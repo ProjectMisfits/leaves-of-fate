@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://bl0pji1ab2qhu"]
+[gd_scene load_steps=6 format=4 uid="uid://np2vshovjvbc"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_7mi4j"]
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="3_7mi4j"]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://ebpnfipahfjq"]
+[gd_scene load_steps=10 format=4 uid="uid://ebpnfipahfjq"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_ug3li"]
 [ext_resource type="PackedScene" uid="uid://cnkr1x18dvnec" path="res://src/entities/triggers/player_enter_trigger/camera_trigger/camera_trigger.tscn" id="2_hh4jh"]
+[ext_resource type="PackedScene" uid="uid://do5hbmjewvamt" path="res://src/entities/triggers/player_enter_trigger/music_trigger/music_trigger.tscn" id="3_bwbl1"]
 [ext_resource type="PackedScene" uid="uid://4jh213w6fsb7" path="res://src/entities/decor/pillars/pillar_base_01.tscn" id="3_hh4jh"]
 [ext_resource type="PackedScene" uid="uid://dkyvqmdhj2oih" path="res://src/entities/decor/pillars/pillar_trunk_02.tscn" id="3_qf3x2"]
+[ext_resource type="AudioStream" uid="uid://g8rhgyvprd1c" path="res://assets/audio/music/Cellar-120bpm-4_4-P64b-loop.ogg" id="4_kpjqy"]
 [ext_resource type="PackedScene" uid="uid://0jijms4al2i5" path="res://src/entities/decor/pillars/pillar_cap_01.tscn" id="5_nalb1"]
 [ext_resource type="PackedScene" uid="uid://e64uv5b5qveg" path="res://src/entities/decor/pillars/arch_round_smooth.tscn" id="6_vc75g"]
 
@@ -21,7 +23,7 @@ tile_map_data = PackedByteArray("AACkBKT/AgAAAAAAAAClBKX/AgAAAAAAABCrBJn/BQARAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(2048, 1024)
-target_room_path = "uid://dfkg7g02hyrqj"
+target_room_path = "uid://nhuquqglirtf"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(32768, -1536)
@@ -54,6 +56,11 @@ position = Vector2(3840, 272)
 zoom = Vector2(0.25, 0.25)
 follow_offset = Vector2(1000, 0)
 limit_target = NodePath("../../../../Midground")
+
+[node name="MusicTrigger" parent="MidgroundLayer/Entities/Triggers" index="2" instance=ExtResource("3_bwbl1")]
+position = Vector2(1984, 0)
+scale = Vector2(17.28, 17.28)
+music_track = ExtResource("4_kpjqy")
 
 [node name="PillarTrunk02" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("3_qf3x2")]
 position = Vector2(3584, -192)

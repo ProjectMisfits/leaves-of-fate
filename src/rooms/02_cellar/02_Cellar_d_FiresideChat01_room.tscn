@@ -13,15 +13,7 @@
 position = Vector2(-4581.0527, -4581.0527)
 scale = Vector2(15360, 58.94737)
 
-[node name="PillarTrunk01-2" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("2_svn25")]
-position = Vector2(2304, 320)
-scale = Vector2(0.6, 1)
-
-[node name="PillarTrunk01-3" parent="BackgroundLayer/Decor" index="1" instance=ExtResource("2_svn25")]
-position = Vector2(3840, 320)
-scale = Vector2(0.6, 1)
-
-[node name="HangingLantern-3" parent="BackgroundLayer/Decor" index="2" instance=ExtResource("3_ednxw")]
+[node name="HangingLantern-3" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("3_ednxw")]
 position = Vector2(3072, -1280)
 
 [node name="DustLayer" parent="BackgroundLayer" index="2"]
@@ -47,3 +39,11 @@ required_false_event_flags = Array[String](["9-Az-FiresideChat-1-HeaterArea"])
 
 [node name="ArchPointCracked-3" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("5_jvr1l")]
 position = Vector2(3072, -384)
+
+[node name="PillarTrunk01-2" parent="MidgroundLayer/Decor" index="1" instance=ExtResource("2_svn25")]
+position = Vector2(2304, 320)
+scale = Vector2(0.6, 1)
+
+[node name="PillarTrunk01-3" parent="MidgroundLayer/Decor" index="2" instance=ExtResource("2_svn25")]
+position = Vector2(3840, 320)
+scale = Vector2(0.6, 1)

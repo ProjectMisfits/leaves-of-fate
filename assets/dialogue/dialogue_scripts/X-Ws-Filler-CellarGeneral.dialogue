@@ -6,18 +6,18 @@ else
 => END
 
 ~ play_random
-% [if not EventFlags.get_flag("X-Ws-Cellar-1")] => convo_1
-% [if not EventFlags.get_flag("X-Ws-Cellar-2")] => convo_2
-% [if not EventFlags.get_flag("X-Ws-Cellar-3")] => convo_3
-% [if not EventFlags.get_flag("X-Ws-Cellar-4")] => convo_4
-% [if not EventFlags.get_flag("X-Ws-Cellar-5")] => convo_5
-% [if not EventFlags.get_flag("X-Ws-Cellar-6")] => convo_6
-% [if not EventFlags.get_flag("X-Ws-Cellar-7")] => convo_7
+#% [if not EventFlags.get_flag("X-Ws-Cellar-1")] => convo_1
+#% [if not EventFlags.get_flag("X-Ws-Cellar-2")] => convo_2
+#% [if not EventFlags.get_flag("X-Ws-Cellar-3")] => convo_3
+#% [if not EventFlags.get_flag("X-Ws-Cellar-4")] => convo_4
+#% [if not EventFlags.get_flag("X-Ws-Cellar-5")] => convo_5
+#% [if not EventFlags.get_flag("X-Ws-Cellar-6")] => convo_6
+#% [if not EventFlags.get_flag("X-Ws-Cellar-7")] => convo_7
 % [if not EventFlags.get_flag("X-Ws-Cellar-8")] => convo_8
-% [if not EventFlags.get_flag("X-Ws-Cellar-9") and EventFlags.get_flag("X-Ws-Cellar-10")] => convo_9
-% [if not EventFlags.get_flag("X-Ws-Cellar-10")] => convo_10
-% [if not EventFlags.get_flag("X-Ws-Cellar-11")] => convo_11
-% [if EventFlags.num_cellar_conversations == 12] => ending_convo
+#% [if not EventFlags.get_flag("X-Ws-Cellar-9") and EventFlags.get_flag("X-Ws-Cellar-10")] => convo_9
+#% [if not EventFlags.get_flag("X-Ws-Cellar-10")] => convo_10
+#% [if not EventFlags.get_flag("X-Ws-Cellar-11")] => convo_11
+#% [if EventFlags.num_cellar_conversations == 12] => ending_convo
 => END
 
 ~ convo_0
@@ -128,10 +128,13 @@ Wizard awkward: I'm, um, [wait=0.3][font_size=40]hungry.[/font_size]
 Fenn worry: Aw... do you have any food?
 Wizard: No. Maybe the [color="0B4F4A"]Workshop[/color] hath snacks.
 do CutsceneManager.fade_to_black()
-do CutsceneManager.hide_npc()
+do CutsceneManager.hide_npc("Winston")
 do CutsceneManager.fade_from_black()
-do CutsceneManager.wait(2)
+Wizard awkward: [speed=0.5]...
 Wizard awkward: Well, [wait=0.3]I foundeth some walnuts. 
+do CutsceneManager.fade_to_black()
+do CutsceneManager.show_npc("Winston")
+do CutsceneManager.fade_from_black()
 Wizard: [wave freq=7 amp=30]Ho, pint-size.[/wave] Couldst thee ask [color="B80006"]Az[/color] if I may have some?
 Fenn: Hey [color="B80006"]Az[/color]! [wait=0.3]Can [color="8A0194"]Wizard man[/color] hath some of your walnuts?
 Az: [font_size=60]What? [wait=0.3]I guess??[/font_size] 

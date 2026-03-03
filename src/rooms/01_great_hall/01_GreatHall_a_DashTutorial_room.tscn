@@ -22,11 +22,11 @@ tile_map_data = PackedByteArray("AAAAAAgABgABAAAAAAABAAgABgABAAAAAAACAAgABgABAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(1536, 1024)
-target_room_path = "uid://bl0pji1ab2qhu"
+target_room_path = "uid://c1jyk251gk2fn"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(26112, -6656)
-target_room_path = "uid://ebpnfipahfjq"
+target_room_path = "uid://b8kn5xfprwk4p"
 
 [node name="Triggers" parent="MidgroundLayer/Entities" index="4"]
 visible = false

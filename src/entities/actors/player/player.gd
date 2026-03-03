@@ -104,6 +104,8 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 
 ## Reference to the Player's Grab Component.
 @onready var grab_component: GrabComponent = $FlipNode/GrabComponent
+## Reference to the Player's Interact Component.
+@onready var interact_component: InteractComponent = $FlipNode/InteractComponent
 
 # ---------- State Machine & States ---------- #
 @onready var state_machine: LimboHSM = $LimboHSM				## Reference to the Player's State Machine.
@@ -334,8 +336,6 @@ func check_airborne_state() -> void:
 
 ## If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to piling state.
 func check_dashing_state() -> void:
-
-	
 	# If input is disabled, don't handle dash inputs
 	if not input_processing or no_dash:
 		return
@@ -500,7 +500,7 @@ func knock_out() -> void:
 		freeze()
 		flip_node.visible = false
 		death_particles.emitting = true
-		await death_particles.finished
+		await get_tree().create_timer(0.5).timeout
 
 		EventBus.player_knocked_out.emit()
 
