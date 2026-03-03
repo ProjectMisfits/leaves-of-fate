@@ -10,6 +10,10 @@ var rad_angular_turn_speed: float				## The Player's turn speed in radians. Set 
 ## let them pass through Leaf Mode platforms.
 ## Finally, set up move direction & radian turn speed.
 func _enter() -> void:
+	# Disable player interact and grab
+	agent.grab_component.can_grab = false
+	agent.interact_component.can_interact = false
+	
 	#print("Player State Transition: to_dashing")
 	agent.animation_player.play("player_leaf_dash")
 
@@ -30,6 +34,11 @@ func _enter() -> void:
 		ps.emitting = true
 	
 	move_direction = get_input_direction()
+	
+	if (move_direction == Vector2.ZERO):
+		move_direction = Vector2.RIGHT * signf(agent.look_direction) # Dash will go in the Player's look direction.
+	
+	input_direction = move_direction
 	
 	# Velocity should be at least the dash min speed, if not more.
 	agent.velocity = move_direction * max(agent.velocity.length(), agent.dash_min_speed)
@@ -70,8 +79,16 @@ func _update(delta: float) -> void:
 	else:
 		turning = false
 	
-	var new_velocity_length: float = agent.velocity.length() + (agent.dash_acceleration * delta)
-	new_velocity_length = clampf(new_velocity_length, agent.dash_min_speed, agent.dash_max_speed)
+	var new_velocity_length: float = agent.velocity.length()
+	
+	if (new_velocity_length > agent.dash_max_speed):	# If current velocity is greater than max dash speed...
+		# Apply friction to slow down until the Player reaches the max dash speed.
+		new_velocity_length -= (agent.dash_speed_friction * delta)
+		new_velocity_length = max(new_velocity_length, agent.dash_max_speed)
+	else:
+		# Increase speed & clamp by min & max dash speed.`
+		new_velocity_length += (agent.dash_acceleration * delta)
+		new_velocity_length = clampf(new_velocity_length, agent.dash_min_speed, agent.dash_max_speed)
 	
 	agent.velocity = new_velocity_length * move_direction
 	agent.flip_node.rotation = Vector2.RIGHT.angle_to(move_direction)
@@ -108,6 +125,10 @@ func _exit() -> void:
 		
 		if (agent.velocity.length() > agent.dash_end_max_velocity):
 			agent.velocity = agent.velocity.normalized() * agent.dash_end_max_velocity
+
+	# Re-enable player interact and grab
+	agent.grab_component.can_grab = true
+	agent.interact_component.can_interact = true
 
 ## Returns the move direction Vector turned toward the input direction Vector by the angular turn speed.
 func get_turned_move_direction() -> Vector2:

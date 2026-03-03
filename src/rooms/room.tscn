@@ -38,6 +38,11 @@ metadata/_edit_lock_ = true
 [node name="MidgroundLayer" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
+[node name="Windzones" type="TileMapLayer" parent="MidgroundLayer"]
+modulate = Color(1, 1, 1, 0.40784314)
+tile_set = ExtResource("4_n3e44")
+metadata/_edit_lock_ = true
+
 [node name="Midground" type="TileMapLayer" parent="MidgroundLayer" groups=["midground"]]
 unique_name_in_owner = true
 modulate = Color(0.7058824, 0.7058824, 0.7058824, 1)
@@ -46,16 +51,12 @@ tile_set = ExtResource("2_7i7i2")
 metadata/_edit_lock_ = true
 
 [node name="Hazards" type="TileMapLayer" parent="MidgroundLayer"]
+z_index = 5
 tile_set = ExtResource("3_0bf0a")
 metadata/_edit_lock_ = true
 
 [node name="DecorTiles" type="TileMapLayer" parent="MidgroundLayer"]
 tile_set = ExtResource("6_n6lpe")
-metadata/_edit_lock_ = true
-
-[node name="Windzones" type="TileMapLayer" parent="MidgroundLayer"]
-modulate = Color(1, 1, 1, 0.40784314)
-tile_set = ExtResource("4_n3e44")
 metadata/_edit_lock_ = true
 
 [node name="DoorHolder" type="Node2D" parent="MidgroundLayer"]

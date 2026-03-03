@@ -1,7 +1,7 @@
 [gd_resource type="JSON" load_steps=3 format=3 uid="uid://dehsjji5wiril"]
 
-[ext_resource type="AudioStream" uid="uid://dlvfo0w614lid" path="res://assets/entities/actors/footsteps/stone/FS-Az-Stone.tres" id="1_41kaf"]
-[ext_resource type="AudioStream" uid="uid://cbd7c36arx6tx" path="res://assets/entities/actors/footsteps/wood/FS-Az-Wood.tres" id="2_wwnly"]
+[ext_resource type="AudioStream" uid="uid://dntevahm742ig" path="res://assets/entities/actors/footsteps/stone/az/Az_stone_footsteps.tres" id="1_41kaf"]
+[ext_resource type="AudioStream" uid="uid://wbwwq2nc0a8k" path="res://assets/entities/actors/footsteps/wood/FS-az-wood.tres" id="2_wwnly"]
 
 [resource]
 data = {

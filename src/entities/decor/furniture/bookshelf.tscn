@@ -9,6 +9,6 @@ script = ExtResource("2_s7g0p")
 
 [node name="Bookshelf" type="Sprite2D" parent="."]
 use_parent_material = true
-position = Vector2(0, -447.99997)
+position = Vector2(0, -480.00003)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_gjirp")
