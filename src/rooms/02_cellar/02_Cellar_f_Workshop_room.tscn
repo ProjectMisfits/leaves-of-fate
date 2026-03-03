@@ -1,15 +1,16 @@
-[gd_scene load_steps=30 format=4 uid="uid://bohwfv2ojdvd6"]
+[gd_scene load_steps=31 format=4 uid="uid://bohwfv2ojdvd6"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_ka582"]
 [ext_resource type="PackedScene" uid="uid://bbpm02j1io7y6" path="res://src/entities/objects/bronze_pipe/bronze_pipe.tscn" id="2_cmdfb"]
 [ext_resource type="PackedScene" uid="uid://e64uv5b5qveg" path="res://src/entities/decor/pillars/arch_round_smooth.tscn" id="2_ps04q"]
-[ext_resource type="Texture2D" path="res://assets/rooms/backgrounds/bg_den_dark.tres" id="2_uvpvb"]
-[ext_resource type="Texture2D" path="res://assets/rooms/backgrounds/bg_black.tres" id="3_cajgg"]
+[ext_resource type="Texture2D" uid="uid://48x0nrpho68" path="res://assets/rooms/backgrounds/bg_den_dark.tres" id="2_uvpvb"]
+[ext_resource type="Texture2D" uid="uid://s7x8vrfxnq0c" path="res://assets/rooms/backgrounds/bg_black.tres" id="3_cajgg"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_q0jjo"]
 [ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="4_6gt6j"]
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="4_6qxje"]
 [ext_resource type="PackedScene" uid="uid://d2w50ptxgmhj4" path="res://src/entities/objects/doors/door_grate.tscn" id="4_uvpvb"]
 [ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/npc_winston/npc_winston.tscn" id="5_vvfdw"]
+[ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/doors/door.tscn" id="6_3sq04"]
 [ext_resource type="Resource" uid="uid://bbwxxjmh5jp4p" path="res://assets/dialogue/dialogue_scripts/13-AzWs-FinalConfrontation-Workshop.dialogue" id="7_vvfdw"]
 [ext_resource type="PackedScene" uid="uid://bxs53f3p1b8ki" path="res://src/entities/actors/npcs/npc_iceton/npc_iceton.tscn" id="8_cajgg"]
 [ext_resource type="Script" uid="uid://blr5ksl5vscmw" path="res://src/components/processing_component.gd" id="9_3sq04"]
@@ -80,19 +81,33 @@ tile_map_data = PackedByteArray("AAD//wgAAAABAAAAAAACAAgAAAACAAAAAAAIAAgAAAACAAA
 
 [node name="DoorEnter" parent="MidgroundLayer/DoorHolder" index="0"]
 position = Vector2(-5568, 1024)
-target_room_path = "uid://bdbuuoljlim4f"
-target_door_name = "boss"
+door_name = ""
+target_door_name = ""
 
-[node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
+[node name="Node2D" type="Node2D" parent="MidgroundLayer/DoorHolder/DoorEnter" index="2"]
+script = ExtResource("9_3sq04")
+required_false_event_flags = Array[String](["heater_boss_activated"])
+
+[node name="DoorEnter-2" parent="MidgroundLayer/DoorHolder" index="1" instance=ExtResource("6_3sq04")]
+position = Vector2(-5568, 1024)
+target_room_path = "uid://nhuquqglirtf"
+door_name = "enter"
+target_door_name = "exit"
+
+[node name="Node2D" type="Node2D" parent="MidgroundLayer/DoorHolder/DoorEnter-2" index="2"]
+script = ExtResource("9_3sq04")
+required_true_event_flags = Array[String](["heater_boss_activated"])
+
+[node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="2"]
 position = Vector2(8128, 5248)
 
-[node name="DoorGrate" parent="MidgroundLayer/DoorHolder" index="2" instance=ExtResource("4_uvpvb")]
+[node name="DoorGrate" parent="MidgroundLayer/DoorHolder" index="3" instance=ExtResource("4_uvpvb")]
 position = Vector2(12224, 960)
 target_room_path = "uid://bgitq08nv445e"
 door_name = "vent"
 target_door_name = "enter"
 
-[node name="DoorGrate-2" parent="MidgroundLayer/DoorHolder" index="3" instance=ExtResource("4_uvpvb")]
+[node name="DoorGrate-2" parent="MidgroundLayer/DoorHolder" index="4" instance=ExtResource("4_uvpvb")]
 position = Vector2(3072, -3264)
 door_name = "vent2"
 
@@ -165,7 +180,7 @@ position = Vector2(-3199.9995, 3.8146973e-06)
 scale = Vector2(10, 20)
 dialogue_sequence = ExtResource("7_vvfdw")
 cutscene_flag_name = "13-AzWs-FinalConfrontation-Workshop"
-required_false_event_flags = Array[String](["13-AzWs-FinalConfrontation-Workshop"])
+required_false_event_flags = Array[String](["13-AzWs-FinalConfrontation-Workshop", "heater_boss_activated"])
 
 [node name="CutsceneTrigger-2" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("4_6qxje")]
 position = Vector2(4416.0005, 155.00002)
