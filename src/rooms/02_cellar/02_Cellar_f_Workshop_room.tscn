@@ -183,8 +183,8 @@ cutscene_flag_name = "13-AzWs-FinalConfrontation-Workshop"
 required_false_event_flags = Array[String](["13-AzWs-FinalConfrontation-Workshop", "heater_boss_activated"])
 
 [node name="CutsceneTrigger-2" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("4_6qxje")]
-position = Vector2(4416.0005, 155.00002)
-scale = Vector2(10, 20)
+position = Vector2(3072, 256)
+scale = Vector2(20, 20)
 dialogue_sequence = ExtResource("9_6kule")
 cutscene_flag_name = "15-AzWs-ReachSafety-GreatHall"
 required_true_event_flags = Array[String](["heater_boss_activated"])
