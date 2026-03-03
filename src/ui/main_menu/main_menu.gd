@@ -17,6 +17,7 @@ class_name MainMenu extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_connect_menu_signals()
+	MusicManager._play_song(null, 0.0)	# Stop playing any music.
 	get_node("%PlayButton").grab_focus.call_deferred()
 
 func _process(_delta: float) -> void:
