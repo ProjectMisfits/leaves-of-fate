@@ -22,7 +22,11 @@ tile_data = PackedInt32Array(0, 0, 0, 589824, 0, 805306368, 262150, 0, 134217728
 [sub_resource type="TileMapPattern" id="TileMapPattern_gpc7r"]
 tile_data = PackedInt32Array(0, 4, 0, 589831, 2, 0, 11, 4, 0, 589840, 2, 268435456, 65558, 4, 0)
 
+<<<<<<< Updated upstream
 [sub_resource type="TileMapPattern" id="TileMapPattern_dbyyx"]
+=======
+[sub_resource type="TileMapPattern" id="TileMapPattern_6sjh4"]
+>>>>>>> Stashed changes
 tile_data = PackedInt32Array(262144, 0, 1610612736, 4, 0, 0, 589828, 0, 805306368, 262153, 0, 1342177280)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kqfm"]
@@ -77,4 +81,8 @@ pattern_1 = SubResource("TileMapPattern_rhkf1")
 pattern_2 = SubResource("TileMapPattern_63dno")
 pattern_3 = SubResource("TileMapPattern_vehyn")
 pattern_4 = SubResource("TileMapPattern_gpc7r")
+<<<<<<< Updated upstream
 pattern_5 = SubResource("TileMapPattern_dbyyx")
+=======
+pattern_5 = SubResource("TileMapPattern_6sjh4")
+>>>>>>> Stashed changes
