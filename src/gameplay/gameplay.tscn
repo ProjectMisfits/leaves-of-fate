@@ -17,7 +17,6 @@ shader = ExtResource("6_t2n4y")
 
 [node name="Gameplay" type="Node"]
 script = ExtResource("1_anqvl")
-first_room_path = "uid://b8kn5xfprwk4p"
 
 [node name="PhantomCamera2D" type="Node2D" parent="."]
 unique_name_in_owner = true
