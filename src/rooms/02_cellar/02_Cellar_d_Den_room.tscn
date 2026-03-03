@@ -147,7 +147,8 @@ cutscene_puppeted_in = "12-AzWs-AsthmaAttack-Den"
 
 [node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcAz" index="4"]
 script = ExtResource("10_rl2ph")
-required_false_event_flags = Array[String](["heater_main_activated", "13-AzWs-FinalConfrontation-Workshop"])
+required_true_event_flags = Array[String](["heater_main_activated"])
+required_false_event_flags = Array[String](["13-AzWs-FinalConfrontation-Workshop"])
 metadata/_custom_type_script = "uid://blr5ksl5vscmw"
 
 [node name="DialogueTrigger" type="Area2D" parent="MidgroundLayer/Entities/NPCs/NpcAz" index="5"]
@@ -165,7 +166,6 @@ position = Vector2(11885, -860.00006)
 scale = Vector2(10, 60)
 dialogue_sequence = ExtResource("10_badnc")
 cutscene_flag_name = "6-AzWs-Arrive-Den"
-force_disable = true
 required_false_event_flags = Array[String](["6-AzWs-Arrive-Den"])
 
 [node name="CutsceneTrigger-2" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("9_61b8v")]
@@ -173,7 +173,6 @@ position = Vector2(7424, -704)
 scale = Vector2(10, 50)
 dialogue_sequence = ExtResource("11_q0uwv")
 cutscene_flag_name = "12-AzWs-AsthmaAttack-Den"
-force_enable = true
 required_true_event_flags = Array[String](["heater_main_activated"])
 required_false_event_flags = Array[String](["12-AzWs-AsthmaAttack-Den"])
 

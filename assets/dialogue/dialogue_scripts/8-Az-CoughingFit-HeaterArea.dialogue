@@ -16,5 +16,5 @@ Az annoy: [do! CutsceneManager.play_sound("Cough")][i]cough.[/i] I'm fine![wait=
 Az annoy: [do! CutsceneManager.play_sound("Cough")][i]cough[/i]. Go on ahead. [do! CutsceneManager.play_sound("Cough")][i]cough[/i]. I'll be fine.
 Fenn worry: Okay...
 do! MusicManager._fade_in()
-do EventFlags.set_flag("8-Az-coughingFit-HeaterArea", true)
+do EventFlags.set_flag("8-Az-CoughingFit-HeaterArea", true)
 => END

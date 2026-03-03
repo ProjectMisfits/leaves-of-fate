@@ -51,16 +51,16 @@ point_count = 2
 [sub_resource type="Curve2D" id="Curve2D_a8ai1"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4096, 0, 0, 0, 0, 0, 4160, 7424, 0, 0, 0, 0, -5760, 7424, 0, 0, 0, 0, -5888, 14080, 0, 0, 0, 0, -3776, 13120)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4096, 0, 0, 0, 0, 0, 4160, 8896)
 }
-point_count = 6
+point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8ai1"]
 resource_local_to_scene = true
 size = Vector2(1664, 208)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rljgy"]
-size = Vector2(110064, 5978)
+size = Vector2(59408, 5786)
 
 [node name="Room" instance=ExtResource("1_dwyld")]
 
@@ -207,23 +207,22 @@ position = Vector2(64, 40)
 shape = SubResource("RectangleShape2D_a8ai1")
 
 [node name="PhantomCamera2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger" index="1"]
-position = Vector2(6384, 6130)
+position = Vector2(6456, 6130)
 zoom = Vector2(0.2, 0.2)
 limit_target = NodePath("../Limit")
 
 [node name="Limit" type="CollisionShape2D" parent="MidgroundLayer/Entities/Triggers/CameraTrigger" index="2"]
-visible = false
-position = Vector2(48440, 2979)
+position = Vector2(23112, 2883)
 shape = SubResource("RectangleShape2D_rljgy")
 
 [node name="CutsceneTrigger" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("7_rljgy")]
 position = Vector2(4032.0005, -128)
 scale = Vector2(10, 20)
 dialogue_sequence = ExtResource("8_qnrkn")
-required_false_event_flags = Array[String](["8-Az-coughingFit-HeaterArea"])
+required_false_event_flags = Array[String](["8-Az-CoughingFit-HeaterArea"])
 
 [node name="CameraResetTrigger" parent="MidgroundLayer" index="9" instance=ExtResource("7_a8ai1")]
-position = Vector2(54464, 3264)
+position = Vector2(54975.996, 3136)
 scale = Vector2(-27.054794, 32.906094)
 
 [editable path="MidgroundLayer/Entities/Objects/MovingPlatform"]
