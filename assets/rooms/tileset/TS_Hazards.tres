@@ -16,14 +16,14 @@ tile_data = PackedInt32Array(1179648, 3, 1610612736, 13, 3, 0, 2097165, 3, 80530
 [sub_resource type="TileMapPattern" id="TileMapPattern_63dno"]
 tile_data = PackedInt32Array(720896, 2, 0, 786433, 2, 268435456, 7, 1114117, 0, 1245197, 0, 0, 17, 1114117, 0, 720919, 2, 0)
 
-[sub_resource type="TileMapPattern" id="TileMapPattern_gpc7r"]
-tile_data = PackedInt32Array(1048576, 3, 1610612736, 2949120, 3, 1610612736, 1966094, 3, 1610612736, 18, 3, 0, 1900562, 3, 0, 3801106, 3, 805306368, 1048595, 3, 1610612736, 2949140, 3, 1610612736, 786459, 3, 0, 2883611, 3, 805306368, 1048608, 3, 1342177280, 2949152, 3, 1342177280, 37, 3, 0, 1900581, 3, 805306368, 1900582, 3, 0, 3801126, 3, 805306368, 1966123, 3, 1342177280, 1048627, 3, 1342177280, 2949172, 3, 1342177280)
-
-[sub_resource type="TileMapPattern" id="TileMapPattern_dbyyx"]
-tile_data = PackedInt32Array(327680, 0, 1610612736, 6, 0, 0, 589830, 0, 805306368, 262156, 0, 1342177280)
-
 [sub_resource type="TileMapPattern" id="TileMapPattern_vehyn"]
 tile_data = PackedInt32Array(0, 0, 0, 589824, 0, 805306368, 262150, 0, 1342177280)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_gpc7r"]
+tile_data = PackedInt32Array(0, 4, 0, 589831, 2, 0, 11, 4, 0, 589840, 2, 268435456, 65558, 4, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_dbyyx"]
+tile_data = PackedInt32Array(262144, 0, 1610612736, 4, 0, 0, 589828, 0, 805306368, 262153, 0, 1342177280)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kqfm"]
 texture = ExtResource("1_qib5l")
@@ -75,6 +75,6 @@ sources/5 = SubResource("TileSetAtlasSource_u3s71")
 pattern_0 = SubResource("TileMapPattern_u3s71")
 pattern_1 = SubResource("TileMapPattern_rhkf1")
 pattern_2 = SubResource("TileMapPattern_63dno")
-pattern_3 = SubResource("TileMapPattern_gpc7r")
-pattern_4 = SubResource("TileMapPattern_dbyyx")
-pattern_5 = SubResource("TileMapPattern_vehyn")
+pattern_3 = SubResource("TileMapPattern_vehyn")
+pattern_4 = SubResource("TileMapPattern_gpc7r")
+pattern_5 = SubResource("TileMapPattern_dbyyx")

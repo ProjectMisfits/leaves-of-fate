@@ -11,6 +11,9 @@ class_name BronzePipe extends Node2D
 ## A reference to the visual that shows when the player is in a pipe.
 @onready var _pipe_path_visual: ColorRect = %ColorRect
 
+##Reference to the timer for the player 
+@onready var _player_unfreeze: Timer = %PlayerUnfreeze
+
 ## The speed at which bronze pipes progress. Represents the percentage of the path that it advances each second. Here, 1.0 means 100% of the path will be traversed in one second.
 @export_range(0.0, 1.0, 0.01) var _speed_percentage: float = 1.0
 
@@ -19,6 +22,9 @@ var _player_in_pipe: bool = false
 
 ## A reference to the player.
 var _player: Player = null
+
+##How long the player can't control the player after exiting pipe
+@export var player_input_delay: float = .1
 
 ## A reference to the RemoteTransform2D node used to control the player when in a pipe.
 @onready var _player_pipe_transform: RemoteTransform2D = %RemoteTransform2D
@@ -87,15 +93,26 @@ func _exit_pipe() -> void:
 	_pipe_path_visual.hide()
 	# TODO: Show animation or particle visual of exiting pipe
 	# Reset player velocity so it launches out of the pipe instead of wonkily at the ground due to gravity
-	var new_player_velocity: Vector2 = Vector2.RIGHT.rotated(_pipe_path_curve.get_point_position(_pipe_path_curve.point_count - 2).angle_to_point(_pipe_path_curve.get_point_position(_pipe_path_curve.point_count - 1))) * _player.dash_end_velocity_multiplier * _pipe_path_curve.get_baked_length()
+	var new_player_velocity: Vector2 = Vector2.RIGHT.rotated(_pipe_path_curve.get_point_position(_pipe_path_curve.point_count - 2).angle_to_point(_pipe_path_curve.get_point_position(_pipe_path_curve.point_count - 1))) * _player.dash_end_velocity_multiplier * _player.dash_max_speed
+
 	_player.velocity = new_player_velocity
-	# Enable player
+	# Enable player but keep player input disabled for a little to keep pipe exit angle consistent `
 	_player.unfreeze()
+	_player.disable_player_input()
+	#Start a small buffer before 
+	_player_unfreeze.start(player_input_delay)
 	# Disconnect the RemoteTransform2D from the player
 	_player_pipe_transform.remote_path = ""
 	# Reset the pipe's progress ratio
 	_pipe_path_follower.progress_ratio = 0.0
 	# Show player
 	_player.show()
+	
+
+##Renable player inputs and dereference player
+func _on_player_unfreeze_timeout() -> void:
+	#Renable input
+	_player.enable_player_input()
 	# Clear local player reference
 	_player = null
+	pass # Replace with function body.

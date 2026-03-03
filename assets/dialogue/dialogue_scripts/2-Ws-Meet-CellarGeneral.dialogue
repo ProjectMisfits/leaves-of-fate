@@ -1,11 +1,14 @@
 ~ start
 do! MusicManager._fade_out()
-do CameraManager.create_camera(Vector2(4600.0, 600.0), 0.6, 2, "CUBIC", "EASE_IN_OUT")
+do CutsceneManager.player_face("right")
+do CameraManager.create_camera(Vector2(5200.0, 600.0), 0.4, 1.5, "CUBIC", "EASE_IN_OUT")
 ??? ws: [font_size=30]Ah, tis perfect. That shouldst do rather well.[/font_size]
-do EventBus.interrupt_dialogue.emit("0.5")
 ??? ws: [font_size=30]I just needeth...[/font_size]
 Fenn: Hello??
+do CameraManager.create_camera(Vector2(4600.0, 600.0), 1.5, 3, "LINEAR", "EASE_IN_OUT")
+do CutsceneManager.wait(0.5)
 do CutsceneManager.npc_face("Winston", "left")
+do CutsceneManager.wait(1)
 ??? ws: [font_size=100][shake level=15 rate=50]WHAT?! WHO ART THOU?[/shake][/font_size]
 do CutsceneManager.npc_face("Winston", "right")
 ??? ws: [font_size=30]Didst we not trapeth everyone?[/font_size]

@@ -4,6 +4,9 @@ class_name NPC extends CharacterBody2D
 ## The name of this NPC.
 @export var npc_name: String = ""
 
+## The name of the cutscene this NPC is used in, if applicable.
+@export var cutscene_puppeted_in: String
+
 ## A reference to this NPC's AnimationPlayer.
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -25,8 +28,13 @@ var target_x: float = global_position.x
 func _ready() -> void:
 	# Start out by playing their idle animation
 	animation_player.play(idle_animation)
-	# Register this NPC with the cutscene manager.
-	CutsceneManager.register_npc(self)
+	CutsceneManager.cutscene_started.connect(_on_cutscene_started)
+
+## Register this NPC if its cutscene has started.
+func _on_cutscene_started() -> void:
+	if cutscene_puppeted_in == CutsceneManager.current_cutscene:
+		# Register this NPC with the cutscene manager.
+		CutsceneManager.register_npc(self)
 
 func _physics_process(delta: float) -> void:
 	# Check whether we're at our target x. If so, stop moving.
@@ -64,6 +72,5 @@ func move(destination_global_x: float, move_speed: float, animate_walk: bool = t
 		animation_player.play(walk_animation)
 
 ## Set the NPC to look in the given direction.
-## look_direction: "left" or "right"
 func set_look(face_axis: float) -> void:
 	flip_node.scale.x = face_axis

@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://begbgwqemqwj1"]
+
+[ext_resource type="Texture2D" uid="uid://cxdkqcucl8gg7" path="res://assets/vfx/particle_effects/wind/wind-particleAsset-001.png" id="1_3ou5x"]
+
+[sub_resource type="Gradient" id="Gradient_y2cxc"]
+offsets = PackedFloat32Array(0.002754821, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uq4sn"]
+gradient = SubResource("Gradient_y2cxc")
+
+[sub_resource type="Gradient" id="Gradient_kr0xw"]
+offsets = PackedFloat32Array(0.002754821, 0.09090909, 0.19559228, 1)
+colors = PackedColorArray(1, 1, 1, 0.5372549, 1, 1, 1, 0.9520767, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ptvio"]
+gradient = SubResource("Gradient_kr0xw")
+
+[sub_resource type="Curve" id="Curve_4pblu"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0.0015898235, -200), 0.0, 0.0, 0, 0, Vector2(0.10492846, 200), 24.29493, 24.29493, 0, 0, Vector2(0.25119236, -191.65704), 0.0, 0.0, 0, 0, Vector2(0.48330685, 200), 25.60843, 25.60843, 0, 0, Vector2(0.6836248, -200), 0.0, 0.0, 0, 0, Vector2(0.8648649, 200), 0.0, 0.0, 0, 0, Vector2(1, -200), 0.0, 0.0, 0, 0]
+point_count = 7
+
+[sub_resource type="CurveTexture" id="CurveTexture_mo1bo"]
+curve = SubResource("Curve_4pblu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3ou5x"]
+particle_flag_disable_z = true
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+direction = Vector3(0, -1, 0)
+spread = 0.0
+flatness = 1.0
+initial_velocity_min = 285.0
+initial_velocity_max = 470.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -5.000002
+tangential_accel_max = 4.9999976
+tangential_accel_curve = SubResource("CurveTexture_mo1bo")
+damping_max = 100.00001
+scale_min = 0.099999994
+scale_max = 0.29999998
+color_ramp = SubResource("GradientTexture1D_ptvio")
+color_initial_ramp = SubResource("GradientTexture1D_uq4sn")
+turbulence_noise_strength = 20.0
+turbulence_noise_scale = 0.74
+
+[node name="WindGainVerticalBorderParticles" type="GPUParticles2D"]
+amount = 2
+texture = ExtResource("1_3ou5x")
+lifetime = 3.0
+preprocess = 1.8
+speed_scale = 8.0
+randomness = 0.5
+local_coords = true
+trail_enabled = true
+trail_lifetime = 1.5
+trail_sections = 16
+trail_section_subdivisions = 8
+process_material = SubResource("ParticleProcessMaterial_3ou5x")

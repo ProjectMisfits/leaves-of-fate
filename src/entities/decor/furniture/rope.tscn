@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxwi3wvq0chx2"]
+
+[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="1_j26is"]
+[ext_resource type="Texture2D" uid="uid://bjbuttcp7nlj5" path="res://assets/entities/decor/furniture/Rope_Pile.png" id="2_j26is"]
+
+[node name="Rope" type="Node2D"]
+use_parent_material = true
+script = ExtResource("1_j26is")
+
+[node name="Rope" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(0, -105)
+texture = ExtResource("2_j26is")

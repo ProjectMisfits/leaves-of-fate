@@ -3,7 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://trq8l16yarnk" path="res://assets/entities/decor/furniture/Table-Prop.png" id="1_k2wti"]
 [ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="2_b8uim"]
 
-[node name="Table" type="Sprite2D"]
+[node name="Table" type="Node2D"]
+use_parent_material = true
+script = ExtResource("2_b8uim")
+
+[node name="Table" type="Sprite2D" parent="."]
+use_parent_material = true
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("1_k2wti")
-script = ExtResource("2_b8uim")

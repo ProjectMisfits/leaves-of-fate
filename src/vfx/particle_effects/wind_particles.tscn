@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b5iavwafreiy1"]
 
-[ext_resource type="Texture2D" uid="uid://cxdkqcucl8gg7" path="res://assets/vfx/particle_effects/wind/wind-particleAsset-001.png" id="1_2inyl"]
+[ext_resource type="Texture2D" uid="uid://cxdkqcucl8gg7" path="res://assets/vfx/particle_effects/wind/wind-particleAsset-001.png" id="1_o02cw"]
 
 [sub_resource type="Gradient" id="Gradient_y2cxc"]
 offsets = PackedFloat32Array(0.002754821, 1)
@@ -24,7 +24,7 @@ point_count = 7
 [sub_resource type="CurveTexture" id="CurveTexture_mo1bo"]
 curve = SubResource("Curve_4pblu")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o6juj"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o02cw"]
 particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 0.01
@@ -48,7 +48,7 @@ turbulence_noise_scale = 0.74
 
 [node name="WindParticles" type="GPUParticles2D"]
 amount = 20
-texture = ExtResource("1_2inyl")
+texture = ExtResource("1_o02cw")
 lifetime = 7.0
 preprocess = 1.8
 speed_scale = 5.0
@@ -58,4 +58,4 @@ trail_enabled = true
 trail_lifetime = 3.0
 trail_sections = 16
 trail_section_subdivisions = 8
-process_material = SubResource("ParticleProcessMaterial_o6juj")
+process_material = SubResource("ParticleProcessMaterial_o02cw")

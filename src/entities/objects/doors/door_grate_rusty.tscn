@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://1raxqvkiv2mf"]
+[gd_scene load_steps=6 format=3 uid="uid://1raxqvkiv2mf"]
 
 [ext_resource type="Script" uid="uid://bsof8xxvb00ep" path="res://src/entities/objects/doors/door.gd" id="1_7gxlt"]
 [ext_resource type="Texture2D" uid="uid://cvq7dcp4ksriw" path="res://assets/entities/objects/doors/Rusty_Grate.png" id="2_7gxlt"]
+[ext_resource type="Material" uid="uid://dbrwefsv6hrsv" path="res://src/vfx/shaders/RimLit.tres" id="2_quo5i"]
 [ext_resource type="PackedScene" uid="uid://dsy2abl6kiatx" path="res://src/entities/triggers/interact_trigger/door_trigger/door_trigger.tscn" id="3_quo5i"]
 [ext_resource type="Shape2D" uid="uid://ddtfnr4w5amgn" path="res://src/entities/objects/doors/door_grate_collision_shape.tres" id="4_quo5i"]
 
@@ -9,6 +10,7 @@
 script = ExtResource("1_7gxlt")
 
 [node name="Door" type="Sprite2D" parent="."]
+material = ExtResource("2_quo5i")
 position = Vector2(0, -258)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_7gxlt")

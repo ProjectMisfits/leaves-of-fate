@@ -16,6 +16,8 @@ func _update(delta: float) -> void:
 	
 	if (agent.velocity.y >= 0.0):	# Can only transition into airborne once jump reaches peak
 		agent.check_airborne_state()
+		agent.check_running_state()
+		agent.check_idle_state()
 	
 	agent.move_horizontal_air(delta)
 

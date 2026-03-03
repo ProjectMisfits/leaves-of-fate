@@ -6,6 +6,7 @@ signal pipe_entered(pipe_enterer: Player)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	init_trigger()
 	_on_trigger = _enter_pipe
 
 ## Begin sending the player through the bronze pipe.
@@ -14,3 +15,10 @@ func _enter_pipe() -> void:
 	if player.state_machine.get_active_state() == player.dashing_state:
 		# If so, emit a pipe entered signal with the player for the pipe to catch
 		pipe_entered.emit(player)
+
+func _physics_process(_delta: float) -> void:
+	var bodies: Array[Node2D] = get_overlapping_bodies()
+	for body: Node2D in bodies:
+		if body is Player:
+			if player.state_machine.get_active_state() == player.dashing_state:
+				_enter_pipe()
