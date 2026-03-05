@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=4 uid="uid://djl4k6dpqayhm"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_q085u"]
-[ext_resource type="Texture2D" uid="uid://48x0nrpho68" path="res://assets/rooms/backgrounds/bg_den_dark.tres" id="2_d40tq"]
+[ext_resource type="Texture2D" uid="uid://48x0nrpho68" path="res://assets/rooms/backgrounds/bg_cellar_dark.tres" id="2_d40tq"]
 [ext_resource type="PackedScene" uid="uid://1raxqvkiv2mf" path="res://src/entities/objects/doors/door_grate_rusty.tscn" id="2_guwbj"]
 [ext_resource type="PackedScene" uid="uid://mn6k4g5kkt5q" path="res://src/entities/objects/heater/heater.tscn" id="2_vnj5f"]
 [ext_resource type="PackedScene" uid="uid://c567nmtkfbfn4" path="res://src/entities/objects/heater_lever/heater_lever.tscn" id="3_3rp62"]
