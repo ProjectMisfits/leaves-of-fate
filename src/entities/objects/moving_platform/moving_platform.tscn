@@ -85,6 +85,8 @@ scale = Vector2(1.0048629, 0.9807644)
 texture = ExtResource("2_it4r1")
 
 [node name="SandClawParticles" parent="AnimatableBody2D/Sprite2D" instance=ExtResource("4_mqq66")]
+unique_name_in_owner = true
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
