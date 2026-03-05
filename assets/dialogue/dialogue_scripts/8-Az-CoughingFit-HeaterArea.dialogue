@@ -12,7 +12,6 @@ Az falls to the ground
 Fenn worry: Az, what's happening?
 Az annoy: [do! CutsceneManager.play_sound("Cough")][i]cough.[/i] I'm fine![wait=0.3] [do! CutsceneManager.play_sound("Cough")][i]cough[/i] [font_size=60]I'm FINE![/font_size]
 Az annoy: [do! CutsceneManager.play_sound("Cough")][i]cough[/i]. Go on ahead. [do! CutsceneManager.play_sound("Cough")][i]cough[/i]. I'll be fine.
-Fenn worry: Okay...
 do! MusicManager._fade_in()
 do EventFlags.set_flag("8-Az-CoughingFit-HeaterArea", true)
 => END
