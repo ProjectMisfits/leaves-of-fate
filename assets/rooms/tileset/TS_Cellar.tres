@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://i6wi7xcus3i"]
+[gd_resource type="TileSet" load_steps=14 format=3 uid="uid://i6wi7xcus3i"]
 
 [ext_resource type="PackedScene" uid="uid://bg2o7v2o7bjjk" path="res://src/entities/objects/breakaway_platform/breakaway_platform.tscn" id="1_4p5mv"]
 [ext_resource type="Texture2D" uid="uid://dpk2q08jmrpsl" path="res://assets/rooms/tileset/Grate-Tile-001.png" id="2_4p5mv"]
@@ -16,6 +16,9 @@ tile_data = PackedInt32Array(0, 65542, 0, 65536, 65542, 0, 131072, 65542, 0, 196
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_5u2os"]
 tile_data = PackedInt32Array(0, 458758, 0, 65536, 458758, 0, 131072, 458758, 0, 196608, 458758, 0, 262144, 458758, 0, 327680, 458758, 0, 393216, 458758, 0, 458752, 458758, 0, 1, 458758, 0, 65537, 458758, 0, 131073, 458758, 0, 196609, 458758, 0, 262145, 458758, 0, 2, 458758, 0, 65538, 458758, 0, 131074, 458758, 0, 3, 458758, 0, 65539, 458758, 0, 4, 458758, 0, 65540, 458758, 0, 5, 458758, 0, 6, 458758, 0, 7, 458758, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_451la"]
+tile_data = PackedInt32Array(0, 720902, 0, 1, 720902, 0, 65538, 720902, 0, 131075, 720902, 0, 131076, 720902, 0, 196613, 720902, 0, 262150, 720902, 0, 262151, 720902, 0, 327687, 720902, 0, 327688, 720902, 0, 393225, 720902, 0, 458762, 720902, 0, 458763, 720902, 0, 524299, 720902, 0, 524300, 720902, 0, 589837, 720902, 0, 655374, 720902, 0, 655375, 720902, 0, 720911, 720902, 0, 720912, 720902, 0, 786448, 720902, 0, 786449, 720902, 0, 851986, 720902, 0, 851987, 720902, 0, 917523, 720902, 0, 917524, 720902, 0, 983061, 720902, 0, 1048598, 720902, 0, 1048599, 720902, 0)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_iutvm"]
 scenes/1/scene = ExtResource("1_4p5mv")
@@ -207,3 +210,4 @@ pattern_0 = SubResource("TileMapPattern_i0ja3")
 pattern_1 = SubResource("TileMapPattern_iutvm")
 pattern_2 = SubResource("TileMapPattern_yljle")
 pattern_3 = SubResource("TileMapPattern_5u2os")
+pattern_4 = SubResource("TileMapPattern_451la")
