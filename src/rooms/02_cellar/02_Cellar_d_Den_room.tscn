@@ -112,8 +112,8 @@ position = Vector2(4864, -1024)
 position = Vector2(7882.1055, -943.1579)
 
 [node name="DustLayer" parent="BackgroundLayer" index="2"]
-position = Vector2(-2694.737, -6784)
-scale = Vector2(21.086319, 8.32)
+position = Vector2(-2964.2107, -6784)
+scale = Vector2(21.355793, 9.411368)
 
 [node name="Midground" parent="MidgroundLayer" index="1"]
 light_mask = 0
@@ -166,7 +166,6 @@ position = Vector2(5312, -896.00006)
 scale = Vector2(10, 60)
 dialogue_sequence = ExtResource("10_badnc")
 cutscene_flag_name = "6-AzWs-Arrive-Den"
-force_disable = true
 required_false_event_flags = Array[String](["6-AzWs-Arrive-Den"])
 
 [node name="CutsceneTrigger-2" parent="MidgroundLayer/Entities/Triggers" index="1" instance=ExtResource("9_61b8v")]
@@ -174,7 +173,6 @@ position = Vector2(6464, -576)
 scale = Vector2(40, 30)
 dialogue_sequence = ExtResource("11_q0uwv")
 cutscene_flag_name = "12-AzWs-AsthmaAttack-Den"
-force_enable = true
 required_true_event_flags = Array[String](["heater_main_activated"])
 required_false_event_flags = Array[String](["12-AzWs-AsthmaAttack-Den"])
 
