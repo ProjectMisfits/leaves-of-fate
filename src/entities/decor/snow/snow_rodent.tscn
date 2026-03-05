@@ -1,14 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://diwms7rfs40dk"]
+[gd_scene load_steps=4 format=3 uid="uid://diwms7rfs40dk"]
 
-[ext_resource type="Script" uid="uid://buemqhtuqnrww" path="res://src/entities/decor/decor.gd" id="1_lfyur"]
+[ext_resource type="Script" uid="uid://bcydl2qdq83dt" path="res://src/entities/decor/living_decor.gd" id="1_ixiwa"]
 [ext_resource type="Texture2D" uid="uid://d2masmlgulvuc" path="res://assets/entities/decor/furniture/Snow_Rodent_Decor.png" id="2_lfyur"]
+[ext_resource type="Texture2D" uid="uid://cb0wnp8j0gwis" path="res://assets/entities/decor/furniture/Snow_Pile.png" id="2_ulld6"]
 
-[node name="SnowRodent" type="Node2D"]
+[node name="SnowRodent" type="Node2D" node_paths=PackedStringArray("tween_node")]
 use_parent_material = true
-script = ExtResource("1_lfyur")
+script = ExtResource("1_ixiwa")
+tween_node = NodePath("TweenPivot")
 
-[node name="SnowRodent" type="Sprite2D" parent="."]
+[node name="SnowPile" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-23, -86)
+scale = Vector2(1, 0.5)
+texture = ExtResource("2_ulld6")
+
+[node name="TweenPivot" type="Marker2D" parent="."]
+position = Vector2(0, -41)
+
+[node name="SnowRodent" type="Sprite2D" parent="TweenPivot"]
 use_parent_material = true
-position = Vector2(46.000008, -291)
-rotation = -0.025832487
+position = Vector2(46.000008, -250)
+rotation = -0.02583249
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("2_lfyur")
