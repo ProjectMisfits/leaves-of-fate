@@ -18,6 +18,9 @@ func _enter() -> void:
 	agent.grab_component.can_grab = false
 	agent.interact_component.can_interact = false
 	
+	#Activate some controller rumble
+	Input.start_joy_vibration(0,.20,.0,.25)
+	
 	#print("Player State Transition: to_dashing")
 	agent.animation_player.play("player_leaf_dash")
 
@@ -102,6 +105,8 @@ func _update(delta: float) -> void:
 
 ## Revert the Player's animation, particles, and rotation back to their normal mode.
 func _exit() -> void:
+	#Activate some controller rumble
+	Input.start_joy_vibration(0,.20,.0,.25)
 	agent.animation_player.play_backwards("player_leaf_dash")
 	agent.set_collision_mask_value(8,true)
 	agent.set_collision_mask_value(10,false)
