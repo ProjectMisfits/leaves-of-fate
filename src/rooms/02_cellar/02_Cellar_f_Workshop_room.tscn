@@ -9,12 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="4_6gt6j"]
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="4_6qxje"]
 [ext_resource type="PackedScene" uid="uid://d2w50ptxgmhj4" path="res://src/entities/objects/doors/door_grate.tscn" id="4_uvpvb"]
-[ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/npc_winston/npc_winston.tscn" id="5_vvfdw"]
 [ext_resource type="PackedScene" uid="uid://b7s6y2h5mi7xx" path="res://src/entities/objects/doors/door.tscn" id="6_3sq04"]
 [ext_resource type="Resource" uid="uid://bbwxxjmh5jp4p" path="res://assets/dialogue/dialogue_scripts/13-AzWs-FinalConfrontation-Workshop.dialogue" id="7_vvfdw"]
 [ext_resource type="PackedScene" uid="uid://bxs53f3p1b8ki" path="res://src/entities/actors/npcs/npc_iceton/npc_iceton.tscn" id="8_cajgg"]
 [ext_resource type="Script" uid="uid://blr5ksl5vscmw" path="res://src/components/processing_component.gd" id="9_3sq04"]
 [ext_resource type="Resource" uid="uid://duspdpplyqoju" path="res://assets/dialogue/dialogue_scripts/15-AzWs-ReachSafety-GreatHall.dialogue" id="9_6kule"]
+[ext_resource type="PackedScene" uid="uid://l75vibl6nntn" path="res://src/entities/actors/npcs/npc_winston/npc_winston_nohood.tscn" id="9_ix2a1"]
 [ext_resource type="PackedScene" uid="uid://bf3cpgh4opj6s" path="res://src/entities/objects/iceton_machine/iceton_machine.tscn" id="9_pnt6g"]
 [ext_resource type="PackedScene" uid="uid://s5tabrd66okd" path="res://src/entities/decor/ice/icicle_02.tscn" id="11_xvd77"]
 [ext_resource type="PackedScene" uid="uid://do1txexpwjmqq" path="res://src/entities/decor/ice/icicle_03.tscn" id="12_cajgg"]
@@ -120,11 +120,11 @@ script = ExtResource("9_3sq04")
 required_false_event_flags = Array[String](["heater_boss_activated"])
 metadata/_custom_type_script = "uid://blr5ksl5vscmw"
 
-[node name="NpcWinston" parent="MidgroundLayer/Entities/NPCs" index="1" instance=ExtResource("5_vvfdw")]
+[node name="NpcWinston-2" parent="MidgroundLayer/Entities/NPCs" index="1" instance=ExtResource("9_ix2a1")]
 position = Vector2(4544, 1024)
 cutscene_puppeted_in = "13-AzWs-FinalConfrontation-Workshop"
 
-[node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcWinston" index="4"]
+[node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/NpcWinston-2" index="4"]
 script = ExtResource("9_3sq04")
 required_false_event_flags = Array[String](["heater_boss_activated"])
 metadata/_custom_type_script = "uid://blr5ksl5vscmw"
@@ -133,18 +133,17 @@ metadata/_custom_type_script = "uid://blr5ksl5vscmw"
 
 [node name="NpcAz-2" parent="MidgroundLayer/Entities/NPCs/SafetyCutscene" index="0" instance=ExtResource("4_6gt6j")]
 position = Vector2(5824, 1024)
-rotation = 3.1415927
-scale = Vector2(1, -1)
 cutscene_puppeted_in = "15-AzWs-ReachSafety-GreatHall"
 
-[node name="NpcWinston-2" parent="MidgroundLayer/Entities/NPCs/SafetyCutscene" index="1" instance=ExtResource("5_vvfdw")]
-position = Vector2(5376, 1024)
-cutscene_puppeted_in = "15-AzWs-ReachSafety-GreatHall"
-
-[node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/SafetyCutscene" index="2"]
+[node name="ProcessingComponent" type="Node" parent="MidgroundLayer/Entities/NPCs/SafetyCutscene" index="1"]
 script = ExtResource("9_3sq04")
 required_true_event_flags = Array[String](["heater_boss_activated"])
+required_false_event_flags = Array[String](["15-AzWs-ReachSafety-GreatHall"])
 metadata/_custom_type_script = "uid://blr5ksl5vscmw"
+
+[node name="NpcWinston" parent="MidgroundLayer/Entities/NPCs/SafetyCutscene" index="2" instance=ExtResource("9_ix2a1")]
+position = Vector2(5248, 1024)
+cutscene_puppeted_in = "15-AzWs-ReachSafety-GreatHall"
 
 [node name="NpcIceton" parent="MidgroundLayer/Entities/NPCs" index="3" instance=ExtResource("8_cajgg")]
 position = Vector2(3072, 1024)
@@ -188,7 +187,7 @@ scale = Vector2(20, 20)
 dialogue_sequence = ExtResource("9_6kule")
 cutscene_flag_name = "15-AzWs-ReachSafety-GreatHall"
 required_true_event_flags = Array[String](["heater_boss_activated"])
-required_false_event_flags = Array[String](["15-AzWs-ReachSafety-GreatHall", "14-AzWs-TurnOnHeater-Boss-HeaterArea"])
+required_false_event_flags = Array[String](["15-AzWs-ReachSafety-GreatHall"])
 
 [node name="Icicle02" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("11_xvd77")]
 position = Vector2(11776, -2176)

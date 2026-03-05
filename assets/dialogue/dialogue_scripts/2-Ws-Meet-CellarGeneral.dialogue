@@ -7,13 +7,13 @@ do CameraManager.create_camera(Vector2(5200.0, 600.0), 0.4, 1.5, "CUBIC", "EASE_
 Fenn: Hello??
 do CameraManager.create_camera(Vector2(4600.0, 600.0), 1.5, 3, "LINEAR", "EASE_IN_OUT")
 do CutsceneManager.wait(0.5)
-do CutsceneManager.npc_face("Winston", "left")
+do CutsceneManager.npc_face("Winston H", "left")
 do CutsceneManager.wait(1)
 ??? ws: [font_size=100][shake level=15 rate=50]WHAT?! WHO ART THOU?[/shake][/font_size]
-do CutsceneManager.npc_face("Winston", "right")
+do CutsceneManager.npc_face("Winston H", "right")
 ??? ws: [font_size=30]Didst we not trapeth everyone?[/font_size]
 Fenn starry: Nope!
-do CutsceneManager.npc_face("Winston", "left")
+do CutsceneManager.npc_face("Winston H", "left")
 ??? ws grit: [font_size=70][i]No matter.[/i][/font_size] [wait=0.2]I shalt crush thee [shake level=10 rate=30]myself![/shake]
 ??? ws: Not another step, [shake level=10 rate=30][i]pint-size[/i][/shake].
 Fenn: Or... what?
@@ -23,17 +23,17 @@ do EventBus.interrupt_dialogue.emit("0.2")
 Wizard?: Why,[wait=0.2] of course![wait=0.2] I am the Great Wizard of-
 Fenn: [font_size=100]PREPARE YOURSELF, [shake level=15 rate=50]WIZARD! [/shake][/font_size]
 Fenn: [font_size=60][wave freq=8 amp=30]I will defeat you and free this palace![/wave][/font_size]
-do CutsceneManager.npc_face("Winston", "right")
+do CutsceneManager.npc_face("Winston H", "right")
 Wizard grit: [font_size=40][shake level=7 rate=20]ARGH[/shake]. [i]I do not have timeth for this.[/i] [/font_size]
 Wizard grit: [font_size=40]I must findeth that [color="0B4F4A"]Workshop[/color]![/font_size]
-do CutsceneManager.npc_face("Winston", "left")
+do CutsceneManager.npc_face("Winston H", "left")
 Wizard awkward: [font_size=80]Ahem.[/font_size]
 Wizard: [wave freq=7 amp=30]In due timeth, [i]pint-size[/i].[/wave]
-do CutsceneManager.npc_move("Winston", 6200.0, 1000.0, false, false)
+do CutsceneManager.npc_move("Winston H", 6200.0, 1000.0, false, false)
 Wizard grit: I look forward to our battle. [shake level=7 rate=30]Thy defeat shalt be one for the ages.[/shake]
-do CutsceneManager.npc_move("Winston", 8192.0, 2000.0, false, false)
+do CutsceneManager.npc_move("Winston H", 8192.0, 2000.0, false, false)
 do CutsceneManager.fade_to_black()
-do CutsceneManager.remove_npc("Winston")
+do CutsceneManager.remove_npc("Winston H")
 do CutsceneManager.fade_from_black()
 Fenn: Uh...
 Fenn: Indeed, it shalt... eth?
