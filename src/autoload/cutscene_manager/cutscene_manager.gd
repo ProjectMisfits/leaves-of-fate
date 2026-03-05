@@ -27,8 +27,10 @@ func _npc_name_to_instance(npc_name: String) -> NPC:
 	match npc_name:
 		"Az":
 			return preload("res://src/entities/actors/npcs/npc_az/npc_az.tscn").instantiate()
-		"Winston":
+		"Winston H":
 			return preload("res://src/entities/actors/npcs/npc_winston/npc_winston.tscn").instantiate()
+		"Winston N":
+			return preload("res://src/entities/actors/npcs/npc_winston/npc_winston_nohood.tscn").instantiate()
 		"Iceton":
 			return preload("res://src/entities/actors/npcs/npc_iceton/npc_iceton.tscn").instantiate()
 		_:

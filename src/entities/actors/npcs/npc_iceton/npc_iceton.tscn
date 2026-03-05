@@ -17,11 +17,11 @@ shader_parameter/positionCenter = Vector2(-1.55, 0)
 shader_parameter/warpWidth = 0.71600003075012
 shader_parameter/warpWidthDistance = 248.5590118065525
 
-[sub_resource type="Animation" id="Animation_o15yc"]
-resource_name = "iceton_walk"
-
 [sub_resource type="Animation" id="Animation_8rnu0"]
 resource_name = "iceton_idle"
+
+[sub_resource type="Animation" id="Animation_o15yc"]
+resource_name = "iceton_walk"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yhbe1"]
 _data = {
@@ -51,6 +51,7 @@ scale = Vector2(1.11, 1.11)
 texture = ExtResource("2_kmcc0")
 
 [node name="CollisionShape2D" parent="." index="1"]
+visible = false
 position = Vector2(0, -411)
 shape = ExtResource("3_cxc6k")
 

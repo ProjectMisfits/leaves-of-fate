@@ -29,7 +29,7 @@ do CutsceneManager.fade_to_black()
 #do CutsceneManager.play_sound("FireBreath")
 do CameraManager.create_camera(Vector2(13000.0,600), 1.25, 0.01, "CUBIC", "EASE_IN_OUT")
 do EventFlags.set_flag("workshop_door_melted", true)
-do CutsceneManager.wait(2)
+do CutsceneManager.wait(1)
 do CutsceneManager.fade_from_black()
 #do CutsceneManager.play_sound("AzCollapse")
 Az collapses
@@ -54,36 +54,33 @@ Fenn worry: [font_size=100][shake level=10 rate=50]NO![/shake][/font_size]
 Fenn: [speed=1.2][font_size=60]You're not okay, so I'm [i]not[/i] leaving, so just [shake level=7 rate=30][i]shut up[/i] about it![/shake][/font_size]
 Az: [speed=0.5][font_size=30][do! CutsceneManager.play_sound("Cough")][i]cough[/i][/font_size]
 Az: [speed=0.5][font_size=30]O- [wait=0.3]okay. [do! CutsceneManager.play_sound("Cough")][i]cough[/i].[/font_size]
-do CutsceneManager.wait(3)
+do CutsceneManager.wait(1.5)
 Fenn worry: [font_size=40]Wh- [wait=0.3]what can I do?[/font_size]
 Az: [speed=0.5][font_size=30]I- [wait=0.3]I [do! CutsceneManager.play_sound("Cough")][i]cough[/i]. don't know. [do! CutsceneManager.play_sound("Cough")][i]cough[/i].[/font_size]
 Fenn worry: [speed=0.7]Will you be okay?
 Az: [font_size=30][speed=0.5][do! CutsceneManager.play_sound("Cough")][i]cough[/i]. Heh. [do! CutsceneManager.play_sound("Cough")][i]cough[/i]. No promises.[/font_size]
-do CutsceneManager.wait(3)
-do CutsceneManager.fade_to_black()
+do CutsceneManager.wait(1.5)
 #Object sliding through door sound effect
 #do CutsceneManager.play_sound("InhalerSlide")
 do EventFlags.set_flag("inhaler_available", true)
-do CutsceneManager.fade_from_black()
 do EventBus.interrupt_dialogue.emit("0.5")
 do CutsceneManager.npc_face("Az", "right")
 Fenn: Wait, that's-
 Az: [speed=0.5][do! CutsceneManager.play_sound("Cough")][i]cough[/i] in- [wait=0.3]inhaler.
-do! CutsceneManager.player_move(15000, 2000, true, false)
+do CutsceneManager.player_move(15000, 2000, true, false)
 Fenn grabs the inhaler
 #do CutsceneManager.play_sound("InhalerPickup")
 do EventFlags.set_flag("inhaler_retrieved", true)
 do! CutsceneManager.player_move(13000, 2000, true, false)
-do CutsceneManager.wait(2)
+do CutsceneManager.wait(1)
 #do CutsceneManager.play_sound("AzBreathe")
 Az takes a breath
-do CutsceneManager.wait(2)
+do CutsceneManager.wait(1)
 #do CutsceneManager.play_sound("AzBreathe")
-Another breath
 Fenn worry: Are- [wait=0.3]are you okay?
 Az: [speed=0.75][font_size=40][i]inhale.[/i] [do! CutsceneManager.play_sound("Cough")][i]cough[/i]. In a bit, yeah.[/font_size]
 do CutsceneManager.fade_to_black()
-#do CutsceneManager.wait(1)
+do CutsceneManager.wait(2)
 #do CutsceneManager.play_sound("AzBreathe")
 #Deep, steady inhale sound
 do CutsceneManager.fade_from_black()
