@@ -25,3 +25,10 @@ func _on_grab() -> void:
 		is_grabbed = true
 	else:
 		push_error("GrabTrigger: Parent node does not have appropriate _grab and/or _ungrab methods")
+
+## Sets the visibility of the trigger parent's highlight to the given value.
+func set_highlight_visibility(new_visibility: bool) -> void:
+	if get_parent().has_method("set_highlight_visibility"):
+		get_parent().set_highlight_visibility(new_visibility)
+	else:
+		push_warning("GrabTrigger: Parent node does not have the appropriate enable_grab_particles method")

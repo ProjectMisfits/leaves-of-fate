@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://baqjielyaf0cf"]
 
-[ext_resource type="Shader" uid="uid://hdvd1nw87dhm" path="res://src/vfx/shaders/clawoutline.gdshader" id="1_ljdpc"]
+[ext_resource type="Shader" uid="uid://hdvd1nw87dhm" path="res://src/vfx/shaders/animatedoutline.gdshader" id="1_ljdpc"]
 
 [resource]
 shader = ExtResource("1_ljdpc")

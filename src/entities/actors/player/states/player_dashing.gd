@@ -6,6 +6,10 @@ var move_direction: Vector2 = Vector2.RIGHT		## The direction the Player is movi
 var input_direction: Vector2					## The user's inputted direction which the Player must turn toward.
 var rad_angular_turn_speed: float				## The Player's turn speed in radians. Set using Dash database variables.
 
+## An Area2D which checks whether the Player's normal collision shape would be overlapping a grate tile.
+## The Player cannot end a Leaf Dash while overlapping with a grate tile.
+@export var dash_grate_check_area: Area2D
+
 ## Set the Player's animation, particles, and change their collision mask to 
 ## let them pass through Leaf Mode platforms.
 ## Finally, set up move direction & radian turn speed.
@@ -54,13 +58,16 @@ func _enter() -> void:
 ## check if they may transition into another state.
 func _update(delta: float) -> void:
 	# Check for state changes
-	var is_leaf_meter_empty: bool = agent.leaf_meter <= 0.0
+	var is_overlapping_with_grates: bool = dash_grate_check_area.get_overlapping_bodies().size() > 0
+	var is_unable_to_dash: bool = (not agent.input_processing) or agent.no_dash
 	var is_dash_action_not_pressed: bool = not Input.is_action_pressed("dash")
+	var is_leaf_meter_empty: bool = agent.leaf_meter <= 0.0
 	
-	if not agent.input_processing or agent.no_dash or ((not agent.infinite_dash) and (is_dash_action_not_pressed or is_leaf_meter_empty) or is_dash_action_not_pressed):
-		agent.check_airborne_state()
-		agent.check_running_state()
-		agent.check_idle_state()
+	if not is_overlapping_with_grates:
+		if is_unable_to_dash or is_dash_action_not_pressed or (is_leaf_meter_empty and (not agent.infinite_dash)):
+			agent.check_airborne_state()
+			agent.check_running_state()
+			agent.check_idle_state()
 	
 	# Get new input vector depending on held Actions
 	var new_input_direction: Vector2
