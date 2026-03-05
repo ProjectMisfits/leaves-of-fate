@@ -4,13 +4,12 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y4wiy"]
 resource_local_to_scene = true
-size = Vector2(512, 512)
+size = Vector2(640, 640)
 
 [node name="BronzePipeTrigger" type="Area2D"]
 collision_layer = 0
 monitorable = false
 script = ExtResource("1_or0vo")
-repeatable = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_y4wiy")

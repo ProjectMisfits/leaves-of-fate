@@ -7,16 +7,21 @@ class_name CutsceneTrigger extends PlayerEnterTrigger
 ## The line to start at in the dialogue sequence.
 @export var dialogue_start: String = "start"
 
+## The name the cutscene flag this trigger starts.
+@export var cutscene_flag_name: String = "tmp"
+
 ## Whether the cutscene associated with this trigger is currently playing out.
 var cutscene_active: bool = false
 
 func _ready() -> void:
+	init_trigger()
 	_on_trigger = _start_cutscene
 	DialogueManager.dialogue_ended.connect(_end_cutscene.unbind(1))
 
 ## Start the cutscene associated with this trigger.
 func _start_cutscene() -> void:
 	cutscene_active = true
+	CutsceneManager.current_cutscene = cutscene_flag_name
 	CutsceneManager.cutscene_started.emit()
 	DialogueManager.show_dialogue_balloon(dialogue_sequence, dialogue_start)
 
@@ -25,4 +30,5 @@ func _end_cutscene() -> void:
 	# If this cutscene was active when the dialogue manager signaled that dialogue ended, emit the cutscene ended signal
 	if cutscene_active:
 		cutscene_active = false
+		CutsceneManager.current_cutscene = "none"
 		CutsceneManager.cutscene_ended.emit()

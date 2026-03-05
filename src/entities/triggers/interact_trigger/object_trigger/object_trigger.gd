@@ -7,6 +7,7 @@ class_name ObjectTrigger extends InteractTrigger
 @export var new_flag_value: bool
 
 func _ready() -> void:
+	init_trigger()
 	interact_prompt = $InteractPrompt
 	_on_trigger = _on_object_interact
 

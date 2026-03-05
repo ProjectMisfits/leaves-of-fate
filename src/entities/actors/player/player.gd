@@ -38,6 +38,7 @@ var meter_cooldown_time: float			## Time in seconds after landing on the ground 
 
 var dash_min_speed: float						## The Player's minimum speed while Leaf Dashing.
 var dash_max_speed: float						## The Player's maximum speed while Leaf Dashing.
+var dash_speed_friction: float					## The Player's velocity loss per second while over the Leaf Dash's maximum speed.
 var dash_acceleration: float					## The Player's velocity gain per second while Leaf Dashing.
 var dash_angular_turn_speed: float				## The Player's turn speed (in degrees) while Leaf Dashing. Not scaled by delta time.
 var dash_deceleration: float					## UNUSED: The Player's speed loss per second while Leaf Dashing with very little wind left.
@@ -65,6 +66,8 @@ var post_dash_fast_fall_gravity_multiplier: float	## Multiplier for Player gravi
 #var pile_air_turn_speed: float			## The Player's X-velocity gain per second while turning to move in the opposite direction in Leaf Pile mode & in the air.
 
 # ---------- Misc. ---------- #
+var max_grab_time: float				## How long the Player may sustain a grab before it automatically releases.
+
 var hit_recoil_velocity: float			## How far the Player is launched after being hit.
 var hit_recoil_direction: Vector2		## The direction the Player is launched after being hit.
 var hit_invincibility_time: float		## How long after being hit that the Player is invincible for.
@@ -88,15 +91,9 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 ## different animations depending on the Player's state.
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-## AnimationPlayer with an "invincibility" modulation animation.
-## Plays on repeat until stopped manually.
-@onready var invincibility_animation_player: AnimationPlayer = $InvincibilityAnimationPlayer
 
 ## While active, the Player is invincible & cannot be damaged normally.
 @onready var invincibility_timer: Timer = $InvincibilityTimer
-
-##Footstep delay
-@onready var foot_step_timer :Timer = $FootStepTimer
 
 ## Reference to the Player's Meter Cooldown Timer.
 ## While active, the Player cannot Leaf Dash.
@@ -105,6 +102,11 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 ##Footstep Audio
 @onready var foot_step_audio_player : AudioStreamPlayer2D = $Audio/Footsteps
 
+## Reference to the Player's Grab Component.
+@onready var grab_component: GrabComponent = $FlipNode/GrabComponent
+## Reference to the Player's Interact Component.
+@onready var interact_component: InteractComponent = $FlipNode/InteractComponent
+
 # ---------- State Machine & States ---------- #
 @onready var state_machine: LimboHSM = $LimboHSM				## Reference to the Player's State Machine.
 @onready var idle_state: LimboState = $LimboHSM/Idle			## Reference to the Player's Idle State.
@@ -112,6 +114,7 @@ var fun_value: int						## Every copy of Project Misfits is personalized.
 @onready var jumping_state: LimboState = $LimboHSM/Jumping		## Reference to the Player's Jumping State.
 @onready var airborne_state: LimboState = $LimboHSM/Airborne	## Reference to the Player's Airborne State.
 @onready var dashing_state: LimboState = $LimboHSM/Dashing		## Reference to the Player's Leaf Dash State.
+@onready var cutscene_state: LimboState = $LimboHSM/Cutscene	## Reference to the Player's Cutscene State.
 #@onready var piling_state: LimboState = $LimboHSM/Piling		## Reference to the Player's Leaf Pile state.
 
 # -------------------- DYNAMIC VARIABLES -------------------- #
@@ -145,6 +148,12 @@ var dash_cooldown_queued: bool = false
 
 @onready var leaf_enter_audio: AudioStreamPlayer2D = $Audio/LeafEnter
 @onready var leaf_exit_audio: AudioStreamPlayer2D = $Audio/LeafExit
+
+##Player death particles
+@onready var death_particles: GPUParticles2D = $SpawnAndDeathParticles/LeafDeathParticle
+
+##Player spawn particles
+@onready var spawn_particles: GPUParticles2D = $SpawnAndDeathParticles/LeafRespawnParticle
 
 var look_direction: float = 1.0	## The direction the Player is looking. < 0 is left, >= 0 is right.
 var jump_queued: bool = false	## If True, the user queued a jump which will trigger immediately when the Player lands on the ground.
@@ -186,14 +195,17 @@ func _ready() -> void:
 	
 	var dialogue_manager: Object = Engine.get_singleton(&"DialogueManager")
 	if (dialogue_manager != null):
-		# Connect dialogue to Player input processing.
-		# Player input gets disabled when dialogue starts and enabled when dialogue ends.
-		dialogue_manager.dialogue_started.connect(disable_player_input.unbind(1))
-		dialogue_manager.dialogue_ended.connect(enable_player_input.unbind(1))
+		# Connect dialogue to Player's cutscene mode
+		dialogue_manager.dialogue_started.connect(_on_cutscene_started.unbind(1))
+		dialogue_manager.dialogue_ended.connect(_on_cutscene_ended.unbind(1))
 
 	# Connect cutscenes to Player.
 	CutsceneManager.cutscene_started.connect(_on_cutscene_started)
 	CutsceneManager.cutscene_ended.connect(_on_cutscene_ended)
+	
+	# Set Grab Component's maximum grab time.
+	grab_component.set_max_grab_time(max_grab_time)
+
 
 ## Compute gravity, move_and_slide, & flip Player sprite based on look direction.
 func _physics_process(delta: float) -> void:
@@ -253,6 +265,8 @@ func initialize_state_machine() -> void:
 	#state_machine.add_transition(running_state,piling_state,&"to_piling")
 	
 	# Jumping State
+	state_machine.add_transition(jumping_state,idle_state,&"to_idle")
+	state_machine.add_transition(jumping_state,running_state,&"to_running")
 	state_machine.add_transition(jumping_state,airborne_state,&"to_airborne")
 	state_machine.add_transition(jumping_state,dashing_state,&"to_dashing")
 	#state_machine.add_transition(jumping_state,piling_state,&"to_piling")
@@ -321,8 +335,6 @@ func check_airborne_state() -> void:
 
 ## If the player is trying to dash, has a non-zero leaf meter, AND is holding no direction, change to piling state.
 func check_dashing_state() -> void:
-
-	
 	# If input is disabled, don't handle dash inputs
 	if not input_processing or no_dash:
 		return
@@ -485,8 +497,10 @@ func knock_out() -> void:
 	# Prevent repeat knockouts
 	if not invincible:
 		freeze()
-		invincibility_animation_player.play("hit_invincibility")
-		await invincibility_animation_player.animation_finished
+		flip_node.visible = false
+		death_particles.emitting = true
+		await get_tree().create_timer(0.5).timeout
+
 		EventBus.player_knocked_out.emit()
 
 ## Disable player input, disable player physics movement, and enable invincibility.
@@ -511,7 +525,7 @@ func start_invincibility(time: float) -> void:
 	
 	invincible = true
 	invincibility_timer.start(time)
-	invincibility_animation_player.play(&"hit_invincibility")
+
 
 ## Run once the Invincibility Timer ends.
 ## Ends the Player's invincibility.
@@ -521,7 +535,7 @@ func _end_invincibility() -> void:
 		return
 	
 	invincible = false
-	invincibility_animation_player.stop()
+
 
 ## Sets the Player's current Leaf Meter & updates the Leaf Meter UI.
 func set_leaf_meter(new_leaf_meter: float) -> void:
@@ -561,6 +575,7 @@ func initialize_data(data: Dictionary) -> void:
 		
 		dash_min_speed = data["dash_min_speed"]
 		dash_max_speed = data["dash_max_speed"]
+		dash_speed_friction = data["dash_speed_friction"]
 		dash_acceleration = data["dash_acceleration"]
 		dash_angular_turn_speed = data["dash_angular_turn_speed"]
 		dash_deceleration = data["dash_deceleration"]
@@ -586,6 +601,8 @@ func initialize_data(data: Dictionary) -> void:
 		#pile_air_deceleration = data["pile_air_deceleration"]
 		#pile_air_turn_speed = data["pile_air_turn_speed"]
 		
+		max_grab_time = data["max_grab_time"]
+		
 		hit_recoil_velocity = data["hit_recoil_velocity"]
 		hit_recoil_direction = data["hit_recoil_direction"]
 		hit_invincibility_time = data["hit_invincibility_time"]
@@ -602,22 +619,33 @@ func add_debug_parameters() -> void:
 	DebugMenu.add_debug_property("Inifinte Dash",infinite_dash,0)
 	DebugMenu.add_debug_property("No_dash",no_dash,0)
 
-## Handle player state when a cutscene starts.
+## Put player in cutscene state when a cutscene starts.
 func _on_cutscene_started() -> void:
-	disable_player_input()
-	state_machine.change_active_state(idle_state)
-	velocity = Vector2(0.0, 0.0)
+	state_machine.change_active_state(cutscene_state)
 
-## Handle player state when a cutscene ends.
+## Transition out of cutscene state when a cutscene ends.
 func _on_cutscene_ended() -> void:
-	enable_player_input()
+	# Wait for a short time to prevent accidental user inputs (jump, specifically).
+	await get_tree().create_timer(0.05).timeout
+	
+	state_machine.change_active_state(idle_state)
 
+## Move Fenn based on the given parameters.
+## move_direction: one of "left" or "right"
+func move(destination_global_x: float, move_speed: float, animate_walk: bool = true, moonwalk: bool = false) -> void:
+	state_machine.get_active_state().move(destination_global_x, move_speed, animate_walk, moonwalk)
+
+## Set Fenn to look in the given direction.
+func set_look(face_axis: float) -> void:
+	state_machine.get_active_state().set_look(face_axis)
+
+## Get the player's eye position.
 func get_eye_position() -> Vector2:
 	return %EyeMarker.global_position;
-
-func _on_foot_step_timer_timeout() -> void:
-	can_play_footstep = true
 
 ## Re-enable Leaf Dash, max out Leaf Meter, and dequeue the dash cooldown.
 func _on_meter_cooldown_timer_timeout() -> void:
 	set_leaf_meter(100.0)	# Fully recharge Leaf Meter
+	
+func play_spawn_particles()-> void:
+	spawn_particles.emitting = true

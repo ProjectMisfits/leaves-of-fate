@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://bxs53f3p1b8ki"]
+
+[ext_resource type="PackedScene" uid="uid://daw5s2hjs0tq1" path="res://src/entities/actors/npcs/npc_base/npc_base.tscn" id="1_kyxhw"]
+[ext_resource type="Texture2D" uid="uid://cti4kjx3eudq6" path="res://assets/entities/actors/npcs/npc_winston/Winston-Still-Hood-On.png" id="2_kmcc0"]
+[ext_resource type="Shape2D" uid="uid://7omrfmpm6f5n" path="res://src/entities/actors/npcs/npc_iceton/npc_winston_collision_shape.tres" id="3_cxc6k"]
+[ext_resource type="Shader" uid="uid://c1h5ly2o30cd7" path="res://src/vfx/shaders/ice.gdshader" id="3_fhdnn"]
+[ext_resource type="AudioStream" uid="uid://fb8ste3ccl4q" path="res://assets/entities/actors/footsteps/stone/winston/FS-winston-stone.tres" id="4_877pb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cn10j"]
+shader = ExtResource("3_fhdnn")
+shader_parameter/reflectMode = 0
+shader_parameter/normalScale = 1.3530000642675
+shader_parameter/reflectScale = 4.00000018348023
+shader_parameter/textureAmount = 0.50000002375
+shader_parameter/reflectionAmount = 0.64800003078
+shader_parameter/positionCenter = Vector2(-1.55, 0)
+shader_parameter/warpWidth = 0.71600003075012
+shader_parameter/warpWidthDistance = 248.5590118065525
+
+[sub_resource type="Animation" id="Animation_8rnu0"]
+resource_name = "iceton_idle"
+
+[sub_resource type="Animation" id="Animation_o15yc"]
+resource_name = "iceton_walk"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yhbe1"]
+_data = {
+&"iceton_idle": SubResource("Animation_8rnu0"),
+&"iceton_walk": SubResource("Animation_o15yc")
+}
+
+[node name="NpcIceton" instance=ExtResource("1_kyxhw")]
+npc_name = "Iceton"
+walk_animation = "winston_walk"
+idle_animation = "winston_idle"
+
+[node name="FlipNode" parent="." index="0"]
+position = Vector2(0, -435)
+
+[node name="Sprite2D-2" type="Sprite2D" parent="FlipNode" index="0"]
+modulate = Color(0, 0.8156863, 0.8784314, 1)
+position = Vector2(-64, 0)
+scale = Vector2(1.11, 1.11)
+texture = ExtResource("2_kmcc0")
+
+[node name="Sprite2D" parent="FlipNode" index="1"]
+modulate = Color(0.42352942, 0.8352941, 1, 1)
+material = SubResource("ShaderMaterial_cn10j")
+position = Vector2(-64, 0)
+scale = Vector2(1.11, 1.11)
+texture = ExtResource("2_kmcc0")
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+position = Vector2(0, -411)
+shape = ExtResource("3_cxc6k")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": SubResource("AnimationLibrary_yhbe1")
+}
+
+[node name="Audio" type="Node2D" parent="." index="3"]
+position = Vector2(0, -435)
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="Audio" index="0"]
+stream = ExtResource("4_877pb")
+volume_db = 6.0
+bus = &"SFX"

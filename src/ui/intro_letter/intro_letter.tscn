@@ -53,6 +53,10 @@ grow_vertical = 0
 scale = Vector2(1.1, 1.1)
 script = ExtResource("1_vawu7")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+color = Color(0.115796454, 0.23615569, 0.2858859, 1)
+
 [node name="ContinuePromptTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true

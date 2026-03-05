@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_epxov"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_61qep"]
 [ext_resource type="PackedScene" uid="uid://cob1yf4cxasej" path="res://src/ui/hud/hud.tscn" id="3_g7yt7"]
-[ext_resource type="PackedScene" uid="uid://nhuquqglirtf" path="res://src/rooms/01_great_hall/01_GreatHall_a_Hub_room.tscn" id="5_61qep"]
+[ext_resource type="PackedScene" uid="uid://c1jyk251gk2fn" path="res://src/rooms/01_great_hall/01_GreatHall_a_BasicMovement_room.tscn" id="5_t2n4y"]
 [ext_resource type="Shader" uid="uid://ddk4fj0g2mmvc" path="res://src/vfx/shaders/film.gdshader" id="6_t2n4y"]
 [ext_resource type="AudioStream" uid="uid://cw08xxvkhrlel" path="res://assets/ui/audio/PH-UI-select.ogg" id="7_61qep"]
 
@@ -51,7 +51,7 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="RoomHolder" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="01_GreatHall_a_Hub" parent="RoomHolder" instance=ExtResource("5_61qep")]
+[node name="01_GreatHall_a_BasicMovement" parent="RoomHolder" instance=ExtResource("5_t2n4y")]
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 layer = 2

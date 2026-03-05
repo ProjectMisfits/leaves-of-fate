@@ -20,6 +20,9 @@ class_name MovingPlatform extends Path2D
 ##A progress point to return to when grabbed
 @export var grab_point : float
 
+##Reference to the line 2D used for rails
+@onready var rails: Line2D = $Line2D
+
 #Controls the current speed at which the platform goes along the path
 var cur_closed_loop_speed: float
 #Controls the speed scale of an animation for an open looped platform
@@ -34,7 +37,10 @@ var cur_open_loop_speed_scale:float
 func _ready() -> void:
 	cur_closed_loop_speed = closed_loop_speed
 	cur_open_loop_speed_scale = open_loop_speed_scale
-	
+	# Set up the rail texture along the platforms's path.
+	for idx: int in curve.point_count:
+		rails.add_point(curve.get_point_position(idx))
+		
 	initialize_animation()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

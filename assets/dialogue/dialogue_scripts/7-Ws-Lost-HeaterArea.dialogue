@@ -1,6 +1,9 @@
 ~ start
 do! MusicManager._fade_out()
+do CameraManager.create_camera(Vector2(13696.0,-600.0), 0.5, 1.5, "CUBIC", "EASE_IN_OUT")
+do CutsceneManager.player_face("right")
 Fenn: [color="8A0194"]Wizard[/color]?
+do CutsceneManager.npc_face("Winston H","left")
 Wizard: [font_size=100][shake level=10 rate=50]BY POSTLY HEAVEN![/shake][/font_size]
 Fenn: It's me! Fenn?
 Wizard awkward: Oh. Pint-size...
@@ -16,9 +19,14 @@ Az laugh: [font_size=60]Boy you really [i]ARE[/i] pathetic. How in postly heaven
 Wizard grit: [font_size=100]UGH! [wait=0.3][shake level=10 rate=50]SHUTTETH UP!![/shake][/font_size]
 Wizard awkward: [font_size=30]Hey, pint-size... wh- [wait=0.3]whereth be thine exit?[/font_size]
 Fenn: Oh! [wait=0.3]It's just behind you. I see it there.
+do CutsceneManager.npc_face("Winston H", "right")
+do CameraManager.create_camera(Vector2(18500.0,-600.0), 2.0, 2.0, "CUBIC", "EASE_IN_OUT")
 Wizard awkward: Oh... thanks.
+do CameraManager.create_camera(Vector2(13696.0,-600.0), 0.5, 1.5, "CUBIC", "EASE_IN_OUT")
+do CutsceneManager.npc_face("Winston H", "left")
 Fenn starry: [wave freq=7 amp=20]No problem! Happy to help.[/wave]
-Wizard leaves
+do CutsceneManager.npc_move("Winston H", 17000.0, 2500, false, false)
+do CutsceneManager.remove_npc("Winston H")
 Az: Did- [wait=0.3]did you just let him get away?
 Fenn: [font_size=70]OH WAIT!! COME BACK![/font_size]
 Wizard: [font_size=70]UM. [wave freq=10 amp=20]LALALA I CAN'T HEARETH YOU![/wave][/font_size]

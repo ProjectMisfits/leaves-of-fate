@@ -4,11 +4,17 @@ class_name GrabComponent extends Node2D
 ## An array containing all grabbables in the player's range.
 var current_grabbables: Array[GrabTrigger]
 
-## A boolean representing whether the player can grab.
-var can_grab: bool = true
+## The currently highlighted grabbable.
+var highlighted_grabbable: GrabTrigger = null
 
 ## The currently grabbed entity. Kept so that it can be ungrabbed.
 var current_grab: GrabTrigger = null
+
+## A boolean representing whether the player can grab.
+var can_grab: bool = true
+
+@onready var grab_timer: Timer = $GrabTimer	## Reference to the Grab Timer.
+var _max_grab_time: float = 1.0				## How long (in seconds) a grab may be sustained before being automatically released.
 
 func _ready() -> void:
 	# Connect dialogue to grab
@@ -19,31 +25,30 @@ func _ready() -> void:
 	CutsceneManager.cutscene_started.connect(_disable_grab)
 	CutsceneManager.cutscene_ended.connect(_enable_grab)
 
-func _input(event: InputEvent) -> void:
-	# When the grab input is pressed:
-	if event.is_action_pressed("grab"):
-		# If nothing is grabbed and something can be grabbed, grab it.
-		if current_grab == null and current_grabbables:
-			can_grab = false
-			current_grab = current_grabbables[0]
-			current_grab.grab_highlight.hide()
-			current_grab.trigger()
-		# If something is grabbed, release it.
-		elif current_grab != null:
-			current_grab.trigger()
-			current_grab = null
-			can_grab = true
-
 func _process(_delta: float) -> void:
+	# Handle inputs.
+	if Input.is_action_just_pressed("grab"):
+		if highlighted_grabbable and can_grab:	# If something can be grabbed, grab it.
+			_initiate_grab()
+	elif current_grab and Input.is_action_just_released("grab"):	# If something is grabbed, release it.
+		_release_grab()
+	
 	if current_grabbables and can_grab:
 		current_grabbables.sort_custom(_sort_by_nearest)
-		if current_grabbables[0].enabled:
-			# Hide any visible highlights of grabbables that aren't the closest one.
-			for grabbable: GrabTrigger in current_grabbables:
-				if grabbable != current_grabbables[0] and grabbable.grab_highlight.visible == true:
-					grabbable.grab_highlight.hide()
-			# Make sure the closest grabbable's highlight is visible.
-			current_grabbables[0].grab_highlight.show()
+		# Get the closest enabled grabbable.
+		for grabbable: GrabTrigger in current_grabbables:
+			if not grabbable.is_grabbed:
+				highlighted_grabbable = grabbable
+				break
+		
+		# Hide the highlight of any other grabbables.
+		for grabbable: GrabTrigger in current_grabbables:
+			if grabbable != highlighted_grabbable or grabbable.is_grabbed:
+				grabbable.grab_highlight.hide()
+		
+		# Show the highlight of the closest enabled grabbable.
+		if highlighted_grabbable:
+			highlighted_grabbable.grab_highlight.show()
 
 ## Return a boolean representing whether an area is closer to this area than another area.
 func _sort_by_nearest(area1: Area2D, area2: Area2D) -> bool:
@@ -53,23 +58,48 @@ func _sort_by_nearest(area1: Area2D, area2: Area2D) -> bool:
 
 ## Add the area that entered the grab range to the current grabbables array.
 func _on_grab_range_area_entered(area: Area2D) -> void:
-	current_grabbables.push_back(area)
+	if area is GrabTrigger:
+		current_grabbables.push_back(area)
 
 ## Remove the area that left the grab range from the current grabbables array.
 func _on_grab_range_area_exited(area: Area2D) -> void:
 	if area is GrabTrigger:
 		area.grab_highlight.hide()
-	current_grabbables.erase(area)
+		current_grabbables.erase(area)
 
 ## Disable grabbing on dialogue start.
 func _disable_grab() -> void:
-	# If something is grabbed, release it.
-	if current_grab != null:
-		current_grab.trigger()
-		current_grab = null
-	
 	can_grab = false
 
 ## Enable grabbing on dialogue end.
 func _enable_grab() -> void:
 	can_grab = true
+
+## Setter for _max_grab_time.
+func set_max_grab_time(new_grab_time: float) -> void:
+	if (new_grab_time >= 0.0):
+		_max_grab_time = new_grab_time
+	else:
+		push_warning("GrabComponent set_max_grab_time(): Negative value given.")
+
+## Grab the currently highlighted object.
+func _initiate_grab() -> void:
+	if highlighted_grabbable and can_grab:
+		current_grab = highlighted_grabbable
+		current_grab.trigger()
+		EventBus.grabbed.emit()
+		highlighted_grabbable.grab_highlight.hide()
+		highlighted_grabbable = null
+		
+		grab_timer.start(_max_grab_time)
+	else:
+		push_warning("GrabComponent _initiate_grab(): Function called with \
+		either no highlighted grabbable OR while not allowed to grab.")
+
+## Release the currently grabbed object.
+## Note: also connected to GrabTimer Timeout signal.
+func _release_grab() -> void:
+	EventBus.ungrabbed.emit()
+	current_grab.trigger()
+	current_grab = null
+	grab_timer.stop()	# Stop timer if grab release was done manually.

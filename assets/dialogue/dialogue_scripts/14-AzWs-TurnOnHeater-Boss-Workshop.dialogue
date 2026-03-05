@@ -1,8 +1,12 @@
 ~ start
 do! MusicManager._fade_out()
+do CutsceneManager.player_face("right")
+do CameraManager.create_camera(Vector2(11052.0, -3400.0), 0.75, 2, "CUBIC", "EASE_IN_OUT")
+do CutsceneManager.player_move(10500.0, 1000, true, false)
+do EventFlags.set_flag("heater_boss_activated", true)
 Fenn: Got it!
-Steam hisses
-Iceton... roars?
+do CutsceneManager.wait(2)
+#do CutsceneManager.play_sound(Iceton Dying)
 Az: Yes! [wait=0.3][font_size=60]YEAH!![/font_size]
 Az laugh: [font_size=70][shake level=7 rate=30]DIE,[wait=0.3] IDIOT![/shake][/font_size]
 Winston grit: [font_size=70][shake level=7 rate=30]NO!! ICETON!![/shake][/font_size][wait=0.3] No... no please!

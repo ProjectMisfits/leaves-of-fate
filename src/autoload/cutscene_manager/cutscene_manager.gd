@@ -10,6 +10,9 @@ signal cutscene_ended
 ## A signal emitted when an NPC finishes moving.
 signal npc_finished_moving
 
+## The name of the current cutscene's flag.
+var current_cutscene: String = "none"
+
 ## An array containing all npcs in the current room that are available for movement scripting during a cutscene.
 var npcs: Array[NPC]
 
@@ -24,8 +27,12 @@ func _npc_name_to_instance(npc_name: String) -> NPC:
 	match npc_name:
 		"Az":
 			return preload("res://src/entities/actors/npcs/npc_az/npc_az.tscn").instantiate()
-		"Winston":
+		"Winston H":
 			return preload("res://src/entities/actors/npcs/npc_winston/npc_winston.tscn").instantiate()
+		"Winston N":
+			return preload("res://src/entities/actors/npcs/npc_winston/npc_winston_nohood.tscn").instantiate()
+		"Iceton":
+			return preload("res://src/entities/actors/npcs/npc_iceton/npc_iceton.tscn").instantiate()
 		_:
 			return null
 
@@ -55,6 +62,7 @@ func create_npc(npc_name: String, position: Vector2) -> void:
 	# Add the NPC to the list of NPCs in the cutscene and set its position
 	npcs.append(npc_instance)
 	npc_instance.global_position = position
+	SceneManager.current_scene.current_room.get_node("MidgroundLayer/Entities/NPCs").add_child(npc_instance)
 
 ## Remove the specified npc from the cutscene.
 func remove_npc(npc_name: String) -> void:
@@ -66,6 +74,24 @@ func remove_npc(npc_name: String) -> void:
 		return
 	npcs.erase(npc_instance)
 	npc_instance.queue_free()
+
+func hide_npc(npc_name: String) -> void:
+	# Get a reference to the NPC
+	var npc_instance: NPC = _get_npc(npc_name)
+	# If the NPC was in the list of NPCs, remove it from the list and delete it.
+	if npc_instance == null:
+		push_error("CutsceneManager: No valid NPC for name %s." % npc_name)
+		return
+	npc_instance.visible = false
+
+func show_npc(npc_name: String) -> void:
+	# Get a reference to the NPC
+	var npc_instance: NPC = _get_npc(npc_name)
+	# If the NPC was in the list of NPCs, remove it from the list and delete it.
+	if npc_instance == null:
+		push_error("CutsceneManager: No valid NPC for name %s." % npc_name)
+		return
+	npc_instance.visible = true
 
 ## Move the specified npc in the given direction for the given duration or distance.
 func npc_move(npc_name: String, destination_global_x: float = 1.0, move_speed: float = 1.0, animate_walk: bool = true, moonwalk: bool = false) -> void:
@@ -93,6 +119,25 @@ func npc_face(npc_name: String, direction: String) -> void:
 	else:
 		push_error("CutsceneManager: Invalid NPC look direction given.")
 
+## Move the player during a cutscene.
+func player_move(destination_global_x: float = 1.0, move_speed: float = 1.0, animate_walk: bool = true, moonwalk: bool = false) -> void:
+	# Get the player.
+	var player: Player = SceneManager.current_scene.current_room.player
+	player.move(destination_global_x, move_speed, animate_walk, moonwalk)
+	await npc_finished_moving
+
+## Turn the player during a cutscene.
+func player_face(direction: String) -> void:
+	# Get the player.
+	var player: Player = SceneManager.current_scene.current_room.player
+	# Script the player to look a direction.
+	if direction == "left":
+		player.set_look(-1.0)
+	elif direction == "right":
+		player.set_look(1.0)
+	else:
+		push_error("CutsceneManager: Invalid player look direction given.")
+
 ## End cutscene management.
 func _on_cutscene_ended() -> void:
 	# Clear all registered npcs.
@@ -112,10 +157,20 @@ func change_music(music_file_path: String) -> void:
 	MusicManager._play_song(load(music_file_path))
 
 ## Play the given sound effect during a cutscene.
-func play_sound(sound_file_path: String) -> void:
+func play_sound(sound: String, volume: float = 0.0, pitch_scale : float = 1.0) -> void:
+	var sound_file_path : String
+	match sound:
+		"Cough":
+			return
+			#sound_file_path ="res://assets/entities/actors/npcs/npc_az/az-cough.tres"
+		"_":
+			sound_file_path = sound
+	
 	# Create a temporary AudioStreamPlayer to play the sound effect
 	var sound_player: AudioStreamPlayer = AudioStreamPlayer.new()
 	sound_player.name = "CutsceneSoundEffectPlayer"
+	sound_player.volume_db = volume
+	sound_player.pitch_scale = pitch_scale
 	sound_player.stream = load(sound_file_path)
 	# Add the player to the scene and play its sound
 	add_child(sound_player)
