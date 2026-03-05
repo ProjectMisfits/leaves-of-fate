@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=4 uid="uid://c8aipu8vkbprc"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_78sth"]
-[ext_resource type="Texture2D" uid="uid://48x0nrpho68" path="res://assets/rooms/backgrounds/bg_den_dark.tres" id="2_h5367"]
+[ext_resource type="Texture2D" uid="uid://48x0nrpho68" path="res://assets/rooms/backgrounds/bg_cellar_dark.tres" id="2_h5367"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_hjb0y"]
 [ext_resource type="PackedScene" uid="uid://hljjnysbuwyd" path="res://assets/vfx/shaders/dust_layer.tscn" id="3_r7us7"]
 [ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/npc_winston/npc_winston.tscn" id="6_af7wc"]

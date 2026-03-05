@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://dp4wbioau0nhy"]
 
-[ext_resource type="Texture2D" uid="uid://48x0nrpho68" path="res://assets/rooms/backgrounds/bg_den_dark.tres" id="1_0wxhd"]
+[ext_resource type="Texture2D" uid="uid://48x0nrpho68" path="res://assets/rooms/backgrounds/bg_cellar_dark.tres" id="1_0wxhd"]
 [ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/npc_winston/npc_winston.tscn" id="1_xdkfy"]
 [ext_resource type="Texture2D" uid="uid://c5eeoy4ggvs2g" path="res://assets/rooms/tileset/Tiles.png" id="2_ewfli"]
 [ext_resource type="Texture2D" uid="uid://drn7iwqksqxf0" path="res://assets/rooms/tileset/DecorativeBrickTiles.png" id="3_audpo"]

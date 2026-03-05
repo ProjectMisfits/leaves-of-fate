@@ -1,0 +1,9 @@
+[gd_resource type="GradientTexture2D" load_steps=2 format=3 uid="uid://bwhfuakrfttky"]
+
+[ext_resource type="Gradient" uid="uid://cxmcuumvow7m1" path="res://assets/rooms/backgrounds/cellar_gradient_3.tres" id="1_p1vli"]
+
+[resource]
+gradient = ExtResource("1_p1vli")
+width = 1
+height = 128
+fill_from = Vector2(1, 1)
