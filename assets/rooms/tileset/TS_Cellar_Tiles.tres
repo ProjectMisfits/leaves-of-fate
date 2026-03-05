@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=19 format=3 uid="uid://o5pvsk1vob3h"]
+[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://o5pvsk1vob3h"]
 
 [ext_resource type="Texture2D" uid="uid://drn7iwqksqxf0" path="res://assets/rooms/tileset/DecorativeBrickTiles.png" id="1_k31o8"]
 [ext_resource type="Texture2D" uid="uid://bo5y4g5wk3bv4" path="res://assets/rooms/tileset/Floor_Pattern_Stone.png" id="2_o4wos"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://eoybcqio1hli" path="res://assets/rooms/tileset/Floor_Tile_Wood.png" id="7_cudcm"]
 [ext_resource type="Texture2D" uid="uid://bpdv1h2wcjrrl" path="res://assets/rooms/tileset/Floor_Tile_Wood_Slant_Left.png" id="8_juvcb"]
 [ext_resource type="Texture2D" uid="uid://bi4pnifp5eji0" path="res://assets/rooms/tileset/Floor_Tile_Wood_Slant_Right.png" id="9_cysdq"]
+[ext_resource type="PackedScene" uid="uid://ds3g58rcnxdcn" path="res://src/entities/decor/snow/snow_penguin.tscn" id="10_bkkr7"]
+[ext_resource type="PackedScene" uid="uid://diwms7rfs40dk" path="res://src/entities/decor/snow/snow_rodent.tscn" id="11_5ebnh"]
+[ext_resource type="PackedScene" uid="uid://bha5ivif1t8ry" path="res://src/entities/decor/ice/ice_lizard.tscn" id="12_525wp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o4wos"]
 texture = ExtResource("1_k31o8")
@@ -68,6 +71,12 @@ texture_region_size = Vector2i(256, 256)
 use_texture_padding = false
 0:0/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_g4cn0"]
+resource_name = "Living Decor"
+scenes/1/scene = ExtResource("10_bkkr7")
+scenes/2/scene = ExtResource("11_5ebnh")
+scenes/3/scene = ExtResource("12_525wp")
+
 [resource]
 tile_size = Vector2i(128, 128)
 sources/0 = SubResource("TileSetAtlasSource_o4wos")
@@ -79,3 +88,4 @@ sources/5 = SubResource("TileSetAtlasSource_juvcb")
 sources/6 = SubResource("TileSetAtlasSource_cysdq")
 sources/7 = SubResource("TileSetAtlasSource_h78e6")
 sources/8 = SubResource("TileSetAtlasSource_bkkr7")
+sources/9 = SubResource("TileSetScenesCollectionSource_g4cn0")

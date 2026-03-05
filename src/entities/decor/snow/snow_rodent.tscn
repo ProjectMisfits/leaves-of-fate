@@ -16,7 +16,6 @@ scale = Vector2(1, 0.5)
 texture = ExtResource("2_ulld6")
 
 [node name="TweenPivot" type="Marker2D" parent="."]
-position = Vector2(0, -41)
 
 [node name="SnowRodent" type="Sprite2D" parent="TweenPivot"]
 use_parent_material = true

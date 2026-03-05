@@ -10,12 +10,12 @@ script = ExtResource("1_1cfi8")
 tween_node = NodePath("TweenPivot")
 
 [node name="SnowPile" type="Sprite2D" parent="."]
-position = Vector2(-23, -86)
+position = Vector2(-23, 8)
 scale = Vector2(1, 0.5)
 texture = ExtResource("2_2fqap")
 
 [node name="TweenPivot" type="Marker2D" parent="."]
-position = Vector2(0, -41)
+position = Vector2(0, 53)
 
 [node name="SnowPenguin" type="Sprite2D" parent="TweenPivot"]
 use_parent_material = true
