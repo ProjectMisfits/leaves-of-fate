@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://disa83btdjjsk"]
+[gd_scene load_steps=10 format=3 uid="uid://disa83btdjjsk"]
 
 [ext_resource type="Script" uid="uid://d4ibdtjec2w6g" path="res://src/entities/objects/moving_platform/moving_platform.gd" id="1_wq0hb"]
 [ext_resource type="Texture2D" uid="uid://cyxkjhxea73su" path="res://assets/entities/objects/moving_platform/moving_platform.png" id="2_it4r1"]
 [ext_resource type="Texture2D" uid="uid://dhi8biynmbdex" path="res://assets/entities/objects/moving_platform/moving_platform_rails_2.png" id="2_kfyx7"]
+[ext_resource type="PackedScene" uid="uid://du5qjx87mws5y" path="res://src/vfx/particle_effects/sand_claw_particles.tscn" id="4_mqq66"]
 
 [sub_resource type="Curve2D" id="Curve2D_bs6ok"]
 resource_local_to_scene = true
@@ -82,6 +83,8 @@ shape = SubResource("RectangleShape2D_wq0hb")
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
 scale = Vector2(1.0048629, 0.9807644)
 texture = ExtResource("2_it4r1")
+
+[node name="SandClawParticles" parent="AnimatableBody2D/Sprite2D" instance=ExtResource("4_mqq66")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
