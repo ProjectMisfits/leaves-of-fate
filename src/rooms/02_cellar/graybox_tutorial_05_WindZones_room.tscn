@@ -14,8 +14,13 @@ size = Vector2(2560, 3068)
 
 [node name="graybox_tutorial_05_WindZones_room" instance=ExtResource("1_ho6nb")]
 
-[node name="BackgroundLayer" parent="." index="0"]
-visible = false
+[node name="BackgroundGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
+position = Vector2(-1482.1053, -7275.79)
+scale = Vector2(52816.844, 76.84211)
+
+[node name="DustLayer" parent="BackgroundLayer" index="2"]
+position = Vector2(-1482.1053, -7343.158)
+scale = Vector2(52.74947, 9.903158)
 
 [node name="Windzones" parent="MidgroundLayer" index="0"]
 visible = false
