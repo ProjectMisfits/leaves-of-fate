@@ -346,7 +346,7 @@ position = Vector2(3975, 894)
 position = Vector2(3421, 410)
 
 [node name="NpcAz" parent="." index="5" instance=ExtResource("29_fe3n7")]
-position = Vector2(3329, 676)
+position = Vector2(3329, 1021)
 
 [editable path="MidgroundLayer/Decor/MovingPlatform"]
 [editable path="MidgroundLayer/Decor/MovingPlatform/GrabTrigger"]
