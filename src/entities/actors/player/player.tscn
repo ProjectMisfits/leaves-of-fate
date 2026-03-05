@@ -733,8 +733,9 @@ script = ExtResource("6_c6y0n")
 [node name="Airborne" type="LimboState" parent="LimboHSM"]
 script = ExtResource("7_q4vut")
 
-[node name="Dashing" type="LimboState" parent="LimboHSM"]
+[node name="Dashing" type="LimboState" parent="LimboHSM" node_paths=PackedStringArray("dash_grate_check_area")]
 script = ExtResource("8_wcwgi")
+dash_grate_check_area = NodePath("../../DashGrateCheckArea")
 
 [node name="Piling" type="LimboState" parent="LimboHSM"]
 script = ExtResource("9_q6jdu")
@@ -768,6 +769,18 @@ one_shot = true
 
 [node name="MeterCooldownTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="DashGrateCheckArea" type="Area2D" parent="."]
+editor_description = "Area2D used to check if the Player may exit a Leaf Dash without colliding with grates."
+visible = false
+position = Vector2(0, -243)
+collision_layer = 0
+collision_mask = 128
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DashGrateCheckArea"]
+shape = ExtResource("3_e5ptp")
+debug_color = Color(0, 0.60120547, 0, 0.41960785)
 
 [connection signal="body_entered" from="FlipNode/WindZoneComponent/DashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_dash_detection_area_body_entered"]
 [connection signal="body_exited" from="FlipNode/WindZoneComponent/DashDetectionArea" to="FlipNode/WindZoneComponent" method="_on_dash_detection_area_body_exited"]
