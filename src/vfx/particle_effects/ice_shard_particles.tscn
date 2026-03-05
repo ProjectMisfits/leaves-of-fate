@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0is4031ui3r1"]
+
+[ext_resource type="Texture2D" uid="uid://b6x4rmj2b6t3n" path="res://assets/entities/objects/breakaway_platform/ice_shard_platform_sheet.png" id="1_gujpk"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gujpk"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r742e"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(10, 10, 1)
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, -10, 0)
+spread = 20.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 39.999977
+gravity = Vector3(0, 98, 0)
+anim_offset_max = 1.0
+
+[node name="IceShardParticles" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_gujpk")
+emitting = false
+amount = 4
+texture = ExtResource("1_gujpk")
+lifetime = 4.76
+one_shot = true
+speed_scale = 8.0
+explosiveness = 1.0
+visibility_rect = Rect2(-100, -100, 1000000, 1000000)
+process_material = SubResource("ParticleProcessMaterial_r742e")

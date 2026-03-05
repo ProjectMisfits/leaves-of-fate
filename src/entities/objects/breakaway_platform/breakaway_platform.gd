@@ -42,11 +42,12 @@ func initialize_data(data: Dictionary) -> void:
 
 #Player has entered, only the player can interact with this platform so there is no need to check 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
-	sprite.modulate = Color(1.0, 0.426, 0.357, 1.0)
+	sprite.texture = ResourceLoader.load("res://assets/entities/objects/breakaway_platform/Breakable-platform-brittle.png")
 	break_timer.start(break_time)
 
 func _ready() -> void:
 	constant_linear_velocity = Vector2(0,gravity)
+	sprite.texture = ResourceLoader.load("res://assets/entities/objects/breakaway_platform/BreakablePlatform-01.png") 
 
 
 func _physics_process(_delta: float) -> void:
@@ -57,6 +58,7 @@ func _physics_process(_delta: float) -> void:
 #Once the break timer has gone disable collisions
 func _on_break_time_timeout() -> void:
 	sprite.hide()
+	$IceShardParticles.emitting = true
 	physical_collider.set_deferred("disabled",true)
 	break_away_collider.set_deferred("disabled",true)
 	#If the platform can respawn start the respawn timer
@@ -69,6 +71,7 @@ func _on_respawn_time_timeout() -> void:
 	if(not player_present):
 		sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		sprite.show()
+		sprite.texture = ResourceLoader.load("res://assets/entities/objects/breakaway_platform/BreakablePlatform-01.png") 
 		physical_collider.set_deferred("disabled",false)
 		break_away_collider.set_deferred("disabled",false)
 	else:
