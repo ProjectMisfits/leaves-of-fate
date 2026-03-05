@@ -45,10 +45,12 @@ func _process(_delta: float) -> void:
 		for grabbable: GrabTrigger in current_grabbables:
 			if grabbable != highlighted_grabbable or grabbable.is_grabbed:
 				grabbable.grab_highlight.hide()
+				grabbable.set_highlight_visibility(false)
 		
 		# Show the highlight of the closest enabled grabbable.
 		if highlighted_grabbable:
 			highlighted_grabbable.grab_highlight.show()
+			highlighted_grabbable.set_highlight_visibility(true)
 
 ## Return a boolean representing whether an area is closer to this area than another area.
 func _sort_by_nearest(area1: Area2D, area2: Area2D) -> bool:
@@ -65,6 +67,7 @@ func _on_grab_range_area_entered(area: Area2D) -> void:
 func _on_grab_range_area_exited(area: Area2D) -> void:
 	if area is GrabTrigger:
 		area.grab_highlight.hide()
+		area.set_highlight_visibility(false)
 		current_grabbables.erase(area)
 
 ## Disable grabbing on dialogue start.
@@ -89,6 +92,7 @@ func _initiate_grab() -> void:
 		current_grab.trigger()
 		EventBus.grabbed.emit()
 		highlighted_grabbable.grab_highlight.hide()
+		highlighted_grabbable.set_highlight_visibility(false)
 		highlighted_grabbable = null
 		
 		grab_timer.start(_max_grab_time)

@@ -33,6 +33,9 @@ var cur_open_loop_speed_scale:float
 #animation player for it
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+## Particle system which "highlights" the platform.
+@onready var sand_claw_particles: GPUParticles2D = %SandClawParticles
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	cur_closed_loop_speed = closed_loop_speed
@@ -84,3 +87,7 @@ func _ungrab() -> void:
 		cur_closed_loop_speed = closed_loop_speed
 	else:
 		animation_player.speed_scale = cur_open_loop_speed_scale
+
+## Sets the visibility of the platform highlight to the given value.
+func set_highlight_visibility(new_visibility: bool) -> void:
+	sand_claw_particles.visible = new_visibility

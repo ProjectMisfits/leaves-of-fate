@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://deayq1yjs1iww"]
+[gd_scene load_steps=34 format=4 uid="uid://deayq1yjs1iww"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_yyth4"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_dtsem"]
@@ -17,8 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://bt8rip14nbobd" path="res://src/entities/decor/plants/hanging_pot_01.tscn" id="21_y88h7"]
 [ext_resource type="PackedScene" uid="uid://d0is0ffwd22hj" path="res://src/entities/decor/furniture/labeled_book_03.tscn" id="22_ptxl1"]
 [ext_resource type="PackedScene" uid="uid://byav0yxb067be" path="res://src/entities/decor/furniture/bookshelf_fancy.tscn" id="23_diy4j"]
+[ext_resource type="PackedScene" uid="uid://disa83btdjjsk" path="res://src/entities/objects/moving_platform/moving_platform.tscn" id="24_mnfje"]
 [ext_resource type="PackedScene" uid="uid://c38wfukducj7p" path="res://src/entities/decor/furniture/book_03.tscn" id="24_yny27"]
 [ext_resource type="PackedScene" uid="uid://bsjsr3aaotqep" path="res://src/entities/decor/furniture/book_01.tscn" id="25_33p1v"]
+[ext_resource type="PackedScene" uid="uid://cm33qh6em0dth" path="res://src/entities/triggers/grab_trigger/grab_trigger.tscn" id="25_y7eiw"]
 [ext_resource type="PackedScene" uid="uid://dpbbh0swy0fhv" path="res://src/entities/decor/furniture/book_02.tscn" id="26_dy4o6"]
 [ext_resource type="PackedScene" uid="uid://c5vfxsasn8h64" path="res://src/entities/decor/furniture/labeled_book_02.tscn" id="27_isnyp"]
 [ext_resource type="PackedScene" uid="uid://bi82gtj7sh5tp" path="res://src/vfx/particle_effects/fire_breath_particles.tscn" id="28_6ka08"]
@@ -27,8 +29,21 @@
 [ext_resource type="PackedScene" uid="uid://cnc5ghx3ns12" path="res://src/entities/actors/npcs/npc_az/npc_az.tscn" id="29_fe3n7"]
 [ext_resource type="PackedScene" uid="uid://b0wlcwvvy8ru2" path="res://src/entities/decor/furniture/chairs.tscn" id="30_5gkdq"]
 [ext_resource type="Texture2D" uid="uid://dtsbbdau8qdks" path="res://assets/entities/decor/furniture/wine-shelf-frame.png" id="31_y7eiw"]
-[ext_resource type="Material" uid="uid://baqjielyaf0cf" path="res://src/vfx/shaders/clawoutline_shader_material.tres" id="32_804ix"]
-[ext_resource type="PackedScene" uid="uid://bi3f7ga8k8wgw" path="res://src/vfx/particle_effects/sand_claw_particles.tscn" id="33_804ix"]
+[ext_resource type="Material" uid="uid://baqjielyaf0cf" path="res://src/vfx/shaders/animatedoutline_shader_material.tres" id="32_804ix"]
+
+[sub_resource type="Curve2D" id="Curve2D_804ix"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -384, -1024, 0, 0, 0, 0, -384, 512)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_784ep"]
+size = Vector2(1536, 512)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hf4y"]
+resource_local_to_scene = true
+size = Vector2(1536, 1536)
 
 [node name="02_Cellar_d_Den" instance=ExtResource("1_yyth4")]
 
@@ -86,6 +101,9 @@ position = Vector2(1280.0005, -3584)
 
 [node name="DoorExit-3" parent="MidgroundLayer/DoorHolder" index="3" instance=ExtResource("7_txk31")]
 position = Vector2(11520, -3584)
+
+[node name="Player" parent="MidgroundLayer" index="5"]
+visible = false
 
 [node name="IceSpikeBall" parent="MidgroundLayer/Entities/Hazards" index="0" instance=ExtResource("8_4sa2e")]
 position = Vector2(64, -3648)
@@ -278,7 +296,39 @@ position = Vector2(7168, 512)
 [node name="Chairs" parent="MidgroundLayer/Decor" index="38" instance=ExtResource("30_5gkdq")]
 position = Vector2(6208, 128)
 
-[node name="Sprite2D" type="Sprite2D" parent="MidgroundLayer/Decor" index="39"]
+[node name="MovingPlatform" parent="MidgroundLayer/Decor" index="39" node_paths=PackedStringArray("paths") instance=ExtResource("24_mnfje")]
+position = Vector2(13548, -459)
+curve = SubResource("Curve2D_804ix")
+closed_loop = true
+closed_loop_speed = 0.0
+paths = []
+
+[node name="PathFollow2D" parent="MidgroundLayer/Decor/MovingPlatform" index="1"]
+position = Vector2(-384, 512)
+rotation = 1.5707964
+progress = 1536.0002
+
+[node name="AnimatableBody2D" parent="MidgroundLayer/Decor/MovingPlatform" index="2"]
+position = Vector2(-384, 512)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" parent="MidgroundLayer/Decor/MovingPlatform/AnimatableBody2D" index="0"]
+visible = false
+shape = SubResource("RectangleShape2D_784ep")
+
+[node name="Sprite2D" parent="MidgroundLayer/Decor/MovingPlatform/AnimatableBody2D" index="1"]
+position = Vector2(0, 20.749952)
+scale = Vector2(2.0665271, 2.6525586)
+
+[node name="GrabTrigger" parent="MidgroundLayer/Decor/MovingPlatform" index="3" instance=ExtResource("25_y7eiw")]
+visible = false
+position = Vector2(-512, 1152)
+
+[node name="CollisionShape2D" parent="MidgroundLayer/Decor/MovingPlatform/GrabTrigger" index="0"]
+position = Vector2(-384, -640)
+shape = SubResource("RectangleShape2D_5hf4y")
+
+[node name="Sprite2D" type="Sprite2D" parent="MidgroundLayer/Decor" index="40"]
 position = Vector2(792, 642)
 texture = ExtResource("31_y7eiw")
 
@@ -289,9 +339,6 @@ offset_top = -408.0
 offset_right = 390.0
 offset_bottom = 427.0
 
-[node name="SandClawParticles" parent="MidgroundLayer/Decor/Sprite2D" index="1" instance=ExtResource("33_804ix")]
-position = Vector2(3, -363)
-
 [node name="FireParticles" parent="." index="3" instance=ExtResource("6_8xkh5")]
 position = Vector2(3975, 894)
 
@@ -299,4 +346,7 @@ position = Vector2(3975, 894)
 position = Vector2(3421, 410)
 
 [node name="NpcAz" parent="." index="5" instance=ExtResource("29_fe3n7")]
-position = Vector2(3329, 676)
+position = Vector2(3329, 1021)
+
+[editable path="MidgroundLayer/Decor/MovingPlatform"]
+[editable path="MidgroundLayer/Decor/MovingPlatform/GrabTrigger"]
