@@ -20,7 +20,7 @@ func _ready() -> void:
 		$%ContinueButton.hide()
 	_connect_menu_signals()
 	MusicManager.stop()
-	get_node("%PlayButton").grab_focus.call_deferred()
+	get_node("%NewButton").grab_focus.call_deferred()
 
 func _process(_delta: float) -> void:
 	_escape_menus()
