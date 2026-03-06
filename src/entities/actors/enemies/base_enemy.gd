@@ -32,7 +32,6 @@ func _physics_process(_delta: float) -> void:
 func move_horizontal(direction:float, acceleration:float, deceleration: float, delta: float, turn_speed:float, max_speed:float) -> void:
 	var new_velocity: float = 0.0
 	var new_acceleration: float = 0.0
-	#print(direction)
 	
 	if (direction == 0.0): # No direction 
 		new_velocity = move_toward(velocity.x, 0, deceleration)

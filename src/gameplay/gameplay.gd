@@ -34,6 +34,9 @@ func _get_player_pos() -> Vector2:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Capture and hide the mouse during gameplay.
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 	# Set up the camera manager.
 	CameraManager.initialize_camera(%PhantomCamera2D, %Camera2D)
 	
@@ -71,7 +74,6 @@ func _tear_down_room() -> void:
 
 ## Set up a room after a swap.
 func _init_room(init_player_location: Vector2) -> void:
-	
 	# Connect room signals for rooms that don't have them connected yet
 	if not current_room.swap_room.is_connected(_on_swap_room):
 		current_room.swap_room.connect(_on_swap_room)
@@ -147,6 +149,7 @@ func toggle_pause() -> void:
 
 ## Open pause menu
 func _open_pause_menu() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	select_audio.play()
 	await select_audio.finished
 	get_tree().paused = true
@@ -155,6 +158,7 @@ func _open_pause_menu() -> void:
 
 ## Close pause menu
 func _close_pause_menu() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	select_audio.play()
 	for menu: Control in menu_holder.get_children():
 		menu_holder.remove_child(menu)

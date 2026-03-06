@@ -29,7 +29,6 @@ func get_tile_data() -> void:
 		tile_data = data.get_custom_data("FootstepSound")
 	
 	if tile_data and (not tile_data == cur_tile_data):
-		print("CHANGED")
 		var dictionary : Dictionary = sound_dictionary.data
 		audio_component.stream = dictionary[tile_data]
 		cur_tile_data = tile_data
