@@ -22,6 +22,7 @@ tile_data = PackedInt32Array(0, 2, 0, 196608, 2, 0, 393216, 2, 0, 589824, 2, 0, 
 tile_data = PackedInt32Array(0, 2, 196608, 3, 2, 196608, 6, 2, 196608, 9, 2, 196608, 12, 2, 196608, 15, 2, 196608, 18, 2, 196608, 21, 2, 196608, 24, 2, 196608, 27, 2, 196608, 30, 2, 196608, 33, 2, 196608, 36, 2, 196608, 39, 2, 196608, 42, 2, 196608, 45, 2, 196608, 48, 2, 196608, 51, 2, 196608, 54, 2, 196608, 57, 2, 196608, 60, 2, 196608, 63, 2, 196608, 66, 2, 196608, 69, 2, 196608, 72, 2, 196608, 75, 2, 196608, 78, 2, 196608, 81, 2, 196608, 84, 2, 196608, 87, 2, 196608, 90, 2, 196608, 93, 2, 196608, 96, 2, 196608, 99, 2, 196608)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_qatvt"]
+resource_name = "Windzone Particles"
 scenes/0/scene = ExtResource("1_qf811")
 scenes/1/scene = ExtResource("2_qxv7r")
 scenes/2/scene = ExtResource("1_v611a")
@@ -58,8 +59,8 @@ physics_layer_0/collision_layer = 1024
 physics_layer_0/collision_mask = 0
 physics_layer_1/collision_layer = 2048
 physics_layer_1/collision_mask = 0
-sources/3 = SubResource("TileSetAtlasSource_v611a")
 sources/2 = SubResource("TileSetScenesCollectionSource_qatvt")
+sources/3 = SubResource("TileSetAtlasSource_v611a")
 pattern_0 = SubResource("TileMapPattern_v611a")
 pattern_1 = SubResource("TileMapPattern_qatvt")
 pattern_2 = SubResource("TileMapPattern_qf811")
