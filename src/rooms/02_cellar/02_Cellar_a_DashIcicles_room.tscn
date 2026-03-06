@@ -50,7 +50,7 @@ target_room_path = "uid://nhuquqglirtf"
 
 [node name="DoorExit" parent="MidgroundLayer/DoorHolder" index="1"]
 position = Vector2(32768, -1536)
-target_room_path = "uid://dfy2u0fvxy3ph"
+target_room_path = "uid://cadsmfa8k8oaw"
 
 [node name="CameraTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("2_hh4jh")]
 position = Vector2(192, 960)
