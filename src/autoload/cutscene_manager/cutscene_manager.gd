@@ -2,6 +2,7 @@ extends Node
 ## A manager for cutscene sequences. Allows npc movement to be scripted from dialogue resource files.
 
 ## A signal emitted whenever a cutscene starts.
+@warning_ignore("unused_signal")
 signal cutscene_started
 
 ## A signal emitted whenever a cutscene ends.
