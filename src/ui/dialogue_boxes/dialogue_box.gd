@@ -328,7 +328,6 @@ func apply_dialogue_line() -> void:
 		balloon.focus_mode = Control.FOCUS_ALL
 		balloon.grab_focus()
 		if(do_interrupt):
-			print(interrupt_delay)
 			interrupt_timer.start(interrupt_delay)
 
 ## Go to the next line

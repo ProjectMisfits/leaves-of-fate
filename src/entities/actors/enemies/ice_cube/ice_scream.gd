@@ -61,7 +61,6 @@ func check_reached_player() -> void:
 	#Make sure that the player is not still visible even if you have reached the destination
 		#if its within a certain pixel range pixels of the players last known position
 		if abs(player_last_known_pos.x)-abs(global_position.x) < end_range and look_direction == 1:
-			print("stop")
 			state_machine.dispatch(&"to_idle")
 		elif abs(global_position.x) - abs(player_last_known_pos.x) < end_range and  look_direction == -1:
 			state_machine.dispatch(&"to_idle")

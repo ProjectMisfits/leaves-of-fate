@@ -18,7 +18,6 @@ func _enter() -> void:
 	agent.grab_component.can_grab = false
 	agent.interact_component.can_interact = false
 	
-	#print("Player State Transition: to_dashing")
 	agent.animation_player.play("player_leaf_dash")
 
 	agent.set_collision_mask_value(8,false)
@@ -134,8 +133,6 @@ func _exit() -> void:
 ## Returns the move direction Vector turned toward the input direction Vector by the angular turn speed.
 func get_turned_move_direction() -> Vector2:
 	var angular_distance: float = move_direction.angle_to(input_direction)
-	#print("Angular distance: ", angular_distance)
-	
 	var new_move_direction: Vector2
 		
 	if (abs(angular_distance) <= rad_angular_turn_speed):
