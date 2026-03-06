@@ -5,9 +5,11 @@ class_name Gameplay extends Node
 ## A holder node for the room the player is currently in.
 @onready var room_holder: Node2D = %RoomHolder
 ## The room the player is currently in.
-@onready var current_room: Room = %RoomHolder.get_child(0)
+@onready var current_room: Room
 ## The path to the current room's file. Used for resetting rooms.
 var current_room_path: String = ""
+## Used to make sure the first room setup happens only once.
+var first_setup: bool = true
 
 ## A reference to the HUD.
 @onready var hud: Hud = $UILayer/Hud
@@ -38,13 +40,24 @@ func _ready() -> void:
 	# Connect the player knocked out signal.
 	EventBus.player_knocked_out.connect(_on_player_knocked_out)
 	
-	# Put the player in the first room.
-	_init_room(current_room.get_door_position('enter'))
-	player_spawn_location = current_room.get_door_position('enter')
-	current_room.player.unfreeze()
+	# Connect the scene swap finished signal to the first room setup method.
+	SceneManager.scene_swap_ended.connect(_first_room_setup)
 	
 	# Connect UI menu signals
 	_connect_menu_signals()
+
+## Set up the first room of the game.
+func _first_room_setup() -> void:
+	if first_setup:
+		first_setup = false
+		# Put the player in the first room.
+		SceneManager.swap_scenes(EventFlags.first_room_path, room_holder, null)
+		current_room = room_holder.get_child(-1) as Room
+		# Sets the current room as the first room
+		current_room_path = EventFlags.first_room_path
+		_init_room(current_room.get_door_position('enter'))
+		player_spawn_location = current_room.get_door_position('enter')
+		current_room.player.unfreeze()
 
 # Called once every physics tick.
 func _physics_process(_delta: float) -> void:
@@ -89,7 +102,7 @@ func _on_swap_room(target_room_path: String, target_door_name: String) -> void:
 	# Wait a frame and then finish the screen transition.
 	await get_tree().process_frame
 	await SceneManager.remove_screen_transition(_get_player_pos())
-	
+	SaveManager._save_room(target_room_path)
 	current_room.player.unfreeze()
 
 ## When the player is knocked out, reset the room and put the player at their last spawn location.

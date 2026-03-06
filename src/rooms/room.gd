@@ -51,8 +51,6 @@ func _on_player_entered_door(door: Door) -> void:
 	if door.target_room_path == "":
 		push_warning("Room '%s': Door '%s' does not have a target room set" % [name, door.door_name])
 		return
-	# Disable player processing so they don't move during the transition
-	player.process_mode = Node.PROCESS_MODE_DISABLED
 	swap_room.emit(door.target_room_path, door.target_door_name)
 
 ## Set the player's location.

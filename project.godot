@@ -32,6 +32,7 @@ CutsceneManager="*res://src/autoload/cutscene_manager/cutscene_manager.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 MusicManager="*res://src/autoload/audio_managers/music_manager.tscn"
 AmbianceManager="*res://src/autoload/audio_managers/ambiance_manager.tscn"
+SaveManager="*res://src/autoload/save_manager/Save_Manager.tscn"
 
 [debug]
 
