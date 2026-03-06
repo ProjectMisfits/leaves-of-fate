@@ -8,8 +8,7 @@ class_name BronzePipe extends Node2D
 ## A reference to the PathFollow2D node that will follow the pipe's path.
 @onready var _pipe_path_follower: PathFollow2D = %PathFollow2D
 
-## A reference to the visual that shows when the player is in a pipe.
-@onready var _pipe_path_visual: ColorRect = %ColorRect
+@onready var _particle_leaf: GPUParticles2D = $Path2D/PathFollow2D/LeafBall
 
 ##Reference to the timer for the player 
 @onready var _player_unfreeze: Timer = %PlayerUnfreeze
@@ -67,6 +66,7 @@ func _at_pipe_path_end() -> bool:
 
 ## Progress the pipe visual along the pipe path based on delta.
 func _progress_pipe_path(delta: float) -> void:
+	
 	_pipe_path_follower.progress_ratio += delta * _speed_percentage
 
 ## Swap to "pipe mode" on entering a bronze pipe.
@@ -81,7 +81,7 @@ func _enter_pipe(player: Player) -> void:
 	_player.hide()
 	# TODO: Show animation or particle visual of entering pipe
 	# Show pipe visual
-	_pipe_path_visual.show()
+	_particle_leaf.emitting = true
 	# Set player in pipe to true
 	_player_in_pipe = true
 
@@ -90,7 +90,7 @@ func _exit_pipe() -> void:
 	# Set player in pipe to false
 	_player_in_pipe = false
 	# Disable pipe visual
-	_pipe_path_visual.hide()
+	_particle_leaf.emitting = false
 	# TODO: Show animation or particle visual of exiting pipe
 	# Reset player velocity so it launches out of the pipe instead of wonkily at the ground due to gravity
 	var new_player_velocity: Vector2 = Vector2.RIGHT.rotated(_pipe_path_curve.get_point_position(_pipe_path_curve.point_count - 2).angle_to_point(_pipe_path_curve.get_point_position(_pipe_path_curve.point_count - 1))) * _player.dash_end_velocity_multiplier * _player.dash_max_speed
