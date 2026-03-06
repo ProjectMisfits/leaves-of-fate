@@ -51,6 +51,9 @@ func _process(_delta: float) -> void:
 		if highlighted_grabbable:
 			highlighted_grabbable.grab_highlight.show()
 			highlighted_grabbable.set_highlight_visibility(true)
+	elif highlighted_grabbable:
+		highlighted_grabbable.grab_highlight.hide()
+		highlighted_grabbable.set_highlight_visibility(false)
 
 ## Return a boolean representing whether an area is closer to this area than another area.
 func _sort_by_nearest(area1: Area2D, area2: Area2D) -> bool:
