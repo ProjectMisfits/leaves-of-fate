@@ -1,15 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cmy62xa4u31a2"]
+[gd_scene load_steps=11 format=3 uid="uid://cmy62xa4u31a2"]
 
 [ext_resource type="Texture2D" uid="uid://c44j0kj2rhy3b" path="res://assets/ui/FullLetter-UI-001.png" id="1_fsbbv"]
 [ext_resource type="Script" uid="uid://c7t3cv5b48da5" path="res://src/ui/pause_menu/pause_menu.gd" id="1_peth0"]
-[ext_resource type="Shader" uid="uid://bxh12tacg5mxb" path="res://src/vfx/shaders/blur.gdshader" id="2_qrgyy"]
 [ext_resource type="FontFile" uid="uid://xg5ueb0ihbkc" path="res://assets/ui/fonts/Beholden-Bold-Font.ttf" id="2_u4p1g"]
 [ext_resource type="Script" uid="uid://c7qj8sstwi3wx" path="res://src/ui/leaf_pointer_animation.gd" id="3_j7lcx"]
 [ext_resource type="Texture2D" uid="uid://dsy0r7plpeuon" path="res://assets/ui/LeafPointer-UI-001.png" id="4_peth0"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dh0hx"]
-shader = ExtResource("2_qrgyy")
-shader_parameter/blur = 0.9
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u4p1g"]
 texture = ExtResource("1_fsbbv")
@@ -33,15 +28,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_peth0")
-
-[node name="BlurRect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_dh0hx")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
