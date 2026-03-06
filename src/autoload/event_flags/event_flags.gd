@@ -48,8 +48,6 @@ func set_flag(flag_name: String, value: bool) -> bool:
 		push_warning("set_flag(): Failed to set flag value.")
 		return false
 	
-	print("Event Flag Set: ", flag_name, " = ", value)
-	
 	flag_updated.emit(flag_name, value)
 	SaveManager._save_flags()
 	return true

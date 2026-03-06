@@ -66,7 +66,8 @@ func _input(event: InputEvent) -> void:
 					main_menu_node.close_settings_menu()
 			elif main_menu_node.controls_menu.get_parent() != null:
 				main_menu_node.close_controls_menu()
-	elif event.is_action_pressed("game_reset"):
+	elif OS.has_feature("editor") and event.is_action_pressed("game_reset"):
+		# Only make this available in editor builds.
 		# When this keybind is pressed:
 		# - go back to the main menu
 		SceneManager.swap_scenes("res://src/ui/main_menu/main_menu.tscn", null, SceneManager.current_scene)

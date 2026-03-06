@@ -3,7 +3,6 @@ extends LimboState
 
 ## Set the Player's animation & initiate a jump.
 func _enter() -> void:
-	#print("Player State Transition: to_jumping")
 	agent.animation_player.queue("player_jump_start")
 	jump()
 

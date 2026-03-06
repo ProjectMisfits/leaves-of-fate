@@ -395,7 +395,6 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 			# Trying to use clampf here with -velocity.x & velocity.x breaks the function,
 			# causing it to always return a positive value. So instead, we clamp manually here.
 			var temp_velocity: float = velocity.x + new_acceleration
-			#print("MEWO")
 			
 			if (abs(temp_velocity) > abs(velocity.x)):
 				new_velocity = velocity.x
@@ -410,7 +409,6 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 		else:	# Player moving regularly, on the ground OR in the air
 			# TODO: If velocity is over max run speed, decrease velocity by ground friction
 			new_velocity = clampf(velocity.x + new_acceleration, -run_max_speed, run_max_speed)
-		#print("New Velocity: ", new_velocity)
 	
 	velocity.x = new_velocity
 	
@@ -466,7 +464,6 @@ func compute_gravity() -> float:
 func update_jump_queue(delta: float) -> void:
 	if jump_queued:
 		time_since_jump_queued += delta
-		#print(time_since_jump_queued)
 		if (time_since_jump_queued > jump_buffer_time):	# Check if jump has been queued for too long
 			jump_queued = false							# Jump loses its queue
 	elif Input.is_action_just_pressed(&"jump"):
