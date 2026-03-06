@@ -27,6 +27,7 @@ size = Vector2(3456, 3584)
 [node name="BackgroundGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
 position = Vector2(-2021.0526, -7814.737)
 scale = Vector2(23161.264, 62.631577)
+texture = ExtResource("2_d40tq")
 
 [node name="BackgroundGradient-2" type="Sprite2D" parent="BackgroundLayer/BackgroundTexture" index="1"]
 position = Vector2(8960, 1414.7368)
