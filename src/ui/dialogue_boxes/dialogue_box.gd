@@ -330,9 +330,6 @@ func apply_dialogue_line() -> void:
 		if(do_interrupt):
 			print(interrupt_delay)
 			interrupt_timer.start(interrupt_delay)
-			
-			
-
 
 ## Go to the next line
 func next(next_id: String) -> void:
@@ -356,28 +353,19 @@ func _on_mutated(_mutation: Dictionary) -> void:
 
 
 func _on_balloon_gui_input(event: InputEvent) -> void:
-
-	
-	# See if we need to skip typing of the dialogue
+	# See if we need to skip typing the dialogue
 	if dialogue_label.is_typing:
-		var mouse_was_clicked: bool = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed()
-		var skip_button_was_pressed: bool = event.is_action_pressed("ui_accept")
-		if mouse_was_clicked or skip_button_was_pressed:
+		if event.is_action_pressed("ui_accept"):
 			get_viewport().set_input_as_handled()
 			dialogue_label.skip_typing()
 			return
-
+	
+	# Don't respond to input if waiting for input
 	if not is_waiting_for_input: return
 
 	# When there are no response options the balloon itself is the clickable thing
-	get_viewport().set_input_as_handled()
-
-	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		interact_audio_player.play()
-		do_interrupt = false
-		next(dialogue_line.next_id)
-		
 	elif event.is_action_pressed("ui_accept") and get_viewport().gui_get_focus_owner() == balloon:
+		get_viewport().set_input_as_handled()
 		interact_audio_player.play()
 		do_interrupt = false
 		next(dialogue_line.next_id)
@@ -387,7 +375,6 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 
 
 func _on_dialogue_label_spoke(letter: String, _letter_index: int, _speed: float) -> void:
-	
 	#don't make sounds on space
 	if not letter in [" ", ".","!","?",","] and cur_beep == 0:
 		beep_speech_player.play()

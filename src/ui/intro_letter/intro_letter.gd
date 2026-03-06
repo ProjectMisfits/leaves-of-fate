@@ -3,6 +3,9 @@ extends Control
 ## Whether the continue prompt is visible.
 var continue_prompt_visible: bool = false
 
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 ## Handle input
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"ui_accept"):

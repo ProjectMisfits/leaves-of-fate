@@ -34,6 +34,9 @@ func _get_player_pos() -> Vector2:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Capture and hide the mouse during gameplay.
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 	# Set up the camera manager.
 	CameraManager.initialize_camera(%PhantomCamera2D, %Camera2D)
 	
@@ -147,6 +150,7 @@ func toggle_pause() -> void:
 
 ## Open pause menu
 func _open_pause_menu() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	select_audio.play()
 	await select_audio.finished
 	get_tree().paused = true
@@ -155,6 +159,7 @@ func _open_pause_menu() -> void:
 
 ## Close pause menu
 func _close_pause_menu() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	select_audio.play()
 	for menu: Control in menu_holder.get_children():
 		menu_holder.remove_child(menu)
