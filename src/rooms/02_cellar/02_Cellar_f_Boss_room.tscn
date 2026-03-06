@@ -143,9 +143,6 @@ _speed_percentage = 0.5
 [node name="Path2D" parent="MidgroundLayer/Entities/Objects/BronzePipe" index="1"]
 curve = SubResource("Curve2D_fenal")
 
-[node name="Triggers" parent="MidgroundLayer/Entities" index="4"]
-visible = false
-
 [node name="CameraTrigger" parent="MidgroundLayer/Entities/Triggers" index="0" instance=ExtResource("7_og6lw")]
 position = Vector2(1968, -224)
 follow_player = true
