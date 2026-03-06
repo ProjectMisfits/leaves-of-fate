@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=4 uid="uid://c8aipu8vkbprc"]
+[gd_scene load_steps=15 format=4 uid="uid://c8aipu8vkbprc"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_78sth"]
 [ext_resource type="Texture2D" uid="uid://48x0nrpho68" path="res://assets/rooms/backgrounds/bg_cellar_dark.tres" id="2_h5367"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_hjb0y"]
 [ext_resource type="PackedScene" uid="uid://hljjnysbuwyd" path="res://assets/vfx/shaders/dust_layer.tscn" id="3_r7us7"]
+[ext_resource type="Texture2D" uid="uid://dtdlidtnfkuah" path="res://assets/entities/hazards/icicle/Icicle-06.png" id="4_3oeme"]
 [ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/npc_winston/npc_winston.tscn" id="6_af7wc"]
 [ext_resource type="Script" uid="uid://blr5ksl5vscmw" path="res://src/components/processing_component.gd" id="6_h5367"]
 [ext_resource type="PackedScene" uid="uid://bf4p2eid3ykd4" path="res://src/entities/decor/ice/icicle_group_01.tscn" id="8_hjb0y"]
@@ -65,6 +66,90 @@ position = Vector2(19968, 19456)
 
 [node name="HangingLantern-4" parent="BackgroundLayer/Decor" index="10" instance=ExtResource("3_hjb0y")]
 position = Vector2(22528, 19456)
+
+[node name="Icicle06" type="Sprite2D" parent="BackgroundLayer/Decor" index="11"]
+modulate = Color(0.38170326, 0.38170323, 0.38170323, 1)
+position = Vector2(3155.79, 1232.6318)
+rotation = 0.42327645
+scale = Vector2(6.142942, 5.633561)
+texture = ExtResource("4_3oeme")
+
+[node name="Icicle06-2" type="Sprite2D" parent="BackgroundLayer/Decor" index="12"]
+modulate = Color(0.38170326, 0.38170323, 0.38170323, 1)
+position = Vector2(1888.4216, 1232.6317)
+rotation = -0.49522892
+scale = Vector2(6.142942, 5.633561)
+texture = ExtResource("4_3oeme")
+
+[node name="Icicle06-3" type="Sprite2D" parent="BackgroundLayer/Decor" index="13"]
+modulate = Color(0.38170326, 0.38170323, 0.38170323, 1)
+position = Vector2(6427.61, 1232.6317)
+rotation = 0.42327645
+scale = Vector2(6.142942, 5.633561)
+texture = ExtResource("4_3oeme")
+
+[node name="Icicle06-4" type="Sprite2D" parent="BackgroundLayer/Decor" index="14"]
+modulate = Color(0.38170326, 0.38170323, 0.38170323, 1)
+position = Vector2(5160.241, 1232.6316)
+rotation = -0.49522892
+scale = Vector2(6.142942, 5.633561)
+texture = ExtResource("4_3oeme")
+
+[node name="Icicle06-5" type="Sprite2D" parent="BackgroundLayer/Decor" index="15"]
+modulate = Color(0.38170326, 0.38170323, 0.38170323, 1)
+position = Vector2(7248.662, 1452.5352)
+rotation = 1.128725
+scale = Vector2(6.142942, 5.633561)
+texture = ExtResource("4_3oeme")
+
+[node name="Icicle06-6" type="Sprite2D" parent="BackgroundLayer/Decor" index="16"]
+modulate = Color(0.38170326, 0.38170323, 0.38170323, 1)
+position = Vector2(5981.294, 1452.535)
+rotation = 0.21021965
+scale = Vector2(6.142942, 5.633561)
+texture = ExtResource("4_3oeme")
+
+[node name="Icicle06-7" type="Sprite2D" parent="BackgroundLayer/Decor" index="17"]
+modulate = Color(0.38170326, 0.38170323, 0.38170323, 1)
+position = Vector2(10570.769, 1232.6315)
+rotation = -1.1132857
+scale = Vector2(6.142942, 5.633561)
+texture = ExtResource("4_3oeme")
+
+[node name="Icicle06-8" type="Sprite2D" parent="BackgroundLayer/Decor" index="18"]
+modulate = Color(0.38170326, 0.38170323, 0.38170323, 1)
+position = Vector2(12659.1875, 1452.5354)
+rotation = 0.51066834
+scale = Vector2(6.142942, 5.633561)
+texture = ExtResource("4_3oeme")
+
+[node name="Icicle06-9" type="Sprite2D" parent="BackgroundLayer/Decor" index="19"]
+modulate = Color(0.38170326, 0.38170323, 0.38170323, 1)
+position = Vector2(11391.821, 1452.5352)
+rotation = -0.40783706
+scale = Vector2(6.142942, 5.633561)
+texture = ExtResource("4_3oeme")
+
+[node name="Icicle06-10" type="Sprite2D" parent="BackgroundLayer/Decor" index="20"]
+modulate = Color(0.38170326, 0.38170323, 0.38170323, 1)
+position = Vector2(16343.839, 1452.5356)
+rotation = 1.128725
+scale = Vector2(6.142942, 5.633561)
+texture = ExtResource("4_3oeme")
+
+[node name="Icicle06-11" type="Sprite2D" parent="BackgroundLayer/Decor" index="21"]
+modulate = Color(0.38170326, 0.38170323, 0.38170323, 1)
+position = Vector2(15076.473, 1452.5352)
+rotation = 0.21021965
+scale = Vector2(6.142942, 5.633561)
+texture = ExtResource("4_3oeme")
+
+[node name="Icicle06-12" type="Sprite2D" parent="BackgroundLayer/Decor" index="22"]
+modulate = Color(0.38170326, 0.38170323, 0.38170323, 1)
+position = Vector2(19665.947, 1232.6317)
+rotation = -1.1132857
+scale = Vector2(6.142942, 5.633561)
+texture = ExtResource("4_3oeme")
 
 [node name="DustLayer" parent="BackgroundLayer" index="2"]
 position = Vector2(-128, -639.99994)
@@ -129,6 +214,42 @@ position = Vector2(16896, 17920)
 [node name="PillarCap01-2" parent="MidgroundLayer/Decor" index="5" instance=ExtResource("11_r7us7")]
 position = Vector2(21376, 17920)
 
+[node name="IceSpikeBall" parent="MidgroundLayer/Decor" index="6" instance=ExtResource("12_h5367")]
+position = Vector2(14464, 19328)
+
+[node name="IceSpikeBall-2" parent="MidgroundLayer/Decor" index="7" instance=ExtResource("12_h5367")]
+position = Vector2(14592, 18816)
+
+[node name="IceSpikeBall-3" parent="MidgroundLayer/Decor" index="8" instance=ExtResource("12_h5367")]
+position = Vector2(15232, 18176)
+
+[node name="IceSpikeBall-4" parent="MidgroundLayer/Decor" index="9" instance=ExtResource("12_h5367")]
+position = Vector2(15744, 18048)
+
+[node name="IceSpikeBall-11" parent="MidgroundLayer/Decor" index="10" instance=ExtResource("12_h5367")]
+position = Vector2(18112, 17792)
+
+[node name="IceSpikeBall-12" parent="MidgroundLayer/Decor" index="11" instance=ExtResource("12_h5367")]
+position = Vector2(20160, 17792)
+
+[node name="IceSpikeBall-5" parent="MidgroundLayer/Decor" index="12" instance=ExtResource("12_h5367")]
+position = Vector2(14848, 18432)
+
+[node name="IceSpikeBall-6" parent="MidgroundLayer/Decor" index="13" instance=ExtResource("12_h5367")]
+position = Vector2(22528, 18048)
+
+[node name="IceSpikeBall-7" parent="MidgroundLayer/Decor" index="14" instance=ExtResource("12_h5367")]
+position = Vector2(23040, 18176)
+
+[node name="IceSpikeBall-8" parent="MidgroundLayer/Decor" index="15" instance=ExtResource("12_h5367")]
+position = Vector2(23680, 18816)
+
+[node name="IceSpikeBall-9" parent="MidgroundLayer/Decor" index="16" instance=ExtResource("12_h5367")]
+position = Vector2(23808, 19328)
+
+[node name="IceSpikeBall-10" parent="MidgroundLayer/Decor" index="17" instance=ExtResource("12_h5367")]
+position = Vector2(23424, 18432)
+
 [node name="BackBufferCopy" parent="MidgroundLayer" index="8"]
 z_index = 3
 
@@ -154,39 +275,3 @@ scale = Vector2(5.1332383, 8.142656)
 [node name="IcicleGroup01-4" parent="MidgroundLayer/BackBufferCopy" index="4" instance=ExtResource("8_hjb0y")]
 position = Vector2(20608, 1280.0001)
 scale = Vector2(7.6335387, 7.374278)
-
-[node name="IceSpikeBall" parent="." index="3" instance=ExtResource("12_h5367")]
-position = Vector2(14464, 19328)
-
-[node name="IceSpikeBall-2" parent="." index="4" instance=ExtResource("12_h5367")]
-position = Vector2(14592, 18816)
-
-[node name="IceSpikeBall-3" parent="." index="5" instance=ExtResource("12_h5367")]
-position = Vector2(15232, 18176)
-
-[node name="IceSpikeBall-4" parent="." index="6" instance=ExtResource("12_h5367")]
-position = Vector2(15744, 18048)
-
-[node name="IceSpikeBall-11" parent="." index="7" instance=ExtResource("12_h5367")]
-position = Vector2(18112, 17792)
-
-[node name="IceSpikeBall-12" parent="." index="8" instance=ExtResource("12_h5367")]
-position = Vector2(20160, 17792)
-
-[node name="IceSpikeBall-5" parent="." index="9" instance=ExtResource("12_h5367")]
-position = Vector2(14848, 18432)
-
-[node name="IceSpikeBall-6" parent="." index="10" instance=ExtResource("12_h5367")]
-position = Vector2(22528, 18048)
-
-[node name="IceSpikeBall-7" parent="." index="11" instance=ExtResource("12_h5367")]
-position = Vector2(23040, 18176)
-
-[node name="IceSpikeBall-8" parent="." index="12" instance=ExtResource("12_h5367")]
-position = Vector2(23680, 18816)
-
-[node name="IceSpikeBall-9" parent="." index="13" instance=ExtResource("12_h5367")]
-position = Vector2(23808, 19328)
-
-[node name="IceSpikeBall-10" parent="." index="14" instance=ExtResource("12_h5367")]
-position = Vector2(23424, 18432)
