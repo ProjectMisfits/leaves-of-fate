@@ -5,7 +5,6 @@ extends LimboState
 ## let them pass through Leaf Mode platforms.
 ## Finally, reset their Y-velocity.
 #func _enter() -> void:
-	##print("Player State Transition: to_pileing")
 	#agent.animation_player.play("player_leaf_pile")
 	#agent.set_collision_mask_value(8,false)
 	##agent.velocity.y = 0.0

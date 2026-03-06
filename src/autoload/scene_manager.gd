@@ -121,17 +121,13 @@ func add_screen_transition(transition_type: String, pos: Vector2 = Vector2.INF) 
 	if current_screen_transition:
 		await current_screen_transition.transition_animation_player.animation_finished
 	
-	print("Transitioning out...", transition_type)
 	current_screen_transition = screen_transition_scene.instantiate()
 	get_tree().root.add_child(current_screen_transition)
 	await current_screen_transition.start_transition(transition_type, pos)
-	print("Transition out finished!")
 
 ## Reverse the screen transition animation and remove the screen transition from the scene tree.
 func remove_screen_transition(pos: Vector2 = Vector2.INF) -> void:
-	print("Transitioning in...")
 	await current_screen_transition.finish_transition(pos)
 	get_tree().root.remove_child(current_screen_transition)
 	current_screen_transition.queue_free()
 	current_screen_transition = null
-	print("Transition in finished!")
