@@ -198,6 +198,7 @@ required_false_event_flags = Array[String](["1-Az-Meet-GreatHall"])
 metadata/_custom_type_script = "uid://blr5ksl5vscmw"
 
 [node name="GreatHallFiller" type="Node2D" parent="MidgroundLayer/Entities/NPCs" index="1"]
+position = Vector2(4224, -384)
 
 [node name="NpcAz-2" parent="MidgroundLayer/Entities/NPCs/GreatHallFiller" index="0" instance=ExtResource("9_223xl")]
 position = Vector2(1856, 1664)
