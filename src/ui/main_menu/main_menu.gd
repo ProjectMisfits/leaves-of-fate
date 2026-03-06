@@ -2,7 +2,7 @@ class_name MainMenu extends Control
 ## The main menu for the game.
 
 ## A reference to the MenuHolder CanvasLayer.
-@onready var menu_holder = %SubmenuHolder
+@onready var menu_holder: Node = %SubmenuHolder
 ## A reference to the settings menu scene.
 @onready var settings_menu: SettingsMenu = preload("res://src/ui/settings_menu/settings_menu.tscn").instantiate()
 ## A reference to the controls menu scene.

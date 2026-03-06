@@ -1,22 +1,29 @@
+
 ## Global event bus which allows any script to connect to & emit its signals.
 ## Also handles global actions like "quit" and pausing.
 extends Node
 
 # Create global signals by defining them here.
 #Signal to interupt dialouge moments
+@warning_ignore("unused_signal")
 signal interrupt_dialogue(delay: String)
 #Signal that a camera has changed
+@warning_ignore("unused_signal")
 signal camera_change
 #Signal to change beep speech frequency
+@warning_ignore("unused_signal")
 signal frequency_change(new_freqeuncy : int)
 
 ## Signal triggered when the player is knocked out.
+@warning_ignore("unused_signal")
 signal player_knocked_out
 
 ##Signal for when anything is grabbed
+@warning_ignore("unused_signal")
 signal grabbed
 
 ##Signal for when anything is ungrabbed
+@warning_ignore("unused_signal")
 signal ungrabbed
 
 func _ready() -> void:
