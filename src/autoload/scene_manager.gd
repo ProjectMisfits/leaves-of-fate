@@ -117,6 +117,10 @@ func swap_scenes_with_transition(scene_to_load: String, load_as_child_of: Node, 
 
 ## Create a screen transition, add it to the scene tree, and initiate the animation.
 func add_screen_transition(transition_type: String, pos: Vector2 = Vector2.INF) -> void:
+	# If a current transition is playing, wait for it to finish.
+	if current_screen_transition:
+		await current_screen_transition.transition_animation_player.animation_finished
+	
 	print("Transitioning out...", transition_type)
 	current_screen_transition = screen_transition_scene.instantiate()
 	get_tree().root.add_child(current_screen_transition)
