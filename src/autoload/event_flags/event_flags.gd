@@ -3,9 +3,15 @@ extends Node
 ## Emitted when a flag is updated.
 signal flag_updated(flag_name: String, value: bool)
 
+## String path of the first room to load on a New Game.
+const NEW_GAME_ROOM_PATH: String = "res://src/rooms/01_great_hall/01_GreatHall_a_BasicMovement_room.tscn"
+
 var _database: JSON = null
 var database_path: String = "res://src/autoload/event_flags/event_flags_db.tres"
 var _event_flags: Dictionary[String, bool]
+
+## String path of the first room to load when the Gameplay scene is instantiated.
+## This occurs when starting a New Game or Continuing.
 var first_room_path: String = "res://src/rooms/01_great_hall/01_GreatHall_a_BasicMovement_room.tscn"
 
 var num_den_conversations : int = 0
@@ -20,6 +26,8 @@ func _enter_tree() -> void:
 		_event_flags.assign(_database.data)
 	else:
 		push_error("EventFlags: failed to load database from file.")
+	
+	first_room_path = NEW_GAME_ROOM_PATH	# Set default value for first room path.
 
 ## Returns the value of the given flag in the Dictionary.
 func get_flag(flag_name: String) -> bool:

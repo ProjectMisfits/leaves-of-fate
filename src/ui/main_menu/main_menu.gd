@@ -30,7 +30,8 @@ func _on_play_button_button_up() -> void:
 	await select_audio.finished
 	#Creates new save files
 	EventFlags.reset_all_flags()
-	SaveManager._save_room("res://src/rooms/01_great_hall/01_GreatHall_a_Intro_room.tscn")
+	SaveManager._save_room(EventFlags.NEW_GAME_ROOM_PATH)
+	SaveManager._load_room()	# Move the newly saved room back into memory.
 	SaveManager._save_flags()
 	#Loads intro letter
 	SceneManager.swap_scenes_with_transition("res://src/ui/intro_letter/intro_letter.tscn", null, self)

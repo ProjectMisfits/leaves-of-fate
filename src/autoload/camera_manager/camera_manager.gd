@@ -87,7 +87,8 @@ func _remove_all_cameras() -> void:
 		camera_to_remove.set_priority(-1)
 	
 	# Wait for the tween back to the player to complete.
-	await phantom_camera.tween_completed
+	if phantom_camera:	# phantom_camera is sometimes null when loading a scene from the Main Menu via. "New Game" or "Continue"
+		await phantom_camera.tween_completed
 	
 	# Now actually delete the cameras.
 	for camera_to_remove: PhantomCamera2D in get_children():
