@@ -19,9 +19,12 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if(!SaveManager._check_save()):
 		$%ContinueButton.hide()
+		get_node("%NewButton").grab_focus.call_deferred()
+	else:
+		get_node("%ContinueButton").grab_focus.call_deferred()
 	_connect_menu_signals()
 	MusicManager.stop()
-	get_node("%NewButton").grab_focus.call_deferred()
+	
 
 func _process(_delta: float) -> void:
 	_escape_menus()
