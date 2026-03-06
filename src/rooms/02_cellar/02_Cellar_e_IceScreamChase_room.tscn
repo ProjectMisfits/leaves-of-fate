@@ -113,7 +113,6 @@ collision_mask = 6
 database = SubResource("JSON_8gb6u")
 
 [node name="MovingPlatform" parent="MidgroundLayer/Entities/Objects" index="0" instance=ExtResource("3_8gb6u")]
-visible = false
 position = Vector2(12992, 5808)
 curve = SubResource("Curve2D_5gyff")
 closed_loop = true
@@ -148,7 +147,6 @@ position = Vector2(-48, 320)
 shape = SubResource("RectangleShape2D_avi01")
 
 [node name="MovingPlatform-3" parent="MidgroundLayer/Entities/Objects" index="1" instance=ExtResource("3_8gb6u")]
-visible = false
 position = Vector2(41920, 5808)
 curve = SubResource("Curve2D_qnrkn")
 closed_loop = true
@@ -183,7 +181,6 @@ position = Vector2(-48, 320)
 shape = SubResource("RectangleShape2D_avi01")
 
 [node name="MovingPlatform-2" parent="MidgroundLayer/Entities/Objects" index="2" instance=ExtResource("3_8gb6u")]
-visible = false
 position = Vector2(26752, 5808)
 curve = SubResource("Curve2D_s431d")
 closed_loop = true
