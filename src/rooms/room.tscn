@@ -43,6 +43,10 @@ modulate = Color(1, 1, 1, 0.40784314)
 tile_set = ExtResource("4_n3e44")
 metadata/_edit_lock_ = true
 
+[node name="WindzonesParticles" type="TileMapLayer" parent="MidgroundLayer"]
+tile_set = ExtResource("4_n3e44")
+metadata/_edit_lock_ = true
+
 [node name="Midground" type="TileMapLayer" parent="MidgroundLayer" groups=["midground"]]
 unique_name_in_owner = true
 modulate = Color(0.7058824, 0.7058824, 0.7058824, 1)
