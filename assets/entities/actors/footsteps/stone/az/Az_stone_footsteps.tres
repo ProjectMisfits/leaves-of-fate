@@ -1,15 +1,15 @@
 [gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://dntevahm742ig"]
 
-[ext_resource type="AudioStream" uid="uid://bg6uy4mf2alw4" path="res://assets/entities/actors/footsteps/stone/az/FS-az-stone-01.ogg" id="1_relln"]
-[ext_resource type="AudioStream" uid="uid://bew5m32pm5op6" path="res://assets/entities/actors/footsteps/stone/az/FS-az-stone-02.ogg" id="2_6ypqp"]
-[ext_resource type="AudioStream" uid="uid://cm542tx6bllm7" path="res://assets/entities/actors/footsteps/stone/az/FS-az-stone-03.ogg" id="3_ekoit"]
-[ext_resource type="AudioStream" uid="uid://q2c01hyx1qpx" path="res://assets/entities/actors/footsteps/stone/az/FS-az-stone-04.ogg" id="4_0n22x"]
+[ext_resource type="AudioStream" uid="uid://cdtylvloexv8e" path="res://assets/entities/actors/footsteps/stone/az/FS-az-stone-01.ogg" id="1_relln"]
+[ext_resource type="AudioStream" uid="uid://dnfkq01dexrxg" path="res://assets/entities/actors/footsteps/stone/az/FS-az-stone-02.ogg" id="2_6ypqp"]
+[ext_resource type="AudioStream" uid="uid://bwvu2tdudocij" path="res://assets/entities/actors/footsteps/stone/az/FS-az-stone-03.ogg" id="3_ekoit"]
+[ext_resource type="AudioStream" uid="uid://b4l5o8ge8ebjs" path="res://assets/entities/actors/footsteps/stone/az/FS-az-stone-04.ogg" id="4_0n22x"]
 [ext_resource type="AudioStream" uid="uid://dv1gr5p74ip4g" path="res://assets/entities/actors/footsteps/stone/az/FS-Az-Stone-05.ogg" id="5_jueln"]
 
 [resource]
 streams_count = 5
-stream_0/stream = ExtResource("1_relln")
-stream_1/stream = ExtResource("2_6ypqp")
-stream_2/stream = ExtResource("3_ekoit")
-stream_3/stream = ExtResource("4_0n22x")
-stream_4/stream = ExtResource("5_jueln")
+stream_0/stream = ExtResource("2_6ypqp")
+stream_1/stream = ExtResource("3_ekoit")
+stream_2/stream = ExtResource("4_0n22x")
+stream_3/stream = ExtResource("5_jueln")
+stream_4/stream = ExtResource("1_relln")

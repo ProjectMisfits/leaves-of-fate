@@ -38,6 +38,7 @@ func _init_debug_menu() -> void:
 ## Toggle the debug menu when the debug input is pressed.
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		debug_menu.visible = not debug_menu.visible
 		get_viewport().set_input_as_handled()
 

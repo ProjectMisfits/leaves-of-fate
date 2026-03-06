@@ -195,10 +195,9 @@ func _ready() -> void:
 	
 	var dialogue_manager: Object = Engine.get_singleton(&"DialogueManager")
 	if (dialogue_manager != null):
-		# Connect dialogue to Player input processing.
-		# Player input gets disabled when dialogue starts and enabled when dialogue ends.
-		dialogue_manager.dialogue_started.connect(disable_player_input.unbind(1))
-		dialogue_manager.dialogue_ended.connect(enable_player_input.unbind(1))
+		# Connect dialogue to Player's cutscene mode
+		dialogue_manager.dialogue_started.connect(_on_cutscene_started.unbind(1))
+		dialogue_manager.dialogue_ended.connect(_on_cutscene_ended.unbind(1))
 
 	# Connect cutscenes to Player.
 	CutsceneManager.cutscene_started.connect(_on_cutscene_started)
@@ -396,7 +395,6 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 			# Trying to use clampf here with -velocity.x & velocity.x breaks the function,
 			# causing it to always return a positive value. So instead, we clamp manually here.
 			var temp_velocity: float = velocity.x + new_acceleration
-			#print("MEWO")
 			
 			if (abs(temp_velocity) > abs(velocity.x)):
 				new_velocity = velocity.x
@@ -411,7 +409,6 @@ func move_horizontal(acceleration: float, deceleration: float, turn_speed: float
 		else:	# Player moving regularly, on the ground OR in the air
 			# TODO: If velocity is over max run speed, decrease velocity by ground friction
 			new_velocity = clampf(velocity.x + new_acceleration, -run_max_speed, run_max_speed)
-		#print("New Velocity: ", new_velocity)
 	
 	velocity.x = new_velocity
 	
@@ -467,7 +464,6 @@ func compute_gravity() -> float:
 func update_jump_queue(delta: float) -> void:
 	if jump_queued:
 		time_since_jump_queued += delta
-		#print(time_since_jump_queued)
 		if (time_since_jump_queued > jump_buffer_time):	# Check if jump has been queued for too long
 			jump_queued = false							# Jump loses its queue
 	elif Input.is_action_just_pressed(&"jump"):
@@ -626,6 +622,9 @@ func _on_cutscene_started() -> void:
 
 ## Transition out of cutscene state when a cutscene ends.
 func _on_cutscene_ended() -> void:
+	# Wait for a short time to prevent accidental user inputs (jump, specifically).
+	await get_tree().create_timer(0.05).timeout
+	
 	state_machine.change_active_state(idle_state)
 
 ## Move Fenn based on the given parameters.

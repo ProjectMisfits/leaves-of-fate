@@ -87,7 +87,8 @@ func _remove_all_cameras() -> void:
 		camera_to_remove.set_priority(-1)
 	
 	# Wait for the tween back to the player to complete.
-	await phantom_camera.tween_completed
+	if phantom_camera:	# phantom_camera is sometimes null when loading a scene from the Main Menu via. "New Game" or "Continue"
+		await phantom_camera.tween_completed
 	
 	# Now actually delete the cameras.
 	for camera_to_remove: PhantomCamera2D in get_children():
@@ -141,12 +142,8 @@ func set_offset(new_offset : Vector2) -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	##Make sure the phantom camera is not null [TODO] and that your not in a cutscene
+	# TODO: Make sure the phantom camera is not null and that the player is not in a cutscene
 	if(phantom_camera):
-		#Base the camera offset from the input on the left joystick
-		#phantom_camera.follow_offset.x = Input.get_axis(&"move_left", &"move_right") * max_offset_x
+		# Base the camera offset from the input on the left joystick
 		phantom_camera.follow_offset.x = snappedf(lerpf(phantom_camera.follow_offset.x,Input.get_axis(&"move_left", &"move_right") * max_offset_x,offset_speed),rounding_speed)
 		phantom_camera.follow_offset.y = snappedf( lerpf(phantom_camera.follow_offset.y, min_offset_y + (Input.get_axis(&"look_down",&"look_up") * max_offset_y),offset_speed) , rounding_speed)
-		 
-		#print(phantom_camera.follow_offset.x)
-		#print(snappedf(lerpf(phantom_camera.follow_offset.x,Input.get_axis(&"move_left", &"move_right") * max_offset_x,offset_speed),rounding_speed))

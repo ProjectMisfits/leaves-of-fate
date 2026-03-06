@@ -1,8 +1,12 @@
 ~ start
 do! MusicManager._fade_out()
+do CutsceneManager.npc_face("Az","left")
 do CutsceneManager.player_face("right")
-do CameraManager.create_camera(Vector2(3072.0, 100.0), 1.0, 2, "CUBIC", "EASE_IN_OUT")
+do CameraManager.create_camera(Vector2(3072.0, 300.0), 1.0, 2, "CUBIC", "EASE_IN_OUT")
+do CutsceneManager.npc_face("Winston N","left")
 Az laugh: [font_size=70]Fenn!! [wave freq=7 amp=30]You did it![/wave][/font_size]
+do! CameraManager.create_camera(Vector2(5000.0, 500.0),0.7, 2, "CUBIC", "EASE_IN_OUT")
+do CutsceneManager.player_move(4544.0, 1000, true, false)
 Fenn: Are you guys okay?
 Az: We're good. Few scratches, nothing bad.
 Winston awkward: [font_size=40]Oh [i]Post...[/i] I can not [shake level=7 rate=30]believeth[/shake] I-[wait=0.3] [i]ugh...[/i][/font_size]
@@ -12,7 +16,6 @@ Winston awkward: [font_size=40]I hath [i]failed.[/i][/font_size]
 Fenn worry: [font_size=60][i]What?![/i][/font_size] What are you talking about?
 Winston grit: [speed=1.2]I can't do [i]anything[/i] right. I hath tried [i]ambushing thee[/i]. I threweth [i]minions[/i] thy way.
 Winston grit: [speed=1.2][font_size=60]I hath even [shake level=10 rate=40][i]cloned[/i] myself[/shake], [/font_size][font_size=70][wait=0.3]something I knoweth [i]VERY[/i] well, [/font_size][wait=0.3][font_size=40]and nothing worked.[/font_size]
-Winston: [speed=0.5][font_size=30]Tis broken. Tis all broken.[/font_size]
 Winston: [speed=0.7][font_size=40]I do not hath anything left. Thou hast won. Congratulations, Fenn.[/font_size]
 Fenn worry: Wh- [wait=0.3] why are you being so mean?
 Winston awkward: [font_size=40]What?[/font_size]
@@ -22,7 +25,7 @@ Winston: Y- [wait=0.3]you did?
 Fenn starry: It was fun! [wait=0.3]Right, [color="B80006"]Az[/color]?
 Az: I mean,[wait=0.3] your creations were pretty cool.
 Winston: Wait... really?
-Az laugh: Yeah. And my [color="0B4F4A"]Workshop[/color] looked even [i]cleaner[/i] than usual.
+Az laugh: Yeah. And my [color="0B4F4A"]Workshop[/color] looks even [i]cleaner[/i] than usual.
 Winston awkward: [font_size=40]Well... twas kind of a low bar...[/font_size]
 Az laugh: [font_size=60]HAH, [wait=0.3]yeah, [wait=0.3]you right.[/font_size]
 Az: You managed to make [i]all that[/i] with the scraps I had lying around?
@@ -45,7 +48,7 @@ Winston awkward: Ah, [wait=0.3]of course.
 Az: Fenn, meet us back in the [color="0B4F4A"]Great Hall[/color], 'kay?
 do CutsceneManager.fade_to_black()
 do CutsceneManager.remove_npc("Az")
-do CutsceneManager.remove_npc("Winston")
+do CutsceneManager.remove_npc("Winston N")
 do CutsceneManager.fade_from_black()
 do! MusicManager._fade_in()
 do EventFlags.set_flag("15-AzWs-ReachSafety-GreatHall", true)
@@ -57,7 +60,7 @@ do CutsceneManager.player_face("left")
 do! MusicManager._fade_out()
 do CameraManager.create_camera(Vector2(10112.0, 0), 1.0, 2, "CUBIC", "EASE_IN_OUT")
 do CutsceneManager.npc_face("Az","right")
-do CutsceneManager.npc_face("Winston","right")
+do CutsceneManager.npc_face("Winston N","right")
 Fenn: [wave freq=7 amp=30]I'm here![/wave]
 Az: Alright, get to it, nerd.
 do EventFlags.set_flag("winston_seal_broken", true)
@@ -71,7 +74,7 @@ Fenn: End of Demo!
 Fenn starry: Thanks for playing Leaves of Fate!
 do CutsceneManager.fade_to_black()
 do CutsceneManager.remove_npc("Az")
-do CutsceneManager.remove_npc("Winston")
+do CutsceneManager.remove_npc("Winston N")
 do CutsceneManager.fade_from_black()
 do! MusicManager._fade_in()
 do EventFlags.set_flag("16-AzWs-BreakSeal-GreatHall", true)

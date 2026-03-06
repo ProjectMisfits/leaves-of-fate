@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bha5ivif1t8ry"]
+
+[ext_resource type="Script" uid="uid://bcydl2qdq83dt" path="res://src/entities/decor/living_decor.gd" id="1_6y8po"]
+[ext_resource type="Material" uid="uid://dde8s4xg3ueai" path="res://assets/vfx/shaders/ice_material_shader.tres" id="2_5rn55"]
+[ext_resource type="Texture2D" uid="uid://csir1r1b16438" path="res://assets/entities/decor/furniture/Wall_Ice_Lizard_Decor.png" id="3_nqmvn"]
+
+[node name="IceLizard" type="Node2D" node_paths=PackedStringArray("tween_node")]
+script = ExtResource("1_6y8po")
+bounce_min_scale = 0.975
+bounce_max_scale = 1.025
+tween_node = NodePath("TweenPivot")
+
+[node name="TweenPivot" type="Marker2D" parent="."]
+
+[node name="IceLizard" type="Sprite2D" parent="TweenPivot"]
+material = ExtResource("2_5rn55")
+position = Vector2(53, 79)
+texture = ExtResource("3_nqmvn")

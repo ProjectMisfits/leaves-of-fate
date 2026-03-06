@@ -49,6 +49,7 @@ data = {
 "X-Ws-Cellar-7": false,
 "X-Ws-Cellar-8": false,
 "X-Ws-Cellar-9": false,
+"X-Ws-Cellar-All": false,
 "heater_boss_activated": false,
 "heater_main_activated": false,
 "iceton_released": false,

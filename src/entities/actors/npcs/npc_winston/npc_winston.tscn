@@ -5,11 +5,11 @@
 [ext_resource type="Shape2D" uid="uid://d0n0pamshu4kv" path="res://src/entities/actors/npcs/npc_winston/npc_winston_collision_shape.tres" id="2_k2brm"]
 [ext_resource type="AudioStream" uid="uid://fb8ste3ccl4q" path="res://assets/entities/actors/footsteps/stone/winston/FS-winston-stone.tres" id="4_6btiq"]
 
-[sub_resource type="Animation" id="Animation_6btiq"]
-resource_name = "winston_walk"
-
 [sub_resource type="Animation" id="Animation_6isvs"]
 resource_name = "winston_idle"
+
+[sub_resource type="Animation" id="Animation_6btiq"]
+resource_name = "winston_walk"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6isvs"]
 _data = {
@@ -17,8 +17,8 @@ _data = {
 &"winston_walk": SubResource("Animation_6btiq")
 }
 
-[node name="NpcWinston" instance=ExtResource("1_tg4e0")]
-npc_name = "Winston"
+[node name="NpcWinstonH" instance=ExtResource("1_tg4e0")]
+npc_name = "Winston H"
 walk_animation = "winston_walk"
 idle_animation = "winston_idle"
 

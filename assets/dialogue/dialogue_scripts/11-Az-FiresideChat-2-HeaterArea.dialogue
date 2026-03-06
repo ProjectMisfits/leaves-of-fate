@@ -20,13 +20,14 @@ Az annoy: Got my diagnosis much later. Like the world was playing a joke.
 Az: Anyway, I'll stop bothering you. 
 Az: Get back here so we can deal with the ice.
 Fenn: Okay!
-do CameraManager.create_camera(Vector2(6500.0, -1100.0), 1, 2, "LINEAR", "EASE_IN_OUT")
-do CutsceneManager.npc_face("Winston","right")
+do CameraManager.create_camera(Vector2(7500.0, 500.0), 1, 1.5, "LINEARz", "EASE_IN_OUT")
+do CutsceneManager.npc_face("Winston H","right")
 Wizard awkward: [font_size=35]My... my nameth is Winston.[/font_size]
 Az: Dude,[wait=0.3] no one cares.
-do CutsceneManager.npc_face("Winston","left")
+do CutsceneManager.npc_face("Winston H","left")
 Winston hood grit: [font_size=60]GEEZ! I'm [shake level=7 rate=30][i]sorry[/i][/shake]. [wave freq=7 amp=20]I thoughteth we were sharing.[/wave][/font_size]
 Fenn: I care!! 
+do CutsceneManager.npc_face("Winston H","right")
 Fenn starry: It's good to meetheth you, Winston.
 Winston hood awkward: [font_size=35]G-[wait=0.3] Good to meeteth thee too.[/font_size]
 do! MusicManager._fade_in()

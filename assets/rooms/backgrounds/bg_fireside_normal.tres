@@ -1,0 +1,9 @@
+[gd_resource type="GradientTexture2D" load_steps=2 format=3 uid="uid://cjus5m5am5w53"]
+
+[ext_resource type="Gradient" uid="uid://dp8t44x3q2or8" path="res://assets/rooms/backgrounds/fireside_gradient.tres" id="1_313uc"]
+
+[resource]
+gradient = ExtResource("1_313uc")
+width = 1
+height = 128
+fill_from = Vector2(1, 1)

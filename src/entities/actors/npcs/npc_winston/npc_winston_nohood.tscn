@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://l75vibl6nntn"]
+
+[ext_resource type="PackedScene" uid="uid://daw5s2hjs0tq1" path="res://src/entities/actors/npcs/npc_base/npc_base.tscn" id="1_pejka"]
+[ext_resource type="Texture2D" uid="uid://cftgthyd4swtn" path="res://assets/entities/actors/npcs/npc_winston/Winston-Still-Hood-Off.png" id="2_pejka"]
+[ext_resource type="Shape2D" uid="uid://d0n0pamshu4kv" path="res://src/entities/actors/npcs/npc_winston/npc_winston_collision_shape.tres" id="3_cpc2h"]
+[ext_resource type="AudioStream" uid="uid://fb8ste3ccl4q" path="res://assets/entities/actors/footsteps/stone/winston/FS-winston-stone.tres" id="4_g551f"]
+
+[sub_resource type="Animation" id="Animation_6isvs"]
+resource_name = "winston_idle"
+
+[sub_resource type="Animation" id="Animation_6btiq"]
+resource_name = "winston_walk"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6isvs"]
+_data = {
+&"winston_idle": SubResource("Animation_6isvs"),
+&"winston_walk": SubResource("Animation_6btiq")
+}
+
+[node name="NpcWinstonN" instance=ExtResource("1_pejka")]
+npc_name = "Winston N"
+walk_animation = "winston_walk"
+idle_animation = "winston_idle"
+
+[node name="FlipNode" parent="." index="0"]
+position = Vector2(0, -435)
+
+[node name="Sprite2D" parent="FlipNode" index="0"]
+position = Vector2(-64, 0)
+scale = Vector2(1.11, 1.11)
+texture = ExtResource("2_pejka")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -411)
+shape = ExtResource("3_cpc2h")
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": SubResource("AnimationLibrary_6isvs")
+}
+
+[node name="Audio" type="Node2D" parent="." index="3"]
+position = Vector2(0, -435)
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="Audio" index="0"]
+stream = ExtResource("4_g551f")
+volume_db = 6.0
+bus = &"SFX"

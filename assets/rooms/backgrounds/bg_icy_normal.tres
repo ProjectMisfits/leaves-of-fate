@@ -1,0 +1,9 @@
+[gd_resource type="GradientTexture2D" load_steps=2 format=3 uid="uid://bml3r7ahiwhyc"]
+
+[ext_resource type="Gradient" uid="uid://2gkyn84qv1yp" path="res://assets/rooms/backgrounds/icy_gradient.tres" id="1_0lrpu"]
+
+[resource]
+gradient = ExtResource("1_0lrpu")
+width = 1
+height = 128
+fill_from = Vector2(1, 1)

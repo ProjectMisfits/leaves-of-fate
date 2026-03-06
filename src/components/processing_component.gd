@@ -36,12 +36,10 @@ func _check_event_flags() -> bool:
 
 ## Enable the entity.
 func _enable_entity() -> void:
-	print("ENABLING")
 	get_parent().show()
 	get_parent().process_mode = Node.PROCESS_MODE_PAUSABLE
 
 ## Disable the entity.
 func _disable_entity() -> void:
-	print("DISABLIGN")
 	get_parent().hide()
 	get_parent().process_mode = Node.PROCESS_MODE_DISABLED

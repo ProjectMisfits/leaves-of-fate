@@ -2,7 +2,7 @@ class_name MainMenu extends Control
 ## The main menu for the game.
 
 ## A reference to the MenuHolder CanvasLayer.
-@onready var menu_holder = %SubmenuHolder
+@onready var menu_holder: Node = %SubmenuHolder
 ## A reference to the settings menu scene.
 @onready var settings_menu: SettingsMenu = preload("res://src/ui/settings_menu/settings_menu.tscn").instantiate()
 ## A reference to the controls menu scene.
@@ -16,8 +16,12 @@ class_name MainMenu extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if(!SaveManager._check_save()):
+		$%ContinueButton.hide()
 	_connect_menu_signals()
-	get_node("%PlayButton").grab_focus.call_deferred()
+	MusicManager.stop()
+	get_node("%NewButton").grab_focus.call_deferred()
 
 func _process(_delta: float) -> void:
 	_escape_menus()
@@ -26,7 +30,23 @@ func _process(_delta: float) -> void:
 func _on_play_button_button_up() -> void:
 	select_audio.play()
 	await select_audio.finished
+	#Creates new save files
+	EventFlags.reset_all_flags()
+	SaveManager._save_room(EventFlags.NEW_GAME_ROOM_PATH)
+	SaveManager._load_room()	# Move the newly saved room back into memory.
+	SaveManager._save_flags()
+	#Loads intro letter
 	SceneManager.swap_scenes_with_transition("res://src/ui/intro_letter/intro_letter.tscn", null, self)
+
+# Signals that the game is started.
+func _on_continue_button_button_up() -> void:
+	select_audio.play()
+	await select_audio.finished
+	#Loads data from save files
+	SaveManager._load_flags()
+	SaveManager._load_room()
+	#Loads room saved in save file
+	SceneManager.swap_scenes_with_transition("res://src/gameplay/gameplay.tscn", null, self)
 
 func _hide_main_menu() -> void:
 	get_node("%EnvelopeBase").hide()
@@ -35,7 +55,7 @@ func _hide_main_menu() -> void:
 func _show_main_menu() -> void:
 	get_node("%EnvelopeBase").show()
 	get_node("%MainSelectionsContainer").show()
-	get_node("%PlayButton").grab_focus.call_deferred()
+	get_node("%NewButton").grab_focus.call_deferred()
 
 # Closes game when exit button pressed
 func _on_exit_button_up() -> void:
@@ -70,7 +90,7 @@ func _open_settings_menu() -> void:
 # Closes setting menuhas_node("res://src/ui/settings_menu/settings_menu.tscn")
 func close_settings_menu() -> void:
 	select_audio.play()
-	get_node("%PlayButton").grab_focus.call_deferred()
+	get_node("%NewButton").grab_focus.call_deferred()
 	_show_main_menu()
 	menu_holder.remove_child(settings_menu)
 
@@ -100,7 +120,7 @@ func close_controls_menu() -> void:
 	select_audio.play()
 	if not menu_holder.has_node("SettingsMenu"):
 		_show_main_menu()
-		$%PlayButton.grab_focus.call_deferred()
+		$%NewButton.grab_focus.call_deferred()
 	else:
 		settings_menu.get_node("%ControlsButton").grab_focus.call_deferred()
 	menu_holder.remove_child(controls_menu)
@@ -118,7 +138,7 @@ func _open_credits_menu() -> void:
 func close_credits_menu() -> void:
 	select_audio.play()
 	_show_main_menu()
-	$%PlayButton.grab_focus.call_deferred()
+	$%NewButton.grab_focus.call_deferred()
 	menu_holder.remove_child(credits_menu)
 	credits_menu.get_node("%ScrollContainer").scroll_vertical = 0
 	credits_menu.was_closed = true

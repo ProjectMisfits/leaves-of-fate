@@ -2,6 +2,7 @@ extends Node
 ## A manager for cutscene sequences. Allows npc movement to be scripted from dialogue resource files.
 
 ## A signal emitted whenever a cutscene starts.
+@warning_ignore("unused_signal")
 signal cutscene_started
 
 ## A signal emitted whenever a cutscene ends.
@@ -27,8 +28,10 @@ func _npc_name_to_instance(npc_name: String) -> NPC:
 	match npc_name:
 		"Az":
 			return preload("res://src/entities/actors/npcs/npc_az/npc_az.tscn").instantiate()
-		"Winston":
+		"Winston H":
 			return preload("res://src/entities/actors/npcs/npc_winston/npc_winston.tscn").instantiate()
+		"Winston N":
+			return preload("res://src/entities/actors/npcs/npc_winston/npc_winston_nohood.tscn").instantiate()
 		"Iceton":
 			return preload("res://src/entities/actors/npcs/npc_iceton/npc_iceton.tscn").instantiate()
 		_:
