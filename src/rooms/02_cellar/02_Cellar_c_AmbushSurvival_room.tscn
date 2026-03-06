@@ -3,14 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_svcyf"]
 [ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="2_gdmw7"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="3_1is71"]
-[ext_resource type="PackedScene" uid="uid://b7t7pc0jj7gxa" path="res://src/entities/decor/plants/hanging_pot_02.tscn" id="4_o2ign"]
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="5_1is71"]
 [ext_resource type="PackedScene" uid="uid://1r1id251x1o4" path="res://src/entities/actors/npcs/npc_winston/npc_winston.tscn" id="5_o2ign"]
 [ext_resource type="PackedScene" uid="uid://bdjego1dul8qg" path="res://src/entities/decor/pillars/arch_point_cracked.tscn" id="5_ym70a"]
 [ext_resource type="PackedScene" uid="uid://c0e5ya2ej5avs" path="res://src/entities/decor/furniture/bookshelf.tscn" id="6_cnyto"]
 [ext_resource type="Resource" uid="uid://vdi6hdwmhlj1" path="res://assets/dialogue/dialogue_scripts/5-Ws-Ambush-CellarGeneral.dialogue" id="6_o2ign"]
 [ext_resource type="Script" uid="uid://blr5ksl5vscmw" path="res://src/components/processing_component.gd" id="6_ym70a"]
-[ext_resource type="PackedScene" uid="uid://bt8rip14nbobd" path="res://src/entities/decor/plants/hanging_pot_01.tscn" id="7_etqjl"]
+[ext_resource type="PackedScene" uid="uid://4jh213w6fsb7" path="res://src/entities/decor/pillars/pillar_base_01.tscn" id="12_cnyto"]
+[ext_resource type="PackedScene" uid="uid://7c7nfo2gy8fu" path="res://src/entities/decor/pillars/pillar_cap_03.tscn" id="13_etqjl"]
 
 [node name="02_Cellar_c_AmbushSurvival_room" instance=ExtResource("1_svcyf")]
 
@@ -19,16 +19,13 @@ position = Vector2(-4581.0527, -4581.0522)
 scale = Vector2(15360, 58.947365)
 
 [node name="HangingLantern" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("3_1is71")]
-position = Vector2(512, -832)
+position = Vector2(-1077.8948, -1886.3157)
 
 [node name="HangingLantern-2" parent="BackgroundLayer/Decor" index="1" instance=ExtResource("3_1is71")]
-position = Vector2(5632, -832)
+position = Vector2(7275.7896, -1886.3158)
 
 [node name="HangingLantern-3" parent="BackgroundLayer/Decor" index="2" instance=ExtResource("3_1is71")]
-position = Vector2(3072, -1280)
-
-[node name="HangingPot02" parent="BackgroundLayer/Decor" index="3" instance=ExtResource("4_o2ign")]
-position = Vector2(1152, -384)
+position = Vector2(3098.9475, -1886.3157)
 
 [node name="DustLayer" parent="BackgroundLayer" index="2"]
 position = Vector2(-4581.0527, -4783.157)
@@ -65,46 +62,90 @@ dialogue_start = "escaped"
 cutscene_flag_name = "5b-Ws-PostAmbush-CellarGeneral"
 required_false_event_flags = Array[String](["5b-Ws-PostAmbush-CellarGeneral"])
 
+[node name="Decor" parent="MidgroundLayer" index="7"]
+modulate = Color(0.5882353, 0.5882353, 0.5882353, 1)
+
 [node name="ArchPointCracked" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("5_ym70a")]
-position = Vector2(512, -384)
-scale = Vector2(0.6, 0.6)
+position = Vector2(-1024, -1408)
 
 [node name="ArchPointCracked-3" parent="MidgroundLayer/Decor" index="1" instance=ExtResource("5_ym70a")]
-position = Vector2(3072, -384)
+position = Vector2(2944, -1408)
+scale = Vector2(1.5, 1.5)
 
 [node name="ArchPointCracked-2" parent="MidgroundLayer/Decor" index="2" instance=ExtResource("5_ym70a")]
-position = Vector2(5632, -384)
-scale = Vector2(0.6, 0.6)
+position = Vector2(6912.0005, -1408)
 
 [node name="Bookshelf" parent="MidgroundLayer/Decor" index="3" instance=ExtResource("6_cnyto")]
 position = Vector2(4736, 1024)
 
-[node name="HangingPot02-2" parent="MidgroundLayer/Decor" index="4" instance=ExtResource("4_o2ign")]
-position = Vector2(4224, -384)
+[node name="PillarTrunk01-8" parent="MidgroundLayer/Decor" index="4" instance=ExtResource("2_gdmw7")]
+position = Vector2(6176, -191.99988)
+scale = Vector2(0.5, 1.5)
 
-[node name="HangingPot01" parent="MidgroundLayer/Decor" index="5" instance=ExtResource("7_etqjl")]
-position = Vector2(3904, -768)
+[node name="PillarBase01-2" parent="MidgroundLayer/Decor" index="5" instance=ExtResource("12_cnyto")]
+position = Vector2(6176, 1024.0001)
+scale = Vector2(0.5, 0.75)
 
-[node name="PillarTrunk01" parent="MidgroundLayer/Decor" index="6" instance=ExtResource("2_gdmw7")]
-position = Vector2(960, 320)
-scale = Vector2(0.5, 1)
+[node name="PillarCap03-6" parent="MidgroundLayer/Decor" index="6" instance=ExtResource("13_etqjl")]
+position = Vector2(6176, -1408)
+scale = Vector2(0.5, 0.5)
 
-[node name="PillarTrunk01-6" parent="MidgroundLayer/Decor" index="7" instance=ExtResource("2_gdmw7")]
-position = Vector2(64, 320)
-scale = Vector2(0.5, 1)
+[node name="PillarTrunk01-11" parent="MidgroundLayer/Decor" index="7" instance=ExtResource("2_gdmw7")]
+position = Vector2(7648, -191.99988)
+scale = Vector2(0.5, 1.5)
 
-[node name="PillarTrunk01-2" parent="MidgroundLayer/Decor" index="8" instance=ExtResource("2_gdmw7")]
-position = Vector2(2304, 320)
-scale = Vector2(0.6, 1)
+[node name="PillarBase01-5" parent="MidgroundLayer/Decor" index="8" instance=ExtResource("12_cnyto")]
+position = Vector2(7648, 1024.0001)
+scale = Vector2(0.5, 0.75)
 
-[node name="PillarTrunk01-3" parent="MidgroundLayer/Decor" index="9" instance=ExtResource("2_gdmw7")]
-position = Vector2(3840, 320)
-scale = Vector2(0.6, 1)
+[node name="PillarCap03-9" parent="MidgroundLayer/Decor" index="9" instance=ExtResource("13_etqjl")]
+position = Vector2(7648, -1408)
+scale = Vector2(0.5, 0.5)
 
-[node name="PillarTrunk01-4" parent="MidgroundLayer/Decor" index="10" instance=ExtResource("2_gdmw7")]
-position = Vector2(5184, 320)
-scale = Vector2(0.5, 1)
+[node name="PillarTrunk01-12" parent="MidgroundLayer/Decor" index="10" instance=ExtResource("2_gdmw7")]
+position = Vector2(-1760, -191.99988)
+scale = Vector2(0.5, 1.5)
 
-[node name="PillarTrunk01-5" parent="MidgroundLayer/Decor" index="11" instance=ExtResource("2_gdmw7")]
-position = Vector2(6080, 320)
-scale = Vector2(0.5, 1)
+[node name="PillarBase01-6" parent="MidgroundLayer/Decor" index="11" instance=ExtResource("12_cnyto")]
+position = Vector2(-1760, 1024.0001)
+scale = Vector2(0.5, 0.75)
+
+[node name="PillarCap03-10" parent="MidgroundLayer/Decor" index="12" instance=ExtResource("13_etqjl")]
+position = Vector2(-1760, -1408)
+scale = Vector2(0.5, 0.5)
+
+[node name="PillarTrunk01-13" parent="MidgroundLayer/Decor" index="13" instance=ExtResource("2_gdmw7")]
+position = Vector2(-288, -191.99988)
+scale = Vector2(0.5, 1.5)
+
+[node name="PillarBase01-7" parent="MidgroundLayer/Decor" index="14" instance=ExtResource("12_cnyto")]
+position = Vector2(-288, 1024.0001)
+scale = Vector2(0.5, 0.75)
+
+[node name="PillarCap03-11" parent="MidgroundLayer/Decor" index="15" instance=ExtResource("13_etqjl")]
+position = Vector2(-288, -1408)
+scale = Vector2(0.5, 0.5)
+
+[node name="PillarTrunk01-9" parent="MidgroundLayer/Decor" index="16" instance=ExtResource("2_gdmw7")]
+position = Vector2(4032, -192)
+scale = Vector2(0.75, 1.5)
+
+[node name="PillarBase01-3" parent="MidgroundLayer/Decor" index="17" instance=ExtResource("12_cnyto")]
+position = Vector2(4032, 1024)
+scale = Vector2(0.75, 1)
+
+[node name="PillarCap03-7" parent="MidgroundLayer/Decor" index="18" instance=ExtResource("13_etqjl")]
+position = Vector2(4032, -1408.0001)
+scale = Vector2(0.75, 0.75)
+
+[node name="PillarTrunk01-10" parent="MidgroundLayer/Decor" index="19" instance=ExtResource("2_gdmw7")]
+position = Vector2(1856, -192)
+scale = Vector2(0.75, 1.5)
+
+[node name="PillarBase01-4" parent="MidgroundLayer/Decor" index="20" instance=ExtResource("12_cnyto")]
+position = Vector2(1856, 1024)
+scale = Vector2(0.75, 1)
+
+[node name="PillarCap03-8" parent="MidgroundLayer/Decor" index="21" instance=ExtResource("13_etqjl")]
+position = Vector2(1856, -1408.0001)
+scale = Vector2(0.75, 0.75)

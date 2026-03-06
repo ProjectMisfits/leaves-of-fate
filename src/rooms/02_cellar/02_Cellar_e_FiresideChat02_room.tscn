@@ -1,13 +1,17 @@
-[gd_scene load_steps=9 format=4 uid="uid://d3gfwyccu0mmw"]
+[gd_scene load_steps=13 format=4 uid="uid://d3gfwyccu0mmw"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_u8r0n"]
 [ext_resource type="PackedScene" uid="uid://bi263nhnwi40k" path="res://src/entities/decor/pillars/pillar_trunk_01.tscn" id="2_2oojc"]
+[ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="2_re7xi"]
 [ext_resource type="PackedScene" uid="uid://dp4wbioau0nhy" path="res://src/entities/actors/npcs/npc_winston_window/npc_winston_window.tscn" id="3_o8a26"]
 [ext_resource type="PackedScene" uid="uid://bgncdkpxeluh4" path="res://src/entities/triggers/interact_trigger/dialogue_trigger/dialogue_trigger.tscn" id="4_2oojc"]
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="4_u8r0n"]
 [ext_resource type="Resource" uid="uid://76wv2h5ubsh4" path="res://assets/dialogue/dialogue_scripts/X-Ws-Filler-CellarGeneral.dialogue" id="5_fmu35"]
 [ext_resource type="Resource" uid="uid://dt1tylecepja1" path="res://assets/dialogue/dialogue_scripts/11-Az-FiresideChat-2-HeaterArea.dialogue" id="5_u8r0n"]
 [ext_resource type="PackedScene" uid="uid://c0e5ya2ej5avs" path="res://src/entities/decor/furniture/bookshelf.tscn" id="6_re7xi"]
+[ext_resource type="PackedScene" uid="uid://bdjego1dul8qg" path="res://src/entities/decor/pillars/arch_point_cracked.tscn" id="8_a8sng"]
+[ext_resource type="PackedScene" uid="uid://4jh213w6fsb7" path="res://src/entities/decor/pillars/pillar_base_01.tscn" id="10_re7xi"]
+[ext_resource type="PackedScene" uid="uid://7c7nfo2gy8fu" path="res://src/entities/decor/pillars/pillar_cap_03.tscn" id="11_viagi"]
 
 [node name="02_Cellar_e_FiresideChat01" instance=ExtResource("1_u8r0n")]
 
@@ -15,29 +19,17 @@
 position = Vector2(-4446.316, -4581.0527)
 scale = Vector2(14888.422, 58.947365)
 
-[node name="PillarTrunk01" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("2_2oojc")]
-position = Vector2(960, 320)
-scale = Vector2(0.5, 1)
+[node name="HangingLantern" parent="BackgroundLayer/Decor" index="0" instance=ExtResource("2_re7xi")]
+position = Vector2(-943.1579, -1886.3157)
 
-[node name="PillarTrunk01-6" parent="BackgroundLayer/Decor" index="1" instance=ExtResource("2_2oojc")]
-position = Vector2(64, 320)
-scale = Vector2(0.5, 1)
+[node name="HangingLantern-2" parent="BackgroundLayer/Decor" index="1" instance=ExtResource("2_re7xi")]
+position = Vector2(7410.5264, -1886.3158)
 
-[node name="PillarTrunk01-2" parent="BackgroundLayer/Decor" index="2" instance=ExtResource("2_2oojc")]
-position = Vector2(2304, 320)
-scale = Vector2(0.6, 1)
+[node name="HangingLantern-3" parent="BackgroundLayer/Decor" index="2" instance=ExtResource("2_re7xi")]
+position = Vector2(3233.6843, -1886.3157)
 
-[node name="PillarTrunk01-3" parent="BackgroundLayer/Decor" index="3" instance=ExtResource("2_2oojc")]
-position = Vector2(3840, 320)
-scale = Vector2(0.6, 1)
-
-[node name="PillarTrunk01-4" parent="BackgroundLayer/Decor" index="4" instance=ExtResource("2_2oojc")]
-position = Vector2(5184, 320)
-scale = Vector2(0.5, 1)
-
-[node name="PillarTrunk01-5" parent="BackgroundLayer/Decor" index="5" instance=ExtResource("2_2oojc")]
-position = Vector2(6080, 320)
-scale = Vector2(0.5, 1)
+[node name="Bookshelf" parent="BackgroundLayer/Decor" index="3" instance=ExtResource("6_re7xi")]
+position = Vector2(4736, 1024)
 
 [node name="DustLayer" parent="BackgroundLayer" index="2"]
 position = Vector2(-4648.4214, -4917.8955)
@@ -76,7 +68,113 @@ dialogue_sequence = ExtResource("5_u8r0n")
 cutscene_flag_name = "11-Az-FiresideChat-2-HeaterArea"
 required_false_event_flags = Array[String](["11-Az-FiresideChat-2-HeaterArea"])
 
-[node name="Bookshelf" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("6_re7xi")]
-position = Vector2(4736, 1024)
+[node name="Decor" parent="MidgroundLayer" index="8"]
+modulate = Color(0.5882353, 0.5882353, 0.5882353, 1)
+
+[node name="ArchPointCracked" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("8_a8sng")]
+position = Vector2(-896, -1407.9999)
+
+[node name="ArchPointCracked-4" parent="MidgroundLayer/Decor" index="1" instance=ExtResource("8_a8sng")]
+position = Vector2(3072, -1407.9999)
+scale = Vector2(1.5, 1.5)
+
+[node name="ArchPointCracked-2" parent="MidgroundLayer/Decor" index="2" instance=ExtResource("8_a8sng")]
+position = Vector2(7040.0005, -1407.9999)
+
+[node name="PillarTrunk01-8" parent="MidgroundLayer/Decor" index="3" instance=ExtResource("2_2oojc")]
+position = Vector2(6304, -800)
+scale = Vector2(0.5, 0.6)
+
+[node name="PillarBase01-2" parent="MidgroundLayer/Decor" index="4" instance=ExtResource("10_re7xi")]
+position = Vector2(6304, -256)
+scale = Vector2(0.5, 0.75)
+
+[node name="PillarCap03-6" parent="MidgroundLayer/Decor" index="5" instance=ExtResource("11_viagi")]
+position = Vector2(6304, -1407.9999)
+scale = Vector2(0.5, 0.5)
+
+[node name="PillarTrunk01-11" parent="MidgroundLayer/Decor" index="6" instance=ExtResource("2_2oojc")]
+position = Vector2(7776, -736)
+scale = Vector2(0.5, 0.6)
+
+[node name="PillarBase01-5" parent="MidgroundLayer/Decor" index="7" instance=ExtResource("10_re7xi")]
+position = Vector2(7776, -256)
+scale = Vector2(0.5, 0.75)
+
+[node name="PillarCap03-9" parent="MidgroundLayer/Decor" index="8" instance=ExtResource("11_viagi")]
+position = Vector2(7776, -1407.9999)
+scale = Vector2(0.5, 0.5)
+
+[node name="PillarTrunk01-14" parent="MidgroundLayer/Decor" index="9" instance=ExtResource("2_2oojc")]
+position = Vector2(6304, 512)
+scale = Vector2(0.5, 0.5)
+
+[node name="PillarBase01-8" parent="MidgroundLayer/Decor" index="10" instance=ExtResource("10_re7xi")]
+position = Vector2(6304, 1024)
+scale = Vector2(0.5, 0.75)
+
+[node name="PillarCap03-12" parent="MidgroundLayer/Decor" index="11" instance=ExtResource("11_viagi")]
+position = Vector2(6304, 0)
+scale = Vector2(0.5, 0.5)
+
+[node name="PillarTrunk01-15" parent="MidgroundLayer/Decor" index="12" instance=ExtResource("2_2oojc")]
+position = Vector2(7776, 576)
+scale = Vector2(0.5, 0.5)
+
+[node name="PillarBase01-9" parent="MidgroundLayer/Decor" index="13" instance=ExtResource("10_re7xi")]
+position = Vector2(7776, 1024)
+scale = Vector2(0.5, 0.75)
+
+[node name="PillarCap03-13" parent="MidgroundLayer/Decor" index="14" instance=ExtResource("11_viagi")]
+position = Vector2(7776, 0)
+scale = Vector2(0.5, 0.5)
+
+[node name="PillarTrunk01-12" parent="MidgroundLayer/Decor" index="15" instance=ExtResource("2_2oojc")]
+position = Vector2(-1632, -191.99976)
+scale = Vector2(0.5, 1.5)
+
+[node name="PillarBase01-6" parent="MidgroundLayer/Decor" index="16" instance=ExtResource("10_re7xi")]
+position = Vector2(-1632, 1024.0002)
+scale = Vector2(0.5, 0.75)
+
+[node name="PillarCap03-10" parent="MidgroundLayer/Decor" index="17" instance=ExtResource("11_viagi")]
+position = Vector2(-1632, -1407.9999)
+scale = Vector2(0.5, 0.5)
+
+[node name="PillarTrunk01-13" parent="MidgroundLayer/Decor" index="18" instance=ExtResource("2_2oojc")]
+position = Vector2(-160, -191.99976)
+scale = Vector2(0.5, 1.5)
+
+[node name="PillarBase01-7" parent="MidgroundLayer/Decor" index="19" instance=ExtResource("10_re7xi")]
+position = Vector2(-160, 1024.0002)
+scale = Vector2(0.5, 0.75)
+
+[node name="PillarCap03-11" parent="MidgroundLayer/Decor" index="20" instance=ExtResource("11_viagi")]
+position = Vector2(-160, -1407.9999)
+scale = Vector2(0.5, 0.5)
+
+[node name="PillarTrunk01-9" parent="MidgroundLayer/Decor" index="21" instance=ExtResource("2_2oojc")]
+position = Vector2(4160, -191.99988)
+scale = Vector2(0.75, 1.5)
+
+[node name="PillarBase01-3" parent="MidgroundLayer/Decor" index="22" instance=ExtResource("10_re7xi")]
+position = Vector2(4160, 1024.0001)
+scale = Vector2(0.75, 1)
+
+[node name="PillarCap03-7" parent="MidgroundLayer/Decor" index="23" instance=ExtResource("11_viagi")]
+position = Vector2(4160, -1408)
+scale = Vector2(0.75, 0.75)
+
+[node name="PillarTrunk01-10" parent="MidgroundLayer/Decor" index="24" instance=ExtResource("2_2oojc")]
+position = Vector2(1984, -191.99988)
+scale = Vector2(0.75, 1.5)
+
+[node name="PillarBase01-4" parent="MidgroundLayer/Decor" index="25" instance=ExtResource("10_re7xi")]
+position = Vector2(1984, 1024.0001)
+scale = Vector2(0.75, 1)
+
+[node name="PillarCap03-8" parent="MidgroundLayer/Decor" index="26" instance=ExtResource("11_viagi")]
+position = Vector2(1984, -1408)
+scale = Vector2(0.75, 0.75)
 
 [editable path="MidgroundLayer/NpcWinstonWindow"]
