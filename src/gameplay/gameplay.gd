@@ -74,7 +74,6 @@ func _tear_down_room() -> void:
 
 ## Set up a room after a swap.
 func _init_room(init_player_location: Vector2) -> void:
-	
 	# Connect room signals for rooms that don't have them connected yet
 	if not current_room.swap_room.is_connected(_on_swap_room):
 		current_room.swap_room.connect(_on_swap_room)
