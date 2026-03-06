@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=43 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/entities/actors/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
@@ -22,7 +22,6 @@
 [ext_resource type="Script" uid="uid://bhytbo7u825lb" path="res://src/entities/actors/player/components/hurt_component.gd" id="11_s3rhx"]
 [ext_resource type="JSON" uid="uid://ctjfhxb7akvyx" path="res://src/entities/actors/player/footstep_dictionaries/player_footstep_data.tres" id="12_e5ptp"]
 [ext_resource type="Script" uid="uid://cq2g2o708n5hl" path="res://src/entities/actors/player/footstep_component.gd" id="13_s1o6p"]
-[ext_resource type="PackedScene" uid="uid://b5iavwafreiy1" path="res://src/vfx/particle_effects/wind_particles.tscn" id="14_7j1dl"]
 [ext_resource type="PackedScene" uid="uid://cpp5w8yc6jxm8" path="res://src/vfx/particle_effects/leaf_death_particle.tscn" id="16_6i2kk"]
 [ext_resource type="AudioStream" uid="uid://dimhdiv10a08t" path="res://assets/entities/actors/player/player_audio/PH-leaf-enter.ogg" id="17_iloh8"]
 [ext_resource type="AudioStream" uid="uid://dxmm31nsgmehb" path="res://assets/entities/actors/player/player_audio/PH-leaf-exit.ogg" id="18_283t5"]
@@ -633,6 +632,7 @@ unique_name_in_owner = true
 position = Vector2(34, -124)
 
 [node name="WindZoneComponent" type="Node2D" parent="FlipNode"]
+visible = false
 script = ExtResource("6_ri474")
 
 [node name="DashDetectionArea" type="Area2D" parent="FlipNode/WindZoneComponent"]
@@ -650,6 +650,7 @@ collision_mask = 2048
 shape = SubResource("CapsuleShape2D_xm3ve")
 
 [node name="InteractComponent" type="Node2D" parent="FlipNode"]
+visible = false
 script = ExtResource("6_283t5")
 
 [node name="InteractRange" type="Area2D" parent="FlipNode/InteractComponent"]
@@ -663,6 +664,7 @@ position = Vector2(200, 0)
 shape = SubResource("RectangleShape2D_q4vut")
 
 [node name="GrabComponent" type="Node2D" parent="FlipNode"]
+visible = false
 script = ExtResource("7_s3rhx")
 
 [node name="GrabRange" type="Area2D" parent="FlipNode/GrabComponent"]
@@ -679,6 +681,7 @@ debug_color = Color(0.79615086, 0.41396335, 0.26062903, 0.41960785)
 one_shot = true
 
 [node name="HurtComponent" type="Node2D" parent="FlipNode"]
+visible = false
 script = ExtResource("11_s3rhx")
 
 [node name="HurtArea" type="Area2D" parent="FlipNode/HurtComponent"]
@@ -691,10 +694,6 @@ shape = ExtResource("3_e5ptp")
 [node name="DashParticles" type="Node2D" parent="FlipNode"]
 
 [node name="LeafBall" parent="FlipNode/DashParticles" instance=ExtResource("9_tda88")]
-emitting = false
-
-[node name="WindParticles" parent="FlipNode/DashParticles" instance=ExtResource("14_7j1dl")]
-visible = false
 emitting = false
 
 [node name="LeafParticles" parent="FlipNode/DashParticles" instance=ExtResource("9_nqxrs")]
