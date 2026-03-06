@@ -117,202 +117,205 @@ dialogue_sequence = ExtResource("6_05yw1")
 cutscene_flag_name = "10-AzWs-TurnOnHeater-Main-HeaterArea"
 required_false_event_flags = Array[String](["10-AzWs-TurnOnHeater-Main-HeaterArea"])
 
-[node name="ArchRoundCracked" parent="MidgroundLayer/Decor" index="0" instance=ExtResource("3_en7vy")]
+[node name="PillarsAndArches" type="Node2D" parent="MidgroundLayer/Decor" index="0"]
+modulate = Color(0.5882353, 0.5882353, 0.5882353, 1)
+
+[node name="ArchRoundCracked" parent="MidgroundLayer/Decor/PillarsAndArches" index="0" instance=ExtResource("3_en7vy")]
 position = Vector2(4928, -5120)
 scale = Vector2(2, 2)
 
-[node name="ArchRoundCracked-2" parent="MidgroundLayer/Decor" index="1" instance=ExtResource("3_en7vy")]
+[node name="ArchRoundCracked-2" parent="MidgroundLayer/Decor/PillarsAndArches" index="1" instance=ExtResource("3_en7vy")]
 position = Vector2(17216, -5120)
 scale = Vector2(2, 2)
 
-[node name="ArchPointCracked-3" parent="MidgroundLayer/Decor" index="2" instance=ExtResource("2_b4s1q")]
+[node name="ArchPointCracked-3" parent="MidgroundLayer/Decor/PillarsAndArches" index="2" instance=ExtResource("2_b4s1q")]
 position = Vector2(1984, -3072)
 scale = Vector2(2, 2)
 
-[node name="ArchPointCracked-6" parent="MidgroundLayer/Decor" index="3" instance=ExtResource("2_b4s1q")]
+[node name="ArchPointCracked-6" parent="MidgroundLayer/Decor/PillarsAndArches" index="3" instance=ExtResource("2_b4s1q")]
 position = Vector2(20160, -3072)
 scale = Vector2(2, 2)
 
-[node name="PillarTrunk04-23" parent="MidgroundLayer/Decor" index="4" instance=ExtResource("5_3ersv")]
+[node name="PillarTrunk04-23" parent="MidgroundLayer/Decor/PillarsAndArches" index="4" instance=ExtResource("5_3ersv")]
 position = Vector2(18688, -1920)
 
-[node name="PillarTrunk04-24" parent="MidgroundLayer/Decor" index="5" instance=ExtResource("5_3ersv")]
+[node name="PillarTrunk04-24" parent="MidgroundLayer/Decor/PillarsAndArches" index="5" instance=ExtResource("5_3ersv")]
 position = Vector2(21632, -1920)
 
-[node name="PillarTrunk04-6" parent="MidgroundLayer/Decor" index="6" instance=ExtResource("5_3ersv")]
+[node name="PillarTrunk04-6" parent="MidgroundLayer/Decor/PillarsAndArches" index="6" instance=ExtResource("5_3ersv")]
 position = Vector2(3456, -4672)
 
-[node name="PillarTrunk04-9" parent="MidgroundLayer/Decor" index="7" instance=ExtResource("5_3ersv")]
+[node name="PillarTrunk04-9" parent="MidgroundLayer/Decor/PillarsAndArches" index="7" instance=ExtResource("5_3ersv")]
 position = Vector2(6400, -3904)
 
-[node name="PillarTrunk04-28" parent="MidgroundLayer/Decor" index="8" instance=ExtResource("5_3ersv")]
+[node name="PillarTrunk04-28" parent="MidgroundLayer/Decor/PillarsAndArches" index="8" instance=ExtResource("5_3ersv")]
 position = Vector2(15744, -3904)
 
-[node name="PillarTrunk04-7" parent="MidgroundLayer/Decor" index="9" instance=ExtResource("5_3ersv")]
+[node name="PillarTrunk04-7" parent="MidgroundLayer/Decor/PillarsAndArches" index="9" instance=ExtResource("5_3ersv")]
 position = Vector2(512, -1920)
 
-[node name="PillarTrunk04-10" parent="MidgroundLayer/Decor" index="10" instance=ExtResource("5_3ersv")]
+[node name="PillarTrunk04-10" parent="MidgroundLayer/Decor/PillarsAndArches" index="10" instance=ExtResource("5_3ersv")]
 position = Vector2(3456, -1920)
 
-[node name="PillarTrunk04-14" parent="MidgroundLayer/Decor" index="11" instance=ExtResource("5_3ersv")]
+[node name="PillarTrunk04-14" parent="MidgroundLayer/Decor/PillarsAndArches" index="11" instance=ExtResource("5_3ersv")]
 position = Vector2(6400, -1920)
 
-[node name="PillarTrunk04-29" parent="MidgroundLayer/Decor" index="12" instance=ExtResource("5_3ersv")]
+[node name="PillarTrunk04-29" parent="MidgroundLayer/Decor/PillarsAndArches" index="12" instance=ExtResource("5_3ersv")]
 position = Vector2(15744, -1920)
 
-[node name="PillarTrunk04-8" parent="MidgroundLayer/Decor" index="13" instance=ExtResource("5_3ersv")]
+[node name="PillarTrunk04-8" parent="MidgroundLayer/Decor/PillarsAndArches" index="13" instance=ExtResource("5_3ersv")]
 position = Vector2(512, 64)
 
-[node name="PillarTrunk04-11" parent="MidgroundLayer/Decor" index="14" instance=ExtResource("5_3ersv")]
+[node name="PillarTrunk04-11" parent="MidgroundLayer/Decor/PillarsAndArches" index="14" instance=ExtResource("5_3ersv")]
 position = Vector2(3456, 64)
 
-[node name="PillarTrunk04-15" parent="MidgroundLayer/Decor" index="15" instance=ExtResource("5_3ersv")]
+[node name="PillarTrunk04-15" parent="MidgroundLayer/Decor/PillarsAndArches" index="15" instance=ExtResource("5_3ersv")]
 position = Vector2(6400, 64)
 
-[node name="PillarTrunk04-30" parent="MidgroundLayer/Decor" index="16" instance=ExtResource("5_3ersv")]
+[node name="PillarTrunk04-30" parent="MidgroundLayer/Decor/PillarsAndArches" index="16" instance=ExtResource("5_3ersv")]
 position = Vector2(15744, 64)
 
-[node name="PillarTrunk04-22" parent="MidgroundLayer/Decor" index="17" instance=ExtResource("5_3ersv")]
+[node name="PillarTrunk04-22" parent="MidgroundLayer/Decor/PillarsAndArches" index="17" instance=ExtResource("5_3ersv")]
 position = Vector2(18688, 64)
 
-[node name="PillarTrunk04-25" parent="MidgroundLayer/Decor" index="18" instance=ExtResource("5_3ersv")]
+[node name="PillarTrunk04-25" parent="MidgroundLayer/Decor/PillarsAndArches" index="18" instance=ExtResource("5_3ersv")]
 position = Vector2(21632, 64)
 
-[node name="PillarTrunk04-3" parent="MidgroundLayer/Decor" index="19" instance=ExtResource("5_3ersv")]
+[node name="PillarTrunk04-3" parent="MidgroundLayer/Decor/PillarsAndArches" index="19" instance=ExtResource("5_3ersv")]
 position = Vector2(18688, -4672)
 
-[node name="PillarCap02" parent="MidgroundLayer/Decor" index="20" instance=ExtResource("5_uv0yq")]
+[node name="PillarCap02" parent="MidgroundLayer/Decor/PillarsAndArches" index="20" instance=ExtResource("5_uv0yq")]
 position = Vector2(512, -1216)
 
-[node name="PillarCap02-5" parent="MidgroundLayer/Decor" index="21" instance=ExtResource("5_uv0yq")]
+[node name="PillarCap02-5" parent="MidgroundLayer/Decor/PillarsAndArches" index="21" instance=ExtResource("5_uv0yq")]
 position = Vector2(3456, -1216)
 
-[node name="PillarCap02-10" parent="MidgroundLayer/Decor" index="22" instance=ExtResource("5_uv0yq")]
+[node name="PillarCap02-10" parent="MidgroundLayer/Decor/PillarsAndArches" index="22" instance=ExtResource("5_uv0yq")]
 position = Vector2(6400, -1216)
 
-[node name="PillarCap02-20" parent="MidgroundLayer/Decor" index="23" instance=ExtResource("5_uv0yq")]
+[node name="PillarCap02-20" parent="MidgroundLayer/Decor/PillarsAndArches" index="23" instance=ExtResource("5_uv0yq")]
 position = Vector2(15744, -1216)
 
-[node name="PillarCap02-16" parent="MidgroundLayer/Decor" index="24" instance=ExtResource("5_uv0yq")]
+[node name="PillarCap02-16" parent="MidgroundLayer/Decor/PillarsAndArches" index="24" instance=ExtResource("5_uv0yq")]
 position = Vector2(18688, -1216)
 
-[node name="PillarCap02-17" parent="MidgroundLayer/Decor" index="25" instance=ExtResource("5_uv0yq")]
+[node name="PillarCap02-17" parent="MidgroundLayer/Decor/PillarsAndArches" index="25" instance=ExtResource("5_uv0yq")]
 position = Vector2(21632, -1216)
 
-[node name="PillarCap02-9" parent="MidgroundLayer/Decor" index="26" instance=ExtResource("5_uv0yq")]
+[node name="PillarCap02-9" parent="MidgroundLayer/Decor/PillarsAndArches" index="26" instance=ExtResource("5_uv0yq")]
 position = Vector2(6400, -3200)
 
-[node name="PillarCap02-19" parent="MidgroundLayer/Decor" index="27" instance=ExtResource("5_uv0yq")]
+[node name="PillarCap02-19" parent="MidgroundLayer/Decor/PillarsAndArches" index="27" instance=ExtResource("5_uv0yq")]
 position = Vector2(15744, -3200)
 
-[node name="PillarCap03-2" parent="MidgroundLayer/Decor" index="28" instance=ExtResource("6_1ul8l")]
+[node name="PillarCap03-2" parent="MidgroundLayer/Decor/PillarsAndArches" index="28" instance=ExtResource("6_1ul8l")]
 position = Vector2(6400, -5120)
 
-[node name="PillarCap03-12" parent="MidgroundLayer/Decor" index="29" instance=ExtResource("6_1ul8l")]
+[node name="PillarCap03-12" parent="MidgroundLayer/Decor/PillarsAndArches" index="29" instance=ExtResource("6_1ul8l")]
 position = Vector2(15744, -5120)
 
-[node name="PillarCap03-9" parent="MidgroundLayer/Decor" index="30" instance=ExtResource("6_1ul8l")]
+[node name="PillarCap03-9" parent="MidgroundLayer/Decor/PillarsAndArches" index="30" instance=ExtResource("6_1ul8l")]
 position = Vector2(18688, -5120)
 
-[node name="PillarCap03-3" parent="MidgroundLayer/Decor" index="31" instance=ExtResource("6_1ul8l")]
+[node name="PillarCap03-3" parent="MidgroundLayer/Decor/PillarsAndArches" index="31" instance=ExtResource("6_1ul8l")]
 position = Vector2(3456, -5120)
 
-[node name="PillarCap03-4" parent="MidgroundLayer/Decor" index="32" instance=ExtResource("6_1ul8l")]
+[node name="PillarCap03-4" parent="MidgroundLayer/Decor/PillarsAndArches" index="32" instance=ExtResource("6_1ul8l")]
 position = Vector2(512, -3072)
 
-[node name="PillarCap03-5" parent="MidgroundLayer/Decor" index="33" instance=ExtResource("6_1ul8l")]
+[node name="PillarCap03-5" parent="MidgroundLayer/Decor/PillarsAndArches" index="33" instance=ExtResource("6_1ul8l")]
 position = Vector2(3456, -3072)
 
-[node name="IceLizard" parent="MidgroundLayer/Decor" index="34" instance=ExtResource("14_pgaev")]
+[node name="PillarCap03-10" parent="MidgroundLayer/Decor/PillarsAndArches" index="34" instance=ExtResource("6_1ul8l")]
+position = Vector2(18688, -3072)
+
+[node name="PillarCap03-11" parent="MidgroundLayer/Decor/PillarsAndArches" index="35" instance=ExtResource("6_1ul8l")]
+position = Vector2(21632, -3072)
+
+[node name="PillarBase03" parent="MidgroundLayer/Decor/PillarsAndArches" index="36" instance=ExtResource("7_uv0yq")]
+position = Vector2(512, 1024)
+
+[node name="PillarBase03-2" parent="MidgroundLayer/Decor/PillarsAndArches" index="37" instance=ExtResource("7_uv0yq")]
+position = Vector2(3456, 1024)
+
+[node name="PillarBase03-3" parent="MidgroundLayer/Decor/PillarsAndArches" index="38" instance=ExtResource("7_uv0yq")]
+position = Vector2(6400, 1024)
+
+[node name="PillarBase03-8" parent="MidgroundLayer/Decor/PillarsAndArches" index="39" instance=ExtResource("7_uv0yq")]
+position = Vector2(15744, 1024)
+
+[node name="PillarBase03-6" parent="MidgroundLayer/Decor/PillarsAndArches" index="40" instance=ExtResource("7_uv0yq")]
+position = Vector2(18688, 1024)
+
+[node name="PillarBase03-7" parent="MidgroundLayer/Decor/PillarsAndArches" index="41" instance=ExtResource("7_uv0yq")]
+position = Vector2(21632, 1024)
+
+[node name="IceLizard" parent="MidgroundLayer/Decor" index="1" instance=ExtResource("14_pgaev")]
 position = Vector2(12744, -2744)
 
-[node name="SnowPenguin-2" type="Sprite2D" parent="MidgroundLayer/Decor" index="35"]
+[node name="SnowPenguin-2" type="Sprite2D" parent="MidgroundLayer/Decor" index="2"]
 position = Vector2(12744, -4472)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("16_8ads3")
 
-[node name="PillarCap03-10" parent="MidgroundLayer/Decor" index="36" instance=ExtResource("6_1ul8l")]
-position = Vector2(18688, -3072)
-
-[node name="PillarCap03-11" parent="MidgroundLayer/Decor" index="37" instance=ExtResource("6_1ul8l")]
-position = Vector2(21632, -3072)
-
-[node name="PillarBase03" parent="MidgroundLayer/Decor" index="38" instance=ExtResource("7_uv0yq")]
-position = Vector2(512, 1024)
-
-[node name="PillarBase03-2" parent="MidgroundLayer/Decor" index="39" instance=ExtResource("7_uv0yq")]
-position = Vector2(3456, 1024)
-
-[node name="PillarBase03-3" parent="MidgroundLayer/Decor" index="40" instance=ExtResource("7_uv0yq")]
-position = Vector2(6400, 1024)
-
-[node name="PillarBase03-8" parent="MidgroundLayer/Decor" index="41" instance=ExtResource("7_uv0yq")]
-position = Vector2(15744, 1024)
-
-[node name="PillarBase03-6" parent="MidgroundLayer/Decor" index="42" instance=ExtResource("7_uv0yq")]
-position = Vector2(18688, 1024)
-
-[node name="PillarBase03-7" parent="MidgroundLayer/Decor" index="43" instance=ExtResource("7_uv0yq")]
-position = Vector2(21632, 1024)
-
-[node name="WineShelf" parent="MidgroundLayer/Decor" index="44" instance=ExtResource("15_6imsy")]
+[node name="WineShelf" parent="MidgroundLayer/Decor" index="3" instance=ExtResource("15_6imsy")]
 position = Vector2(12160, -1664)
 
-[node name="WineShelf-2" parent="MidgroundLayer/Decor" index="45" instance=ExtResource("15_6imsy")]
+[node name="WineShelf-2" parent="MidgroundLayer/Decor" index="4" instance=ExtResource("15_6imsy")]
 position = Vector2(12160, -2432)
 
-[node name="WineShelfFrame" parent="MidgroundLayer/Decor" index="46" instance=ExtResource("16_1ri0p")]
+[node name="WineShelfFrame" parent="MidgroundLayer/Decor" index="5" instance=ExtResource("16_1ri0p")]
 position = Vector2(12800, -1664)
 
-[node name="Barrel" parent="MidgroundLayer/Decor" index="47" instance=ExtResource("17_pgaev")]
+[node name="Barrel" parent="MidgroundLayer/Decor" index="6" instance=ExtResource("17_pgaev")]
 position = Vector2(12736, -3904)
 
-[node name="WineShelf-3" parent="MidgroundLayer/Decor" index="48" instance=ExtResource("15_6imsy")]
+[node name="WineShelf-3" parent="MidgroundLayer/Decor" index="7" instance=ExtResource("15_6imsy")]
 position = Vector2(12800, -2432)
 
-[node name="WineShelf-4" parent="MidgroundLayer/Decor" index="49" instance=ExtResource("15_6imsy")]
+[node name="WineShelf-4" parent="MidgroundLayer/Decor" index="8" instance=ExtResource("15_6imsy")]
 position = Vector2(12160, -3200)
 
-[node name="WineShelf-5" parent="MidgroundLayer/Decor" index="50" instance=ExtResource("15_6imsy")]
+[node name="WineShelf-5" parent="MidgroundLayer/Decor" index="9" instance=ExtResource("15_6imsy")]
 position = Vector2(12800, -3200)
 
-[node name="WineBottle" parent="MidgroundLayer/Decor" index="51" instance=ExtResource("18_5h2si")]
+[node name="WineBottle" parent="MidgroundLayer/Decor" index="10" instance=ExtResource("18_5h2si")]
 position = Vector2(12224, -2560)
 
-[node name="WineShelf-6" parent="MidgroundLayer/Decor" index="52" instance=ExtResource("15_6imsy")]
+[node name="WineShelf-6" parent="MidgroundLayer/Decor" index="11" instance=ExtResource("15_6imsy")]
 position = Vector2(12160, -3968)
 
-[node name="SnowRodentDecor" type="Sprite2D" parent="MidgroundLayer/Decor" index="53"]
+[node name="SnowRodentDecor" type="Sprite2D" parent="MidgroundLayer/Decor" index="12"]
 position = Vector2(13541, -6126.0005)
 scale = Vector2(0.41125, 0.41125)
 texture = ExtResource("15_x2fvc")
 
-[node name="SnowPenguin" type="Sprite2D" parent="MidgroundLayer/Decor" index="54"]
+[node name="SnowPenguin" type="Sprite2D" parent="MidgroundLayer/Decor" index="13"]
 position = Vector2(12843.999, -6160.9995)
 scale = Vector2(0.52125, 0.52125)
 texture = ExtResource("16_8ads3")
 
-[node name="BoarHead" parent="MidgroundLayer/Decor" index="55" instance=ExtResource("21_jw363")]
+[node name="BoarHead" parent="MidgroundLayer/Decor" index="14" instance=ExtResource("21_jw363")]
 position = Vector2(12800, -1728)
 
-[node name="BoarHead-2" parent="MidgroundLayer/Decor" index="56" instance=ExtResource("21_jw363")]
+[node name="BoarHead-2" parent="MidgroundLayer/Decor" index="15" instance=ExtResource("21_jw363")]
 position = Vector2(12736.001, -1919.9995)
 rotation = 0.56755495
 
-[node name="BoarHead-3" parent="MidgroundLayer/Decor" index="57" instance=ExtResource("21_jw363")]
+[node name="BoarHead-3" parent="MidgroundLayer/Decor" index="16" instance=ExtResource("21_jw363")]
 position = Vector2(12928, -2047.9995)
 rotation = 2.567101
 scale = Vector2(1, -1)
 
-[node name="SnowPile" parent="MidgroundLayer/Decor" index="58" instance=ExtResource("23_5h2si")]
+[node name="SnowPile" parent="MidgroundLayer/Decor" index="17" instance=ExtResource("23_5h2si")]
 position = Vector2(1984, -1088)
 scale = Vector2(1.5, 1.5)
 in_front_of_player = true
 
-[node name="SnowPenguin-3" parent="MidgroundLayer/Decor" index="59" instance=ExtResource("4_dih0o")]
+[node name="SnowPenguin-3" parent="MidgroundLayer/Decor" index="18" instance=ExtResource("4_dih0o")]
 position = Vector2(1792, -1216)
 
-[node name="SnowPenguin-4" parent="MidgroundLayer/Decor" index="60" instance=ExtResource("4_dih0o")]
+[node name="SnowPenguin-4" parent="MidgroundLayer/Decor" index="19" instance=ExtResource("4_dih0o")]
 position = Vector2(2240, -1216)
 rotation = 3.1415927
 scale = Vector2(1, -1)
