@@ -24,17 +24,11 @@ func _enter() -> void:
 	agent.set_collision_mask_value(8,false)
 	agent.set_collision_mask_value(10,true)
 	for ps: GPUParticles2D in agent.dash_particles.get_children(): # Enable Leaf Dash particles
-		
-		
 		if ps.name == "LeafBall":
 			ps.show()
-			
-			
 		if ps.name == "LeafExplosionParticle":
 			ps.local_coords = false
 			ps.restart()
-			
-	
 		ps.emitting = true
 	
 	move_direction = get_input_direction()
