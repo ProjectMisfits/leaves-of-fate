@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=4 uid="uid://5jpe62x2iq5m"]
+[gd_scene load_steps=29 format=4 uid="uid://5jpe62x2iq5m"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_qkmm6"]
 [ext_resource type="PackedScene" uid="uid://dp4wbioau0nhy" path="res://src/entities/actors/npcs/npc_winston_window/npc_winston_window.tscn" id="2_05yw1"]
 [ext_resource type="PackedScene" uid="uid://mn6k4g5kkt5q" path="res://src/entities/objects/heater/heater.tscn" id="2_57jf6"]
 [ext_resource type="PackedScene" uid="uid://bdjego1dul8qg" path="res://src/entities/decor/pillars/arch_point_cracked.tscn" id="2_b4s1q"]
 [ext_resource type="PackedScene" uid="uid://b02panxxkdcxa" path="res://src/entities/decor/furniture/hanging_lantern.tscn" id="2_jw363"]
+[ext_resource type="Texture2D" uid="uid://cjus5m5am5w53" path="res://assets/rooms/backgrounds/bg_fireside_normal.tres" id="2_q8n78"]
 [ext_resource type="PackedScene" uid="uid://c567nmtkfbfn4" path="res://src/entities/objects/heater_lever/heater_lever.tscn" id="3_4tr4r"]
 [ext_resource type="Script" uid="uid://blr5ksl5vscmw" path="res://src/components/processing_component.gd" id="3_dih0o"]
 [ext_resource type="PackedScene" uid="uid://wxvub3svduoi" path="res://src/entities/decor/pillars/arch_round_cracked.tscn" id="3_en7vy"]
@@ -45,6 +46,7 @@ point_count = 4
 [node name="BackgroundGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
 position = Vector2(-640, -10240)
 scale = Vector2(23424.002, 89)
+texture = ExtResource("2_q8n78")
 
 [node name="HangingLantern" parent="BackgroundLayer/BackgroundTexture" index="1" instance=ExtResource("2_jw363")]
 position = Vector2(1953.6842, -4109.4736)
