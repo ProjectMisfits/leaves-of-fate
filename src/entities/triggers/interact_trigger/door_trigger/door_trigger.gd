@@ -11,4 +11,5 @@ func _ready() -> void:
 
 ## Initiate the room transition this door represents.
 func _enter_door() -> void:
+	enabled = false
 	door_trigger_activated.emit()

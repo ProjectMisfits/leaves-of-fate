@@ -6,17 +6,17 @@ else
 => END
 
 ~ play_random
-#% [if not EventFlags.get_flag("X-Ws-Cellar-1")] => convo_1
-#% [if not EventFlags.get_flag("X-Ws-Cellar-2")] => convo_2
-#% [if not EventFlags.get_flag("X-Ws-Cellar-3")] => convo_3
-#% [if not EventFlags.get_flag("X-Ws-Cellar-4")] => convo_4
-#% [if not EventFlags.get_flag("X-Ws-Cellar-5")] => convo_5
-#% [if not EventFlags.get_flag("X-Ws-Cellar-6")] => convo_6
-#% [if not EventFlags.get_flag("X-Ws-Cellar-7")] => convo_7
-#% [if not EventFlags.get_flag("X-Ws-Cellar-8")] => convo_8
-#% [if not EventFlags.get_flag("X-Ws-Cellar-9") and EventFlags.get_flag("X-Ws-Cellar-10")] => convo_9
-#% [if not EventFlags.get_flag("X-Ws-Cellar-10")] => convo_10
-#% [if not EventFlags.get_flag("X-Ws-Cellar-11")] => convo_11
+% [if not EventFlags.get_flag("X-Ws-Cellar-1")] => convo_1
+% [if not EventFlags.get_flag("X-Ws-Cellar-2")] => convo_2
+% [if not EventFlags.get_flag("X-Ws-Cellar-3")] => convo_3
+% [if not EventFlags.get_flag("X-Ws-Cellar-4")] => convo_4
+% [if not EventFlags.get_flag("X-Ws-Cellar-5")] => convo_5
+% [if not EventFlags.get_flag("X-Ws-Cellar-6")] => convo_6
+% [if not EventFlags.get_flag("X-Ws-Cellar-7")] => convo_7
+% [if not EventFlags.get_flag("X-Ws-Cellar-8")] => convo_8
+% [if not EventFlags.get_flag("X-Ws-Cellar-9") and EventFlags.get_flag("X-Ws-Cellar-10")] => convo_9
+% [if not EventFlags.get_flag("X-Ws-Cellar-10")] => convo_10
+% [if not EventFlags.get_flag("X-Ws-Cellar-11")] => convo_11
 % [if EventFlags.num_cellar_conversations == 12] => ending_convo
 => END
 
