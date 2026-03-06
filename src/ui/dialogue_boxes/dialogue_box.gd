@@ -14,10 +14,10 @@ extends CanvasLayer
 @export var auto_start: bool = false
 
 ## The action to use for advancing the dialogue
-@export var next_action: StringName = &"ui_accept"
+@export var next_action: StringName = &"progress_dialogue"
 
 ## The action to use to skip typing the dialogue
-@export var skip_action: StringName = &"ui_cancel"
+@export var skip_action: StringName = &"progress_dialogue"
 
 ## A sound player for voice lines (if they exist).
 @onready var beep_speech_player: AudioStreamPlayer = %BeepSpeechPlayer
@@ -355,7 +355,7 @@ func _on_mutated(_mutation: Dictionary) -> void:
 func _on_balloon_gui_input(event: InputEvent) -> void:
 	# See if we need to skip typing the dialogue
 	if dialogue_label.is_typing:
-		if event.is_action_pressed("ui_accept"):
+		if event.is_action_pressed(skip_action):
 			get_viewport().set_input_as_handled()
 			dialogue_label.skip_typing()
 			return
@@ -364,7 +364,7 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 	if not is_waiting_for_input: return
 
 	# When there are no response options the balloon itself is the clickable thing
-	elif event.is_action_pressed("ui_accept") and get_viewport().gui_get_focus_owner() == balloon:
+	elif event.is_action_pressed(next_action) and get_viewport().gui_get_focus_owner() == balloon:
 		get_viewport().set_input_as_handled()
 		interact_audio_player.play()
 		do_interrupt = false
