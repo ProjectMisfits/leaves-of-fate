@@ -18,6 +18,8 @@ var num_den_conversations : int = 0
 var num_great_hall_conversations : int = 0
 var num_pantry_conversations : int = 0
 var num_cellar_conversations : int = 0
+var winston_portrait_name : String = "Wizard"
+var winston_name : String = "Wizard"
 
 func _enter_tree() -> void:
 	# Grab database programmatically

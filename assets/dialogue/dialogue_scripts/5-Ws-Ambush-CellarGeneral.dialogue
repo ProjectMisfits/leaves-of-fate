@@ -41,9 +41,9 @@ Wizard grit: No matter! [wait=0.2]Speaketh not anymore of this curs'd device. [w
 do! CameraManager.create_camera(Vector2(19800,22000),0.75, 0.2, "EXPO", "EASE_IN_OUT")
 Wizard: [font_size=100][shake level=10 rate=50]TAKETH THIS![/shake][/font_size]
 do CameraManager.create_camera(Vector2(19800,22000),1.33, 0.4, "LINEAR", "EASE_IN_OUT")
-do CutsceneManager.npc_move("Winston H", 22784.0, 1000, false, false)
+do CutsceneManager.npc_move("Winston H", 22784.0, 2000, false, false)
 do CutsceneManager.remove_npc("Winston H")
-do CutsceneManager.wait(1)
+do CutsceneManager.wait(2)
 Fenn: Did... did he just leave?
 Wizard grit: Look. The budget tis thin.
 Wizard awkward: Just- [wait=0.3][font_size=40]could- [/font_size][wait=0.3]couldst thou walketh through that door?
@@ -70,9 +70,7 @@ Wizard: [font_size=80][shake level=10 rate=50][i]WHAT?![/i][/shake][/font_size]
 Wizard grit: You [font_size=70][shake level=7 rate=30][i]ESCAPED?[/i][/shake][/font_size]
 Az laugh: Haha! Nice work, Fenn.
 Wizard grit: [font_size=70][shake level=7 rate=30]ARGH![/shake] [wait=0.3]HOW DIDST THOU EVADE MY MINIONS?[/font_size]
-Fenn starry: Oh, [wait=0.3]well [color="B80006"]Az[/color] was grabbing stuff using the bracelets!
-do EventBus.interrupt_dialogue.emit("0.5")
-Az: Ban-[wait=0.3] nevermind.
+Fenn starry: Oh, [wait=0.3]well [color="B80006"]Az[/color] was grabbing stuff using the bangles!
 do CutsceneManager.npc_face("Winston H", "right")
 Wizard grit: [font_size=60]Hmm. I must do [shake level=7 rate=30]better[/shake].[/font_size][font_size=50] More machines.[/font_size] [font_size=40]More snoweth.[/font_size] [font_size=30]More creatures.[/font_size]
 Az laugh: Yeah. [do! CutsceneManager.play_sound("Cough")][i]cough[/i] [wait=0.3]I'm not gonna lie, that was [speed=0.2][i]pretty[/i][wait=0.2][/speed] pathetic.
@@ -82,12 +80,10 @@ Fenn starry: [wave freq=7 amp=25] Wasn't it so cool?[/wave]
 Wizard grit: [font_size=70][shake level=7 rate=30]I hath never said it was cool![/shake][/font_size]
 Wizard grit: [font_size=100][shake level=7 rate=30]ARRGH![/shake][/font_size]
 do CutsceneManager.npc_move("Winston H", 4600.0, 400, false, true)
-do CutsceneManager.wait(0.5)
+do CutsceneManager.wait(0.3)
 Wizard awkward: [font_size=70][shake level=10]STOPPETH LOOKING AT ME!![/shake][/font_size]
-do CutsceneManager.npc_move("Winston H", 6912.0, 1500, false, false)
-do CutsceneManager.fade_to_black()
+do CutsceneManager.npc_move("Winston H", 6912.0, 3000, false, false)
 do CutsceneManager.remove_npc("Winston H")
-do CutsceneManager.fade_from_black()
 do! MusicManager._fade_in()
 do EventFlags.set_flag("5b-Ws-PostAmbush-CellarGeneral", true)
 => END

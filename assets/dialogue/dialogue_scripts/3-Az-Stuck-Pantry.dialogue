@@ -25,7 +25,7 @@ Fenn: I dunno. But if we need a way out, I could go through that grate!
 Az annoy: [font_size=30]Ugh, I hate this.[/font_size]
 Az: [font_size=60]FINE.[/font_size] You go down there. [do! CutsceneManager.play_sound("Cough")][i]cough[/i]. I'll find another way around.
 Az: And take one of these, [wait=0.3]I guess.
-Az hands Fenn something
+Az hands you something
 Fenn: A bracelet?
 Az: A bangle.
 Fenn: What's it do?

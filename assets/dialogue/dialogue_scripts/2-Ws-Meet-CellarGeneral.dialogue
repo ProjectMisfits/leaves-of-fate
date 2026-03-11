@@ -32,9 +32,7 @@ Wizard: [wave freq=7 amp=30]In due timeth, [i]pint-size[/i].[/wave]
 do CutsceneManager.npc_move("Winston H", 6200.0, 1000.0, false, false)
 Wizard grit: I look forward to our battle. [shake level=7 rate=30]Thy defeat shalt be one for the ages.[/shake]
 do CutsceneManager.npc_move("Winston H", 8192.0, 2000.0, false, false)
-do CutsceneManager.fade_to_black()
 do CutsceneManager.remove_npc("Winston H")
-do CutsceneManager.fade_from_black()
 Fenn: Uh...
 Fenn: Indeed, it shalt... eth?
 do! MusicManager._fade_in()

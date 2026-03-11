@@ -5,8 +5,8 @@ Fenn worry: [font_size=40]Huh,[wait=0.3] stuck...[/font_size]
 Az: Hello? Can you hear me?
 Fenn: Az? Where are you?
 Az laugh: Let's GO!! It works! [do! CutsceneManager.play_sound("Cough")][i]cough[/i].
-Fenn: The bangle?
-Az: Yeah! I've got the other one with me. You can talk to someone through them.
+Fenn: The bracelet?
+Az: [i]Bangle.[/i] And- Yeah! I've got the other one with me. You can talk to someone through them.
 Az: Just- [wait=0.3]don't tell [color="B80006"]Post Master Parker[/color]. He'd freak out and call it [wave freq=7 amp=30]sacrilege[/wave] or something.
 Az: Oh! [wait=0.3]And if there's anything in your way, [wait=0.3]I can reach my hand through and grab it.
 Az: Just [color="521FA6"]use RT[/color] if there's something in your way.

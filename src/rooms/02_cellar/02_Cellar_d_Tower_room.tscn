@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://bhur0jxismi3t"]
+[gd_scene load_steps=12 format=4 uid="uid://bhur0jxismi3t"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_1dj6p"]
+[ext_resource type="Texture2D" uid="uid://bwhfuakrfttky" path="res://assets/rooms/backgrounds/bg_cellar_normal_2.tres" id="2_6yh5g"]
 [ext_resource type="PackedScene" uid="uid://bbpm02j1io7y6" path="res://src/entities/objects/bronze_pipe/bronze_pipe.tscn" id="2_i5bub"]
 [ext_resource type="PackedScene" uid="uid://dp4wbioau0nhy" path="res://src/entities/actors/npcs/npc_winston_window/npc_winston_window.tscn" id="2_klv1c"]
 [ext_resource type="PackedScene" uid="uid://bgncdkpxeluh4" path="res://src/entities/triggers/interact_trigger/dialogue_trigger/dialogue_trigger.tscn" id="3_6yh5g"]
@@ -46,6 +47,12 @@ point_count = 4
 [node name="BackgroundGradient" parent="BackgroundLayer/BackgroundTexture" index="0"]
 position = Vector2(-3368.421, -43115.793)
 scale = Vector2(15225.262, 363.15793)
+
+[node name="BackgroundGradient-2" type="Sprite2D" parent="BackgroundLayer/BackgroundTexture" index="1"]
+position = Vector2(-3368.421, -43115.79)
+scale = Vector2(15225.262, 91.578964)
+texture = ExtResource("2_6yh5g")
+centered = false
 
 [node name="DustLayer" parent="BackgroundLayer" index="2"]
 position = Vector2(-3368.4211, -43115.79)

@@ -49,9 +49,9 @@ Az: Fenn, meet us back in the [color="0B4F4A"]Great Hall[/color], 'kay?
 do CutsceneManager.fade_to_black()
 do CutsceneManager.remove_npc("Az")
 do CutsceneManager.remove_npc("Winston N")
+do EventFlags.set_flag("15-AzWs-ReachSafety-GreatHall", true)
 do CutsceneManager.fade_from_black()
 do! MusicManager._fade_in()
-do EventFlags.set_flag("15-AzWs-ReachSafety-GreatHall", true)
 => END
 
 
