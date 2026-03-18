@@ -28,8 +28,10 @@ do CutsceneManager.npc_face("Winston H","left")
 Winston hood grit: [font_size=60]GEEZ! I'm [shake level=7 rate=30][i]sorry[/i][/shake]. [wave freq=7 amp=20]I thoughteth we were sharing.[/wave][/font_size]
 Fenn: I care!! 
 do CutsceneManager.npc_face("Winston H","right")
-Fenn starry: It's good to meetheth you, Winston.
+Fenn starry: It's good to meeteth you, Winston.
 Winston hood awkward: [font_size=35]G-[wait=0.3] Good to meeteth thee too.[/font_size]
 do! MusicManager._fade_in()
+set EventFlags.winston_name = "Winston"
+set EventFlags.winston_portrait_name = "Winston hood"
 do EventFlags.set_flag("11-Az-FiresideChat-2-HeaterArea", true)
 => END

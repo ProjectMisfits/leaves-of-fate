@@ -220,6 +220,41 @@ offset_right = 200.0
 offset_bottom = 311.29996
 grow_horizontal = 2
 
+[node name="ContinueButton" type="Button" parent="MainSelectionsContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(434.955, 101)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../NewButton")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../SettingsButton")
+focus_next = NodePath("../SettingsButton")
+focus_previous = NodePath("../NewButton")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6ut4k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3oi2e")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_3oi2e")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3oi2e")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3oi2e")
+text = "Continue"
+alignment = 2
+script = ExtResource("5_6ut4k")
+
+[node name="LeafPointer" type="TextureRect" parent="MainSelectionsContainer/ContinueButton"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.5
+offset_right = 67.0
+offset_bottom = 32.5
+grow_vertical = 2
+texture = ExtResource("5_vivct")
+expand_mode = 1
+stretch_mode = 4
+
 [node name="NewButton" type="Button" parent="MainSelectionsContainer"]
 unique_name_in_owner = true
 clip_contents = true
@@ -244,41 +279,6 @@ alignment = 2
 script = ExtResource("5_6ut4k")
 
 [node name="LeafPointer" type="TextureRect" parent="MainSelectionsContainer/NewButton"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -32.5
-offset_right = 67.0
-offset_bottom = 32.5
-grow_vertical = 2
-texture = ExtResource("5_vivct")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="ContinueButton" type="Button" parent="MainSelectionsContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(434.955, 101)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-focus_neighbor_left = NodePath(".")
-focus_neighbor_top = NodePath("../NewButton")
-focus_neighbor_right = NodePath(".")
-focus_neighbor_bottom = NodePath("../SettingsButton")
-focus_next = NodePath("../SettingsButton")
-focus_previous = NodePath("../NewButton")
-theme_override_font_sizes/font_size = 100
-theme_override_styles/normal = SubResource("StyleBoxEmpty_6ut4k")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_3oi2e")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_3oi2e")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_3oi2e")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3oi2e")
-text = "Continue"
-alignment = 2
-script = ExtResource("5_6ut4k")
-
-[node name="LeafPointer" type="TextureRect" parent="MainSelectionsContainer/ContinueButton"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -377,7 +377,7 @@ bus = &"SFX"
 
 [connection signal="button_up" from="EnvelopeBase/StampButton" to="." method="_open_credits_menu"]
 [connection signal="button_up" from="EnvelopeBase/ReturnLabelButton" to="." method="_open_controls_menu"]
-[connection signal="button_up" from="MainSelectionsContainer/NewButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="MainSelectionsContainer/ContinueButton" to="." method="_on_continue_button_button_up"]
+[connection signal="button_up" from="MainSelectionsContainer/NewButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="MainSelectionsContainer/SettingsButton" to="." method="_open_settings_menu"]
 [connection signal="button_up" from="MainSelectionsContainer/ExitButton" to="." method="_on_exit_button_up"]

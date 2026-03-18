@@ -13,7 +13,7 @@ Az annoy: [shake level=7 rate=30][i]UGH.[/i][/shake][wait=0.3] Dude, shut [i]UP.
 Winston hood: [font_size=60]Hm?[wait=0.3] [wave freq=7 amp=30]What's this?[/wave][wait=0.3][/font_size] It looks quite nice.
 Az: [i]What are you doing?[/i]
 Winston hood: Hmph. [speed=0.7]Tis a picture of you and [wave freq=7 amp=30][i]your father.[/i][/wave]
-Az annoy: [font_size=70][shake level=7 rate=30]HEY[/shake].[/font_size][font_size=60] Don't you [shake level=7 rate=30][i]DARE[/i][/shake] touch that. I swear to [shake level=7 rate=30][i]Post[/i][/shake].[/font_size]
+Az annoy: [font_size=70][shake level=7 rate=30]HEY[/shake].[/font_size][font_size=60] [i]Don't[/i] touch that. I swear to [shake level=7 rate=30][i]Post[/i][/shake].[/font_size]
 Winston hood grit: [speed=0.7][font_size=60]The WONDROUS [color="B80006"]Abdullah[/color].[/font_size] [font_size=50][wave freq=7 amp=30 connected=0]Glorious[/wave] Knight of Smithing.[/font_size] [font_size=40][wave freq=7 amp=30 connected=0]Heart[/wave] of the Bay Leaf Palace. [i]Pride of Kuva.[/i][/font_size]
 Winston hood: [speed=0.7][font_size=30][shake freq=7 amp=30]Loving Husband and Father.[/shake][/font_size]
 Winston hood grit: [speed=0.5][font_size=40][wave freq=7 amp=30]I wonder what that must be like.[/wave][/font_size]
