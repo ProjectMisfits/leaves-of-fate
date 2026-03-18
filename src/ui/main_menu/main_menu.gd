@@ -21,6 +21,12 @@ func _ready() -> void:
 		$%ContinueButton.hide()
 		get_node("%NewButton").grab_focus.call_deferred()
 	else:
+		%NewButton.focus_neighbor_top = %ContinueButton.get_path()
+		%NewButton.focus_previous = %ContinueButton.get_path()
+		%ReturnLabelButton.focus_neighbor_bottom = %ContinueButton.get_path()
+		%ReturnLabelButton.focus_next = %ContinueButton.get_path()
+		%StampButton.focus_neighbor_bottom = %ContinueButton.get_path()
+		%StampButton.focus_next = %ContinueButton.get_path()
 		get_node("%ContinueButton").grab_focus.call_deferred()
 	_connect_menu_signals()
 	MusicManager.stop()
