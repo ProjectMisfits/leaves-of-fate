@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://5jpe62x2iq5m"]
+[gd_scene load_steps=28 format=4 uid="uid://5jpe62x2iq5m"]
 
 [ext_resource type="PackedScene" uid="uid://bhndpauy1j7sw" path="res://src/rooms/room.tscn" id="1_qkmm6"]
 [ext_resource type="PackedScene" uid="uid://dp4wbioau0nhy" path="res://src/entities/actors/npcs/npc_winston_window/npc_winston_window.tscn" id="2_05yw1"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c567nmtkfbfn4" path="res://src/entities/objects/heater_lever/heater_lever.tscn" id="3_4tr4r"]
 [ext_resource type="Script" uid="uid://blr5ksl5vscmw" path="res://src/components/processing_component.gd" id="3_dih0o"]
 [ext_resource type="PackedScene" uid="uid://wxvub3svduoi" path="res://src/entities/decor/pillars/arch_round_cracked.tscn" id="3_en7vy"]
-[ext_resource type="PackedScene" uid="uid://ds3g58rcnxdcn" path="res://src/entities/decor/snow/snow_penguin.tscn" id="4_dih0o"]
 [ext_resource type="PackedScene" uid="uid://bbpm02j1io7y6" path="res://src/entities/objects/bronze_pipe/bronze_pipe.tscn" id="4_f2owy"]
 [ext_resource type="PackedScene" uid="uid://lyc1bsnodr4q" path="res://src/entities/decor/pillars/pillar_trunk_04.tscn" id="5_3ersv"]
 [ext_resource type="PackedScene" uid="uid://b5ybld4g7ch5" path="res://src/entities/triggers/player_enter_trigger/cutscene_trigger/cutscene_trigger.tscn" id="5_kof3r"]
@@ -313,14 +312,6 @@ scale = Vector2(1, -1)
 position = Vector2(1984, -1088)
 scale = Vector2(1.5, 1.5)
 in_front_of_player = true
-
-[node name="SnowPenguin-3" parent="MidgroundLayer/Decor" index="18" instance=ExtResource("4_dih0o")]
-position = Vector2(1792, -1216)
-
-[node name="SnowPenguin-4" parent="MidgroundLayer/Decor" index="19" instance=ExtResource("4_dih0o")]
-position = Vector2(2240, -1216)
-rotation = 3.1415927
-scale = Vector2(1, -1)
 
 [editable path="MidgroundLayer/NpcWinstonWindow"]
 [editable path="MidgroundLayer/Entities/Objects/BronzePipe"]

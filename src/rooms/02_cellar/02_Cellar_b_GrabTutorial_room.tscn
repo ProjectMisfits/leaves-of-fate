@@ -47,7 +47,7 @@ size = Vector2(2560, 512)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kcb3r"]
 resource_local_to_scene = true
-size = Vector2(2816, 2048)
+size = Vector2(2816, 2944)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vic68"]
 resource_local_to_scene = true
@@ -181,6 +181,7 @@ scale = Vector2(3.5840914, 3.8208833)
 position = Vector2(-512, 1152)
 
 [node name="CollisionShape2D" parent="MidgroundLayer/Entities/Objects/MovingPlatform-3/GrabTrigger" index="0"]
+position = Vector2(0, 448)
 shape = SubResource("RectangleShape2D_kcb3r")
 
 [node name="Triggers" parent="MidgroundLayer/Entities" index="4"]
