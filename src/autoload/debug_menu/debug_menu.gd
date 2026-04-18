@@ -14,7 +14,7 @@ var panel_noclip: Noclip
 var panel_enabled: bool = OS.has_feature("editor")
 
 ## An override to enable the debug menu in exported builds if desired.
-@export var panel_enabled_override: bool = false
+@export var panel_enabled_override: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cjkpybae7njrh"]
+[gd_scene load_steps=43 format=3 uid="uid://cjkpybae7njrh"]
 
 [ext_resource type="Script" uid="uid://cq51yeyy1eyax" path="res://src/entities/actors/player/player.gd" id="1_npkjl"]
 [ext_resource type="JSON" uid="uid://cba4cstc1ag7i" path="res://src/entities/actors/player/player_db.tres" id="2_7gsup"]
@@ -23,7 +23,6 @@
 [ext_resource type="JSON" uid="uid://ctjfhxb7akvyx" path="res://src/entities/actors/player/footstep_dictionaries/player_footstep_data.tres" id="12_e5ptp"]
 [ext_resource type="Script" uid="uid://cq2g2o708n5hl" path="res://src/entities/actors/player/footstep_component.gd" id="13_s1o6p"]
 [ext_resource type="PackedScene" uid="uid://cpp5w8yc6jxm8" path="res://src/vfx/particle_effects/leaf_death_particle.tscn" id="16_6i2kk"]
-[ext_resource type="Texture2D" uid="uid://c4yovapc33jth" path="res://assets/vfx/particle_effects/leaves/AllLeaves-ParticleAsset-001.png" id="16_kbb1d"]
 [ext_resource type="AudioStream" uid="uid://dimhdiv10a08t" path="res://assets/entities/actors/player/player_audio/PH-leaf-enter.ogg" id="17_iloh8"]
 [ext_resource type="AudioStream" uid="uid://dxmm31nsgmehb" path="res://assets/entities/actors/player/player_audio/PH-leaf-exit.ogg" id="18_283t5"]
 [ext_resource type="Texture2D" uid="uid://jvsobi5gw7di" path="res://assets/entities/actors/player/TEMP-fenn-jump-spritesheet.png" id="18_s3rhx"]
@@ -715,11 +714,9 @@ position = Vector2(0, 259)
 
 [node name="LeafRespawnParticle" parent="SpawnAndDeathParticles" instance=ExtResource("3_kbb1d")]
 position = Vector2(0, -240)
-texture = ExtResource("16_kbb1d")
 
 [node name="LeafDeathParticle" parent="SpawnAndDeathParticles" instance=ExtResource("16_6i2kk")]
 position = Vector2(0, -243)
-texture = ExtResource("16_kbb1d")
 
 [node name="LimboHSM" type="LimboHSM" parent="."]
 

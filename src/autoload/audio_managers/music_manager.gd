@@ -17,7 +17,7 @@ func _play_song(new_music: AudioStream, new_volume: float = 0.0) -> void:
 	# Start the new music.
 	stream = new_music
 	volume_db = new_volume
-	play()
+	#play()
 
 ## Fade out the currently playing music.
 func _fade_out() -> void:
