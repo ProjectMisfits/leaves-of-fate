@@ -1,0 +1,13 @@
+~ start
+do EventFlags.set_flag("winston_seal_broken", true)
+do CameraManager.create_camera(Vector2(6601,825),0.8, 1, "CUBIC", "EASE_IN_OUT")
+do CutsceneManager.wait(2)
+Az: Whoa, whoa, whoa.
+Az annoy: "One man," really kid?
+Fenn starry: It has a nice ring to it!
+Winston: Twas I that terrible? Surely not!
+Fenn: I mean... you did try to kill us.
+Winston awkward: Wha- that was like... a joketh!
+Az: Sure, buddy.
+Fenn: [i]Anyway...[/i]
+=> END

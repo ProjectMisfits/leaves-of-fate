@@ -6,7 +6,8 @@ Fenn starry: [wave freq=7 amp=30]Hello again![/wave]
 do CutsceneManager.npc_face("Az","left")
 Az: What're you doing here?
 Az annoy: [shake level=7 rate=30]I told you to stay behind![/shake]
-Fenn starry: Adventure![wait=0.3] [wave freq=8 amp=30]I must save the Knights![/wave]
+#Fenn starry: Adventure![wait=0.3] [wave freq=8 amp=30]I must save the Knights![/wave]
+Fenn starry: [wave freq=8 amp=30]I must save the Knights![/wave]
 Az: [shake level=7 rate=30]Ugh[/shake]. Not like it matters. 
 do CutsceneManager.npc_face("Az","right")
 Az: [do! CutsceneManager.play_sound("Cough")][i]cough[/i]. That ice is blocking everything.

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://dt2qrh2efgevp"
+path="res://.godot/imported/X-AzWs-Trailer-GreatHall.dialogue-0af4edbc2a83b03c8a6ac8672a71fab0.tres"
+
+[deps]
+
+source_file="res://assets/dialogue/dialogue_scripts/X-AzWs-Trailer-GreatHall.dialogue"
+dest_files=["res://.godot/imported/X-AzWs-Trailer-GreatHall.dialogue-0af4edbc2a83b03c8a6ac8672a71fab0.tres"]
+
+[params]
+
+defaults=true
