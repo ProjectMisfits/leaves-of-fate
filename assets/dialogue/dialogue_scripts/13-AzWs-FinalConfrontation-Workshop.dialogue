@@ -40,7 +40,8 @@ Winston grit: [wave freq=7 amp=20][i]Wouldst it not do the same things I wouldst
 Fenn: [font_size=60][i]Bring it on!! [/i][wave freq=7 amp=30][wait=0.3]I shalt free the Knights from thy grasp!!![/wave][/font_size]
 Az: Wait, Fenn, hold on. 
 Winston: [font_size=80]THUS! WITNESS THE CREATION!![/font_size]
-Winston grit: [font_size=80] OF THE ONE. THE ONLY.[/font_size]
+#Winston grit: [font_size=80] OF THE ONE. THE ONLY.[/font_size]
+Winston grit: [font_size=80] THE ONE. THE ONLY.[/font_size]
 Winston: [font_size=100][shake level=10 rate=30][i][color="521FA6"]ICETON[/color]!![/i][/shake][/font_size]
 do CutsceneManager.fade_to_black()
 # Summon iceton / make visible

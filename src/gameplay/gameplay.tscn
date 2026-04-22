@@ -55,7 +55,6 @@ layer = 2
 
 [node name="Hud" parent="UILayer" instance=ExtResource("3_g7yt7")]
 unique_name_in_owner = true
-visible = false
 light_mask = 0
 
 [node name="MenuHolder" type="Control" parent="UILayer"]
