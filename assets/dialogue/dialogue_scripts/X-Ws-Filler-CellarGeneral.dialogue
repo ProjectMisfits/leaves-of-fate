@@ -99,7 +99,7 @@ do EventFlags.num_cellar_conversations += 1
 Fenn: Mr. {{EventFlags.winston_name}}?
 {{EventFlags.winston_portrait_name}} grit: [font_size=60][shake level=7 rate=30]Go away![/shake][/font_size] I am planning thy demise.
 Fenn starry: What's demise mean?
-{{EventFlags.winston_portrait_name}} awkward: Um... [font_size=70][shake level=10 rate=50]VERY PAINFUL DEATH!![/shake][/font_size][/shake]
+{{EventFlags.winston_portrait_name}} awkward: Um... [font_size=70][shake level=10 rate=50]VERY PAINFUL DEATH!![/shake][/font_size]
 Fenn: Oh... [wave freq=7 amp=30 connected=0]cool![/wave]
 do EventFlags.set_flag("X-Ws-Cellar-6", true)
 do EventFlags.num_cellar_conversations += 1
@@ -162,8 +162,6 @@ Fenn worry: WHAT?! No they didn't! [shake level=7 rate=30]They help so many peop
 {{EventFlags.winston_portrait_name}} awkward: [font_size=60]Evil plans to maketh,[/font_size][wait=0.3] [font_size=50]traps to setteth, [/font_size][wait=0.3][font_size=40]enemies to sendeth, [/font_size][wait=0.3][font_size=30]you know.[/font_size]
 Fenn: Yeah, I get it.
 {{EventFlags.winston_portrait_name}} awkward: Um. Goodbye, pint-size.
-Fenn: Bye bye!
-Winston leaves
 do EventFlags.set_flag("X-Ws-Cellar-10", true)
 do EventFlags.num_cellar_conversations += 1
 => END
