@@ -30,7 +30,8 @@ Az hands you something
 Fenn: A bracelet?
 Az: A bangle.
 Fenn: What's it do?
-Az: Uh. Well, [wait=0.3]I should be able to help you, even if I'm not there.
+#Az: Uh. Well, [wait=0.3]I should be able to help you, even if I'm not there.
+Az: I should be able to help you, even if I'm not there.
 Fenn starry: Whoa... really?? [wait=0.3]That's so cool!
 Az: Be careful, Fenn.
 Fenn starry: [wave freq=7 amp=30]No promises![/wave]
