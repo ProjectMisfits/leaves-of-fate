@@ -6,3 +6,6 @@
 
 # Addon-specific ignores
 /addons/limboai/bin/~liblimboai.windows.editor.x86_64.dll
+
+# Ignore builds directory
+builds/
